@@ -11,16 +11,16 @@ package org.eclipse.b3.aggregator.p2view;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Feature</b></em>'. <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.Feature#getFeatureContainer <em>Feature Container</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.Feature#getBundleContainer <em>Bundle Container</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.Feature#getFragmentContainer <em>Fragment Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.Feature#getFeatureContainer <em>Feature Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.Feature#getBundleContainer <em>Bundle Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.Feature#getFragmentContainer <em>Fragment Container</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFeature()
  * @model
  * @generated
@@ -34,6 +34,7 @@ public interface Feature extends IUPresentationWithDetails {
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Bundle Container</em>' reference.
 	 * @see #setBundleContainer(Bundles)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFeature_BundleContainer()
@@ -50,6 +51,7 @@ public interface Feature extends IUPresentationWithDetails {
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Feature Container</em>' reference.
 	 * @see #setFeatureContainer(Features)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFeature_FeatureContainer()
@@ -66,6 +68,7 @@ public interface Feature extends IUPresentationWithDetails {
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Fragment Container</em>' reference.
 	 * @see #setFragmentContainer(Fragments)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFeature_FragmentContainer()
@@ -76,6 +79,7 @@ public interface Feature extends IUPresentationWithDetails {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -83,6 +87,7 @@ public interface Feature extends IUPresentationWithDetails {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -90,33 +95,43 @@ public interface Feature extends IUPresentationWithDetails {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
 	Fragments getNotNullFragmentContainer();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Feature#getBundleContainer <em>Bundle Container</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Feature#getBundleContainer
+	 * <em>Bundle Container</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bundle Container</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Bundle Container</em>' reference.
 	 * @see #getBundleContainer()
 	 * @generated
 	 */
 	void setBundleContainer(Bundles value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Feature#getFeatureContainer <em>Feature Container</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Feature#getFeatureContainer
+	 * <em>Feature Container</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature Container</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Feature Container</em>' reference.
 	 * @see #getFeatureContainer()
 	 * @generated
 	 */
 	void setFeatureContainer(Features value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Feature#getFragmentContainer <em>Fragment Container</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Feature#getFragmentContainer
+	 * <em>Fragment Container</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Fragment Container</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Fragment Container</em>' reference.
 	 * @see #getFragmentContainer()
 	 * @generated
 	 */

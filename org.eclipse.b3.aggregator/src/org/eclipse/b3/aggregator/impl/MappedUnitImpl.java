@@ -80,7 +80,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 				filterBld.append(')');
 		}
 
-		String inheritedFilter = null;
+		IMatchExpression<IInstallableUnit> inheritedFilter = null;
 		for(AvailableVersion version : availableVersions) {
 			if(inheritedFilter == null)
 				inheritedFilter = version.getFilter();
@@ -101,7 +101,11 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 		}
 
 		if(filterBld.length() > 0)
-			return ExpressionUtil.getFactory().matchExpression(ExpressionUtil.parse(filterBld.toString()));
+			return ExpressionUtil.getFactory().matchExpression(ExpressionUtil.parse(filterBld.toString()),
+			// we know that our filter does not introduce any parameters - we can safely pass only inherited params
+					inheritedFilter != null
+							? inheritedFilter.getParameters()
+							: new Object[0]);
 
 		return null;
 	}

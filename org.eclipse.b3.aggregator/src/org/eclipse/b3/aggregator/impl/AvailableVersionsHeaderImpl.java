@@ -26,11 +26,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl#getAvailableVersions <em>Available Versions</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl#getInstallableUnitRequest <em>Installable Unit Request</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl#getAvailableVersions <em>Available Versions
+ * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl#getInstallableUnitRequest <em>Installable Unit
+ * Request</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container implements AvailableVersionsHeader {
@@ -38,6 +40,7 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -46,6 +49,7 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AvailableVersionsHeaderImpl() {
@@ -55,13 +59,16 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
-				return eInternalContainer().eInverseRemove(this, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER, InstallableUnitRequest.class, msgs);
+		switch(eContainerFeatureID()) {
+		case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
+			return eInternalContainer().eInverseRemove(this,
+					AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER,
+					InstallableUnitRequest.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -69,15 +76,16 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS:
-				return getAvailableVersions();
-			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
-				return getInstallableUnitRequest();
+		switch(featureID) {
+		case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS:
+			return getAvailableVersions();
+		case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
+			return getInstallableUnitRequest();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -85,15 +93,17 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return eBasicSetContainer(otherEnd, AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST, msgs);
+		switch(featureID) {
+		case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
+			if(eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return eBasicSetContainer(otherEnd, AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST,
+					msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -101,13 +111,14 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
-				return eBasicSetContainer(null, AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST, msgs);
+		switch(featureID) {
+		case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
+			return eBasicSetContainer(null, AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -142,16 +153,19 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public InstallableUnitRequest getInstallableUnitRequest() {
-		if (eContainerFeatureID() != AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST) return null;
-		return (InstallableUnitRequest)eContainer();
+		if(eContainerFeatureID() != AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST)
+			return null;
+		return (InstallableUnitRequest) eContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

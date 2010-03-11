@@ -41,9 +41,11 @@ public interface MetadataRepository extends IMetadataRepository {
 	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Installable Units</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getMetadataRepository_InstallableUnits()
-	 * @model type="org.eclipse.b3.aggregator.p2.IInstallableUnit" containment="true" resolveProxies="true" keys="id version"
+	 * @model type="org.eclipse.b3.aggregator.p2.IInstallableUnit" containment="true" resolveProxies="true"
+	 *        keys="id version"
 	 * @generated
 	 */
 	EList<IInstallableUnit> getInstallableUnits();
@@ -68,9 +70,11 @@ public interface MetadataRepository extends IMetadataRepository {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Property Map</em>' map.
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getMetadataRepository_PropertyMap()
-	 * @model mapType="org.eclipse.b3.aggregator.p2.Property<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
+	 * @model 
+	 *        mapType="org.eclipse.b3.aggregator.p2.Property<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
 	 * @generated
 	 */
 	EMap<String, String> getPropertyMap();
@@ -84,6 +88,7 @@ public interface MetadataRepository extends IMetadataRepository {
 	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>References</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getMetadataRepository_References()
 	 * @model type="org.eclipse.b3.aggregator.p2.IRepositoryReference" containment="true" resolveProxies="true"

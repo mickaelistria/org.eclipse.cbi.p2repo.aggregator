@@ -35,10 +35,11 @@ import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
  * @generated
  */
 public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
-		BasicEMap.Entry<String,ITouchpointInstruction> {
+		BasicEMap.Entry<String, ITouchpointInstruction> {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -48,6 +49,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getTypedKey()
 	 * @generated
 	 * @ordered
@@ -58,6 +60,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getTypedKey()
 	 * @generated
 	 * @ordered
@@ -68,6 +71,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTypedValue()
 	 * @generated
 	 * @ordered
@@ -76,12 +80,14 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected int hash = -1;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected InstructionMapImpl() {
@@ -91,6 +97,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ITouchpointInstruction basicGetTypedValue() {
@@ -100,120 +107,140 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetTypedValue(ITouchpointInstruction newValue, NotificationChain msgs) {
 		ITouchpointInstruction oldValue = value;
 		value = newValue;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, P2Package.INSTRUCTION_MAP__VALUE, oldValue, newValue);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2Package.INSTRUCTION_MAP__VALUE, oldValue, newValue);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case P2Package.INSTRUCTION_MAP__KEY:
-				return getTypedKey();
-			case P2Package.INSTRUCTION_MAP__VALUE:
-				if (resolve) return getTypedValue();
-				return basicGetTypedValue();
+		switch(featureID) {
+		case P2Package.INSTRUCTION_MAP__KEY:
+			return getTypedKey();
+		case P2Package.INSTRUCTION_MAP__VALUE:
+			if(resolve)
+				return getTypedValue();
+			return basicGetTypedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case P2Package.INSTRUCTION_MAP__VALUE:
-				return basicSetTypedValue(null, msgs);
+		switch(featureID) {
+		case P2Package.INSTRUCTION_MAP__VALUE:
+			return basicSetTypedValue(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case P2Package.INSTRUCTION_MAP__KEY:
-				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
-			case P2Package.INSTRUCTION_MAP__VALUE:
-				return value != null;
+		switch(featureID) {
+		case P2Package.INSTRUCTION_MAP__KEY:
+			return KEY_EDEFAULT == null
+					? key != null
+					: !KEY_EDEFAULT.equals(key);
+		case P2Package.INSTRUCTION_MAP__VALUE:
+			return value != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case P2Package.INSTRUCTION_MAP__KEY:
-				setTypedKey((String)newValue);
-				return;
-			case P2Package.INSTRUCTION_MAP__VALUE:
-				setTypedValue((ITouchpointInstruction)newValue);
-				return;
+		switch(featureID) {
+		case P2Package.INSTRUCTION_MAP__KEY:
+			setTypedKey((String) newValue);
+			return;
+		case P2Package.INSTRUCTION_MAP__VALUE:
+			setTypedValue((ITouchpointInstruction) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case P2Package.INSTRUCTION_MAP__KEY:
-				setTypedKey(KEY_EDEFAULT);
-				return;
-			case P2Package.INSTRUCTION_MAP__VALUE:
-				setTypedValue((ITouchpointInstruction)null);
-				return;
+		switch(featureID) {
+		case P2Package.INSTRUCTION_MAP__KEY:
+			setTypedKey(KEY_EDEFAULT);
+			return;
+		case P2Package.INSTRUCTION_MAP__VALUE:
+			setTypedValue((ITouchpointInstruction) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	public EMap<String, ITouchpointInstruction> getEMap() {
 		EObject container = eContainer();
-		return container == null ? null : (EMap<String, ITouchpointInstruction>)container.eGet(eContainmentFeature());
+		return container == null
+				? null
+				: (EMap<String, ITouchpointInstruction>) container.eGet(eContainmentFeature());
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public int getHash() {
-		if (hash == -1) {
+		if(hash == -1) {
 			Object theKey = getKey();
-			hash = (theKey == null ? 0 : theKey.hashCode());
+			hash = (theKey == null
+					? 0
+					: theKey.hashCode());
 		}
 		return hash;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getKey() {
@@ -222,6 +249,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getTypedKey() {
@@ -230,21 +258,26 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ITouchpointInstruction getTypedValue() {
-		if (value != null && ((EObject)value).eIsProxy()) {
-			InternalEObject oldValue = (InternalEObject)value;
-			value = (ITouchpointInstruction)eResolveProxy(oldValue);
-			if (value != oldValue) {
-				InternalEObject newValue = (InternalEObject)value;
-				NotificationChain msgs = oldValue.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTRUCTION_MAP__VALUE, null, null);
-				if (newValue.eInternalContainer() == null) {
-					msgs = newValue.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTRUCTION_MAP__VALUE, null, msgs);
+		if(value != null && ((EObject) value).eIsProxy()) {
+			InternalEObject oldValue = (InternalEObject) value;
+			value = (ITouchpointInstruction) eResolveProxy(oldValue);
+			if(value != oldValue) {
+				InternalEObject newValue = (InternalEObject) value;
+				NotificationChain msgs = oldValue.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTRUCTION_MAP__VALUE, null, null);
+				if(newValue.eInternalContainer() == null) {
+					msgs = newValue.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTRUCTION_MAP__VALUE, null,
+							msgs);
 				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2Package.INSTRUCTION_MAP__VALUE, oldValue, value));
+				if(msgs != null)
+					msgs.dispatch();
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2Package.INSTRUCTION_MAP__VALUE,
+							oldValue, value));
 			}
 		}
 		return value;
@@ -252,6 +285,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ITouchpointInstruction getValue() {
@@ -260,6 +294,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setHash(int hash) {
@@ -268,6 +303,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setKey(String key) {
@@ -276,37 +312,43 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTypedKey(String newKey) {
 		String oldKey = key;
 		key = newKey;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTRUCTION_MAP__KEY, oldKey, key));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTypedValue(ITouchpointInstruction newValue) {
-		if (newValue != value) {
+		if(newValue != value) {
 			NotificationChain msgs = null;
-			if (value != null)
-				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTRUCTION_MAP__VALUE, null, msgs);
-			if (newValue != null)
-				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTRUCTION_MAP__VALUE, null, msgs);
+			if(value != null)
+				msgs = ((InternalEObject) value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTRUCTION_MAP__VALUE, null, msgs);
+			if(newValue != null)
+				msgs = ((InternalEObject) newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTRUCTION_MAP__VALUE, null, msgs);
 			msgs = basicSetTypedValue(newValue, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTRUCTION_MAP__VALUE, newValue, newValue));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ITouchpointInstruction setValue(ITouchpointInstruction value) {
@@ -317,11 +359,13 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (key: ");
@@ -332,6 +376,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

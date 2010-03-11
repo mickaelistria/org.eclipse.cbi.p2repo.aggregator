@@ -9,22 +9,24 @@
  */
 package org.eclipse.b3.aggregator;
 
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Available Version</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getVersionMatch <em>Version Match</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getVersion <em>Version</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getFilter <em>Filter</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getVersionMatch <em>Version Match</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getFilter <em>Filter</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion()
  * @model
  * @generated
@@ -38,13 +40,14 @@ public interface AvailableVersion {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Filter</em>' attribute.
-	 * @see #setFilter(String)
+	 * @see #setFilter(IMatchExpression)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion_Filter()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.eclipse.b3.aggregator.p2.IMatchExpression<org.eclipse.b3.aggregator.p2.IInstallableUnit>"
 	 * @generated
 	 */
-	String getFilter();
+	IMatchExpression<IInstallableUnit> getFilter();
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.
@@ -54,6 +57,7 @@ public interface AvailableVersion {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(Version)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion_Version()
@@ -72,6 +76,7 @@ public interface AvailableVersion {
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Version Match</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.VersionMatch
 	 * @see #setVersionMatch(VersionMatch)
@@ -85,27 +90,34 @@ public interface AvailableVersion {
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getFilter <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Filter</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Filter</em>' attribute.
 	 * @see #getFilter()
 	 * @generated
 	 */
-	void setFilter(String value);
+	void setFilter(IMatchExpression<IInstallableUnit> value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated
 	 */
 	void setVersion(Version value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getVersionMatch <em>Version Match</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getVersionMatch <em>Version Match</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version Match</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Version Match</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.VersionMatch
 	 * @see #getVersionMatch()
 	 * @generated

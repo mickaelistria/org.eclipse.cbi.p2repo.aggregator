@@ -16,7 +16,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,12 +27,12 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getVersionMatch <em>Version Match</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getVersion <em>Version</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getFilter <em>Filter</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getVersionMatch <em>Version Match</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getFilter <em>Filter</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class AvailableVersionImpl extends MinimalEObjectImpl.Container implements AvailableVersion {
@@ -38,6 +40,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -47,6 +50,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getVersionMatch() <em>Version Match</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVersionMatch()
 	 * @generated
 	 * @ordered
@@ -54,9 +58,11 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	protected static final VersionMatch VERSION_MATCH_EDEFAULT = VersionMatch.BELOW;
 
 	/**
-	 * The offset of the flags representing the value of the '{@link #getVersionMatch() <em>Version Match</em>}' attribute.
+	 * The offset of the flags representing the value of the '{@link #getVersionMatch() <em>Version Match</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -66,6 +72,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The flags representing the default value of the '{@link #getVersionMatch() <em>Version Match</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -75,6 +82,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The array of enumeration values for '{@link VersionMatch Version Match}'
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -84,6 +92,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The flags representing the value of the '{@link #getVersionMatch() <em>Version Match</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVersionMatch()
 	 * @generated
 	 * @ordered
@@ -94,6 +103,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -104,6 +114,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -111,28 +122,20 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	protected Version version = VERSION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFilter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String FILTER_EDEFAULT = null;
-
-	/**
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
 	 */
-	protected String filter = FILTER_EDEFAULT;
+	protected IMatchExpression<IInstallableUnit> filter;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AvailableVersionImpl() {
@@ -142,17 +145,18 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
-				return getVersionMatch();
-			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
-				return getVersion();
-			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
-				return getFilter();
+		switch(featureID) {
+		case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
+			return getVersionMatch();
+		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
+			return getVersion();
+		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+			return getFilter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,17 +164,20 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
-				return (eFlags & VERSION_MATCH_EFLAG) != VERSION_MATCH_EFLAG_DEFAULT;
-			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
-				return FILTER_EDEFAULT == null ? filter != null : !FILTER_EDEFAULT.equals(filter);
+		switch(featureID) {
+		case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
+			return (eFlags & VERSION_MATCH_EFLAG) != VERSION_MATCH_EFLAG_DEFAULT;
+		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
+			return VERSION_EDEFAULT == null
+					? version != null
+					: !VERSION_EDEFAULT.equals(version);
+		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+			return filter != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -178,20 +185,22 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
-				setVersionMatch((VersionMatch)newValue);
-				return;
-			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
-				setVersion((Version)newValue);
-				return;
-			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
-				setFilter((String)newValue);
-				return;
+		switch(featureID) {
+		case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
+			setVersionMatch((VersionMatch) newValue);
+			return;
+		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
+			setVersion((Version) newValue);
+			return;
+		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+			setFilter((IMatchExpression<IInstallableUnit>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -199,20 +208,21 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
-				setVersionMatch(VERSION_MATCH_EDEFAULT);
-				return;
-			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
-				setVersion(VERSION_EDEFAULT);
-				return;
-			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
-				setFilter(FILTER_EDEFAULT);
-				return;
+		switch(featureID) {
+		case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
+			setVersionMatch(VERSION_MATCH_EDEFAULT);
+			return;
+		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
+			setVersion(VERSION_EDEFAULT);
+			return;
+		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+			setFilter((IMatchExpression<IInstallableUnit>) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -220,15 +230,17 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public String getFilter() {
+	public IMatchExpression<IInstallableUnit> getFilter() {
 		return filter;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Version getVersion() {
@@ -238,6 +250,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public VersionMatch getVersionMatch() {
@@ -247,48 +260,57 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setFilter(String newFilter) {
-		String oldFilter = filter;
+	public void setFilter(IMatchExpression<IInstallableUnit> newFilter) {
+		IMatchExpression<IInstallableUnit> oldFilter = filter;
 		filter = newFilter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__FILTER, oldFilter, filter));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__FILTER,
+					oldFilter, filter));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setVersion(Version newVersion) {
 		Version oldVersion = version;
 		version = newVersion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION, oldVersion, version));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION,
+					oldVersion, version));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setVersionMatch(VersionMatch newVersionMatch) {
 		VersionMatch oldVersionMatch = VERSION_MATCH_EFLAG_VALUES[(eFlags & VERSION_MATCH_EFLAG) >>> VERSION_MATCH_EFLAG_OFFSET];
-		if (newVersionMatch == null) newVersionMatch = VERSION_MATCH_EDEFAULT;
+		if(newVersionMatch == null)
+			newVersionMatch = VERSION_MATCH_EDEFAULT;
 		eFlags = eFlags & ~VERSION_MATCH_EFLAG | newVersionMatch.ordinal() << VERSION_MATCH_EFLAG_OFFSET;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH, oldVersionMatch, newVersionMatch));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH,
+					oldVersionMatch, newVersionMatch));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (versionMatch: ");
@@ -304,6 +326,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

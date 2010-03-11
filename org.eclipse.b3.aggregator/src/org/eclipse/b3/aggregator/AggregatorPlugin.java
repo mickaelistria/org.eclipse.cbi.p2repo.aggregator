@@ -25,6 +25,7 @@ import org.osgi.framework.BundleContext;
 /**
  * This is the central singleton for the Aggregator model plugin.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public final class AggregatorPlugin extends EMFPlugin {
@@ -41,6 +42,7 @@ public final class AggregatorPlugin extends EMFPlugin {
 		/**
 		 * Creates an instance.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		public Implementation() {
@@ -86,6 +88,7 @@ public final class AggregatorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final AggregatorPlugin INSTANCE = new AggregatorPlugin();
@@ -93,6 +96,7 @@ public final class AggregatorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static Implementation plugin;
@@ -104,6 +108,7 @@ public final class AggregatorPlugin extends EMFPlugin {
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the singleton instance.
 	 * @generated
 	 */
@@ -118,15 +123,17 @@ public final class AggregatorPlugin extends EMFPlugin {
 	/**
 	 * Create the instance.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AggregatorPlugin() {
-		super(new ResourceLocator [] {});
+		super(new ResourceLocator[] {});
 	}
 
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the singleton instance.
 	 * @generated
 	 */

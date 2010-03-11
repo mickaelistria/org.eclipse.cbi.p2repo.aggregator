@@ -18,21 +18,21 @@ import org.eclipse.equinox.p2.metadata.Version;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>IU Presentation</b></em>'. <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getVersion <em>Version</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getLabel <em>Label</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getDescription <em>Description</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getFilter <em>Filter</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getInstallableUnit <em>Installable Unit</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getId <em>Id</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getLabel <em>Label</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getDescription <em>Description</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getFilter <em>Filter</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getInstallableUnit <em>Installable Unit</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation()
  * @model abstract="true"
  * @generated
@@ -63,6 +63,7 @@ public interface IUPresentation {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_Description()
@@ -79,6 +80,7 @@ public interface IUPresentation {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Filter</em>' attribute.
 	 * @see #setFilter(String)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_Filter()
@@ -94,6 +96,7 @@ public interface IUPresentation {
 	 * If the meaning of the '<em>Id</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_Id()
@@ -109,6 +112,7 @@ public interface IUPresentation {
 	 * If the meaning of the '<em>Iu</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Installable Unit</em>' reference.
 	 * @see #setInstallableUnit(IInstallableUnit)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_InstallableUnit()
@@ -125,6 +129,7 @@ public interface IUPresentation {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_Label()
@@ -141,6 +146,7 @@ public interface IUPresentation {
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_Name()
@@ -158,6 +164,7 @@ public interface IUPresentation {
 	 * If the meaning of the '<em>Type</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.InstallableUnitType
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_Type()
@@ -175,6 +182,7 @@ public interface IUPresentation {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(Version)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_Version()
@@ -184,19 +192,25 @@ public interface IUPresentation {
 	Version getVersion();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getDescription <em>Description</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getDescription
+	 * <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Description</em>' attribute.
 	 * @see #getDescription()
 	 * @generated
 	 */
 	void setDescription(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getFilter <em>Filter</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getFilter <em>Filter</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Filter</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Filter</em>' attribute.
 	 * @see #getFilter()
 	 * @generated
 	 */
@@ -205,26 +219,34 @@ public interface IUPresentation {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 * @generated
 	 */
 	void setId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getInstallableUnit <em>Installable Unit</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getInstallableUnit
+	 * <em>Installable Unit</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Installable Unit</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Installable Unit</em>' reference.
 	 * @see #getInstallableUnit()
 	 * @generated
 	 */
 	void setInstallableUnit(IInstallableUnit value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getLabel <em>Label</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getLabel <em>Label</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Label</em>' attribute.
 	 * @see #getLabel()
 	 * @generated
 	 */
@@ -233,16 +255,21 @@ public interface IUPresentation {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getVersion <em>Version</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getVersion <em>Version</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated
 	 */

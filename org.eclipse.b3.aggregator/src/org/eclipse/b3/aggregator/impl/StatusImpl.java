@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.impl.StatusImpl#getCode <em>Code</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.impl.StatusImpl#getMessage <em>Message</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.StatusImpl#getCode <em>Code</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.StatusImpl#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
@@ -52,6 +52,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -80,6 +81,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	 * The flags representing the default value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -98,6 +100,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	 * The flags representing the value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCode()
 	 * @generated
 	 * @ordered
@@ -108,6 +111,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getMessage()
 	 * @generated
 	 * @ordered
@@ -118,6 +122,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getMessage()
 	 * @generated
 	 * @ordered
@@ -126,6 +131,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected StatusImpl() {
@@ -154,30 +160,34 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case AggregatorPackage.STATUS__CODE:
-				return getCode();
-			case AggregatorPackage.STATUS__MESSAGE:
-				return getMessage();
+		switch(featureID) {
+		case AggregatorPackage.STATUS__CODE:
+			return getCode();
+		case AggregatorPackage.STATUS__MESSAGE:
+			return getMessage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case AggregatorPackage.STATUS__CODE:
-				return (eFlags & CODE_EFLAG) != CODE_EFLAG_DEFAULT;
-			case AggregatorPackage.STATUS__MESSAGE:
-				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
+		switch(featureID) {
+		case AggregatorPackage.STATUS__CODE:
+			return (eFlags & CODE_EFLAG) != CODE_EFLAG_DEFAULT;
+		case AggregatorPackage.STATUS__MESSAGE:
+			return MESSAGE_EDEFAULT == null
+					? message != null
+					: !MESSAGE_EDEFAULT.equals(message);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -193,6 +203,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getMessage() {
@@ -201,11 +212,13 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (code: ");
@@ -218,6 +231,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

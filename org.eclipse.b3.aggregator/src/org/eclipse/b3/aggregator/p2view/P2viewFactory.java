@@ -18,6 +18,7 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
 /**
  * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each non-abstract class of
  * the model. <!-- end-user-doc -->
+ * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage
  * @generated
  */
@@ -25,6 +26,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	P2viewFactory eINSTANCE = org.eclipse.b3.aggregator.p2view.impl.P2viewFactoryImpl.init();
@@ -32,6 +34,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Bundle</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Bundle</em>'.
 	 * @generated
 	 */
@@ -48,6 +51,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Bundles</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Bundles</em>'.
 	 * @generated
 	 */
@@ -56,6 +60,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Categories</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Categories</em>'.
 	 * @generated
 	 */
@@ -64,6 +69,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Category</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Category</em>'.
 	 * @generated
 	 */
@@ -80,6 +86,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Feature</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Feature</em>'.
 	 * @generated
 	 */
@@ -96,6 +103,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Features</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Features</em>'.
 	 * @generated
 	 */
@@ -104,6 +112,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Fragment</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Fragment</em>'.
 	 * @generated
 	 */
@@ -120,6 +129,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Fragments</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Fragments</em>'.
 	 * @generated
 	 */
@@ -128,6 +138,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Installable Units</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Installable Units</em>'.
 	 * @generated
 	 */
@@ -136,6 +147,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>IU Details</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>IU Details</em>'.
 	 * @generated
 	 */
@@ -153,6 +165,7 @@ public interface P2viewFactory extends EFactory {
 	 * Returns a new object of class '<em>Licenses</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Licenses</em>'.
 	 * @generated
 	 */
@@ -162,6 +175,7 @@ public interface P2viewFactory extends EFactory {
 	 * Returns a new object of class '<em>Metadata Repository Structured View</em>'.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Metadata Repository Structured View</em>'.
 	 * @generated
 	 */
@@ -179,6 +193,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Miscellaneous</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Miscellaneous</em>'.
 	 * @generated
 	 */
@@ -187,6 +202,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Other IU</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Other IU</em>'.
 	 * @generated
 	 */
@@ -203,6 +219,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Product</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Product</em>'.
 	 * @generated
 	 */
@@ -219,6 +236,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Products</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Products</em>'.
 	 * @generated
 	 */
@@ -227,6 +245,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Properties</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Properties</em>'.
 	 * @generated
 	 */
@@ -235,6 +254,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Provided Capabilities</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Provided Capabilities</em>'.
 	 * @generated
 	 */
@@ -255,6 +275,7 @@ public interface P2viewFactory extends EFactory {
 	 * Returns a new object of class '<em>Requirements</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Requirements</em>'.
 	 * @generated
 	 */
@@ -264,6 +285,7 @@ public interface P2viewFactory extends EFactory {
 	 * Returns a new object of class '<em>Requirement Wrapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Requirement Wrapper</em>'.
 	 * @generated
 	 */
@@ -274,6 +296,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Touchpoints</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Touchpoints</em>'.
 	 * @generated
 	 */
@@ -282,6 +305,7 @@ public interface P2viewFactory extends EFactory {
 	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the package supported by this factory.
 	 * @generated
 	 */

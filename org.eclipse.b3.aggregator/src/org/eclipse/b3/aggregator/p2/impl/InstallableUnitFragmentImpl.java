@@ -19,7 +19,7 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
  * end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements InstallableUnitFragment {
@@ -27,6 +27,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected InstallableUnitFragmentImpl() {
@@ -52,6 +53,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

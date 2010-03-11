@@ -19,12 +19,13 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Bundle</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BundleImpl extends IUPresentationWithDetailsImpl implements Bundle {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BundleImpl() {
@@ -47,6 +48,7 @@ public class BundleImpl extends IUPresentationWithDetailsImpl implements Bundle 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

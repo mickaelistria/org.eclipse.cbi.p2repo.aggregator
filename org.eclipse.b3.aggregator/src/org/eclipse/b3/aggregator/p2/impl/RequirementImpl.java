@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
-import org.osgi.framework.Filter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,15 +23,15 @@ import org.osgi.framework.Filter;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getFilter <em>Filter</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getMax <em>Max</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getMin <em>Min</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getMatches <em>Matches</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#isGreedy <em>Greedy</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getDescription <em>Description</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getFilter <em>Filter</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getMax <em>Max</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getMin <em>Min</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getMatches <em>Matches</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#isGreedy <em>Greedy</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class RequirementImpl extends MinimalEObjectImpl.Container implements Requirement {
@@ -40,6 +39,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -49,6 +49,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -59,6 +60,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -69,6 +71,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -79,6 +82,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -89,6 +93,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -99,6 +104,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMatches()
 	 * @generated
 	 * @ordered
@@ -109,6 +115,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * The default value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -119,6 +126,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * The flag representing the value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -129,6 +137,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -139,6 +148,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -148,6 +158,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RequirementImpl() {
@@ -157,23 +168,24 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case P2Package.REQUIREMENT__FILTER:
-				return getFilter();
-			case P2Package.REQUIREMENT__MAX:
-				return getMax();
-			case P2Package.REQUIREMENT__MIN:
-				return getMin();
-			case P2Package.REQUIREMENT__MATCHES:
-				return getMatches();
-			case P2Package.REQUIREMENT__GREEDY:
-				return isGreedy();
-			case P2Package.REQUIREMENT__DESCRIPTION:
-				return getDescription();
+		switch(featureID) {
+		case P2Package.REQUIREMENT__FILTER:
+			return getFilter();
+		case P2Package.REQUIREMENT__MAX:
+			return getMax();
+		case P2Package.REQUIREMENT__MIN:
+			return getMin();
+		case P2Package.REQUIREMENT__MATCHES:
+			return getMatches();
+		case P2Package.REQUIREMENT__GREEDY:
+			return isGreedy();
+		case P2Package.REQUIREMENT__DESCRIPTION:
+			return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -181,23 +193,26 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case P2Package.REQUIREMENT__FILTER:
-				return filter != null;
-			case P2Package.REQUIREMENT__MAX:
-				return max != MAX_EDEFAULT;
-			case P2Package.REQUIREMENT__MIN:
-				return min != MIN_EDEFAULT;
-			case P2Package.REQUIREMENT__MATCHES:
-				return matches != null;
-			case P2Package.REQUIREMENT__GREEDY:
-				return ((eFlags & GREEDY_EFLAG) != 0) != GREEDY_EDEFAULT;
-			case P2Package.REQUIREMENT__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+		switch(featureID) {
+		case P2Package.REQUIREMENT__FILTER:
+			return filter != null;
+		case P2Package.REQUIREMENT__MAX:
+			return max != MAX_EDEFAULT;
+		case P2Package.REQUIREMENT__MIN:
+			return min != MIN_EDEFAULT;
+		case P2Package.REQUIREMENT__MATCHES:
+			return matches != null;
+		case P2Package.REQUIREMENT__GREEDY:
+			return ((eFlags & GREEDY_EFLAG) != 0) != GREEDY_EDEFAULT;
+		case P2Package.REQUIREMENT__DESCRIPTION:
+			return DESCRIPTION_EDEFAULT == null
+					? description != null
+					: !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -205,30 +220,31 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case P2Package.REQUIREMENT__FILTER:
-				setFilter((IMatchExpression<IInstallableUnit>)newValue);
-				return;
-			case P2Package.REQUIREMENT__MAX:
-				setMax((Integer)newValue);
-				return;
-			case P2Package.REQUIREMENT__MIN:
-				setMin((Integer)newValue);
-				return;
-			case P2Package.REQUIREMENT__MATCHES:
-				setMatches((IMatchExpression<IInstallableUnit>)newValue);
-				return;
-			case P2Package.REQUIREMENT__GREEDY:
-				setGreedy((Boolean)newValue);
-				return;
-			case P2Package.REQUIREMENT__DESCRIPTION:
-				setDescription((String)newValue);
-				return;
+		switch(featureID) {
+		case P2Package.REQUIREMENT__FILTER:
+			setFilter((IMatchExpression<IInstallableUnit>) newValue);
+			return;
+		case P2Package.REQUIREMENT__MAX:
+			setMax((Integer) newValue);
+			return;
+		case P2Package.REQUIREMENT__MIN:
+			setMin((Integer) newValue);
+			return;
+		case P2Package.REQUIREMENT__MATCHES:
+			setMatches((IMatchExpression<IInstallableUnit>) newValue);
+			return;
+		case P2Package.REQUIREMENT__GREEDY:
+			setGreedy((Boolean) newValue);
+			return;
+		case P2Package.REQUIREMENT__DESCRIPTION:
+			setDescription((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -236,29 +252,30 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case P2Package.REQUIREMENT__FILTER:
-				setFilter((IMatchExpression<IInstallableUnit>)null);
-				return;
-			case P2Package.REQUIREMENT__MAX:
-				setMax(MAX_EDEFAULT);
-				return;
-			case P2Package.REQUIREMENT__MIN:
-				setMin(MIN_EDEFAULT);
-				return;
-			case P2Package.REQUIREMENT__MATCHES:
-				setMatches((IMatchExpression<IInstallableUnit>)null);
-				return;
-			case P2Package.REQUIREMENT__GREEDY:
-				setGreedy(GREEDY_EDEFAULT);
-				return;
-			case P2Package.REQUIREMENT__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
+		switch(featureID) {
+		case P2Package.REQUIREMENT__FILTER:
+			setFilter((IMatchExpression<IInstallableUnit>) null);
+			return;
+		case P2Package.REQUIREMENT__MAX:
+			setMax(MAX_EDEFAULT);
+			return;
+		case P2Package.REQUIREMENT__MIN:
+			setMin(MIN_EDEFAULT);
+			return;
+		case P2Package.REQUIREMENT__MATCHES:
+			setMatches((IMatchExpression<IInstallableUnit>) null);
+			return;
+		case P2Package.REQUIREMENT__GREEDY:
+			setGreedy(GREEDY_EDEFAULT);
+			return;
+		case P2Package.REQUIREMENT__DESCRIPTION:
+			setDescription(DESCRIPTION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -266,6 +283,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getDescription() {
@@ -275,6 +293,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IMatchExpression<IInstallableUnit> getFilter() {
@@ -284,18 +303,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFilter(IMatchExpression<IInstallableUnit> newFilter) {
-		IMatchExpression<IInstallableUnit> oldFilter = filter;
-		filter = newFilter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__FILTER, oldFilter, filter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IMatchExpression<IInstallableUnit> getMatches() {
@@ -305,6 +313,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public int getMax() {
@@ -314,6 +323,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public int getMin() {
@@ -323,6 +333,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isGreedy() {
@@ -342,60 +353,82 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__DESCRIPTION, oldDescription, description));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__DESCRIPTION, oldDescription,
+					description));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setFilter(IMatchExpression<IInstallableUnit> newFilter) {
+		IMatchExpression<IInstallableUnit> oldFilter = filter;
+		filter = newFilter;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__FILTER, oldFilter, filter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setGreedy(boolean newGreedy) {
 		boolean oldGreedy = (eFlags & GREEDY_EFLAG) != 0;
-		if (newGreedy) eFlags |= GREEDY_EFLAG; else eFlags &= ~GREEDY_EFLAG;
-		if (eNotificationRequired())
+		if(newGreedy)
+			eFlags |= GREEDY_EFLAG;
+		else
+			eFlags &= ~GREEDY_EFLAG;
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__GREEDY, oldGreedy, newGreedy));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMatches(IMatchExpression<IInstallableUnit> newMatches) {
 		IMatchExpression<IInstallableUnit> oldMatches = matches;
 		matches = newMatches;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__MATCHES, oldMatches, matches));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMax(int newMax) {
 		int oldMax = max;
 		max = newMax;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__MAX, oldMax, max));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMin(int newMin) {
 		int oldMin = min;
 		min = newMin;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__MIN, oldMin, min));
 	}
 
@@ -429,6 +462,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
