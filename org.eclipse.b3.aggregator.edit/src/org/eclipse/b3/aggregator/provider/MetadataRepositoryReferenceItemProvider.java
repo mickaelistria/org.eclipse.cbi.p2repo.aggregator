@@ -224,7 +224,12 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 
 			// Go through all direct ancestors first
 			EObject container = ((EObject) repoRef).eContainer();
-			affectedNodeLabels.add(((EObject) repoRef).eResource());
+
+			// Add the aggregator resource. If the contribution is detached, then the primary resource
+			// is different from the top resource! We must go up to the resource set and get the first
+			// resource which is supposed to be the one we are looking for
+			affectedNodeLabels.add(((EObject) repoRef).eResource().getResourceSet().getResources().get(0));
+
 			while(container != null) {
 				affectedNodeLabels.add(container);
 				container = container.eContainer();
