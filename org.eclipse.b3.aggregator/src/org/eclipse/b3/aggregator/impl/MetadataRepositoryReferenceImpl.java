@@ -599,11 +599,9 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 				if(res != null)
 					return res.getStatus();
-
-				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN,
-						getString("_UI_ErrorMessage_RepositoryIsNotAvailable"));
 			}
 		}
+
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
 	}
 
