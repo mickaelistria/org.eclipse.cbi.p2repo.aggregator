@@ -46,12 +46,11 @@ import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescriptio
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
-import org.eclipse.equinox.p2.metadata.expression.IExpression;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.publisher.AbstractPublisherAction;
 import org.eclipse.equinox.p2.publisher.IPublisherInfo;
 import org.eclipse.equinox.p2.publisher.IPublisherResult;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
-import org.osgi.framework.Filter;
 
 /**
  * This action creates the feature that contains all features and bundles that are listed in the build contributions.
@@ -76,7 +75,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		}
 	}
 
-	private static Filter createFilter(List<Configuration> configs) {
+	private static IMatchExpression<IInstallableUnit> createFilter(List<Configuration> configs) {
 		List<Configuration> enabledConfigs = getEnabledConfigs(configs);
 
 		if(!(enabledConfigs == null || enabledConfigs.isEmpty())) {
@@ -95,7 +94,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 			}
 			if(enabledConfigs.size() > 1)
 				filterBld.append(')');
-			return ExpressionUtil.parseLDAP(filterBld.toString());
+			return ExpressionUtil.getFactory().matchExpression(ExpressionUtil.parse(filterBld.toString()));
 		}
 		return null;
 	}
@@ -161,14 +160,14 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 						// Verify that all products and features can be installed.
 						//
 						List<MapRule> mapRules = repository.getMapRules();
-						Map<Filter, List<IInstallableUnit>> preSelectedIUs = new HashMap<Filter, List<IInstallableUnit>>();
+						Map<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>> preSelectedIUs = new HashMap<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>>();
 						allIUs: for(IInstallableUnit riu : allIUs) {
 							// We assume that all groups that are not categories are either products or
 							// features.
 							//
 							InstallableUnitType riuType = InstallableUnitUtils.getType(riu);
 							if(riuType == InstallableUnitType.PRODUCT || riuType == InstallableUnitType.FEATURE) {
-								Filter filter = null;
+								IMatchExpression<IInstallableUnit> filter = null;
 								for(MapRule rule : mapRules) {
 									if(riu.getId().equals(rule.getName())
 											&& rule.getVersionRange().isIncluded(riu.getVersion())) {
@@ -187,7 +186,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 							}
 						}
 
-						for(Map.Entry<Filter, List<IInstallableUnit>> entry : preSelectedIUs.entrySet())
+						for(Map.Entry<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>> entry : preSelectedIUs.entrySet())
 							for(IRequirement req : RequirementUtils.createAllAvailableVersionsRequirements(
 									entry.getValue(), entry.getKey()))
 								addRequirementFor(repository, req, required, errors, explicit, false);
@@ -252,7 +251,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		}
 	}
 
-	private void addRequirementFor(MappedRepository mr, IInstallableUnit iu, Filter filter,
+	private void addRequirementFor(MappedRepository mr, IInstallableUnit iu, IMatchExpression<IInstallableUnit> filter,
 			Map<String, Set<RepositoryRequirement>> requirements, List<String> errors, Set<String> explicit,
 			boolean isExplicit) {
 		String id = iu.getId();
@@ -261,12 +260,11 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		if(!Version.emptyVersion.equals(v))
 			range = new VersionRange(v, true, v, true);
 
-		Filter iuFilter = filter;
-		Filter origFilter = iu.getFilter();
+		IMatchExpression<IInstallableUnit> iuFilter = filter;
+		IMatchExpression<IInstallableUnit> origFilter = iu.getFilter();
 		if(origFilter != null) {
 			if(filter != null)
-				iuFilter = ExpressionFactory.INSTANCE.filterExpression(ExpressionFactory.INSTANCE.and(
-						(IExpression) origFilter, (IExpression) filter));
+				iuFilter = ExpressionFactory.INSTANCE.matchExpression(ExpressionFactory.INSTANCE.and(origFilter, filter));
 		}
 		IRequirement rc = MetadataFactory.createRequirement(IInstallableUnit.NAMESPACE_IU_ID, id, range, iuFilter,
 				false, false);

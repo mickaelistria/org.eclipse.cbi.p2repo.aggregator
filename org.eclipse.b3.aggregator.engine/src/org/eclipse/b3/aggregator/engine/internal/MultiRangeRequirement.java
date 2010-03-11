@@ -31,7 +31,6 @@ import org.eclipse.equinox.p2.metadata.expression.IExpression;
 import org.eclipse.equinox.p2.metadata.expression.IExpressionFactory;
 import org.eclipse.equinox.p2.metadata.expression.IExpressionVisitor;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
-import org.osgi.framework.Filter;
 
 @Deprecated
 public class MultiRangeRequirement implements IRequirement {
@@ -165,10 +164,10 @@ public class MultiRangeRequirement implements IRequirement {
 
 	private Set<VersionRange> versionRanges;
 
-	private Filter filter;
+	private IMatchExpression<IInstallableUnit> filter;
 
 	public MultiRangeRequirement(String name, String namespace, Set<Version> versions, Set<VersionRange> versionRanges,
-			Filter filter) {
+			IMatchExpression<IInstallableUnit> filter) {
 		if(versions == null)
 			versions = Collections.emptySet();
 		if(versionRanges == null)
@@ -250,7 +249,7 @@ public class MultiRangeRequirement implements IRequirement {
 		return null;
 	}
 
-	public Filter getFilter() {
+	public IMatchExpression<IInstallableUnit> getFilter() {
 		return filter;
 	}
 

@@ -22,9 +22,8 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
-import org.osgi.framework.Filter;
-import org.osgi.framework.FrameworkUtil;
-import org.osgi.framework.InvalidSyntaxException;
+import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * @author filip.hrbek@cloudsmith.com
@@ -35,17 +34,18 @@ public class RequirementUtils {
 
 	private static final VersionRange ANY_VERSION = VersionRange.emptyRange;
 
-	public static IRequirement[] createAllAvailableVersionsRequirements(List<IInstallableUnit> ius, Filter filter) {
+	public static IRequirement[] createAllAvailableVersionsRequirements(List<IInstallableUnit> ius,
+			IMatchExpression<IInstallableUnit> filter) {
 		Map<String, Set<Version>> versionMap = new HashMap<String, Set<Version>>();
-		Map<String, Set<Filter>> filterMap = new HashMap<String, Set<Filter>>();
+		Map<String, Set<IMatchExpression<IInstallableUnit>>> filterMap = new HashMap<String, Set<IMatchExpression<IInstallableUnit>>>();
 		for(IInstallableUnit iu : ius) {
 			Set<Version> versionSet = versionMap.get(iu.getId());
 			if(versionSet == null) {
 				versionMap.put(iu.getId(), versionSet = new HashSet<Version>());
 			}
-			Set<Filter> filterSet = filterMap.get(iu.getId());
+			Set<IMatchExpression<IInstallableUnit>> filterSet = filterMap.get(iu.getId());
 			if(filterSet == null) {
-				filterMap.put(iu.getId(), filterSet = new HashSet<Filter>());
+				filterMap.put(iu.getId(), filterSet = new HashSet<IMatchExpression<IInstallableUnit>>());
 			}
 
 			versionSet.add(iu.getVersion());
@@ -59,9 +59,9 @@ public class RequirementUtils {
 			String name = iuEntry.getKey();
 			String namespace = IInstallableUnit.NAMESPACE_IU_ID;
 
-			Filter inheritedFilter = null;
+			IMatchExpression<IInstallableUnit> inheritedFilter = null;
 
-			for(Filter iuFilter : filterMap.get(name)) {
+			for(IMatchExpression<IInstallableUnit> iuFilter : filterMap.get(name)) {
 				if(inheritedFilter == null)
 					inheritedFilter = iuFilter;
 				else if(!inheritedFilter.equals(iuFilter)) {
@@ -76,12 +76,8 @@ public class RequirementUtils {
 				if(filter == null)
 					filter = inheritedFilter;
 				else {
-					try {
-						filter = FrameworkUtil.createFilter("(&" + filter.toString() + inheritedFilter.toString() + ")");
-					}
-					catch(InvalidSyntaxException e) {
-						LogUtils.log(LogUtils.WARNING, "Unable to create a filter: ", e.getMessage());
-					}
+					filter = ExpressionUtil.getFactory().matchExpression(
+							ExpressionUtil.parse("(&" + filter.toString() + inheritedFilter.toString() + ")"));
 				}
 			}
 
@@ -144,8 +140,8 @@ public class RequirementUtils {
 			if(!vreq1.getNamespace().equals(vreq2.getNamespace()))
 				throw new RuntimeException(
 						"Unable to create a version union of expressions with different namespace requests");
-			Filter f1 = vreq1.getFilter();
-			Filter f2 = vreq2.getFilter();
+			IMatchExpression<IInstallableUnit> f1 = vreq1.getFilter();
+			IMatchExpression<IInstallableUnit> f2 = vreq2.getFilter();
 
 			if(f1 != null && !f1.equals(f2) || f1 == null && f2 != null)
 				throw new RuntimeException("Unable to create a version union of expressions with different filters");

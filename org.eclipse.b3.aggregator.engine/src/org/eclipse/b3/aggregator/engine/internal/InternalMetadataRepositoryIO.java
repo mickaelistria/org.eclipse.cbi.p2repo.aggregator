@@ -36,17 +36,17 @@ import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.MetadataFactory;
+import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
-import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.spi.AbstractMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.spi.AbstractMetadataRepository.RepositoryState;
 import org.eclipse.equinox.p2.repository.spi.RepositoryReference;
 import org.eclipse.osgi.util.NLS;
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.Filter;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -68,7 +68,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 		protected void writeRequiredCapability(IRequirement requirement) {
 			if(requirement instanceof MultiRangeRequirement) {
 				MultiRangeRequirement req = (MultiRangeRequirement) requirement;
-				start(REQUIRED_CAPABILITY_ELEMENT);
+				start(REQUIREMENT_ELEMENT);
 				attribute(NAMESPACE_ATTRIBUTE, req.getNamespace());
 				attribute(NAME_ATTRIBUTE, req.getName());
 				start(REQUIREMENT_VERSIONS_ELEMENT);
@@ -80,10 +80,10 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				end(REQUIREMENT_VERSIONS_ELEMENT);
 				if(requirement.getFilter() != null)
 					writeTrimmedCdata(CAPABILITY_FILTER_ELEMENT, requirement.getFilter().toString());
-				end(REQUIRED_CAPABILITY_ELEMENT);
+				end(REQUIREMENT_ELEMENT);
 			}
 			else {
-				super.writeRequiredCapability(requirement);
+				super.writeRequirement(requirement);
 			}
 		}
 
@@ -115,7 +115,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 			public void startElement(String name, Attributes attributes) {
 				checkCancel();
 
-				if(REQUIRED_CAPABILITIES_ELEMENT.equals(name)) {
+				if(REQUIREMENTS_ELEMENT.equals(name)) {
 					if(requirementsHandler == null) {
 						requirementsHandler = new InternalRequirementsHandler(this, attributes);
 					}
@@ -185,9 +185,10 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 
 			public InternalRequirementHandler(AbstractHandler parentHandler, Attributes attributes,
 					List<IRequirement> requirements) {
-				super(parentHandler, REQUIRED_CAPABILITY_ELEMENT);
+				super(parentHandler, REQUIREMENT_ELEMENT);
 				this.requirements = requirements;
-				String[] values = parseAttributes(attributes, REQIUREMENT_ATTRIBUTES, OPTIONAL_REQIUREMENT_ATTRIBUTES);
+				String[] values = parseAttributes(attributes, MANDATORY_REQIUREMENT_ATTRIBUTES,
+						OPTIONAL_REQIUREMENT_ATTRIBUTES);
 				namespace = values[0];
 				name = values[1];
 			}
@@ -206,9 +207,10 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 
 			protected void finished() {
 				if(isValidXML()) {
-					Filter filter = null;
+					IMatchExpression<IInstallableUnit> filter = null;
 					if(filterHandler != null)
-						filter = ExpressionUtil.parseLDAP(filterHandler.getText());
+						filter = ExpressionUtil.getFactory().matchExpression(
+								ExpressionUtil.parse(filterHandler.getText()));
 					if(versionsHandler != null) {
 						versions = versionsHandler.getVersions();
 						versionRanges = versionsHandler.getVersionRanges();
@@ -222,7 +224,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 			private List<IRequirement> requirements;
 
 			public InternalRequirementsHandler(AbstractHandler parentHandler, Attributes attributes) {
-				super(parentHandler, REQUIRED_CAPABILITIES_ELEMENT);
+				super(parentHandler, REQUIREMENTS_ELEMENT);
 				requirements = new ArrayList<IRequirement>();
 			}
 
@@ -231,9 +233,9 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 			}
 
 			public void startElement(String name, Attributes attributes) {
-				if(name.equals(REQUIRED_CAPABILITY_ELEMENT)) {
+				if(name.equals(REQUIREMENT_ELEMENT)) {
 					if(attributes.getIndex(VERSION_RANGE_ATTRIBUTE) != -1)
-						new RequiredCapabilityHandler(this, attributes, requirements);
+						new RequirementHandler(this, attributes, requirements);
 					else
 						new InternalRequirementHandler(this, attributes, requirements);
 				}
@@ -525,7 +527,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 
 	private static final String NAME_ATTRIBUTE = "name";
 
-	private static final String[] REQIUREMENT_ATTRIBUTES = new String[] { NAMESPACE_ATTRIBUTE, NAME_ATTRIBUTE };
+	private static final String[] MANDATORY_REQIUREMENT_ATTRIBUTES = new String[] { NAMESPACE_ATTRIBUTE, NAME_ATTRIBUTE };
 
 	private static final String[] OPTIONAL_REQIUREMENT_ATTRIBUTES = new String[] {};
 
