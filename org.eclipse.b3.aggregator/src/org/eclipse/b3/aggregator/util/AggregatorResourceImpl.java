@@ -74,9 +74,7 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param uri
-	 *            the URI of the new resource.
+	 * @param uri the URI of the new resource.
 	 * @generated
 	 */
 	public AggregatorResourceImpl(URI uri) {

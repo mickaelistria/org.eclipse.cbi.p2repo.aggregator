@@ -28,26 +28,22 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getRequirementsContainer <em>Requirements Container
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getProvidedCapabilitiesContainer <em>Provided
- * Capabilities Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getPropertiesContainer <em>Properties Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getTouchpointsContainer <em>Touchpoints Container
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getUpdateDescriptor <em>Update Descriptor</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getCopyright <em>Copyright</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getLicensesContainer <em>Licenses Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getRequirementsContainer <em>Requirements Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getProvidedCapabilitiesContainer <em>Provided Capabilities Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getPropertiesContainer <em>Properties Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getTouchpointsContainer <em>Touchpoints Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getUpdateDescriptor <em>Update Descriptor</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getCopyright <em>Copyright</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getLicensesContainer <em>Licenses Container</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDetails {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -57,7 +53,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	 * The cached value of the '{@link #getRequirementsContainer() <em>Requirements Container</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRequirementsContainer()
 	 * @generated
 	 * @ordered
@@ -65,10 +60,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	protected Requirements requirementsContainer;
 
 	/**
-	 * The cached value of the '{@link #getProvidedCapabilitiesContainer() <em>Provided Capabilities Container</em>}'
-	 * reference.
+	 * The cached value of the '{@link #getProvidedCapabilitiesContainer() <em>Provided Capabilities Container</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getProvidedCapabilitiesContainer()
 	 * @generated
 	 * @ordered
@@ -109,7 +102,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getCopyright()
 	 * @generated
 	 * @ordered
@@ -120,7 +112,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	 * The cached value of the '{@link #getLicensesContainer() <em>Licenses Container</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getLicensesContainer()
 	 * @generated
 	 * @ordered
@@ -129,7 +120,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected IUDetailsImpl() {
@@ -138,126 +128,121 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
-			return getRequirementsContainer();
-		case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			return getProvidedCapabilitiesContainer();
-		case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
-			return getPropertiesContainer();
-		case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER:
-			return getTouchpointsContainer();
-		case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR:
-			return getUpdateDescriptor();
-		case P2viewPackage.IU_DETAILS__COPYRIGHT:
-			return getCopyright();
-		case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
-			return getLicensesContainer();
+		switch (featureID) {
+			case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
+				return getRequirementsContainer();
+			case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				return getProvidedCapabilitiesContainer();
+			case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
+				return getPropertiesContainer();
+			case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER:
+				return getTouchpointsContainer();
+			case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR:
+				return getUpdateDescriptor();
+			case P2viewPackage.IU_DETAILS__COPYRIGHT:
+				return getCopyright();
+			case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
+				return getLicensesContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
-			return requirementsContainer != null;
-		case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			return providedCapabilitiesContainer != null;
-		case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
-			return propertiesContainer != null;
-		case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER:
-			return touchpointsContainer != null;
-		case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR:
-			return updateDescriptor != null;
-		case P2viewPackage.IU_DETAILS__COPYRIGHT:
-			return copyright != null;
-		case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
-			return licensesContainer != null;
+		switch (featureID) {
+			case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
+				return requirementsContainer != null;
+			case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				return providedCapabilitiesContainer != null;
+			case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
+				return propertiesContainer != null;
+			case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER:
+				return touchpointsContainer != null;
+			case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR:
+				return updateDescriptor != null;
+			case P2viewPackage.IU_DETAILS__COPYRIGHT:
+				return copyright != null;
+			case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
+				return licensesContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
-			setRequirementsContainer((Requirements) newValue);
-			return;
-		case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			setProvidedCapabilitiesContainer((ProvidedCapabilities) newValue);
-			return;
-		case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
-			setPropertiesContainer((Properties) newValue);
-			return;
-		case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER:
-			setTouchpointsContainer((Touchpoints) newValue);
-			return;
-		case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR:
-			setUpdateDescriptor((IUpdateDescriptor) newValue);
-			return;
-		case P2viewPackage.IU_DETAILS__COPYRIGHT:
-			setCopyright((ICopyright) newValue);
-			return;
-		case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
-			setLicensesContainer((Licenses) newValue);
-			return;
+		switch (featureID) {
+			case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
+				setRequirementsContainer((Requirements)newValue);
+				return;
+			case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				setProvidedCapabilitiesContainer((ProvidedCapabilities)newValue);
+				return;
+			case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
+				setPropertiesContainer((Properties)newValue);
+				return;
+			case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER:
+				setTouchpointsContainer((Touchpoints)newValue);
+				return;
+			case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR:
+				setUpdateDescriptor((IUpdateDescriptor)newValue);
+				return;
+			case P2viewPackage.IU_DETAILS__COPYRIGHT:
+				setCopyright((ICopyright)newValue);
+				return;
+			case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
+				setLicensesContainer((Licenses)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
-		case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
-			setRequirementsContainer((Requirements) null);
-			return;
-		case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			setProvidedCapabilitiesContainer((ProvidedCapabilities) null);
-			return;
-		case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
-			setPropertiesContainer((Properties) null);
-			return;
-		case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER:
-			setTouchpointsContainer((Touchpoints) null);
-			return;
-		case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR:
-			setUpdateDescriptor((IUpdateDescriptor) null);
-			return;
-		case P2viewPackage.IU_DETAILS__COPYRIGHT:
-			setCopyright((ICopyright) null);
-			return;
-		case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
-			setLicensesContainer((Licenses) null);
-			return;
+		switch (featureID) {
+			case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
+				setRequirementsContainer((Requirements)null);
+				return;
+			case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				setProvidedCapabilitiesContainer((ProvidedCapabilities)null);
+				return;
+			case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
+				setPropertiesContainer((Properties)null);
+				return;
+			case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER:
+				setTouchpointsContainer((Touchpoints)null);
+				return;
+			case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR:
+				setUpdateDescriptor((IUpdateDescriptor)null);
+				return;
+			case P2viewPackage.IU_DETAILS__COPYRIGHT:
+				setCopyright((ICopyright)null);
+				return;
+			case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
+				setLicensesContainer((Licenses)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ICopyright getCopyright() {
@@ -267,7 +252,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Licenses getLicensesContainer() {
@@ -276,7 +260,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Properties getPropertiesContainer() {
@@ -285,7 +268,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ProvidedCapabilities getProvidedCapabilitiesContainer() {
@@ -295,7 +277,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Requirements getRequirementsContainer() {
@@ -304,7 +285,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Touchpoints getTouchpointsContainer() {
@@ -313,7 +293,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IUpdateDescriptor getUpdateDescriptor() {
@@ -322,101 +301,85 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setCopyright(ICopyright newCopyright) {
 		ICopyright oldCopyright = copyright;
 		copyright = newCopyright;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__COPYRIGHT, oldCopyright,
-					copyright));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__COPYRIGHT, oldCopyright, copyright));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setLicensesContainer(Licenses newLicensesContainer) {
 		Licenses oldLicensesContainer = licensesContainer;
 		licensesContainer = newLicensesContainer;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__LICENSES_CONTAINER,
-					oldLicensesContainer, licensesContainer));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__LICENSES_CONTAINER, oldLicensesContainer, licensesContainer));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPropertiesContainer(Properties newPropertiesContainer) {
 		Properties oldPropertiesContainer = propertiesContainer;
 		propertiesContainer = newPropertiesContainer;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER,
-					oldPropertiesContainer, propertiesContainer));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER, oldPropertiesContainer, propertiesContainer));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setProvidedCapabilitiesContainer(ProvidedCapabilities newProvidedCapabilitiesContainer) {
 		ProvidedCapabilities oldProvidedCapabilitiesContainer = providedCapabilitiesContainer;
 		providedCapabilitiesContainer = newProvidedCapabilitiesContainer;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER, oldProvidedCapabilitiesContainer,
-					providedCapabilitiesContainer));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER, oldProvidedCapabilitiesContainer, providedCapabilitiesContainer));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRequirementsContainer(Requirements newRequirementsContainer) {
 		Requirements oldRequirementsContainer = requirementsContainer;
 		requirementsContainer = newRequirementsContainer;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER,
-					oldRequirementsContainer, requirementsContainer));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER, oldRequirementsContainer, requirementsContainer));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setTouchpointsContainer(Touchpoints newTouchpointsContainer) {
 		Touchpoints oldTouchpointsContainer = touchpointsContainer;
 		touchpointsContainer = newTouchpointsContainer;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER,
-					oldTouchpointsContainer, touchpointsContainer));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER, oldTouchpointsContainer, touchpointsContainer));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setUpdateDescriptor(IUpdateDescriptor newUpdateDescriptor) {
 		IUpdateDescriptor oldUpdateDescriptor = updateDescriptor;
 		updateDescriptor = newUpdateDescriptor;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR,
-					oldUpdateDescriptor, updateDescriptor));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR, oldUpdateDescriptor, updateDescriptor));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

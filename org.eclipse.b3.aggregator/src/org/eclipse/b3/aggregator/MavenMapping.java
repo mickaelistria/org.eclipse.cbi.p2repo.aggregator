@@ -13,16 +13,16 @@ import org.eclipse.b3.aggregator.impl.MavenMappingImpl;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Maven Mapping</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.MavenMapping#getNamePattern <em>Name Pattern</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.MavenMapping#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.MavenMapping#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.MavenMapping#getNamePattern <em>Name Pattern</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.MavenMapping#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.MavenMapping#getArtifactId <em>Artifact Id</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getMavenMapping()
  * @model
  * @generated
@@ -38,7 +38,6 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMavenMapping_ArtifactId()
@@ -55,7 +54,6 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Group Id</em>' attribute.
 	 * @see #setGroupId(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMavenMapping_GroupId()
@@ -72,7 +70,6 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Name Pattern</em>' attribute.
 	 * @see #setNamePattern(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMavenMapping_NamePattern()
@@ -83,19 +80,15 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @model
 	 * @generated
 	 */
 	MavenItem map(String installableUnitID);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MavenMapping#getArtifactId <em>Artifact Id</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MavenMapping#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Artifact Id</em>' attribute.
+	 * @param value the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
 	 * @generated
 	 */
@@ -104,21 +97,16 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MavenMapping#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Group Id</em>' attribute.
+	 * @param value the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
 	 * @generated
 	 */
 	void setGroupId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MavenMapping#getNamePattern <em>Name Pattern</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MavenMapping#getNamePattern <em>Name Pattern</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Name Pattern</em>' attribute.
+	 * @param value the new value of the '<em>Name Pattern</em>' attribute.
 	 * @see #getNamePattern()
 	 * @generated
 	 */

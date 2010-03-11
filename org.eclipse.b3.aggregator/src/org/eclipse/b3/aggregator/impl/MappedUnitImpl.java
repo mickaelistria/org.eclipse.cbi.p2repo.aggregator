@@ -23,7 +23,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
-import org.osgi.framework.Filter;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Mapped Unit</b></em>'. <!-- end-user-doc -->
@@ -60,7 +60,8 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 */
 	protected static final int ENABLED_EFLAG = 1 << 0;
 
-	private static Filter createFilter(Collection<AvailableVersion> availableVersions, List<Configuration> configs) {
+	private static IMatchExpression<IInstallableUnit> createFilter(Collection<AvailableVersion> availableVersions,
+			List<Configuration> configs) {
 		StringBuilder filterBld = new StringBuilder();
 		if(!(configs == null || configs.isEmpty())) {
 			if(configs.size() > 1)
@@ -100,7 +101,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 		}
 
 		if(filterBld.length() > 0)
-			return ExpressionUtil.parseLDAP(filterBld.toString());
+			return ExpressionUtil.getFactory().matchExpression(ExpressionUtil.parse(filterBld.toString()));
 
 		return null;
 	}
@@ -237,7 +238,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * 
 	 * @generated NOT
 	 */
-	public Filter getFilter() {
+	public IMatchExpression<IInstallableUnit> getFilter() {
 		return createFilter(getAvailableVersions(), getValidConfigurations());
 	}
 

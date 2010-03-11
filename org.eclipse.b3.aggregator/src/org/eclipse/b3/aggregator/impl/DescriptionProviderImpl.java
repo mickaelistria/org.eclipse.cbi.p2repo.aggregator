@@ -25,17 +25,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.impl.DescriptionProviderImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.DescriptionProviderImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implements DescriptionProvider {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -45,7 +44,6 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -56,7 +54,6 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -65,7 +62,6 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected DescriptionProviderImpl() {
@@ -74,67 +70,60 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-			return getDescription();
+		switch (featureID) {
+			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null
-					? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
+		switch (featureID) {
+			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
+		switch (featureID) {
+			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
-		case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
+		switch (featureID) {
+			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getDescription() {
@@ -143,26 +132,22 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION,
-					oldDescription, description));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (description: ");
@@ -173,7 +158,6 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

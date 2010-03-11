@@ -97,7 +97,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Bundle" eSuperTypes="#//MappedUnit"/>
   <eClassifiers xsi:type="ecore:EClass" name="MappedUnit" abstract="true" eSuperTypes="#//InstallableUnitRequest #//EnabledStatusProvider">
     <eOperations name="getRequirement" eType="#//p2/IRequirement"/>
-    <eOperations name="getFilter" eType="#//p2/Filter"/>
+    <eOperations name="getFilter">
+      <eGenericType eClassifier="#//p2/IMatchExpression">
+        <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>
+      </eGenericType>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validConfigurations" upperBound="-1"
         eType="#//Configuration" eKeys="#//Configuration/operatingSystem #//Configuration/windowSystem #//Configuration/architecture"/>
   </eClassifiers>
@@ -323,8 +327,11 @@
           eType="#//p2/IArtifactKey" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="copyright" eType="#//p2/ICopyright"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="#//p2/Filter"
-          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" defaultValueLiteral="">
+        <eGenericType eClassifier="#//p2/IMatchExpression">
+          <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>
+        </eGenericType>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
           eType="#//p2/IInstallableUnitFragment"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
@@ -363,7 +370,11 @@
       <eOperations name="isMatch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="installableUnit" eType="#//p2/IInstallableUnit"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="#//p2/Filter"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter">
+        <eGenericType eClassifier="#//p2/IMatchExpression">
+          <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>
+        </eGenericType>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="matches">
@@ -488,9 +499,13 @@
       <eTypeParameters name="T"/>
       <eOperations name="query">
         <eGenericType eClassifier="#//p2/IQueryResult">
-          <eTypeArguments/>
+          <eTypeArguments eTypeParameter="#//p2/IQueryable/T"/>
         </eGenericType>
-        <eParameters name="query" eType="#//p2/IQuery"/>
+        <eParameters name="query">
+          <eGenericType eClassifier="#//p2/IQuery">
+            <eTypeArguments eTypeParameter="#//p2/IQueryable/T"/>
+          </eGenericType>
+        </eParameters>
         <eParameters name="progress" eType="#//p2/IProgressMonitor"/>
       </eOperations>
     </eClassifiers>
@@ -507,7 +522,6 @@
         serializable="false"/>
     <eClassifiers xsi:type="ecore:EDataType" name="IRunnableWithProgress" instanceClassName="org.eclipse.equinox.p2.repository.IRunnableWithProgress"/>
     <eClassifiers xsi:type="ecore:EDataType" name="IStatus" instanceClassName="org.eclipse.core.runtime.IStatus"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="Filter" instanceClassName="org.osgi.framework.Filter"/>
     <eClassifiers xsi:type="ecore:EDataType" name="IMatchExpression" instanceClassName="org.eclipse.equinox.p2.metadata.expression.IMatchExpression">
       <eTypeParameters name="T"/>
     </eClassifiers>

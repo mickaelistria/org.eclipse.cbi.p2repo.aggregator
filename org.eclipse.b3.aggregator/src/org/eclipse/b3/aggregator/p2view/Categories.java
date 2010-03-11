@@ -14,14 +14,14 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Categories</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Categories#getCategories <em>Categories</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Categories#getCategories <em>Categories</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getCategories()
  * @model
  * @generated
@@ -36,7 +36,6 @@ public interface Categories extends ChildrenProvider<Category> {
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Categories</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getCategories_Categories()
 	 * @model

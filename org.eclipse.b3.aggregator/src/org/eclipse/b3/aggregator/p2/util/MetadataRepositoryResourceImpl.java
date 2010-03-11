@@ -70,7 +70,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
-import org.osgi.framework.Filter;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 public class MetadataRepositoryResourceImpl extends ResourceImpl implements StatusProvider {
 	class AsynchronousLoader extends Job {
@@ -298,7 +298,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 				iuPresentation.setId(iu.getId());
 				iuPresentation.setVersion(iu.getVersion());
-				Filter filter = iu.getFilter();
+				IMatchExpression<IInstallableUnit> filter = iu.getFilter();
 				if(filter != null)
 					iuPresentation.setFilter(filter.toString());
 

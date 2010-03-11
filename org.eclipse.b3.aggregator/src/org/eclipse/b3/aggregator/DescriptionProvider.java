@@ -12,14 +12,14 @@ package org.eclipse.b3.aggregator;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Description Provider</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.DescriptionProvider#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.DescriptionProvider#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getDescriptionProvider()
  * @model
  * @generated
@@ -43,12 +43,9 @@ public interface DescriptionProvider {
 	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.DescriptionProvider#getDescription <em>Description</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.DescriptionProvider#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Description</em>' attribute.
+	 * @param value the new value of the '<em>Description</em>' attribute.
 	 * @see #getDescription()
 	 * @generated
 	 */

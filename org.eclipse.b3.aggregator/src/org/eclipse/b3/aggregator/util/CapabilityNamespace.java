@@ -14,7 +14,8 @@ import java.util.regex.Pattern;
 
 import org.eclipse.b3.aggregator.AggregatorPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.osgi.framework.Filter;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * @author Karel Brezina
@@ -45,7 +46,7 @@ public enum CapabilityNamespace{
 		namespaceMatchMap.put(Pattern.compile("^tooling.*"), TOOLING);
 	}
 
-	public static CapabilityNamespace byFilter(Filter filter) {
+	public static CapabilityNamespace byFilter(IMatchExpression<IInstallableUnit> filter) {
 		// TODO Parse the filter and try to resolve the namespace
 		return null;
 	}

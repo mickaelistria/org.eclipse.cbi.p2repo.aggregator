@@ -31,24 +31,17 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getRequirementsContainer <em>
- * Requirements Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getProvidedCapabilitiesContainer <em>
- * Provided Capabilities Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getPropertiesContainer <em>Properties
- * Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getTouchpointsContainer <em>
- * Touchpoints Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getUpdateDescriptor <em>Update
- * Descriptor</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getCopyright <em>Copyright</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getLicensesContainer <em>Licenses
- * Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#isDetailsResolved <em>Details Resolved
- * </em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getRequirementsContainer <em>Requirements Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getProvidedCapabilitiesContainer <em>Provided Capabilities Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getPropertiesContainer <em>Properties Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getTouchpointsContainer <em>Touchpoints Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getUpdateDescriptor <em>Update Descriptor</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getCopyright <em>Copyright</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getLicensesContainer <em>Licenses Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#isDetailsResolved <em>Details Resolved</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl implements IUPresentationWithDetails {
@@ -56,7 +49,6 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * The cached value of the '{@link #getRequirementsContainer() <em>Requirements Container</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRequirementsContainer()
 	 * @generated
 	 * @ordered
@@ -64,10 +56,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	protected Requirements requirementsContainer;
 
 	/**
-	 * The cached value of the '{@link #getProvidedCapabilitiesContainer() <em>Provided Capabilities Container</em>}'
-	 * reference.
+	 * The cached value of the '{@link #getProvidedCapabilitiesContainer() <em>Provided Capabilities Container</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getProvidedCapabilitiesContainer()
 	 * @generated
 	 * @ordered
@@ -108,7 +98,6 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getCopyright()
 	 * @generated
 	 * @ordered
@@ -119,7 +108,6 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * The cached value of the '{@link #getLicensesContainer() <em>Licenses Container</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getLicensesContainer()
 	 * @generated
 	 * @ordered
@@ -130,7 +118,6 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * The default value of the '{@link #isDetailsResolved() <em>Details Resolved</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #isDetailsResolved()
 	 * @generated
 	 * @ordered
@@ -149,7 +136,6 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected IUPresentationWithDetailsImpl() {
@@ -167,29 +153,20 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == IUDetails.class) {
-			switch(derivedFeatureID) {
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
-				return P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-				return P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
-				return P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
-				return P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
-				return P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
-				return P2viewPackage.IU_DETAILS__COPYRIGHT;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
-				return P2viewPackage.IU_DETAILS__LICENSES_CONTAINER;
-			default:
-				return -1;
+		if (baseClass == IUDetails.class) {
+			switch (derivedFeatureID) {
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER: return P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER: return P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER: return P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER: return P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR: return P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT: return P2viewPackage.IU_DETAILS__COPYRIGHT;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER: return P2viewPackage.IU_DETAILS__LICENSES_CONTAINER;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -197,29 +174,20 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == IUDetails.class) {
-			switch(baseFeatureID) {
-			case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
-			case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
-			case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER;
-			case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER;
-			case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR;
-			case P2viewPackage.IU_DETAILS__COPYRIGHT:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
-			case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
-			default:
-				return -1;
+		if (baseClass == IUDetails.class) {
+			switch (baseFeatureID) {
+				case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER: return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
+				case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER: return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
+				case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER: return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER;
+				case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER: return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER;
+				case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR: return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR;
+				case P2viewPackage.IU_DETAILS__COPYRIGHT: return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
+				case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER: return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -227,129 +195,125 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
-			return getRequirementsContainer();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			return getProvidedCapabilitiesContainer();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
-			return getPropertiesContainer();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
-			return getTouchpointsContainer();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
-			return getUpdateDescriptor();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
-			return getCopyright();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
-			return getLicensesContainer();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
-			return isDetailsResolved();
+		switch (featureID) {
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+				return getRequirementsContainer();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				return getProvidedCapabilitiesContainer();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
+				return getPropertiesContainer();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
+				return getTouchpointsContainer();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
+				return getUpdateDescriptor();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
+				return getCopyright();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+				return getLicensesContainer();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
+				return isDetailsResolved();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
-			return requirementsContainer != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			return providedCapabilitiesContainer != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
-			return propertiesContainer != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
-			return touchpointsContainer != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
-			return updateDescriptor != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
-			return copyright != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
-			return licensesContainer != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
-			return ((eFlags & DETAILS_RESOLVED_EFLAG) != 0) != DETAILS_RESOLVED_EDEFAULT;
+		switch (featureID) {
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+				return requirementsContainer != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				return providedCapabilitiesContainer != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
+				return propertiesContainer != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
+				return touchpointsContainer != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
+				return updateDescriptor != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
+				return copyright != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+				return licensesContainer != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
+				return ((eFlags & DETAILS_RESOLVED_EFLAG) != 0) != DETAILS_RESOLVED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
-			setRequirementsContainer((Requirements) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			setProvidedCapabilitiesContainer((ProvidedCapabilities) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
-			setPropertiesContainer((Properties) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
-			setTouchpointsContainer((Touchpoints) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
-			setUpdateDescriptor((IUpdateDescriptor) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
-			setCopyright((ICopyright) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
-			setLicensesContainer((Licenses) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
-			setDetailsResolved((Boolean) newValue);
-			return;
+		switch (featureID) {
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+				setRequirementsContainer((Requirements)newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				setProvidedCapabilitiesContainer((ProvidedCapabilities)newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
+				setPropertiesContainer((Properties)newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
+				setTouchpointsContainer((Touchpoints)newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
+				setUpdateDescriptor((IUpdateDescriptor)newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
+				setCopyright((ICopyright)newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+				setLicensesContainer((Licenses)newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
+				setDetailsResolved((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
-			setRequirementsContainer((Requirements) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			setProvidedCapabilitiesContainer((ProvidedCapabilities) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
-			setPropertiesContainer((Properties) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
-			setTouchpointsContainer((Touchpoints) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
-			setUpdateDescriptor((IUpdateDescriptor) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
-			setCopyright((ICopyright) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
-			setLicensesContainer((Licenses) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
-			setDetailsResolved(DETAILS_RESOLVED_EDEFAULT);
-			return;
+		switch (featureID) {
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+				setRequirementsContainer((Requirements)null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				setProvidedCapabilitiesContainer((ProvidedCapabilities)null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
+				setPropertiesContainer((Properties)null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
+				setTouchpointsContainer((Touchpoints)null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
+				setUpdateDescriptor((IUpdateDescriptor)null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
+				setCopyright((ICopyright)null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+				setLicensesContainer((Licenses)null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
+				setDetailsResolved(DETAILS_RESOLVED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -369,7 +333,6 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Licenses getLicensesContainer() {
@@ -439,7 +402,6 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isDetailsResolved() {
@@ -448,129 +410,101 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setCopyright(ICopyright newCopyright) {
 		ICopyright oldCopyright = copyright;
 		copyright = newCopyright;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT, oldCopyright, copyright));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT, oldCopyright, copyright));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDetailsResolved(boolean newDetailsResolved) {
 		boolean oldDetailsResolved = (eFlags & DETAILS_RESOLVED_EFLAG) != 0;
-		if(newDetailsResolved)
-			eFlags |= DETAILS_RESOLVED_EFLAG;
-		else
-			eFlags &= ~DETAILS_RESOLVED_EFLAG;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED, oldDetailsResolved,
-					newDetailsResolved));
+		if (newDetailsResolved) eFlags |= DETAILS_RESOLVED_EFLAG; else eFlags &= ~DETAILS_RESOLVED_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED, oldDetailsResolved, newDetailsResolved));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setLicensesContainer(Licenses newLicensesContainer) {
 		Licenses oldLicensesContainer = licensesContainer;
 		licensesContainer = newLicensesContainer;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER, oldLicensesContainer,
-					licensesContainer));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER, oldLicensesContainer, licensesContainer));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPropertiesContainer(Properties newPropertiesContainer) {
 		Properties oldPropertiesContainer = propertiesContainer;
 		propertiesContainer = newPropertiesContainer;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER, oldPropertiesContainer,
-					propertiesContainer));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER, oldPropertiesContainer, propertiesContainer));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setProvidedCapabilitiesContainer(ProvidedCapabilities newProvidedCapabilitiesContainer) {
 		ProvidedCapabilities oldProvidedCapabilitiesContainer = providedCapabilitiesContainer;
 		providedCapabilitiesContainer = newProvidedCapabilitiesContainer;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER,
-					oldProvidedCapabilitiesContainer, providedCapabilitiesContainer));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER, oldProvidedCapabilitiesContainer, providedCapabilitiesContainer));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRequirementsContainer(Requirements newRequirementsContainer) {
 		Requirements oldRequirementsContainer = requirementsContainer;
 		requirementsContainer = newRequirementsContainer;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER, oldRequirementsContainer,
-					requirementsContainer));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER, oldRequirementsContainer, requirementsContainer));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setTouchpointsContainer(Touchpoints newTouchpointsContainer) {
 		Touchpoints oldTouchpointsContainer = touchpointsContainer;
 		touchpointsContainer = newTouchpointsContainer;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER, oldTouchpointsContainer,
-					touchpointsContainer));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER, oldTouchpointsContainer, touchpointsContainer));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setUpdateDescriptor(IUpdateDescriptor newUpdateDescriptor) {
 		IUpdateDescriptor oldUpdateDescriptor = updateDescriptor;
 		updateDescriptor = newUpdateDescriptor;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR, oldUpdateDescriptor,
-					updateDescriptor));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR, oldUpdateDescriptor, updateDescriptor));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (detailsResolved: ");
@@ -581,7 +515,6 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

@@ -11,7 +11,6 @@ package org.eclipse.b3.aggregator.p2view.impl;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.LabelProvider;
-import org.eclipse.b3.aggregator.p2.Requirement;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.emf.common.notify.Notification;
@@ -43,7 +42,6 @@ import org.osgi.framework.Filter;
  * 
  * @generated
  */
-@SuppressWarnings("unused")
 public class RequirementWrapperImpl extends MinimalEObjectImpl.Container implements RequirementWrapper {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
@@ -55,17 +53,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	protected int eFlags = 0;
 
 	/**
-	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getFilter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Filter FILTER_EDEFAULT = null;
-
-	/**
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -74,7 +61,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected Filter filter = FILTER_EDEFAULT;
+	protected IMatchExpression<IInstallableUnit> filter;
 
 	/**
 	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
@@ -320,7 +307,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
 		case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
-			setFilter((Filter) newValue);
+			setFilter((IMatchExpression<IInstallableUnit>) newValue);
 			return;
 		case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
 			setMax((Integer) newValue);
@@ -353,7 +340,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	public void eUnset(int featureID) {
 		switch(featureID) {
 		case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
-			setFilter(FILTER_EDEFAULT);
+			setFilter((IMatchExpression<IInstallableUnit>) null);
 			return;
 		case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
 			setMax(MAX_EDEFAULT);
@@ -392,7 +379,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * 
 	 * @generated NOT
 	 */
-	public Filter getFilter() {
+	public IMatchExpression<IInstallableUnit> getFilter() {
 		return genuine.getFilter();
 	}
 
@@ -484,6 +471,20 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public void setFilter(Filter newFilter) {
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setFilter(IMatchExpression<IInstallableUnit> newFilter) {
+		IMatchExpression<IInstallableUnit> oldFilter = filter;
+		filter = newFilter;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__FILTER, oldFilter,
+					filter));
 	}
 
 	/**

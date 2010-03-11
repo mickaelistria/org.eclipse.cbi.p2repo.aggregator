@@ -29,7 +29,6 @@ import org.eclipse.emf.common.util.EList;
 public interface Contribution extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -44,7 +43,6 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Contacts</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContribution_Contacts()
 	 * @model keys="email"
@@ -60,7 +58,6 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContribution_Label()
@@ -78,7 +75,6 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Maven Mappings</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContribution_MavenMappings()
 	 * @model containment="true" resolveProxies="true"
@@ -95,7 +91,6 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Repositories</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContribution_Repositories()
 	 * @model containment="true" resolveProxies="true"
@@ -105,7 +100,6 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @model
 	 * @generated
 	 */
@@ -114,9 +108,7 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contribution#getLabel <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Label</em>' attribute.
+	 * @param value the new value of the '<em>Label</em>' attribute.
 	 * @see #getLabel()
 	 * @generated
 	 */
