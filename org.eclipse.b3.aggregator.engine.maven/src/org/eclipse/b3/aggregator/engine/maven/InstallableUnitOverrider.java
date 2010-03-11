@@ -22,7 +22,7 @@ import org.eclipse.equinox.p2.metadata.ITouchpointData;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 import org.eclipse.equinox.p2.metadata.Version;
-import org.osgi.framework.Filter;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
@@ -60,7 +60,7 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.getCopyright(locale);
 	}
 
-	public Filter getFilter() {
+	public IMatchExpression<IInstallableUnit> getFilter() {
 		return installableUnit.getFilter();
 	}
 
