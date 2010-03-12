@@ -132,6 +132,10 @@ unit aTestUnit version 1.0.0 {
 	provides food.nutrition.vitamin/C;
 	provides food.nutrition.mineral/potassium;
 	
+	repositories {
+		select-switch switch request.name case "a" : "svn:svn+ssh://..." case _ : "" endswitch
+	}
+	
 	builder peel {
 		output { bananapeel.txt; }
 	}
