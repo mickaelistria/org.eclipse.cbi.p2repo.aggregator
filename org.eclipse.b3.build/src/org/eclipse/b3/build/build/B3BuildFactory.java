@@ -215,6 +215,24 @@ public interface B3BuildFactory extends EFactory {
 	UnitResolutionInfo createUnitResolutionInfo();
 
 	/**
+	 * Returns a new object of class '<em>Resolution Strategy Switch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resolution Strategy Switch</em>'.
+	 * @generated
+	 */
+	ResolutionStrategySwitch createResolutionStrategySwitch();
+
+	/**
+	 * Returns a new object of class '<em>Switch Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Switch Repository</em>'.
+	 * @generated
+	 */
+	SwitchRepository createSwitchRepository();
+
+	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

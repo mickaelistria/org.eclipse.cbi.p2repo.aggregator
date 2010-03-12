@@ -167,6 +167,10 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			return createSimpleRepository();
 		case B3BuildPackage.UNIT_RESOLUTION_INFO:
 			return createUnitResolutionInfo();
+		case B3BuildPackage.RESOLUTION_STRATEGY_SWITCH:
+			return createResolutionStrategySwitch();
+		case B3BuildPackage.SWITCH_REPOSITORY:
+			return createSwitchRepository();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -422,6 +426,26 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public UnitResolutionInfo createUnitResolutionInfo() {
 		UnitResolutionInfoImpl unitResolutionInfo = new UnitResolutionInfoImpl();
 		return unitResolutionInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResolutionStrategySwitch createResolutionStrategySwitch() {
+		ResolutionStrategySwitchImpl resolutionStrategySwitch = new ResolutionStrategySwitchImpl();
+		return resolutionStrategySwitch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchRepository createSwitchRepository() {
+		SwitchRepositoryImpl switchRepository = new SwitchRepositoryImpl();
+		return switchRepository;
 	}
 
 	/**

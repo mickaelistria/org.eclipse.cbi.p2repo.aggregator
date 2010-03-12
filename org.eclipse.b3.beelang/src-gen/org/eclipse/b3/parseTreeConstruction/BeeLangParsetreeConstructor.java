@@ -76,105 +76,108 @@ protected class ThisRootNode extends RootToken {
 			case 38: return new ResolutionStrategy_Alternatives(this, this, 38, inst);
 			case 39: return new ResolutionStrategyFirst_Group(this, this, 39, inst);
 			case 40: return new ResolutionStrategyBest_Group(this, this, 40, inst);
-			case 41: return new ContainerConfiguration_Group(this, this, 41, inst);
-			case 42: return new Concern_Named_Group(this, this, 42, inst);
-			case 43: return new Concern_Anonymous_Group(this, this, 43, inst);
-			case 44: return new Function_Group(this, this, 44, inst);
-			case 45: return new GuardExpression_Alternatives(this, this, 45, inst);
-			case 46: return new TopLevelExpression_Alternatives(this, this, 46, inst);
-			case 47: return new Expression_AssignmentExpressionParserRuleCall(this, this, 47, inst);
-			case 48: return new AssignmentExpression_Group(this, this, 48, inst);
-			case 49: return new VarDeclaration_Group(this, this, 49, inst);
-			case 50: return new ValDeclaration_Group(this, this, 50, inst);
-			case 51: return new TypeRef_Alternatives(this, this, 51, inst);
-			case 52: return new SimpleTypeRef_Group(this, this, 52, inst);
-			case 53: return new ClosureTypeRef_Group(this, this, 53, inst);
-			case 54: return new TypeParam_Alternatives(this, this, 54, inst);
-			case 55: return new TypeRefParam_TypeRefParserRuleCall(this, this, 55, inst);
-			case 56: return new WildcardRefParam_Group(this, this, 56, inst);
-			case 57: return new CachedExpression_Alternatives(this, this, 57, inst);
-			case 58: return new OrExpression_Group(this, this, 58, inst);
-			case 59: return new AndExpression_Group(this, this, 59, inst);
-			case 60: return new RelationalExpression_Group(this, this, 60, inst);
-			case 61: return new InstanceOfExpression_Group(this, this, 61, inst);
-			case 62: return new AdditiveExpression_Group(this, this, 62, inst);
-			case 63: return new MultiplicativeExpression_Group(this, this, 63, inst);
-			case 64: return new SetExpression_Group(this, this, 64, inst);
-			case 65: return new UnaryOrInfixExpression_Alternatives(this, this, 65, inst);
-			case 66: return new UnaryExpression_Group(this, this, 66, inst);
-			case 67: return new PreopExpression_Group(this, this, 67, inst);
-			case 68: return new PostopExpression_Group(this, this, 68, inst);
-			case 69: return new InfixExpression_Group(this, this, 69, inst);
-			case 70: return new CallExpression_Group(this, this, 70, inst);
-			case 71: return new PrimaryExpression_Alternatives(this, this, 71, inst);
-			case 72: return new WithExpression_Group(this, this, 72, inst);
-			case 73: return new WithContextExpression_Group(this, this, 73, inst);
-			case 74: return new ProceedExpression_Group(this, this, 74, inst);
-			case 75: return new WildcardExpression_Group(this, this, 75, inst);
-			case 76: return new ThrowExpression_Group(this, this, 76, inst);
-			case 77: return new TryCatchExpression_Group(this, this, 77, inst);
-			case 78: return new CatchBlock_Group(this, this, 78, inst);
-			case 79: return new SwitchExpression_Group(this, this, 79, inst);
-			case 80: return new Case_Group(this, this, 80, inst);
-			case 81: return new BlockExpression_Group(this, this, 81, inst);
-			case 82: return new IfExpression_Group(this, this, 82, inst);
-			case 83: return new ElseIfExpression_Group(this, this, 83, inst);
-			case 84: return new PropertyValue_Group(this, this, 84, inst);
-			case 85: return new VariableValue_Group(this, this, 85, inst);
-			case 86: return new KeywordVariables_Group(this, this, 86, inst);
-			case 87: return new FeatureCall_OperationCallParserRuleCall(this, this, 87, inst);
-			case 88: return new OperationCall_Group(this, this, 88, inst);
-			case 89: return new ConstructorCallExpression_Group(this, this, 89, inst);
-			case 90: return new BuildConcernContext_Alternatives(this, this, 90, inst);
-			case 91: return new FunctionConcernContext_Group(this, this, 91, inst);
-			case 92: return new FunctionNamePredicate_Group(this, this, 92, inst);
-			case 93: return new ParameterPredicate_Alternatives(this, this, 93, inst);
-			case 94: return new ParameterVarargsPredicate_Alternatives(this, this, 94, inst);
-			case 95: return new UnitConcernContext_Group(this, this, 95, inst);
-			case 96: return new BuilderConcernContext_Group(this, this, 96, inst);
-			case 97: return new UnitOrExpression_Group(this, this, 97, inst);
-			case 98: return new UnitAndExpression_Group(this, this, 98, inst);
-			case 99: return new UnitNotOrPrimaryExpression_Alternatives(this, this, 99, inst);
-			case 100: return new UnitNotExpression_Group(this, this, 100, inst);
-			case 101: return new UnitPrimaryExpression_Alternatives(this, this, 101, inst);
-			case 102: return new GroupedUnitPrimaryExpression_Group(this, this, 102, inst);
-			case 103: return new RequiresPredicate_Group(this, this, 103, inst);
-			case 104: return new ImplementsPredcicate_Group(this, this, 104, inst);
-			case 105: return new ProvidesPredicate_Group(this, this, 105, inst);
-			case 106: return new UnitNamePredicate_Group(this, this, 106, inst);
-			case 107: return new BuilderNamePredicate_Group(this, this, 107, inst);
-			case 108: return new InputPredicate_Group(this, this, 108, inst);
-			case 109: return new SourcePredicate_Alternatives(this, this, 109, inst);
-			case 110: return new OutputPredicate_Alternatives(this, this, 110, inst);
-			case 111: return new BasePathPredicate_Group(this, this, 111, inst);
-			case 112: return new PathPredicate_Group(this, this, 112, inst);
-			case 113: return new CapabilityPredicate_Group(this, this, 113, inst);
-			case 114: return new NamePredicate_Group(this, this, 114, inst);
-			case 115: return new BuilderOrExpression_Group(this, this, 115, inst);
-			case 116: return new BuilderAndExpression_Group(this, this, 116, inst);
-			case 117: return new BuilderNotOrPrimaryExpression_Alternatives(this, this, 117, inst);
-			case 118: return new BuilderNotExpression_Group(this, this, 118, inst);
-			case 119: return new BuilderPrimaryExpression_Alternatives(this, this, 119, inst);
-			case 120: return new GroupedBuilderPrimaryExpression_Group(this, this, 120, inst);
-			case 121: return new Literal_Alternatives(this, this, 121, inst);
-			case 122: return new LiteralList_Alternatives(this, this, 122, inst);
-			case 123: return new LiteralMap_Alternatives(this, this, 123, inst);
-			case 124: return new LiteralFunction_Group(this, this, 124, inst);
-			case 125: return new ClosureExpression_Group(this, this, 125, inst);
-			case 126: return new OneOrManyExpressions_Alternatives(this, this, 126, inst);
-			case 127: return new BlockExpressionWithoutBrackets_Group(this, this, 127, inst);
-			case 128: return new MapEntry_Group(this, this, 128, inst);
-			case 129: return new KeyLiteral_Group(this, this, 129, inst);
-			case 130: return new LiteralType_Group(this, this, 130, inst);
-			case 131: return new ValueLiteral_Alternatives(this, this, 131, inst);
-			case 132: return new BooleanLiteral_Group(this, this, 132, inst);
-			case 133: return new IntegerLiteral_Group(this, this, 133, inst);
-			case 134: return new UnitLiteral_Group(this, this, 134, inst);
-			case 135: return new StringLiteral_Group(this, this, 135, inst);
-			case 136: return new RealLiteral_Group(this, this, 136, inst);
-			case 137: return new RegexpLiteral_Group(this, this, 137, inst);
-			case 138: return new NullLiteral_Group(this, this, 138, inst);
-			case 139: return new ParanthesizedExpression_Group(this, this, 139, inst);
+			case 41: return new ResolutionStrategySwitch_Group(this, this, 41, inst);
+			case 42: return new SelectSwitchExpression_Group(this, this, 42, inst);
+			case 43: return new RepositorySelectCase_Group(this, this, 43, inst);
+			case 44: return new ContainerConfiguration_Group(this, this, 44, inst);
+			case 45: return new Concern_Named_Group(this, this, 45, inst);
+			case 46: return new Concern_Anonymous_Group(this, this, 46, inst);
+			case 47: return new Function_Group(this, this, 47, inst);
+			case 48: return new GuardExpression_Alternatives(this, this, 48, inst);
+			case 49: return new TopLevelExpression_Alternatives(this, this, 49, inst);
+			case 50: return new Expression_AssignmentExpressionParserRuleCall(this, this, 50, inst);
+			case 51: return new AssignmentExpression_Group(this, this, 51, inst);
+			case 52: return new VarDeclaration_Group(this, this, 52, inst);
+			case 53: return new ValDeclaration_Group(this, this, 53, inst);
+			case 54: return new TypeRef_Alternatives(this, this, 54, inst);
+			case 55: return new SimpleTypeRef_Group(this, this, 55, inst);
+			case 56: return new ClosureTypeRef_Group(this, this, 56, inst);
+			case 57: return new TypeParam_Alternatives(this, this, 57, inst);
+			case 58: return new TypeRefParam_TypeRefParserRuleCall(this, this, 58, inst);
+			case 59: return new WildcardRefParam_Group(this, this, 59, inst);
+			case 60: return new CachedExpression_Alternatives(this, this, 60, inst);
+			case 61: return new OrExpression_Group(this, this, 61, inst);
+			case 62: return new AndExpression_Group(this, this, 62, inst);
+			case 63: return new RelationalExpression_Group(this, this, 63, inst);
+			case 64: return new InstanceOfExpression_Group(this, this, 64, inst);
+			case 65: return new AdditiveExpression_Group(this, this, 65, inst);
+			case 66: return new MultiplicativeExpression_Group(this, this, 66, inst);
+			case 67: return new SetExpression_Group(this, this, 67, inst);
+			case 68: return new UnaryOrInfixExpression_Alternatives(this, this, 68, inst);
+			case 69: return new UnaryExpression_Group(this, this, 69, inst);
+			case 70: return new PreopExpression_Group(this, this, 70, inst);
+			case 71: return new PostopExpression_Group(this, this, 71, inst);
+			case 72: return new InfixExpression_Group(this, this, 72, inst);
+			case 73: return new CallExpression_Group(this, this, 73, inst);
+			case 74: return new PrimaryExpression_Alternatives(this, this, 74, inst);
+			case 75: return new WithExpression_Group(this, this, 75, inst);
+			case 76: return new WithContextExpression_Group(this, this, 76, inst);
+			case 77: return new ProceedExpression_Group(this, this, 77, inst);
+			case 78: return new WildcardExpression_Group(this, this, 78, inst);
+			case 79: return new ThrowExpression_Group(this, this, 79, inst);
+			case 80: return new TryCatchExpression_Group(this, this, 80, inst);
+			case 81: return new CatchBlock_Group(this, this, 81, inst);
+			case 82: return new SwitchExpression_Group(this, this, 82, inst);
+			case 83: return new Case_Group(this, this, 83, inst);
+			case 84: return new BlockExpression_Group(this, this, 84, inst);
+			case 85: return new IfExpression_Group(this, this, 85, inst);
+			case 86: return new ElseIfExpression_Group(this, this, 86, inst);
+			case 87: return new PropertyValue_Group(this, this, 87, inst);
+			case 88: return new VariableValue_Group(this, this, 88, inst);
+			case 89: return new KeywordVariables_Group(this, this, 89, inst);
+			case 90: return new FeatureCall_OperationCallParserRuleCall(this, this, 90, inst);
+			case 91: return new OperationCall_Group(this, this, 91, inst);
+			case 92: return new ConstructorCallExpression_Group(this, this, 92, inst);
+			case 93: return new BuildConcernContext_Alternatives(this, this, 93, inst);
+			case 94: return new FunctionConcernContext_Group(this, this, 94, inst);
+			case 95: return new FunctionNamePredicate_Group(this, this, 95, inst);
+			case 96: return new ParameterPredicate_Alternatives(this, this, 96, inst);
+			case 97: return new ParameterVarargsPredicate_Alternatives(this, this, 97, inst);
+			case 98: return new UnitConcernContext_Group(this, this, 98, inst);
+			case 99: return new BuilderConcernContext_Group(this, this, 99, inst);
+			case 100: return new UnitOrExpression_Group(this, this, 100, inst);
+			case 101: return new UnitAndExpression_Group(this, this, 101, inst);
+			case 102: return new UnitNotOrPrimaryExpression_Alternatives(this, this, 102, inst);
+			case 103: return new UnitNotExpression_Group(this, this, 103, inst);
+			case 104: return new UnitPrimaryExpression_Alternatives(this, this, 104, inst);
+			case 105: return new GroupedUnitPrimaryExpression_Group(this, this, 105, inst);
+			case 106: return new RequiresPredicate_Group(this, this, 106, inst);
+			case 107: return new ImplementsPredcicate_Group(this, this, 107, inst);
+			case 108: return new ProvidesPredicate_Group(this, this, 108, inst);
+			case 109: return new UnitNamePredicate_Group(this, this, 109, inst);
+			case 110: return new BuilderNamePredicate_Group(this, this, 110, inst);
+			case 111: return new InputPredicate_Group(this, this, 111, inst);
+			case 112: return new SourcePredicate_Alternatives(this, this, 112, inst);
+			case 113: return new OutputPredicate_Alternatives(this, this, 113, inst);
+			case 114: return new BasePathPredicate_Group(this, this, 114, inst);
+			case 115: return new PathPredicate_Group(this, this, 115, inst);
+			case 116: return new CapabilityPredicate_Group(this, this, 116, inst);
+			case 117: return new NamePredicate_Group(this, this, 117, inst);
+			case 118: return new BuilderOrExpression_Group(this, this, 118, inst);
+			case 119: return new BuilderAndExpression_Group(this, this, 119, inst);
+			case 120: return new BuilderNotOrPrimaryExpression_Alternatives(this, this, 120, inst);
+			case 121: return new BuilderNotExpression_Group(this, this, 121, inst);
+			case 122: return new BuilderPrimaryExpression_Alternatives(this, this, 122, inst);
+			case 123: return new GroupedBuilderPrimaryExpression_Group(this, this, 123, inst);
+			case 124: return new Literal_Alternatives(this, this, 124, inst);
+			case 125: return new LiteralList_Alternatives(this, this, 125, inst);
+			case 126: return new LiteralMap_Alternatives(this, this, 126, inst);
+			case 127: return new LiteralFunction_Group(this, this, 127, inst);
+			case 128: return new ClosureExpression_Group(this, this, 128, inst);
+			case 129: return new OneOrManyExpressions_Alternatives(this, this, 129, inst);
+			case 130: return new BlockExpressionWithoutBrackets_Group(this, this, 130, inst);
+			case 131: return new MapEntry_Group(this, this, 131, inst);
+			case 132: return new KeyLiteral_Group(this, this, 132, inst);
+			case 133: return new LiteralType_Group(this, this, 133, inst);
+			case 134: return new ValueLiteral_Alternatives(this, this, 134, inst);
+			case 135: return new BooleanLiteral_Group(this, this, 135, inst);
+			case 136: return new IntegerLiteral_Group(this, this, 136, inst);
+			case 137: return new UnitLiteral_Group(this, this, 137, inst);
+			case 138: return new StringLiteral_Group(this, this, 138, inst);
+			case 139: return new RealLiteral_Group(this, this, 139, inst);
+			case 140: return new RegexpLiteral_Group(this, this, 140, inst);
+			case 141: return new NullLiteral_Group(this, this, 141, inst);
+			case 142: return new ParanthesizedExpression_Group(this, this, 142, inst);
 			default: return null;
 		}	
 	}	
@@ -15473,11 +15476,11 @@ protected class BuilderInput_RightCurlyBracketKeyword_4 extends KeywordToken  {
 /************ begin Rule RepositoryConfiguration ****************
  *
  * RepositoryConfiguration returns build::RepositoryConfiguration:
- *   RepositoryDeclaration|ResolutionStrategy;
+ *   RepositoryDeclaration|ResolutionStrategy|ResolutionStrategySwitch;
  *
  **/
 
-// RepositoryDeclaration|ResolutionStrategy
+// RepositoryDeclaration|ResolutionStrategy|ResolutionStrategySwitch
 protected class RepositoryConfiguration_Alternatives extends AlternativesToken {
 
 	public RepositoryConfiguration_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -15494,6 +15497,7 @@ protected class RepositoryConfiguration_Alternatives extends AlternativesToken {
 		switch(index) {
 			case 0: return new RepositoryConfiguration_RepositoryDeclarationParserRuleCall_0(parent, this, 0, inst);
 			case 1: return new RepositoryConfiguration_ResolutionStrategyParserRuleCall_1(parent, this, 1, inst);
+			case 2: return new RepositoryConfiguration_ResolutionStrategySwitchParserRuleCall_2(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -15564,6 +15568,41 @@ protected class RepositoryConfiguration_ResolutionStrategyParserRuleCall_1 exten
 	protected IInstanceDescription tryConsumeVal() {
 		if(checkForRecursion(ResolutionStrategy_Alternatives.class, current)) return null;
 		if(!current.isInstanceOf(grammarAccess.getResolutionStrategyRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// ResolutionStrategySwitch
+protected class RepositoryConfiguration_ResolutionStrategySwitchParserRuleCall_2 extends RuleCallToken {
+	
+	public RepositoryConfiguration_ResolutionStrategySwitchParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getRepositoryConfigurationAccess().getResolutionStrategySwitchParserRuleCall_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategySwitch_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(ResolutionStrategySwitch_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getResolutionStrategySwitchRule().getType().getClassifier())) return null;
 		return current;
 	}
 	
@@ -16350,6 +16389,549 @@ protected class ResolutionStrategyBest_RightCurlyBracketKeyword_4 extends Keywor
 
 
 /************ end Rule ResolutionStrategyBest ****************/
+
+
+/************ begin Rule ResolutionStrategySwitch ****************
+ *
+ * ResolutionStrategySwitch returns build::ResolutionStrategySwitch:
+ *   {build::ResolutionStrategySwitch} "select-switch" repoSwitch=
+ *   SelectSwitchExpression;
+ *
+ **/
+
+// {build::ResolutionStrategySwitch} "select-switch" repoSwitch=
+// SelectSwitchExpression
+protected class ResolutionStrategySwitch_Group extends GroupToken {
+	
+	public ResolutionStrategySwitch_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getResolutionStrategySwitchAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategySwitch_RepoSwitchAssignment_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getResolutionStrategySwitchRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {build::ResolutionStrategySwitch}
+protected class ResolutionStrategySwitch_ResolutionStrategySwitchAction_0 extends ActionToken  {
+
+	public ResolutionStrategySwitch_ResolutionStrategySwitchAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getResolutionStrategySwitchAccess().getResolutionStrategySwitchAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getResolutionStrategySwitchAccess().getResolutionStrategySwitchAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// "select-switch"
+protected class ResolutionStrategySwitch_SelectSwitchKeyword_1 extends KeywordToken  {
+	
+	public ResolutionStrategySwitch_SelectSwitchKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getResolutionStrategySwitchAccess().getSelectSwitchKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategySwitch_ResolutionStrategySwitchAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// repoSwitch=SelectSwitchExpression
+protected class ResolutionStrategySwitch_RepoSwitchAssignment_2 extends AssignmentToken  {
+	
+	public ResolutionStrategySwitch_RepoSwitchAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getResolutionStrategySwitchAccess().getRepoSwitchAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SelectSwitchExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("repoSwitch",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("repoSwitch");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getSelectSwitchExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getResolutionStrategySwitchAccess().getRepoSwitchSelectSwitchExpressionParserRuleCall_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ResolutionStrategySwitch_SelectSwitchKeyword_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+/************ end Rule ResolutionStrategySwitch ****************/
+
+
+/************ begin Rule SelectSwitchExpression ****************
+ *
+ * SelectSwitchExpression returns be::BSwitchExpression:
+ *   {be::BSwitchExpression} "switch" switchExpression=Expression caseList+=
+ *   RepositorySelectCase+ "endswitch";
+ *
+ **/
+
+// {be::BSwitchExpression} "switch" switchExpression=Expression caseList+=
+// RepositorySelectCase+ "endswitch"
+protected class SelectSwitchExpression_Group extends GroupToken {
+	
+	public SelectSwitchExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSelectSwitchExpressionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SelectSwitchExpression_EndswitchKeyword_4(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getSelectSwitchExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {be::BSwitchExpression}
+protected class SelectSwitchExpression_BSwitchExpressionAction_0 extends ActionToken  {
+
+	public SelectSwitchExpression_BSwitchExpressionAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getSelectSwitchExpressionAccess().getBSwitchExpressionAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getSelectSwitchExpressionAccess().getBSwitchExpressionAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// "switch"
+protected class SelectSwitchExpression_SwitchKeyword_1 extends KeywordToken  {
+	
+	public SelectSwitchExpression_SwitchKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSelectSwitchExpressionAccess().getSwitchKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SelectSwitchExpression_BSwitchExpressionAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// switchExpression=Expression
+protected class SelectSwitchExpression_SwitchExpressionAssignment_2 extends AssignmentToken  {
+	
+	public SelectSwitchExpression_SwitchExpressionAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSelectSwitchExpressionAccess().getSwitchExpressionAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("switchExpression",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("switchExpression");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getSelectSwitchExpressionAccess().getSwitchExpressionExpressionParserRuleCall_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new SelectSwitchExpression_SwitchKeyword_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// caseList+=RepositorySelectCase+
+protected class SelectSwitchExpression_CaseListAssignment_3 extends AssignmentToken  {
+	
+	public SelectSwitchExpression_CaseListAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSelectSwitchExpressionAccess().getCaseListAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositorySelectCase_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("caseList",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("caseList");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getRepositorySelectCaseRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getSelectSwitchExpressionAccess().getCaseListRepositorySelectCaseParserRuleCall_3_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new SelectSwitchExpression_CaseListAssignment_3(parent, next, actIndex, consumed);
+			case 1: return new SelectSwitchExpression_SwitchExpressionAssignment_2(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// "endswitch"
+protected class SelectSwitchExpression_EndswitchKeyword_4 extends KeywordToken  {
+	
+	public SelectSwitchExpression_EndswitchKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSelectSwitchExpressionAccess().getEndswitchKeyword_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SelectSwitchExpression_CaseListAssignment_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+/************ end Rule SelectSwitchExpression ****************/
+
+
+/************ begin Rule RepositorySelectCase ****************
+ *
+ * RepositorySelectCase returns be::BCase:
+ *   {be::BCase} "case" conditionExpr=Expression ":" thenExpr=RepositoryConfiguration;
+ *
+ **/
+
+// {be::BCase} "case" conditionExpr=Expression ":" thenExpr=RepositoryConfiguration
+protected class RepositorySelectCase_Group extends GroupToken {
+	
+	public RepositorySelectCase_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositorySelectCase_ThenExprAssignment_4(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getRepositorySelectCaseRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {be::BCase}
+protected class RepositorySelectCase_BCaseAction_0 extends ActionToken  {
+
+	public RepositorySelectCase_BCaseAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getBCaseAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getRepositorySelectCaseAccess().getBCaseAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// "case"
+protected class RepositorySelectCase_CaseKeyword_1 extends KeywordToken  {
+	
+	public RepositorySelectCase_CaseKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getCaseKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositorySelectCase_BCaseAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// conditionExpr=Expression
+protected class RepositorySelectCase_ConditionExprAssignment_2 extends AssignmentToken  {
+	
+	public RepositorySelectCase_ConditionExprAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getConditionExprAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("conditionExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("conditionExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getRepositorySelectCaseAccess().getConditionExprExpressionParserRuleCall_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new RepositorySelectCase_CaseKeyword_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ":"
+protected class RepositorySelectCase_ColonKeyword_3 extends KeywordToken  {
+	
+	public RepositorySelectCase_ColonKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getColonKeyword_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositorySelectCase_ConditionExprAssignment_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// thenExpr=RepositoryConfiguration
+protected class RepositorySelectCase_ThenExprAssignment_4 extends AssignmentToken  {
+	
+	public RepositorySelectCase_ThenExprAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getThenExprAssignment_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryConfiguration_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("thenExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("thenExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getRepositoryConfigurationRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getRepositorySelectCaseAccess().getThenExprRepositoryConfigurationParserRuleCall_4_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new RepositorySelectCase_ColonKeyword_3(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+/************ end Rule RepositorySelectCase ****************/
 
 
 /************ begin Rule ContainerConfiguration ****************

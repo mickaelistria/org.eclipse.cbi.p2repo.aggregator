@@ -385,6 +385,16 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseResolutionStrategySwitch(ResolutionStrategySwitch object) {
+			return createResolutionStrategySwitchAdapter();
+		}
+
+		@Override
+		public Adapter caseSwitchRepository(SwitchRepository object) {
+			return createSwitchRepositoryAdapter();
+		}
+
+		@Override
 		public Adapter caseBFunctionContainer(BFunctionContainer object) {
 			return createBFunctionContainerAdapter();
 		}
@@ -810,6 +820,34 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnitResolutionInfoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.ResolutionStrategySwitch <em>Resolution Strategy Switch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.ResolutionStrategySwitch
+	 * @generated
+	 */
+	public Adapter createResolutionStrategySwitchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.SwitchRepository <em>Switch Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.SwitchRepository
+	 * @generated
+	 */
+	public Adapter createSwitchRepositoryAdapter() {
 		return null;
 	}
 

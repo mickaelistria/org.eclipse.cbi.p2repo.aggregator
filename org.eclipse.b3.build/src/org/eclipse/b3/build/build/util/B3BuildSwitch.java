@@ -709,6 +709,28 @@ public class B3BuildSwitch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case B3BuildPackage.RESOLUTION_STRATEGY_SWITCH: {
+			ResolutionStrategySwitch resolutionStrategySwitch = (ResolutionStrategySwitch) theEObject;
+			T result = caseResolutionStrategySwitch(resolutionStrategySwitch);
+			if(result == null)
+				result = caseRepositoryConfiguration(resolutionStrategySwitch);
+			if(result == null)
+				result = caseBExpression(resolutionStrategySwitch);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.SWITCH_REPOSITORY: {
+			SwitchRepository switchRepository = (SwitchRepository) theEObject;
+			T result = caseSwitchRepository(switchRepository);
+			if(result == null)
+				result = caseBuildUnitRepository(switchRepository);
+			if(result == null)
+				result = caseIBuildUnitRepository(switchRepository);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -1086,6 +1108,36 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseUnitResolutionInfo(UnitResolutionInfo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resolution Strategy Switch</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resolution Strategy Switch</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResolutionStrategySwitch(ResolutionStrategySwitch object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Switch Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Switch Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwitchRepository(SwitchRepository object) {
 		return null;
 	}
 

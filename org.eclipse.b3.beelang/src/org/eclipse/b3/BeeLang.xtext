@@ -300,6 +300,7 @@ BuilderInput returns build::BuilderInput : {build::BuilderInput}
 RepositoryConfiguration returns build::RepositoryConfiguration 
 	: RepositoryDeclaration
 	| ResolutionStrategy 
+	| ResolutionStrategySwitch
 	;
 
 RepositoryDeclaration returns build::RepositoryDeclaration : {build::RepositoryDeclaration}
@@ -319,7 +320,19 @@ ResolutionStrategyFirst returns build::ResolutionStrategyFirst : {build::Resolut
 ResolutionStrategyBest returns build::ResolutionStrategyBest : {build::ResolutionStrategyBest}
 	"select-best" '{' (repositories += RepositoryConfiguration)* '}'
 	;
-
+	
+ResolutionStrategySwitch returns build::ResolutionStrategySwitch : {build::ResolutionStrategySwitch}
+	 "select-switch" repoSwitch=SelectSwitchExpression
+	 ; 
+	
+SelectSwitchExpression returns be::BSwitchExpression : {be::BSwitchExpression}
+	"switch" switchExpression=Expression (caseList+=RepositorySelectCase)+  "endswitch" 
+	;
+			
+RepositorySelectCase returns be::BCase : {be::BCase} 
+	"case" conditionExpr=Expression ":" thenExpr = RepositoryConfiguration
+	;
+	
 ContainerConfiguration returns build::ContainerConfiguration: {build::ContainerConfiguration} 
 	(documentation=DOCUMENTATION)? 
 	"container" name=ID "agent" agentType=TypeRef (contextBlock = BlockExpression)? 

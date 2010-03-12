@@ -3930,6 +3930,71 @@ public interface B3BuildPackage extends EPackage {
 	int UNIT_RESOLUTION_INFO_FEATURE_COUNT = RESOLUTION_INFO_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl <em>Resolution Strategy Switch</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategySwitch()
+	 * @generated
+	 */
+	int RESOLUTION_STRATEGY_SWITCH = 60;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_SWITCH__COND_EXPR = REPOSITORY_CONFIGURATION__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Repo Switch</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_SWITCH__REPO_SWITCH = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Resolution Strategy Switch</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_SWITCH_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SwitchRepositoryImpl <em>Switch Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.SwitchRepositoryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSwitchRepository()
+	 * @generated
+	 */
+	int SWITCH_REPOSITORY = 61;
+
+	/**
+	 * The feature id for the '<em><b>Repo Switch</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH_REPOSITORY__REPO_SWITCH = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Switch Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3937,7 +4002,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 60;
+	int VERSION_RANGE = 62;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -3947,7 +4012,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 61;
+	int VERSION = 63;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -3957,7 +4022,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 62;
+	int ISTATUS = 64;
 
 	/**
 	 * The meta object id for the '<em>Path Iterator</em>' data type.
@@ -3967,7 +4032,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathIterator()
 	 * @generated
 	 */
-	int PATH_ITERATOR = 63;
+	int PATH_ITERATOR = 65;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnit <em>Build Unit</em>}'.
@@ -4802,6 +4867,48 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUnitResolutionInfo_Context();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategySwitch <em>Resolution Strategy Switch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resolution Strategy Switch</em>'.
+	 * @see org.eclipse.b3.build.build.ResolutionStrategySwitch
+	 * @generated
+	 */
+	EClass getResolutionStrategySwitch();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.ResolutionStrategySwitch#getRepoSwitch <em>Repo Switch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Repo Switch</em>'.
+	 * @see org.eclipse.b3.build.build.ResolutionStrategySwitch#getRepoSwitch()
+	 * @see #getResolutionStrategySwitch()
+	 * @generated
+	 */
+	EReference getResolutionStrategySwitch_RepoSwitch();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SwitchRepository <em>Switch Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Switch Repository</em>'.
+	 * @see org.eclipse.b3.build.build.SwitchRepository
+	 * @generated
+	 */
+	EClass getSwitchRepository();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.SwitchRepository#getRepoSwitch <em>Repo Switch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Repo Switch</em>'.
+	 * @see org.eclipse.b3.build.build.SwitchRepository#getRepoSwitch()
+	 * @see #getSwitchRepository()
+	 * @generated
+	 */
+	EReference getSwitchRepository_RepoSwitch();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
@@ -6750,6 +6857,42 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UNIT_RESOLUTION_INFO__CONTEXT = eINSTANCE.getUnitResolutionInfo_Context();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl <em>Resolution Strategy Switch</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategySwitch()
+		 * @generated
+		 */
+		EClass RESOLUTION_STRATEGY_SWITCH = eINSTANCE.getResolutionStrategySwitch();
+
+		/**
+		 * The meta object literal for the '<em><b>Repo Switch</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOLUTION_STRATEGY_SWITCH__REPO_SWITCH = eINSTANCE.getResolutionStrategySwitch_RepoSwitch();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SwitchRepositoryImpl <em>Switch Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.SwitchRepositoryImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSwitchRepository()
+		 * @generated
+		 */
+		EClass SWITCH_REPOSITORY = eINSTANCE.getSwitchRepository();
+
+		/**
+		 * The meta object literal for the '<em><b>Repo Switch</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SWITCH_REPOSITORY__REPO_SWITCH = eINSTANCE.getSwitchRepository_RepoSwitch();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.

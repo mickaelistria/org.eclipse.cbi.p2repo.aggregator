@@ -66,8 +66,10 @@ import org.eclipse.b3.build.build.ResolutionInfo;
 import org.eclipse.b3.build.build.ResolutionStrategy;
 import org.eclipse.b3.build.build.ResolutionStrategyBest;
 import org.eclipse.b3.build.build.ResolutionStrategyFirst;
+import org.eclipse.b3.build.build.ResolutionStrategySwitch;
 import org.eclipse.b3.build.build.SimpleRepository;
 import org.eclipse.b3.build.build.SourcePredicate;
+import org.eclipse.b3.build.build.SwitchRepository;
 import org.eclipse.b3.build.build.Synchronization;
 import org.eclipse.b3.build.build.UnitConcernContext;
 import org.eclipse.b3.build.build.UnitNamePredicate;
@@ -308,6 +310,20 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EClass unitResolutionInfoEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resolutionStrategySwitchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass switchRepositoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -884,6 +900,12 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		unitResolutionInfoEClass = createEClass(UNIT_RESOLUTION_INFO);
 		createEReference(unitResolutionInfoEClass, UNIT_RESOLUTION_INFO__UNIT);
 		createEReference(unitResolutionInfoEClass, UNIT_RESOLUTION_INFO__CONTEXT);
+
+		resolutionStrategySwitchEClass = createEClass(RESOLUTION_STRATEGY_SWITCH);
+		createEReference(resolutionStrategySwitchEClass, RESOLUTION_STRATEGY_SWITCH__REPO_SWITCH);
+
+		switchRepositoryEClass = createEClass(SWITCH_REPOSITORY);
+		createEReference(switchRepositoryEClass, SWITCH_REPOSITORY__REPO_SWITCH);
 
 		// Create data types
 		versionRangeEDataType = createEDataType(VERSION_RANGE);
@@ -2616,6 +2638,42 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getResolutionStrategySwitch() {
+		return resolutionStrategySwitchEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResolutionStrategySwitch_RepoSwitch() {
+		return (EReference) resolutionStrategySwitchEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwitchRepository() {
+		return switchRepositoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwitchRepository_RepoSwitch() {
+		return (EReference) switchRepositoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getUnitResolutionInfo_Unit() {
 		return (EReference) unitResolutionInfoEClass.getEStructuralFeatures().get(0);
 	}
@@ -2732,6 +2790,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		executionStackRepositoryEClass.getESuperTypes().add(this.getBuildUnitRepository());
 		simpleRepositoryEClass.getESuperTypes().add(this.getBuildUnitRepository());
 		unitResolutionInfoEClass.getESuperTypes().add(this.getResolutionInfo());
+		resolutionStrategySwitchEClass.getESuperTypes().add(this.getRepositoryConfiguration());
+		switchRepositoryEClass.getESuperTypes().add(this.getBuildUnitRepository());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(buildUnitEClass, BuildUnit.class, "BuildUnit", !IS_ABSTRACT, !IS_INTERFACE,
@@ -3478,6 +3538,18 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEReference(getUnitResolutionInfo_Context(), theB3backendPackage.getBExecutionContext(), null, "context",
 				null, 0, 1, UnitResolutionInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resolutionStrategySwitchEClass, ResolutionStrategySwitch.class, "ResolutionStrategySwitch",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResolutionStrategySwitch_RepoSwitch(), theB3backendPackage.getBSwitchExpression(), null,
+				"repoSwitch", null, 0, 1, ResolutionStrategySwitch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(switchRepositoryEClass, SwitchRepository.class, "SwitchRepository", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSwitchRepository_RepoSwitch(), theB3backendPackage.getBSwitchExpression(), null,
+				"repoSwitch", null, 0, 1, SwitchRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(versionRangeEDataType, VersionRange.class, "VersionRange", IS_SERIALIZABLE,
