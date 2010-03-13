@@ -107,7 +107,7 @@
                   Resource transformer class
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.b3.aggregator.util.ITransformer"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.b3.aggregator.transformer.ITransformer"/>
                </appInfo>
             </annotation>
          </attribute>
@@ -116,10 +116,12 @@
                <documentation>
                   Adds additional data to the context.
 
-A typical use-case is a WizardPage that gets info from users and contributes it to the context. The context is read during transformation.
+A typical use-case is a set of defaults that may be bound to an interactive user interface (e.g. a wizard page).
+
+The context is read during transformation.
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.b3.aggregator.util.ITransformerContextContributor"/>
+                  <meta.attribute kind="java" basedOn="org.eclipse.b3.aggregator.transformer.TransformerContextContributor:"/>
                </appInfo>
             </annotation>
          </attribute>

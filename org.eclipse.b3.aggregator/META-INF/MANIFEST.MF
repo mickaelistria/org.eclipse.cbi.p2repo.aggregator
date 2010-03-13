@@ -16,6 +16,7 @@ Export-Package: org.eclipse.b3.aggregator,
  org.eclipse.b3.aggregator.p2view,
  org.eclipse.b3.aggregator.p2view.impl,
  org.eclipse.b3.aggregator.p2view.util,
+ org.eclipse.b3.aggregator.transformer,
  org.eclipse.b3.aggregator.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,

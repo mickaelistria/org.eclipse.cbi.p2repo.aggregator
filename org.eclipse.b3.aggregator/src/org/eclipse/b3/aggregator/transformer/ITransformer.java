@@ -6,7 +6,7 @@
  * such license is available at www.eclipse.org.
  */
 
-package org.eclipse.b3.aggregator.util;
+package org.eclipse.b3.aggregator.transformer;
 
 import java.util.Map;
 
