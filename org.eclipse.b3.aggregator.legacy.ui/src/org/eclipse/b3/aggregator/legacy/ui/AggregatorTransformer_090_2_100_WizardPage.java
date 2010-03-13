@@ -40,7 +40,7 @@ public class AggregatorTransformer_090_2_100_WizardPage extends TransformerContr
 	}
 
 	public void contributeToContext(Map<String, Object> context) {
-		context.put(AggregatorTransformer_090_2_100.CONTEXT_FIXED_VERSION, Boolean.valueOf(selectedType == 1));
+		context.put(AggregatorTransformer_090_2_100.CONTEXT_FIXED_VERSION, Boolean.valueOf(selectedType == 0));
 	}
 
 	public void createControl(Composite parent) {
@@ -49,8 +49,11 @@ public class AggregatorTransformer_090_2_100_WizardPage extends TransformerContr
 
 		new Label(composite, SWT.NONE).setText("Target version range will include:");
 		transformationTypeCombo = new Combo(composite, SWT.READ_ONLY);
-		transformationTypeCombo.setItems(new String[] { "all versions >= specified version", "only specified version" });
-		transformationTypeCombo.select(0);
+		transformationTypeCombo.setItems(new String[] { "exactly original version", "all versions >= original version" });
+		Boolean defaultValue = (Boolean) defaultContext.get(AggregatorTransformer_090_2_100.CONTEXT_FIXED_VERSION);
+		transformationTypeCombo.select(defaultValue != null && !defaultValue
+				? 1
+				: 0);
 
 		transformationTypeCombo.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
