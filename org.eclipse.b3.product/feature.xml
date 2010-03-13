@@ -362,13 +362,6 @@ such license is available at www.eclipse.org.
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.equinox.p2.exemplarysetup"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.equinox.ds"
          download-size="0"
          install-size="0"
