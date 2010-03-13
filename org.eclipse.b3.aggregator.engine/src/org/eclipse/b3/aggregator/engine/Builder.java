@@ -32,9 +32,11 @@ import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2.util.ResourceSetWithAgent;
+import org.eclipse.b3.aggregator.transformer.TransformationManager;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
 import org.eclipse.b3.aggregator.util.P2Utils;
+import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.cli.AbstractCommand;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.b3.util.StringUtils;
@@ -59,8 +61,8 @@ import org.eclipse.equinox.p2.engine.IProfile;
 import org.eclipse.equinox.p2.engine.IProfileRegistry;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
+import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.query.QueryUtil;
@@ -820,7 +822,16 @@ public class Builder extends AbstractCommand {
 			// Load the Java model into memory
 			resourceSet = new ResourceSetWithAgent();
 			org.eclipse.emf.common.util.URI fileURI = org.eclipse.emf.common.util.URI.createFileURI(buildModelLocation.getAbsolutePath());
-			Resource resource = resourceSet.getResource(fileURI, true);
+
+			Resource resource;
+			if(ResourceUtils.isCurrentModel(fileURI))
+				resource = resourceSet.getResource(fileURI, true);
+			else {
+				TransformationManager tm = new TransformationManager(fileURI);
+				resource = tm.transformResource();
+				resourceSet.getResources().add(resource);
+			}
+
 			EList<EObject> content = resource.getContents();
 			if(content.size() != 1)
 				throw ExceptionUtils.fromMessage("ECore Resource did not contain one resource. It had %d",
