@@ -8,25 +8,17 @@
 
 package org.eclipse.b3.aggregator.presentation;
 
-import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
-import org.eclipse.b3.aggregator.util.ITransformer;
-import org.eclipse.b3.aggregator.util.ITransformerContextContributor;
-import org.eclipse.b3.aggregator.util.ResourceUtils;
-import org.eclipse.b3.util.StringUtils;
+import org.eclipse.b3.aggregator.transformer.TransformationManager;
+import org.eclipse.b3.aggregator.transformer.TransformerContextContributor;
+import org.eclipse.b3.aggregator.transformer.ui.TransformerContributorWizardPage;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -35,12 +27,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -142,23 +129,11 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		}
 	}
 
-	private static String LEGACY_TRANSFORMATION_ID = "org.eclipse.b3.aggregator.legacy_transformation";
+	private static final String LEGACY_TRANSFORMATION_UI_ID = "org.eclipse.b3.aggregator.editor.legacy_transformation_ui";
 
-	private static String LEGACY_TRANSFORMATION_ATTR_CLASS = "class";
+	private static final String LEGACY_TRANSFORMATION_ATTR_NAME = "name";
 
-	private static String LEGACY_TRANSFORMATION_ATTR_SOURCE_NS = "sourceNS";
-
-	private static String LEGACY_TRANSFORMATION_ATTR_TARGET_NS = "targetNS";
-
-	private static String LEGACY_TRANSFORMATION_ATTR_SOURCE_TOP_ELEMENT = "sourceTopElement";
-
-	private static String LEGACY_TRANSFORMATION_ATTR_SOURCE_NS_ATTRIBUTE = "sourceNSAttribute";
-
-	private static String LEGACY_TRANSFORMATION_ATTR_SOURCE_ECORE = "sourceEcoreUri";
-
-	private static String LEGACY_TRANSFORMATION_ATTR_TARGET_ECORE = "targetEcoreUri";
-
-	private static String LEGACY_TRANSFORMATION_ATTR_CONTEXT_CONTRIBUTOR = "contextContributor";
+	private static final String LEGACY_TRANSFORMATION_ATTR_CLASS = "class";
 
 	/**
 	 * The supported extensions for created files.
@@ -188,7 +163,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 
 	protected InfoPage infoPage;
 
-	protected List<ITransformerContextContributor> contextContributors = new ArrayList<ITransformerContextContributor>();
+	protected List<IWizardPage> contextContributorWizardPages = new ArrayList<IWizardPage>();
 
 	/**
 	 * This is the file creation page.
@@ -197,10 +172,6 @@ public class TransformationWizard extends Wizard implements INewWizard {
 	protected NewFileCreationPage newFileCreationPage;
 
 	protected URI srcResourceURI;
-
-	protected boolean srcNamespaceFound;
-
-	protected List<IConfigurationElement> transformationSequence;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -225,57 +196,30 @@ public class TransformationWizard extends Wizard implements INewWizard {
 
 	private Resource finalResource;
 
-	private Map<String, Object> context = new HashMap<String, Object>();
+	private TransformationManager manager;
 
 	public TransformationWizard(URI srcResourceURI) {
 		this.srcResourceURI = srcResourceURI;
+		final IConfigurationElement[] transformationsUI = Platform.getExtensionRegistry().getConfigurationElementsFor(
+				LEGACY_TRANSFORMATION_UI_ID);
 
-		Set<String> nsPaths = new HashSet<String>();
+		TransformationManager.ContributorListener listener = new TransformationManager.ContributorListener() {
 
-		IConfigurationElement[] transformations = Platform.getExtensionRegistry().getConfigurationElementsFor(
-				LEGACY_TRANSFORMATION_ID);
-
-		String xmlns = null;
-		String topElement = null;
-		String nsAttribute = null;
-		int i = 0;
-
-		while(xmlns == null && i < transformations.length) {
-			topElement = transformations[i].getAttribute(LEGACY_TRANSFORMATION_ATTR_SOURCE_TOP_ELEMENT);
-			nsAttribute = transformations[i].getAttribute(LEGACY_TRANSFORMATION_ATTR_SOURCE_NS_ATTRIBUTE);
-			i++;
-
-			if(StringUtils.trimmedOrNull(topElement) != null && StringUtils.trimmedOrNull(nsAttribute) != null
-					&& !nsPaths.contains(topElement + "/" + nsAttribute)) {
-				xmlns = ResourceUtils.getResourceXMLNS(srcResourceURI, topElement, nsAttribute);
-				nsPaths.add(topElement + "/" + nsAttribute);
-			}
-		}
-
-		srcNamespaceFound = xmlns != null;
-		if(srcNamespaceFound) {
-
-			String requiredSourceNS = xmlns;
-
-			String requiredTargetNS = AggregatorPackage.eNS_URI;
-
-			transformationSequence = resolveTransformationSequence(transformations, requiredSourceNS, requiredTargetNS,
-					new ArrayList<IConfigurationElement>());
-
-			for(IConfigurationElement transformation : transformationSequence) {
-				ITransformerContextContributor contextContributor = null;
-				try {
-					if(transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_CONTEXT_CONTRIBUTOR) != null)
-						contextContributor = (ITransformerContextContributor) transformation.createExecutableExtension(LEGACY_TRANSFORMATION_ATTR_CONTEXT_CONTRIBUTOR);
+			public void contributorFound(IConfigurationElement config, TransformerContextContributor contributor)
+					throws CoreException {
+				for(IConfigurationElement transformationUI : transformationsUI) {
+					if(transformationUI.getAttribute(LEGACY_TRANSFORMATION_ATTR_NAME).equals(
+							config.getAttribute(LEGACY_TRANSFORMATION_ATTR_NAME))) {
+						TransformerContributorWizardPage wizPage = (TransformerContributorWizardPage) transformationUI.createExecutableExtension(LEGACY_TRANSFORMATION_ATTR_CLASS);
+						wizPage.setContextContributor(contributor);
+						contextContributorWizardPages.add(wizPage);
+					}
 				}
-				catch(CoreException e) {
-					throw new RuntimeException(
-							"Depricated resource was not transformed - transformation wizard cannot be started", e);
-				}
-				if(contextContributor != null)
-					contextContributors.add(contextContributor);
 			}
-		}
+
+		};
+
+		manager = new TransformationManager(srcResourceURI, listener);
 	}
 
 	/**
@@ -283,15 +227,15 @@ public class TransformationWizard extends Wizard implements INewWizard {
 	 */
 	@Override
 	public void addPages() {
-		infoPage = new InfoPage("InfoPage", srcNamespaceFound, transformationSequence != null
-				&& !transformationSequence.isEmpty());
+		infoPage = new InfoPage("InfoPage", manager.isSrcNamespaceFound(), manager.getTransformationSequence() != null
+				&& !manager.getTransformationSequence().isEmpty());
 		infoPage.setTitle("Depricated Resource");
 		infoPage.setDescription("Selected resource needs to be transformed to the up-to-date structure");
 		addPage(infoPage);
 
-		for(ITransformerContextContributor contextContributor : contextContributors)
-			if(contextContributor instanceof IWizardPage)
-				addPage((IWizardPage) contextContributor);
+		for(IWizardPage contextContributorWizardPage : contextContributorWizardPages) {
+			addPage(contextContributorWizardPage);
+		}
 
 		newFileCreationPage = new NewFileCreationPage("FileCreationPage", selection);
 		newFileCreationPage.setTitle("Target Location");
@@ -332,10 +276,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 				try {
 					monitor.beginTask("Transformation is in progress", IProgressMonitor.UNKNOWN);
 
-					for(ITransformerContextContributor contextContributor : contextContributors)
-						contextContributor.contributeToContext(context);
-
-					finalResource = transformResource(transformationSequence, srcResourceURI);
+					finalResource = manager.transformResource();
 
 					finalResource.setURI(URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true));
 					finalResource.save(null);
@@ -367,110 +308,5 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		}
 
 		return true;
-	}
-
-	private List<IConfigurationElement> resolveTransformationSequence(IConfigurationElement[] transformations,
-			String requiredSourceNS, String requiredTargetNS, List<IConfigurationElement> transformerSequence) {
-
-		for(IConfigurationElement transformation : transformations) {
-			String srcNS = transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_SOURCE_NS);
-			String trgtNS = transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_TARGET_NS);
-
-			if(requiredSourceNS.equals(srcNS)) {
-
-				List<IConfigurationElement> newTransformerSequence = new ArrayList<IConfigurationElement>();
-				newTransformerSequence.addAll(transformerSequence);
-				newTransformerSequence.add(transformation);
-
-				if(requiredTargetNS.equals(trgtNS)) {
-					return newTransformerSequence;
-				}
-				else {
-					List<IConfigurationElement> result = resolveTransformationSequence(transformations, trgtNS,
-							requiredTargetNS, newTransformerSequence);
-					if(result != null)
-						return result;
-				}
-			}
-		}
-
-		return null;
-	}
-
-	private Resource transformResource(List<IConfigurationElement> transformationSequence, URI originalResourceURI)
-			throws IOException, CoreException {
-
-		ResourceSet ecoreRs01 = null;
-		Resource ecoreRes01 = null;
-		EPackage package01 = null;
-		ResourceSet rs01 = null;
-		Resource res01 = null;
-
-		ResourceSet ecoreRs02 = null;
-		Resource ecoreRes02 = null;
-		EPackage package02 = null;
-		ResourceSet rs02 = null;
-		Resource res02 = null;
-
-		int idx = 0;
-		for(IConfigurationElement transformation : transformationSequence) {
-
-			if(idx == 0) {
-				ecoreRs01 = new ResourceSetImpl();
-				ecoreRs01.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore",
-						new EcoreResourceFactoryImpl());
-				ecoreRes01 = ecoreRs01.getResource(
-						URI.createURI(transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_SOURCE_ECORE)), true);
-				package01 = (EPackage) ecoreRes01.getContents().get(0);
-
-				rs01 = new ResourceSetImpl();
-				rs01.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-				rs01.getPackageRegistry().put(package01.getNsURI(), package01);
-
-				res01 = rs01.getResource(originalResourceURI, true);
-				rs01.getResources().add(res01);
-			}
-			else {
-				ecoreRs01 = ecoreRs02;
-				ecoreRes01 = ecoreRes02;
-				package01 = package02;
-				rs01 = rs02;
-				res01 = res02;
-			}
-
-			idx++;
-
-			File tempFile = File.createTempFile("temp", ".b3aggr");
-			tempFile.deleteOnExit();
-
-			rs02 = new ResourceSetImpl();
-			rs02.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-
-			if(AggregatorPackage.eNS_URI.equals(transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_TARGET_NS))) {
-				package02 = AggregatorPackage.eINSTANCE;
-
-				res02 = new AggregatorResourceImpl(URI.createURI(tempFile.toURI().toString()));
-				rs02.getResources().add(res02);
-			}
-			else {
-				ecoreRs02 = new ResourceSetImpl();
-				ecoreRs02.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore",
-						new EcoreResourceFactoryImpl());
-				ecoreRes02 = ecoreRs02.getResource(
-						URI.createURI(transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_TARGET_ECORE)), true);
-				package02 = (EPackage) ecoreRes02.getContents().get(0);
-
-				res02 = rs02.createResource(URI.createURI(tempFile.toURI().toString()));
-			}
-
-			rs02.getPackageRegistry().put(package02.getNsURI(), package02);
-
-			ITransformer transformer = (ITransformer) transformation.createExecutableExtension(LEGACY_TRANSFORMATION_ATTR_CLASS);
-
-			transformer.initTransformer(res01, res02, package02, context);
-			transformer.startTransformation();
-		}
-
-		return res02;
 	}
 }

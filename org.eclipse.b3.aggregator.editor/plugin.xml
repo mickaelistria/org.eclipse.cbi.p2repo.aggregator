@@ -9,6 +9,7 @@
 -->
 
 <plugin>
+   <extension-point id="legacy_transformation_ui" name="Legady Tansformation UI" schema="schema/legacy_transformation_ui.exsd"/>
 
    <extension point="org.eclipse.ui.newWizards">
       <category
