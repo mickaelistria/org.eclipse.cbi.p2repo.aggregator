@@ -26,7 +26,11 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.b3.cli.headless"
-            name="b3 Headless Launcher">
+            name="b3">
+         <property
+               name="appName"
+               value="b3">
+         </property>
       </product>
    </extension>
 
