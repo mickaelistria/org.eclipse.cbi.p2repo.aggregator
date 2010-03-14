@@ -22,6 +22,9 @@ function Object testLogical() {
 	assertTrue("false || true", true || false);
 	
 	assertTrue("f ||  f || t", false || false || true);
+	assertFalse("f ||  f && t", false || false && true);
+	assertTrue("f ||  t && t", false || true && true);
+	
 	Number a = 1;
 	assertTrue("++a == 2 || ++a == 3", ++a == 2 || ++a == 3);
 	assertEquals("logical || should not have evaluated second increment", 2, a); 
