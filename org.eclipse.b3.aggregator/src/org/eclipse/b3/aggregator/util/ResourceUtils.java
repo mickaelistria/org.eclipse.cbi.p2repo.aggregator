@@ -20,6 +20,7 @@ import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
+import org.eclipse.b3.cli.HeadlessActivator;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
@@ -106,7 +107,7 @@ public class ResourceUtils {
 			}
 		}
 
-		if(updateMarkers)
+		if(updateMarkers && !HeadlessActivator.getInstance().isHeadless())
 			((AggregatorResourceImpl) topResource).analyzeResource();
 	}
 

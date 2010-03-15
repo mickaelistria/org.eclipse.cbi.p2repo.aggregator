@@ -25,6 +25,7 @@ import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.P2Factory;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
+import org.eclipse.b3.cli.HeadlessActivator;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
@@ -650,7 +651,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 						AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS, null, null));
 		}
 
-		getAggregatorResource().analyzeResource();
+		if(!HeadlessActivator.getInstance().isHeadless())
+			getAggregatorResource().analyzeResource();
 	}
 
 	/**
