@@ -190,6 +190,8 @@ public class Headless implements IApplication {
 	}
 
 	public Object start(IApplicationContext context) throws Exception {
+		HeadlessActivator.getInstance().setHeadless();
+
 		String args[] = (String[]) context.getArguments().get(IApplicationContext.APPLICATION_ARGS);
 
 		return Integer.valueOf(run(args, true));
