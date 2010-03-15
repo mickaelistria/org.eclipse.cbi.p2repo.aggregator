@@ -16,9 +16,7 @@
         -->
         <cs:dependency name="org.eclipse.b3.site.eclipse" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.b3.site.eclipse.headless" componentType="eclipse.feature"/>
-        <!--
         <cs:dependency name="org.eclipse.rcp" componentType="eclipse.feature"/>
-        -->
     </cs:dependencies>
     <cs:actions>
         <cs:public name="clear.site.eclipse" actor="ant" always="true">
