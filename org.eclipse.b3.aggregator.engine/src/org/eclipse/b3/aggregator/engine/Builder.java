@@ -48,6 +48,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.ecf.core.ContainerCreateException;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -818,16 +819,40 @@ public class Builder extends AbstractCommand {
 	 *             If something goes wrong with during the process
 	 */
 	private void loadModel() throws CoreException {
+
+		// TODO Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=305863
+		// When the bug is fixed, remove this block and remove bundle dependencies on ECF!!!
+		org.eclipse.ecf.core.IContainer container;
+		try {
+			container = org.eclipse.ecf.core.ContainerFactory.getDefault().createContainer();
+			container.getAdapter(org.eclipse.ecf.filetransfer.IRemoteFileSystemBrowserContainerAdapter.class);
+		}
+		catch(ContainerCreateException e) {
+			throw ExceptionUtils.fromMessage("Unable to initialize file transfer adapter");
+		}
+		// end of workaround
+
 		try {
 			// Load the Java model into memory
 			resourceSet = new ResourceSetWithAgent();
-			org.eclipse.emf.common.util.URI fileURI = org.eclipse.emf.common.util.URI.createFileURI(buildModelLocation.getAbsolutePath());
+			String modelPath = buildModelLocation.getAbsolutePath();
+			File modelFile = new File(modelPath);
+			if(!modelFile.exists())
+				throw ExceptionUtils.fromMessage("Specified build model file does not exist");
+			if(!modelFile.isFile())
+				throw ExceptionUtils.fromMessage("Specified build model location does not appoint a file");
+			org.eclipse.emf.common.util.URI fileURI = org.eclipse.emf.common.util.URI.createFileURI(modelPath);
 
 			Resource resource;
 			if(ResourceUtils.isCurrentModel(fileURI))
 				resource = resourceSet.getResource(fileURI, true);
 			else {
+				LogUtils.warning("The build model file is obsolete, using the default transformation");
+
 				TransformationManager tm = new TransformationManager(fileURI);
+				if(!tm.isSrcNamespaceFound())
+					throw ExceptionUtils.fromMessage("No transformation found for specified build model");
+
 				resource = tm.transformResource();
 				resourceSet.getResources().add(resource);
 			}
