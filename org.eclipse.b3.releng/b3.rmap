@@ -9,6 +9,7 @@
   <rm:locator pattern="^de\.itemis\.xtext(\..+)?" searchPathRef="itemis"/>
   <rm:locator pattern="^org\.antlr(\..+)?" searchPathRef="itemis"/>
   <rm:locator pattern="^org\.eclipse\.xtext" searchPathRef="itemis"/>
+  <rm:locator pattern="^org\.eclipse\.xtend" searchPathRef="itemis"/>
   <rm:locator pattern="^org\.eclipse\.emf\.mwe(\..+)?" searchPathRef="mwe"/>
   <rm:locator searchPathRef="platform" failOnError="false"/>
   <rm:locator searchPathRef="modeling" failOnError="false"/>
