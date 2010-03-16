@@ -242,8 +242,9 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		newFileCreationPage.setDescription("Provide location for the transformed model");
 		newFileCreationPage.setFileName(srcResourceURI.lastSegment().replaceAll("\\.[^.]*$", "") + "."
 				+ FILE_EXTENSIONS.get(0));
-		newFileCreationPage.setContainerFullPath(Path.fromOSString(srcResourceURI.toPlatformString(true)).makeAbsolute().removeLastSegments(
-				1));
+		newFileCreationPage.setContainerFullPath(Path.fromOSString(srcResourceURI.isPlatform()
+				? srcResourceURI.toPlatformString(true)
+				: srcResourceURI.toFileString()).makeAbsolute().removeLastSegments(1));
 		addPage(newFileCreationPage);
 	}
 
