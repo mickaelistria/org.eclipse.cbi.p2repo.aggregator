@@ -547,13 +547,13 @@ PostopExpression returns be::BExpression :
 
 InfixExpression returns be::BExpression :
 	CallExpression ( 
-	  	({be::BCallExpression.funcExpr=current} "." name=ID  "(" (parameterList = ParameterList)? ")")
+	  	({be::BCallFeature.funcExpr=current} "." name=ID  "(" (parameterList = ParameterList)? ")")
 	  |	({be::BAtExpression.objExpr=current} '[' indexExpr=Expression ']' )
 	  | ({be::BFeatureExpression.objExpr=current} "." featureName=ID)
 	)*;
 	
 CallExpression returns be::BExpression : 
-	PrimaryExpression ({be::BCallExpression.funcExpr=current}"(" (parameterList = ParameterList)? ")")*
+	PrimaryExpression ({be::BCallFunction.funcExpr=current}"(" (parameterList = ParameterList)? ")")*
 	;
 		
 PrimaryExpression returns be::BExpression
@@ -650,9 +650,12 @@ KeywordVariables returns  be::BExpression : {be::BVariableExpression}
 
 FeatureCall returns be::BExpression :
 	OperationCall
+	| ({be::BCallFeature} "." name=ID  "(" (parameterList = ParameterList)? ")")
+	| ({be::BFeatureExpression} "." featureName=ID)
+	
 	;
 	
-OperationCall returns be::BCallExpression : {be::BCallExpression}
+OperationCall returns be::BCallExpression : {be::BCallNamedFunction}
 	name=(ID|PID) 
 	'(' (parameterList = ParameterList)? ')' 
 	;

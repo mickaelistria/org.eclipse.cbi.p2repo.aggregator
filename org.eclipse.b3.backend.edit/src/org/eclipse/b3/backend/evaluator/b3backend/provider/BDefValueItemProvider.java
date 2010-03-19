@@ -329,11 +329,6 @@ public class BDefValueItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
-				 B3backendFactory.eINSTANCE.createBCallExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
 				 B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add
@@ -455,6 +450,21 @@ public class BDefValueItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
 				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter

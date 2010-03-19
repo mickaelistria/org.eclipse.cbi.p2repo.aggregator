@@ -21,7 +21,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * </p>
  *
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBCallExpression()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface BCallExpression extends BParameterizedExpression {

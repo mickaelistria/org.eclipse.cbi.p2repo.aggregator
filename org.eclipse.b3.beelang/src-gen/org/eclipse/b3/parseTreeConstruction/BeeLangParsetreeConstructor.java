@@ -125,7 +125,7 @@ protected class ThisRootNode extends RootToken {
 			case 87: return new PropertyValue_Group(this, this, 87, inst);
 			case 88: return new VariableValue_Group(this, this, 88, inst);
 			case 89: return new KeywordVariables_Group(this, this, 89, inst);
-			case 90: return new FeatureCall_OperationCallParserRuleCall(this, this, 90, inst);
+			case 90: return new FeatureCall_Alternatives(this, this, 90, inst);
 			case 91: return new OperationCall_Group(this, this, 91, inst);
 			case 92: return new ConstructorCallExpression_Group(this, this, 92, inst);
 			case 93: return new BuildConcernContext_Alternatives(this, this, 93, inst);
@@ -25214,13 +25214,13 @@ protected class PostopExpression_FunctionNameAssignment_1_1 extends AssignmentTo
 /************ begin Rule InfixExpression ****************
  *
  * InfixExpression returns be::BExpression:
- *   CallExpression ({be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=
+ *   CallExpression ({be::BCallFeature.funcExpr=current} "." name=ID "(" parameterList=
  *   ParameterList? ")"|{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"|
  *   {be::BFeatureExpression.objExpr=current} "." featureName=ID)*;
  *
  **/
 
-// CallExpression ({be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=
+// CallExpression ({be::BCallFeature.funcExpr=current} "." name=ID "(" parameterList=
 // ParameterList? ")"|{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"|
 // {be::BFeatureExpression.objExpr=current} "." featureName=ID)*
 protected class InfixExpression_Group extends GroupToken {
@@ -25285,8 +25285,8 @@ protected class InfixExpression_CallExpressionParserRuleCall_0 extends RuleCallT
 	}	
 }
 
-// ({be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=ParameterList?
-// ")"|{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"|{be::
+// ({be::BCallFeature.funcExpr=current} "." name=ID "(" parameterList=ParameterList? ")"
+// |{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"|{be::
 // BFeatureExpression.objExpr=current} "." featureName=ID)*
 protected class InfixExpression_Alternatives_1 extends AlternativesToken {
 
@@ -25311,8 +25311,7 @@ protected class InfixExpression_Alternatives_1 extends AlternativesToken {
 		
 }
 
-// {be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=ParameterList?
-// ")"
+// {be::BCallFeature.funcExpr=current} "." name=ID "(" parameterList=ParameterList? ")"
 protected class InfixExpression_Group_1_0 extends GroupToken {
 	
 	public InfixExpression_Group_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -25334,16 +25333,16 @@ protected class InfixExpression_Group_1_0 extends GroupToken {
 		
 }
 
-// {be::BCallExpression.funcExpr=current}
-protected class InfixExpression_BCallExpressionFuncExprAction_1_0_0 extends ActionToken  {
+// {be::BCallFeature.funcExpr=current}
+protected class InfixExpression_BCallFeatureFuncExprAction_1_0_0 extends ActionToken  {
 
-	public InfixExpression_BCallExpressionFuncExprAction_1_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InfixExpression_BCallFeatureFuncExprAction_1_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getInfixExpressionAccess().getBCallExpressionFuncExprAction_1_0_0();
+		return grammarAccess.getInfixExpressionAccess().getBCallFeatureFuncExprAction_1_0_0();
 	}
 
     @Override
@@ -25358,7 +25357,7 @@ protected class InfixExpression_BCallExpressionFuncExprAction_1_0_0 extends Acti
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getInfixExpressionAccess().getBCallExpressionFuncExprAction_1_0_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getInfixExpressionAccess().getBCallFeatureFuncExprAction_1_0_0().getType().getClassifier())) return null;
 		Object val = current.getConsumable("funcExpr", false);
 		if(val == null) return null;
 		if(!current.isConsumedWithLastConsumtion("funcExpr")) return null;
@@ -25381,7 +25380,7 @@ protected class InfixExpression_FullStopKeyword_1_0_1 extends KeywordToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InfixExpression_BCallExpressionFuncExprAction_1_0_0(parent, this, 0, inst);
+			case 0: return new InfixExpression_BCallFeatureFuncExprAction_1_0_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -25778,12 +25777,12 @@ protected class InfixExpression_FeatureNameAssignment_1_2_2 extends AssignmentTo
 /************ begin Rule CallExpression ****************
  *
  * CallExpression returns be::BExpression:
- *   PrimaryExpression ({be::BCallExpression.funcExpr=current} "(" parameterList=
+ *   PrimaryExpression ({be::BCallFunction.funcExpr=current} "(" parameterList=
  *   ParameterList? ")")*;
  *
  **/
 
-// PrimaryExpression ({be::BCallExpression.funcExpr=current} "(" parameterList=
+// PrimaryExpression ({be::BCallFunction.funcExpr=current} "(" parameterList=
 // ParameterList? ")")*
 protected class CallExpression_Group extends GroupToken {
 	
@@ -25847,7 +25846,7 @@ protected class CallExpression_PrimaryExpressionParserRuleCall_0 extends RuleCal
 	}	
 }
 
-// ({be::BCallExpression.funcExpr=current} "(" parameterList=ParameterList? ")")*
+// ({be::BCallFunction.funcExpr=current} "(" parameterList=ParameterList? ")")*
 protected class CallExpression_Group_1 extends GroupToken {
 	
 	public CallExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -25869,16 +25868,16 @@ protected class CallExpression_Group_1 extends GroupToken {
 		
 }
 
-// {be::BCallExpression.funcExpr=current}
-protected class CallExpression_BCallExpressionFuncExprAction_1_0 extends ActionToken  {
+// {be::BCallFunction.funcExpr=current}
+protected class CallExpression_BCallFunctionFuncExprAction_1_0 extends ActionToken  {
 
-	public CallExpression_BCallExpressionFuncExprAction_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public CallExpression_BCallFunctionFuncExprAction_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getCallExpressionAccess().getBCallExpressionFuncExprAction_1_0();
+		return grammarAccess.getCallExpressionAccess().getBCallFunctionFuncExprAction_1_0();
 	}
 
     @Override
@@ -25893,7 +25892,7 @@ protected class CallExpression_BCallExpressionFuncExprAction_1_0 extends ActionT
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getCallExpressionAccess().getBCallExpressionFuncExprAction_1_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getCallExpressionAccess().getBCallFunctionFuncExprAction_1_0().getType().getClassifier())) return null;
 		Object val = current.getConsumable("funcExpr", false);
 		if(val == null) return null;
 		if(!current.isConsumedWithLastConsumtion("funcExpr")) return null;
@@ -25916,7 +25915,7 @@ protected class CallExpression_LeftParenthesisKeyword_1_1 extends KeywordToken  
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CallExpression_BCallExpressionFuncExprAction_1_0(parent, this, 0, inst);
+			case 0: return new CallExpression_BCallFunctionFuncExprAction_1_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -26109,14 +26108,14 @@ protected class PrimaryExpression_FeatureCallParserRuleCall_0 extends RuleCallTo
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new FeatureCall_OperationCallParserRuleCall(this, this, 0, inst);
+			case 0: return new FeatureCall_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(FeatureCall_OperationCallParserRuleCall.class, current)) return null;
+		if(checkForRecursion(FeatureCall_Alternatives.class, current)) return null;
 		if(!current.isInstanceOf(grammarAccess.getFeatureCallRule().getType().getClassifier())) return null;
 		return current;
 	}
@@ -30209,20 +30208,51 @@ protected class KeywordVariables_NameAssignment_1 extends AssignmentToken  {
 /************ begin Rule FeatureCall ****************
  *
  * FeatureCall returns be::BExpression:
- *   OperationCall;
+ *   OperationCall|{be::BCallFeature} "." name=ID "(" parameterList=ParameterList? ")"|{be
+ *   ::BFeatureExpression} "." featureName=ID;
  *
  **/
 
-// OperationCall
-protected class FeatureCall_OperationCallParserRuleCall extends RuleCallToken {
+// OperationCall|{be::BCallFeature} "." name=ID "(" parameterList=ParameterList? ")"|{be
+// ::BFeatureExpression} "." featureName=ID
+protected class FeatureCall_Alternatives extends AlternativesToken {
+
+	public FeatureCall_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
 	
-	public FeatureCall_OperationCallParserRuleCall(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FeatureCall_OperationCallParserRuleCall_0(parent, this, 0, inst);
+			case 1: return new FeatureCall_Group_1(parent, this, 1, inst);
+			case 2: return new FeatureCall_Group_2(parent, this, 2, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getFeatureCallRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// OperationCall
+protected class FeatureCall_OperationCallParserRuleCall_0 extends RuleCallToken {
+	
+	public FeatureCall_OperationCallParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getFeatureCallAccess().getOperationCallParserRuleCall();
+		return grammarAccess.getFeatureCallAccess().getOperationCallParserRuleCall_0();
 	}
 
     @Override
@@ -30233,11 +30263,6 @@ protected class FeatureCall_OperationCallParserRuleCall extends RuleCallToken {
 		}	
 	}	
 		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getFeatureCallRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
     @Override
 	protected IInstanceDescription tryConsumeVal() {
 		if(checkForRecursion(OperationCall_Group.class, current)) return null;
@@ -30253,17 +30278,323 @@ protected class FeatureCall_OperationCallParserRuleCall extends RuleCallToken {
 	}	
 }
 
+// {be::BCallFeature} "." name=ID "(" parameterList=ParameterList? ")"
+protected class FeatureCall_Group_1 extends GroupToken {
+	
+	public FeatureCall_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FeatureCall_RightParenthesisKeyword_1_5(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// {be::BCallFeature}
+protected class FeatureCall_BCallFeatureAction_1_0 extends ActionToken  {
+
+	public FeatureCall_BCallFeatureAction_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getBCallFeatureAction_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getFeatureCallAccess().getBCallFeatureAction_1_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// "."
+protected class FeatureCall_FullStopKeyword_1_1 extends KeywordToken  {
+	
+	public FeatureCall_FullStopKeyword_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getFullStopKeyword_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FeatureCall_BCallFeatureAction_1_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// name=ID
+protected class FeatureCall_NameAssignment_1_2 extends AssignmentToken  {
+	
+	public FeatureCall_NameAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getNameAssignment_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FeatureCall_FullStopKeyword_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("name",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("name");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getFeatureCallAccess().getNameIDTerminalRuleCall_1_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "("
+protected class FeatureCall_LeftParenthesisKeyword_1_3 extends KeywordToken  {
+	
+	public FeatureCall_LeftParenthesisKeyword_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getLeftParenthesisKeyword_1_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FeatureCall_NameAssignment_1_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// parameterList=ParameterList?
+protected class FeatureCall_ParameterListAssignment_1_4 extends AssignmentToken  {
+	
+	public FeatureCall_ParameterListAssignment_1_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getParameterListAssignment_1_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ParameterList_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("parameterList",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("parameterList");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getParameterListRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getFeatureCallAccess().getParameterListParameterListParserRuleCall_1_4_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new FeatureCall_LeftParenthesisKeyword_1_3(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ")"
+protected class FeatureCall_RightParenthesisKeyword_1_5 extends KeywordToken  {
+	
+	public FeatureCall_RightParenthesisKeyword_1_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getRightParenthesisKeyword_1_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FeatureCall_ParameterListAssignment_1_4(parent, this, 0, inst);
+			case 1: return new FeatureCall_LeftParenthesisKeyword_1_3(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// {be::BFeatureExpression} "." featureName=ID
+protected class FeatureCall_Group_2 extends GroupToken {
+	
+	public FeatureCall_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FeatureCall_FeatureNameAssignment_2_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// {be::BFeatureExpression}
+protected class FeatureCall_BFeatureExpressionAction_2_0 extends ActionToken  {
+
+	public FeatureCall_BFeatureExpressionAction_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getBFeatureExpressionAction_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getFeatureCallAccess().getBFeatureExpressionAction_2_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// "."
+protected class FeatureCall_FullStopKeyword_2_1 extends KeywordToken  {
+	
+	public FeatureCall_FullStopKeyword_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getFullStopKeyword_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FeatureCall_BFeatureExpressionAction_2_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// featureName=ID
+protected class FeatureCall_FeatureNameAssignment_2_2 extends AssignmentToken  {
+	
+	public FeatureCall_FeatureNameAssignment_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getFeatureCallAccess().getFeatureNameAssignment_2_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FeatureCall_FullStopKeyword_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("featureName",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("featureName");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getFeatureCallAccess().getFeatureNameIDTerminalRuleCall_2_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+
 /************ end Rule FeatureCall ****************/
 
 
 /************ begin Rule OperationCall ****************
  *
  * OperationCall returns be::BCallExpression:
- *   {be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")";
+ *   {be::BCallNamedFunction} name=( ID | PID ) "(" parameterList=ParameterList? ")";
  *
  **/
 
-// {be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")"
+// {be::BCallNamedFunction} name=( ID | PID ) "(" parameterList=ParameterList? ")"
 protected class OperationCall_Group extends GroupToken {
 	
 	public OperationCall_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -30290,16 +30621,16 @@ protected class OperationCall_Group extends GroupToken {
 	}
 }
 
-// {be::BCallExpression}
-protected class OperationCall_BCallExpressionAction_0 extends ActionToken  {
+// {be::BCallNamedFunction}
+protected class OperationCall_BCallNamedFunctionAction_0 extends ActionToken  {
 
-	public OperationCall_BCallExpressionAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public OperationCall_BCallNamedFunctionAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getOperationCallAccess().getBCallExpressionAction_0();
+		return grammarAccess.getOperationCallAccess().getBCallNamedFunctionAction_0();
 	}
 
     @Override
@@ -30312,7 +30643,7 @@ protected class OperationCall_BCallExpressionAction_0 extends ActionToken  {
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getOperationCallAccess().getBCallExpressionAction_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getOperationCallAccess().getBCallNamedFunctionAction_0().getType().getClassifier())) return null;
 		if(!current.isConsumed()) return null;
 		return current;
 	}
@@ -30333,7 +30664,7 @@ protected class OperationCall_NameAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new OperationCall_BCallExpressionAction_0(parent, this, 0, inst);
+			case 0: return new OperationCall_BCallNamedFunctionAction_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	

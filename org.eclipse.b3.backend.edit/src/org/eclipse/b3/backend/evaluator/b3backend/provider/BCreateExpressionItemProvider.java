@@ -275,11 +275,6 @@ public class BCreateExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
-				 B3backendFactory.eINSTANCE.createBCallExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
 				 B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add
@@ -401,6 +396,21 @@ public class BCreateExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
 				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -490,11 +500,6 @@ public class BCreateExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
-				 B3backendFactory.eINSTANCE.createBCallExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
 				 B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add
@@ -616,6 +621,21 @@ public class BCreateExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
 				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBCallFunction()));
 	}
 
 	/**

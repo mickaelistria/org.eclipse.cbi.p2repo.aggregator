@@ -695,6 +695,33 @@ public class B3backendSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3backendPackage.BCALL_FEATURE: {
+				BCallFeature bCallFeature = (BCallFeature)theEObject;
+				T result = caseBCallFeature(bCallFeature);
+				if (result == null) result = caseBCallExpression(bCallFeature);
+				if (result == null) result = caseBParameterizedExpression(bCallFeature);
+				if (result == null) result = caseBExpression(bCallFeature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BCALL_NAMED_FUNCTION: {
+				BCallNamedFunction bCallNamedFunction = (BCallNamedFunction)theEObject;
+				T result = caseBCallNamedFunction(bCallNamedFunction);
+				if (result == null) result = caseBCallExpression(bCallNamedFunction);
+				if (result == null) result = caseBParameterizedExpression(bCallNamedFunction);
+				if (result == null) result = caseBExpression(bCallNamedFunction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BCALL_FUNCTION: {
+				BCallFunction bCallFunction = (BCallFunction)theEObject;
+				T result = caseBCallFunction(bCallFunction);
+				if (result == null) result = caseBCallExpression(bCallFunction);
+				if (result == null) result = caseBParameterizedExpression(bCallFunction);
+				if (result == null) result = caseBExpression(bCallFunction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1341,6 +1368,51 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseITypedValueContainer(ITypedValueContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BCall Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BCall Feature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBCallFeature(BCallFeature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BCall Named Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BCall Named Function</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBCallNamedFunction(BCallNamedFunction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BCall Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BCall Function</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBCallFunction(BCallFunction object) {
 		return null;
 	}
 

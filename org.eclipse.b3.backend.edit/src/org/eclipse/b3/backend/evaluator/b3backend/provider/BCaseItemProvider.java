@@ -248,11 +248,6 @@ public class BCaseItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
-				 B3backendFactory.eINSTANCE.createBCallExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
 				 B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add
@@ -374,6 +369,21 @@ public class BCaseItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
 				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -463,11 +473,6 @@ public class BCaseItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCASE__THEN_EXPR,
-				 B3backendFactory.eINSTANCE.createBCallExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BCASE__THEN_EXPR,
 				 B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add
@@ -589,6 +594,21 @@ public class BCaseItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCASE__THEN_EXPR,
 				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__THEN_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__THEN_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__THEN_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFunction()));
 	}
 
 	/**

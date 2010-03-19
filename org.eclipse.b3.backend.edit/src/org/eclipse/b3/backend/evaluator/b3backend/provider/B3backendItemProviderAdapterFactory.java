@@ -566,29 +566,6 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallExpression} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BCallExpressionItemProvider bCallExpressionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCallExpression}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBCallExpressionAdapter() {
-		if (bCallExpressionItemProvider == null) {
-			bCallExpressionItemProvider = new BCallExpressionItemProvider(this);
-		}
-
-		return bCallExpressionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1670,6 +1647,75 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFeature} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BCallFeatureItemProvider bCallFeatureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFeature}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBCallFeatureAdapter() {
+		if (bCallFeatureItemProvider == null) {
+			bCallFeatureItemProvider = new BCallFeatureItemProvider(this);
+		}
+
+		return bCallFeatureItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BCallNamedFunctionItemProvider bCallNamedFunctionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBCallNamedFunctionAdapter() {
+		if (bCallNamedFunctionItemProvider == null) {
+			bCallNamedFunctionItemProvider = new BCallNamedFunctionItemProvider(this);
+		}
+
+		return bCallNamedFunctionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFunction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BCallFunctionItemProvider bCallFunctionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFunction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBCallFunctionAdapter() {
+		if (bCallFunctionItemProvider == null) {
+			bCallFunctionItemProvider = new BCallFunctionItemProvider(this);
+		}
+
+		return bCallFunctionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1789,7 +1835,6 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bFeatureExpressionItemProvider != null) bFeatureExpressionItemProvider.dispose();
 		if (bAtExpressionItemProvider != null) bAtExpressionItemProvider.dispose();
 		if (bVariableExpressionItemProvider != null) bVariableExpressionItemProvider.dispose();
-		if (bCallExpressionItemProvider != null) bCallExpressionItemProvider.dispose();
 		if (bLiteralAnyItemProvider != null) bLiteralAnyItemProvider.dispose();
 		if (bCreateExpressionItemProvider != null) bCreateExpressionItemProvider.dispose();
 		if (bGuardExpressionItemProvider != null) bGuardExpressionItemProvider.dispose();
@@ -1837,6 +1882,9 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (b3MetaClassItemProvider != null) b3MetaClassItemProvider.dispose();
 		if (bExpressionWrapperItemProvider != null) bExpressionWrapperItemProvider.dispose();
 		if (bWithContextExpressionItemProvider != null) bWithContextExpressionItemProvider.dispose();
+		if (bCallFeatureItemProvider != null) bCallFeatureItemProvider.dispose();
+		if (bCallNamedFunctionItemProvider != null) bCallNamedFunctionItemProvider.dispose();
+		if (bCallFunctionItemProvider != null) bCallFunctionItemProvider.dispose();
 	}
 
 }

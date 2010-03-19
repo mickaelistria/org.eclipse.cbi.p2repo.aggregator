@@ -70,17 +70,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getParentContext <em>Parent Context
- * </em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getValueMap <em>Value Map</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getFuncStore <em>Func Store</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getEffectiveConcerns <em>Effective
- * Concerns</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getProgressMonitor <em>Progress
- * Monitor</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getParentContext <em>Parent Context</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getValueMap <em>Value Map</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getFuncStore <em>Func Store</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getEffectiveConcerns <em>Effective Concerns</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getProgressMonitor <em>Progress Monitor</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class BExecutionContextImpl extends EObjectImpl implements BExecutionContext {
@@ -119,7 +116,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -278,7 +274,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The cached value of the '{@link #getParentContext() <em>Parent Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getParentContext()
 	 * @generated
 	 * @ordered
@@ -304,7 +299,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The cached value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getValueMap()
 	 * @generated
 	 * @ordered
@@ -315,7 +309,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The default value of the '{@link #getFuncStore() <em>Func Store</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getFuncStore()
 	 * @generated
 	 * @ordered
@@ -326,7 +319,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The cached value of the '{@link #getFuncStore() <em>Func Store</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getFuncStore()
 	 * @generated
 	 * @ordered
@@ -337,7 +329,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The cached value of the '{@link #getEffectiveConcerns() <em>Effective Concerns</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getEffectiveConcerns()
 	 * @generated
 	 * @ordered
@@ -348,7 +339,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The default value of the '{@link #getProgressMonitor() <em>Progress Monitor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getProgressMonitor()
 	 * @generated
 	 * @ordered
@@ -359,7 +349,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The cached value of the '{@link #getProgressMonitor() <em>Progress Monitor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getProgressMonitor()
 	 * @generated
 	 * @ordered
@@ -382,7 +371,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExecutionContext basicGetParentContext() {
@@ -641,24 +629,22 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-			if(resolve)
-				return getParentContext();
-			return basicGetParentContext();
-		case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
-			return getValueMap();
-		case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
-			return getFuncStore();
-		case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
-			return getEffectiveConcerns();
-		case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
-			return getProgressMonitor();
+		switch (featureID) {
+			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
+				if (resolve) return getParentContext();
+				return basicGetParentContext();
+			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
+				return getValueMap();
+			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
+				return getFuncStore();
+			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
+				return getEffectiveConcerns();
+			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
+				return getProgressMonitor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -666,28 +652,21 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-			return parentContext != null;
-		case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
-			return VALUE_MAP_EDEFAULT == null
-					? valueMap != null
-					: !VALUE_MAP_EDEFAULT.equals(valueMap);
-		case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
-			return FUNC_STORE_EDEFAULT == null
-					? funcStore != null
-					: !FUNC_STORE_EDEFAULT.equals(funcStore);
-		case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
-			return effectiveConcerns != null && !effectiveConcerns.isEmpty();
-		case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
-			return PROGRESS_MONITOR_EDEFAULT == null
-					? progressMonitor != null
-					: !PROGRESS_MONITOR_EDEFAULT.equals(progressMonitor);
+		switch (featureID) {
+			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
+				return parentContext != null;
+			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
+				return VALUE_MAP_EDEFAULT == null ? valueMap != null : !VALUE_MAP_EDEFAULT.equals(valueMap);
+			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
+				return FUNC_STORE_EDEFAULT == null ? funcStore != null : !FUNC_STORE_EDEFAULT.equals(funcStore);
+			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
+				return effectiveConcerns != null && !effectiveConcerns.isEmpty();
+			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
+				return PROGRESS_MONITOR_EDEFAULT == null ? progressMonitor != null : !PROGRESS_MONITOR_EDEFAULT.equals(progressMonitor);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -695,29 +674,28 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-			setParentContext((BExecutionContext) newValue);
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
-			setValueMap((ValueMap) newValue);
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
-			setFuncStore((B3FuncStore) newValue);
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
-			getEffectiveConcerns().clear();
-			getEffectiveConcerns().addAll((Collection<? extends BConcern>) newValue);
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
-			setProgressMonitor((IProgressMonitor) newValue);
-			return;
+		switch (featureID) {
+			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
+				setParentContext((BExecutionContext)newValue);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
+				setValueMap((ValueMap)newValue);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
+				setFuncStore((B3FuncStore)newValue);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
+				getEffectiveConcerns().clear();
+				getEffectiveConcerns().addAll((Collection<? extends BConcern>)newValue);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
+				setProgressMonitor((IProgressMonitor)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -725,7 +703,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -736,27 +713,26 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
-		case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-			setParentContext((BExecutionContext) null);
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
-			setValueMap(VALUE_MAP_EDEFAULT);
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
-			setFuncStore(FUNC_STORE_EDEFAULT);
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
-			getEffectiveConcerns().clear();
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
-			setProgressMonitor(PROGRESS_MONITOR_EDEFAULT);
-			return;
+		switch (featureID) {
+			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
+				setParentContext((BExecutionContext)null);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
+				setValueMap(VALUE_MAP_EDEFAULT);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
+				setFuncStore(FUNC_STORE_EDEFAULT);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
+				getEffectiveConcerns().clear();
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
+				setProgressMonitor(PROGRESS_MONITOR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -764,7 +740,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Iterator<BConcernContext> getConcernIterator(Object candidate) {
@@ -878,13 +853,11 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BConcern> getEffectiveConcerns() {
-		if(effectiveConcerns == null) {
-			effectiveConcerns = new EObjectResolvingEList<BConcern>(BConcern.class, this,
-					B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS);
+		if (effectiveConcerns == null) {
+			effectiveConcerns = new EObjectResolvingEList<BConcern>(BConcern.class, this, B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS);
 		}
 		return effectiveConcerns;
 	}
@@ -910,7 +883,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public B3FuncStore getFuncStore() {
@@ -986,17 +958,15 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExecutionContext getParentContext() {
-		if(parentContext != null && parentContext.eIsProxy()) {
-			InternalEObject oldParentContext = (InternalEObject) parentContext;
-			parentContext = (BExecutionContext) eResolveProxy(oldParentContext);
-			if(parentContext != oldParentContext) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, oldParentContext, parentContext));
+		if (parentContext != null && parentContext.eIsProxy()) {
+			InternalEObject oldParentContext = (InternalEObject)parentContext;
+			parentContext = (BExecutionContext)eResolveProxy(oldParentContext);
+			if (parentContext != oldParentContext) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, oldParentContext, parentContext));
 			}
 		}
 		return parentContext;
@@ -1042,7 +1012,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ValueMap getValueMap() {
@@ -1273,69 +1242,59 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setFuncStore(B3FuncStore newFuncStore) {
 		B3FuncStore oldFuncStore = funcStore;
 		funcStore = newFuncStore;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE,
-					oldFuncStore, funcStore));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE, oldFuncStore, funcStore));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setParentContext(BExecutionContext newParentContext) {
 		BExecutionContext oldParentContext = parentContext;
 		parentContext = newParentContext;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT,
-					oldParentContext, parentContext));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, oldParentContext, parentContext));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setProgressMonitor(IProgressMonitor newProgressMonitor) {
 		IProgressMonitor oldProgressMonitor = progressMonitor;
 		progressMonitor = newProgressMonitor;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR, oldProgressMonitor, progressMonitor));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR, oldProgressMonitor, progressMonitor));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setValueMap(ValueMap newValueMap) {
 		ValueMap oldValueMap = valueMap;
 		valueMap = newValueMap;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP,
-					oldValueMap, valueMap));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP, oldValueMap, valueMap));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (valueMap: ");

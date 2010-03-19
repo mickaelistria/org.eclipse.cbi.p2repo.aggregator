@@ -234,11 +234,6 @@ public class BBinaryExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
-				 B3backendFactory.eINSTANCE.createBCallExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
 				 B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add
@@ -360,6 +355,21 @@ public class BBinaryExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
 				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -449,11 +459,6 @@ public class BBinaryExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
-				 B3backendFactory.eINSTANCE.createBCallExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
 				 B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add
@@ -575,6 +580,21 @@ public class BBinaryExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
 				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFunction()));
 	}
 
 	/**

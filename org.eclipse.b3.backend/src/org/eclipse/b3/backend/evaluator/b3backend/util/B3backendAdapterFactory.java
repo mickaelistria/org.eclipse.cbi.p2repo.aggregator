@@ -423,6 +423,18 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createITypedValueContainerAdapter();
 			}
 			@Override
+			public Adapter caseBCallFeature(BCallFeature object) {
+				return createBCallFeatureAdapter();
+			}
+			@Override
+			public Adapter caseBCallNamedFunction(BCallNamedFunction object) {
+				return createBCallNamedFunctionAdapter();
+			}
+			@Override
+			public Adapter caseBCallFunction(BCallFunction object) {
+				return createBCallFunctionAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -1041,6 +1053,48 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createITypedValueContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BCallFeature <em>BCall Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCallFeature
+	 * @generated
+	 */
+	public Adapter createBCallFeatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction <em>BCall Named Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction
+	 * @generated
+	 */
+	public Adapter createBCallNamedFunctionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BCallFunction <em>BCall Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCallFunction
+	 * @generated
+	 */
+	public Adapter createBCallFunctionAdapter() {
 		return null;
 	}
 

@@ -103,7 +103,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BFEATURE_EXPRESSION: return createBFeatureExpression();
 			case B3backendPackage.BAT_EXPRESSION: return createBAtExpression();
 			case B3backendPackage.BVARIABLE_EXPRESSION: return createBVariableExpression();
-			case B3backendPackage.BCALL_EXPRESSION: return createBCallExpression();
 			case B3backendPackage.BLITERAL_ANY: return createBLiteralAny();
 			case B3backendPackage.BCREATE_EXPRESSION: return createBCreateExpression();
 			case B3backendPackage.BGUARD_EXPRESSION: return createBGuardExpression();
@@ -151,6 +150,9 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.B3_META_CLASS: return createB3MetaClass();
 			case B3backendPackage.BEXPRESSION_WRAPPER: return createBExpressionWrapper();
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION: return createBWithContextExpression();
+			case B3backendPackage.BCALL_FEATURE: return createBCallFeature();
+			case B3backendPackage.BCALL_NAMED_FUNCTION: return createBCallNamedFunction();
+			case B3backendPackage.BCALL_FUNCTION: return createBCallFunction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -470,16 +472,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BVariableExpression createBVariableExpression() {
 		BVariableExpressionImpl bVariableExpression = new BVariableExpressionImpl();
 		return bVariableExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BCallExpression createBCallExpression() {
-		BCallExpressionImpl bCallExpression = new BCallExpressionImpl();
-		return bCallExpression;
 	}
 
 	/**
@@ -950,6 +942,36 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BWithContextExpression createBWithContextExpression() {
 		BWithContextExpressionImpl bWithContextExpression = new BWithContextExpressionImpl();
 		return bWithContextExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BCallFeature createBCallFeature() {
+		BCallFeatureImpl bCallFeature = new BCallFeatureImpl();
+		return bCallFeature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BCallNamedFunction createBCallNamedFunction() {
+		BCallNamedFunctionImpl bCallNamedFunction = new BCallNamedFunctionImpl();
+		return bCallNamedFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BCallFunction createBCallFunction() {
+		BCallFunctionImpl bCallFunction = new BCallFunctionImpl();
+		return bCallFunction;
 	}
 
 	/**

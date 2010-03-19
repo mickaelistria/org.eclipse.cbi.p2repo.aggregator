@@ -221,7 +221,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BVariableExpression" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BCallExpression" eSuperTypes="#//BParameterizedExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="BCallExpression" abstract="true" eSuperTypes="#//BParameterizedExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="funcExpr" eType="#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -753,4 +753,7 @@
       <eParameters name="allVisible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BCallFeature" eSuperTypes="#//BCallExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BCallNamedFunction" eSuperTypes="#//BCallExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BCallFunction" eSuperTypes="#//BCallExpression"/>
 </ecore:EPackage>

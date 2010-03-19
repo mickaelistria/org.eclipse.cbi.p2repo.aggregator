@@ -185,7 +185,7 @@ public class TestSystemLibrary extends TestCase {
 	}
 	private BExpression createTargetCall(Object target, String functionName, BExpression[] params) {
 		B3backendFactory b3 = B3backendFactory.eINSTANCE;
-		BCallExpression call = b3.createBCallExpression();
+		BCallExpression call = b3.createBCallFeature();
 		BLiteralExpression texpr;
 		call.setFuncExpr(texpr = b3.createBLiteralExpression());
 		texpr.setValue(target);

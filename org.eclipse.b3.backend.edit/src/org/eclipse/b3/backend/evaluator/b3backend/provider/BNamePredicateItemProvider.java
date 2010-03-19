@@ -283,11 +283,6 @@ public class BNamePredicateItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
-				 B3backendFactory.eINSTANCE.createBCallExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
 				 B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add
@@ -409,6 +404,21 @@ public class BNamePredicateItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
 				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+				 B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+				 B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+				 B3backendFactory.eINSTANCE.createBCallFunction()));
 	}
 
 	/**

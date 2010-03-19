@@ -37,6 +37,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.BBinaryExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallFeature;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BCase;
 import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
@@ -102,6 +105,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
+import org.eclipse.b3.backend.evaluator.b3backend.CallExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
@@ -435,6 +439,27 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass iTypedValueContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bCallFeatureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bCallNamedFunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bCallFunctionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2104,6 +2129,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBCallFeature() {
+		return bCallFeatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBCallNamedFunction() {
+		return bCallNamedFunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBCallFunction() {
+		return bCallFunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBGuard() {
 		return bGuardEClass;
 	}
@@ -3540,6 +3592,12 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		iTypedValueContainerEClass = createEClass(ITYPED_VALUE_CONTAINER);
 
+		bCallFeatureEClass = createEClass(BCALL_FEATURE);
+
+		bCallNamedFunctionEClass = createEClass(BCALL_NAMED_FUNCTION);
+
+		bCallFunctionEClass = createEClass(BCALL_FUNCTION);
+
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
 		executionModeEEnum = createEEnum(EXECUTION_MODE);
@@ -3675,6 +3733,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		b3MetaClassEClass.getESuperTypes().add(this.getIType());
 		bExpressionWrapperEClass.getESuperTypes().add(this.getBExpression());
 		bWithContextExpressionEClass.getESuperTypes().add(this.getBExpression());
+		bCallFeatureEClass.getESuperTypes().add(this.getBCallExpression());
+		bCallNamedFunctionEClass.getESuperTypes().add(this.getBCallExpression());
+		bCallFunctionEClass.getESuperTypes().add(this.getBCallExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3872,7 +3933,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(bVariableExpressionEClass, BVariableExpression.class, "BVariableExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBVariableExpression_Name(), ecorePackage.getEString(), "name", null, 0, 1, BVariableExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(bCallExpressionEClass, BCallExpression.class, "BCallExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bCallExpressionEClass, BCallExpression.class, "BCallExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBCallExpression_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1, BCallExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBCallExpression_Name(), ecorePackage.getEString(), "name", null, 0, 1, BCallExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4283,6 +4344,12 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEBoolean(), "containsValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "allVisible", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(bCallFeatureEClass, BCallFeature.class, "BCallFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bCallNamedFunctionEClass, BCallNamedFunction.class, "BCallNamedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bCallFunctionEClass, BCallFunction.class, "BCallFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

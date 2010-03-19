@@ -292,11 +292,6 @@ public class BWithExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
-				 B3backendFactory.eINSTANCE.createBCallExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
 				 B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add
@@ -418,6 +413,21 @@ public class BWithExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
 				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallFunction()));
 	}
 
 	/**

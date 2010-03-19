@@ -221,15 +221,6 @@ public interface B3backendFactory extends EFactory {
 	BVariableExpression createBVariableExpression();
 
 	/**
-	 * Returns a new object of class '<em>BCall Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>BCall Expression</em>'.
-	 * @generated
-	 */
-	BCallExpression createBCallExpression();
-
-	/**
 	 * Returns a new object of class '<em>BLiteral Any</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -653,6 +644,33 @@ public interface B3backendFactory extends EFactory {
 	 * @generated
 	 */
 	BWithContextExpression createBWithContextExpression();
+
+	/**
+	 * Returns a new object of class '<em>BCall Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BCall Feature</em>'.
+	 * @generated
+	 */
+	BCallFeature createBCallFeature();
+
+	/**
+	 * Returns a new object of class '<em>BCall Named Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BCall Named Function</em>'.
+	 * @generated
+	 */
+	BCallNamedFunction createBCallNamedFunction();
+
+	/**
+	 * Returns a new object of class '<em>BCall Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BCall Function</em>'.
+	 * @generated
+	 */
+	BCallFunction createBCallFunction();
 
 	/**
 	 * Returns the package supported by this factory.

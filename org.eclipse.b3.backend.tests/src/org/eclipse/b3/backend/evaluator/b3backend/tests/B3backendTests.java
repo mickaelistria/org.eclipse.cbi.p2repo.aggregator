@@ -61,7 +61,6 @@ public class B3backendTests extends TestSuite {
 		suite.addTestSuite(BFeatureExpressionTest.class);
 		suite.addTestSuite(BAtExpressionTest.class);
 		suite.addTestSuite(BVariableExpressionTest.class);
-		suite.addTestSuite(BCallExpressionTest.class);
 		suite.addTestSuite(BLiteralAnyTest.class);
 		suite.addTestSuite(BCreateExpressionTest.class);
 		suite.addTestSuite(BGuardExpressionTest.class);
@@ -103,6 +102,9 @@ public class B3backendTests extends TestSuite {
 		suite.addTestSuite(B3MetaClassTest.class);
 		suite.addTestSuite(BExpressionWrapperTest.class);
 		suite.addTestSuite(BWithContextExpressionTest.class);
+		suite.addTestSuite(BCallFeatureTest.class);
+		suite.addTestSuite(BCallNamedFunctionTest.class);
+		suite.addTestSuite(BCallFunctionTest.class);
 		return suite;
 	}
 
