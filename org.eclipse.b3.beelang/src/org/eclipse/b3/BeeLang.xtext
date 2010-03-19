@@ -309,7 +309,8 @@ RepositoryConfiguration returns build::RepositoryConfiguration
 
 RepositoryDeclaration returns build::RepositoryDeclaration : {build::RepositoryDeclaration}
 	(documentation = DOCUMENTATION)?
-	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = BlockExpression)?
+//	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = BlockExpression)?
+	'repository' resolverType=TypeRef (contextBlock = BlockExpression)?
 	;
 
 ResolutionStrategy returns build::ResolutionStrategy 
@@ -337,7 +338,7 @@ SelectSwitchExpression returns be::BSwitchExpression : {be::BSwitchExpression}
 	;
 			
 RepositorySelectCase returns be::BCase : {be::BCase} 
-	"case" conditionExpr=Expression ":" thenExpr = RepositoryConfiguration
+	(("case" conditionExpr=Expression) | "default") ":" thenExpr = RepositoryConfiguration
 	;
 	
 ContainerConfiguration returns build::ContainerConfiguration: {build::ContainerConfiguration} 
@@ -616,7 +617,7 @@ SwitchExpression returns be::BExpression : {be::BSwitchExpression}
 	;
 			
 Case returns be::BCase : {be::BCase} 
-	"case" conditionExpr=Expression ":" thenExpr=Expression
+	(("case" conditionExpr=Expression)|"default") ":" thenExpr=Expression
 	;
 
 BlockExpression returns be::BExpression: {be::BChainedExpression} 

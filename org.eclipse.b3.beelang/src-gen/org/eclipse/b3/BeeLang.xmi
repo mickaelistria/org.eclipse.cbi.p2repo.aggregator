@@ -1347,16 +1347,9 @@
       <tokens xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.169"/>
       </tokens>
-      <tokens xsi:type="xtext:Alternatives">
-        <groups xsi:type="xtext:Assignment" feature="location" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.47"/>
-        </groups>
-        <groups xsi:type="xtext:Group">
-          <tokens xsi:type="xtext:Keyword" value="repository"/>
-          <tokens xsi:type="xtext:Assignment" feature="resolverType" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.59"/>
-          </tokens>
-        </groups>
+      <tokens xsi:type="xtext:Keyword" value="repository"/>
+      <tokens xsi:type="xtext:Assignment" feature="resolverType" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.59"/>
       </tokens>
       <tokens xsi:type="xtext:Assignment" cardinality="?" feature="contextBlock" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.89"/>
@@ -1462,9 +1455,14 @@
           <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BCase"/>
         </type>
       </tokens>
-      <tokens xsi:type="xtext:Keyword" value="case"/>
-      <tokens xsi:type="xtext:Assignment" feature="conditionExpr" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.55"/>
+      <tokens xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="case"/>
+          <tokens xsi:type="xtext:Assignment" feature="conditionExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.55"/>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:Keyword" value="default"/>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value=":"/>
       <tokens xsi:type="xtext:Assignment" feature="thenExpr" operator="=">
@@ -2581,9 +2579,14 @@
           <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BCase"/>
         </type>
       </tokens>
-      <tokens xsi:type="xtext:Keyword" value="case"/>
-      <tokens xsi:type="xtext:Assignment" feature="conditionExpr" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.55"/>
+      <tokens xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="case"/>
+          <tokens xsi:type="xtext:Assignment" feature="conditionExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.55"/>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:Keyword" value="default"/>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value=":"/>
       <tokens xsi:type="xtext:Assignment" feature="thenExpr" operator="=">

@@ -3487,23 +3487,25 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cRepositoryDeclarationAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Assignment cLocationAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
-		private final RuleCall cLocationURIParserRuleCall_2_0_0 = (RuleCall)cLocationAssignment_2_0.eContents().get(0);
-		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
-		private final Keyword cRepositoryKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cResolverTypeAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cResolverTypeTypeRefParserRuleCall_2_1_1_0 = (RuleCall)cResolverTypeAssignment_2_1_1.eContents().get(0);
-		private final Assignment cContextBlockAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cContextBlockBlockExpressionParserRuleCall_3_0 = (RuleCall)cContextBlockAssignment_3.eContents().get(0);
+		private final Keyword cRepositoryKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cResolverTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cResolverTypeTypeRefParserRuleCall_3_0 = (RuleCall)cResolverTypeAssignment_3.eContents().get(0);
+		private final Assignment cContextBlockAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cContextBlockBlockExpressionParserRuleCall_4_0 = (RuleCall)cContextBlockAssignment_4.eContents().get(0);
 		
 		//RepositoryDeclaration returns build::RepositoryDeclaration:
-		//  {build::RepositoryDeclaration} documentation=DOCUMENTATION? (location=URI|
-		//  "repository" resolverType=TypeRef) contextBlock=BlockExpression?;
+		//  {build::RepositoryDeclaration} documentation=DOCUMENTATION? "repository"
+		//  resolverType=TypeRef contextBlock=BlockExpression?; 
+		//
+		//        
+		//	    
+		////	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = BlockExpression)?
 		public ParserRule getRule() { return rule; }
 
-		//{build::RepositoryDeclaration} documentation=DOCUMENTATION? (location=URI|
-		//"repository" resolverType=TypeRef) contextBlock=BlockExpression?
+		//{build::RepositoryDeclaration} documentation=DOCUMENTATION? "repository"
+		//resolverType=TypeRef contextBlock=BlockExpression?   
+		//	    
+		////	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = BlockExpression)?
 		public Group getGroup() { return cGroup; }
 
 		//{build::RepositoryDeclaration}
@@ -3515,32 +3517,21 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//DOCUMENTATION
 		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
 
-		//location=URI|"repository" resolverType=TypeRef
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-
-		//location=URI
-		public Assignment getLocationAssignment_2_0() { return cLocationAssignment_2_0; }
-
-		//URI
-		public RuleCall getLocationURIParserRuleCall_2_0_0() { return cLocationURIParserRuleCall_2_0_0; }
-
-		//"repository" resolverType=TypeRef
-		public Group getGroup_2_1() { return cGroup_2_1; }
-
-		//"repository"
-		public Keyword getRepositoryKeyword_2_1_0() { return cRepositoryKeyword_2_1_0; }
+		//"repository" 
+		////	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = BlockExpression)?
+		public Keyword getRepositoryKeyword_2() { return cRepositoryKeyword_2; }
 
 		//resolverType=TypeRef
-		public Assignment getResolverTypeAssignment_2_1_1() { return cResolverTypeAssignment_2_1_1; }
+		public Assignment getResolverTypeAssignment_3() { return cResolverTypeAssignment_3; }
 
 		//TypeRef
-		public RuleCall getResolverTypeTypeRefParserRuleCall_2_1_1_0() { return cResolverTypeTypeRefParserRuleCall_2_1_1_0; }
+		public RuleCall getResolverTypeTypeRefParserRuleCall_3_0() { return cResolverTypeTypeRefParserRuleCall_3_0; }
 
 		//contextBlock=BlockExpression?
-		public Assignment getContextBlockAssignment_3() { return cContextBlockAssignment_3; }
+		public Assignment getContextBlockAssignment_4() { return cContextBlockAssignment_4; }
 
 		//BlockExpression
-		public RuleCall getContextBlockBlockExpressionParserRuleCall_3_0() { return cContextBlockBlockExpressionParserRuleCall_3_0; }
+		public RuleCall getContextBlockBlockExpressionParserRuleCall_4_0() { return cContextBlockBlockExpressionParserRuleCall_4_0; }
 	}
 
 	public class ResolutionStrategyElements extends AbstractParserRuleElementFinder {
@@ -3735,40 +3726,54 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RepositorySelectCase");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBCaseAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cCaseKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cConditionExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cConditionExprExpressionParserRuleCall_2_0 = (RuleCall)cConditionExprAssignment_2.eContents().get(0);
-		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cThenExprAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cThenExprRepositoryConfigurationParserRuleCall_4_0 = (RuleCall)cThenExprAssignment_4.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Keyword cCaseKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Assignment cConditionExprAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cConditionExprExpressionParserRuleCall_1_0_1_0 = (RuleCall)cConditionExprAssignment_1_0_1.eContents().get(0);
+		private final Keyword cDefaultKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cThenExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cThenExprRepositoryConfigurationParserRuleCall_3_0 = (RuleCall)cThenExprAssignment_3.eContents().get(0);
 		
 		//RepositorySelectCase returns be::BCase:
-		//  {be::BCase} "case" conditionExpr=Expression ":" thenExpr=RepositoryConfiguration;
+		//  {be::BCase} ("case" conditionExpr=Expression|"default") ":" thenExpr=
+		//  RepositoryConfiguration;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BCase} "case" conditionExpr=Expression ":" thenExpr=RepositoryConfiguration
+		//{be::BCase} ("case" conditionExpr=Expression|"default") ":" thenExpr=
+		//RepositoryConfiguration
 		public Group getGroup() { return cGroup; }
 
 		//{be::BCase}
 		public Action getBCaseAction_0() { return cBCaseAction_0; }
 
+		//"case" conditionExpr=Expression|"default"
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
+		//"case" conditionExpr=Expression
+		public Group getGroup_1_0() { return cGroup_1_0; }
+
 		//"case"
-		public Keyword getCaseKeyword_1() { return cCaseKeyword_1; }
+		public Keyword getCaseKeyword_1_0_0() { return cCaseKeyword_1_0_0; }
 
 		//conditionExpr=Expression
-		public Assignment getConditionExprAssignment_2() { return cConditionExprAssignment_2; }
+		public Assignment getConditionExprAssignment_1_0_1() { return cConditionExprAssignment_1_0_1; }
 
 		//Expression
-		public RuleCall getConditionExprExpressionParserRuleCall_2_0() { return cConditionExprExpressionParserRuleCall_2_0; }
+		public RuleCall getConditionExprExpressionParserRuleCall_1_0_1_0() { return cConditionExprExpressionParserRuleCall_1_0_1_0; }
+
+		//"default"
+		public Keyword getDefaultKeyword_1_1() { return cDefaultKeyword_1_1; }
 
 		//":"
-		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 
 		//thenExpr=RepositoryConfiguration
-		public Assignment getThenExprAssignment_4() { return cThenExprAssignment_4; }
+		public Assignment getThenExprAssignment_3() { return cThenExprAssignment_3; }
 
 		//RepositoryConfiguration
-		public RuleCall getThenExprRepositoryConfigurationParserRuleCall_4_0() { return cThenExprRepositoryConfigurationParserRuleCall_4_0; }
+		public RuleCall getThenExprRepositoryConfigurationParserRuleCall_3_0() { return cThenExprRepositoryConfigurationParserRuleCall_3_0; }
 	}
 
 	public class ContainerConfigurationElements extends AbstractParserRuleElementFinder {
@@ -6450,40 +6455,52 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Case");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBCaseAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cCaseKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cConditionExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cConditionExprExpressionParserRuleCall_2_0 = (RuleCall)cConditionExprAssignment_2.eContents().get(0);
-		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cThenExprAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cThenExprExpressionParserRuleCall_4_0 = (RuleCall)cThenExprAssignment_4.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Keyword cCaseKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Assignment cConditionExprAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cConditionExprExpressionParserRuleCall_1_0_1_0 = (RuleCall)cConditionExprAssignment_1_0_1.eContents().get(0);
+		private final Keyword cDefaultKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cThenExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cThenExprExpressionParserRuleCall_3_0 = (RuleCall)cThenExprAssignment_3.eContents().get(0);
 		
 		//Case returns be::BCase:
-		//  {be::BCase} "case" conditionExpr=Expression ":" thenExpr=Expression;
+		//  {be::BCase} ("case" conditionExpr=Expression|"default") ":" thenExpr=Expression;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BCase} "case" conditionExpr=Expression ":" thenExpr=Expression
+		//{be::BCase} ("case" conditionExpr=Expression|"default") ":" thenExpr=Expression
 		public Group getGroup() { return cGroup; }
 
 		//{be::BCase}
 		public Action getBCaseAction_0() { return cBCaseAction_0; }
 
+		//"case" conditionExpr=Expression|"default"
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
+		//"case" conditionExpr=Expression
+		public Group getGroup_1_0() { return cGroup_1_0; }
+
 		//"case"
-		public Keyword getCaseKeyword_1() { return cCaseKeyword_1; }
+		public Keyword getCaseKeyword_1_0_0() { return cCaseKeyword_1_0_0; }
 
 		//conditionExpr=Expression
-		public Assignment getConditionExprAssignment_2() { return cConditionExprAssignment_2; }
+		public Assignment getConditionExprAssignment_1_0_1() { return cConditionExprAssignment_1_0_1; }
 
 		//Expression
-		public RuleCall getConditionExprExpressionParserRuleCall_2_0() { return cConditionExprExpressionParserRuleCall_2_0; }
+		public RuleCall getConditionExprExpressionParserRuleCall_1_0_1_0() { return cConditionExprExpressionParserRuleCall_1_0_1_0; }
+
+		//"default"
+		public Keyword getDefaultKeyword_1_1() { return cDefaultKeyword_1_1; }
 
 		//":"
-		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 
 		//thenExpr=Expression
-		public Assignment getThenExprAssignment_4() { return cThenExprAssignment_4; }
+		public Assignment getThenExprAssignment_3() { return cThenExprAssignment_3; }
 
 		//Expression
-		public RuleCall getThenExprExpressionParserRuleCall_4_0() { return cThenExprExpressionParserRuleCall_4_0; }
+		public RuleCall getThenExprExpressionParserRuleCall_3_0() { return cThenExprExpressionParserRuleCall_3_0; }
 	}
 
 	public class BlockExpressionElements extends AbstractParserRuleElementFinder {
@@ -11843,8 +11860,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RepositoryDeclaration returns build::RepositoryDeclaration:
-	//  {build::RepositoryDeclaration} documentation=DOCUMENTATION? (location=URI|
-	//  "repository" resolverType=TypeRef) contextBlock=BlockExpression?;
+	//  {build::RepositoryDeclaration} documentation=DOCUMENTATION? "repository"
+	//  resolverType=TypeRef contextBlock=BlockExpression?; 
+	//
+	//        
+	//	    
+	////	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = BlockExpression)?
 	public RepositoryDeclarationElements getRepositoryDeclarationAccess() {
 		return (pRepositoryDeclaration != null) ? pRepositoryDeclaration : (pRepositoryDeclaration = new RepositoryDeclarationElements());
 	}
@@ -11908,7 +11929,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RepositorySelectCase returns be::BCase:
-	//  {be::BCase} "case" conditionExpr=Expression ":" thenExpr=RepositoryConfiguration;
+	//  {be::BCase} ("case" conditionExpr=Expression|"default") ":" thenExpr=
+	//  RepositoryConfiguration;
 	public RepositorySelectCaseElements getRepositorySelectCaseAccess() {
 		return (pRepositorySelectCase != null) ? pRepositorySelectCase : (pRepositorySelectCase = new RepositorySelectCaseElements());
 	}
@@ -12549,7 +12571,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Case returns be::BCase:
-	//  {be::BCase} "case" conditionExpr=Expression ":" thenExpr=Expression;
+	//  {be::BCase} ("case" conditionExpr=Expression|"default") ":" thenExpr=Expression;
 	public CaseElements getCaseAccess() {
 		return (pCase != null) ? pCase : (pCase = new CaseElements());
 	}

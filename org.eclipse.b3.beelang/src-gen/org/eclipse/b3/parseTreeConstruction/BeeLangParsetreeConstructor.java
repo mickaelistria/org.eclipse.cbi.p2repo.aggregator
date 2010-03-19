@@ -15784,13 +15784,19 @@ protected class RepositoryConfiguration_ResolutionStrategySwitchParserRuleCall_2
 /************ begin Rule RepositoryDeclaration ****************
  *
  * RepositoryDeclaration returns build::RepositoryDeclaration:
- *   {build::RepositoryDeclaration} documentation=DOCUMENTATION? (location=URI|
- *   "repository" resolverType=TypeRef) contextBlock=BlockExpression?;
+ *   {build::RepositoryDeclaration} documentation=DOCUMENTATION? "repository"
+ *   resolverType=TypeRef contextBlock=BlockExpression?; 
+ * 
+ *         
+ * 	    
+ * //	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = BlockExpression)?
  *
  **/
 
-// {build::RepositoryDeclaration} documentation=DOCUMENTATION? (location=URI|
-// "repository" resolverType=TypeRef) contextBlock=BlockExpression?
+// {build::RepositoryDeclaration} documentation=DOCUMENTATION? "repository"
+// resolverType=TypeRef contextBlock=BlockExpression?   
+// 	    
+// //	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = BlockExpression)?
 protected class RepositoryDeclaration_Group extends GroupToken {
 	
 	public RepositoryDeclaration_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -15805,8 +15811,8 @@ protected class RepositoryDeclaration_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RepositoryDeclaration_ContextBlockAssignment_3(parent, this, 0, inst);
-			case 1: return new RepositoryDeclaration_Alternatives_2(parent, this, 1, inst);
+			case 0: return new RepositoryDeclaration_ContextBlockAssignment_4(parent, this, 0, inst);
+			case 1: return new RepositoryDeclaration_ResolverTypeAssignment_3(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -15880,96 +15886,17 @@ protected class RepositoryDeclaration_DocumentationAssignment_1 extends Assignme
 
 }
 
-// location=URI|"repository" resolverType=TypeRef
-protected class RepositoryDeclaration_Alternatives_2 extends AlternativesToken {
-
-	public RepositoryDeclaration_Alternatives_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
+// "repository" 
+// //	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = BlockExpression)?
+protected class RepositoryDeclaration_RepositoryKeyword_2 extends KeywordToken  {
 	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getAlternatives_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new RepositoryDeclaration_LocationAssignment_2_0(parent, this, 0, inst);
-			case 1: return new RepositoryDeclaration_Group_2_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// location=URI
-protected class RepositoryDeclaration_LocationAssignment_2_0 extends AssignmentToken  {
-	
-	public RepositoryDeclaration_LocationAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getLocationAssignment_2_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new RepositoryDeclaration_DocumentationAssignment_1(parent, this, 0, inst);
-			case 1: return new RepositoryDeclaration_RepositoryDeclarationAction_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("location",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("location");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getRepositoryDeclarationAccess().getLocationURIParserRuleCall_2_0_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// "repository" resolverType=TypeRef
-protected class RepositoryDeclaration_Group_2_1 extends GroupToken {
-	
-	public RepositoryDeclaration_Group_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getGroup_2_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new RepositoryDeclaration_ResolverTypeAssignment_2_1_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "repository"
-protected class RepositoryDeclaration_RepositoryKeyword_2_1_0 extends KeywordToken  {
-	
-	public RepositoryDeclaration_RepositoryKeyword_2_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositoryDeclaration_RepositoryKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getRepositoryKeyword_2_1_0();
+		return grammarAccess.getRepositoryDeclarationAccess().getRepositoryKeyword_2();
 	}
 
     @Override
@@ -15984,15 +15911,15 @@ protected class RepositoryDeclaration_RepositoryKeyword_2_1_0 extends KeywordTok
 }
 
 // resolverType=TypeRef
-protected class RepositoryDeclaration_ResolverTypeAssignment_2_1_1 extends AssignmentToken  {
+protected class RepositoryDeclaration_ResolverTypeAssignment_3 extends AssignmentToken  {
 	
-	public RepositoryDeclaration_ResolverTypeAssignment_2_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositoryDeclaration_ResolverTypeAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getResolverTypeAssignment_2_1_1();
+		return grammarAccess.getRepositoryDeclarationAccess().getResolverTypeAssignment_3();
 	}
 
     @Override
@@ -16011,7 +15938,7 @@ protected class RepositoryDeclaration_ResolverTypeAssignment_2_1_1 extends Assig
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getRepositoryDeclarationAccess().getResolverTypeTypeRefParserRuleCall_2_1_1_0(); 
+				element = grammarAccess.getRepositoryDeclarationAccess().getResolverTypeTypeRefParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -16023,24 +15950,22 @@ protected class RepositoryDeclaration_ResolverTypeAssignment_2_1_1 extends Assig
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new RepositoryDeclaration_RepositoryKeyword_2_1_0(parent, next, actIndex, consumed);
+			case 0: return new RepositoryDeclaration_RepositoryKeyword_2(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
-
-
 // contextBlock=BlockExpression?
-protected class RepositoryDeclaration_ContextBlockAssignment_3 extends AssignmentToken  {
+protected class RepositoryDeclaration_ContextBlockAssignment_4 extends AssignmentToken  {
 	
-	public RepositoryDeclaration_ContextBlockAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositoryDeclaration_ContextBlockAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getContextBlockAssignment_3();
+		return grammarAccess.getRepositoryDeclarationAccess().getContextBlockAssignment_4();
 	}
 
     @Override
@@ -16059,7 +15984,7 @@ protected class RepositoryDeclaration_ContextBlockAssignment_3 extends Assignmen
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getBlockExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getRepositoryDeclarationAccess().getContextBlockBlockExpressionParserRuleCall_3_0(); 
+				element = grammarAccess.getRepositoryDeclarationAccess().getContextBlockBlockExpressionParserRuleCall_4_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -16071,7 +15996,7 @@ protected class RepositoryDeclaration_ContextBlockAssignment_3 extends Assignmen
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new RepositoryDeclaration_Alternatives_2(parent, next, actIndex, consumed);
+			case 0: return new RepositoryDeclaration_ResolverTypeAssignment_3(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -16982,11 +16907,13 @@ protected class SelectSwitchExpression_EndswitchKeyword_3 extends KeywordToken  
 /************ begin Rule RepositorySelectCase ****************
  *
  * RepositorySelectCase returns be::BCase:
- *   {be::BCase} "case" conditionExpr=Expression ":" thenExpr=RepositoryConfiguration;
+ *   {be::BCase} ("case" conditionExpr=Expression|"default") ":" thenExpr=
+ *   RepositoryConfiguration;
  *
  **/
 
-// {be::BCase} "case" conditionExpr=Expression ":" thenExpr=RepositoryConfiguration
+// {be::BCase} ("case" conditionExpr=Expression|"default") ":" thenExpr=
+// RepositoryConfiguration
 protected class RepositorySelectCase_Group extends GroupToken {
 	
 	public RepositorySelectCase_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -17001,7 +16928,7 @@ protected class RepositorySelectCase_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RepositorySelectCase_ThenExprAssignment_4(parent, this, 0, inst);
+			case 0: return new RepositorySelectCase_ThenExprAssignment_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -17041,16 +16968,61 @@ protected class RepositorySelectCase_BCaseAction_0 extends ActionToken  {
 	}
 }
 
-// "case"
-protected class RepositorySelectCase_CaseKeyword_1 extends KeywordToken  {
+// "case" conditionExpr=Expression|"default"
+protected class RepositorySelectCase_Alternatives_1 extends AlternativesToken {
+
+	public RepositorySelectCase_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
 	
-	public RepositorySelectCase_CaseKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getAlternatives_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositorySelectCase_Group_1_0(parent, this, 0, inst);
+			case 1: return new RepositorySelectCase_DefaultKeyword_1_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "case" conditionExpr=Expression
+protected class RepositorySelectCase_Group_1_0 extends GroupToken {
+	
+	public RepositorySelectCase_Group_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getGroup_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositorySelectCase_ConditionExprAssignment_1_0_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "case"
+protected class RepositorySelectCase_CaseKeyword_1_0_0 extends KeywordToken  {
+	
+	public RepositorySelectCase_CaseKeyword_1_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRepositorySelectCaseAccess().getCaseKeyword_1();
+		return grammarAccess.getRepositorySelectCaseAccess().getCaseKeyword_1_0_0();
 	}
 
     @Override
@@ -17064,15 +17036,15 @@ protected class RepositorySelectCase_CaseKeyword_1 extends KeywordToken  {
 }
 
 // conditionExpr=Expression
-protected class RepositorySelectCase_ConditionExprAssignment_2 extends AssignmentToken  {
+protected class RepositorySelectCase_ConditionExprAssignment_1_0_1 extends AssignmentToken  {
 	
-	public RepositorySelectCase_ConditionExprAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositorySelectCase_ConditionExprAssignment_1_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRepositorySelectCaseAccess().getConditionExprAssignment_2();
+		return grammarAccess.getRepositorySelectCaseAccess().getConditionExprAssignment_1_0_1();
 	}
 
     @Override
@@ -17091,7 +17063,7 @@ protected class RepositorySelectCase_ConditionExprAssignment_2 extends Assignmen
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getRepositorySelectCaseAccess().getConditionExprExpressionParserRuleCall_2_0(); 
+				element = grammarAccess.getRepositorySelectCaseAccess().getConditionExprExpressionParserRuleCall_1_0_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -17103,28 +17075,52 @@ protected class RepositorySelectCase_ConditionExprAssignment_2 extends Assignmen
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new RepositorySelectCase_CaseKeyword_1(parent, next, actIndex, consumed);
+			case 0: return new RepositorySelectCase_CaseKeyword_1_0_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
-// ":"
-protected class RepositorySelectCase_ColonKeyword_3 extends KeywordToken  {
+
+// "default"
+protected class RepositorySelectCase_DefaultKeyword_1_1 extends KeywordToken  {
 	
-	public RepositorySelectCase_ColonKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositorySelectCase_DefaultKeyword_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRepositorySelectCaseAccess().getColonKeyword_3();
+		return grammarAccess.getRepositorySelectCaseAccess().getDefaultKeyword_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RepositorySelectCase_ConditionExprAssignment_2(parent, this, 0, inst);
+			case 0: return new RepositorySelectCase_BCaseAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// ":"
+protected class RepositorySelectCase_ColonKeyword_2 extends KeywordToken  {
+	
+	public RepositorySelectCase_ColonKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getColonKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositorySelectCase_Alternatives_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -17132,15 +17128,15 @@ protected class RepositorySelectCase_ColonKeyword_3 extends KeywordToken  {
 }
 
 // thenExpr=RepositoryConfiguration
-protected class RepositorySelectCase_ThenExprAssignment_4 extends AssignmentToken  {
+protected class RepositorySelectCase_ThenExprAssignment_3 extends AssignmentToken  {
 	
-	public RepositorySelectCase_ThenExprAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositorySelectCase_ThenExprAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRepositorySelectCaseAccess().getThenExprAssignment_4();
+		return grammarAccess.getRepositorySelectCaseAccess().getThenExprAssignment_3();
 	}
 
     @Override
@@ -17159,7 +17155,7 @@ protected class RepositorySelectCase_ThenExprAssignment_4 extends AssignmentToke
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getRepositoryConfigurationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getRepositorySelectCaseAccess().getThenExprRepositoryConfigurationParserRuleCall_4_0(); 
+				element = grammarAccess.getRepositorySelectCaseAccess().getThenExprRepositoryConfigurationParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -17171,7 +17167,7 @@ protected class RepositorySelectCase_ThenExprAssignment_4 extends AssignmentToke
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new RepositorySelectCase_ColonKeyword_3(parent, next, actIndex, consumed);
+			case 0: return new RepositorySelectCase_ColonKeyword_2(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -28722,11 +28718,11 @@ protected class SwitchExpression_EndswitchKeyword_4 extends KeywordToken  {
 /************ begin Rule Case ****************
  *
  * Case returns be::BCase:
- *   {be::BCase} "case" conditionExpr=Expression ":" thenExpr=Expression;
+ *   {be::BCase} ("case" conditionExpr=Expression|"default") ":" thenExpr=Expression;
  *
  **/
 
-// {be::BCase} "case" conditionExpr=Expression ":" thenExpr=Expression
+// {be::BCase} ("case" conditionExpr=Expression|"default") ":" thenExpr=Expression
 protected class Case_Group extends GroupToken {
 	
 	public Case_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -28741,7 +28737,7 @@ protected class Case_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Case_ThenExprAssignment_4(parent, this, 0, inst);
+			case 0: return new Case_ThenExprAssignment_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -28781,16 +28777,61 @@ protected class Case_BCaseAction_0 extends ActionToken  {
 	}
 }
 
-// "case"
-protected class Case_CaseKeyword_1 extends KeywordToken  {
+// "case" conditionExpr=Expression|"default"
+protected class Case_Alternatives_1 extends AlternativesToken {
+
+	public Case_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
 	
-	public Case_CaseKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getCaseAccess().getAlternatives_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Case_Group_1_0(parent, this, 0, inst);
+			case 1: return new Case_DefaultKeyword_1_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "case" conditionExpr=Expression
+protected class Case_Group_1_0 extends GroupToken {
+	
+	public Case_Group_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getCaseAccess().getGroup_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Case_ConditionExprAssignment_1_0_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "case"
+protected class Case_CaseKeyword_1_0_0 extends KeywordToken  {
+	
+	public Case_CaseKeyword_1_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getCaseAccess().getCaseKeyword_1();
+		return grammarAccess.getCaseAccess().getCaseKeyword_1_0_0();
 	}
 
     @Override
@@ -28804,15 +28845,15 @@ protected class Case_CaseKeyword_1 extends KeywordToken  {
 }
 
 // conditionExpr=Expression
-protected class Case_ConditionExprAssignment_2 extends AssignmentToken  {
+protected class Case_ConditionExprAssignment_1_0_1 extends AssignmentToken  {
 	
-	public Case_ConditionExprAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Case_ConditionExprAssignment_1_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getCaseAccess().getConditionExprAssignment_2();
+		return grammarAccess.getCaseAccess().getConditionExprAssignment_1_0_1();
 	}
 
     @Override
@@ -28831,7 +28872,7 @@ protected class Case_ConditionExprAssignment_2 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getCaseAccess().getConditionExprExpressionParserRuleCall_2_0(); 
+				element = grammarAccess.getCaseAccess().getConditionExprExpressionParserRuleCall_1_0_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -28843,28 +28884,52 @@ protected class Case_ConditionExprAssignment_2 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Case_CaseKeyword_1(parent, next, actIndex, consumed);
+			case 0: return new Case_CaseKeyword_1_0_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
-// ":"
-protected class Case_ColonKeyword_3 extends KeywordToken  {
+
+// "default"
+protected class Case_DefaultKeyword_1_1 extends KeywordToken  {
 	
-	public Case_ColonKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Case_DefaultKeyword_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getCaseAccess().getColonKeyword_3();
+		return grammarAccess.getCaseAccess().getDefaultKeyword_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Case_ConditionExprAssignment_2(parent, this, 0, inst);
+			case 0: return new Case_BCaseAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// ":"
+protected class Case_ColonKeyword_2 extends KeywordToken  {
+	
+	public Case_ColonKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCaseAccess().getColonKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Case_Alternatives_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -28872,15 +28937,15 @@ protected class Case_ColonKeyword_3 extends KeywordToken  {
 }
 
 // thenExpr=Expression
-protected class Case_ThenExprAssignment_4 extends AssignmentToken  {
+protected class Case_ThenExprAssignment_3 extends AssignmentToken  {
 	
-	public Case_ThenExprAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Case_ThenExprAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getCaseAccess().getThenExprAssignment_4();
+		return grammarAccess.getCaseAccess().getThenExprAssignment_3();
 	}
 
     @Override
@@ -28899,7 +28964,7 @@ protected class Case_ThenExprAssignment_4 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getCaseAccess().getThenExprExpressionParserRuleCall_4_0(); 
+				element = grammarAccess.getCaseAccess().getThenExprExpressionParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -28911,7 +28976,7 @@ protected class Case_ThenExprAssignment_4 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Case_ColonKeyword_3(parent, next, actIndex, consumed);
+			case 0: return new Case_ColonKeyword_2(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
