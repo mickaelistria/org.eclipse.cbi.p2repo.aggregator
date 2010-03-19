@@ -4,6 +4,7 @@
 */
 import java.util.List; // cheat, need a type, don't have the actual types yet...
 import java.util.Map; // - " -
+import org.eclipse.b3.beelang.tests.repo.TestRepo;
 
 function main(List argv) {
 	testBuildUnitSyntax();
@@ -133,7 +134,7 @@ unit aTestUnit version 1.0.0 {
 	provides food.nutrition.mineral/potassium;
 	
 	repositories {
-		select-switch switch request.name case "a" : "svn:svn+ssh://..." case _ : "" endswitch
+		select-switch request.name case "a" : repository TestRepo case _ : repository TestRepo endswitch
 	}
 	
 	builder peel {
