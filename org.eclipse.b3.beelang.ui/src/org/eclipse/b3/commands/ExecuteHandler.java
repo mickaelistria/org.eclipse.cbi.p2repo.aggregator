@@ -71,6 +71,7 @@ public class ExecuteHandler extends AbstractHandler {
 					}
 					// If resolving, run a resolution
 					if(isPerformResolve()) {
+						// TODO: Make it possible to specify the resolver to use
 						SimpleResolver resolver = new SimpleResolver();
 						// bind the resolver, it is later looked up by build jobs to get the
 						// current resolutions of requirements

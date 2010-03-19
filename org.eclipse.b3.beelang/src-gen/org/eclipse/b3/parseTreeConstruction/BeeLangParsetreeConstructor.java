@@ -188,15 +188,29 @@ protected class ThisRootNode extends RootToken {
  *
  * BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
  *   {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
- *   "properties" propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*); 
+ *   "properties" propertySets+=PropertySet_Named|buildUnits+=BuildUnit|"repositories"
+ *   "{" repositories+=RepositoryConfiguration* "}")*); 
  * 
  * // uncomments if things are needed that should not be in backend or build
  * //generate beeLang "http://www.eclipse.org/b3/BeeLang"
+ * 
+ *               
+ * 	     
+ * 		      
+ * 	 	     
+ * 		        
+ * //	|   (expressions += TopLevelExpression ';') // To be discussed (code completion shows too much)
  *
  **/
 
 // {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
-// "properties" propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*)
+// "properties" propertySets+=PropertySet_Named|buildUnits+=BuildUnit|"repositories"
+// "{" repositories+=RepositoryConfiguration* "}")*)   
+// 	     
+// 		      
+// 	 	     
+// 		        
+// //	|   (expressions += TopLevelExpression ';') // To be discussed (code completion shows too much)
 protected class BeeModel_Group extends GroupToken {
 	
 	public BeeModel_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -252,7 +266,12 @@ protected class BeeModel_BeeModelAction_0 extends ActionToken  {
 }
 
 // imports+=Import* (functions+=Function|concerns+=Concern_Named|"properties"
-// propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*
+// propertySets+=PropertySet_Named|buildUnits+=BuildUnit|"repositories" "{"
+// repositories+=RepositoryConfiguration* "}")*      
+// 		      
+// 	 	     
+// 		        
+// //	|   (expressions += TopLevelExpression ';') // To be discussed (code completion shows too much)
 protected class BeeModel_Group_1 extends GroupToken {
 	
 	public BeeModel_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -267,9 +286,8 @@ protected class BeeModel_Group_1 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BeeModel_BuildUnitsAssignment_1_2(parent, this, 0, inst);
-			case 1: return new BeeModel_Alternatives_1_1(parent, this, 1, inst);
-			case 2: return new BeeModel_ImportsAssignment_1_0(parent, this, 2, inst);
+			case 0: return new BeeModel_Alternatives_1_1(parent, this, 0, inst);
+			case 1: return new BeeModel_ImportsAssignment_1_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -324,7 +342,12 @@ protected class BeeModel_ImportsAssignment_1_0 extends AssignmentToken  {
 }
 
 // (functions+=Function|concerns+=Concern_Named|"properties" propertySets+=
-// PropertySet_Named)*
+// PropertySet_Named|buildUnits+=BuildUnit|"repositories" "{" repositories+=
+// RepositoryConfiguration* "}")*  
+// 		      
+// 	 	     
+// 		        
+// //	|   (expressions += TopLevelExpression ';') // To be discussed (code completion shows too much)
 protected class BeeModel_Alternatives_1_1 extends AlternativesToken {
 
 	public BeeModel_Alternatives_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -342,6 +365,8 @@ protected class BeeModel_Alternatives_1_1 extends AlternativesToken {
 			case 0: return new BeeModel_FunctionsAssignment_1_1_0(parent, this, 0, inst);
 			case 1: return new BeeModel_ConcernsAssignment_1_1_1(parent, this, 1, inst);
 			case 2: return new BeeModel_Group_1_1_2(parent, this, 2, inst);
+			case 3: return new BeeModel_BuildUnitsAssignment_1_1_3(parent, this, 3, inst);
+			case 4: return new BeeModel_Group_1_1_4(parent, this, 4, inst);
 			default: return null;
 		}	
 	}	
@@ -537,17 +562,16 @@ protected class BeeModel_PropertySetsAssignment_1_1_2_1 extends AssignmentToken 
 }
 
 
-
-// buildUnits+=BuildUnit*
-protected class BeeModel_BuildUnitsAssignment_1_2 extends AssignmentToken  {
+// buildUnits+=BuildUnit
+protected class BeeModel_BuildUnitsAssignment_1_1_3 extends AssignmentToken  {
 	
-	public BeeModel_BuildUnitsAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BeeModel_BuildUnitsAssignment_1_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBeeModelAccess().getBuildUnitsAssignment_1_2();
+		return grammarAccess.getBeeModelAccess().getBuildUnitsAssignment_1_1_3();
 	}
 
     @Override
@@ -560,13 +584,13 @@ protected class BeeModel_BuildUnitsAssignment_1_2 extends AssignmentToken  {
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("buildUnits",false)) == null) return null;
+		if((value = current.getConsumable("buildUnits",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("buildUnits");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getBuildUnitRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBeeModelAccess().getBuildUnitsBuildUnitParserRuleCall_1_2_0(); 
+				element = grammarAccess.getBeeModelAccess().getBuildUnitsBuildUnitParserRuleCall_1_1_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -578,14 +602,153 @@ protected class BeeModel_BuildUnitsAssignment_1_2 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BeeModel_BuildUnitsAssignment_1_2(parent, next, actIndex, consumed);
-			case 1: return new BeeModel_Alternatives_1_1(parent, next, actIndex, consumed);
-			case 2: return new BeeModel_ImportsAssignment_1_0(parent, next, actIndex, consumed);
-			case 3: return new BeeModel_BeeModelAction_0(parent, next, actIndex, consumed);
+			case 0: return new BeeModel_Alternatives_1_1(parent, next, actIndex, consumed);
+			case 1: return new BeeModel_ImportsAssignment_1_0(parent, next, actIndex, consumed);
+			case 2: return new BeeModel_BeeModelAction_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
+
+// "repositories" "{" repositories+=RepositoryConfiguration* "}"
+protected class BeeModel_Group_1_1_4 extends GroupToken {
+	
+	public BeeModel_Group_1_1_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBeeModelAccess().getGroup_1_1_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BeeModel_RightCurlyBracketKeyword_1_1_4_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "repositories"
+protected class BeeModel_RepositoriesKeyword_1_1_4_0 extends KeywordToken  {
+	
+	public BeeModel_RepositoriesKeyword_1_1_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBeeModelAccess().getRepositoriesKeyword_1_1_4_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BeeModel_Alternatives_1_1(parent, this, 0, inst);
+			case 1: return new BeeModel_ImportsAssignment_1_0(parent, this, 1, inst);
+			case 2: return new BeeModel_BeeModelAction_0(parent, this, 2, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "{"
+protected class BeeModel_LeftCurlyBracketKeyword_1_1_4_1 extends KeywordToken  {
+	
+	public BeeModel_LeftCurlyBracketKeyword_1_1_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBeeModelAccess().getLeftCurlyBracketKeyword_1_1_4_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BeeModel_RepositoriesKeyword_1_1_4_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// repositories+=RepositoryConfiguration*
+protected class BeeModel_RepositoriesAssignment_1_1_4_2 extends AssignmentToken  {
+	
+	public BeeModel_RepositoriesAssignment_1_1_4_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBeeModelAccess().getRepositoriesAssignment_1_1_4_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryConfiguration_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("repositories",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("repositories");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getRepositoryConfigurationRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBeeModelAccess().getRepositoriesRepositoryConfigurationParserRuleCall_1_1_4_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new BeeModel_RepositoriesAssignment_1_1_4_2(parent, next, actIndex, consumed);
+			case 1: return new BeeModel_LeftCurlyBracketKeyword_1_1_4_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// "}"
+protected class BeeModel_RightCurlyBracketKeyword_1_1_4_3 extends KeywordToken  {
+	
+	public BeeModel_RightCurlyBracketKeyword_1_1_4_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBeeModelAccess().getRightCurlyBracketKeyword_1_1_4_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BeeModel_RepositoriesAssignment_1_1_4_2(parent, this, 0, inst);
+			case 1: return new BeeModel_LeftCurlyBracketKeyword_1_1_4_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
 
 
 
@@ -16030,13 +16193,13 @@ protected class ResolutionStrategy_ResolutionStrategyBestParserRuleCall_1 extend
 /************ begin Rule ResolutionStrategyFirst ****************
  *
  * ResolutionStrategyFirst returns build::ResolutionStrategyFirst:
- *   {build::ResolutionStrategyFirst} "select-first" "{" repositories+=
- *   RepositoryConfiguration* "}";
+ *   {build::ResolutionStrategyFirst} documentation=DOCUMENTATION? "select-first" "{"
+ *   repositories+=RepositoryConfiguration* "}";
  *
  **/
 
-// {build::ResolutionStrategyFirst} "select-first" "{" repositories+=
-// RepositoryConfiguration* "}"
+// {build::ResolutionStrategyFirst} documentation=DOCUMENTATION? "select-first" "{"
+// repositories+=RepositoryConfiguration* "}"
 protected class ResolutionStrategyFirst_Group extends GroupToken {
 	
 	public ResolutionStrategyFirst_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16051,7 +16214,7 @@ protected class ResolutionStrategyFirst_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ResolutionStrategyFirst_RightCurlyBracketKeyword_4(parent, this, 0, inst);
+			case 0: return new ResolutionStrategyFirst_RightCurlyBracketKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -16091,16 +16254,16 @@ protected class ResolutionStrategyFirst_ResolutionStrategyFirstAction_0 extends 
 	}
 }
 
-// "select-first"
-protected class ResolutionStrategyFirst_SelectFirstKeyword_1 extends KeywordToken  {
+// documentation=DOCUMENTATION?
+protected class ResolutionStrategyFirst_DocumentationAssignment_1 extends AssignmentToken  {
 	
-	public ResolutionStrategyFirst_SelectFirstKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategyFirst_DocumentationAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getResolutionStrategyFirstAccess().getSelectFirstKeyword_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getResolutionStrategyFirstAccess().getDocumentationAssignment_1();
 	}
 
     @Override
@@ -16111,24 +16274,59 @@ protected class ResolutionStrategyFirst_SelectFirstKeyword_1 extends KeywordToke
 		}	
 	}	
 		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("documentation",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("documentation");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getResolutionStrategyFirstAccess().getDocumentationDOCUMENTATIONTerminalRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
 }
 
-// "{"
-protected class ResolutionStrategyFirst_LeftCurlyBracketKeyword_2 extends KeywordToken  {
+// "select-first"
+protected class ResolutionStrategyFirst_SelectFirstKeyword_2 extends KeywordToken  {
 	
-	public ResolutionStrategyFirst_LeftCurlyBracketKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategyFirst_SelectFirstKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getResolutionStrategyFirstAccess().getLeftCurlyBracketKeyword_2();
+		return grammarAccess.getResolutionStrategyFirstAccess().getSelectFirstKeyword_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ResolutionStrategyFirst_SelectFirstKeyword_1(parent, this, 0, inst);
+			case 0: return new ResolutionStrategyFirst_DocumentationAssignment_1(parent, this, 0, inst);
+			case 1: return new ResolutionStrategyFirst_ResolutionStrategyFirstAction_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "{"
+protected class ResolutionStrategyFirst_LeftCurlyBracketKeyword_3 extends KeywordToken  {
+	
+	public ResolutionStrategyFirst_LeftCurlyBracketKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getResolutionStrategyFirstAccess().getLeftCurlyBracketKeyword_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategyFirst_SelectFirstKeyword_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -16136,15 +16334,15 @@ protected class ResolutionStrategyFirst_LeftCurlyBracketKeyword_2 extends Keywor
 }
 
 // repositories+=RepositoryConfiguration*
-protected class ResolutionStrategyFirst_RepositoriesAssignment_3 extends AssignmentToken  {
+protected class ResolutionStrategyFirst_RepositoriesAssignment_4 extends AssignmentToken  {
 	
-	public ResolutionStrategyFirst_RepositoriesAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategyFirst_RepositoriesAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getResolutionStrategyFirstAccess().getRepositoriesAssignment_3();
+		return grammarAccess.getResolutionStrategyFirstAccess().getRepositoriesAssignment_4();
 	}
 
     @Override
@@ -16163,7 +16361,7 @@ protected class ResolutionStrategyFirst_RepositoriesAssignment_3 extends Assignm
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getRepositoryConfigurationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getResolutionStrategyFirstAccess().getRepositoriesRepositoryConfigurationParserRuleCall_3_0(); 
+				element = grammarAccess.getResolutionStrategyFirstAccess().getRepositoriesRepositoryConfigurationParserRuleCall_4_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -16175,30 +16373,30 @@ protected class ResolutionStrategyFirst_RepositoriesAssignment_3 extends Assignm
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ResolutionStrategyFirst_RepositoriesAssignment_3(parent, next, actIndex, consumed);
-			case 1: return new ResolutionStrategyFirst_LeftCurlyBracketKeyword_2(parent, next, actIndex, consumed);
+			case 0: return new ResolutionStrategyFirst_RepositoriesAssignment_4(parent, next, actIndex, consumed);
+			case 1: return new ResolutionStrategyFirst_LeftCurlyBracketKeyword_3(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "}"
-protected class ResolutionStrategyFirst_RightCurlyBracketKeyword_4 extends KeywordToken  {
+protected class ResolutionStrategyFirst_RightCurlyBracketKeyword_5 extends KeywordToken  {
 	
-	public ResolutionStrategyFirst_RightCurlyBracketKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategyFirst_RightCurlyBracketKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getResolutionStrategyFirstAccess().getRightCurlyBracketKeyword_4();
+		return grammarAccess.getResolutionStrategyFirstAccess().getRightCurlyBracketKeyword_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ResolutionStrategyFirst_RepositoriesAssignment_3(parent, this, 0, inst);
-			case 1: return new ResolutionStrategyFirst_LeftCurlyBracketKeyword_2(parent, this, 1, inst);
+			case 0: return new ResolutionStrategyFirst_RepositoriesAssignment_4(parent, this, 0, inst);
+			case 1: return new ResolutionStrategyFirst_LeftCurlyBracketKeyword_3(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -16212,13 +16410,13 @@ protected class ResolutionStrategyFirst_RightCurlyBracketKeyword_4 extends Keywo
 /************ begin Rule ResolutionStrategyBest ****************
  *
  * ResolutionStrategyBest returns build::ResolutionStrategyBest:
- *   {build::ResolutionStrategyBest} "select-best" "{" repositories+=
- *   RepositoryConfiguration* "}";
+ *   {build::ResolutionStrategyBest} documentation=DOCUMENTATION? "select-best" "{"
+ *   repositories+=RepositoryConfiguration* "}";
  *
  **/
 
-// {build::ResolutionStrategyBest} "select-best" "{" repositories+=
-// RepositoryConfiguration* "}"
+// {build::ResolutionStrategyBest} documentation=DOCUMENTATION? "select-best" "{"
+// repositories+=RepositoryConfiguration* "}"
 protected class ResolutionStrategyBest_Group extends GroupToken {
 	
 	public ResolutionStrategyBest_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16233,7 +16431,7 @@ protected class ResolutionStrategyBest_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ResolutionStrategyBest_RightCurlyBracketKeyword_4(parent, this, 0, inst);
+			case 0: return new ResolutionStrategyBest_RightCurlyBracketKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -16273,16 +16471,16 @@ protected class ResolutionStrategyBest_ResolutionStrategyBestAction_0 extends Ac
 	}
 }
 
-// "select-best"
-protected class ResolutionStrategyBest_SelectBestKeyword_1 extends KeywordToken  {
+// documentation=DOCUMENTATION?
+protected class ResolutionStrategyBest_DocumentationAssignment_1 extends AssignmentToken  {
 	
-	public ResolutionStrategyBest_SelectBestKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategyBest_DocumentationAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getResolutionStrategyBestAccess().getSelectBestKeyword_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getResolutionStrategyBestAccess().getDocumentationAssignment_1();
 	}
 
     @Override
@@ -16293,24 +16491,59 @@ protected class ResolutionStrategyBest_SelectBestKeyword_1 extends KeywordToken 
 		}	
 	}	
 		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("documentation",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("documentation");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getResolutionStrategyBestAccess().getDocumentationDOCUMENTATIONTerminalRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
 }
 
-// "{"
-protected class ResolutionStrategyBest_LeftCurlyBracketKeyword_2 extends KeywordToken  {
+// "select-best"
+protected class ResolutionStrategyBest_SelectBestKeyword_2 extends KeywordToken  {
 	
-	public ResolutionStrategyBest_LeftCurlyBracketKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategyBest_SelectBestKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getResolutionStrategyBestAccess().getLeftCurlyBracketKeyword_2();
+		return grammarAccess.getResolutionStrategyBestAccess().getSelectBestKeyword_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ResolutionStrategyBest_SelectBestKeyword_1(parent, this, 0, inst);
+			case 0: return new ResolutionStrategyBest_DocumentationAssignment_1(parent, this, 0, inst);
+			case 1: return new ResolutionStrategyBest_ResolutionStrategyBestAction_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "{"
+protected class ResolutionStrategyBest_LeftCurlyBracketKeyword_3 extends KeywordToken  {
+	
+	public ResolutionStrategyBest_LeftCurlyBracketKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getResolutionStrategyBestAccess().getLeftCurlyBracketKeyword_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategyBest_SelectBestKeyword_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -16318,15 +16551,15 @@ protected class ResolutionStrategyBest_LeftCurlyBracketKeyword_2 extends Keyword
 }
 
 // repositories+=RepositoryConfiguration*
-protected class ResolutionStrategyBest_RepositoriesAssignment_3 extends AssignmentToken  {
+protected class ResolutionStrategyBest_RepositoriesAssignment_4 extends AssignmentToken  {
 	
-	public ResolutionStrategyBest_RepositoriesAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategyBest_RepositoriesAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getResolutionStrategyBestAccess().getRepositoriesAssignment_3();
+		return grammarAccess.getResolutionStrategyBestAccess().getRepositoriesAssignment_4();
 	}
 
     @Override
@@ -16345,7 +16578,7 @@ protected class ResolutionStrategyBest_RepositoriesAssignment_3 extends Assignme
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getRepositoryConfigurationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getResolutionStrategyBestAccess().getRepositoriesRepositoryConfigurationParserRuleCall_3_0(); 
+				element = grammarAccess.getResolutionStrategyBestAccess().getRepositoriesRepositoryConfigurationParserRuleCall_4_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -16357,30 +16590,30 @@ protected class ResolutionStrategyBest_RepositoriesAssignment_3 extends Assignme
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ResolutionStrategyBest_RepositoriesAssignment_3(parent, next, actIndex, consumed);
-			case 1: return new ResolutionStrategyBest_LeftCurlyBracketKeyword_2(parent, next, actIndex, consumed);
+			case 0: return new ResolutionStrategyBest_RepositoriesAssignment_4(parent, next, actIndex, consumed);
+			case 1: return new ResolutionStrategyBest_LeftCurlyBracketKeyword_3(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "}"
-protected class ResolutionStrategyBest_RightCurlyBracketKeyword_4 extends KeywordToken  {
+protected class ResolutionStrategyBest_RightCurlyBracketKeyword_5 extends KeywordToken  {
 	
-	public ResolutionStrategyBest_RightCurlyBracketKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategyBest_RightCurlyBracketKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getResolutionStrategyBestAccess().getRightCurlyBracketKeyword_4();
+		return grammarAccess.getResolutionStrategyBestAccess().getRightCurlyBracketKeyword_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ResolutionStrategyBest_RepositoriesAssignment_3(parent, this, 0, inst);
-			case 1: return new ResolutionStrategyBest_LeftCurlyBracketKeyword_2(parent, this, 1, inst);
+			case 0: return new ResolutionStrategyBest_RepositoriesAssignment_4(parent, this, 0, inst);
+			case 1: return new ResolutionStrategyBest_LeftCurlyBracketKeyword_3(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -16394,13 +16627,13 @@ protected class ResolutionStrategyBest_RightCurlyBracketKeyword_4 extends Keywor
 /************ begin Rule ResolutionStrategySwitch ****************
  *
  * ResolutionStrategySwitch returns build::ResolutionStrategySwitch:
- *   {build::ResolutionStrategySwitch} "select-switch" repoSwitch=
- *   SelectSwitchExpression;
+ *   {build::ResolutionStrategySwitch} documentation=DOCUMENTATION? "select-switch"
+ *   repoSwitch=SelectSwitchExpression;
  *
  **/
 
-// {build::ResolutionStrategySwitch} "select-switch" repoSwitch=
-// SelectSwitchExpression
+// {build::ResolutionStrategySwitch} documentation=DOCUMENTATION? "select-switch"
+// repoSwitch=SelectSwitchExpression
 protected class ResolutionStrategySwitch_Group extends GroupToken {
 	
 	public ResolutionStrategySwitch_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16415,7 +16648,7 @@ protected class ResolutionStrategySwitch_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ResolutionStrategySwitch_RepoSwitchAssignment_2(parent, this, 0, inst);
+			case 0: return new ResolutionStrategySwitch_RepoSwitchAssignment_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -16455,16 +16688,16 @@ protected class ResolutionStrategySwitch_ResolutionStrategySwitchAction_0 extend
 	}
 }
 
-// "select-switch"
-protected class ResolutionStrategySwitch_SelectSwitchKeyword_1 extends KeywordToken  {
+// documentation=DOCUMENTATION?
+protected class ResolutionStrategySwitch_DocumentationAssignment_1 extends AssignmentToken  {
 	
-	public ResolutionStrategySwitch_SelectSwitchKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategySwitch_DocumentationAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getResolutionStrategySwitchAccess().getSelectSwitchKeyword_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getResolutionStrategySwitchAccess().getDocumentationAssignment_1();
 	}
 
     @Override
@@ -16475,18 +16708,53 @@ protected class ResolutionStrategySwitch_SelectSwitchKeyword_1 extends KeywordTo
 		}	
 	}	
 		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("documentation",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("documentation");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getResolutionStrategySwitchAccess().getDocumentationDOCUMENTATIONTerminalRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "select-switch"
+protected class ResolutionStrategySwitch_SelectSwitchKeyword_2 extends KeywordToken  {
+	
+	public ResolutionStrategySwitch_SelectSwitchKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getResolutionStrategySwitchAccess().getSelectSwitchKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategySwitch_DocumentationAssignment_1(parent, this, 0, inst);
+			case 1: return new ResolutionStrategySwitch_ResolutionStrategySwitchAction_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
 }
 
 // repoSwitch=SelectSwitchExpression
-protected class ResolutionStrategySwitch_RepoSwitchAssignment_2 extends AssignmentToken  {
+protected class ResolutionStrategySwitch_RepoSwitchAssignment_3 extends AssignmentToken  {
 	
-	public ResolutionStrategySwitch_RepoSwitchAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategySwitch_RepoSwitchAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getResolutionStrategySwitchAccess().getRepoSwitchAssignment_2();
+		return grammarAccess.getResolutionStrategySwitchAccess().getRepoSwitchAssignment_3();
 	}
 
     @Override
@@ -16505,7 +16773,7 @@ protected class ResolutionStrategySwitch_RepoSwitchAssignment_2 extends Assignme
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getSelectSwitchExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getResolutionStrategySwitchAccess().getRepoSwitchSelectSwitchExpressionParserRuleCall_2_0(); 
+				element = grammarAccess.getResolutionStrategySwitchAccess().getRepoSwitchSelectSwitchExpressionParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -16517,7 +16785,7 @@ protected class ResolutionStrategySwitch_RepoSwitchAssignment_2 extends Assignme
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ResolutionStrategySwitch_SelectSwitchKeyword_1(parent, next, actIndex, consumed);
+			case 0: return new ResolutionStrategySwitch_SelectSwitchKeyword_2(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -16530,12 +16798,12 @@ protected class ResolutionStrategySwitch_RepoSwitchAssignment_2 extends Assignme
 /************ begin Rule SelectSwitchExpression ****************
  *
  * SelectSwitchExpression returns be::BSwitchExpression:
- *   {be::BSwitchExpression} "switch" switchExpression=Expression caseList+=
+ *   {be::BSwitchExpression} switchExpression=Expression? caseList+=
  *   RepositorySelectCase+ "endswitch";
  *
  **/
 
-// {be::BSwitchExpression} "switch" switchExpression=Expression caseList+=
+// {be::BSwitchExpression} switchExpression=Expression? caseList+=
 // RepositorySelectCase+ "endswitch"
 protected class SelectSwitchExpression_Group extends GroupToken {
 	
@@ -16551,7 +16819,7 @@ protected class SelectSwitchExpression_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SelectSwitchExpression_EndswitchKeyword_4(parent, this, 0, inst);
+			case 0: return new SelectSwitchExpression_EndswitchKeyword_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -16591,38 +16859,16 @@ protected class SelectSwitchExpression_BSwitchExpressionAction_0 extends ActionT
 	}
 }
 
-// "switch"
-protected class SelectSwitchExpression_SwitchKeyword_1 extends KeywordToken  {
+// switchExpression=Expression?
+protected class SelectSwitchExpression_SwitchExpressionAssignment_1 extends AssignmentToken  {
 	
-	public SelectSwitchExpression_SwitchKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSelectSwitchExpressionAccess().getSwitchKeyword_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new SelectSwitchExpression_BSwitchExpressionAction_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// switchExpression=Expression
-protected class SelectSwitchExpression_SwitchExpressionAssignment_2 extends AssignmentToken  {
-	
-	public SelectSwitchExpression_SwitchExpressionAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public SelectSwitchExpression_SwitchExpressionAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSelectSwitchExpressionAccess().getSwitchExpressionAssignment_2();
+		return grammarAccess.getSelectSwitchExpressionAccess().getSwitchExpressionAssignment_1();
 	}
 
     @Override
@@ -16635,13 +16881,13 @@ protected class SelectSwitchExpression_SwitchExpressionAssignment_2 extends Assi
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("switchExpression",true)) == null) return null;
+		if((value = current.getConsumable("switchExpression",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("switchExpression");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getSelectSwitchExpressionAccess().getSwitchExpressionExpressionParserRuleCall_2_0(); 
+				element = grammarAccess.getSelectSwitchExpressionAccess().getSwitchExpressionExpressionParserRuleCall_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -16653,22 +16899,22 @@ protected class SelectSwitchExpression_SwitchExpressionAssignment_2 extends Assi
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new SelectSwitchExpression_SwitchKeyword_1(parent, next, actIndex, consumed);
+			case 0: return new SelectSwitchExpression_BSwitchExpressionAction_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // caseList+=RepositorySelectCase+
-protected class SelectSwitchExpression_CaseListAssignment_3 extends AssignmentToken  {
+protected class SelectSwitchExpression_CaseListAssignment_2 extends AssignmentToken  {
 	
-	public SelectSwitchExpression_CaseListAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public SelectSwitchExpression_CaseListAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSelectSwitchExpressionAccess().getCaseListAssignment_3();
+		return grammarAccess.getSelectSwitchExpressionAccess().getCaseListAssignment_2();
 	}
 
     @Override
@@ -16687,7 +16933,7 @@ protected class SelectSwitchExpression_CaseListAssignment_3 extends AssignmentTo
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getRepositorySelectCaseRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getSelectSwitchExpressionAccess().getCaseListRepositorySelectCaseParserRuleCall_3_0(); 
+				element = grammarAccess.getSelectSwitchExpressionAccess().getCaseListRepositorySelectCaseParserRuleCall_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -16699,29 +16945,30 @@ protected class SelectSwitchExpression_CaseListAssignment_3 extends AssignmentTo
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new SelectSwitchExpression_CaseListAssignment_3(parent, next, actIndex, consumed);
-			case 1: return new SelectSwitchExpression_SwitchExpressionAssignment_2(parent, next, actIndex, consumed);
+			case 0: return new SelectSwitchExpression_CaseListAssignment_2(parent, next, actIndex, consumed);
+			case 1: return new SelectSwitchExpression_SwitchExpressionAssignment_1(parent, next, actIndex, consumed);
+			case 2: return new SelectSwitchExpression_BSwitchExpressionAction_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "endswitch"
-protected class SelectSwitchExpression_EndswitchKeyword_4 extends KeywordToken  {
+protected class SelectSwitchExpression_EndswitchKeyword_3 extends KeywordToken  {
 	
-	public SelectSwitchExpression_EndswitchKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public SelectSwitchExpression_EndswitchKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getSelectSwitchExpressionAccess().getEndswitchKeyword_4();
+		return grammarAccess.getSelectSwitchExpressionAccess().getEndswitchKeyword_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SelectSwitchExpression_CaseListAssignment_3(parent, this, 0, inst);
+			case 0: return new SelectSwitchExpression_CaseListAssignment_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	

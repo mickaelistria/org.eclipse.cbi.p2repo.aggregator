@@ -19,7 +19,6 @@ import java.util.Map;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3WeavingFailedException;
 import org.eclipse.b3.backend.core.ParentContextIterator;
-
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
@@ -28,13 +27,19 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.build.CompoundFirstFoundRepository;
 import org.eclipse.b3.build.build.IBuilder;
+import org.eclipse.b3.build.build.RepositoryConfiguration;
+import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapter;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
+import org.eclipse.b3.build.core.IBuildUnitRepository;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -43,7 +48,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuildContextImpl extends BExecutionContextImpl implements BuildContext {
@@ -55,6 +60,7 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuildContextImpl() {
@@ -63,12 +69,64 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * TODO: DOES NOT NEED TO RETURN THE CTX
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
+	 * @throws B3EngineException
+	 * @generated NOT
 	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_CONTEXT;
+	public BuildContext defineBeeModel(BeeModel beeModel) throws B3EngineException {
+
+		// Define all IMPORTS as constants
+		for(Type t : beeModel.getImports()) {
+			if(t instanceof B3JavaImport) {
+				Class<?> x = TypeUtils.getRaw(t);
+				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+				metaClass.setInstanceClass(x);
+				defineValue(((B3JavaImport) t).getName(), x, metaClass);
+			}
+		}
+
+		// Define all FUNCTIONS
+		for(IFunction f : beeModel.getFunctions()) {
+			this.defineFunction(f);
+		}
+
+		// Define REPOSITORIES
+		// if unit defines repositories, define them in the outer context
+		//
+		EList<RepositoryConfiguration> reposDecls = beeModel.getRepositories();
+		if(reposDecls.size() > 0) {
+			// wrap in a first found
+			// TODO: Consider default repositories (workspace, target platform, etc)
+			// TODO: Control default repositories used via preferences
+			CompoundFirstFoundRepository firstFound = B3BuildFactory.eINSTANCE.createCompoundFirstFoundRepository();
+			EList<IBuildUnitRepository> repos = firstFound.getRepositories();
+			try {
+				for(RepositoryConfiguration config : reposDecls) {
+					repos.add((IBuildUnitRepository) config.evaluate(this));
+				}
+			}
+			catch(Throwable t) {
+				throw new B3EngineException("Error while evaluating repositories - see details", t);
+			}
+			// if evaluating this in root context, there may be a default already defined - check and
+			// reassign it.
+			if(this.containsValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES))
+				this.getLValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES).set(firstFound);
+			else
+				this.defineValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, firstFound,
+						CompoundFirstFoundRepository.class);
+		}
+		// Define all BUILD UNITS (currently only one - could easily have more than one)
+		for(BuildUnit u : beeModel.getBuildUnits())
+			if(u != null)
+				defineBuildUnit(u, false);
+
+		// Concerns, and defined property sets are only used via direct model references,
+		// so these are not defined in the context.
+
+		return this;
 	}
 
 	/**
@@ -76,7 +134,9 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 	 * Define a build unit. Any bequested matching advice is applied.
 	 * TODO: SEMANTICS OF REDEFINING A UNIT (All sorts of bad things happen) - now exception is thrown
 	 * <!-- end-user-doc -->
-	 * @throws IllegalArgumentException if the unit has been defined in this context.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the unit has been defined in this context.
 	 * @generated NOT
 	 */
 	public void defineBuildUnit(BuildUnit unit, boolean isWeaving) throws B3EngineException {
@@ -111,42 +171,23 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * TODO: DOES NOT NEED TO RETURN THE CTX
 	 * <!-- end-user-doc -->
-	 * @throws B3EngineException 
-	 * @generated NOT
+	 * 
+	 * @generated
 	 */
-	public BuildContext defineBeeModel(BeeModel beeModel) throws B3EngineException {
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_CONTEXT;
+	}
 
-		// Define all IMPORTS as constants
-		for(Type t : beeModel.getImports()) {
-			if(t instanceof B3JavaImport) {
-				Class<?> x = TypeUtils.getRaw(t);
-				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-				metaClass.setInstanceClass(x);
-				defineValue(((B3JavaImport) t).getName(), x, metaClass);
-			}
-		}
-
-		// Define all FUNCTIONS
-		for(IFunction f : beeModel.getFunctions()) {
-			this.defineFunction(f);
-		}
-
-		// Define all BUILD UNITS (currently only one - could easily have more than one)
-		for(BuildUnit u : beeModel.getBuildUnits())
-			if(u != null)
-				defineBuildUnit(u, false);
-
-		// Concerns, and defined property sets are only used via direct model references,
-		// so these are not defined in the context.
-
-		return this;
+	public Map<Class<? extends BuildUnit>, BuildUnit> getBuildUnitStore() {
+		return Collections.unmodifiableMap(unitStore);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public BuildUnit getEffectiveBuildUnit(BuildUnit unit) {
@@ -159,8 +200,4 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 		}
 		return null; // TODO: Should probably throw "NoSuchUnit" instead
 	}
-
-	public Map<Class<? extends BuildUnit>, BuildUnit> getBuildUnitStore() {
-		return Collections.unmodifiableMap(unitStore);
-	}
-} //BuildContextImpl
+} // BuildContextImpl

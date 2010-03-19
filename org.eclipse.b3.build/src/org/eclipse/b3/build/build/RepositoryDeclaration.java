@@ -20,7 +20,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.RepositoryDeclaration#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.RepositoryDeclaration#getLocation <em>Location</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.RepositoryDeclaration#getResolverType <em>Resolver Type</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.RepositoryDeclaration#getContextBlock <em>Context Block</em>}</li>
@@ -32,32 +31,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
  * @generated
  */
 public interface RepositoryDeclaration extends RepositoryConfiguration {
-	/**
-	 * Returns the value of the '<em><b>Documentation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Documentation</em>' attribute.
-	 * @see #setDocumentation(String)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepositoryDeclaration_Documentation()
-	 * @model
-	 * @generated
-	 */
-	String getDocumentation();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getDocumentation <em>Documentation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Documentation</em>' attribute.
-	 * @see #getDocumentation()
-	 * @generated
-	 */
-	void setDocumentation(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->

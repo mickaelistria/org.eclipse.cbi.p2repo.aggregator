@@ -224,9 +224,9 @@
       eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="condExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryDeclaration" eSuperTypes="#//RepositoryConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resolverType" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IType"
         containment="true"/>
@@ -441,7 +441,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceAdvised" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BeeModel">
+  <eClassifiers xsi:type="ecore:EClass" name="BeeModel" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BChainedExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IType"
         containment="true"/>
@@ -456,6 +456,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
+        eType="#//RepositoryConfiguration" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BeeHive">
     <eOperations name="getResolvedCapabilityContainer" eType="#//IProvidedCapabilityContainer">

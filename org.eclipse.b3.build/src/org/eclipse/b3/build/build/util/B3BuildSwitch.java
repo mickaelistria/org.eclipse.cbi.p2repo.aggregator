@@ -11,6 +11,7 @@ import java.lang.reflect.GenericDeclaration;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -527,6 +528,10 @@ public class B3BuildSwitch<T> {
 		case B3BuildPackage.BEE_MODEL: {
 			BeeModel beeModel = (BeeModel) theEObject;
 			T result = caseBeeModel(beeModel);
+			if(result == null)
+				result = caseBChainedExpression(beeModel);
+			if(result == null)
+				result = caseBExpression(beeModel);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -1798,6 +1803,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseBFunctionWrapper(BFunctionWrapper object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BChained Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BChained Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBChainedExpression(BChainedExpression object) {
 		return null;
 	}
 

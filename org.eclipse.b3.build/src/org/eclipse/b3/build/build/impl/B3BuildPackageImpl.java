@@ -724,9 +724,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		repositoryConfigurationEClass = createEClass(REPOSITORY_CONFIGURATION);
 		createEReference(repositoryConfigurationEClass, REPOSITORY_CONFIGURATION__COND_EXPR);
+		createEAttribute(repositoryConfigurationEClass, REPOSITORY_CONFIGURATION__DOCUMENTATION);
 
 		repositoryDeclarationEClass = createEClass(REPOSITORY_DECLARATION);
-		createEAttribute(repositoryDeclarationEClass, REPOSITORY_DECLARATION__DOCUMENTATION);
 		createEAttribute(repositoryDeclarationEClass, REPOSITORY_DECLARATION__LOCATION);
 		createEReference(repositoryDeclarationEClass, REPOSITORY_DECLARATION__RESOLVER_TYPE);
 		createEReference(repositoryDeclarationEClass, REPOSITORY_DECLARATION__CONTEXT_BLOCK);
@@ -842,6 +842,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(beeModelEClass, BEE_MODEL__CONCERNS);
 		createEReference(beeModelEClass, BEE_MODEL__BUILD_UNITS);
 		createEReference(beeModelEClass, BEE_MODEL__PROPERTY_SETS);
+		createEReference(beeModelEClass, BEE_MODEL__REPOSITORIES);
 
 		beeHiveEClass = createEClass(BEE_HIVE);
 		createEReference(beeHiveEClass, BEE_HIVE__BEE_MODELS);
@@ -1029,6 +1030,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EReference getBeeModel_PropertySets() {
 		return (EReference) beeModelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBeeModel_Repositories() {
+		return (EReference) beeModelEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2377,6 +2387,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRepositoryConfiguration_Documentation() {
+		return (EAttribute) repositoryConfigurationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRepositoryDeclaration() {
 		return repositoryDeclarationEClass;
 	}
@@ -2387,16 +2406,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	public EReference getRepositoryDeclaration_ContextBlock() {
-		return (EReference) repositoryDeclarationEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRepositoryDeclaration_Documentation() {
-		return (EAttribute) repositoryDeclarationEClass.getEStructuralFeatures().get(0);
+		return (EReference) repositoryDeclarationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2405,7 +2415,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	public EAttribute getRepositoryDeclaration_Location() {
-		return (EAttribute) repositoryDeclarationEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) repositoryDeclarationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2414,7 +2424,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	public EReference getRepositoryDeclaration_ResolverType() {
-		return (EReference) repositoryDeclarationEClass.getEStructuralFeatures().get(2);
+		return (EReference) repositoryDeclarationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2775,6 +2785,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		builderJavaEClass.getESuperTypes().add(this.getIBuilder());
 		builderWrapperEClass.getESuperTypes().add(theB3backendPackage.getBFunctionWrapper());
 		builderWrapperEClass.getESuperTypes().add(this.getIBuilder());
+		beeModelEClass.getESuperTypes().add(theB3backendPackage.getBChainedExpression());
 		effectiveUnitFacadeEClass.getESuperTypes().add(this.getEffectiveFacade());
 		effectiveRequirementFacadeEClass.getESuperTypes().add(this.getEffectiveFacade());
 		effectiveCapabilityFacadeEClass.getESuperTypes().add(this.getEffectiveFacade());
@@ -3072,12 +3083,12 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEReference(getRepositoryConfiguration_CondExpr(), theB3backendPackage.getBExpression(), null, "condExpr",
 				null, 0, 1, RepositoryConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRepositoryConfiguration_Documentation(), ecorePackage.getEString(), "documentation", null, 0,
+				1, RepositoryConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(repositoryDeclarationEClass, RepositoryDeclaration.class, "RepositoryDeclaration", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRepositoryDeclaration_Documentation(), ecorePackage.getEString(), "documentation", null, 0,
-				1, RepositoryDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRepositoryDeclaration_Location(), theB3backendPackage.getURI(), "location", null, 0, 1,
 				RepositoryDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3403,6 +3414,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBeeModel_PropertySets(), theB3backendPackage.getBPropertySet(), null, "propertySets", null,
 				0, -1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBeeModel_Repositories(), this.getRepositoryConfiguration(), null, "repositories", null, 0,
+				-1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(beeHiveEClass, BeeHive.class, "BeeHive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

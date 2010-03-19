@@ -214,10 +214,11 @@ ruleBeeModel returns [EObject current=null]
 	    }
 
 )
-)))*(
+))
+    |(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getBuildUnitsBuildUnitParserRuleCall_1_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getBuildUnitsBuildUnitParserRuleCall_1_1_3_0(), currentNode); 
 	    }
 		lv_buildUnits_6_0=ruleBuildUnit		{
 	        if ($current==null) {
@@ -238,7 +239,44 @@ ruleBeeModel returns [EObject current=null]
 	    }
 
 )
-)*))
+)
+    |(	'repositories' 
+    {
+        createLeafNode(grammarAccess.getBeeModelAccess().getRepositoriesKeyword_1_1_4_0(), null); 
+    }
+	'{' 
+    {
+        createLeafNode(grammarAccess.getBeeModelAccess().getLeftCurlyBracketKeyword_1_1_4_1(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getRepositoriesRepositoryConfigurationParserRuleCall_1_1_4_2_0(), currentNode); 
+	    }
+		lv_repositories_9_0=ruleRepositoryConfiguration		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getBeeModelRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"repositories",
+	        		lv_repositories_9_0, 
+	        		"RepositoryConfiguration", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)*	'}' 
+    {
+        createLeafNode(grammarAccess.getBeeModelAccess().getRightCurlyBracketKeyword_1_1_4_3(), null); 
+    }
+))*))
 ;
 finally {
 	myHiddenTokenState.restore();
@@ -6000,20 +6038,44 @@ ruleResolutionStrategyFirst returns [EObject current=null]
     currentNode = newNode; 
         associateNodeWithAstElement(currentNode, $current); 
     }
-)	'select-first' 
+)(
+(
+		lv_documentation_1_0=RULE_DOCUMENTATION
+		{
+			createLeafNode(grammarAccess.getResolutionStrategyFirstAccess().getDocumentationDOCUMENTATIONTerminalRuleCall_1_0(), "documentation"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getResolutionStrategyFirstRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"documentation",
+	        		lv_documentation_1_0, 
+	        		"DOCUMENTATION", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?	'select-first' 
     {
-        createLeafNode(grammarAccess.getResolutionStrategyFirstAccess().getSelectFirstKeyword_1(), null); 
+        createLeafNode(grammarAccess.getResolutionStrategyFirstAccess().getSelectFirstKeyword_2(), null); 
     }
 	'{' 
     {
-        createLeafNode(grammarAccess.getResolutionStrategyFirstAccess().getLeftCurlyBracketKeyword_2(), null); 
+        createLeafNode(grammarAccess.getResolutionStrategyFirstAccess().getLeftCurlyBracketKeyword_3(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getResolutionStrategyFirstAccess().getRepositoriesRepositoryConfigurationParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getResolutionStrategyFirstAccess().getRepositoriesRepositoryConfigurationParserRuleCall_4_0(), currentNode); 
 	    }
-		lv_repositories_3_0=ruleRepositoryConfiguration		{
+		lv_repositories_4_0=ruleRepositoryConfiguration		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getResolutionStrategyFirstRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6022,7 +6084,7 @@ ruleResolutionStrategyFirst returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"repositories",
-	        		lv_repositories_3_0, 
+	        		lv_repositories_4_0, 
 	        		"RepositoryConfiguration", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6034,7 +6096,7 @@ ruleResolutionStrategyFirst returns [EObject current=null]
 )
 )*	'}' 
     {
-        createLeafNode(grammarAccess.getResolutionStrategyFirstAccess().getRightCurlyBracketKeyword_4(), null); 
+        createLeafNode(grammarAccess.getResolutionStrategyFirstAccess().getRightCurlyBracketKeyword_5(), null); 
     }
 )
 ;
@@ -6073,20 +6135,44 @@ ruleResolutionStrategyBest returns [EObject current=null]
     currentNode = newNode; 
         associateNodeWithAstElement(currentNode, $current); 
     }
-)	'select-best' 
+)(
+(
+		lv_documentation_1_0=RULE_DOCUMENTATION
+		{
+			createLeafNode(grammarAccess.getResolutionStrategyBestAccess().getDocumentationDOCUMENTATIONTerminalRuleCall_1_0(), "documentation"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getResolutionStrategyBestRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"documentation",
+	        		lv_documentation_1_0, 
+	        		"DOCUMENTATION", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?	'select-best' 
     {
-        createLeafNode(grammarAccess.getResolutionStrategyBestAccess().getSelectBestKeyword_1(), null); 
+        createLeafNode(grammarAccess.getResolutionStrategyBestAccess().getSelectBestKeyword_2(), null); 
     }
 	'{' 
     {
-        createLeafNode(grammarAccess.getResolutionStrategyBestAccess().getLeftCurlyBracketKeyword_2(), null); 
+        createLeafNode(grammarAccess.getResolutionStrategyBestAccess().getLeftCurlyBracketKeyword_3(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getResolutionStrategyBestAccess().getRepositoriesRepositoryConfigurationParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getResolutionStrategyBestAccess().getRepositoriesRepositoryConfigurationParserRuleCall_4_0(), currentNode); 
 	    }
-		lv_repositories_3_0=ruleRepositoryConfiguration		{
+		lv_repositories_4_0=ruleRepositoryConfiguration		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getResolutionStrategyBestRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6095,7 +6181,7 @@ ruleResolutionStrategyBest returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"repositories",
-	        		lv_repositories_3_0, 
+	        		lv_repositories_4_0, 
 	        		"RepositoryConfiguration", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6107,7 +6193,7 @@ ruleResolutionStrategyBest returns [EObject current=null]
 )
 )*	'}' 
     {
-        createLeafNode(grammarAccess.getResolutionStrategyBestAccess().getRightCurlyBracketKeyword_4(), null); 
+        createLeafNode(grammarAccess.getResolutionStrategyBestAccess().getRightCurlyBracketKeyword_5(), null); 
     }
 )
 ;
@@ -6146,16 +6232,40 @@ ruleResolutionStrategySwitch returns [EObject current=null]
     currentNode = newNode; 
         associateNodeWithAstElement(currentNode, $current); 
     }
-)	'select-switch' 
+)(
+(
+		lv_documentation_1_0=RULE_DOCUMENTATION
+		{
+			createLeafNode(grammarAccess.getResolutionStrategySwitchAccess().getDocumentationDOCUMENTATIONTerminalRuleCall_1_0(), "documentation"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getResolutionStrategySwitchRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"documentation",
+	        		lv_documentation_1_0, 
+	        		"DOCUMENTATION", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?	'select-switch' 
     {
-        createLeafNode(grammarAccess.getResolutionStrategySwitchAccess().getSelectSwitchKeyword_1(), null); 
+        createLeafNode(grammarAccess.getResolutionStrategySwitchAccess().getSelectSwitchKeyword_2(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getResolutionStrategySwitchAccess().getRepoSwitchSelectSwitchExpressionParserRuleCall_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getResolutionStrategySwitchAccess().getRepoSwitchSelectSwitchExpressionParserRuleCall_3_0(), currentNode); 
 	    }
-		lv_repoSwitch_2_0=ruleSelectSwitchExpression		{
+		lv_repoSwitch_3_0=ruleSelectSwitchExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getResolutionStrategySwitchRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6164,7 +6274,7 @@ ruleResolutionStrategySwitch returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"repoSwitch",
-	        		lv_repoSwitch_2_0, 
+	        		lv_repoSwitch_3_0, 
 	        		"SelectSwitchExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6211,16 +6321,12 @@ ruleSelectSwitchExpression returns [EObject current=null]
     currentNode = newNode; 
         associateNodeWithAstElement(currentNode, $current); 
     }
-)	'switch' 
-    {
-        createLeafNode(grammarAccess.getSelectSwitchExpressionAccess().getSwitchKeyword_1(), null); 
-    }
-(
+)(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSelectSwitchExpressionAccess().getSwitchExpressionExpressionParserRuleCall_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSelectSwitchExpressionAccess().getSwitchExpressionExpressionParserRuleCall_1_0(), currentNode); 
 	    }
-		lv_switchExpression_2_0=ruleExpression		{
+		lv_switchExpression_1_0=ruleExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSelectSwitchExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6229,7 +6335,7 @@ ruleSelectSwitchExpression returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"switchExpression",
-	        		lv_switchExpression_2_0, 
+	        		lv_switchExpression_1_0, 
 	        		"Expression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6239,12 +6345,12 @@ ruleSelectSwitchExpression returns [EObject current=null]
 	    }
 
 )
-)(
+)?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSelectSwitchExpressionAccess().getCaseListRepositorySelectCaseParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSelectSwitchExpressionAccess().getCaseListRepositorySelectCaseParserRuleCall_2_0(), currentNode); 
 	    }
-		lv_caseList_3_0=ruleRepositorySelectCase		{
+		lv_caseList_2_0=ruleRepositorySelectCase		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSelectSwitchExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6253,7 +6359,7 @@ ruleSelectSwitchExpression returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"caseList",
-	        		lv_caseList_3_0, 
+	        		lv_caseList_2_0, 
 	        		"RepositorySelectCase", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6265,7 +6371,7 @@ ruleSelectSwitchExpression returns [EObject current=null]
 )
 )+	'endswitch' 
     {
-        createLeafNode(grammarAccess.getSelectSwitchExpressionAccess().getEndswitchKeyword_4(), null); 
+        createLeafNode(grammarAccess.getSelectSwitchExpressionAccess().getEndswitchKeyword_3(), null); 
     }
 )
 ;

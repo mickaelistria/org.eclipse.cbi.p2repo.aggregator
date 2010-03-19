@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl#getCondExpr <em>Cond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,6 +44,26 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	 * @ordered
 	 */
 	protected BExpression condExpr;
+
+	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,6 +103,8 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 		switch(featureID) {
 		case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
 			return getCondExpr();
+		case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
+			return getDocumentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,8 +133,29 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 		switch(featureID) {
 		case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
 			return condExpr != null;
+		case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
+			return DOCUMENTATION_EDEFAULT == null
+					? documentation != null
+					: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if(eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (documentation: ");
+		result.append(documentation);
+		result.append(')');
+		return result.toString();
 	}
 
 	/**
@@ -124,6 +168,9 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 		switch(featureID) {
 		case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
 			setCondExpr((BExpression) newValue);
+			return;
+		case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
+			setDocumentation((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -149,6 +196,9 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 		switch(featureID) {
 		case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
 			setCondExpr((BExpression) null);
+			return;
+		case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
+			setDocumentation(DOCUMENTATION_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -207,5 +257,27 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR,
 					newCondExpr, newCondExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDocumentation() {
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION, oldDocumentation, documentation));
 	}
 } // RepositoryConfigurationImpl

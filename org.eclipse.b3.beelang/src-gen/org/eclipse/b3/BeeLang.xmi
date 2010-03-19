@@ -36,9 +36,17 @@
               <terminal xsi:type="xtext:RuleCall" rule="//@rules.7"/>
             </tokens>
           </groups>
-        </tokens>
-        <tokens xsi:type="xtext:Assignment" cardinality="*" feature="buildUnits" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.2"/>
+          <groups xsi:type="xtext:Assignment" feature="buildUnits" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.2"/>
+          </groups>
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Keyword" value="repositories"/>
+            <tokens xsi:type="xtext:Keyword" value="{"/>
+            <tokens xsi:type="xtext:Assignment" cardinality="*" feature="repositories" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.38"/>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value="}"/>
+          </groups>
         </tokens>
       </tokens>
     </alternatives>
@@ -1374,6 +1382,9 @@
           <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//ResolutionStrategyFirst"/>
         </type>
       </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.169"/>
+      </tokens>
       <tokens xsi:type="xtext:Keyword" value="select-first"/>
       <tokens xsi:type="xtext:Keyword" value="{"/>
       <tokens xsi:type="xtext:Assignment" cardinality="*" feature="repositories" operator="+=">
@@ -1391,6 +1402,9 @@
         <type metamodel="//@metamodelDeclarations.2">
           <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//ResolutionStrategyBest"/>
         </type>
+      </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.169"/>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="select-best"/>
       <tokens xsi:type="xtext:Keyword" value="{"/>
@@ -1410,6 +1424,9 @@
           <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//ResolutionStrategySwitch"/>
         </type>
       </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.169"/>
+      </tokens>
       <tokens xsi:type="xtext:Keyword" value="select-switch"/>
       <tokens xsi:type="xtext:Assignment" feature="repoSwitch" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.44"/>
@@ -1426,8 +1443,7 @@
           <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BSwitchExpression"/>
         </type>
       </tokens>
-      <tokens xsi:type="xtext:Keyword" value="switch"/>
-      <tokens xsi:type="xtext:Assignment" feature="switchExpression" operator="=">
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="switchExpression" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.55"/>
       </tokens>
       <tokens xsi:type="xtext:Assignment" cardinality="+" feature="caseList" operator="+=">

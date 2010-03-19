@@ -41,7 +41,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl#getResolverType <em>Resolver Type</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl#getContextBlock <em>Context Block</em>}</li>
@@ -51,26 +50,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl implements RepositoryDeclaration {
-	/**
-	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDocumentation()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DOCUMENTATION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDocumentation()
-	 * @generated
-	 * @ordered
-	 */
-	protected String documentation = DOCUMENTATION_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -166,8 +145,6 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
-			return getDocumentation();
 		case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
 			return getLocation();
 		case B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE:
@@ -202,10 +179,6 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
-			return DOCUMENTATION_EDEFAULT == null
-					? documentation != null
-					: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
 			return LOCATION_EDEFAULT == null
 					? location != null
@@ -226,9 +199,6 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
-			setDocumentation((String) newValue);
-			return;
 		case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
 			setLocation((URI) newValue);
 			return;
@@ -260,9 +230,6 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
-			setDocumentation(DOCUMENTATION_EDEFAULT);
-			return;
 		case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
 			setLocation(LOCATION_EDEFAULT);
 			return;
@@ -349,15 +316,6 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDocumentation() {
-		return documentation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public URI getLocation() {
 		return location;
 	}
@@ -392,19 +350,6 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK,
 					newContextBlock, newContextBlock));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDocumentation(String newDocumentation) {
-		String oldDocumentation = documentation;
-		documentation = newDocumentation;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION,
-					oldDocumentation, documentation));
 	}
 
 	/**
@@ -454,9 +399,7 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (documentation: ");
-		result.append(documentation);
-		result.append(", location: ");
+		result.append(" (location: ");
 		result.append(location);
 		result.append(')');
 		return result.toString();

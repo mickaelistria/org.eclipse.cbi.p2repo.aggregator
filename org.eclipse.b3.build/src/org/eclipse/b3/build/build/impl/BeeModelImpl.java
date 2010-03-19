@@ -19,10 +19,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 
+import org.eclipse.b3.backend.evaluator.b3backend.impl.BChainedExpressionImpl;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildUnit;
 
+import org.eclipse.b3.build.build.RepositoryConfiguration;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -47,12 +49,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getConcerns <em>Concerns</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getBuildUnits <em>Build Units</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getPropertySets <em>Property Sets</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getRepositories <em>Repositories</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class BeeModelImpl extends EObjectImpl implements BeeModel {
+public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -102,6 +105,16 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 * @ordered
 	 */
 	protected EList<BPropertySet> propertySets;
+
+	/**
+	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRepositories()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RepositoryConfiguration> repositories;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,6 +203,19 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RepositoryConfiguration> getRepositories() {
+		if(repositories == null) {
+			repositories = new EObjectContainmentEList<RepositoryConfiguration>(RepositoryConfiguration.class, this,
+					B3BuildPackage.BEE_MODEL__REPOSITORIES);
+		}
+		return repositories;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
@@ -203,6 +229,8 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 			return ((InternalEList<?>) getBuildUnits()).basicRemove(otherEnd, msgs);
 		case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 			return ((InternalEList<?>) getPropertySets()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BEE_MODEL__REPOSITORIES:
+			return ((InternalEList<?>) getRepositories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -225,6 +253,8 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 			return getBuildUnits();
 		case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 			return getPropertySets();
+		case B3BuildPackage.BEE_MODEL__REPOSITORIES:
+			return getRepositories();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -258,6 +288,10 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 			getPropertySets().clear();
 			getPropertySets().addAll((Collection<? extends BPropertySet>) newValue);
 			return;
+		case B3BuildPackage.BEE_MODEL__REPOSITORIES:
+			getRepositories().clear();
+			getRepositories().addAll((Collection<? extends RepositoryConfiguration>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -285,6 +319,9 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 		case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 			getPropertySets().clear();
 			return;
+		case B3BuildPackage.BEE_MODEL__REPOSITORIES:
+			getRepositories().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -307,6 +344,8 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 			return buildUnits != null && !buildUnits.isEmpty();
 		case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 			return propertySets != null && !propertySets.isEmpty();
+		case B3BuildPackage.BEE_MODEL__REPOSITORIES:
+			return repositories != null && !repositories.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

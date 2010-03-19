@@ -1036,10 +1036,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT64() throws RecognitionException {
         try {
             int _type = T64;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:58:5: ( 'import' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:58:7: 'import'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:58:5: ( 'repositories' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:58:7: 'repositories'
             {
-            match("import"); 
+            match("repositories"); 
 
 
             }
@@ -1055,10 +1055,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT65() throws RecognitionException {
         try {
             int _type = T65;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:59:5: ( ';' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:59:7: ';'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:59:5: ( '{' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:59:7: '{'
             {
-            match(';'); 
+            match('{'); 
 
             }
 
@@ -1073,11 +1073,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT66() throws RecognitionException {
         try {
             int _type = T66;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:60:5: ( 'as' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:60:7: 'as'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:60:5: ( '}' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:60:7: '}'
             {
-            match("as"); 
-
+            match('}'); 
 
             }
 
@@ -1092,10 +1091,11 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT67() throws RecognitionException {
         try {
             int _type = T67;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:61:5: ( '{' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:61:7: '{'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:61:5: ( 'import' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:61:7: 'import'
             {
-            match('{'); 
+            match("import"); 
+
 
             }
 
@@ -1110,10 +1110,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT68() throws RecognitionException {
         try {
             int _type = T68;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:62:5: ( '}' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:62:7: '}'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:62:5: ( ';' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:62:7: ';'
             {
-            match('}'); 
+            match(';'); 
 
             }
 
@@ -1128,10 +1128,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT69() throws RecognitionException {
         try {
             int _type = T69;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:63:5: ( 'version' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:63:7: 'version'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:63:5: ( 'as' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:63:7: 'as'
             {
-            match("version"); 
+            match("as"); 
 
 
             }
@@ -1147,10 +1147,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT70() throws RecognitionException {
         try {
             int _type = T70;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:64:5: ( 'implements' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:64:7: 'implements'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:64:5: ( 'version' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:64:7: 'version'
             {
-            match("implements"); 
+            match("version"); 
 
 
             }
@@ -1166,10 +1166,11 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT71() throws RecognitionException {
         try {
             int _type = T71;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:65:5: ( ',' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:65:7: ','
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:65:5: ( 'implements' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:65:7: 'implements'
             {
-            match(','); 
+            match("implements"); 
+
 
             }
 
@@ -1184,11 +1185,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT72() throws RecognitionException {
         try {
             int _type = T72;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:66:5: ( 'default' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:66:7: 'default'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:66:5: ( ',' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:66:7: ','
             {
-            match("default"); 
-
+            match(','); 
 
             }
 
@@ -1203,10 +1203,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT73() throws RecognitionException {
         try {
             int _type = T73;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:67:5: ( 'provides' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:67:7: 'provides'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:67:5: ( 'default' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:67:7: 'default'
             {
-            match("provides"); 
+            match("default"); 
 
 
             }
@@ -1222,10 +1222,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT74() throws RecognitionException {
         try {
             int _type = T74;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:68:5: ( 'requires' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:68:7: 'requires'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:68:5: ( 'provides' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:68:7: 'provides'
             {
-            match("requires"); 
+            match("provides"); 
 
 
             }
@@ -1241,10 +1241,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT75() throws RecognitionException {
         try {
             int _type = T75;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:69:5: ( 'env' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:69:7: 'env'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:69:5: ( 'requires' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:69:7: 'requires'
             {
-            match("env"); 
+            match("requires"); 
 
 
             }
@@ -1260,10 +1260,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT76() throws RecognitionException {
         try {
             int _type = T76;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:70:5: ( 'repositories' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:70:7: 'repositories'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:70:5: ( 'env' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:70:7: 'env'
             {
-            match("repositories"); 
+            match("env"); 
 
 
             }
@@ -1544,10 +1544,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT91() throws RecognitionException {
         try {
             int _type = T91;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:85:5: ( 'switch' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:85:7: 'switch'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:85:5: ( 'endswitch' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:85:7: 'endswitch'
             {
-            match("switch"); 
+            match("endswitch"); 
 
 
             }
@@ -1563,10 +1563,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT92() throws RecognitionException {
         try {
             int _type = T92;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:86:5: ( 'endswitch' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:86:7: 'endswitch'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:86:5: ( 'case' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:86:7: 'case'
             {
-            match("endswitch"); 
+            match("case"); 
 
 
             }
@@ -1582,10 +1582,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT93() throws RecognitionException {
         try {
             int _type = T93;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:87:5: ( 'case' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:87:7: 'case'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:87:5: ( 'container' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:87:7: 'container'
             {
-            match("case"); 
+            match("container"); 
 
 
             }
@@ -1601,10 +1601,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT94() throws RecognitionException {
         try {
             int _type = T94;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:88:5: ( 'container' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:88:7: 'container'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:88:5: ( 'agent' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:88:7: 'agent'
             {
-            match("container"); 
+            match("agent"); 
 
 
             }
@@ -1620,10 +1620,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT95() throws RecognitionException {
         try {
             int _type = T95;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:89:5: ( 'agent' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:89:7: 'agent'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:89:5: ( 'function' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:89:7: 'function'
             {
-            match("agent"); 
+            match("function"); 
 
 
             }
@@ -1639,10 +1639,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT96() throws RecognitionException {
         try {
             int _type = T96;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:90:5: ( 'function' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:90:7: 'function'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:90:5: ( '=>' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:90:7: '=>'
             {
-            match("function"); 
+            match("=>"); 
 
 
             }
@@ -1658,10 +1658,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT97() throws RecognitionException {
         try {
             int _type = T97;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:91:5: ( '=>' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:91:7: '=>'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:91:5: ( 'cached' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:91:7: 'cached'
             {
-            match("=>"); 
+            match("cached"); 
 
 
             }
@@ -1677,10 +1677,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT98() throws RecognitionException {
         try {
             int _type = T98;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:92:5: ( 'cached' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:92:7: 'cached'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:92:5: ( '||' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:92:7: '||'
             {
-            match("cached"); 
+            match("||"); 
 
 
             }
@@ -1696,10 +1696,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT99() throws RecognitionException {
         try {
             int _type = T99;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:93:5: ( '||' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:93:7: '||'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:93:5: ( '&&' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:93:7: '&&'
             {
-            match("||"); 
+            match("&&"); 
 
 
             }
@@ -1715,10 +1715,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT100() throws RecognitionException {
         try {
             int _type = T100;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:94:6: ( '&&' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:94:8: '&&'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:94:6: ( 'context' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:94:8: 'context'
             {
-            match("&&"); 
+            match("context"); 
 
 
             }
@@ -1734,10 +1734,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT101() throws RecognitionException {
         try {
             int _type = T101;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:95:6: ( 'context' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:95:8: 'context'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:95:6: ( 'proceed' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:95:8: 'proceed'
             {
-            match("context"); 
+            match("proceed"); 
 
 
             }
@@ -1753,11 +1753,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT102() throws RecognitionException {
         try {
             int _type = T102;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:96:6: ( 'proceed' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:96:8: 'proceed'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:96:6: ( '_' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:96:8: '_'
             {
-            match("proceed"); 
-
+            match('_'); 
 
             }
 
@@ -1772,10 +1771,11 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT103() throws RecognitionException {
         try {
             int _type = T103;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:97:6: ( '_' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:97:8: '_'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:97:6: ( 'throw' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:97:8: 'throw'
             {
-            match('_'); 
+            match("throw"); 
+
 
             }
 
@@ -1790,10 +1790,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT104() throws RecognitionException {
         try {
             int _type = T104;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:98:6: ( 'throw' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:98:8: 'throw'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:98:6: ( 'try' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:98:8: 'try'
             {
-            match("throw"); 
+            match("try"); 
 
 
             }
@@ -1809,10 +1809,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT105() throws RecognitionException {
         try {
             int _type = T105;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:99:6: ( 'try' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:99:8: 'try'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:99:6: ( 'endtry' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:99:8: 'endtry'
             {
-            match("try"); 
+            match("endtry"); 
 
 
             }
@@ -1828,10 +1828,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT106() throws RecognitionException {
         try {
             int _type = T106;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:100:6: ( 'endtry' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:100:8: 'endtry'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:100:6: ( 'finally' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:100:8: 'finally'
             {
-            match("endtry"); 
+            match("finally"); 
 
 
             }
@@ -1847,10 +1847,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT107() throws RecognitionException {
         try {
             int _type = T107;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:101:6: ( 'finally' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:101:8: 'finally'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:101:6: ( 'catch' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:101:8: 'catch'
             {
-            match("finally"); 
+            match("catch"); 
 
 
             }
@@ -1866,10 +1866,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mT108() throws RecognitionException {
         try {
             int _type = T108;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:102:6: ( 'catch' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:102:8: 'catch'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:102:6: ( 'switch' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:102:8: 'switch'
             {
-            match("catch"); 
+            match("switch"); 
 
 
             }
@@ -2169,10 +2169,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37809:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37809:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37984:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37984:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             {
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37809:11: ( '^' )?
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37984:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -2181,7 +2181,7 @@ public class InternalBeeLangLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37809:11: '^'
+                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37984:11: '^'
                     {
                     match('^'); 
 
@@ -2200,7 +2200,7 @@ public class InternalBeeLangLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37809:40: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37984:40: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop2:
             do {
                 int alt2=2;
@@ -2248,12 +2248,12 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_PID() throws RecognitionException {
         try {
             int _type = RULE_PID;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37811:10: ( '$' RULE_ID ( '.' RULE_ID )* )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37811:12: '$' RULE_ID ( '.' RULE_ID )*
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37986:10: ( '$' RULE_ID ( '.' RULE_ID )* )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37986:12: '$' RULE_ID ( '.' RULE_ID )*
             {
             match('$'); 
             mRULE_ID(); 
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37811:24: ( '.' RULE_ID )*
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37986:24: ( '.' RULE_ID )*
             loop3:
             do {
                 int alt3=2;
@@ -2266,7 +2266,7 @@ public class InternalBeeLangLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37811:25: '.' RULE_ID
+            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37986:25: '.' RULE_ID
             	    {
             	    match('.'); 
             	    mRULE_ID(); 
@@ -2293,12 +2293,12 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_REGULAR_EXPR() throws RecognitionException {
         try {
             int _type = RULE_REGULAR_EXPR;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37813:19: ( '~/' ( '\\\\' ~ ( ( '\\t' | '\\r' | '\\n' ) ) | ~ ( ( '\\\\' | '/' | ' ' | '\\t' | '\\r' | '\\n' ) ) )* '/' ( 'u' | 'm' | 'i' | 'c' | 'd' )* )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37813:21: '~/' ( '\\\\' ~ ( ( '\\t' | '\\r' | '\\n' ) ) | ~ ( ( '\\\\' | '/' | ' ' | '\\t' | '\\r' | '\\n' ) ) )* '/' ( 'u' | 'm' | 'i' | 'c' | 'd' )*
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37988:19: ( '~/' ( '\\\\' ~ ( ( '\\t' | '\\r' | '\\n' ) ) | ~ ( ( '\\\\' | '/' | ' ' | '\\t' | '\\r' | '\\n' ) ) )* '/' ( 'u' | 'm' | 'i' | 'c' | 'd' )* )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37988:21: '~/' ( '\\\\' ~ ( ( '\\t' | '\\r' | '\\n' ) ) | ~ ( ( '\\\\' | '/' | ' ' | '\\t' | '\\r' | '\\n' ) ) )* '/' ( 'u' | 'm' | 'i' | 'c' | 'd' )*
             {
             match("~/"); 
 
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37813:26: ( '\\\\' ~ ( ( '\\t' | '\\r' | '\\n' ) ) | ~ ( ( '\\\\' | '/' | ' ' | '\\t' | '\\r' | '\\n' ) ) )*
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37988:26: ( '\\\\' ~ ( ( '\\t' | '\\r' | '\\n' ) ) | ~ ( ( '\\\\' | '/' | ' ' | '\\t' | '\\r' | '\\n' ) ) )*
             loop4:
             do {
                 int alt4=3;
@@ -2314,7 +2314,7 @@ public class InternalBeeLangLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37813:27: '\\\\' ~ ( ( '\\t' | '\\r' | '\\n' ) )
+            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37988:27: '\\\\' ~ ( ( '\\t' | '\\r' | '\\n' ) )
             	    {
             	    match('\\'); 
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\b')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
@@ -2331,7 +2331,7 @@ public class InternalBeeLangLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37813:52: ~ ( ( '\\\\' | '/' | ' ' | '\\t' | '\\r' | '\\n' ) )
+            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37988:52: ~ ( ( '\\\\' | '/' | ' ' | '\\t' | '\\r' | '\\n' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\b')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u001F')||(input.LA(1)>='!' && input.LA(1)<='.')||(input.LA(1)>='0' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -2353,7 +2353,7 @@ public class InternalBeeLangLexer extends Lexer {
             } while (true);
 
             match('/'); 
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37813:91: ( 'u' | 'm' | 'i' | 'c' | 'd' )*
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37988:91: ( 'u' | 'm' | 'i' | 'c' | 'd' )*
             loop5:
             do {
                 int alt5=2;
@@ -2401,10 +2401,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37815:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' ) )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37815:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37990:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' ) )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37990:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' )
             {
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37815:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37990:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -2416,16 +2416,16 @@ public class InternalBeeLangLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("37815:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' )", 8, 0, input);
+                    new NoViableAltException("37990:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' )", 8, 0, input);
 
                 throw nvae;
             }
             switch (alt8) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37815:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"'
+                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37990:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37815:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )*
+                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37990:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -2441,7 +2441,7 @@ public class InternalBeeLangLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37815:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37990:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='0'||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u')||input.LA(1)=='x' ) {
@@ -2458,7 +2458,7 @@ public class InternalBeeLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37815:74: ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) )
+                    	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37990:74: ~ ( ( '\\\\' | '\"' | '\\r' | '\\n' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -2484,10 +2484,10 @@ public class InternalBeeLangLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37815:104: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\''
+                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37990:104: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37815:109: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )*
+                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37990:109: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -2503,7 +2503,7 @@ public class InternalBeeLangLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37815:110: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37990:110: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | 'x' | '0' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='0'||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u')||input.LA(1)=='x' ) {
@@ -2520,7 +2520,7 @@ public class InternalBeeLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37815:163: ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) )
+                    	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37990:163: ~ ( ( '\\\\' | '\\'' | '\\r' | '\\n' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -2562,12 +2562,12 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_DOCUMENTATION() throws RecognitionException {
         try {
             int _type = RULE_DOCUMENTATION;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37817:20: ( '/**' ( options {greedy=false; } : . )* '*/' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37817:22: '/**' ( options {greedy=false; } : . )* '*/'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37992:20: ( '/**' ( options {greedy=false; } : . )* '*/' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37992:22: '/**' ( options {greedy=false; } : . )* '*/'
             {
             match("/**"); 
 
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37817:28: ( options {greedy=false; } : . )*
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37992:28: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -2592,7 +2592,7 @@ public class InternalBeeLangLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37817:56: .
+            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37992:56: .
             	    {
             	    matchAny(); 
 
@@ -2620,8 +2620,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37819:17: ( '/*' ~ ( '*' ) ( options {greedy=false; } : . )* '*/' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37819:19: '/*' ~ ( '*' ) ( options {greedy=false; } : . )* '*/'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37994:17: ( '/*' ~ ( '*' ) ( options {greedy=false; } : . )* '*/' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37994:19: '/*' ~ ( '*' ) ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
@@ -2635,7 +2635,7 @@ public class InternalBeeLangLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37819:31: ( options {greedy=false; } : . )*
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37994:31: ( options {greedy=false; } : . )*
             loop10:
             do {
                 int alt10=2;
@@ -2660,7 +2660,7 @@ public class InternalBeeLangLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37819:59: .
+            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37994:59: .
             	    {
             	    matchAny(); 
 
@@ -2688,12 +2688,12 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37821:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37821:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37996:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37996:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37821:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37996:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop11:
             do {
                 int alt11=2;
@@ -2706,7 +2706,7 @@ public class InternalBeeLangLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37821:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37996:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -2727,7 +2727,7 @@ public class InternalBeeLangLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37821:40: ( ( '\\r' )? '\\n' )?
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37996:40: ( ( '\\r' )? '\\n' )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -2736,9 +2736,9 @@ public class InternalBeeLangLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37821:41: ( '\\r' )? '\\n'
+                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37996:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37821:41: ( '\\r' )?
+                    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37996:41: ( '\\r' )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -2747,7 +2747,7 @@ public class InternalBeeLangLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37821:41: '\\r'
+                            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37996:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2777,10 +2777,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37823:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37823:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37998:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37998:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37823:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37998:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt14=0;
             loop14:
             do {
@@ -2833,8 +2833,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_HEX() throws RecognitionException {
         try {
             int _type = RULE_HEX;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37825:10: ( '0' ( 'x' | 'X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37825:12: '0' ( 'x' | 'X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:38000:10: ( '0' ( 'x' | 'X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:38000:12: '0' ( 'x' | 'X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
             {
             match('0'); 
             if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -2847,7 +2847,7 @@ public class InternalBeeLangLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37825:26: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:38000:26: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
             int cnt15=0;
             loop15:
             do {
@@ -2900,10 +2900,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37827:10: ( ( '0' .. '9' )+ )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37827:12: ( '0' .. '9' )+
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:38002:10: ( ( '0' .. '9' )+ )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:38002:12: ( '0' .. '9' )+
             {
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37827:12: ( '0' .. '9' )+
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:38002:12: ( '0' .. '9' )+
             int cnt16=0;
             loop16:
             do {
@@ -2917,7 +2917,7 @@ public class InternalBeeLangLexer extends Lexer {
 
                 switch (alt16) {
             	case 1 :
-            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37827:13: '0' .. '9'
+            	    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:38002:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2947,8 +2947,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_EXT_INT() throws RecognitionException {
         try {
             int _type = RULE_EXT_INT;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37829:14: ( RULE_INT ( 'e' | 'E' ) ( '-' | '+' ) RULE_INT )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37829:16: RULE_INT ( 'e' | 'E' ) ( '-' | '+' ) RULE_INT
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:38004:14: ( RULE_INT ( 'e' | 'E' ) ( '-' | '+' ) RULE_INT )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:38004:16: RULE_INT ( 'e' | 'E' ) ( '-' | '+' ) RULE_INT
             {
             mRULE_INT(); 
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
@@ -2986,8 +2986,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37831:16: ( . )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:37831:18: .
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:38006:16: ( . )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:38006:18: .
             {
             matchAny(); 
 
@@ -3854,134 +3854,135 @@ public class InternalBeeLangLexer extends Lexer {
     protected DFA17 dfa17 = new DFA17(this);
     static final String DFA17_eotS =
         "\1\uffff\1\66\1\71\1\74\1\77\1\101\1\105\1\107\1\64\1\113\1\115"+
-        "\1\117\6\66\1\uffff\2\66\4\uffff\1\152\1\uffff\1\154\1\157\2\uffff"+
-        "\1\66\3\uffff\5\66\1\uffff\1\u0083\1\u0084\2\66\1\64\1\uffff\2\64"+
-        "\1\uffff\2\u008b\1\uffff\1\66\1\uffff\1\u0090\22\uffff\1\u0094\5"+
-        "\uffff\4\66\1\u009b\12\66\1\uffff\5\66\4\uffff\1\u00b2\10\uffff"+
-        "\1\u00b3\2\66\3\uffff\11\66\4\uffff\3\66\4\uffff\1\u008b\1\uffff"+
-        "\1\66\6\uffff\1\u00c8\1\u00c9\4\66\1\uffff\15\66\1\u00de\7\66\3"+
-        "\uffff\7\66\1\u00ed\11\66\1\u00fa\1\66\1\u00fc\2\uffff\24\66\1\uffff"+
-        "\1\u0112\1\66\1\u0114\1\u0115\11\66\1\u0120\1\uffff\5\66\1\u0126"+
-        "\3\66\1\u012b\1\u012c\1\u012d\1\uffff\1\66\1\uffff\3\66\1\u0132"+
-        "\4\66\1\u0137\14\66\1\uffff\1\u0144\2\uffff\1\u0145\1\u0147\1\66"+
-        "\1\u0149\6\66\1\uffff\2\66\1\u0152\2\66\1\uffff\1\u0155\3\66\3\uffff"+
-        "\2\66\1\u015b\1\66\1\uffff\1\66\1\u015e\2\66\1\uffff\1\u0161\1\u0162"+
-        "\10\66\1\u016b\1\66\2\uffff\1\66\1\uffff\1\66\1\uffff\5\66\1\u0174"+
-        "\1\u0175\1\66\1\uffff\1\66\1\u0178\1\uffff\4\66\1\u017d\1\uffff"+
-        "\2\66\2\uffff\1\66\2\uffff\1\u0184\2\66\1\u0187\4\66\1\uffff\1\u018c"+
-        "\1\u018d\2\66\1\u0190\3\66\2\uffff\1\66\1\u0195\1\uffff\1\66\1\u0197"+
-        "\1\u0198\1\u0199\1\uffff\2\66\3\uffff\1\66\1\uffff\1\66\1\u019e"+
-        "\1\uffff\1\66\1\u01a0\2\66\2\uffff\1\u01a3\1\66\1\uffff\1\u01a5"+
-        "\1\66\1\u01a7\1\66\1\uffff\1\66\3\uffff\4\66\1\uffff\1\66\1\uffff"+
-        "\2\66\1\uffff\1\66\1\uffff\1\66\1\uffff\1\u01b4\1\u01b6\1\u01b7"+
-        "\1\u01b8\1\u01b9\1\u01ba\5\66\1\u01c0\1\uffff\1\u01c1\5\uffff\3"+
-        "\66\1\u01c5\1\66\2\uffff\1\u01c7\2\66\1\uffff\1\u01ca\1\uffff\1"+
-        "\66\1\u01cc\1\uffff\1\66\1\uffff\3\66\1\u01d1\1\uffff";
+        "\1\117\6\66\1\uffff\2\66\4\uffff\1\152\1\uffff\1\154\1\157\1\uffff"+
+        "\1\66\3\uffff\1\66\1\uffff\4\66\1\uffff\1\u0083\1\u0084\2\66\1\64"+
+        "\1\uffff\2\64\1\uffff\2\u008b\1\uffff\1\66\1\uffff\1\u0090\22\uffff"+
+        "\1\u0094\5\uffff\4\66\1\u009b\12\66\1\uffff\5\66\4\uffff\1\u00b2"+
+        "\7\uffff\1\66\3\uffff\1\u00b6\2\66\1\uffff\10\66\4\uffff\3\66\4"+
+        "\uffff\1\u008b\1\uffff\1\66\6\uffff\1\u00c8\1\u00c9\4\66\1\uffff"+
+        "\16\66\1\u00df\6\66\2\uffff\3\66\1\uffff\5\66\1\u00f0\10\66\1\u00fa"+
+        "\1\66\1\u00fc\2\uffff\24\66\1\u0112\1\uffff\1\66\1\u0114\1\u0115"+
+        "\11\66\1\u0120\3\66\1\uffff\3\66\1\u0127\2\66\1\u012b\1\u012c\1"+
+        "\u012d\1\uffff\1\66\1\uffff\1\66\1\u0130\7\66\1\u0138\13\66\1\uffff"+
+        "\1\u0144\2\uffff\1\u0145\1\66\1\u0148\4\66\1\u014d\2\66\1\uffff"+
+        "\1\66\1\u0151\3\66\1\u0155\1\uffff\3\66\3\uffff\2\66\1\uffff\2\66"+
+        "\1\u015d\1\u015e\1\u015f\2\66\1\uffff\1\u0162\10\66\1\u016b\1\66"+
+        "\2\uffff\2\66\1\uffff\4\66\1\uffff\1\66\1\u0174\1\u0175\1\uffff"+
+        "\2\66\1\u0178\1\uffff\4\66\1\u017d\2\66\4\uffff\1\66\1\uffff\1\66"+
+        "\1\u0185\1\66\1\u0187\4\66\1\uffff\1\u018c\1\66\1\u018e\4\66\1\u0193"+
+        "\2\uffff\1\66\1\u0195\1\uffff\1\66\1\u0197\1\u0198\1\u0199\1\uffff"+
+        "\2\66\3\uffff\2\66\1\uffff\1\u019e\1\uffff\1\66\1\u01a0\2\66\1\uffff"+
+        "\1\u01a3\1\uffff\1\u01a4\1\u01a5\2\66\1\uffff\1\66\1\uffff\1\66"+
+        "\3\uffff\4\66\1\uffff\1\66\1\uffff\2\66\3\uffff\2\66\1\u01b4\1\u01b6"+
+        "\1\u01b7\1\u01b8\1\u01b9\1\u01ba\4\66\1\u01bf\1\66\1\uffff\1\u01c1"+
+        "\5\uffff\4\66\1\uffff\1\u01c6\1\uffff\1\u01c7\2\66\1\u01ca\2\uffff"+
+        "\1\66\1\u01cc\1\uffff\1\66\1\uffff\3\66\1\u01d1\1\uffff";
     static final String DFA17_eofS =
         "\u01d2\uffff";
     static final String DFA17_minS =
         "\1\0\1\156\1\75\1\53\1\55\1\75\1\52\1\75\1\57\3\75\1\141\1\146\1"+
         "\165\1\145\1\141\1\165\1\uffff\1\150\1\141\4\uffff\1\56\1\uffff"+
-        "\1\101\1\46\2\uffff\1\147\3\uffff\2\145\1\154\1\141\1\150\1\uffff"+
-        "\1\174\1\60\1\145\1\165\1\101\1\uffff\2\0\1\uffff\2\60\1\uffff\1"+
-        "\151\1\uffff\1\75\14\uffff\1\0\5\uffff\1\75\5\uffff\1\154\1\162"+
-        "\2\160\1\60\1\164\1\154\1\160\1\165\1\151\1\145\1\162\1\163\1\142"+
-        "\1\151\1\uffff\1\165\1\145\1\154\2\156\4\uffff\1\56\10\uffff\1\60"+
-        "\1\145\1\156\3\uffff\1\146\1\145\1\163\1\144\1\164\1\143\1\156\1"+
-        "\164\1\145\4\uffff\1\154\1\167\1\164\4\uffff\1\60\1\uffff\1\164"+
-        "\6\uffff\2\60\1\163\1\154\1\165\1\164\1\uffff\1\160\1\145\1\165"+
-        "\1\145\1\162\1\164\1\143\1\166\1\143\1\141\1\164\2\154\1\60\1\145"+
-        "\1\157\1\156\2\163\1\141\1\143\3\uffff\1\156\1\157\1\141\1\170\1"+
-        "\157\1\165\1\145\1\60\1\151\1\145\1\150\1\145\2\143\1\150\1\156"+
-        "\1\154\1\60\1\141\1\60\2\uffff\1\151\1\162\1\145\1\164\1\141\1\165"+
-        "\1\143\1\145\1\162\2\143\2\145\1\151\1\141\1\157\1\154\1\143\1\151"+
-        "\1\144\1\uffff\1\60\1\167\2\60\1\145\1\154\3\164\1\165\1\160\1\163"+
-        "\1\151\1\60\1\uffff\1\162\1\167\1\146\1\156\1\145\1\60\1\150\1\141"+
-        "\1\145\3\60\1\uffff\1\142\1\uffff\1\157\1\164\1\155\1\60\1\156\2"+
-        "\164\1\156\1\60\1\145\1\150\1\145\1\162\1\144\1\164\1\156\1\154"+
-        "\1\156\1\157\1\143\1\145\1\uffff\1\60\2\uffff\2\60\1\151\1\60\1"+
-        "\141\1\154\1\157\1\151\1\162\1\146\1\uffff\1\171\1\151\1\60\2\144"+
-        "\1\uffff\1\60\1\151\1\170\1\162\3\uffff\1\154\1\156\1\60\1\145\1"+
-        "\uffff\1\143\1\60\1\55\1\164\1\uffff\2\60\1\144\1\164\2\145\1\144"+
-        "\1\145\1\160\1\156\1\60\1\162\2\uffff\1\171\1\uffff\1\157\1\uffff"+
-        "\2\164\1\162\1\164\1\145\2\60\1\164\1\uffff\1\163\1\60\1\uffff\1"+
-        "\156\1\164\1\156\1\145\1\60\1\uffff\1\156\1\145\1\uffff\1\142\1"+
-        "\151\2\uffff\1\60\1\151\1\163\1\60\1\151\1\154\1\165\1\144\1\uffff"+
-        "\2\60\1\156\1\151\1\60\1\164\1\157\1\163\2\uffff\1\143\1\60\1\uffff"+
-        "\1\145\3\60\1\uffff\1\164\1\157\3\uffff\1\141\1\uffff\1\145\1\60"+
-        "\1\uffff\1\164\1\60\1\164\1\151\2\uffff\1\60\1\157\1\uffff\1\60"+
-        "\1\162\1\60\1\150\1\uffff\1\162\3\uffff\1\163\1\146\1\154\1\163"+
-        "\1\uffff\1\151\1\uffff\1\143\1\164\1\uffff\1\156\1\uffff\1\151\1"+
-        "\uffff\6\60\2\157\1\151\1\163\1\145\1\60\1\uffff\1\60\5\uffff\2"+
-        "\156\1\157\1\60\1\163\2\uffff\1\60\1\144\1\156\1\uffff\1\60\1\uffff"+
-        "\1\151\1\60\1\uffff\1\164\1\uffff\1\151\1\157\1\156\1\60\1\uffff";
+        "\1\101\1\46\1\uffff\1\145\3\uffff\1\147\1\uffff\1\145\1\154\1\141"+
+        "\1\150\1\uffff\1\174\1\60\1\145\1\165\1\101\1\uffff\2\0\1\uffff"+
+        "\2\60\1\uffff\1\151\1\uffff\1\75\14\uffff\1\0\5\uffff\1\75\5\uffff"+
+        "\1\154\1\162\2\160\1\60\1\164\1\151\1\154\1\160\1\165\1\145\1\162"+
+        "\1\163\1\142\1\151\1\uffff\1\165\1\145\1\154\2\156\4\uffff\1\56"+
+        "\7\uffff\1\145\3\uffff\1\60\1\156\1\145\1\uffff\1\146\1\163\1\144"+
+        "\1\164\1\143\1\156\1\164\1\145\4\uffff\1\154\1\167\1\164\4\uffff"+
+        "\1\60\1\uffff\1\164\6\uffff\2\60\1\163\1\165\1\164\1\154\1\uffff"+
+        "\1\160\1\164\1\145\1\165\1\145\1\162\1\143\1\166\1\143\1\141\1\164"+
+        "\2\154\1\145\1\60\1\157\1\156\2\163\1\143\1\141\2\uffff\1\170\1"+
+        "\165\1\157\1\uffff\1\157\1\156\1\141\1\145\1\151\1\60\1\145\1\150"+
+        "\1\143\1\145\1\143\1\150\1\156\1\154\1\60\1\141\1\60\2\uffff\1\151"+
+        "\1\164\1\141\1\145\1\162\1\165\2\143\1\145\1\162\1\143\2\145\1\151"+
+        "\1\141\1\157\1\154\1\143\1\151\1\144\1\60\1\uffff\1\167\2\60\1\145"+
+        "\1\164\1\154\1\160\1\151\1\163\2\164\1\165\1\60\1\162\1\146\1\167"+
+        "\1\uffff\1\156\1\145\1\150\1\60\1\141\1\145\3\60\1\uffff\1\142\1"+
+        "\uffff\1\157\1\60\1\156\1\155\2\164\1\150\1\164\1\156\1\60\1\145"+
+        "\1\162\1\145\1\144\1\164\1\156\1\154\1\156\1\157\1\143\1\145\1\uffff"+
+        "\1\60\2\uffff\1\60\1\151\1\60\1\157\1\162\1\151\1\141\1\60\1\154"+
+        "\1\146\1\uffff\1\171\1\60\1\151\2\144\1\60\1\uffff\1\151\1\170\1"+
+        "\162\3\uffff\1\154\1\156\1\uffff\1\143\1\145\3\60\1\55\1\164\1\uffff"+
+        "\1\60\1\164\1\144\2\145\1\144\1\145\1\160\1\156\1\60\1\162\2\uffff"+
+        "\1\157\1\171\1\uffff\1\162\1\145\2\164\1\uffff\1\164\2\60\1\uffff"+
+        "\1\164\1\163\1\60\1\uffff\1\156\1\164\1\156\1\145\1\60\1\145\1\156"+
+        "\3\uffff\1\142\1\151\1\uffff\1\151\1\60\1\163\1\60\1\151\1\154\1"+
+        "\165\1\144\1\uffff\1\60\1\156\1\60\1\164\1\163\1\157\1\151\1\60"+
+        "\2\uffff\1\143\1\60\1\uffff\1\145\3\60\1\uffff\1\157\1\164\3\uffff"+
+        "\1\141\1\145\1\uffff\1\60\1\uffff\1\164\1\60\1\164\1\151\1\uffff"+
+        "\1\60\1\uffff\2\60\1\162\1\157\1\uffff\1\150\1\uffff\1\162\3\uffff"+
+        "\1\146\1\163\1\154\1\163\1\uffff\1\151\1\uffff\1\143\1\164\3\uffff"+
+        "\1\151\1\156\6\60\2\157\1\151\1\145\1\60\1\163\1\uffff\1\60\5\uffff"+
+        "\2\156\1\157\1\163\1\uffff\1\60\1\uffff\1\60\1\144\1\156\1\60\2"+
+        "\uffff\1\151\1\60\1\uffff\1\164\1\uffff\1\151\1\157\1\156\1\60\1"+
+        "\uffff";
     static final String DFA17_maxS =
         "\1\ufffe\1\156\1\76\11\75\1\145\1\156\1\165\1\167\2\165\1\uffff"+
-        "\1\162\1\165\4\uffff\1\56\1\uffff\1\172\1\46\2\uffff\1\163\3\uffff"+
-        "\2\145\1\170\1\157\1\151\1\uffff\1\174\1\172\2\165\1\172\1\uffff"+
-        "\2\ufffe\1\uffff\1\170\1\145\1\uffff\1\151\1\uffff\1\75\14\uffff"+
-        "\1\ufffe\5\uffff\1\75\5\uffff\2\162\1\160\1\163\1\172\1\164\1\161"+
-        "\1\160\1\165\1\151\1\157\1\162\1\163\1\142\1\151\1\uffff\1\171\1"+
-        "\162\1\154\2\156\4\uffff\1\56\10\uffff\1\172\1\145\1\156\3\uffff"+
-        "\1\146\1\161\1\163\1\166\2\164\1\156\1\164\1\145\4\uffff\1\154\1"+
-        "\167\1\164\4\uffff\1\145\1\uffff\1\164\6\uffff\2\172\1\163\1\157"+
-        "\1\165\1\164\1\uffff\1\160\1\145\1\165\1\145\1\162\1\164\2\166\1"+
-        "\143\1\141\1\164\2\154\1\172\1\145\1\157\1\156\2\163\1\141\1\143"+
-        "\3\uffff\1\156\1\157\1\141\1\170\1\157\1\165\1\145\1\172\1\164\1"+
-        "\145\1\150\1\145\1\143\1\164\1\150\1\156\1\154\1\172\1\141\1\172"+
-        "\2\uffff\1\151\1\162\1\145\1\164\1\141\1\165\1\143\1\145\1\162\2"+
-        "\143\2\145\1\151\1\141\1\157\1\154\2\151\1\144\1\uffff\1\172\1\167"+
-        "\2\172\1\145\1\154\3\164\1\165\1\160\1\163\1\151\1\172\1\uffff\1"+
-        "\162\1\167\1\146\1\156\1\145\1\172\1\150\2\145\3\172\1\uffff\1\142"+
-        "\1\uffff\1\157\1\164\1\155\1\172\1\156\2\164\1\156\1\172\1\145\1"+
-        "\150\1\145\1\162\1\144\1\164\1\156\1\154\1\156\1\157\1\143\1\145"+
-        "\1\uffff\1\172\2\uffff\2\172\1\151\1\172\1\141\1\154\1\157\1\151"+
-        "\1\162\1\146\1\uffff\1\171\1\151\1\172\2\144\1\uffff\1\172\1\151"+
-        "\1\170\1\162\3\uffff\1\154\1\156\1\172\1\145\1\uffff\1\143\1\172"+
-        "\1\55\1\164\1\uffff\2\172\1\144\1\164\2\145\1\144\1\145\1\160\1"+
-        "\156\1\172\1\162\2\uffff\1\171\1\uffff\1\157\1\uffff\2\164\1\162"+
-        "\1\164\1\145\2\172\1\164\1\uffff\1\163\1\172\1\uffff\1\156\1\164"+
-        "\1\156\1\145\1\172\1\uffff\1\156\1\145\1\uffff\1\163\1\151\2\uffff"+
-        "\1\172\1\151\1\163\1\172\1\151\1\154\1\165\1\144\1\uffff\2\172\1"+
-        "\156\1\151\1\172\1\164\1\157\1\163\2\uffff\1\143\1\172\1\uffff\1"+
-        "\145\3\172\1\uffff\1\164\1\157\3\uffff\1\141\1\uffff\1\145\1\172"+
-        "\1\uffff\1\164\1\172\1\164\1\151\2\uffff\1\172\1\157\1\uffff\1\172"+
-        "\1\162\1\172\1\150\1\uffff\1\162\3\uffff\1\163\1\146\1\154\1\163"+
-        "\1\uffff\1\151\1\uffff\1\143\1\164\1\uffff\1\156\1\uffff\1\171\1"+
-        "\uffff\6\172\2\157\1\151\1\163\1\145\1\172\1\uffff\1\172\5\uffff"+
-        "\2\156\1\157\1\172\1\163\2\uffff\1\172\1\144\1\156\1\uffff\1\172"+
-        "\1\uffff\1\151\1\172\1\uffff\1\164\1\uffff\1\151\1\157\1\156\1\172"+
-        "\1\uffff";
+        "\1\162\1\165\4\uffff\1\56\1\uffff\1\172\1\46\1\uffff\1\145\3\uffff"+
+        "\1\163\1\uffff\1\145\1\170\1\157\1\151\1\uffff\1\174\1\172\2\165"+
+        "\1\172\1\uffff\2\ufffe\1\uffff\1\170\1\145\1\uffff\1\151\1\uffff"+
+        "\1\75\14\uffff\1\ufffe\5\uffff\1\75\5\uffff\2\162\1\163\1\160\1"+
+        "\172\1\164\1\151\1\161\1\160\1\165\1\157\1\162\1\163\1\142\1\151"+
+        "\1\uffff\1\171\1\162\1\154\2\156\4\uffff\1\56\7\uffff\1\161\3\uffff"+
+        "\1\172\1\156\1\145\1\uffff\1\146\1\163\1\166\2\164\1\156\1\164\1"+
+        "\145\4\uffff\1\154\1\167\1\164\4\uffff\1\145\1\uffff\1\164\6\uffff"+
+        "\2\172\1\163\1\165\1\164\1\157\1\uffff\1\160\1\164\1\145\1\165\1"+
+        "\145\1\162\2\166\1\143\1\141\1\164\2\154\1\145\1\172\1\157\1\156"+
+        "\2\163\1\143\1\141\2\uffff\1\170\1\165\1\157\1\uffff\1\157\1\156"+
+        "\1\141\1\145\1\164\1\172\1\145\1\150\1\143\1\145\1\164\1\150\1\156"+
+        "\1\154\1\172\1\141\1\172\2\uffff\1\151\1\164\1\141\1\145\1\162\1"+
+        "\165\2\143\1\145\1\162\1\143\2\145\1\151\1\141\1\157\1\154\2\151"+
+        "\1\144\1\172\1\uffff\1\167\2\172\1\145\1\164\1\154\1\160\1\151\1"+
+        "\163\2\164\1\165\1\172\1\162\1\146\1\167\1\uffff\1\156\1\145\1\150"+
+        "\1\172\2\145\3\172\1\uffff\1\142\1\uffff\1\157\1\172\1\156\1\155"+
+        "\2\164\1\150\1\164\1\156\1\172\1\145\1\162\1\145\1\144\1\164\1\156"+
+        "\1\154\1\156\1\157\1\143\1\145\1\uffff\1\172\2\uffff\1\172\1\151"+
+        "\1\172\1\157\1\162\1\151\1\141\1\172\1\154\1\146\1\uffff\1\171\1"+
+        "\172\1\151\2\144\1\172\1\uffff\1\151\1\170\1\162\3\uffff\1\154\1"+
+        "\156\1\uffff\1\143\1\145\3\172\1\55\1\164\1\uffff\1\172\1\164\1"+
+        "\144\2\145\1\144\1\145\1\160\1\156\1\172\1\162\2\uffff\1\157\1\171"+
+        "\1\uffff\1\162\1\145\2\164\1\uffff\1\164\2\172\1\uffff\1\164\1\163"+
+        "\1\172\1\uffff\1\156\1\164\1\156\1\145\1\172\1\145\1\156\3\uffff"+
+        "\1\163\1\151\1\uffff\1\151\1\172\1\163\1\172\1\151\1\154\1\165\1"+
+        "\144\1\uffff\1\172\1\156\1\172\1\164\1\163\1\157\1\151\1\172\2\uffff"+
+        "\1\143\1\172\1\uffff\1\145\3\172\1\uffff\1\157\1\164\3\uffff\1\141"+
+        "\1\145\1\uffff\1\172\1\uffff\1\164\1\172\1\164\1\151\1\uffff\1\172"+
+        "\1\uffff\2\172\1\162\1\157\1\uffff\1\150\1\uffff\1\162\3\uffff\1"+
+        "\146\1\163\1\154\1\163\1\uffff\1\151\1\uffff\1\143\1\164\3\uffff"+
+        "\1\171\1\156\6\172\2\157\1\151\1\145\1\172\1\163\1\uffff\1\172\5"+
+        "\uffff\2\156\1\157\1\163\1\uffff\1\172\1\uffff\1\172\1\144\1\156"+
+        "\1\172\2\uffff\1\151\1\172\1\uffff\1\164\1\uffff\1\151\1\157\1\156"+
+        "\1\172\1\uffff";
     static final String DFA17_acceptS =
         "\22\uffff\1\37\2\uffff\1\42\1\43\1\44\1\45\1\uffff\1\51\2\uffff"+
-        "\1\54\1\62\1\uffff\1\64\1\65\1\70\5\uffff\1\104\5\uffff\1\155\2"+
-        "\uffff\1\164\2\uffff\1\170\1\uffff\1\155\1\uffff\1\122\1\2\1\30"+
-        "\1\3\1\22\1\31\1\4\1\23\1\5\1\24\1\6\1\163\1\uffff\1\25\1\7\1\26"+
-        "\1\157\1\10\1\uffff\1\27\1\15\1\17\1\16\1\20\17\uffff\1\37\5\uffff"+
-        "\1\42\1\43\1\44\1\45\1\uffff\1\50\1\51\1\52\1\156\1\125\1\53\1\54"+
-        "\1\62\3\uffff\1\64\1\65\1\70\11\uffff\1\104\1\124\1\144\1\130\3"+
-        "\uffff\1\160\1\164\1\165\1\166\1\uffff\1\167\1\uffff\1\12\1\11\1"+
-        "\161\1\162\1\14\1\13\6\uffff\1\136\25\uffff\1\151\1\154\1\63\24"+
-        "\uffff\1\152\1\21\24\uffff\1\132\16\uffff\1\74\14\uffff\1\143\1"+
-        "\uffff\1\1\25\uffff\1\40\1\uffff\1\137\1\47\12\uffff\1\141\5\uffff"+
-        "\1\116\4\uffff\1\102\1\77\1\145\4\uffff\1\32\4\uffff\1\46\14\uffff"+
-        "\1\131\1\41\1\uffff\1\147\1\uffff\1\120\10\uffff\1\140\2\uffff\1"+
-        "\135\5\uffff\1\61\2\uffff\1\33\2\uffff\1\34\1\114\10\uffff\1\55"+
-        "\10\uffff\1\142\1\133\2\uffff\1\123\4\uffff\1\66\2\uffff\1\113\1"+
-        "\112\1\111\1\uffff\1\127\2\uffff\1\56\4\uffff\1\36\1\134\2\uffff"+
-        "\1\71\4\uffff\1\100\1\uffff\1\126\1\103\1\150\4\uffff\1\72\1\uffff"+
-        "\1\57\2\uffff\1\121\1\uffff\1\146\1\uffff\1\73\14\uffff\1\115\1"+
-        "\uffff\1\117\1\67\1\153\1\60\1\35\5\uffff\1\110\1\76\3\uffff\1\101"+
-        "\1\uffff\1\105\2\uffff\1\75\1\uffff\1\107\4\uffff\1\106";
+        "\1\54\1\uffff\1\62\1\63\1\65\1\uffff\1\71\4\uffff\1\104\5\uffff"+
+        "\1\155\2\uffff\1\164\2\uffff\1\170\1\uffff\1\155\1\uffff\1\121\1"+
+        "\2\1\30\1\3\1\22\1\31\1\4\1\23\1\5\1\24\1\6\1\163\1\uffff\1\25\1"+
+        "\7\1\26\1\157\1\10\1\uffff\1\27\1\15\1\17\1\16\1\20\17\uffff\1\37"+
+        "\5\uffff\1\42\1\43\1\44\1\45\1\uffff\1\50\1\51\1\52\1\156\1\124"+
+        "\1\53\1\54\1\uffff\1\62\1\63\1\65\3\uffff\1\71\10\uffff\1\104\1"+
+        "\123\1\144\1\127\3\uffff\1\160\1\164\1\165\1\166\1\uffff\1\167\1"+
+        "\uffff\1\12\1\11\1\161\1\162\1\14\1\13\6\uffff\1\136\25\uffff\1"+
+        "\151\1\154\3\uffff\1\66\21\uffff\1\152\1\21\25\uffff\1\131\20\uffff"+
+        "\1\75\11\uffff\1\143\1\uffff\1\1\25\uffff\1\40\1\uffff\1\137\1\47"+
+        "\12\uffff\1\141\6\uffff\1\115\3\uffff\1\102\1\77\1\145\2\uffff\1"+
+        "\32\7\uffff\1\46\13\uffff\1\130\1\41\2\uffff\1\147\4\uffff\1\117"+
+        "\3\uffff\1\140\3\uffff\1\134\7\uffff\1\64\1\33\1\135\2\uffff\1\34"+
+        "\10\uffff\1\55\10\uffff\1\142\1\132\2\uffff\1\122\4\uffff\1\67\2"+
+        "\uffff\1\113\1\112\1\111\2\uffff\1\126\1\uffff\1\56\4\uffff\1\36"+
+        "\1\uffff\1\133\4\uffff\1\72\1\uffff\1\100\1\uffff\1\125\1\103\1"+
+        "\150\4\uffff\1\73\1\uffff\1\57\2\uffff\1\120\1\146\1\74\16\uffff"+
+        "\1\114\1\uffff\1\116\1\153\1\70\1\60\1\35\4\uffff\1\110\1\uffff"+
+        "\1\76\4\uffff\1\101\1\105\2\uffff\1\61\1\uffff\1\107\4\uffff\1\106";
     static final String DFA17_specialS =
         "\u01d2\uffff}>";
     static final String[] DFA17_transitionS = {
             "\11\64\2\61\2\64\1\61\22\64\1\61\1\11\1\57\1\50\1\33\1\7\1\34"+
-            "\1\60\1\26\1\30\1\5\1\3\1\42\1\4\1\31\1\6\1\62\11\63\1\35\1"+
-            "\36\1\13\1\2\1\12\1\22\1\32\32\56\1\25\1\64\1\27\1\55\1\52\1"+
-            "\64\1\37\1\21\1\46\1\43\1\45\1\24\2\56\1\15\3\56\1\54\1\53\1"+
-            "\16\1\20\1\56\1\44\1\17\1\23\1\1\1\14\1\47\3\56\1\40\1\51\1"+
-            "\41\1\10\uff80\64",
+            "\1\60\1\26\1\30\1\5\1\3\1\43\1\4\1\31\1\6\1\62\11\63\1\35\1"+
+            "\41\1\13\1\2\1\12\1\22\1\32\32\56\1\25\1\64\1\27\1\55\1\52\1"+
+            "\64\1\42\1\21\1\46\1\44\1\45\1\24\2\56\1\15\3\56\1\54\1\53\1"+
+            "\16\1\20\1\56\1\36\1\17\1\23\1\1\1\14\1\47\3\56\1\37\1\51\1"+
+            "\40\1\10\uff80\64",
             "\1\65",
             "\1\67\1\70",
             "\1\72\21\uffff\1\73",
@@ -3994,14 +3995,14 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\114",
             "\1\116",
             "\1\120\3\uffff\1\121",
-            "\1\124\6\uffff\1\122\1\123",
+            "\1\124\6\uffff\1\123\1\122",
             "\1\125",
-            "\1\126\11\uffff\1\130\5\uffff\1\127\1\uffff\1\131",
+            "\1\127\11\uffff\1\131\5\uffff\1\130\1\uffff\1\126",
             "\1\133\15\uffff\1\134\2\uffff\1\132\2\uffff\1\135",
             "\1\136",
             "",
             "\1\141\11\uffff\1\140",
-            "\1\142\7\uffff\1\143\13\uffff\1\144",
+            "\1\142\7\uffff\1\144\13\uffff\1\143",
             "",
             "",
             "",
@@ -4011,12 +4012,12 @@ public class InternalBeeLangLexer extends Lexer {
             "\32\155\3\uffff\2\155\1\uffff\32\155",
             "\1\156",
             "",
-            "",
-            "\1\163\6\uffff\1\164\4\uffff\1\162",
-            "",
+            "\1\161",
             "",
             "",
-            "\1\170",
+            "",
+            "\1\167\6\uffff\1\166\4\uffff\1\165",
+            "",
             "\1\171",
             "\1\172\1\uffff\1\173\11\uffff\1\174",
             "\1\175\15\uffff\1\176",
@@ -4064,12 +4065,12 @@ public class InternalBeeLangLexer extends Lexer {
             "",
             "\1\u0095\5\uffff\1\u0096",
             "\1\u0097",
-            "\1\u0098",
-            "\1\u0099\2\uffff\1\u009a",
+            "\1\u0098\2\uffff\1\u0099",
+            "\1\u009a",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u009c",
-            "\1\u009d\4\uffff\1\u009e",
-            "\1\u009f",
+            "\1\u009d",
+            "\1\u009e\4\uffff\1\u009f",
             "\1\u00a0",
             "\1\u00a1",
             "\1\u00a4\3\uffff\1\u00a3\5\uffff\1\u00a2",
@@ -4078,7 +4079,7 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u00a7",
             "\1\u00a8",
             "",
-            "\1\u00aa\3\uffff\1\u00a9",
+            "\1\u00a9\3\uffff\1\u00aa",
             "\1\u00ac\3\uffff\1\u00ad\10\uffff\1\u00ab",
             "\1\u00ae",
             "\1\u00af",
@@ -4095,19 +4096,19 @@ public class InternalBeeLangLexer extends Lexer {
             "",
             "",
             "",
+            "\1\u00b3\12\uffff\1\u00b5\1\u00b4",
+            "",
+            "",
             "",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u00b4",
-            "\1\u00b5",
+            "\1\u00b7",
+            "\1\u00b8",
             "",
-            "",
-            "",
-            "\1\u00b6",
-            "\1\u00b7\12\uffff\1\u00b8\1\u00b9",
+            "\1\u00b9",
             "\1\u00ba",
-            "\1\u00bc\21\uffff\1\u00bb",
+            "\1\u00bb\21\uffff\1\u00bc",
             "\1\u00bd",
-            "\1\u00be\17\uffff\1\u00bf\1\u00c0",
+            "\1\u00be\17\uffff\1\u00c0\1\u00bf",
             "\1\u00c1",
             "\1\u00c2",
             "\1\u00c3",
@@ -4134,9 +4135,9 @@ public class InternalBeeLangLexer extends Lexer {
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u00ca",
-            "\1\u00cc\2\uffff\1\u00cb",
-            "\1\u00cd",
-            "\1\u00ce",
+            "\1\u00cb",
+            "\1\u00cc",
+            "\1\u00cd\2\uffff\1\u00ce",
             "",
             "\1\u00cf",
             "\1\u00d0",
@@ -4144,15 +4145,15 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u00d2",
             "\1\u00d3",
             "\1\u00d4",
-            "\1\u00d5\14\uffff\1\u00d6\5\uffff\1\u00d7",
+            "\1\u00d6\14\uffff\1\u00d5\5\uffff\1\u00d7",
             "\1\u00d8",
             "\1\u00d9",
             "\1\u00da",
             "\1\u00db",
             "\1\u00dc",
             "\1\u00dd",
+            "\1\u00de",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u00df",
             "\1\u00e0",
             "\1\u00e1",
             "\1\u00e2",
@@ -4161,16 +4162,16 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u00e5",
             "",
             "",
-            "",
             "\1\u00e6",
             "\1\u00e7",
             "\1\u00e8",
+            "",
             "\1\u00e9",
             "\1\u00ea",
             "\1\u00eb",
             "\1\u00ec",
+            "\1\u00ee\11\uffff\1\u00ef\1\u00ed",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u00f0\11\uffff\1\u00ef\1\u00ee",
             "\1\u00f1",
             "\1\u00f2",
             "\1\u00f3",
@@ -4204,8 +4205,8 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u010f\5\uffff\1\u010e",
             "\1\u0110",
             "\1\u0111",
-            "",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "",
             "\1\u0113",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
@@ -4219,14 +4220,14 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u011d",
             "\1\u011e",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\10\66\1\u011f\21\66",
-            "",
             "\1\u0121",
             "\1\u0122",
             "\1\u0123",
+            "",
             "\1\u0124",
             "\1\u0125",
+            "\1\u0126",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u0127",
             "\1\u0128\3\uffff\1\u0129",
             "\1\u012a",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
@@ -4236,15 +4237,15 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u012e",
             "",
             "\1\u012f",
-            "\1\u0130",
-            "\1\u0131",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u0131",
+            "\1\u0132",
             "\1\u0133",
             "\1\u0134",
             "\1\u0135",
             "\1\u0136",
+            "\1\u0137",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u0138",
             "\1\u0139",
             "\1\u013a",
             "\1\u013b",
@@ -4261,23 +4262,23 @@ public class InternalBeeLangLexer extends Lexer {
             "",
             "",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\13\66\1\u0146\16\66",
-            "\1\u0148",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u0146",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\13\66\1\u0147\16\66",
+            "\1\u0149",
             "\1\u014a",
             "\1\u014b",
             "\1\u014c",
-            "\1\u014d",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u014e",
             "\1\u014f",
             "",
             "\1\u0150",
-            "\1\u0151",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u0152",
             "\1\u0153",
             "\1\u0154",
-            "",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "",
             "\1\u0156",
             "\1\u0157",
             "\1\u0158",
@@ -4286,15 +4287,15 @@ public class InternalBeeLangLexer extends Lexer {
             "",
             "\1\u0159",
             "\1\u015a",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "",
+            "\1\u015b",
             "\1\u015c",
-            "",
-            "\1\u015d",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u015f",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u0160",
+            "\1\u0161",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u0163",
             "\1\u0164",
@@ -4309,18 +4310,18 @@ public class InternalBeeLangLexer extends Lexer {
             "",
             "",
             "\1\u016d",
-            "",
             "\1\u016e",
             "",
             "\1\u016f",
             "\1\u0170",
             "\1\u0171",
             "\1\u0172",
+            "",
             "\1\u0173",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u0176",
             "",
+            "\1\u0176",
             "\1\u0177",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
@@ -4329,16 +4330,16 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u017b",
             "\1\u017c",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
             "\1\u017e",
             "\1\u017f",
+            "",
+            "",
             "",
             "\1\u0181\3\uffff\1\u0182\14\uffff\1\u0180",
             "\1\u0183",
             "",
-            "",
+            "\1\u0184",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u0185",
             "\1\u0186",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u0188",
@@ -4347,13 +4348,13 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u018b",
             "",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u018d",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u018e",
             "\1\u018f",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u0190",
             "\1\u0191",
             "\1\u0192",
-            "\1\u0193",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
             "",
             "\1\u0194",
@@ -4370,8 +4371,8 @@ public class InternalBeeLangLexer extends Lexer {
             "",
             "",
             "\1\u019c",
-            "",
             "\1\u019d",
+            "",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
             "\1\u019f",
@@ -4379,13 +4380,13 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u01a1",
             "\1\u01a2",
             "",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u01a4",
-            "",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u01a6",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u01a7",
+            "",
             "\1\u01a8",
             "",
             "\1\u01a9",
@@ -4402,10 +4403,10 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u01af",
             "\1\u01b0",
             "",
-            "\1\u01b1",
             "",
-            "\1\u01b2\17\uffff\1\u01b3",
             "",
+            "\1\u01b1\17\uffff\1\u01b2",
+            "\1\u01b3",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\22\66\1\u01b5\7\66",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
@@ -4416,8 +4417,8 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u01bc",
             "\1\u01bd",
             "\1\u01be",
-            "\1\u01bf",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u01c0",
             "",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
@@ -4428,15 +4429,15 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u01c2",
             "\1\u01c3",
             "\1\u01c4",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u01c6",
+            "\1\u01c5",
             "",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u01c8",
             "\1\u01c9",
-            "",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "",
             "",
             "\1\u01cb",
             "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",

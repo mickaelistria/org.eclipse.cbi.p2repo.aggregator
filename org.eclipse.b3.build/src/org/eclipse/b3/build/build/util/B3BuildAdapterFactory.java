@@ -9,6 +9,7 @@ package org.eclipse.b3.build.build.util;
 import java.lang.reflect.GenericDeclaration;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -447,6 +448,11 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseBFunctionWrapper(BFunctionWrapper object) {
 			return createBFunctionWrapperAdapter();
+		}
+
+		@Override
+		public Adapter caseBChainedExpression(BChainedExpression object) {
+			return createBChainedExpressionAdapter();
 		}
 
 		@Override
@@ -1464,6 +1470,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBFunctionWrapperAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression <em>BChained Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression
+	 * @generated
+	 */
+	public Adapter createBChainedExpressionAdapter() {
 		return null;
 	}
 

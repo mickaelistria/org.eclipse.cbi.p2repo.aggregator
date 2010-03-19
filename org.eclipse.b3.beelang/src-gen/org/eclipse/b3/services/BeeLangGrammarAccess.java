@@ -32,26 +32,51 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPropertiesKeyword_1_1_2_0 = (Keyword)cGroup_1_1_2.eContents().get(0);
 		private final Assignment cPropertySetsAssignment_1_1_2_1 = (Assignment)cGroup_1_1_2.eContents().get(1);
 		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0 = (RuleCall)cPropertySetsAssignment_1_1_2_1.eContents().get(0);
-		private final Assignment cBuildUnitsAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cBuildUnitsBuildUnitParserRuleCall_1_2_0 = (RuleCall)cBuildUnitsAssignment_1_2.eContents().get(0);
+		private final Assignment cBuildUnitsAssignment_1_1_3 = (Assignment)cAlternatives_1_1.eContents().get(3);
+		private final RuleCall cBuildUnitsBuildUnitParserRuleCall_1_1_3_0 = (RuleCall)cBuildUnitsAssignment_1_1_3.eContents().get(0);
+		private final Group cGroup_1_1_4 = (Group)cAlternatives_1_1.eContents().get(4);
+		private final Keyword cRepositoriesKeyword_1_1_4_0 = (Keyword)cGroup_1_1_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1_1_4_1 = (Keyword)cGroup_1_1_4.eContents().get(1);
+		private final Assignment cRepositoriesAssignment_1_1_4_2 = (Assignment)cGroup_1_1_4.eContents().get(2);
+		private final RuleCall cRepositoriesRepositoryConfigurationParserRuleCall_1_1_4_2_0 = (RuleCall)cRepositoriesAssignment_1_1_4_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_1_4_3 = (Keyword)cGroup_1_1_4.eContents().get(3);
 		
 		//BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
 		//  {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
-		//  "properties" propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*); 
+		//  "properties" propertySets+=PropertySet_Named|buildUnits+=BuildUnit|"repositories"
+		//  "{" repositories+=RepositoryConfiguration* "}")*); 
 		//
 		//// uncomments if things are needed that should not be in backend or build
 		////generate beeLang "http://www.eclipse.org/b3/BeeLang"
+		//
+		//              
+		//	     
+		//		      
+		//	 	     
+		//		        
+		////	|   (expressions += TopLevelExpression ';') // To be discussed (code completion shows too much)
 		public ParserRule getRule() { return rule; }
 
 		//{build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
-		//"properties" propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*)
+		//"properties" propertySets+=PropertySet_Named|buildUnits+=BuildUnit|"repositories"
+		//"{" repositories+=RepositoryConfiguration* "}")*)   
+		//	     
+		//		      
+		//	 	     
+		//		        
+		////	|   (expressions += TopLevelExpression ';') // To be discussed (code completion shows too much)
 		public Group getGroup() { return cGroup; }
 
 		//{build::BeeModel}
 		public Action getBeeModelAction_0() { return cBeeModelAction_0; }
 
 		//imports+=Import* (functions+=Function|concerns+=Concern_Named|"properties"
-		//propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*
+		//propertySets+=PropertySet_Named|buildUnits+=BuildUnit|"repositories" "{"
+		//repositories+=RepositoryConfiguration* "}")*      
+		//		      
+		//	 	     
+		//		        
+		////	|   (expressions += TopLevelExpression ';') // To be discussed (code completion shows too much)
 		public Group getGroup_1() { return cGroup_1; }
 
 		//imports+=Import*
@@ -61,7 +86,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getImportsImportParserRuleCall_1_0_0() { return cImportsImportParserRuleCall_1_0_0; }
 
 		//(functions+=Function|concerns+=Concern_Named|"properties" propertySets+=
-		//PropertySet_Named)*
+		//PropertySet_Named|buildUnits+=BuildUnit|"repositories" "{" repositories+=
+		//RepositoryConfiguration* "}")*  
+		//		      
+		//	 	     
+		//		        
+		////	|   (expressions += TopLevelExpression ';') // To be discussed (code completion shows too much)
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 
 		//functions+=Function
@@ -88,11 +118,29 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//PropertySet_Named
 		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0() { return cPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0; }
 
-		//buildUnits+=BuildUnit*
-		public Assignment getBuildUnitsAssignment_1_2() { return cBuildUnitsAssignment_1_2; }
+		//buildUnits+=BuildUnit
+		public Assignment getBuildUnitsAssignment_1_1_3() { return cBuildUnitsAssignment_1_1_3; }
 
 		//BuildUnit
-		public RuleCall getBuildUnitsBuildUnitParserRuleCall_1_2_0() { return cBuildUnitsBuildUnitParserRuleCall_1_2_0; }
+		public RuleCall getBuildUnitsBuildUnitParserRuleCall_1_1_3_0() { return cBuildUnitsBuildUnitParserRuleCall_1_1_3_0; }
+
+		//"repositories" "{" repositories+=RepositoryConfiguration* "}"
+		public Group getGroup_1_1_4() { return cGroup_1_1_4; }
+
+		//"repositories"
+		public Keyword getRepositoriesKeyword_1_1_4_0() { return cRepositoriesKeyword_1_1_4_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1_1_4_1() { return cLeftCurlyBracketKeyword_1_1_4_1; }
+
+		//repositories+=RepositoryConfiguration*
+		public Assignment getRepositoriesAssignment_1_1_4_2() { return cRepositoriesAssignment_1_1_4_2; }
+
+		//RepositoryConfiguration
+		public RuleCall getRepositoriesRepositoryConfigurationParserRuleCall_1_1_4_2_0() { return cRepositoriesRepositoryConfigurationParserRuleCall_1_1_4_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_1_1_4_3() { return cRightCurlyBracketKeyword_1_1_4_3; }
 	}
 
 	public class ImportElements extends AbstractParserRuleElementFinder {
@@ -3519,148 +3567,168 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ResolutionStrategyFirst");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cResolutionStrategyFirstAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSelectFirstKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cRepositoriesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRepositoriesRepositoryConfigurationParserRuleCall_3_0 = (RuleCall)cRepositoriesAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final Keyword cSelectFirstKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cRepositoriesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRepositoriesRepositoryConfigurationParserRuleCall_4_0 = (RuleCall)cRepositoriesAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ResolutionStrategyFirst returns build::ResolutionStrategyFirst:
-		//  {build::ResolutionStrategyFirst} "select-first" "{" repositories+=
-		//  RepositoryConfiguration* "}";
+		//  {build::ResolutionStrategyFirst} documentation=DOCUMENTATION? "select-first" "{"
+		//  repositories+=RepositoryConfiguration* "}";
 		public ParserRule getRule() { return rule; }
 
-		//{build::ResolutionStrategyFirst} "select-first" "{" repositories+=
-		//RepositoryConfiguration* "}"
+		//{build::ResolutionStrategyFirst} documentation=DOCUMENTATION? "select-first" "{"
+		//repositories+=RepositoryConfiguration* "}"
 		public Group getGroup() { return cGroup; }
 
 		//{build::ResolutionStrategyFirst}
 		public Action getResolutionStrategyFirstAction_0() { return cResolutionStrategyFirstAction_0; }
 
+		//documentation=DOCUMENTATION?
+		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
+
+		//DOCUMENTATION
+		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+
 		//"select-first"
-		public Keyword getSelectFirstKeyword_1() { return cSelectFirstKeyword_1; }
+		public Keyword getSelectFirstKeyword_2() { return cSelectFirstKeyword_2; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
 		//repositories+=RepositoryConfiguration*
-		public Assignment getRepositoriesAssignment_3() { return cRepositoriesAssignment_3; }
+		public Assignment getRepositoriesAssignment_4() { return cRepositoriesAssignment_4; }
 
 		//RepositoryConfiguration
-		public RuleCall getRepositoriesRepositoryConfigurationParserRuleCall_3_0() { return cRepositoriesRepositoryConfigurationParserRuleCall_3_0; }
+		public RuleCall getRepositoriesRepositoryConfigurationParserRuleCall_4_0() { return cRepositoriesRepositoryConfigurationParserRuleCall_4_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class ResolutionStrategyBestElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ResolutionStrategyBest");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cResolutionStrategyBestAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSelectBestKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cRepositoriesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRepositoriesRepositoryConfigurationParserRuleCall_3_0 = (RuleCall)cRepositoriesAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final Keyword cSelectBestKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cRepositoriesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRepositoriesRepositoryConfigurationParserRuleCall_4_0 = (RuleCall)cRepositoriesAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ResolutionStrategyBest returns build::ResolutionStrategyBest:
-		//  {build::ResolutionStrategyBest} "select-best" "{" repositories+=
-		//  RepositoryConfiguration* "}";
+		//  {build::ResolutionStrategyBest} documentation=DOCUMENTATION? "select-best" "{"
+		//  repositories+=RepositoryConfiguration* "}";
 		public ParserRule getRule() { return rule; }
 
-		//{build::ResolutionStrategyBest} "select-best" "{" repositories+=
-		//RepositoryConfiguration* "}"
+		//{build::ResolutionStrategyBest} documentation=DOCUMENTATION? "select-best" "{"
+		//repositories+=RepositoryConfiguration* "}"
 		public Group getGroup() { return cGroup; }
 
 		//{build::ResolutionStrategyBest}
 		public Action getResolutionStrategyBestAction_0() { return cResolutionStrategyBestAction_0; }
 
+		//documentation=DOCUMENTATION?
+		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
+
+		//DOCUMENTATION
+		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+
 		//"select-best"
-		public Keyword getSelectBestKeyword_1() { return cSelectBestKeyword_1; }
+		public Keyword getSelectBestKeyword_2() { return cSelectBestKeyword_2; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
 		//repositories+=RepositoryConfiguration*
-		public Assignment getRepositoriesAssignment_3() { return cRepositoriesAssignment_3; }
+		public Assignment getRepositoriesAssignment_4() { return cRepositoriesAssignment_4; }
 
 		//RepositoryConfiguration
-		public RuleCall getRepositoriesRepositoryConfigurationParserRuleCall_3_0() { return cRepositoriesRepositoryConfigurationParserRuleCall_3_0; }
+		public RuleCall getRepositoriesRepositoryConfigurationParserRuleCall_4_0() { return cRepositoriesRepositoryConfigurationParserRuleCall_4_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class ResolutionStrategySwitchElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ResolutionStrategySwitch");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cResolutionStrategySwitchAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSelectSwitchKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cRepoSwitchAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cRepoSwitchSelectSwitchExpressionParserRuleCall_2_0 = (RuleCall)cRepoSwitchAssignment_2.eContents().get(0);
+		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final Keyword cSelectSwitchKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cRepoSwitchAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRepoSwitchSelectSwitchExpressionParserRuleCall_3_0 = (RuleCall)cRepoSwitchAssignment_3.eContents().get(0);
 		
 		//ResolutionStrategySwitch returns build::ResolutionStrategySwitch:
-		//  {build::ResolutionStrategySwitch} "select-switch" repoSwitch=
-		//  SelectSwitchExpression;
+		//  {build::ResolutionStrategySwitch} documentation=DOCUMENTATION? "select-switch"
+		//  repoSwitch=SelectSwitchExpression;
 		public ParserRule getRule() { return rule; }
 
-		//{build::ResolutionStrategySwitch} "select-switch" repoSwitch=
-		//SelectSwitchExpression
+		//{build::ResolutionStrategySwitch} documentation=DOCUMENTATION? "select-switch"
+		//repoSwitch=SelectSwitchExpression
 		public Group getGroup() { return cGroup; }
 
 		//{build::ResolutionStrategySwitch}
 		public Action getResolutionStrategySwitchAction_0() { return cResolutionStrategySwitchAction_0; }
 
+		//documentation=DOCUMENTATION?
+		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
+
+		//DOCUMENTATION
+		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+
 		//"select-switch"
-		public Keyword getSelectSwitchKeyword_1() { return cSelectSwitchKeyword_1; }
+		public Keyword getSelectSwitchKeyword_2() { return cSelectSwitchKeyword_2; }
 
 		//repoSwitch=SelectSwitchExpression
-		public Assignment getRepoSwitchAssignment_2() { return cRepoSwitchAssignment_2; }
+		public Assignment getRepoSwitchAssignment_3() { return cRepoSwitchAssignment_3; }
 
 		//SelectSwitchExpression
-		public RuleCall getRepoSwitchSelectSwitchExpressionParserRuleCall_2_0() { return cRepoSwitchSelectSwitchExpressionParserRuleCall_2_0; }
+		public RuleCall getRepoSwitchSelectSwitchExpressionParserRuleCall_3_0() { return cRepoSwitchSelectSwitchExpressionParserRuleCall_3_0; }
 	}
 
 	public class SelectSwitchExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SelectSwitchExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBSwitchExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSwitchKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cSwitchExpressionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cSwitchExpressionExpressionParserRuleCall_2_0 = (RuleCall)cSwitchExpressionAssignment_2.eContents().get(0);
-		private final Assignment cCaseListAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cCaseListRepositorySelectCaseParserRuleCall_3_0 = (RuleCall)cCaseListAssignment_3.eContents().get(0);
-		private final Keyword cEndswitchKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cSwitchExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSwitchExpressionExpressionParserRuleCall_1_0 = (RuleCall)cSwitchExpressionAssignment_1.eContents().get(0);
+		private final Assignment cCaseListAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCaseListRepositorySelectCaseParserRuleCall_2_0 = (RuleCall)cCaseListAssignment_2.eContents().get(0);
+		private final Keyword cEndswitchKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//SelectSwitchExpression returns be::BSwitchExpression:
-		//  {be::BSwitchExpression} "switch" switchExpression=Expression caseList+=
+		//  {be::BSwitchExpression} switchExpression=Expression? caseList+=
 		//  RepositorySelectCase+ "endswitch";
 		public ParserRule getRule() { return rule; }
 
-		//{be::BSwitchExpression} "switch" switchExpression=Expression caseList+=
+		//{be::BSwitchExpression} switchExpression=Expression? caseList+=
 		//RepositorySelectCase+ "endswitch"
 		public Group getGroup() { return cGroup; }
 
 		//{be::BSwitchExpression}
 		public Action getBSwitchExpressionAction_0() { return cBSwitchExpressionAction_0; }
 
-		//"switch"
-		public Keyword getSwitchKeyword_1() { return cSwitchKeyword_1; }
-
-		//switchExpression=Expression
-		public Assignment getSwitchExpressionAssignment_2() { return cSwitchExpressionAssignment_2; }
+		//switchExpression=Expression?
+		public Assignment getSwitchExpressionAssignment_1() { return cSwitchExpressionAssignment_1; }
 
 		//Expression
-		public RuleCall getSwitchExpressionExpressionParserRuleCall_2_0() { return cSwitchExpressionExpressionParserRuleCall_2_0; }
+		public RuleCall getSwitchExpressionExpressionParserRuleCall_1_0() { return cSwitchExpressionExpressionParserRuleCall_1_0; }
 
 		//caseList+=RepositorySelectCase+
-		public Assignment getCaseListAssignment_3() { return cCaseListAssignment_3; }
+		public Assignment getCaseListAssignment_2() { return cCaseListAssignment_2; }
 
 		//RepositorySelectCase
-		public RuleCall getCaseListRepositorySelectCaseParserRuleCall_3_0() { return cCaseListRepositorySelectCaseParserRuleCall_3_0; }
+		public RuleCall getCaseListRepositorySelectCaseParserRuleCall_2_0() { return cCaseListRepositorySelectCaseParserRuleCall_2_0; }
 
 		//"endswitch"
-		public Keyword getEndswitchKeyword_4() { return cEndswitchKeyword_4; }
+		public Keyword getEndswitchKeyword_3() { return cEndswitchKeyword_3; }
 	}
 
 	public class RepositorySelectCaseElements extends AbstractParserRuleElementFinder {
@@ -11062,10 +11130,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
 	//  {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
-	//  "properties" propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*); 
+	//  "properties" propertySets+=PropertySet_Named|buildUnits+=BuildUnit|"repositories"
+	//  "{" repositories+=RepositoryConfiguration* "}")*); 
 	//
 	//// uncomments if things are needed that should not be in backend or build
 	////generate beeLang "http://www.eclipse.org/b3/BeeLang"
+	//
+	//              
+	//	     
+	//		      
+	//	 	     
+	//		        
+	////	|   (expressions += TopLevelExpression ';') // To be discussed (code completion shows too much)
 	public BeeModelElements getBeeModelAccess() {
 		return (pBeeModel != null) ? pBeeModel : (pBeeModel = new BeeModelElements());
 	}
@@ -11727,8 +11803,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ResolutionStrategyFirst returns build::ResolutionStrategyFirst:
-	//  {build::ResolutionStrategyFirst} "select-first" "{" repositories+=
-	//  RepositoryConfiguration* "}";
+	//  {build::ResolutionStrategyFirst} documentation=DOCUMENTATION? "select-first" "{"
+	//  repositories+=RepositoryConfiguration* "}";
 	public ResolutionStrategyFirstElements getResolutionStrategyFirstAccess() {
 		return (pResolutionStrategyFirst != null) ? pResolutionStrategyFirst : (pResolutionStrategyFirst = new ResolutionStrategyFirstElements());
 	}
@@ -11738,8 +11814,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ResolutionStrategyBest returns build::ResolutionStrategyBest:
-	//  {build::ResolutionStrategyBest} "select-best" "{" repositories+=
-	//  RepositoryConfiguration* "}";
+	//  {build::ResolutionStrategyBest} documentation=DOCUMENTATION? "select-best" "{"
+	//  repositories+=RepositoryConfiguration* "}";
 	public ResolutionStrategyBestElements getResolutionStrategyBestAccess() {
 		return (pResolutionStrategyBest != null) ? pResolutionStrategyBest : (pResolutionStrategyBest = new ResolutionStrategyBestElements());
 	}
@@ -11749,8 +11825,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ResolutionStrategySwitch returns build::ResolutionStrategySwitch:
-	//  {build::ResolutionStrategySwitch} "select-switch" repoSwitch=
-	//  SelectSwitchExpression;
+	//  {build::ResolutionStrategySwitch} documentation=DOCUMENTATION? "select-switch"
+	//  repoSwitch=SelectSwitchExpression;
 	public ResolutionStrategySwitchElements getResolutionStrategySwitchAccess() {
 		return (pResolutionStrategySwitch != null) ? pResolutionStrategySwitch : (pResolutionStrategySwitch = new ResolutionStrategySwitchElements());
 	}
@@ -11760,7 +11836,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SelectSwitchExpression returns be::BSwitchExpression:
-	//  {be::BSwitchExpression} "switch" switchExpression=Expression caseList+=
+	//  {be::BSwitchExpression} switchExpression=Expression? caseList+=
 	//  RepositorySelectCase+ "endswitch";
 	public SelectSwitchExpressionElements getSelectSwitchExpressionAccess() {
 		return (pSelectSwitchExpression != null) ? pSelectSwitchExpression : (pSelectSwitchExpression = new SelectSwitchExpressionElements());

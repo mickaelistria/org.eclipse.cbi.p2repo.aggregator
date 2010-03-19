@@ -146,6 +146,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBeeModelAccess().getGroup(), "rule__BeeModel__Group__0");
 					put(grammarAccess.getBeeModelAccess().getGroup_1(), "rule__BeeModel__Group_1__0");
 					put(grammarAccess.getBeeModelAccess().getGroup_1_1_2(), "rule__BeeModel__Group_1_1_2__0");
+					put(grammarAccess.getBeeModelAccess().getGroup_1_1_4(), "rule__BeeModel__Group_1_1_4__0");
 					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 					put(grammarAccess.getImportAccess().getGroup_4(), "rule__Import__Group_4__0");
 					put(grammarAccess.getBuildUnitAccess().getGroup(), "rule__BuildUnit__Group__0");
@@ -495,7 +496,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBeeModelAccess().getFunctionsAssignment_1_1_0(), "rule__BeeModel__FunctionsAssignment_1_1_0");
 					put(grammarAccess.getBeeModelAccess().getConcernsAssignment_1_1_1(), "rule__BeeModel__ConcernsAssignment_1_1_1");
 					put(grammarAccess.getBeeModelAccess().getPropertySetsAssignment_1_1_2_1(), "rule__BeeModel__PropertySetsAssignment_1_1_2_1");
-					put(grammarAccess.getBeeModelAccess().getBuildUnitsAssignment_1_2(), "rule__BeeModel__BuildUnitsAssignment_1_2");
+					put(grammarAccess.getBeeModelAccess().getBuildUnitsAssignment_1_1_3(), "rule__BeeModel__BuildUnitsAssignment_1_1_3");
+					put(grammarAccess.getBeeModelAccess().getRepositoriesAssignment_1_1_4_2(), "rule__BeeModel__RepositoriesAssignment_1_1_4_2");
 					put(grammarAccess.getImportAccess().getReexportAssignment_1(), "rule__Import__ReexportAssignment_1");
 					put(grammarAccess.getImportAccess().getQualifiedNameAssignment_3(), "rule__Import__QualifiedNameAssignment_3");
 					put(grammarAccess.getImportAccess().getNameAssignment_4_1(), "rule__Import__NameAssignment_4_1");
@@ -637,11 +639,14 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRepositoryDeclarationAccess().getLocationAssignment_2_0(), "rule__RepositoryDeclaration__LocationAssignment_2_0");
 					put(grammarAccess.getRepositoryDeclarationAccess().getResolverTypeAssignment_2_1_1(), "rule__RepositoryDeclaration__ResolverTypeAssignment_2_1_1");
 					put(grammarAccess.getRepositoryDeclarationAccess().getContextBlockAssignment_3(), "rule__RepositoryDeclaration__ContextBlockAssignment_3");
-					put(grammarAccess.getResolutionStrategyFirstAccess().getRepositoriesAssignment_3(), "rule__ResolutionStrategyFirst__RepositoriesAssignment_3");
-					put(grammarAccess.getResolutionStrategyBestAccess().getRepositoriesAssignment_3(), "rule__ResolutionStrategyBest__RepositoriesAssignment_3");
-					put(grammarAccess.getResolutionStrategySwitchAccess().getRepoSwitchAssignment_2(), "rule__ResolutionStrategySwitch__RepoSwitchAssignment_2");
-					put(grammarAccess.getSelectSwitchExpressionAccess().getSwitchExpressionAssignment_2(), "rule__SelectSwitchExpression__SwitchExpressionAssignment_2");
-					put(grammarAccess.getSelectSwitchExpressionAccess().getCaseListAssignment_3(), "rule__SelectSwitchExpression__CaseListAssignment_3");
+					put(grammarAccess.getResolutionStrategyFirstAccess().getDocumentationAssignment_1(), "rule__ResolutionStrategyFirst__DocumentationAssignment_1");
+					put(grammarAccess.getResolutionStrategyFirstAccess().getRepositoriesAssignment_4(), "rule__ResolutionStrategyFirst__RepositoriesAssignment_4");
+					put(grammarAccess.getResolutionStrategyBestAccess().getDocumentationAssignment_1(), "rule__ResolutionStrategyBest__DocumentationAssignment_1");
+					put(grammarAccess.getResolutionStrategyBestAccess().getRepositoriesAssignment_4(), "rule__ResolutionStrategyBest__RepositoriesAssignment_4");
+					put(grammarAccess.getResolutionStrategySwitchAccess().getDocumentationAssignment_1(), "rule__ResolutionStrategySwitch__DocumentationAssignment_1");
+					put(grammarAccess.getResolutionStrategySwitchAccess().getRepoSwitchAssignment_3(), "rule__ResolutionStrategySwitch__RepoSwitchAssignment_3");
+					put(grammarAccess.getSelectSwitchExpressionAccess().getSwitchExpressionAssignment_1(), "rule__SelectSwitchExpression__SwitchExpressionAssignment_1");
+					put(grammarAccess.getSelectSwitchExpressionAccess().getCaseListAssignment_2(), "rule__SelectSwitchExpression__CaseListAssignment_2");
 					put(grammarAccess.getRepositorySelectCaseAccess().getConditionExprAssignment_2(), "rule__RepositorySelectCase__ConditionExprAssignment_2");
 					put(grammarAccess.getRepositorySelectCaseAccess().getThenExprAssignment_4(), "rule__RepositorySelectCase__ThenExprAssignment_4");
 					put(grammarAccess.getContainerConfigurationAccess().getDocumentationAssignment_1(), "rule__ContainerConfiguration__DocumentationAssignment_1");

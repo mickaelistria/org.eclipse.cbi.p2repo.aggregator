@@ -1270,13 +1270,22 @@ public interface B3BuildPackage extends EPackage {
 	int REPOSITORY_CONFIGURATION__COND_EXPR = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_CONFIGURATION__DOCUMENTATION = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Repository Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_CONFIGURATION_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+	int REPOSITORY_CONFIGURATION_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
@@ -1294,7 +1303,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_DECLARATION__DOCUMENTATION = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 0;
+	int REPOSITORY_DECLARATION__DOCUMENTATION = REPOSITORY_CONFIGURATION__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -1303,7 +1312,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_DECLARATION__LOCATION = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
+	int REPOSITORY_DECLARATION__LOCATION = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Resolver Type</b></em>' containment reference.
@@ -1312,7 +1321,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_DECLARATION__RESOLVER_TYPE = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 2;
+	int REPOSITORY_DECLARATION__RESOLVER_TYPE = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Context Block</b></em>' containment reference.
@@ -1321,7 +1330,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_DECLARATION__CONTEXT_BLOCK = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 3;
+	int REPOSITORY_DECLARATION__CONTEXT_BLOCK = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Repository Declaration</em>' class.
@@ -1330,7 +1339,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_DECLARATION_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 4;
+	int REPOSITORY_DECLARATION_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
@@ -1340,6 +1349,15 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOLUTION_STRATEGY__COND_EXPR = REPOSITORY_CONFIGURATION__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY__DOCUMENTATION = REPOSITORY_CONFIGURATION__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -1369,6 +1387,15 @@ public interface B3BuildPackage extends EPackage {
 	int RESOLUTION_STRATEGY_FIRST__COND_EXPR = RESOLUTION_STRATEGY__COND_EXPR;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_FIRST__DOCUMENTATION = RESOLUTION_STRATEGY__DOCUMENTATION;
+
+	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1394,6 +1421,15 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOLUTION_STRATEGY_BEST__COND_EXPR = RESOLUTION_STRATEGY__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_BEST__DOCUMENTATION = RESOLUTION_STRATEGY__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -3182,13 +3218,22 @@ public interface B3BuildPackage extends EPackage {
 	int BEE_MODEL = 40;
 
 	/**
+	 * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_MODEL__EXPRESSIONS = B3backendPackage.BCHAINED_EXPRESSION__EXPRESSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BEE_MODEL__IMPORTS = 0;
+	int BEE_MODEL__IMPORTS = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -3197,7 +3242,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEE_MODEL__FUNCTIONS = 1;
+	int BEE_MODEL__FUNCTIONS = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
@@ -3206,7 +3251,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEE_MODEL__CONCERNS = 2;
+	int BEE_MODEL__CONCERNS = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Build Units</b></em>' containment reference list.
@@ -3215,7 +3260,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEE_MODEL__BUILD_UNITS = 3;
+	int BEE_MODEL__BUILD_UNITS = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
@@ -3224,7 +3269,16 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEE_MODEL__PROPERTY_SETS = 4;
+	int BEE_MODEL__PROPERTY_SETS = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_MODEL__REPOSITORIES = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Bee Model</em>' class.
@@ -3233,7 +3287,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEE_MODEL_FEATURE_COUNT = 5;
+	int BEE_MODEL_FEATURE_COUNT = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BeeHiveImpl <em>Bee Hive</em>}' class.
@@ -3949,6 +4003,15 @@ public interface B3BuildPackage extends EPackage {
 	int RESOLUTION_STRATEGY_SWITCH__COND_EXPR = REPOSITORY_CONFIGURATION__COND_EXPR;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_SWITCH__DOCUMENTATION = REPOSITORY_CONFIGURATION__DOCUMENTATION;
+
+	/**
 	 * The feature id for the '<em><b>Repo Switch</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4456,6 +4519,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBeeModel_PropertySets();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getRepositories <em>Repositories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Repositories</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModel#getRepositories()
+	 * @see #getBeeModel()
+	 * @generated
+	 */
+	EReference getBeeModel_Repositories();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BeeHive <em>Bee Hive</em>}'.
@@ -5102,6 +5176,17 @@ public interface B3BuildPackage extends EPackage {
 	EReference getRepositoryConfiguration_CondExpr();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryConfiguration#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryConfiguration#getDocumentation()
+	 * @see #getRepositoryConfiguration()
+	 * @generated
+	 */
+	EAttribute getRepositoryConfiguration_Documentation();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryDeclaration <em>Repository Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5110,17 +5195,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRepositoryDeclaration();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getDocumentation <em>Documentation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Documentation</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryDeclaration#getDocumentation()
-	 * @see #getRepositoryDeclaration()
-	 * @generated
-	 */
-	EAttribute getRepositoryDeclaration_Documentation();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getLocation <em>Location</em>}'.
@@ -6509,6 +6583,14 @@ public interface B3BuildPackage extends EPackage {
 		EReference BEE_MODEL__PROPERTY_SETS = eINSTANCE.getBeeModel_PropertySets();
 
 		/**
+		 * The meta object literal for the '<em><b>Repositories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEE_MODEL__REPOSITORIES = eINSTANCE.getBeeModel_Repositories();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeHiveImpl <em>Bee Hive</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7053,6 +7135,14 @@ public interface B3BuildPackage extends EPackage {
 		EReference REPOSITORY_CONFIGURATION__COND_EXPR = eINSTANCE.getRepositoryConfiguration_CondExpr();
 
 		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REPOSITORY_CONFIGURATION__DOCUMENTATION = eINSTANCE.getRepositoryConfiguration_Documentation();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl <em>Repository Declaration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7061,14 +7151,6 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EClass REPOSITORY_DECLARATION = eINSTANCE.getRepositoryDeclaration();
-
-		/**
-		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REPOSITORY_DECLARATION__DOCUMENTATION = eINSTANCE.getRepositoryDeclaration_Documentation();
 
 		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.

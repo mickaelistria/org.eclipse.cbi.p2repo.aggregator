@@ -28,8 +28,12 @@ BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT) : {build::Be
 	(	(functions += Function) 
 	| 	(concerns += Concern_Named)
 	|	('properties'  propertySets += PropertySet_Named)
+//	|   (expressions += TopLevelExpression ';') // To be discussed (code completion shows too much)
+	|   (buildUnits += BuildUnit)
+	|   ('repositories' '{' (repositories += RepositoryConfiguration)* '}' )
+	
 	)* 
-	(buildUnits += BuildUnit)* )
+	 )
 	;
 
 Import returns be::IType : {be::B3JavaImport}
@@ -314,19 +318,22 @@ ResolutionStrategy returns build::ResolutionStrategy
 	;
 	
 ResolutionStrategyFirst returns build::ResolutionStrategyFirst : {build::ResolutionStrategyFirst}
+	(documentation = DOCUMENTATION)?
 	 "select-first" '{' (repositories += RepositoryConfiguration)* '}'
 	;
 	
 ResolutionStrategyBest returns build::ResolutionStrategyBest : {build::ResolutionStrategyBest}
+	(documentation = DOCUMENTATION)?
 	"select-best" '{' (repositories += RepositoryConfiguration)* '}'
 	;
 	
 ResolutionStrategySwitch returns build::ResolutionStrategySwitch : {build::ResolutionStrategySwitch}
-	 "select-switch" repoSwitch=SelectSwitchExpression
-	 ; 
+	(documentation = DOCUMENTATION)?
+	"select-switch" repoSwitch=SelectSwitchExpression
+	; 
 	
 SelectSwitchExpression returns be::BSwitchExpression : {be::BSwitchExpression}
-	"switch" switchExpression=Expression (caseList+=RepositorySelectCase)+  "endswitch" 
+	(switchExpression=Expression)? (caseList+=RepositorySelectCase)+  "endswitch" 
 	;
 			
 RepositorySelectCase returns be::BCase : {be::BCase} 

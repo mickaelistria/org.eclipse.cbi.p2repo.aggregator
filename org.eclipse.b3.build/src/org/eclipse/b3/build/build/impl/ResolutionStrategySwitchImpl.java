@@ -34,10 +34,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl#getRepoSwitch <em>Repo Switch</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl#getRepoSwitch <em>Repo Switch</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl implements ResolutionStrategySwitch {
@@ -45,7 +45,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	 * The cached value of the '{@link #getRepoSwitch() <em>Repo Switch</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRepoSwitch()
 	 * @generated
 	 * @ordered
@@ -55,7 +54,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ResolutionStrategySwitchImpl() {
@@ -65,7 +63,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetRepoSwitch(BSwitchExpression newRepoSwitch, NotificationChain msgs) {
@@ -85,7 +82,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -100,7 +96,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -115,7 +110,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -130,7 +124,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -146,7 +139,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -157,7 +149,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -203,7 +194,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BSwitchExpression getRepoSwitch() {
@@ -213,7 +203,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRepoSwitch(BSwitchExpression newRepoSwitch) {

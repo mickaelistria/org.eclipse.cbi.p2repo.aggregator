@@ -8,6 +8,7 @@ package org.eclipse.b3.build.build;
 
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.b3.build.build.BeeModel#getConcerns <em>Concerns</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BeeModel#getBuildUnits <em>Build Units</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BeeModel#getPropertySets <em>Property Sets</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BeeModel#getRepositories <em>Repositories</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,7 +38,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface BeeModel extends EObject {
+public interface BeeModel extends BChainedExpression {
 	/**
 	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
 	 * The list contents are of type {@link java.lang.reflect.Type}.
@@ -116,5 +118,21 @@ public interface BeeModel extends EObject {
 	 * @generated
 	 */
 	EList<BPropertySet> getPropertySets();
+
+	/**
+	 * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.RepositoryConfiguration}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Repositories</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBeeModel_Repositories()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RepositoryConfiguration> getRepositories();
 
 } // BeeModel
