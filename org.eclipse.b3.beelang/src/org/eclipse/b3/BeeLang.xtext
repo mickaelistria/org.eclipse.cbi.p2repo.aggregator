@@ -96,6 +96,7 @@ ProvidedCapability returns build::VersionedCapability : {build::VersionedCapabil
 // or the keyword "unit" instead of the namespace for buildunits
 AliasedRequiredCapability returns build::RequiredCapability : {build::AliasedRequiredCapability} 
 	('when' '(' condExpr=Expression ')')?  
+	(greedy ?= "greedy")? ("requires-min" min = IntValue)? ("requires-max" max  = IntValue)?  
 	((nameSpace=InterfaceName) | "unit") '/' name=CapabilityName 
 	('/' versionRange=VersionRangeLiteral)?  ("as" alias = ID)?
 	;
@@ -103,14 +104,16 @@ AliasedRequiredCapability returns build::RequiredCapability : {build::AliasedReq
 // Capability required by a unit - always refers to capabilities with at least ns/name
 // or the keyword "unit" instead of the namespace for buildunits
 RequiredCapability returns build::RequiredCapability : {build::RequiredCapability} 
-	('when' '(' condExpr=Expression ')')?  
+	('when' '(' condExpr=Expression ')')?
+	(greedy ?= "greedy")? ("min-required" min = IntValue)? ("max-required" max  = IntValue)?  	  
 	((nameSpace=InterfaceName) | "unit") '/' name=CapabilityName 
 	('/' versionRange=VersionRangeLiteral)?  
 	;
 	
 // Capability required by a unit - always refers to capabilities with at least ns/name
 // or the keyword "unit" instead of the namespace for buildunits
-RequiredCapability_Unfiltered returns build::RequiredCapability : {build::RequiredCapability} 
+RequiredCapability_Unfiltered returns build::RequiredCapability : {build::RequiredCapability}
+	(greedy ?= "greedy")? ("min-required" min = IntValue)? ("max-required" max  = IntValue)? 
 	((nameSpace=InterfaceName) | "unit") '/' name=CapabilityName 
 	('/' versionRange=VersionRangeLiteral)?  
 	;

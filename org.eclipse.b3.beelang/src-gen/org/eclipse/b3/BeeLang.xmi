@@ -296,6 +296,21 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=")"/>
       </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="greedy" operator="?=">
+        <terminal xsi:type="xtext:Keyword" value="greedy"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="requires-min"/>
+        <tokens xsi:type="xtext:Assignment" feature="min" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.150"/>
+        </tokens>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="requires-max"/>
+        <tokens xsi:type="xtext:Assignment" feature="max" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.150"/>
+        </tokens>
+      </tokens>
       <tokens xsi:type="xtext:Alternatives">
         <groups xsi:type="xtext:Assignment" feature="nameSpace" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.157"/>
@@ -338,6 +353,21 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=")"/>
       </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="greedy" operator="?=">
+        <terminal xsi:type="xtext:Keyword" value="greedy"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="min-required"/>
+        <tokens xsi:type="xtext:Assignment" feature="min" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.150"/>
+        </tokens>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="max-required"/>
+        <tokens xsi:type="xtext:Assignment" feature="max" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.150"/>
+        </tokens>
+      </tokens>
       <tokens xsi:type="xtext:Alternatives">
         <groups xsi:type="xtext:Assignment" feature="nameSpace" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.157"/>
@@ -365,6 +395,21 @@
         <type metamodel="//@metamodelDeclarations.2">
           <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//RequiredCapability"/>
         </type>
+      </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="greedy" operator="?=">
+        <terminal xsi:type="xtext:Keyword" value="greedy"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="min-required"/>
+        <tokens xsi:type="xtext:Assignment" feature="min" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.150"/>
+        </tokens>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="max-required"/>
+        <tokens xsi:type="xtext:Assignment" feature="max" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.150"/>
+        </tokens>
       </tokens>
       <tokens xsi:type="xtext:Alternatives">
         <groups xsi:type="xtext:Assignment" feature="nameSpace" operator="=">

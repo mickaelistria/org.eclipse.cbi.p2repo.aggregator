@@ -4164,7 +4164,8 @@ protected class ProvidedCapability_VersionAssignment_5_1 extends AssignmentToken
 /************ begin Rule AliasedRequiredCapability ****************
  *
  * AliasedRequiredCapability returns build::RequiredCapability:
- *   {build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+ *   {build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? greedy?=
+ *   "greedy"? ("requires-min" min=IntValue)? ("requires-max" max=IntValue)? (nameSpace=
  *   InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
  *   ? ("as" alias=ID)?; 
  * 
@@ -4172,6 +4173,7 @@ protected class ProvidedCapability_VersionAssignment_5_1 extends AssignmentToken
  * // or the keyword "unit" instead of the namespace for buildunits
  *          
  * 	        
+ * 	                       
  * 	         
  * 	           
  * 	
@@ -4181,7 +4183,8 @@ protected class ProvidedCapability_VersionAssignment_5_1 extends AssignmentToken
  *
  **/
 
-// {build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+// {build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? greedy?=
+// "greedy"? ("requires-min" min=IntValue)? ("requires-max" max=IntValue)? (nameSpace=
 // InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
 // ? ("as" alias=ID)?
 protected class AliasedRequiredCapability_Group extends GroupToken {
@@ -4198,9 +4201,9 @@ protected class AliasedRequiredCapability_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AliasedRequiredCapability_Group_6(parent, this, 0, inst);
-			case 1: return new AliasedRequiredCapability_Group_5(parent, this, 1, inst);
-			case 2: return new AliasedRequiredCapability_NameAssignment_4(parent, this, 2, inst);
+			case 0: return new AliasedRequiredCapability_Group_9(parent, this, 0, inst);
+			case 1: return new AliasedRequiredCapability_Group_8(parent, this, 1, inst);
+			case 2: return new AliasedRequiredCapability_NameAssignment_7(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -4375,39 +4378,16 @@ protected class AliasedRequiredCapability_RightParenthesisKeyword_1_3 extends Ke
 }
 
 
-// nameSpace=InterfaceName|"unit"
-protected class AliasedRequiredCapability_Alternatives_2 extends AlternativesToken {
-
-	public AliasedRequiredCapability_Alternatives_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
+// greedy?="greedy"?
+protected class AliasedRequiredCapability_GreedyAssignment_2 extends AssignmentToken  {
 	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getAliasedRequiredCapabilityAccess().getAlternatives_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AliasedRequiredCapability_NameSpaceAssignment_2_0(parent, this, 0, inst);
-			case 1: return new AliasedRequiredCapability_UnitKeyword_2_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// nameSpace=InterfaceName
-protected class AliasedRequiredCapability_NameSpaceAssignment_2_0 extends AssignmentToken  {
-	
-	public AliasedRequiredCapability_NameSpaceAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AliasedRequiredCapability_GreedyAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getAliasedRequiredCapabilityAccess().getNameSpaceAssignment_2_0();
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getGreedyAssignment_2();
 	}
 
     @Override
@@ -4415,6 +4395,230 @@ protected class AliasedRequiredCapability_NameSpaceAssignment_2_0 extends Assign
 		switch(index) {
 			case 0: return new AliasedRequiredCapability_Group_1(parent, this, 0, inst);
 			case 1: return new AliasedRequiredCapability_AliasedRequiredCapabilityAction_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("greedy",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("greedy");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getAliasedRequiredCapabilityAccess().getGreedyGreedyKeyword_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ("requires-min" min=IntValue)?
+protected class AliasedRequiredCapability_Group_3 extends GroupToken {
+	
+	public AliasedRequiredCapability_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getGroup_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AliasedRequiredCapability_MinAssignment_3_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "requires-min"
+protected class AliasedRequiredCapability_RequiresMinKeyword_3_0 extends KeywordToken  {
+	
+	public AliasedRequiredCapability_RequiresMinKeyword_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getRequiresMinKeyword_3_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AliasedRequiredCapability_GreedyAssignment_2(parent, this, 0, inst);
+			case 1: return new AliasedRequiredCapability_Group_1(parent, this, 1, inst);
+			case 2: return new AliasedRequiredCapability_AliasedRequiredCapabilityAction_0(parent, this, 2, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// min=IntValue
+protected class AliasedRequiredCapability_MinAssignment_3_1 extends AssignmentToken  {
+	
+	public AliasedRequiredCapability_MinAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getMinAssignment_3_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AliasedRequiredCapability_RequiresMinKeyword_3_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("min",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("min");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getAliasedRequiredCapabilityAccess().getMinIntValueParserRuleCall_3_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// ("requires-max" max=IntValue)?
+protected class AliasedRequiredCapability_Group_4 extends GroupToken {
+	
+	public AliasedRequiredCapability_Group_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getGroup_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AliasedRequiredCapability_MaxAssignment_4_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "requires-max"
+protected class AliasedRequiredCapability_RequiresMaxKeyword_4_0 extends KeywordToken  {
+	
+	public AliasedRequiredCapability_RequiresMaxKeyword_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getRequiresMaxKeyword_4_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AliasedRequiredCapability_Group_3(parent, this, 0, inst);
+			case 1: return new AliasedRequiredCapability_GreedyAssignment_2(parent, this, 1, inst);
+			case 2: return new AliasedRequiredCapability_Group_1(parent, this, 2, inst);
+			case 3: return new AliasedRequiredCapability_AliasedRequiredCapabilityAction_0(parent, this, 3, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// max=IntValue
+protected class AliasedRequiredCapability_MaxAssignment_4_1 extends AssignmentToken  {
+	
+	public AliasedRequiredCapability_MaxAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getMaxAssignment_4_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AliasedRequiredCapability_RequiresMaxKeyword_4_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("max",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("max");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getAliasedRequiredCapabilityAccess().getMaxIntValueParserRuleCall_4_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// nameSpace=InterfaceName|"unit"
+protected class AliasedRequiredCapability_Alternatives_5 extends AlternativesToken {
+
+	public AliasedRequiredCapability_Alternatives_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getAlternatives_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AliasedRequiredCapability_NameSpaceAssignment_5_0(parent, this, 0, inst);
+			case 1: return new AliasedRequiredCapability_UnitKeyword_5_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// nameSpace=InterfaceName
+protected class AliasedRequiredCapability_NameSpaceAssignment_5_0 extends AssignmentToken  {
+	
+	public AliasedRequiredCapability_NameSpaceAssignment_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getNameSpaceAssignment_5_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AliasedRequiredCapability_Group_4(parent, this, 0, inst);
+			case 1: return new AliasedRequiredCapability_Group_3(parent, this, 1, inst);
+			case 2: return new AliasedRequiredCapability_GreedyAssignment_2(parent, this, 2, inst);
+			case 3: return new AliasedRequiredCapability_Group_1(parent, this, 3, inst);
+			case 4: return new AliasedRequiredCapability_AliasedRequiredCapabilityAction_0(parent, this, 4, inst);
 			default: return null;
 		}	
 	}	
@@ -4425,7 +4629,7 @@ protected class AliasedRequiredCapability_NameSpaceAssignment_2_0 extends Assign
 		IInstanceDescription obj = current.cloneAndConsume("nameSpace");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getAliasedRequiredCapabilityAccess().getNameSpaceInterfaceNameParserRuleCall_2_0_0();
+			element = grammarAccess.getAliasedRequiredCapabilityAccess().getNameSpaceInterfaceNameParserRuleCall_5_0_0();
 			return obj;
 		}
 		return null;
@@ -4434,22 +4638,25 @@ protected class AliasedRequiredCapability_NameSpaceAssignment_2_0 extends Assign
 }
 
 // "unit"
-protected class AliasedRequiredCapability_UnitKeyword_2_1 extends KeywordToken  {
+protected class AliasedRequiredCapability_UnitKeyword_5_1 extends KeywordToken  {
 	
-	public AliasedRequiredCapability_UnitKeyword_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AliasedRequiredCapability_UnitKeyword_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAliasedRequiredCapabilityAccess().getUnitKeyword_2_1();
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getUnitKeyword_5_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AliasedRequiredCapability_Group_1(parent, this, 0, inst);
-			case 1: return new AliasedRequiredCapability_AliasedRequiredCapabilityAction_0(parent, this, 1, inst);
+			case 0: return new AliasedRequiredCapability_Group_4(parent, this, 0, inst);
+			case 1: return new AliasedRequiredCapability_Group_3(parent, this, 1, inst);
+			case 2: return new AliasedRequiredCapability_GreedyAssignment_2(parent, this, 2, inst);
+			case 3: return new AliasedRequiredCapability_Group_1(parent, this, 3, inst);
+			case 4: return new AliasedRequiredCapability_AliasedRequiredCapabilityAction_0(parent, this, 4, inst);
 			default: return null;
 		}	
 	}	
@@ -4458,21 +4665,21 @@ protected class AliasedRequiredCapability_UnitKeyword_2_1 extends KeywordToken  
 
 
 // "/"
-protected class AliasedRequiredCapability_SolidusKeyword_3 extends KeywordToken  {
+protected class AliasedRequiredCapability_SolidusKeyword_6 extends KeywordToken  {
 	
-	public AliasedRequiredCapability_SolidusKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AliasedRequiredCapability_SolidusKeyword_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAliasedRequiredCapabilityAccess().getSolidusKeyword_3();
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getSolidusKeyword_6();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AliasedRequiredCapability_Alternatives_2(parent, this, 0, inst);
+			case 0: return new AliasedRequiredCapability_Alternatives_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4480,21 +4687,21 @@ protected class AliasedRequiredCapability_SolidusKeyword_3 extends KeywordToken 
 }
 
 // name=CapabilityName
-protected class AliasedRequiredCapability_NameAssignment_4 extends AssignmentToken  {
+protected class AliasedRequiredCapability_NameAssignment_7 extends AssignmentToken  {
 	
-	public AliasedRequiredCapability_NameAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AliasedRequiredCapability_NameAssignment_7(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getAliasedRequiredCapabilityAccess().getNameAssignment_4();
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getNameAssignment_7();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AliasedRequiredCapability_SolidusKeyword_3(parent, this, 0, inst);
+			case 0: return new AliasedRequiredCapability_SolidusKeyword_6(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4505,7 +4712,7 @@ protected class AliasedRequiredCapability_NameAssignment_4 extends AssignmentTok
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getAliasedRequiredCapabilityAccess().getNameCapabilityNameParserRuleCall_4_0();
+			element = grammarAccess.getAliasedRequiredCapabilityAccess().getNameCapabilityNameParserRuleCall_7_0();
 			return obj;
 		}
 		return null;
@@ -4514,21 +4721,21 @@ protected class AliasedRequiredCapability_NameAssignment_4 extends AssignmentTok
 }
 
 // ("/" versionRange=VersionRangeLiteral)?
-protected class AliasedRequiredCapability_Group_5 extends GroupToken {
+protected class AliasedRequiredCapability_Group_8 extends GroupToken {
 	
-	public AliasedRequiredCapability_Group_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AliasedRequiredCapability_Group_8(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getAliasedRequiredCapabilityAccess().getGroup_5();
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getGroup_8();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AliasedRequiredCapability_VersionRangeAssignment_5_1(parent, this, 0, inst);
+			case 0: return new AliasedRequiredCapability_VersionRangeAssignment_8_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4536,21 +4743,21 @@ protected class AliasedRequiredCapability_Group_5 extends GroupToken {
 }
 
 // "/"
-protected class AliasedRequiredCapability_SolidusKeyword_5_0 extends KeywordToken  {
+protected class AliasedRequiredCapability_SolidusKeyword_8_0 extends KeywordToken  {
 	
-	public AliasedRequiredCapability_SolidusKeyword_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AliasedRequiredCapability_SolidusKeyword_8_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAliasedRequiredCapabilityAccess().getSolidusKeyword_5_0();
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getSolidusKeyword_8_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AliasedRequiredCapability_NameAssignment_4(parent, this, 0, inst);
+			case 0: return new AliasedRequiredCapability_NameAssignment_7(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4558,21 +4765,21 @@ protected class AliasedRequiredCapability_SolidusKeyword_5_0 extends KeywordToke
 }
 
 // versionRange=VersionRangeLiteral
-protected class AliasedRequiredCapability_VersionRangeAssignment_5_1 extends AssignmentToken  {
+protected class AliasedRequiredCapability_VersionRangeAssignment_8_1 extends AssignmentToken  {
 	
-	public AliasedRequiredCapability_VersionRangeAssignment_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AliasedRequiredCapability_VersionRangeAssignment_8_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getAliasedRequiredCapabilityAccess().getVersionRangeAssignment_5_1();
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getVersionRangeAssignment_8_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AliasedRequiredCapability_SolidusKeyword_5_0(parent, this, 0, inst);
+			case 0: return new AliasedRequiredCapability_SolidusKeyword_8_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4583,7 +4790,7 @@ protected class AliasedRequiredCapability_VersionRangeAssignment_5_1 extends Ass
 		IInstanceDescription obj = current.cloneAndConsume("versionRange");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getAliasedRequiredCapabilityAccess().getVersionRangeVersionRangeLiteralParserRuleCall_5_1_0();
+			element = grammarAccess.getAliasedRequiredCapabilityAccess().getVersionRangeVersionRangeLiteralParserRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -4593,21 +4800,21 @@ protected class AliasedRequiredCapability_VersionRangeAssignment_5_1 extends Ass
 
 
 // ("as" alias=ID)?
-protected class AliasedRequiredCapability_Group_6 extends GroupToken {
+protected class AliasedRequiredCapability_Group_9 extends GroupToken {
 	
-	public AliasedRequiredCapability_Group_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AliasedRequiredCapability_Group_9(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getAliasedRequiredCapabilityAccess().getGroup_6();
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getGroup_9();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AliasedRequiredCapability_AliasAssignment_6_1(parent, this, 0, inst);
+			case 0: return new AliasedRequiredCapability_AliasAssignment_9_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4615,22 +4822,22 @@ protected class AliasedRequiredCapability_Group_6 extends GroupToken {
 }
 
 // "as"
-protected class AliasedRequiredCapability_AsKeyword_6_0 extends KeywordToken  {
+protected class AliasedRequiredCapability_AsKeyword_9_0 extends KeywordToken  {
 	
-	public AliasedRequiredCapability_AsKeyword_6_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AliasedRequiredCapability_AsKeyword_9_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAliasedRequiredCapabilityAccess().getAsKeyword_6_0();
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getAsKeyword_9_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AliasedRequiredCapability_Group_5(parent, this, 0, inst);
-			case 1: return new AliasedRequiredCapability_NameAssignment_4(parent, this, 1, inst);
+			case 0: return new AliasedRequiredCapability_Group_8(parent, this, 0, inst);
+			case 1: return new AliasedRequiredCapability_NameAssignment_7(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -4638,21 +4845,21 @@ protected class AliasedRequiredCapability_AsKeyword_6_0 extends KeywordToken  {
 }
 
 // alias=ID
-protected class AliasedRequiredCapability_AliasAssignment_6_1 extends AssignmentToken  {
+protected class AliasedRequiredCapability_AliasAssignment_9_1 extends AssignmentToken  {
 	
-	public AliasedRequiredCapability_AliasAssignment_6_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AliasedRequiredCapability_AliasAssignment_9_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getAliasedRequiredCapabilityAccess().getAliasAssignment_6_1();
+		return grammarAccess.getAliasedRequiredCapabilityAccess().getAliasAssignment_9_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AliasedRequiredCapability_AsKeyword_6_0(parent, this, 0, inst);
+			case 0: return new AliasedRequiredCapability_AsKeyword_9_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4663,7 +4870,7 @@ protected class AliasedRequiredCapability_AliasAssignment_6_1 extends Assignment
 		IInstanceDescription obj = current.cloneAndConsume("alias");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getAliasedRequiredCapabilityAccess().getAliasIDTerminalRuleCall_6_1_0();
+			element = grammarAccess.getAliasedRequiredCapabilityAccess().getAliasIDTerminalRuleCall_9_1_0();
 			return obj;
 		}
 		return null;
@@ -4679,14 +4886,16 @@ protected class AliasedRequiredCapability_AliasAssignment_6_1 extends Assignment
 /************ begin Rule RequiredCapability ****************
  *
  * RequiredCapability returns build::RequiredCapability:
- *   {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+ *   {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? greedy?="greedy"? (
+ *   "min-required" min=IntValue)? ("max-required" max=IntValue)? (nameSpace=
  *   InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
  *   ?; 
  * 	
  * // Capability required by a unit - always refers to capabilities with at least ns/name
  * // or the keyword "unit" instead of the namespace for buildunits
  *          
- * 	        
+ * 	      
+ * 	                       	  
  * 	         
  * 	    
  * 	
@@ -4696,7 +4905,8 @@ protected class AliasedRequiredCapability_AliasAssignment_6_1 extends Assignment
  *
  **/
 
-// {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+// {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? greedy?="greedy"? (
+// "min-required" min=IntValue)? ("max-required" max=IntValue)? (nameSpace=
 // InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
 // ?
 protected class RequiredCapability_Group extends GroupToken {
@@ -4713,8 +4923,8 @@ protected class RequiredCapability_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Group_5(parent, this, 0, inst);
-			case 1: return new RequiredCapability_NameAssignment_4(parent, this, 1, inst);
+			case 0: return new RequiredCapability_Group_8(parent, this, 0, inst);
+			case 1: return new RequiredCapability_NameAssignment_7(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -4889,39 +5099,16 @@ protected class RequiredCapability_RightParenthesisKeyword_1_3 extends KeywordTo
 }
 
 
-// nameSpace=InterfaceName|"unit"
-protected class RequiredCapability_Alternatives_2 extends AlternativesToken {
-
-	public RequiredCapability_Alternatives_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
+// greedy?="greedy"?
+protected class RequiredCapability_GreedyAssignment_2 extends AssignmentToken  {
 	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getRequiredCapabilityAccess().getAlternatives_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new RequiredCapability_NameSpaceAssignment_2_0(parent, this, 0, inst);
-			case 1: return new RequiredCapability_UnitKeyword_2_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// nameSpace=InterfaceName
-protected class RequiredCapability_NameSpaceAssignment_2_0 extends AssignmentToken  {
-	
-	public RequiredCapability_NameSpaceAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_GreedyAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRequiredCapabilityAccess().getNameSpaceAssignment_2_0();
+		return grammarAccess.getRequiredCapabilityAccess().getGreedyAssignment_2();
 	}
 
     @Override
@@ -4929,6 +5116,230 @@ protected class RequiredCapability_NameSpaceAssignment_2_0 extends AssignmentTok
 		switch(index) {
 			case 0: return new RequiredCapability_Group_1(parent, this, 0, inst);
 			case 1: return new RequiredCapability_RequiredCapabilityAction_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("greedy",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("greedy");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getRequiredCapabilityAccess().getGreedyGreedyKeyword_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ("min-required" min=IntValue)?
+protected class RequiredCapability_Group_3 extends GroupToken {
+	
+	public RequiredCapability_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRequiredCapabilityAccess().getGroup_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_MinAssignment_3_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "min-required"
+protected class RequiredCapability_MinRequiredKeyword_3_0 extends KeywordToken  {
+	
+	public RequiredCapability_MinRequiredKeyword_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRequiredCapabilityAccess().getMinRequiredKeyword_3_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_GreedyAssignment_2(parent, this, 0, inst);
+			case 1: return new RequiredCapability_Group_1(parent, this, 1, inst);
+			case 2: return new RequiredCapability_RequiredCapabilityAction_0(parent, this, 2, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// min=IntValue
+protected class RequiredCapability_MinAssignment_3_1 extends AssignmentToken  {
+	
+	public RequiredCapability_MinAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRequiredCapabilityAccess().getMinAssignment_3_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_MinRequiredKeyword_3_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("min",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("min");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getRequiredCapabilityAccess().getMinIntValueParserRuleCall_3_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// ("max-required" max=IntValue)?
+protected class RequiredCapability_Group_4 extends GroupToken {
+	
+	public RequiredCapability_Group_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRequiredCapabilityAccess().getGroup_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_MaxAssignment_4_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "max-required"
+protected class RequiredCapability_MaxRequiredKeyword_4_0 extends KeywordToken  {
+	
+	public RequiredCapability_MaxRequiredKeyword_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRequiredCapabilityAccess().getMaxRequiredKeyword_4_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Group_3(parent, this, 0, inst);
+			case 1: return new RequiredCapability_GreedyAssignment_2(parent, this, 1, inst);
+			case 2: return new RequiredCapability_Group_1(parent, this, 2, inst);
+			case 3: return new RequiredCapability_RequiredCapabilityAction_0(parent, this, 3, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// max=IntValue
+protected class RequiredCapability_MaxAssignment_4_1 extends AssignmentToken  {
+	
+	public RequiredCapability_MaxAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRequiredCapabilityAccess().getMaxAssignment_4_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_MaxRequiredKeyword_4_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("max",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("max");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getRequiredCapabilityAccess().getMaxIntValueParserRuleCall_4_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// nameSpace=InterfaceName|"unit"
+protected class RequiredCapability_Alternatives_5 extends AlternativesToken {
+
+	public RequiredCapability_Alternatives_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getRequiredCapabilityAccess().getAlternatives_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_NameSpaceAssignment_5_0(parent, this, 0, inst);
+			case 1: return new RequiredCapability_UnitKeyword_5_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// nameSpace=InterfaceName
+protected class RequiredCapability_NameSpaceAssignment_5_0 extends AssignmentToken  {
+	
+	public RequiredCapability_NameSpaceAssignment_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRequiredCapabilityAccess().getNameSpaceAssignment_5_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Group_4(parent, this, 0, inst);
+			case 1: return new RequiredCapability_Group_3(parent, this, 1, inst);
+			case 2: return new RequiredCapability_GreedyAssignment_2(parent, this, 2, inst);
+			case 3: return new RequiredCapability_Group_1(parent, this, 3, inst);
+			case 4: return new RequiredCapability_RequiredCapabilityAction_0(parent, this, 4, inst);
 			default: return null;
 		}	
 	}	
@@ -4939,7 +5350,7 @@ protected class RequiredCapability_NameSpaceAssignment_2_0 extends AssignmentTok
 		IInstanceDescription obj = current.cloneAndConsume("nameSpace");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getRequiredCapabilityAccess().getNameSpaceInterfaceNameParserRuleCall_2_0_0();
+			element = grammarAccess.getRequiredCapabilityAccess().getNameSpaceInterfaceNameParserRuleCall_5_0_0();
 			return obj;
 		}
 		return null;
@@ -4948,22 +5359,25 @@ protected class RequiredCapability_NameSpaceAssignment_2_0 extends AssignmentTok
 }
 
 // "unit"
-protected class RequiredCapability_UnitKeyword_2_1 extends KeywordToken  {
+protected class RequiredCapability_UnitKeyword_5_1 extends KeywordToken  {
 	
-	public RequiredCapability_UnitKeyword_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_UnitKeyword_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRequiredCapabilityAccess().getUnitKeyword_2_1();
+		return grammarAccess.getRequiredCapabilityAccess().getUnitKeyword_5_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Group_1(parent, this, 0, inst);
-			case 1: return new RequiredCapability_RequiredCapabilityAction_0(parent, this, 1, inst);
+			case 0: return new RequiredCapability_Group_4(parent, this, 0, inst);
+			case 1: return new RequiredCapability_Group_3(parent, this, 1, inst);
+			case 2: return new RequiredCapability_GreedyAssignment_2(parent, this, 2, inst);
+			case 3: return new RequiredCapability_Group_1(parent, this, 3, inst);
+			case 4: return new RequiredCapability_RequiredCapabilityAction_0(parent, this, 4, inst);
 			default: return null;
 		}	
 	}	
@@ -4972,21 +5386,21 @@ protected class RequiredCapability_UnitKeyword_2_1 extends KeywordToken  {
 
 
 // "/"
-protected class RequiredCapability_SolidusKeyword_3 extends KeywordToken  {
+protected class RequiredCapability_SolidusKeyword_6 extends KeywordToken  {
 	
-	public RequiredCapability_SolidusKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_SolidusKeyword_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRequiredCapabilityAccess().getSolidusKeyword_3();
+		return grammarAccess.getRequiredCapabilityAccess().getSolidusKeyword_6();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Alternatives_2(parent, this, 0, inst);
+			case 0: return new RequiredCapability_Alternatives_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4994,21 +5408,21 @@ protected class RequiredCapability_SolidusKeyword_3 extends KeywordToken  {
 }
 
 // name=CapabilityName
-protected class RequiredCapability_NameAssignment_4 extends AssignmentToken  {
+protected class RequiredCapability_NameAssignment_7 extends AssignmentToken  {
 	
-	public RequiredCapability_NameAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_NameAssignment_7(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRequiredCapabilityAccess().getNameAssignment_4();
+		return grammarAccess.getRequiredCapabilityAccess().getNameAssignment_7();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_SolidusKeyword_3(parent, this, 0, inst);
+			case 0: return new RequiredCapability_SolidusKeyword_6(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5019,7 +5433,7 @@ protected class RequiredCapability_NameAssignment_4 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getRequiredCapabilityAccess().getNameCapabilityNameParserRuleCall_4_0();
+			element = grammarAccess.getRequiredCapabilityAccess().getNameCapabilityNameParserRuleCall_7_0();
 			return obj;
 		}
 		return null;
@@ -5028,21 +5442,21 @@ protected class RequiredCapability_NameAssignment_4 extends AssignmentToken  {
 }
 
 // ("/" versionRange=VersionRangeLiteral)?
-protected class RequiredCapability_Group_5 extends GroupToken {
+protected class RequiredCapability_Group_8 extends GroupToken {
 	
-	public RequiredCapability_Group_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_Group_8(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getRequiredCapabilityAccess().getGroup_5();
+		return grammarAccess.getRequiredCapabilityAccess().getGroup_8();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_VersionRangeAssignment_5_1(parent, this, 0, inst);
+			case 0: return new RequiredCapability_VersionRangeAssignment_8_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5050,21 +5464,21 @@ protected class RequiredCapability_Group_5 extends GroupToken {
 }
 
 // "/"
-protected class RequiredCapability_SolidusKeyword_5_0 extends KeywordToken  {
+protected class RequiredCapability_SolidusKeyword_8_0 extends KeywordToken  {
 	
-	public RequiredCapability_SolidusKeyword_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_SolidusKeyword_8_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRequiredCapabilityAccess().getSolidusKeyword_5_0();
+		return grammarAccess.getRequiredCapabilityAccess().getSolidusKeyword_8_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_NameAssignment_4(parent, this, 0, inst);
+			case 0: return new RequiredCapability_NameAssignment_7(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5072,21 +5486,21 @@ protected class RequiredCapability_SolidusKeyword_5_0 extends KeywordToken  {
 }
 
 // versionRange=VersionRangeLiteral
-protected class RequiredCapability_VersionRangeAssignment_5_1 extends AssignmentToken  {
+protected class RequiredCapability_VersionRangeAssignment_8_1 extends AssignmentToken  {
 	
-	public RequiredCapability_VersionRangeAssignment_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_VersionRangeAssignment_8_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRequiredCapabilityAccess().getVersionRangeAssignment_5_1();
+		return grammarAccess.getRequiredCapabilityAccess().getVersionRangeAssignment_8_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_SolidusKeyword_5_0(parent, this, 0, inst);
+			case 0: return new RequiredCapability_SolidusKeyword_8_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5097,7 +5511,7 @@ protected class RequiredCapability_VersionRangeAssignment_5_1 extends Assignment
 		IInstanceDescription obj = current.cloneAndConsume("versionRange");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getRequiredCapabilityAccess().getVersionRangeVersionRangeLiteralParserRuleCall_5_1_0();
+			element = grammarAccess.getRequiredCapabilityAccess().getVersionRangeVersionRangeLiteralParserRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -5113,12 +5527,14 @@ protected class RequiredCapability_VersionRangeAssignment_5_1 extends Assignment
 /************ begin Rule RequiredCapability_Unfiltered ****************
  *
  * RequiredCapability_Unfiltered returns build::RequiredCapability:
- *   {build::RequiredCapability} (nameSpace=InterfaceName|"unit") "/" name=
+ *   {build::RequiredCapability} greedy?="greedy"? ("min-required" min=IntValue)? (
+ *   "max-required" max=IntValue)? (nameSpace=InterfaceName|"unit") "/" name=
  *   CapabilityName ("/" versionRange=VersionRangeLiteral)?; 
  * 	
  * // Capability required by a unit - always refers to capabilities with at least ns/name
  * // or the keyword "unit" instead of the namespace for buildunits
- *          
+ *         
+ * 	                      
  * 	         
  * 	    
  * 	
@@ -5127,7 +5543,8 @@ protected class RequiredCapability_VersionRangeAssignment_5_1 extends Assignment
  *
  **/
 
-// {build::RequiredCapability} (nameSpace=InterfaceName|"unit") "/" name=
+// {build::RequiredCapability} greedy?="greedy"? ("min-required" min=IntValue)? (
+// "max-required" max=IntValue)? (nameSpace=InterfaceName|"unit") "/" name=
 // CapabilityName ("/" versionRange=VersionRangeLiteral)?
 protected class RequiredCapability_Unfiltered_Group extends GroupToken {
 	
@@ -5143,8 +5560,8 @@ protected class RequiredCapability_Unfiltered_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Unfiltered_Group_4(parent, this, 0, inst);
-			case 1: return new RequiredCapability_Unfiltered_NameAssignment_3(parent, this, 1, inst);
+			case 0: return new RequiredCapability_Unfiltered_Group_7(parent, this, 0, inst);
+			case 1: return new RequiredCapability_Unfiltered_NameAssignment_6(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -5184,23 +5601,218 @@ protected class RequiredCapability_Unfiltered_RequiredCapabilityAction_0 extends
 	}
 }
 
-// nameSpace=InterfaceName|"unit"
-protected class RequiredCapability_Unfiltered_Alternatives_1 extends AlternativesToken {
-
-	public RequiredCapability_Unfiltered_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// greedy?="greedy"?
+protected class RequiredCapability_Unfiltered_GreedyAssignment_1 extends AssignmentToken  {
+	
+	public RequiredCapability_Unfiltered_GreedyAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getRequiredCapability_UnfilteredAccess().getAlternatives_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getGreedyAssignment_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Unfiltered_NameSpaceAssignment_1_0(parent, this, 0, inst);
-			case 1: return new RequiredCapability_Unfiltered_UnitKeyword_1_1(parent, this, 1, inst);
+			case 0: return new RequiredCapability_Unfiltered_RequiredCapabilityAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("greedy",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("greedy");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getGreedyGreedyKeyword_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ("min-required" min=IntValue)?
+protected class RequiredCapability_Unfiltered_Group_2 extends GroupToken {
+	
+	public RequiredCapability_Unfiltered_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_MinAssignment_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "min-required"
+protected class RequiredCapability_Unfiltered_MinRequiredKeyword_2_0 extends KeywordToken  {
+	
+	public RequiredCapability_Unfiltered_MinRequiredKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getMinRequiredKeyword_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_GreedyAssignment_1(parent, this, 0, inst);
+			case 1: return new RequiredCapability_Unfiltered_RequiredCapabilityAction_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// min=IntValue
+protected class RequiredCapability_Unfiltered_MinAssignment_2_1 extends AssignmentToken  {
+	
+	public RequiredCapability_Unfiltered_MinAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getMinAssignment_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_MinRequiredKeyword_2_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("min",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("min");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getMinIntValueParserRuleCall_2_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// ("max-required" max=IntValue)?
+protected class RequiredCapability_Unfiltered_Group_3 extends GroupToken {
+	
+	public RequiredCapability_Unfiltered_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getGroup_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_MaxAssignment_3_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "max-required"
+protected class RequiredCapability_Unfiltered_MaxRequiredKeyword_3_0 extends KeywordToken  {
+	
+	public RequiredCapability_Unfiltered_MaxRequiredKeyword_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getMaxRequiredKeyword_3_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_Group_2(parent, this, 0, inst);
+			case 1: return new RequiredCapability_Unfiltered_GreedyAssignment_1(parent, this, 1, inst);
+			case 2: return new RequiredCapability_Unfiltered_RequiredCapabilityAction_0(parent, this, 2, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// max=IntValue
+protected class RequiredCapability_Unfiltered_MaxAssignment_3_1 extends AssignmentToken  {
+	
+	public RequiredCapability_Unfiltered_MaxAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getMaxAssignment_3_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_MaxRequiredKeyword_3_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("max",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("max");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getMaxIntValueParserRuleCall_3_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// nameSpace=InterfaceName|"unit"
+protected class RequiredCapability_Unfiltered_Alternatives_4 extends AlternativesToken {
+
+	public RequiredCapability_Unfiltered_Alternatives_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getAlternatives_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_NameSpaceAssignment_4_0(parent, this, 0, inst);
+			case 1: return new RequiredCapability_Unfiltered_UnitKeyword_4_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -5208,21 +5820,24 @@ protected class RequiredCapability_Unfiltered_Alternatives_1 extends Alternative
 }
 
 // nameSpace=InterfaceName
-protected class RequiredCapability_Unfiltered_NameSpaceAssignment_1_0 extends AssignmentToken  {
+protected class RequiredCapability_Unfiltered_NameSpaceAssignment_4_0 extends AssignmentToken  {
 	
-	public RequiredCapability_Unfiltered_NameSpaceAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_Unfiltered_NameSpaceAssignment_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRequiredCapability_UnfilteredAccess().getNameSpaceAssignment_1_0();
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getNameSpaceAssignment_4_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Unfiltered_RequiredCapabilityAction_0(parent, this, 0, inst);
+			case 0: return new RequiredCapability_Unfiltered_Group_3(parent, this, 0, inst);
+			case 1: return new RequiredCapability_Unfiltered_Group_2(parent, this, 1, inst);
+			case 2: return new RequiredCapability_Unfiltered_GreedyAssignment_1(parent, this, 2, inst);
+			case 3: return new RequiredCapability_Unfiltered_RequiredCapabilityAction_0(parent, this, 3, inst);
 			default: return null;
 		}	
 	}	
@@ -5233,7 +5848,7 @@ protected class RequiredCapability_Unfiltered_NameSpaceAssignment_1_0 extends As
 		IInstanceDescription obj = current.cloneAndConsume("nameSpace");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getNameSpaceInterfaceNameParserRuleCall_1_0_0();
+			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getNameSpaceInterfaceNameParserRuleCall_4_0_0();
 			return obj;
 		}
 		return null;
@@ -5242,21 +5857,24 @@ protected class RequiredCapability_Unfiltered_NameSpaceAssignment_1_0 extends As
 }
 
 // "unit"
-protected class RequiredCapability_Unfiltered_UnitKeyword_1_1 extends KeywordToken  {
+protected class RequiredCapability_Unfiltered_UnitKeyword_4_1 extends KeywordToken  {
 	
-	public RequiredCapability_Unfiltered_UnitKeyword_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_Unfiltered_UnitKeyword_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRequiredCapability_UnfilteredAccess().getUnitKeyword_1_1();
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getUnitKeyword_4_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Unfiltered_RequiredCapabilityAction_0(parent, this, 0, inst);
+			case 0: return new RequiredCapability_Unfiltered_Group_3(parent, this, 0, inst);
+			case 1: return new RequiredCapability_Unfiltered_Group_2(parent, this, 1, inst);
+			case 2: return new RequiredCapability_Unfiltered_GreedyAssignment_1(parent, this, 2, inst);
+			case 3: return new RequiredCapability_Unfiltered_RequiredCapabilityAction_0(parent, this, 3, inst);
 			default: return null;
 		}	
 	}	
@@ -5265,21 +5883,21 @@ protected class RequiredCapability_Unfiltered_UnitKeyword_1_1 extends KeywordTok
 
 
 // "/"
-protected class RequiredCapability_Unfiltered_SolidusKeyword_2 extends KeywordToken  {
+protected class RequiredCapability_Unfiltered_SolidusKeyword_5 extends KeywordToken  {
 	
-	public RequiredCapability_Unfiltered_SolidusKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_Unfiltered_SolidusKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRequiredCapability_UnfilteredAccess().getSolidusKeyword_2();
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getSolidusKeyword_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Unfiltered_Alternatives_1(parent, this, 0, inst);
+			case 0: return new RequiredCapability_Unfiltered_Alternatives_4(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5287,21 +5905,21 @@ protected class RequiredCapability_Unfiltered_SolidusKeyword_2 extends KeywordTo
 }
 
 // name=CapabilityName
-protected class RequiredCapability_Unfiltered_NameAssignment_3 extends AssignmentToken  {
+protected class RequiredCapability_Unfiltered_NameAssignment_6 extends AssignmentToken  {
 	
-	public RequiredCapability_Unfiltered_NameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_Unfiltered_NameAssignment_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRequiredCapability_UnfilteredAccess().getNameAssignment_3();
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getNameAssignment_6();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Unfiltered_SolidusKeyword_2(parent, this, 0, inst);
+			case 0: return new RequiredCapability_Unfiltered_SolidusKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5312,7 +5930,7 @@ protected class RequiredCapability_Unfiltered_NameAssignment_3 extends Assignmen
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getNameCapabilityNameParserRuleCall_3_0();
+			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getNameCapabilityNameParserRuleCall_6_0();
 			return obj;
 		}
 		return null;
@@ -5321,21 +5939,21 @@ protected class RequiredCapability_Unfiltered_NameAssignment_3 extends Assignmen
 }
 
 // ("/" versionRange=VersionRangeLiteral)?
-protected class RequiredCapability_Unfiltered_Group_4 extends GroupToken {
+protected class RequiredCapability_Unfiltered_Group_7 extends GroupToken {
 	
-	public RequiredCapability_Unfiltered_Group_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_Unfiltered_Group_7(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getRequiredCapability_UnfilteredAccess().getGroup_4();
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getGroup_7();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Unfiltered_VersionRangeAssignment_4_1(parent, this, 0, inst);
+			case 0: return new RequiredCapability_Unfiltered_VersionRangeAssignment_7_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5343,21 +5961,21 @@ protected class RequiredCapability_Unfiltered_Group_4 extends GroupToken {
 }
 
 // "/"
-protected class RequiredCapability_Unfiltered_SolidusKeyword_4_0 extends KeywordToken  {
+protected class RequiredCapability_Unfiltered_SolidusKeyword_7_0 extends KeywordToken  {
 	
-	public RequiredCapability_Unfiltered_SolidusKeyword_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_Unfiltered_SolidusKeyword_7_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRequiredCapability_UnfilteredAccess().getSolidusKeyword_4_0();
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getSolidusKeyword_7_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Unfiltered_NameAssignment_3(parent, this, 0, inst);
+			case 0: return new RequiredCapability_Unfiltered_NameAssignment_6(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5365,21 +5983,21 @@ protected class RequiredCapability_Unfiltered_SolidusKeyword_4_0 extends Keyword
 }
 
 // versionRange=VersionRangeLiteral
-protected class RequiredCapability_Unfiltered_VersionRangeAssignment_4_1 extends AssignmentToken  {
+protected class RequiredCapability_Unfiltered_VersionRangeAssignment_7_1 extends AssignmentToken  {
 	
-	public RequiredCapability_Unfiltered_VersionRangeAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiredCapability_Unfiltered_VersionRangeAssignment_7_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRequiredCapability_UnfilteredAccess().getVersionRangeAssignment_4_1();
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getVersionRangeAssignment_7_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RequiredCapability_Unfiltered_SolidusKeyword_4_0(parent, this, 0, inst);
+			case 0: return new RequiredCapability_Unfiltered_SolidusKeyword_7_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5390,7 +6008,7 @@ protected class RequiredCapability_Unfiltered_VersionRangeAssignment_4_1 extends
 		IInstanceDescription obj = current.cloneAndConsume("versionRange");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getVersionRangeVersionRangeLiteralParserRuleCall_4_1_0();
+			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getVersionRangeVersionRangeLiteralParserRuleCall_7_1_0();
 			return obj;
 		}
 		return null;

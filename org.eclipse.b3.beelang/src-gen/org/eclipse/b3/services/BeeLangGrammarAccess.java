@@ -906,24 +906,35 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCondExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cCondExprExpressionParserRuleCall_1_2_0 = (RuleCall)cCondExprAssignment_1_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Assignment cNameSpaceAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
-		private final RuleCall cNameSpaceInterfaceNameParserRuleCall_2_0_0 = (RuleCall)cNameSpaceAssignment_2_0.eContents().get(0);
-		private final Keyword cUnitKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
-		private final Keyword cSolidusKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameCapabilityNameParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cSolidusKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cVersionRangeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cVersionRangeVersionRangeLiteralParserRuleCall_5_1_0 = (RuleCall)cVersionRangeAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cAsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cAliasAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cAliasIDTerminalRuleCall_6_1_0 = (RuleCall)cAliasAssignment_6_1.eContents().get(0);
+		private final Assignment cGreedyAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cGreedyGreedyKeyword_2_0 = (Keyword)cGreedyAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cRequiresMinKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cMinAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cMinIntValueParserRuleCall_3_1_0 = (RuleCall)cMinAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cRequiresMaxKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cMaxAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cMaxIntValueParserRuleCall_4_1_0 = (RuleCall)cMaxAssignment_4_1.eContents().get(0);
+		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
+		private final Assignment cNameSpaceAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
+		private final RuleCall cNameSpaceInterfaceNameParserRuleCall_5_0_0 = (RuleCall)cNameSpaceAssignment_5_0.eContents().get(0);
+		private final Keyword cUnitKeyword_5_1 = (Keyword)cAlternatives_5.eContents().get(1);
+		private final Keyword cSolidusKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cNameAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cNameCapabilityNameParserRuleCall_7_0 = (RuleCall)cNameAssignment_7.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cSolidusKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cVersionRangeAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cVersionRangeVersionRangeLiteralParserRuleCall_8_1_0 = (RuleCall)cVersionRangeAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cAsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cAliasAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_9_1_0 = (RuleCall)cAliasAssignment_9_1.eContents().get(0);
 		
 		//AliasedRequiredCapability returns build::RequiredCapability:
-		//  {build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+		//  {build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? greedy?=
+		//  "greedy"? ("requires-min" min=IntValue)? ("requires-max" max=IntValue)? (nameSpace=
 		//  InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
 		//  ? ("as" alias=ID)?; 
 		//
@@ -931,6 +942,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//// or the keyword "unit" instead of the namespace for buildunits
 		//         
 		//	        
+		//	                       
 		//	         
 		//	           
 		//	
@@ -939,7 +951,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//// or the keyword "unit" instead of the namespace for buildunits
 		public ParserRule getRule() { return rule; }
 
-		//{build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+		//{build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? greedy?=
+		//"greedy"? ("requires-min" min=IntValue)? ("requires-max" max=IntValue)? (nameSpace=
 		//InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
 		//? ("as" alias=ID)?
 		public Group getGroup() { return cGroup; }
@@ -965,50 +978,80 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
 
+		//greedy?="greedy"?
+		public Assignment getGreedyAssignment_2() { return cGreedyAssignment_2; }
+
+		//"greedy"
+		public Keyword getGreedyGreedyKeyword_2_0() { return cGreedyGreedyKeyword_2_0; }
+
+		//("requires-min" min=IntValue)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"requires-min"
+		public Keyword getRequiresMinKeyword_3_0() { return cRequiresMinKeyword_3_0; }
+
+		//min=IntValue
+		public Assignment getMinAssignment_3_1() { return cMinAssignment_3_1; }
+
+		//IntValue
+		public RuleCall getMinIntValueParserRuleCall_3_1_0() { return cMinIntValueParserRuleCall_3_1_0; }
+
+		//("requires-max" max=IntValue)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"requires-max"
+		public Keyword getRequiresMaxKeyword_4_0() { return cRequiresMaxKeyword_4_0; }
+
+		//max=IntValue
+		public Assignment getMaxAssignment_4_1() { return cMaxAssignment_4_1; }
+
+		//IntValue
+		public RuleCall getMaxIntValueParserRuleCall_4_1_0() { return cMaxIntValueParserRuleCall_4_1_0; }
+
 		//nameSpace=InterfaceName|"unit"
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 
 		//nameSpace=InterfaceName
-		public Assignment getNameSpaceAssignment_2_0() { return cNameSpaceAssignment_2_0; }
+		public Assignment getNameSpaceAssignment_5_0() { return cNameSpaceAssignment_5_0; }
 
 		//InterfaceName
-		public RuleCall getNameSpaceInterfaceNameParserRuleCall_2_0_0() { return cNameSpaceInterfaceNameParserRuleCall_2_0_0; }
+		public RuleCall getNameSpaceInterfaceNameParserRuleCall_5_0_0() { return cNameSpaceInterfaceNameParserRuleCall_5_0_0; }
 
 		//"unit"
-		public Keyword getUnitKeyword_2_1() { return cUnitKeyword_2_1; }
+		public Keyword getUnitKeyword_5_1() { return cUnitKeyword_5_1; }
 
 		//"/"
-		public Keyword getSolidusKeyword_3() { return cSolidusKeyword_3; }
+		public Keyword getSolidusKeyword_6() { return cSolidusKeyword_6; }
 
 		//name=CapabilityName
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		public Assignment getNameAssignment_7() { return cNameAssignment_7; }
 
 		//CapabilityName
-		public RuleCall getNameCapabilityNameParserRuleCall_4_0() { return cNameCapabilityNameParserRuleCall_4_0; }
+		public RuleCall getNameCapabilityNameParserRuleCall_7_0() { return cNameCapabilityNameParserRuleCall_7_0; }
 
 		//("/" versionRange=VersionRangeLiteral)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_8() { return cGroup_8; }
 
 		//"/"
-		public Keyword getSolidusKeyword_5_0() { return cSolidusKeyword_5_0; }
+		public Keyword getSolidusKeyword_8_0() { return cSolidusKeyword_8_0; }
 
 		//versionRange=VersionRangeLiteral
-		public Assignment getVersionRangeAssignment_5_1() { return cVersionRangeAssignment_5_1; }
+		public Assignment getVersionRangeAssignment_8_1() { return cVersionRangeAssignment_8_1; }
 
 		//VersionRangeLiteral
-		public RuleCall getVersionRangeVersionRangeLiteralParserRuleCall_5_1_0() { return cVersionRangeVersionRangeLiteralParserRuleCall_5_1_0; }
+		public RuleCall getVersionRangeVersionRangeLiteralParserRuleCall_8_1_0() { return cVersionRangeVersionRangeLiteralParserRuleCall_8_1_0; }
 
 		//("as" alias=ID)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_9() { return cGroup_9; }
 
 		//"as"
-		public Keyword getAsKeyword_6_0() { return cAsKeyword_6_0; }
+		public Keyword getAsKeyword_9_0() { return cAsKeyword_9_0; }
 
 		//alias=ID
-		public Assignment getAliasAssignment_6_1() { return cAliasAssignment_6_1; }
+		public Assignment getAliasAssignment_9_1() { return cAliasAssignment_9_1; }
 
 		//ID
-		public RuleCall getAliasIDTerminalRuleCall_6_1_0() { return cAliasIDTerminalRuleCall_6_1_0; }
+		public RuleCall getAliasIDTerminalRuleCall_9_1_0() { return cAliasIDTerminalRuleCall_9_1_0; }
 	}
 
 	public class RequiredCapabilityElements extends AbstractParserRuleElementFinder {
@@ -1021,27 +1064,39 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCondExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cCondExprExpressionParserRuleCall_1_2_0 = (RuleCall)cCondExprAssignment_1_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Assignment cNameSpaceAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
-		private final RuleCall cNameSpaceInterfaceNameParserRuleCall_2_0_0 = (RuleCall)cNameSpaceAssignment_2_0.eContents().get(0);
-		private final Keyword cUnitKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
-		private final Keyword cSolidusKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameCapabilityNameParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cSolidusKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cVersionRangeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cVersionRangeVersionRangeLiteralParserRuleCall_5_1_0 = (RuleCall)cVersionRangeAssignment_5_1.eContents().get(0);
+		private final Assignment cGreedyAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cGreedyGreedyKeyword_2_0 = (Keyword)cGreedyAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cMinRequiredKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cMinAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cMinIntValueParserRuleCall_3_1_0 = (RuleCall)cMinAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cMaxRequiredKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cMaxAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cMaxIntValueParserRuleCall_4_1_0 = (RuleCall)cMaxAssignment_4_1.eContents().get(0);
+		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
+		private final Assignment cNameSpaceAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
+		private final RuleCall cNameSpaceInterfaceNameParserRuleCall_5_0_0 = (RuleCall)cNameSpaceAssignment_5_0.eContents().get(0);
+		private final Keyword cUnitKeyword_5_1 = (Keyword)cAlternatives_5.eContents().get(1);
+		private final Keyword cSolidusKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cNameAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cNameCapabilityNameParserRuleCall_7_0 = (RuleCall)cNameAssignment_7.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cSolidusKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cVersionRangeAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cVersionRangeVersionRangeLiteralParserRuleCall_8_1_0 = (RuleCall)cVersionRangeAssignment_8_1.eContents().get(0);
 		
 		//RequiredCapability returns build::RequiredCapability:
-		//  {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+		//  {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? greedy?="greedy"? (
+		//  "min-required" min=IntValue)? ("max-required" max=IntValue)? (nameSpace=
 		//  InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
 		//  ?; 
 		//	
 		//// Capability required by a unit - always refers to capabilities with at least ns/name
 		//// or the keyword "unit" instead of the namespace for buildunits
 		//         
-		//	        
+		//	      
+		//	                       	  
 		//	         
 		//	    
 		//	
@@ -1050,7 +1105,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//// or the keyword "unit" instead of the namespace for buildunits
 		public ParserRule getRule() { return rule; }
 
-		//{build::RequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+		//{build::RequiredCapability} ("when" "(" condExpr=Expression ")")? greedy?="greedy"? (
+		//"min-required" min=IntValue)? ("max-required" max=IntValue)? (nameSpace=
 		//InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
 		//?
 		public Group getGroup() { return cGroup; }
@@ -1076,63 +1132,105 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
 
+		//greedy?="greedy"?
+		public Assignment getGreedyAssignment_2() { return cGreedyAssignment_2; }
+
+		//"greedy"
+		public Keyword getGreedyGreedyKeyword_2_0() { return cGreedyGreedyKeyword_2_0; }
+
+		//("min-required" min=IntValue)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"min-required"
+		public Keyword getMinRequiredKeyword_3_0() { return cMinRequiredKeyword_3_0; }
+
+		//min=IntValue
+		public Assignment getMinAssignment_3_1() { return cMinAssignment_3_1; }
+
+		//IntValue
+		public RuleCall getMinIntValueParserRuleCall_3_1_0() { return cMinIntValueParserRuleCall_3_1_0; }
+
+		//("max-required" max=IntValue)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"max-required"
+		public Keyword getMaxRequiredKeyword_4_0() { return cMaxRequiredKeyword_4_0; }
+
+		//max=IntValue
+		public Assignment getMaxAssignment_4_1() { return cMaxAssignment_4_1; }
+
+		//IntValue
+		public RuleCall getMaxIntValueParserRuleCall_4_1_0() { return cMaxIntValueParserRuleCall_4_1_0; }
+
 		//nameSpace=InterfaceName|"unit"
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 
 		//nameSpace=InterfaceName
-		public Assignment getNameSpaceAssignment_2_0() { return cNameSpaceAssignment_2_0; }
+		public Assignment getNameSpaceAssignment_5_0() { return cNameSpaceAssignment_5_0; }
 
 		//InterfaceName
-		public RuleCall getNameSpaceInterfaceNameParserRuleCall_2_0_0() { return cNameSpaceInterfaceNameParserRuleCall_2_0_0; }
+		public RuleCall getNameSpaceInterfaceNameParserRuleCall_5_0_0() { return cNameSpaceInterfaceNameParserRuleCall_5_0_0; }
 
 		//"unit"
-		public Keyword getUnitKeyword_2_1() { return cUnitKeyword_2_1; }
+		public Keyword getUnitKeyword_5_1() { return cUnitKeyword_5_1; }
 
 		//"/"
-		public Keyword getSolidusKeyword_3() { return cSolidusKeyword_3; }
+		public Keyword getSolidusKeyword_6() { return cSolidusKeyword_6; }
 
 		//name=CapabilityName
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		public Assignment getNameAssignment_7() { return cNameAssignment_7; }
 
 		//CapabilityName
-		public RuleCall getNameCapabilityNameParserRuleCall_4_0() { return cNameCapabilityNameParserRuleCall_4_0; }
+		public RuleCall getNameCapabilityNameParserRuleCall_7_0() { return cNameCapabilityNameParserRuleCall_7_0; }
 
 		//("/" versionRange=VersionRangeLiteral)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_8() { return cGroup_8; }
 
 		//"/"
-		public Keyword getSolidusKeyword_5_0() { return cSolidusKeyword_5_0; }
+		public Keyword getSolidusKeyword_8_0() { return cSolidusKeyword_8_0; }
 
 		//versionRange=VersionRangeLiteral
-		public Assignment getVersionRangeAssignment_5_1() { return cVersionRangeAssignment_5_1; }
+		public Assignment getVersionRangeAssignment_8_1() { return cVersionRangeAssignment_8_1; }
 
 		//VersionRangeLiteral
-		public RuleCall getVersionRangeVersionRangeLiteralParserRuleCall_5_1_0() { return cVersionRangeVersionRangeLiteralParserRuleCall_5_1_0; }
+		public RuleCall getVersionRangeVersionRangeLiteralParserRuleCall_8_1_0() { return cVersionRangeVersionRangeLiteralParserRuleCall_8_1_0; }
 	}
 
 	public class RequiredCapability_UnfilteredElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RequiredCapability_Unfiltered");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cRequiredCapabilityAction_0 = (Action)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cNameSpaceAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cNameSpaceInterfaceNameParserRuleCall_1_0_0 = (RuleCall)cNameSpaceAssignment_1_0.eContents().get(0);
-		private final Keyword cUnitKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		private final Keyword cSolidusKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameCapabilityNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cSolidusKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cVersionRangeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cVersionRangeVersionRangeLiteralParserRuleCall_4_1_0 = (RuleCall)cVersionRangeAssignment_4_1.eContents().get(0);
+		private final Assignment cGreedyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cGreedyGreedyKeyword_1_0 = (Keyword)cGreedyAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cMinRequiredKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cMinAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cMinIntValueParserRuleCall_2_1_0 = (RuleCall)cMinAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cMaxRequiredKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cMaxAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cMaxIntValueParserRuleCall_3_1_0 = (RuleCall)cMaxAssignment_3_1.eContents().get(0);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cNameSpaceAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cNameSpaceInterfaceNameParserRuleCall_4_0_0 = (RuleCall)cNameSpaceAssignment_4_0.eContents().get(0);
+		private final Keyword cUnitKeyword_4_1 = (Keyword)cAlternatives_4.eContents().get(1);
+		private final Keyword cSolidusKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cNameAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cNameCapabilityNameParserRuleCall_6_0 = (RuleCall)cNameAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cSolidusKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cVersionRangeAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cVersionRangeVersionRangeLiteralParserRuleCall_7_1_0 = (RuleCall)cVersionRangeAssignment_7_1.eContents().get(0);
 		
 		//RequiredCapability_Unfiltered returns build::RequiredCapability:
-		//  {build::RequiredCapability} (nameSpace=InterfaceName|"unit") "/" name=
+		//  {build::RequiredCapability} greedy?="greedy"? ("min-required" min=IntValue)? (
+		//  "max-required" max=IntValue)? (nameSpace=InterfaceName|"unit") "/" name=
 		//  CapabilityName ("/" versionRange=VersionRangeLiteral)?; 
 		//	
 		//// Capability required by a unit - always refers to capabilities with at least ns/name
 		//// or the keyword "unit" instead of the namespace for buildunits
-		//         
+		//        
+		//	                      
 		//	         
 		//	    
 		//	
@@ -1140,45 +1238,76 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//// A named sequence of property statements
 		public ParserRule getRule() { return rule; }
 
-		//{build::RequiredCapability} (nameSpace=InterfaceName|"unit") "/" name=
+		//{build::RequiredCapability} greedy?="greedy"? ("min-required" min=IntValue)? (
+		//"max-required" max=IntValue)? (nameSpace=InterfaceName|"unit") "/" name=
 		//CapabilityName ("/" versionRange=VersionRangeLiteral)?
 		public Group getGroup() { return cGroup; }
 
 		//{build::RequiredCapability}
 		public Action getRequiredCapabilityAction_0() { return cRequiredCapabilityAction_0; }
 
+		//greedy?="greedy"?
+		public Assignment getGreedyAssignment_1() { return cGreedyAssignment_1; }
+
+		//"greedy"
+		public Keyword getGreedyGreedyKeyword_1_0() { return cGreedyGreedyKeyword_1_0; }
+
+		//("min-required" min=IntValue)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"min-required"
+		public Keyword getMinRequiredKeyword_2_0() { return cMinRequiredKeyword_2_0; }
+
+		//min=IntValue
+		public Assignment getMinAssignment_2_1() { return cMinAssignment_2_1; }
+
+		//IntValue
+		public RuleCall getMinIntValueParserRuleCall_2_1_0() { return cMinIntValueParserRuleCall_2_1_0; }
+
+		//("max-required" max=IntValue)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"max-required"
+		public Keyword getMaxRequiredKeyword_3_0() { return cMaxRequiredKeyword_3_0; }
+
+		//max=IntValue
+		public Assignment getMaxAssignment_3_1() { return cMaxAssignment_3_1; }
+
+		//IntValue
+		public RuleCall getMaxIntValueParserRuleCall_3_1_0() { return cMaxIntValueParserRuleCall_3_1_0; }
+
 		//nameSpace=InterfaceName|"unit"
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
 		//nameSpace=InterfaceName
-		public Assignment getNameSpaceAssignment_1_0() { return cNameSpaceAssignment_1_0; }
+		public Assignment getNameSpaceAssignment_4_0() { return cNameSpaceAssignment_4_0; }
 
 		//InterfaceName
-		public RuleCall getNameSpaceInterfaceNameParserRuleCall_1_0_0() { return cNameSpaceInterfaceNameParserRuleCall_1_0_0; }
+		public RuleCall getNameSpaceInterfaceNameParserRuleCall_4_0_0() { return cNameSpaceInterfaceNameParserRuleCall_4_0_0; }
 
 		//"unit"
-		public Keyword getUnitKeyword_1_1() { return cUnitKeyword_1_1; }
+		public Keyword getUnitKeyword_4_1() { return cUnitKeyword_4_1; }
 
 		//"/"
-		public Keyword getSolidusKeyword_2() { return cSolidusKeyword_2; }
+		public Keyword getSolidusKeyword_5() { return cSolidusKeyword_5; }
 
 		//name=CapabilityName
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_6() { return cNameAssignment_6; }
 
 		//CapabilityName
-		public RuleCall getNameCapabilityNameParserRuleCall_3_0() { return cNameCapabilityNameParserRuleCall_3_0; }
+		public RuleCall getNameCapabilityNameParserRuleCall_6_0() { return cNameCapabilityNameParserRuleCall_6_0; }
 
 		//("/" versionRange=VersionRangeLiteral)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_7() { return cGroup_7; }
 
 		//"/"
-		public Keyword getSolidusKeyword_4_0() { return cSolidusKeyword_4_0; }
+		public Keyword getSolidusKeyword_7_0() { return cSolidusKeyword_7_0; }
 
 		//versionRange=VersionRangeLiteral
-		public Assignment getVersionRangeAssignment_4_1() { return cVersionRangeAssignment_4_1; }
+		public Assignment getVersionRangeAssignment_7_1() { return cVersionRangeAssignment_7_1; }
 
 		//VersionRangeLiteral
-		public RuleCall getVersionRangeVersionRangeLiteralParserRuleCall_4_1_0() { return cVersionRangeVersionRangeLiteralParserRuleCall_4_1_0; }
+		public RuleCall getVersionRangeVersionRangeLiteralParserRuleCall_7_1_0() { return cVersionRangeVersionRangeLiteralParserRuleCall_7_1_0; }
 	}
 
 	public class PropertySet_NamedElements extends AbstractParserRuleElementFinder {
@@ -11337,7 +11466,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AliasedRequiredCapability returns build::RequiredCapability:
-	//  {build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+	//  {build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? greedy?=
+	//  "greedy"? ("requires-min" min=IntValue)? ("requires-max" max=IntValue)? (nameSpace=
 	//  InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
 	//  ? ("as" alias=ID)?; 
 	//
@@ -11345,6 +11475,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//// or the keyword "unit" instead of the namespace for buildunits
 	//         
 	//	        
+	//	                       
 	//	         
 	//	           
 	//	
@@ -11360,14 +11491,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RequiredCapability returns build::RequiredCapability:
-	//  {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+	//  {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? greedy?="greedy"? (
+	//  "min-required" min=IntValue)? ("max-required" max=IntValue)? (nameSpace=
 	//  InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
 	//  ?; 
 	//	
 	//// Capability required by a unit - always refers to capabilities with at least ns/name
 	//// or the keyword "unit" instead of the namespace for buildunits
 	//         
-	//	        
+	//	      
+	//	                       	  
 	//	         
 	//	    
 	//	
@@ -11383,12 +11516,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RequiredCapability_Unfiltered returns build::RequiredCapability:
-	//  {build::RequiredCapability} (nameSpace=InterfaceName|"unit") "/" name=
+	//  {build::RequiredCapability} greedy?="greedy"? ("min-required" min=IntValue)? (
+	//  "max-required" max=IntValue)? (nameSpace=InterfaceName|"unit") "/" name=
 	//  CapabilityName ("/" versionRange=VersionRangeLiteral)?; 
 	//	
 	//// Capability required by a unit - always refers to capabilities with at least ns/name
 	//// or the keyword "unit" instead of the namespace for buildunits
-	//         
+	//        
+	//	                      
 	//	         
 	//	    
 	//	
