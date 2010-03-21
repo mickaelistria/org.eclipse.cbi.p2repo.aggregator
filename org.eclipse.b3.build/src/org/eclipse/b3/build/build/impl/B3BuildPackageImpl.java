@@ -710,6 +710,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		requiredCapabilityEClass = createEClass(REQUIRED_CAPABILITY);
 		createEAttribute(requiredCapabilityEClass, REQUIRED_CAPABILITY__VERSION_RANGE);
+		createEAttribute(requiredCapabilityEClass, REQUIRED_CAPABILITY__GREEDY);
+		createEAttribute(requiredCapabilityEClass, REQUIRED_CAPABILITY__MAX);
+		createEAttribute(requiredCapabilityEClass, REQUIRED_CAPABILITY__MIN);
 
 		conditionalPathVectorEClass = createEClass(CONDITIONAL_PATH_VECTOR);
 		createEReference(conditionalPathVectorEClass, CONDITIONAL_PATH_VECTOR__COND_EXPR);
@@ -2450,6 +2453,33 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRequiredCapability_Greedy() {
+		return (EAttribute) requiredCapabilityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRequiredCapability_Max() {
+		return (EAttribute) requiredCapabilityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRequiredCapability_Min() {
+		return (EAttribute) requiredCapabilityEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRequiresPredicate() {
 		return requiresPredicateEClass;
 	}
@@ -3051,6 +3081,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEAttribute(getRequiredCapability_VersionRange(), this.getVersionRange(), "versionRange", null, 0, 1,
 				RequiredCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRequiredCapability_Greedy(), ecorePackage.getEBoolean(), "greedy", null, 0, 1,
+				RequiredCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRequiredCapability_Max(), ecorePackage.getEInt(), "max", "1", 0, 1, RequiredCapability.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRequiredCapability_Min(), ecorePackage.getEInt(), "min", "1", 0, 1, RequiredCapability.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionalPathVectorEClass, ConditionalPathVector.class, "ConditionalPathVector", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

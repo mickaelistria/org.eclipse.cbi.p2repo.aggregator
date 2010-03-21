@@ -229,6 +229,18 @@
           <element xmi:type="ecore:EAttribute" href="B3Build.ecore#//RequiredCapability/versionRange"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_7aMzkfSPEd6fhZ-cYf2Uvg"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_nvvb4DSdEd-JBviTzuyHfA" type="2001">
+          <element xmi:type="ecore:EAttribute" href="B3Build.ecore#//RequiredCapability/greedy"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_nvvb4TSdEd-JBviTzuyHfA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vdHXQDSdEd-JBviTzuyHfA" type="2001">
+          <element xmi:type="ecore:EAttribute" href="B3Build.ecore#//RequiredCapability/max"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_vdHXQTSdEd-JBviTzuyHfA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_4KORUDSdEd-JBviTzuyHfA" type="2001">
+          <element xmi:type="ecore:EAttribute" href="B3Build.ecore#//RequiredCapability/min"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_4KORUTSdEd-JBviTzuyHfA"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_5MgM9fSPEd6fhZ-cYf2Uvg"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_5MgM9vSPEd6fhZ-cYf2Uvg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_5MgM9_SPEd6fhZ-cYf2Uvg"/>
@@ -275,7 +287,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_aeXbof_HEd6J54ZOjN0g9g" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EClass" href="B3Build.ecore#//AliasedRequiredCapability"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aeXbov_HEd6J54ZOjN0g9g" x="819" y="1008"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aeXbov_HEd6J54ZOjN0g9g" x="819" y="1116"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_Orr78AIxEd-J54ZOjN0g9g" type="1001">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OsE9gAIxEd-J54ZOjN0g9g" source="Shortcut">

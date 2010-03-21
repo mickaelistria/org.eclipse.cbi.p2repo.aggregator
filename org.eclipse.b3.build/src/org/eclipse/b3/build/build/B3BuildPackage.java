@@ -1170,13 +1170,40 @@ public interface B3BuildPackage extends EPackage {
 	int REQUIRED_CAPABILITY__VERSION_RANGE = CAPABILITY_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__GREEDY = CAPABILITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__MAX = CAPABILITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__MIN = CAPABILITY_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Required Capability</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_CAPABILITY_FEATURE_COUNT = CAPABILITY_FEATURE_COUNT + 1;
+	int REQUIRED_CAPABILITY_FEATURE_COUNT = CAPABILITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ConditionalPathVectorImpl <em>Conditional Path Vector</em>}' class.
@@ -2223,6 +2250,33 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int ALIASED_REQUIRED_CAPABILITY__VERSION_RANGE = REQUIRED_CAPABILITY__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__GREEDY = REQUIRED_CAPABILITY__GREEDY;
+
+	/**
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__MAX = REQUIRED_CAPABILITY__MAX;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__MIN = REQUIRED_CAPABILITY__MIN;
 
 	/**
 	 * The feature id for the '<em><b>Alias</b></em>' attribute.
@@ -5070,6 +5124,39 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getRequiredCapability_VersionRange();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiredCapability#isGreedy <em>Greedy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Greedy</em>'.
+	 * @see org.eclipse.b3.build.build.RequiredCapability#isGreedy()
+	 * @see #getRequiredCapability()
+	 * @generated
+	 */
+	EAttribute getRequiredCapability_Greedy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiredCapability#getMax <em>Max</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max</em>'.
+	 * @see org.eclipse.b3.build.build.RequiredCapability#getMax()
+	 * @see #getRequiredCapability()
+	 * @generated
+	 */
+	EAttribute getRequiredCapability_Max();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiredCapability#getMin <em>Min</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min</em>'.
+	 * @see org.eclipse.b3.build.build.RequiredCapability#getMin()
+	 * @see #getRequiredCapability()
+	 * @generated
+	 */
+	EAttribute getRequiredCapability_Min();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ConditionalPathVector <em>Conditional Path Vector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7045,6 +7132,30 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REQUIRED_CAPABILITY__VERSION_RANGE = eINSTANCE.getRequiredCapability_VersionRange();
+
+		/**
+		 * The meta object literal for the '<em><b>Greedy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REQUIRED_CAPABILITY__GREEDY = eINSTANCE.getRequiredCapability_Greedy();
+
+		/**
+		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REQUIRED_CAPABILITY__MAX = eINSTANCE.getRequiredCapability_Max();
+
+		/**
+		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REQUIRED_CAPABILITY__MIN = eINSTANCE.getRequiredCapability_Min();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ConditionalPathVectorImpl <em>Conditional Path Vector</em>}' class.

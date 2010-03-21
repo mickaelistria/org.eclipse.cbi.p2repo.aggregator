@@ -17,6 +17,9 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.b3.build.build.RequiredCapability#getVersionRange <em>Version Range</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.RequiredCapability#isGreedy <em>Greedy</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.RequiredCapability#getMax <em>Max</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.RequiredCapability#getMin <em>Min</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,5 +53,85 @@ public interface RequiredCapability extends Capability {
 	 * @generated
 	 */
 	void setVersionRange(VersionRange value);
+
+	/**
+	 * Returns the value of the '<em><b>Greedy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Greedy</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Greedy</em>' attribute.
+	 * @see #setGreedy(boolean)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRequiredCapability_Greedy()
+	 * @model
+	 * @generated
+	 */
+	boolean isGreedy();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RequiredCapability#isGreedy <em>Greedy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Greedy</em>' attribute.
+	 * @see #isGreedy()
+	 * @generated
+	 */
+	void setGreedy(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Max</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Max</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Max</em>' attribute.
+	 * @see #setMax(int)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRequiredCapability_Max()
+	 * @model default="1"
+	 * @generated
+	 */
+	int getMax();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RequiredCapability#getMax <em>Max</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Max</em>' attribute.
+	 * @see #getMax()
+	 * @generated
+	 */
+	void setMax(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Min</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Min</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Min</em>' attribute.
+	 * @see #setMin(int)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRequiredCapability_Min()
+	 * @model default="1"
+	 * @generated
+	 */
+	int getMin();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RequiredCapability#getMin <em>Min</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Min</em>' attribute.
+	 * @see #getMin()
+	 * @generated
+	 */
+	void setMin(int value);
 
 } // RequiredCapability
