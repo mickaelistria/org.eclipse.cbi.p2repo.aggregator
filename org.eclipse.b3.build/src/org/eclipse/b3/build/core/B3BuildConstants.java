@@ -8,7 +8,9 @@
 
 package org.eclipse.b3.build.core;
 
-public interface B3BuildConstants {
+import org.eclipse.b3.backend.core.B3BackendConstants;
+
+public interface B3BuildConstants extends B3BackendConstants {
 
 	public static final String REPOSITORIES_EXT_ID = "org.eclipse.b3.build.RepositoryScheme";
 

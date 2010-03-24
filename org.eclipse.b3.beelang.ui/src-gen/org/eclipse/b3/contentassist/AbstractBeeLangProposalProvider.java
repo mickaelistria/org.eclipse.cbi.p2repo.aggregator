@@ -1863,6 +1863,7 @@ public class AbstractBeeLangProposalProvider extends AbstractJavaBasedContentPro
 		// subclasses may override
 		// subclasses may override
 		// subclasses may override
+		// subclasses may override
 	}
 	public void completeFeatureCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if (logger.isDebugEnabled()) {

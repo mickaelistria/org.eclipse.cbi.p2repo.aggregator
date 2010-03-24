@@ -29,14 +29,14 @@ function testNew() {
 }
 function testNewWithConstructorBlock() {
 	var hm = new HashMap as theMap {
-		assertTrue("access to instance context 'empty'", empty);
+		assertTrue("access to instance context 'empty'", this.empty);
 		// TODO: This stupid construction is required because the system context
 		// only looks for the declared types in the method signature...
 		// it should search for the best method !!
 		// See: https://bugs.eclipse.org/bugs/show_bug.cgi?id=297661
 		Object key = 'dear tester';
-		Object value = 'have a cigarr';
+		Object value = 'have a cigar';
 		theMap.put(key, value);
-		assertFalse("instance value 'empty' should be false", empty);
+		assertFalse("instance value 'empty' should be false", this.empty);
 		};
 }

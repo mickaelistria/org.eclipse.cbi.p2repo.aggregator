@@ -9,15 +9,15 @@ function main(List argv) {
 function testWithContext() {
 	var a = [ [bananas: ["b1", "b2"], pyjamas: ["striped", "checkered"] ]];
 	with context a[0] {
-		assertEquals("Size of bananas map should be 2", 2, size); 
+		assertEquals("Size of bananas map should be 2", 2, this.size); 
 	};
 }
 
 function testPerson() {
 	Person p = new Person();
 	with context p {
-		name = "John";
-		familyName = "Smith";
+		this.name = "John";
+		this.familyName = "Smith";
 	};
 	assertEquals("Name should be set to John", "John", p.name);
 	assertEquals("Family name should be set to Smith", "Smith", p.familyName);

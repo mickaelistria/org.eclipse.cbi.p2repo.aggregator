@@ -6342,6 +6342,14 @@ rule__KeywordVariables__NameAlternatives_1_0
 { after(grammarAccess.getKeywordVariablesAccess().getNameUnitKeyword_1_0_5()); }
 )
 
+    |(
+{ before(grammarAccess.getKeywordVariablesAccess().getNameThisKeyword_1_0_6()); }
+
+	'this' 
+
+{ after(grammarAccess.getKeywordVariablesAccess().getNameThisKeyword_1_0_6()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);

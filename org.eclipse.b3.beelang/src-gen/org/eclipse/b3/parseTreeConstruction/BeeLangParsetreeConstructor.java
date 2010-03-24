@@ -30765,12 +30765,12 @@ protected class VariableValue_NameAssignment_1 extends AssignmentToken  {
  *
  * KeywordVariables returns be::BExpression:
  *   {be::BVariableExpression} name=( "input" | "output" | "source" | "properties" | "builder" |
- *   "unit" );
+ *   "unit" | "this" );
  *
  **/
 
 // {be::BVariableExpression} name=( "input" | "output" | "source" | "properties" | "builder" |
-// "unit" )
+// "unit" | "this" )
 protected class KeywordVariables_Group extends GroupToken {
 	
 	public KeywordVariables_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -30825,7 +30825,7 @@ protected class KeywordVariables_BVariableExpressionAction_0 extends ActionToken
 	}
 }
 
-// name=( "input" | "output" | "source" | "properties" | "builder" | "unit" )
+// name=( "input" | "output" | "source" | "properties" | "builder" | "unit" | "this" )
 protected class KeywordVariables_NameAssignment_1 extends AssignmentToken  {
 	
 	public KeywordVariables_NameAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -30877,6 +30877,11 @@ protected class KeywordVariables_NameAssignment_1 extends AssignmentToken  {
 		if("unit".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
 			type = AssignmentType.KW;
 			element = grammarAccess.getKeywordVariablesAccess().getNameUnitKeyword_1_0_5();
+			return obj;
+		}
+		if("this".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getKeywordVariablesAccess().getNameThisKeyword_1_0_6();
 			return obj;
 		}
 		return null;

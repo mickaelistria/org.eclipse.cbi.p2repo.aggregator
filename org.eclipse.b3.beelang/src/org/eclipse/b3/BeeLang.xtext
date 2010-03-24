@@ -649,7 +649,7 @@ VariableValue returns  be::BExpression : {be::BVariableExpression}
 	;
 	
 KeywordVariables returns  be::BExpression : {be::BVariableExpression} 
-	name = ("input" | "output" | "source" | "properties" | "builder" | "unit")
+	name = ("input" | "output" | "source" | "properties" | "builder" | "unit" | "this")
 	;
 
 FeatureCall returns be::BExpression :
@@ -1011,7 +1011,7 @@ VersionRangeLiteral returns build::VersionRange
 	;
 
 // Reference to qualified named item, possibly in unit, this or super, or
-// this.super, or unit.super
+// this.super, or unit.super (ONLY USED BY PROPERTY SET - CLEAN THIS UP)
 // TODO: super, unit, this - not yet handled - subject to change?
 QIDREF : (("super" |(("unit" | "this") ('.' "super")?)) ('.' QID)?) | QID ;
 

@@ -6876,23 +6876,24 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNamePropertiesKeyword_1_0_3 = (Keyword)cNameAlternatives_1_0.eContents().get(3);
 		private final Keyword cNameBuilderKeyword_1_0_4 = (Keyword)cNameAlternatives_1_0.eContents().get(4);
 		private final Keyword cNameUnitKeyword_1_0_5 = (Keyword)cNameAlternatives_1_0.eContents().get(5);
+		private final Keyword cNameThisKeyword_1_0_6 = (Keyword)cNameAlternatives_1_0.eContents().get(6);
 		
 		//KeywordVariables returns be::BExpression:
 		//  {be::BVariableExpression} name=( "input" | "output" | "source" | "properties" | "builder" |
-		//  "unit" );
+		//  "unit" | "this" );
 		public ParserRule getRule() { return rule; }
 
 		//{be::BVariableExpression} name=( "input" | "output" | "source" | "properties" | "builder" |
-		//"unit" )
+		//"unit" | "this" )
 		public Group getGroup() { return cGroup; }
 
 		//{be::BVariableExpression}
 		public Action getBVariableExpressionAction_0() { return cBVariableExpressionAction_0; }
 
-		//name=( "input" | "output" | "source" | "properties" | "builder" | "unit" )
+		//name=( "input" | "output" | "source" | "properties" | "builder" | "unit" | "this" )
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
-		//"input"|"output"|"source"|"properties"|"builder"|"unit"
+		//"input"|"output"|"source"|"properties"|"builder"|"unit"|"this"
 		public Alternatives getNameAlternatives_1_0() { return cNameAlternatives_1_0; }
 
 		//"input"
@@ -6912,6 +6913,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"unit"
 		public Keyword getNameUnitKeyword_1_0_5() { return cNameUnitKeyword_1_0_5; }
+
+		//"this"
+		public Keyword getNameThisKeyword_1_0_6() { return cNameThisKeyword_1_0_6; }
 	}
 
 	public class FeatureCallElements extends AbstractParserRuleElementFinder {
@@ -10605,7 +10609,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	
 		//
 		//// Reference to qualified named item, possibly in unit, this or super, or
-		//// this.super, or unit.super
+		//// this.super, or unit.super (ONLY USED BY PROPERTY SET - CLEAN THIS UP)
 		//// TODO: super, unit, this - not yet handled - subject to change?
 		public ParserRule getRule() { return rule; }
 
@@ -10619,7 +10623,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	
 		//
 		//// Reference to qualified named item, possibly in unit, this or super, or
-		//// this.super, or unit.super
+		//// this.super, or unit.super (ONLY USED BY PROPERTY SET - CLEAN THIS UP)
 		//// TODO: super, unit, this - not yet handled - subject to change?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
@@ -10700,7 +10704,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  ("super"|("unit"|"this") ("." "super")?) ("." QID)?|QID; 
 		//
 		//// Reference to qualified named item, possibly in unit, this or super, or
-		//// this.super, or unit.super
+		//// this.super, or unit.super (ONLY USED BY PROPERTY SET - CLEAN THIS UP)
 		//// TODO: super, unit, this - not yet handled - subject to change?
 		//                        
 		//
@@ -10710,7 +10714,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//("super"|("unit"|"this") ("." "super")?) ("." QID)?|QID 
 		//
 		//// Reference to qualified named item, possibly in unit, this or super, or
-		//// this.super, or unit.super
+		//// this.super, or unit.super (ONLY USED BY PROPERTY SET - CLEAN THIS UP)
 		//// TODO: super, unit, this - not yet handled - subject to change?
 		//                        
 		//
@@ -12769,7 +12773,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//KeywordVariables returns be::BExpression:
 	//  {be::BVariableExpression} name=( "input" | "output" | "source" | "properties" | "builder" |
-	//  "unit" );
+	//  "unit" | "this" );
 	public KeywordVariablesElements getKeywordVariablesAccess() {
 		return (pKeywordVariables != null) ? pKeywordVariables : (pKeywordVariables = new KeywordVariablesElements());
 	}
@@ -13600,7 +13604,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	
 	//
 	//// Reference to qualified named item, possibly in unit, this or super, or
-	//// this.super, or unit.super
+	//// this.super, or unit.super (ONLY USED BY PROPERTY SET - CLEAN THIS UP)
 	//// TODO: super, unit, this - not yet handled - subject to change?
 	public VersionRangeLiteralElements getVersionRangeLiteralAccess() {
 		return (pVersionRangeLiteral != null) ? pVersionRangeLiteral : (pVersionRangeLiteral = new VersionRangeLiteralElements());
@@ -13614,7 +13618,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  ("super"|("unit"|"this") ("." "super")?) ("." QID)?|QID; 
 	//
 	//// Reference to qualified named item, possibly in unit, this or super, or
-	//// this.super, or unit.super
+	//// this.super, or unit.super (ONLY USED BY PROPERTY SET - CLEAN THIS UP)
 	//// TODO: super, unit, this - not yet handled - subject to change?
 	//                        
 	//

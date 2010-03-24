@@ -24,7 +24,7 @@ RULE_EXT_INT=9
 'with'=85
 'version'=71
 '-'=35
-'?'=47
+'?'=48
 '!='=27
 '>='=29
 '<='=30
@@ -41,15 +41,15 @@ RULE_EXT_INT=9
 'requires'=75
 'output'=43
 'select-best'=93
-'true'=48
-'false'=49
+'true'=49
+'false'=50
 ','=73
 '&&'=103
 'elseif'=117
 'properties'=45
-'this'=55
+'this'=47
 'container'=97
-')'=53
+')'=54
 'select-first'=92
 '=='=25
 'parallel'=63
@@ -82,7 +82,7 @@ RULE_EXT_INT=9
 'precondition'=88
 '*='=21
 'instanceof'=127
-'super'=54
+'super'=55
 'proceed'=105
 '++'=40
 '{'=66
@@ -98,7 +98,7 @@ RULE_EXT_INT=9
 '=>'=100
 'final'=123
 ';'=69
-']'=52
+']'=53
 'default'=17
 '&'=59
 'min-required'=81
@@ -106,7 +106,7 @@ RULE_EXT_INT=9
 '!=='=28
 'provides'=74
 'sequential'=64
-'['=50
+'['=51
 '/'=37
 'requires-min'=79
 'private'=62
@@ -115,7 +115,7 @@ RULE_EXT_INT=9
 '_'=106
 'throw'=107
 'if'=113
-'('=51
+'('=52
 '==='=26
 'as'=70
 '--'=41

@@ -12206,6 +12206,24 @@ ruleKeywordVariables returns [EObject current=null]
 	        }
 	    }
 
+    |		lv_name_1_7=	'this' 
+    {
+        createLeafNode(grammarAccess.getKeywordVariablesAccess().getNameThisKeyword_1_0_6(), "name"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getKeywordVariablesRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "name", lv_name_1_7, null, lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
 )
 
 )
