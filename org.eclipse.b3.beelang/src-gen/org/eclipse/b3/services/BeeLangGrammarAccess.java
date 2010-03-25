@@ -6330,16 +6330,20 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cContextKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cExprExpressionParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
-		private final Assignment cContextBlockAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cContextBlockBlockExpressionParserRuleCall_4_0 = (RuleCall)cContextBlockAssignment_4.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cAsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cAliasAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_4_1_0 = (RuleCall)cAliasAssignment_4_1.eContents().get(0);
+		private final Assignment cContextBlockAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cContextBlockBlockExpressionParserRuleCall_5_0 = (RuleCall)cContextBlockAssignment_5.eContents().get(0);
 		
 		//WithContextExpression returns be::BWithContextExpression:
-		//  {be::BWithContextExpression} "with" "context" expr=Expression contextBlock=
-		//  BlockExpression;
+		//  {be::BWithContextExpression} "with" "context" expr=Expression ("as" alias=ID)?
+		//  contextBlock=BlockExpression;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BWithContextExpression} "with" "context" expr=Expression contextBlock=
-		//BlockExpression
+		//{be::BWithContextExpression} "with" "context" expr=Expression ("as" alias=ID)?
+		//contextBlock=BlockExpression
 		public Group getGroup() { return cGroup; }
 
 		//{be::BWithContextExpression}
@@ -6357,11 +6361,23 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getExprExpressionParserRuleCall_3_0() { return cExprExpressionParserRuleCall_3_0; }
 
+		//("as" alias=ID)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"as"
+		public Keyword getAsKeyword_4_0() { return cAsKeyword_4_0; }
+
+		//alias=ID
+		public Assignment getAliasAssignment_4_1() { return cAliasAssignment_4_1; }
+
+		//ID
+		public RuleCall getAliasIDTerminalRuleCall_4_1_0() { return cAliasIDTerminalRuleCall_4_1_0; }
+
 		//contextBlock=BlockExpression
-		public Assignment getContextBlockAssignment_4() { return cContextBlockAssignment_4; }
+		public Assignment getContextBlockAssignment_5() { return cContextBlockAssignment_5; }
 
 		//BlockExpression
-		public RuleCall getContextBlockBlockExpressionParserRuleCall_4_0() { return cContextBlockBlockExpressionParserRuleCall_4_0; }
+		public RuleCall getContextBlockBlockExpressionParserRuleCall_5_0() { return cContextBlockBlockExpressionParserRuleCall_5_0; }
 	}
 
 	public class ProceedExpressionElements extends AbstractParserRuleElementFinder {
@@ -12637,8 +12653,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//WithContextExpression returns be::BWithContextExpression:
-	//  {be::BWithContextExpression} "with" "context" expr=Expression contextBlock=
-	//  BlockExpression;
+	//  {be::BWithContextExpression} "with" "context" expr=Expression ("as" alias=ID)?
+	//  contextBlock=BlockExpression;
 	public WithContextExpressionElements getWithContextExpressionAccess() {
 		return (pWithContextExpression != null) ? pWithContextExpression : (pWithContextExpression = new WithContextExpressionElements());
 	}

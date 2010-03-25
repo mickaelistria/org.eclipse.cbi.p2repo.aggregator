@@ -21944,9 +21944,27 @@ rule__WithContextExpression__Group__4
     }
 :
 (
-{ before(grammarAccess.getWithContextExpressionAccess().getContextBlockAssignment_4()); }
-(rule__WithContextExpression__ContextBlockAssignment_4)
-{ after(grammarAccess.getWithContextExpressionAccess().getContextBlockAssignment_4()); }
+{ before(grammarAccess.getWithContextExpressionAccess().getGroup_4()); }
+(rule__WithContextExpression__Group_4__0)?
+{ after(grammarAccess.getWithContextExpressionAccess().getGroup_4()); }
+)
+
+	rule__WithContextExpression__Group__5
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__WithContextExpression__Group__5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getWithContextExpressionAccess().getContextBlockAssignment_5()); }
+(rule__WithContextExpression__ContextBlockAssignment_5)
+{ after(grammarAccess.getWithContextExpressionAccess().getContextBlockAssignment_5()); }
 )
 
 ;
@@ -21959,6 +21977,49 @@ finally {
 
 
 
+
+
+
+
+
+
+
+
+rule__WithContextExpression__Group_4__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getWithContextExpressionAccess().getAsKeyword_4_0()); }
+
+	'as' 
+
+{ after(grammarAccess.getWithContextExpressionAccess().getAsKeyword_4_0()); }
+)
+
+	rule__WithContextExpression__Group_4__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__WithContextExpression__Group_4__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getWithContextExpressionAccess().getAliasAssignment_4_1()); }
+(rule__WithContextExpression__AliasAssignment_4_1)
+{ after(grammarAccess.getWithContextExpressionAccess().getAliasAssignment_4_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
@@ -36298,14 +36359,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__WithContextExpression__ContextBlockAssignment_4
+rule__WithContextExpression__AliasAssignment_4_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getWithContextExpressionAccess().getContextBlockBlockExpressionParserRuleCall_4_0()); }
-	ruleBlockExpression{ after(grammarAccess.getWithContextExpressionAccess().getContextBlockBlockExpressionParserRuleCall_4_0()); }
+{ before(grammarAccess.getWithContextExpressionAccess().getAliasIDTerminalRuleCall_4_1_0()); }
+	RULE_ID{ after(grammarAccess.getWithContextExpressionAccess().getAliasIDTerminalRuleCall_4_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__WithContextExpression__ContextBlockAssignment_5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getWithContextExpressionAccess().getContextBlockBlockExpressionParserRuleCall_5_0()); }
+	ruleBlockExpression{ after(grammarAccess.getWithContextExpressionAccess().getContextBlockBlockExpressionParserRuleCall_5_0()); }
 )
 
 ;

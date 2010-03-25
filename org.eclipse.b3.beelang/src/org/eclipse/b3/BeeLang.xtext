@@ -592,7 +592,7 @@ WithExpression returns be::BWithExpression : {be::BWithExpression}
 		;
 		
 WithContextExpression returns be::BWithContextExpression : {be::BWithContextExpression}
-	"with" "context" expr = Expression contextBlock = BlockExpression
+	"with" "context" expr = Expression ("as" alias = ID )? contextBlock = BlockExpression
 	;	
 
 ProceedExpression returns be::BExpression : {be::BProceedExpression}

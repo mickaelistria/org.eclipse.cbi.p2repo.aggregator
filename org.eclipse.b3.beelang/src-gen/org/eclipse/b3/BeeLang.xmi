@@ -2498,6 +2498,12 @@
       <tokens xsi:type="xtext:Assignment" feature="expr" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.55"/>
       </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="as"/>
+        <tokens xsi:type="xtext:Assignment" feature="alias" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.165"/>
+        </tokens>
+      </tokens>
       <tokens xsi:type="xtext:Assignment" feature="contextBlock" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.89"/>
       </tokens>

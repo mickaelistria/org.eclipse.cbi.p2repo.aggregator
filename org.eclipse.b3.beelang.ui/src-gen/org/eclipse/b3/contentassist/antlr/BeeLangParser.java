@@ -356,6 +356,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getWithExpressionAccess().getGroup_4_0(), "rule__WithExpression__Group_4_0__0");
 					put(grammarAccess.getWithExpressionAccess().getGroup_4_1(), "rule__WithExpression__Group_4_1__0");
 					put(grammarAccess.getWithContextExpressionAccess().getGroup(), "rule__WithContextExpression__Group__0");
+					put(grammarAccess.getWithContextExpressionAccess().getGroup_4(), "rule__WithContextExpression__Group_4__0");
 					put(grammarAccess.getProceedExpressionAccess().getGroup(), "rule__ProceedExpression__Group__0");
 					put(grammarAccess.getWildcardExpressionAccess().getGroup(), "rule__WildcardExpression__Group__0");
 					put(grammarAccess.getThrowExpressionAccess().getGroup(), "rule__ThrowExpression__Group__0");
@@ -759,7 +760,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getWithExpressionAccess().getFuncExprAssignment_4_0_1(), "rule__WithExpression__FuncExprAssignment_4_0_1");
 					put(grammarAccess.getWithExpressionAccess().getFuncExprAssignment_4_1_1(), "rule__WithExpression__FuncExprAssignment_4_1_1");
 					put(grammarAccess.getWithContextExpressionAccess().getExprAssignment_3(), "rule__WithContextExpression__ExprAssignment_3");
-					put(grammarAccess.getWithContextExpressionAccess().getContextBlockAssignment_4(), "rule__WithContextExpression__ContextBlockAssignment_4");
+					put(grammarAccess.getWithContextExpressionAccess().getAliasAssignment_4_1(), "rule__WithContextExpression__AliasAssignment_4_1");
+					put(grammarAccess.getWithContextExpressionAccess().getContextBlockAssignment_5(), "rule__WithContextExpression__ContextBlockAssignment_5");
 					put(grammarAccess.getThrowExpressionAccess().getExprAssignment_2(), "rule__ThrowExpression__ExprAssignment_2");
 					put(grammarAccess.getTryCatchExpressionAccess().getTryExprAssignment_2(), "rule__TryCatchExpression__TryExprAssignment_2");
 					put(grammarAccess.getTryCatchExpressionAccess().getCatchBlocksAssignment_3(), "rule__TryCatchExpression__CatchBlocksAssignment_3");

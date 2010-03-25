@@ -28081,13 +28081,13 @@ protected class WithExpression_RightCurlyBracketKeyword_4_1_2 extends KeywordTok
 /************ begin Rule WithContextExpression ****************
  *
  * WithContextExpression returns be::BWithContextExpression:
- *   {be::BWithContextExpression} "with" "context" expr=Expression contextBlock=
- *   BlockExpression;
+ *   {be::BWithContextExpression} "with" "context" expr=Expression ("as" alias=ID)?
+ *   contextBlock=BlockExpression;
  *
  **/
 
-// {be::BWithContextExpression} "with" "context" expr=Expression contextBlock=
-// BlockExpression
+// {be::BWithContextExpression} "with" "context" expr=Expression ("as" alias=ID)?
+// contextBlock=BlockExpression
 protected class WithContextExpression_Group extends GroupToken {
 	
 	public WithContextExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -28102,7 +28102,7 @@ protected class WithContextExpression_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new WithContextExpression_ContextBlockAssignment_4(parent, this, 0, inst);
+			case 0: return new WithContextExpression_ContextBlockAssignment_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -28232,16 +28232,95 @@ protected class WithContextExpression_ExprAssignment_3 extends AssignmentToken  
 	}	
 }
 
-// contextBlock=BlockExpression
-protected class WithContextExpression_ContextBlockAssignment_4 extends AssignmentToken  {
+// ("as" alias=ID)?
+protected class WithContextExpression_Group_4 extends GroupToken {
 	
-	public WithContextExpression_ContextBlockAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public WithContextExpression_Group_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getWithContextExpressionAccess().getGroup_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new WithContextExpression_AliasAssignment_4_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "as"
+protected class WithContextExpression_AsKeyword_4_0 extends KeywordToken  {
+	
+	public WithContextExpression_AsKeyword_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getWithContextExpressionAccess().getAsKeyword_4_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new WithContextExpression_ExprAssignment_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// alias=ID
+protected class WithContextExpression_AliasAssignment_4_1 extends AssignmentToken  {
+	
+	public WithContextExpression_AliasAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getWithContextExpressionAccess().getContextBlockAssignment_4();
+		return grammarAccess.getWithContextExpressionAccess().getAliasAssignment_4_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new WithContextExpression_AsKeyword_4_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("alias",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("alias");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getWithContextExpressionAccess().getAliasIDTerminalRuleCall_4_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// contextBlock=BlockExpression
+protected class WithContextExpression_ContextBlockAssignment_5 extends AssignmentToken  {
+	
+	public WithContextExpression_ContextBlockAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getWithContextExpressionAccess().getContextBlockAssignment_5();
 	}
 
     @Override
@@ -28260,7 +28339,7 @@ protected class WithContextExpression_ContextBlockAssignment_4 extends Assignmen
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getBlockExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getWithContextExpressionAccess().getContextBlockBlockExpressionParserRuleCall_4_0(); 
+				element = grammarAccess.getWithContextExpressionAccess().getContextBlockBlockExpressionParserRuleCall_5_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -28272,7 +28351,8 @@ protected class WithContextExpression_ContextBlockAssignment_4 extends Assignmen
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new WithContextExpression_ExprAssignment_3(parent, next, actIndex, consumed);
+			case 0: return new WithContextExpression_Group_4(parent, next, actIndex, consumed);
+			case 1: return new WithContextExpression_ExprAssignment_3(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	

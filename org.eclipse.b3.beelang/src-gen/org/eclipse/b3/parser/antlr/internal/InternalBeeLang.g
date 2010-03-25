@@ -10967,12 +10967,40 @@ ruleWithContextExpression returns [EObject current=null]
 	    }
 
 )
-)(
+)(	'as' 
+    {
+        createLeafNode(grammarAccess.getWithContextExpressionAccess().getAsKeyword_4_0(), null); 
+    }
+(
+(
+		lv_alias_5_0=RULE_ID
+		{
+			createLeafNode(grammarAccess.getWithContextExpressionAccess().getAliasIDTerminalRuleCall_4_1_0(), "alias"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getWithContextExpressionRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"alias",
+	        		lv_alias_5_0, 
+	        		"ID", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getWithContextExpressionAccess().getContextBlockBlockExpressionParserRuleCall_4_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getWithContextExpressionAccess().getContextBlockBlockExpressionParserRuleCall_5_0(), currentNode); 
 	    }
-		lv_contextBlock_4_0=ruleBlockExpression		{
+		lv_contextBlock_6_0=ruleBlockExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getWithContextExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -10981,7 +11009,7 @@ ruleWithContextExpression returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"contextBlock",
-	        		lv_contextBlock_4_0, 
+	        		lv_contextBlock_6_0, 
 	        		"BlockExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
