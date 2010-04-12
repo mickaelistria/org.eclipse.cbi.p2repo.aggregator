@@ -34,13 +34,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCreateExpressionImpl#getAlias <em>Alias</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCreateExpressionImpl#getTypeExpr <em>Type Expr</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCreateExpressionImpl#getContextBlock <em>Context Block
- * </em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCreateExpressionImpl#getAlias <em>Alias</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCreateExpressionImpl#getTypeExpr <em>Type Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCreateExpressionImpl#getContextBlock <em>Context Block</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BCreateExpressionImpl extends BParameterizedExpressionImpl implements BCreateExpression {
@@ -100,7 +99,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -109,7 +107,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!--end-user-doc -->
-	 * 
 	 * @see #getAlias()
 	 * @generated
 	 * @ordered
@@ -129,7 +126,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc-->
-	 * 
 	 * @see #getAlias()
 	 * @generated
 	 * @ordered
@@ -140,7 +136,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * The cached value of the '{@link #getTypeExpr() <em>Type Expr</em>}' containment reference.
 	 * <!-- begin-user-doc-->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getTypeExpr()
 	 * @generated
 	 * @ordered
@@ -151,7 +146,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * The cached value of the '{@link #getContextBlock() <em>Context Block</em>}' containment reference.
 	 * <!--begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getContextBlock()
 	 * @generated
 	 * @ordered
@@ -161,7 +155,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BCreateExpressionImpl() {
@@ -171,19 +164,14 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetContextBlock(BExpression newContextBlock, NotificationChain msgs) {
 		BExpression oldContextBlock = contextBlock;
 		contextBlock = newContextBlock;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, oldContextBlock, newContextBlock);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, oldContextBlock, newContextBlock);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -191,19 +179,14 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetTypeExpr(BExpression newTypeExpr, NotificationChain msgs) {
 		BExpression oldTypeExpr = typeExpr;
 		typeExpr = newTypeExpr;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR, oldTypeExpr, newTypeExpr);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR, oldTypeExpr, newTypeExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -211,18 +194,17 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
-			return getAlias();
-		case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
-			return getTypeExpr();
-		case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
-			return getContextBlock();
+		switch (featureID) {
+			case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
+				return getAlias();
+			case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
+				return getTypeExpr();
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				return getContextBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -230,16 +212,15 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-		case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
-			return basicSetTypeExpr(null, msgs);
-		case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
-			return basicSetContextBlock(null, msgs);
+		switch (featureID) {
+			case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
+				return basicSetTypeExpr(null, msgs);
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				return basicSetContextBlock(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -247,20 +228,17 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
-			return ALIAS_EDEFAULT == null
-					? alias != null
-					: !ALIAS_EDEFAULT.equals(alias);
-		case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
-			return typeExpr != null;
-		case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
-			return contextBlock != null;
+		switch (featureID) {
+			case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
+				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
+			case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
+				return typeExpr != null;
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				return contextBlock != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -268,21 +246,20 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
-			setAlias((String) newValue);
-			return;
-		case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
-			setTypeExpr((BExpression) newValue);
-			return;
-		case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
-			setContextBlock((BExpression) newValue);
-			return;
+		switch (featureID) {
+			case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
+				setAlias((String)newValue);
+				return;
+			case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
+				setTypeExpr((BExpression)newValue);
+				return;
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				setContextBlock((BExpression)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -290,7 +267,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -301,21 +277,20 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
-		case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
-			setAlias(ALIAS_EDEFAULT);
-			return;
-		case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
-			setTypeExpr((BExpression) null);
-			return;
-		case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
-			setContextBlock((BExpression) null);
-			return;
+		switch (featureID) {
+			case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
+				setAlias(ALIAS_EDEFAULT);
+				return;
+			case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
+				setTypeExpr((BExpression)null);
+				return;
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				setContextBlock((BExpression)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -390,7 +365,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getAlias() {
@@ -400,7 +374,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getContextBlock() {
@@ -416,7 +389,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getTypeExpr() {
@@ -426,75 +398,61 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setAlias(String newAlias) {
 		String oldAlias = alias;
 		alias = newAlias;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__ALIAS, oldAlias,
-					alias));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__ALIAS, oldAlias, alias));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setContextBlock(BExpression newContextBlock) {
-		if(newContextBlock != contextBlock) {
+		if (newContextBlock != contextBlock) {
 			NotificationChain msgs = null;
-			if(contextBlock != null)
-				msgs = ((InternalEObject) contextBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, null, msgs);
-			if(newContextBlock != null)
-				msgs = ((InternalEObject) newContextBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, null, msgs);
+			if (contextBlock != null)
+				msgs = ((InternalEObject)contextBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, null, msgs);
+			if (newContextBlock != null)
+				msgs = ((InternalEObject)newContextBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, null, msgs);
 			msgs = basicSetContextBlock(newContextBlock, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK,
-					newContextBlock, newContextBlock));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, newContextBlock, newContextBlock));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setTypeExpr(BExpression newTypeExpr) {
-		if(newTypeExpr != typeExpr) {
+		if (newTypeExpr != typeExpr) {
 			NotificationChain msgs = null;
-			if(typeExpr != null)
-				msgs = ((InternalEObject) typeExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR, null, msgs);
-			if(newTypeExpr != null)
-				msgs = ((InternalEObject) newTypeExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR, null, msgs);
+			if (typeExpr != null)
+				msgs = ((InternalEObject)typeExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR, null, msgs);
+			if (newTypeExpr != null)
+				msgs = ((InternalEObject)newTypeExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR, null, msgs);
 			msgs = basicSetTypeExpr(newTypeExpr, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR,
-					newTypeExpr, newTypeExpr));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR, newTypeExpr, newTypeExpr));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (alias: ");

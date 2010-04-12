@@ -1918,13 +1918,31 @@ public interface B3BuildPackage extends EPackage {
 	int UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__SOURCE_LOCATION = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Unit Concern Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 5;
+	int UNIT_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -5709,6 +5727,28 @@ public interface B3BuildPackage extends EPackage {
 	EReference getUnitConcernContext_ProvidesRemovals();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.UnitConcernContext#getSourceLocation <em>Source Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Location</em>'.
+	 * @see org.eclipse.b3.build.build.UnitConcernContext#getSourceLocation()
+	 * @see #getUnitConcernContext()
+	 * @generated
+	 */
+	EAttribute getUnitConcernContext_SourceLocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.UnitConcernContext#getOutputLocation <em>Output Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Output Location</em>'.
+	 * @see org.eclipse.b3.build.build.UnitConcernContext#getOutputLocation()
+	 * @see #getUnitConcernContext()
+	 * @generated
+	 */
+	EAttribute getUnitConcernContext_OutputLocation();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderConcernContext <em>Builder Concern Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7612,6 +7652,22 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS = eINSTANCE.getUnitConcernContext_ProvidesRemovals();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIT_CONCERN_CONTEXT__SOURCE_LOCATION = eINSTANCE.getUnitConcernContext_SourceLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION = eINSTANCE.getUnitConcernContext_OutputLocation();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.

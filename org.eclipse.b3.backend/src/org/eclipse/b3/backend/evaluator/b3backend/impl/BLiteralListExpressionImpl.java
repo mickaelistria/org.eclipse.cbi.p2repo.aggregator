@@ -19,18 +19,13 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -41,17 +36,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralListExpressionImpl#getEntries <em>Entries</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralListExpressionImpl#getEntryType <em>Entry Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralListExpressionImpl#getEntries <em>Entries</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralListExpressionImpl#getEntryType <em>Entry Type
+ * </em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BLiteralListExpressionImpl extends BExpressionImpl implements BLiteralListExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -60,6 +57,7 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getEntries()
 	 * @generated
 	 * @ordered
@@ -70,6 +68,7 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 * The cached value of the '{@link #getEntryType() <em>Entry Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getEntryType()
 	 * @generated
 	 * @ordered
@@ -79,6 +78,7 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BLiteralListExpressionImpl() {
@@ -88,6 +88,99 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetEntryType(Type newEntryType, NotificationChain msgs) {
+		Type oldEntryType = entryType;
+		entryType = newEntryType;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, oldEntryType, newEntryType);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
+			return getEntries();
+		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
+			return getEntryType();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
+			return ((InternalEList<?>) getEntries()).basicRemove(otherEnd, msgs);
+		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
+			return basicSetEntryType(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
+			return entries != null && !entries.isEmpty();
+		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
+			return entryType != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
+			getEntries().clear();
+			getEntries().addAll((Collection<? extends BExpression>) newValue);
+			return;
+		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
+			setEntryType((Type) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -98,11 +191,66 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
+			getEntries().clear();
+			return;
+		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
+			setEntryType((Type) null);
+			return;
+		}
+		super.eUnset(featureID);
+	}
+
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		Type t = entryType == null
+				? Object.class
+				: entryType;
+		List<Object> list = new ArrayList<Object>(getEntries().size());
+		int counter = 0;
+		for(BExpression expr : entries) {
+			Object result = expr.evaluate(ctx);
+			if(!TypeUtils.isAssignableFrom(t, expr.getDeclaredType(ctx))) // result.getClass()))
+				throw BackendHelper.createException(expr, "List creation error for index {0}. "
+						+ "A List<{1}>, does not accept an instance of type {2}.", new Object[] { counter, t,
+						result.getClass() });
+			list.add(result);
+			counter++;
+		}
+		return list;
+	}
+
+	/**
+	 * Returns the declared entry, type or Object if not specified.
+	 * TODO: the common super type could be computed instead.
+	 */
+	@Override
+	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		Type eType = entryType == null
+				? Object.class
+				: entryType;
+		B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+		pt.setRawType(List.class);
+		pt.getActualArgumentsList().add(eType);
+		return pt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BExpression> getEntries() {
-		if (entries == null) {
-			entries = new EObjectContainmentEList<BExpression>(BExpression.class, this, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES);
+		if(entries == null) {
+			entries = new EObjectContainmentEList<BExpression>(BExpression.class, this,
+					B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES);
 		}
 		return entries;
 	}
@@ -110,160 +258,61 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Type getEntryType() {
 		return entryType;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl#getInferredType(org.eclipse.b3.backend.evaluator
+	 * .b3backend.BExecutionContext)
 	 */
-	public NotificationChain basicSetEntryType(Type newEntryType, NotificationChain msgs) {
-		Type oldEntryType = entryType;
-		entryType = newEntryType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, oldEntryType, newEntryType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	@Override
+	public Type getInferredType(BExecutionContext ctx) throws Throwable {
+		Type[] types = new Type[2];
+		for(BExpression expr : getEntries()) {
+			types[1] = expr.getInferredType(ctx);
+			if(types[0] == null)
+				types[0] = types[1];
+			else
+				types[0] = TypeUtils.getCommonSuperType(types);
 		}
-		return msgs;
+		// Construct List<T> type to return
+		B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+		pt.setRawType(List.class);
+		pt.getActualArgumentsList().add(types[0] == null
+				? Object.class
+				: types[0]);
+		return pt;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * entryType may not be an EObject. If it is not, then no notification is generated on change.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public void setEntryType(Type newEntryType) {
-		if (newEntryType != entryType) {
+		if(newEntryType != entryType) {
 			NotificationChain msgs = null;
-			if (entryType != null && entryType instanceof EObject)
-				msgs = ((InternalEObject)entryType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
-			if (newEntryType != null && newEntryType instanceof EObject)
-				msgs = ((InternalEObject)newEntryType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
+			if(entryType != null && entryType instanceof EObject)
+				msgs = ((InternalEObject) entryType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
+			if(newEntryType != null && newEntryType instanceof EObject)
+				msgs = ((InternalEObject) newEntryType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
 			msgs = basicSetEntryType(newEntryType, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, newEntryType, newEntryType));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, newEntryType, newEntryType));
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
-				return ((InternalEList<?>)getEntries()).basicRemove(otherEnd, msgs);
-			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-				return basicSetEntryType(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
-				return getEntries();
-			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-				return getEntryType();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
-				getEntries().clear();
-				getEntries().addAll((Collection<? extends BExpression>)newValue);
-				return;
-			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-				setEntryType((Type)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
-				getEntries().clear();
-				return;
-			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-				setEntryType((Type)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
-				return entries != null && !entries.isEmpty();
-			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-				return entryType != null;
-		}
-		return super.eIsSet(featureID);
-	}
-
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Type t = entryType == null ? Object.class : entryType;
-		List<Object> list = new ArrayList<Object>(getEntries().size());
-		int counter = 0;
-		for(BExpression expr : entries) {
-			Object result = expr.evaluate(ctx);
-			if(!TypeUtils.isAssignableFrom(t, expr.getDeclaredType(ctx))) //result.getClass()))
-				throw BackendHelper.createException(expr, 
-						"List creation error for index {0}. "
-						+"A List<{1}>, does not accept an instance of type {2}.",
-						new Object[] { counter, t, result.getClass()});
-			list.add(result);
-			counter++;
-			}
-		return list;
-	}
-	/**
-	 * Returns the declared entry, type or Object if not specified.
-	 * TODO: the common super type could be computed instead.
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		Type eType = entryType == null ? Object.class : entryType;
-		B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-		pt.setRawType(List.class);
-		pt.getActualArgumentsList().add(eType);
-		return pt;
-	}
-} //BLiteralListExpressionImpl
+} // BLiteralListExpressionImpl

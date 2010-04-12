@@ -2896,6 +2896,14 @@
     <children xmi:type="notation:Node" xmi:id="_VfuzkP64Ed6J54ZOjN0g9g" type="1001">
       <children xmi:type="notation:Node" xmi:id="_Vfvaov64Ed6J54ZOjN0g9g" type="4001"/>
       <children xmi:type="notation:Node" xmi:id="_Vfvao_64Ed6J54ZOjN0g9g" type="5001">
+        <children xmi:type="notation:Node" xmi:id="_kBRR0TiJEd-u9Ij_Jvq_rQ" type="2001">
+          <element xmi:type="ecore:EAttribute" href="B3Build.ecore#//UnitConcernContext/sourceLocation"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_kBRR0jiJEd-u9Ij_Jvq_rQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_pCnEwDiJEd-u9Ij_Jvq_rQ" type="2001">
+          <element xmi:type="ecore:EAttribute" href="B3Build.ecore#//UnitConcernContext/outputLocation"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_pCnr0DiJEd-u9Ij_Jvq_rQ"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_VfvapP64Ed6J54ZOjN0g9g"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_Vfvapf64Ed6J54ZOjN0g9g"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_Vfvapv64Ed6J54ZOjN0g9g"/>

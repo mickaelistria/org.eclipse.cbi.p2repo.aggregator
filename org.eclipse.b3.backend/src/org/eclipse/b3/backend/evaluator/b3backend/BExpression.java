@@ -53,4 +53,20 @@ public interface BExpression extends EObject {
 	 */
 	Type getDeclaredType(BExecutionContext ctx) throws Throwable;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	Type getEffectiveType(BExecutionContext ctx) throws Throwable;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	Type getInferredType(BExecutionContext ctx) throws Throwable;
+
 } // BExpression

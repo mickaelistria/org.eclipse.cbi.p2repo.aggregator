@@ -7,11 +7,11 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
+
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -21,13 +21,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class BExpressionImpl extends EObjectImpl implements BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -35,6 +36,7 @@ public abstract class BExpressionImpl extends EObjectImpl implements BExpression
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BExpressionImpl() {
@@ -44,6 +46,7 @@ public abstract class BExpressionImpl extends EObjectImpl implements BExpression
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -54,6 +57,7 @@ public abstract class BExpressionImpl extends EObjectImpl implements BExpression
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
@@ -65,17 +69,7 @@ public abstract class BExpressionImpl extends EObjectImpl implements BExpression
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LValue getLValue(BExecutionContext ctx) throws Throwable {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
@@ -84,4 +78,42 @@ public abstract class BExpressionImpl extends EObjectImpl implements BExpression
 		throw new UnsupportedOperationException();
 	}
 
-} //BExpressionImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns declared type, unless declared type is null in which case inferred type is
+	 * returned (which may also result in null when type is neither declared nor inferrable).
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public Type getEffectiveType(BExecutionContext ctx) throws Throwable {
+		Type t = getDeclaredType(ctx);
+		if(t != null)
+			return t;
+		return getInferredType(ctx);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns null.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public Type getInferredType(BExecutionContext ctx) throws Throwable {
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public LValue getLValue(BExecutionContext ctx) throws Throwable {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+} // BExpressionImpl

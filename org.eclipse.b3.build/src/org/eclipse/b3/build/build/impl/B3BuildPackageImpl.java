@@ -785,6 +785,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(unitConcernContextEClass, UNIT_CONCERN_CONTEXT__QUERY);
 		createEReference(unitConcernContextEClass, UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS);
 		createEReference(unitConcernContextEClass, UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS);
+		createEAttribute(unitConcernContextEClass, UNIT_CONCERN_CONTEXT__SOURCE_LOCATION);
+		createEAttribute(unitConcernContextEClass, UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION);
 
 		builderConcernContextEClass = createEClass(BUILDER_CONCERN_CONTEXT);
 		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__QUERY);
@@ -2633,6 +2635,24 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUnitConcernContext_SourceLocation() {
+		return (EAttribute) unitConcernContextEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUnitConcernContext_OutputLocation() {
+		return (EAttribute) unitConcernContextEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getUnitConcernContext_Query() {
 		return (EReference) unitConcernContextEClass.getEStructuralFeatures().get(1);
 	}
@@ -3291,6 +3311,12 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEReference(getUnitConcernContext_ProvidesRemovals(), this.getProvidesPredicate(), null, "providesRemovals",
 				null, 0, -1, UnitConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUnitConcernContext_SourceLocation(), theB3backendPackage.getURI(), "sourceLocation", null, 0,
+				1, UnitConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUnitConcernContext_OutputLocation(), theB3backendPackage.getURI(), "outputLocation", null, 0,
+				1, UnitConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(builderConcernContextEClass, BuilderConcernContext.class, "BuilderConcernContext", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

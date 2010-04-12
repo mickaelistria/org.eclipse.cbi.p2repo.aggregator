@@ -14,6 +14,12 @@
     <eOperations name="getDeclaredType" eType="#//Type" eExceptions="#//Throwable">
       <eParameters name="ctx" eType="#//BExecutionContext"/>
     </eOperations>
+    <eOperations name="getEffectiveType" eType="#//Type" eExceptions="#//Throwable">
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
+    <eOperations name="getInferredType" eType="#//Type" eExceptions="#//Throwable">
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BLineReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="BExecutionContext" abstract="true" eSuperTypes="#//ITypedValueContainer">

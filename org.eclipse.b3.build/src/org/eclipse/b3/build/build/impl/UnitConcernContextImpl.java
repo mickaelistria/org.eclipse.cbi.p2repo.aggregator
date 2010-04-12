@@ -10,6 +10,7 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.net.URI;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.ListIterator;
@@ -53,21 +54,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getBuilderContexts <em>Builder Contexts</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getQuery <em>Query</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiresRemovals <em>Requires Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getProvidesRemovals <em>Provides Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiredCapabilities <em>Required Capabilities
+ * </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getBuilderContexts <em>Builder Contexts</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getQuery <em>Query</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiresRemovals <em>Requires Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getProvidesRemovals <em>Provides Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getSourceLocation <em>Source Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getOutputLocation <em>Output Location</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class UnitConcernContextImpl extends BuildConcernContextImpl implements UnitConcernContext {
 	/**
-	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference list.
+	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference
+	 * list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiredCapabilities()
 	 * @generated
 	 * @ordered
@@ -78,6 +84,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The cached value of the '{@link #getBuilderContexts() <em>Builder Contexts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBuilderContexts()
 	 * @generated
 	 * @ordered
@@ -88,6 +95,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The cached value of the '{@link #getQuery() <em>Query</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getQuery()
 	 * @generated
 	 * @ordered
@@ -98,6 +106,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The cached value of the '{@link #getRequiresRemovals() <em>Requires Removals</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiresRemovals()
 	 * @generated
 	 * @ordered
@@ -108,6 +117,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The cached value of the '{@link #getProvidesRemovals() <em>Provides Removals</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProvidesRemovals()
 	 * @generated
 	 * @ordered
@@ -115,8 +125,53 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	protected EList<ProvidesPredicate> providesRemovals;
 
 	/**
+	 * The default value of the '{@link #getSourceLocation() <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getSourceLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SOURCE_LOCATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSourceLocation() <em>Source Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getSourceLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI sourceLocation = SOURCE_LOCATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOutputLocation() <em>Output Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getOutputLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI OUTPUT_LOCATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOutputLocation() <em>Output Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getOutputLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI outputLocation = OUTPUT_LOCATION_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected UnitConcernContextImpl() {
@@ -167,6 +222,17 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		// addition of required capabilities
 		for(RequiredCapability rc : getRequiredCapabilities()) {
 			rcItor.add(RequiredCapability.class.cast(EcoreUtil.copy(rc)));
+			modified = true;
+		}
+
+		// SOURCE AND OUTPUT LOCATIONA
+		if(getSourceLocation() != null) {
+			u.setSourceLocation(getSourceLocation());
+			modified = true;
+		}
+
+		if(getOutputLocation() != null) {
+			u.setOutputLocation(getOutputLocation());
 			modified = true;
 		}
 
@@ -234,6 +300,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetQuery(BExpression newQuery, NotificationChain msgs) {
@@ -253,6 +320,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -271,6 +339,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -289,6 +358,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -304,6 +374,10 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			return getRequiresRemovals();
 		case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
 			return getProvidesRemovals();
+		case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
+			return getSourceLocation();
+		case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
+			return getOutputLocation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -311,6 +385,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -333,6 +408,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -348,6 +424,14 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			return requiresRemovals != null && !requiresRemovals.isEmpty();
 		case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
 			return providesRemovals != null && !providesRemovals.isEmpty();
+		case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
+			return SOURCE_LOCATION_EDEFAULT == null
+					? sourceLocation != null
+					: !SOURCE_LOCATION_EDEFAULT.equals(sourceLocation);
+		case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
+			return OUTPUT_LOCATION_EDEFAULT == null
+					? outputLocation != null
+					: !OUTPUT_LOCATION_EDEFAULT.equals(outputLocation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -355,6 +439,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -380,6 +465,12 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			getProvidesRemovals().clear();
 			getProvidesRemovals().addAll((Collection<? extends ProvidesPredicate>) newValue);
 			return;
+		case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
+			setSourceLocation((URI) newValue);
+			return;
+		case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
+			setOutputLocation((URI) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -387,6 +478,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -397,6 +489,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -416,6 +509,12 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			return;
 		case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
 			getProvidesRemovals().clear();
+			return;
+		case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
+			setSourceLocation(SOURCE_LOCATION_EDEFAULT);
+			return;
+		case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
+			setOutputLocation(OUTPUT_LOCATION_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -452,6 +551,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BuilderConcernContext> getBuilderContexts() {
@@ -477,6 +577,17 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public URI getOutputLocation() {
+		return outputLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ProvidesPredicate> getProvidesRemovals() {
@@ -490,6 +601,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getQuery() {
@@ -499,6 +611,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<RequiredCapability> getRequiredCapabilities() {
@@ -512,6 +625,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<RequiresPredicate> getRequiresRemovals() {
@@ -525,6 +639,31 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public URI getSourceLocation() {
+		return sourceLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setOutputLocation(URI newOutputLocation) {
+		URI oldOutputLocation = outputLocation;
+		outputLocation = newOutputLocation;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION,
+					oldOutputLocation, outputLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setQuery(BExpression newQuery) {
@@ -543,6 +682,40 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY, newQuery,
 					newQuery));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setSourceLocation(URI newSourceLocation) {
+		URI oldSourceLocation = sourceLocation;
+		sourceLocation = newSourceLocation;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION,
+					oldSourceLocation, sourceLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if(eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (sourceLocation: ");
+		result.append(sourceLocation);
+		result.append(", outputLocation: ");
+		result.append(outputLocation);
+		result.append(')');
+		return result.toString();
 	}
 
 	private boolean weaveIfMatching(BuildUnit u, BExecutionContext ctx) throws Throwable {

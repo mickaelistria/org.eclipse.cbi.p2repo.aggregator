@@ -716,7 +716,9 @@ UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContex
 	| ('-' requiresRemovals += RequiresPredicate ';')
 	| ('+' 'provides' '{' (providedCapabilities += ProvidedCapability ';')+ '}')
 	| ('+' 'provides' providedCapabilities += ProvidedCapability ';')
-	| ('-' providesRemovals += ProvidesPredicate ';')		
+	| ('-' providesRemovals += ProvidesPredicate ';')
+	| ("source" '=' sourceLocation = URI ';')		
+	| ("output" '=' outputLocation = URI ';')		
 	)*
 	('-' "default" "properties" defaultPropertiesRemovals += PID (',' defaultPropertiesRemovals += PID)* ';')?
 	('+' "default" "properties" defaultPropertiesAdditions = PropertySetDefault )?

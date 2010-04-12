@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.build.build;
 
+import java.net.URI;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.emf.common.util.EList;
@@ -22,6 +23,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.build.build.UnitConcernContext#getQuery <em>Query</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.UnitConcernContext#getRequiresRemovals <em>Requires Removals</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.UnitConcernContext#getProvidesRemovals <em>Provides Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.UnitConcernContext#getSourceLocation <em>Source Location</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.UnitConcernContext#getOutputLocation <em>Output Location</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,5 +106,57 @@ public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabi
 	 * @generated
 	 */
 	EList<ProvidesPredicate> getProvidesRemovals();
+
+	/**
+	 * Returns the value of the '<em><b>Source Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Location</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Location</em>' attribute.
+	 * @see #setSourceLocation(URI)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getUnitConcernContext_SourceLocation()
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
+	 * @generated
+	 */
+	URI getSourceLocation();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.UnitConcernContext#getSourceLocation <em>Source Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Location</em>' attribute.
+	 * @see #getSourceLocation()
+	 * @generated
+	 */
+	void setSourceLocation(URI value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Location</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Location</em>' attribute.
+	 * @see #setOutputLocation(URI)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getUnitConcernContext_OutputLocation()
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
+	 * @generated
+	 */
+	URI getOutputLocation();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.UnitConcernContext#getOutputLocation <em>Output Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Location</em>' attribute.
+	 * @see #getOutputLocation()
+	 * @generated
+	 */
+	void setOutputLocation(URI value);
 
 } // UnitConcernContext

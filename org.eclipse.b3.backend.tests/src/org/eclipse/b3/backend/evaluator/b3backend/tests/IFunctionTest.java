@@ -39,6 +39,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getLValue(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get LValue</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Declared Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getEffectiveType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Effective Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getInferredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Inferred Type</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -267,6 +269,32 @@ public abstract class IFunctionTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetDeclaredType__BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getEffectiveType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Effective Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExpression#getEffectiveType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated
+	 */
+	public void testGetEffectiveType__BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getInferredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Inferred Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExpression#getInferredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated
+	 */
+	public void testGetInferredType__BExecutionContext() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

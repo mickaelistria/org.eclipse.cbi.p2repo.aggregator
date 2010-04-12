@@ -3751,6 +3751,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
 
+		op = addEOperation(bExpressionEClass, this.getType(), "getEffectiveType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getThrowable());
+
+		op = addEOperation(bExpressionEClass, this.getType(), "getInferredType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getThrowable());
+
 		initEClass(bLineReferenceEClass, BLineReference.class, "BLineReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(bExecutionContextEClass, BExecutionContext.class, "BExecutionContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

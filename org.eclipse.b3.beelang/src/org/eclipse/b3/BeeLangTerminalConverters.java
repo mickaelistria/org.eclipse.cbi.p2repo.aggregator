@@ -204,18 +204,21 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 				String patternString = string.substring(firstSlash+1, lastSlash);
 				String flagString = string.substring(lastSlash+1);
 				int flags = 0;
+				int counts[] = new int[5];
 				for(int i =  0; i < flagString.length(); i++)
 					switch(flagString.charAt(i)) {
-					case 'i': flags |= Pattern.CASE_INSENSITIVE; break;
-					case 'm': flags |= Pattern.MULTILINE; break;
-					case 'u': flags |= Pattern.UNICODE_CASE; break;
-					case 'c': flags |= Pattern.CANON_EQ; break;
-					case 'd': flags |= Pattern.DOTALL; break;
+					case 'i': counts[0]++; flags |= Pattern.CASE_INSENSITIVE; break;
+					case 'm': counts[1]++; flags |= Pattern.MULTILINE; break;
+					case 'u': counts[2]++; flags |= Pattern.UNICODE_CASE; break;
+					case 'c': counts[3]++; flags |= Pattern.CANON_EQ; break;
+					case 'd': counts[4]++; flags |= Pattern.DOTALL; break;
 					default: 
 						throw new ValueConverterException("Flag character after /: expected one of i, m, u, c, d, but got: '" 
 								+ flagString.charAt(i) + "'.", node, null);
-
 					}
+				for(int i = 0; i < counts.length;i++)
+					if(counts[i] > 1)
+						throw new ValueConverterException("Flag character after /: used multiple times.", node, null);
 				try {
 					return Pattern.compile(patternString,flags);
 				} catch (PatternSyntaxException e) {
