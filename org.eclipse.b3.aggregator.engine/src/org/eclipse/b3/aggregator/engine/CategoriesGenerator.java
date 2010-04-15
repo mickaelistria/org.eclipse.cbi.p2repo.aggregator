@@ -14,14 +14,15 @@ import org.eclipse.b3.aggregator.ExclusionRule;
 import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
-import org.eclipse.b3.aggregator.p2.P2Factory;
-import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
-import org.eclipse.b3.aggregator.p2.impl.ProvidedCapabilityImpl;
-import org.eclipse.b3.aggregator.util.LogUtils;
-import org.eclipse.b3.aggregator.util.MonitorUtils;
 import org.eclipse.b3.aggregator.util.TimeUtils;
+import org.eclipse.b3.p2.InstallableUnit;
+import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.p2.P2Factory;
+import org.eclipse.b3.p2.impl.InstallableUnitImpl;
+import org.eclipse.b3.p2.impl.ProvidedCapabilityImpl;
+import org.eclipse.b3.p2.util.P2Bridge;
+import org.eclipse.b3.util.LogUtils;
+import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -30,10 +31,10 @@ import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.metadata.VersionedId;
-import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
 
 public class CategoriesGenerator extends BuilderPhase {
 	private static void assignCategoryVersion(InstallableUnitImpl category) {
@@ -120,7 +121,7 @@ public class CategoriesGenerator extends BuilderPhase {
 			if(!feature.isBranchEnabled())
 				continue;
 
-			rcs.add(InstallableUnitImpl.importToModel(feature.getRequirement()));
+			rcs.add(P2Bridge.importToModel(feature.getRequirement()));
 
 			VersionedId vn = new VersionedId(feature.getName(), feature.getVersionRange().getMinimum());
 			if(vn.getId().endsWith(Builder.FEATURE_GROUP_SUFFIX))
@@ -181,7 +182,7 @@ public class CategoriesGenerator extends BuilderPhase {
 			int idx = categoryIUs.size();
 			while(--idx >= 0) {
 				IInstallableUnit iu = categoryIUs.get(idx);
-				InstallableUnitImpl renamedIU = (InstallableUnitImpl) InstallableUnitImpl.importToModel(iu);
+				InstallableUnitImpl renamedIU = (InstallableUnitImpl) P2Bridge.importToModel(iu);
 				prefixConcat.setLength(prefixLen);
 				prefixConcat.append(iu.getProperty(IInstallableUnit.PROP_NAME));
 				renamedIU.getPropertyMap().map().put(IInstallableUnit.PROP_NAME, prefixConcat.toString());

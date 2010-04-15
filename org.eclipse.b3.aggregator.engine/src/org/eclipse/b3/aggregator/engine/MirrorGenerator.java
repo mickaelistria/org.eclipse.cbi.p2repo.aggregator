@@ -22,18 +22,18 @@ import org.eclipse.b3.aggregator.PackedStrategy;
 import org.eclipse.b3.aggregator.engine.maven.InstallableUnitMapping;
 import org.eclipse.b3.aggregator.engine.maven.MavenManager;
 import org.eclipse.b3.aggregator.engine.maven.MavenRepositoryHelper;
-import org.eclipse.b3.aggregator.engine.maven.indexer.IMaven2Indexer;
-import org.eclipse.b3.aggregator.engine.maven.indexer.IndexerUtils;
-import org.eclipse.b3.aggregator.loader.IRepositoryLoader;
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
-import org.eclipse.b3.aggregator.util.GeneralUtils;
-import org.eclipse.b3.aggregator.util.LogUtils;
-import org.eclipse.b3.aggregator.util.MonitorUtils;
-import org.eclipse.b3.aggregator.util.P2Utils;
-import org.eclipse.b3.aggregator.util.RepositoryLoaderUtils;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.TimeUtils;
+import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.p2.loader.IRepositoryLoader;
+import org.eclipse.b3.p2.maven.indexer.IMaven2Indexer;
+import org.eclipse.b3.p2.maven.indexer.IndexerUtils;
+import org.eclipse.b3.p2.util.IUUtils;
+import org.eclipse.b3.p2.util.P2Utils;
+import org.eclipse.b3.p2.util.RepositoryLoaderUtils;
 import org.eclipse.b3.util.ExceptionUtils;
+import org.eclipse.b3.util.LogUtils;
+import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -587,11 +587,11 @@ public class MirrorGenerator extends BuilderPhase {
 												+ key.getClassifier();
 
 										mappingRules.add(new String[] {
-												"(& (classifier=" + GeneralUtils.encodeFilterValue(key.getClassifier())
-														+ ") (id=" + GeneralUtils.encodeFilterValue(key.getId())
+												"(& (classifier=" + IUUtils.encodeFilterValue(key.getClassifier())
+														+ ") (id=" + IUUtils.encodeFilterValue(key.getId())
 														+ ") (version="
-														+ GeneralUtils.encodeFilterValue(iu.getVersion().toString())
-														+ "))", location });
+														+ IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))",
+												location });
 									}
 									else {
 										for(IArtifactDescriptor desc : ar.getArtifactDescriptors(key)) {

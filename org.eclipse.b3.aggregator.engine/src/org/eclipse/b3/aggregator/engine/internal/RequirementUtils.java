@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
-import org.eclipse.b3.aggregator.util.LogUtils;
+import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.util.LogUtils;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.metadata.expression.ExpressionFactory;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;

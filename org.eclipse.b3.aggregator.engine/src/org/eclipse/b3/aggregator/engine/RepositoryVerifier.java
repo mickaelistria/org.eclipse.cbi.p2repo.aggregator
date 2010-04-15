@@ -21,15 +21,15 @@ import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.PackedStrategy;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
-import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
-import org.eclipse.b3.aggregator.util.LogUtils;
-import org.eclipse.b3.aggregator.util.MonitorUtils;
-import org.eclipse.b3.aggregator.util.P2Utils;
 import org.eclipse.b3.aggregator.util.SpecialQueries;
 import org.eclipse.b3.aggregator.util.TimeUtils;
+import org.eclipse.b3.p2.InstallableUnit;
+import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.p2.util.P2Bridge;
+import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.b3.util.ExceptionUtils;
+import org.eclipse.b3.util.LogUtils;
+import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -348,7 +348,7 @@ public class RepositoryVerifier extends BuilderPhase {
 			if(preparedIU == null)
 				throw ExceptionUtils.fromMessage(
 						"Unable to resolve partial IU. Artifact file for %s did not contain a bundle manifest", key);
-			InstallableUnit newIU = InstallableUnitImpl.importToModel(preparedIU);
+			InstallableUnit newIU = P2Bridge.importToModel(preparedIU);
 
 			List<IInstallableUnit> allIUs = mdr.getInstallableUnits();
 			allIUs.remove(miu);
