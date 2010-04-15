@@ -21,9 +21,12 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.AggregatorPlugin;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.StatusCode;
-import org.eclipse.b3.aggregator.p2.provider.P2ItemProviderAdapterFactory;
+import org.eclipse.b3.aggregator.p2.provider.MetadataRepositoryItemProvider;
+import org.eclipse.b3.aggregator.p2.provider.ProvidedCapabilityItemProvider;
+import org.eclipse.b3.aggregator.p2.provider.RequiredCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.provider.P2viewItemProviderAdapterFactory;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
@@ -36,6 +39,7 @@ import org.eclipse.b3.aggregator.util.OverlaidImage;
 import org.eclipse.b3.aggregator.util.ResourceDiagnosticImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.StatusProviderAdapterFactory;
+import org.eclipse.b3.p2.provider.P2ItemProviderAdapterFactory;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -1898,6 +1902,15 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					return super.getImage(object);
 				}
 
+				@Override
+				public String getText(Object object) {
+					String text = super.getText(object);
+					if(object instanceof MetadataRepositoryResourceImpl)
+						return super.getText(object).substring(AggregatorPlugin.B3AGGR_URI_SCHEME.length() + 1);
+
+					return text;
+				}
+
 				public String getTooltipText(Object object) {
 					return AggregatorItemProviderAdapter.getTooltipText(object, this);
 				}
@@ -1949,7 +1962,37 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		});
 		adapterFactory.addAdapterFactory(new StatusProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AggregatorItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new P2ItemProviderAdapterFactory());
+
+		// override item providers that should be more specific to aggregator
+		adapterFactory.addAdapterFactory(new P2ItemProviderAdapterFactory() {
+			@Override
+			public Adapter createMetadataRepositoryAdapter() {
+				if(metadataRepositoryItemProvider == null) {
+					metadataRepositoryItemProvider = new MetadataRepositoryItemProvider(this);
+				}
+
+				return metadataRepositoryItemProvider;
+			}
+
+			@Override
+			public Adapter createProvidedCapabilityAdapter() {
+				if(providedCapabilityItemProvider == null) {
+					providedCapabilityItemProvider = new ProvidedCapabilityItemProvider(this);
+				}
+
+				return providedCapabilityItemProvider;
+			}
+
+			@Override
+			public Adapter createRequiredCapabilityAdapter() {
+				if(requiredCapabilityItemProvider == null) {
+					requiredCapabilityItemProvider = new RequiredCapabilityItemProvider(this);
+				}
+
+				return requiredCapabilityItemProvider;
+			}
+		});
+
 		adapterFactory.addAdapterFactory(new P2viewItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
@@ -1982,7 +2025,15 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		// Create the editing domain with a special command stack.
 		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>()) {
+			@Override
+			public boolean isReadOnly(Resource resource) {
+				if(resource instanceof MetadataRepositoryResourceImpl)
+					return true;
+
+				return super.isReadOnly(resource);
+			}
+		};
 	}
 
 	protected boolean isPersisted(Resource resource) {

@@ -21,7 +21,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.p2.provider.P2ItemProviderAdapterFactory;
 import org.eclipse.b3.aggregator.p2view.provider.P2viewItemProviderAdapterFactory;
 import org.eclipse.b3.aggregator.presentation.AggregatorEditorPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapterFactory;
@@ -118,6 +117,8 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+
+//import org.eclipse.b3.p2.provider.P2ItemProviderAdapterFactory;
 
 /**
  * This is an example of a P2view model editor.
@@ -1345,7 +1346,7 @@ public class P2viewEditor extends MultiPageEditorPart implements IEditingDomainP
 	 * This sets up the editing domain for the model editor.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
@@ -1354,8 +1355,8 @@ public class P2viewEditor extends MultiPageEditorPart implements IEditingDomainP
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AggregatorItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new P2ItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new P2viewItemProviderAdapterFactory());
+		// adapterFactory.addAdapterFactory(new P2ItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

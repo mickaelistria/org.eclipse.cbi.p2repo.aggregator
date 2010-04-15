@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.aggregator.presentation;
 
+import org.eclipse.b3.p2.provider.P2EditPlugin;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
@@ -82,7 +83,7 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public AggregatorEditorPlugin() {
-		super(new ResourceLocator[] {});
+		super(new ResourceLocator[] { P2EditPlugin.INSTANCE, });
 	}
 
 	public AdapterFactoryEditingDomain getActiveEditingDomain() {
