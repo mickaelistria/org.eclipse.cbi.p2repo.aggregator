@@ -10,7 +10,7 @@ package org.eclipse.b3.aggregator.legacy;
 
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
+import org.eclipse.b3.p2.util.IUUtils;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -85,7 +85,7 @@ public class AggregatorTransformer_090_2_100 extends ResourceTransformer {
 		if(srcIU == null)
 			return;
 
-		VersionedId versionedId = InstallableUnitUtils.getVersionedNameFromProxy((InternalEObject) srcIU);
+		VersionedId versionedId = IUUtils.getVersionedNameFromProxy((InternalEObject) srcIU);
 		if(versionedId == null || versionedId.getId() == null)
 			return;
 
