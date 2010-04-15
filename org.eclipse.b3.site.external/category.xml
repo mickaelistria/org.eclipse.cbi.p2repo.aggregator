@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.b3.aggregator.engine.maven.indexer.feature_0.1.0.qualifier.jar" id="org.eclipse.b3.aggregator.engine.maven.indexer.feature" version="0.1.0.qualifier">
+   <feature url="features/org.eclipse.b3.p2.maven.indexer.feature_0.1.0.qualifier.jar" id="org.eclipse.b3.p2.maven.indexer.feature" version="0.1.0.qualifier">
       <category name="b3external"/>
    </feature>
    <category-def name="b3external" label="b3 Build System External Features (non-EPL)">

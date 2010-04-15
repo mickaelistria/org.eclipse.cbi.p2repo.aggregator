@@ -14,7 +14,7 @@
    </url>
 
    <includes
-         id="org.eclipse.b3.aggregator.engine.maven.indexer.feature"
+         id="org.eclipse.b3.p2.maven.indexer.feature"
          version="0.0.0"/>
 
 </feature>
