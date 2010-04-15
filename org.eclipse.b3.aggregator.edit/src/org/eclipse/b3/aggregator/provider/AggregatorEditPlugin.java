@@ -6,8 +6,8 @@
  */
 package org.eclipse.b3.aggregator.provider;
 
+import org.eclipse.b3.p2.provider.P2EditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
@@ -80,7 +80,7 @@ public final class AggregatorEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public AggregatorEditPlugin() {
-		super(new ResourceLocator[] {});
+		super(new ResourceLocator[] { P2EditPlugin.INSTANCE, });
 	}
 
 	/**

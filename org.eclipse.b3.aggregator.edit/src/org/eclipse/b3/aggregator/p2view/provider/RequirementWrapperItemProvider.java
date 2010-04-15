@@ -14,12 +14,12 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.LabelProvider;
-import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.util.CapabilityNamespaceImageProvider;
+import org.eclipse.b3.p2.P2Package;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -93,6 +93,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 			addFilterPropertyDescriptor(object);
 			addMaxPropertyDescriptor(object);
 			addMinPropertyDescriptor(object);
+			addMatchesPropertyDescriptor(object);
 			addGreedyPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
@@ -178,7 +179,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_IRequirement_filter_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IRequirement_filter_feature", "_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__FILTER, false, false, false,
+				P2Package.Literals.IREQUIREMENT__FILTER, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -194,7 +195,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_IRequirement_greedy_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IRequirement_greedy_feature", "_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__GREEDY, false, false, false,
+				P2Package.Literals.IREQUIREMENT__GREEDY, true, false, false,
 				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
@@ -215,6 +216,22 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	}
 
 	/**
+	 * This adds a property descriptor for the Matches feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addMatchesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IRequirement_matches_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_matches_feature", "_UI_IRequirement_type"),
+				P2Package.Literals.IREQUIREMENT__MATCHES, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Max feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -226,7 +243,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_IRequirement_max_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IRequirement_max_feature", "_UI_IRequirement_type"), P2Package.Literals.IREQUIREMENT__MAX,
-				false, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+				true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -241,7 +258,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_IRequirement_min_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IRequirement_min_feature", "_UI_IRequirement_type"), P2Package.Literals.IREQUIREMENT__MIN,
-				false, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+				true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**

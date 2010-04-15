@@ -28,8 +28,9 @@ import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
+import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -133,9 +134,9 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	@Override
 	public String getText(Object object) {
 		MetadataRepositoryReference repoRef = (MetadataRepositoryReference) object;
-		MetadataRepository mdr = null;
+		MetadataRepositoryImpl mdr = null;
 		if(repoRef.isBranchEnabled())
-			mdr = repoRef.getMetadataRepository(false);
+			mdr = (MetadataRepositoryImpl) repoRef.getMetadataRepository(false);
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString(getTypeName()));
 		bld.append(' ');

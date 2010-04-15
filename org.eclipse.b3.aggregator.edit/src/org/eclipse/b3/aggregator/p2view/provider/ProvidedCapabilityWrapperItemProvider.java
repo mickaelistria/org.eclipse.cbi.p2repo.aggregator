@@ -14,18 +14,15 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.LabelProvider;
-import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.util.CapabilityNamespaceImageProvider;
-
+import org.eclipse.b3.p2.P2Package;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -161,7 +158,7 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_IProvidedCapability_name_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IProvidedCapability_name_feature", "_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__NAME, false, false, false,
+				P2Package.Literals.IPROVIDED_CAPABILITY__NAME, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -176,7 +173,7 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_IProvidedCapability_namespace_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IProvidedCapability_namespace_feature", "_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__NAMESPACE, false, false, false,
+				P2Package.Literals.IPROVIDED_CAPABILITY__NAMESPACE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -191,7 +188,7 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_IProvidedCapability_version_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IProvidedCapability_version_feature", "_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__VERSION, false, false, false,
+				P2Package.Literals.IPROVIDED_CAPABILITY__VERSION, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 

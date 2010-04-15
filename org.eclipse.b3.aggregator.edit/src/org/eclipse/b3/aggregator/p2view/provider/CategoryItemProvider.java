@@ -19,7 +19,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
@@ -93,11 +92,6 @@ public class CategoryItemProvider extends IUPresentationItemProvider implements 
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCategoryContainerPropertyDescriptor(object);
-			addFeatureContainerPropertyDescriptor(object);
-			addProductContainerPropertyDescriptor(object);
-			addBundleContainerPropertyDescriptor(object);
-			addFragmentContainerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -126,76 +120,6 @@ public class CategoryItemProvider extends IUPresentationItemProvider implements 
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Bundle Container feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addBundleContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Category_bundleContainer_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Category_bundleContainer_feature", "_UI_Category_type"),
-				P2viewPackage.Literals.CATEGORY__BUNDLE_CONTAINER, false, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Category Container feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addCategoryContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Category_categoryContainer_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Category_categoryContainer_feature", "_UI_Category_type"),
-				P2viewPackage.Literals.CATEGORY__CATEGORY_CONTAINER, false, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Feature Container feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addFeatureContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Category_featureContainer_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Category_featureContainer_feature", "_UI_Category_type"),
-				P2viewPackage.Literals.CATEGORY__FEATURE_CONTAINER, false, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Fragment Container feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addFragmentContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Category_fragmentContainer_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Category_fragmentContainer_feature", "_UI_Category_type"),
-				P2viewPackage.Literals.CATEGORY__FRAGMENT_CONTAINER, false, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Product Container feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addProductContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Category_productContainer_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Category_productContainer_feature", "_UI_Category_type"),
-				P2viewPackage.Literals.CATEGORY__PRODUCT_CONTAINER, false, false, true, null, null, null));
 	}
 
 	/**

@@ -13,7 +13,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregator;
-import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
@@ -101,7 +100,6 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addChildrenPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addInstallableUnitListPropertyDescriptor(object);
 			addPropertiesPropertyDescriptor(object);
@@ -179,20 +177,6 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 			return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Children feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addChildrenPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ChildrenProvider_children_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_ChildrenProvider_children_feature", "_UI_ChildrenProvider_type"),
-				AggregatorPackage.Literals.CHILDREN_PROVIDER__CHILDREN, false, false, false, null, null, null));
 	}
 
 	/**

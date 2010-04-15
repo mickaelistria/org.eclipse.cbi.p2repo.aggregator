@@ -20,9 +20,9 @@ import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
+import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 

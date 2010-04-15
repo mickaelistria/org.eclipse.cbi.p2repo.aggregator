@@ -15,11 +15,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.aggregator.InstallableUnitType;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2view.Feature;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
+import org.eclipse.b3.p2.InstallableUnit;
+import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.emf.ecore.EObject;
 
 /**

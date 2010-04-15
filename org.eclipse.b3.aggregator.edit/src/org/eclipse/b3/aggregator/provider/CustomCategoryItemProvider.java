@@ -12,11 +12,11 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.CustomCategory;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.util.AddIUsToCustomCategoryCommand;
 import org.eclipse.b3.aggregator.util.ItemSorter;
-import org.eclipse.b3.aggregator.util.ItemUtils;
 import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
+import org.eclipse.b3.aggregator.util.ItemUtils;
+import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
