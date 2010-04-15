@@ -6,11 +6,11 @@
  * such license is available at www.eclipse.org.
  ******************************************************************************/
 
-package org.eclipse.b3.aggregator.loader;
+package org.eclipse.b3.p2.loader;
 
 import java.net.URI;
 
-import org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl;
+import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
@@ -22,7 +22,7 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
  * 
  */
 public interface IRepositoryLoader {
-	final String EXTENSION_POINT_ID = "org.eclipse.b3.aggregator.loader";
+	final String EXTENSION_POINT_ID = "org.eclipse.b3.p2.loader";
 
 	final String EXTENSION_POINT_ATTRIBUTE_NATURE = "nature";
 
