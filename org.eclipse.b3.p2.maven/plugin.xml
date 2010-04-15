@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="indexer" name="Repository Indexer" schema="schema/indexer.exsd"/>
+
+   <extension
+         point="org.eclipse.b3.p2.loader">
+      <loader
+            class="org.eclipse.b3.p2.maven.loader.Maven2RepositoryLoader"
+            nature="maven2">
+      </loader>
+   </extension>
+
+</plugin>
