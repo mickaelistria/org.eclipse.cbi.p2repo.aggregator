@@ -19,13 +19,15 @@ import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.MavenItem;
 import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.StatusCode;
-import org.eclipse.b3.aggregator.engine.maven.pom.DependenciesType;
-import org.eclipse.b3.aggregator.engine.maven.pom.Dependency;
-import org.eclipse.b3.aggregator.engine.maven.pom.License;
-import org.eclipse.b3.aggregator.engine.maven.pom.LicensesType;
-import org.eclipse.b3.aggregator.engine.maven.pom.Model;
-import org.eclipse.b3.aggregator.engine.maven.pom.Parent;
-import org.eclipse.b3.aggregator.engine.maven.pom.PomFactory;
+import org.eclipse.b3.p2.maven.POM;
+import org.eclipse.b3.p2.maven.pom.DependenciesType;
+import org.eclipse.b3.p2.maven.pom.Dependency;
+import org.eclipse.b3.p2.maven.pom.License;
+import org.eclipse.b3.p2.maven.pom.LicensesType;
+import org.eclipse.b3.p2.maven.pom.Model;
+import org.eclipse.b3.p2.maven.pom.Parent;
+import org.eclipse.b3.p2.maven.pom.PomFactory;
+import org.eclipse.b3.p2.maven.util.VersionUtil;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
@@ -209,15 +211,15 @@ public class InstallableUnitMapping implements IInstallableUnit {
 						Version low = cap.getRange().getMinimum();
 						Version high = cap.getRange().getMaximum();
 						if(cap.getRange().getIncludeMinimum() && Version.MAX_VERSION.equals(high)) {
-							versionRangeString.append(MavenManager.getVersionString(low));
+							versionRangeString.append(VersionUtil.getVersionString(low));
 						}
 						else {
 							versionRangeString.append(cap.getRange().getIncludeMinimum()
 									? '['
 									: '(');
-							versionRangeString.append(MavenManager.getVersionString(low));
+							versionRangeString.append(VersionUtil.getVersionString(low));
 							versionRangeString.append(',');
-							versionRangeString.append(MavenManager.getVersionString(high));
+							versionRangeString.append(VersionUtil.getVersionString(high));
 							versionRangeString.append(cap.getRange().getIncludeMaximum()
 									? ']'
 									: ')');
@@ -418,7 +420,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	}
 
 	public String getVersionString() {
-		return MavenManager.getVersionString(getVersion());
+		return VersionUtil.getVersionString(getVersion());
 	}
 
 	public boolean isResolved() {

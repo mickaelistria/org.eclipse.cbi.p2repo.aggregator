@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -20,11 +19,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.engine.maven.metadata.MetaData;
-import org.eclipse.b3.aggregator.engine.maven.metadata.MetadataFactory;
-import org.eclipse.b3.aggregator.engine.maven.metadata.Versioning;
-import org.eclipse.b3.aggregator.engine.maven.metadata.Versions;
-import org.eclipse.b3.aggregator.util.GeneralUtils;
+import org.eclipse.b3.p2.maven.MavenMetadata;
+import org.eclipse.b3.p2.maven.metadata.MetaData;
+import org.eclipse.b3.p2.maven.metadata.MetadataFactory;
+import org.eclipse.b3.p2.maven.metadata.Versioning;
+import org.eclipse.b3.p2.maven.metadata.Versions;
+import org.eclipse.b3.p2.maven.util.DigestUtil;
+import org.eclipse.b3.p2.maven.util.VersionUtil;
+import org.eclipse.b3.p2.util.IUUtils;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
@@ -106,40 +108,6 @@ public class MavenManager {
 		}
 	}
 
-	public static final MessageDigest[] MESSAGE_DIGESTERS;
-
-	static {
-		String[] algorithms = { "MD5", "SHA1" };
-		MESSAGE_DIGESTERS = new MessageDigest[algorithms.length];
-		int i = 0;
-		for(String checkSumAlgorithm : algorithms)
-			try {
-				MESSAGE_DIGESTERS[i++] = MessageDigest.getInstance(checkSumAlgorithm);
-			}
-			catch(NoSuchAlgorithmException e) {
-				throw new RuntimeException("Unable to create checksum algorithm for " + checkSumAlgorithm + ": "
-						+ e.getMessage());
-			}
-	}
-
-	public static String[] createCheckSum(byte[] content, MessageDigest[] digests) {
-		String[] result = new String[digests.length];
-
-		int i = 0;
-		StringBuilder checkSumStr = new StringBuilder(32);
-		for(MessageDigest digest : digests) {
-			digest.reset();
-			byte[] checkSum = digest.digest(content);
-			checkSumStr.setLength(0);
-			for(byte b : checkSum)
-				checkSumStr.append(String.format("%02x", Byte.valueOf(b)));
-
-			result[i++] = checkSumStr.toString();
-		}
-
-		return result;
-	}
-
 	public static MavenRepositoryHelper createMavenStructure(List<InstallableUnitMapping> ius) throws CoreException {
 		List<String[]> mappingRulesList = new ArrayList<String[]>();
 
@@ -190,38 +158,22 @@ public class MavenManager {
 		return new MavenRepositoryHelper(top, mappingRulesList.toArray(new String[mappingRulesList.size()][]));
 	}
 
-	public static String encodeMD5(String str) {
-		return encode(str, 0);
-	}
-
-	public static String encodeSHA1(String str) {
-		return encode(str, 1);
-	}
-
-	public static String getVersionString(Version version) {
-		String versionString = version.getOriginal();
-		if(versionString == null)
-			versionString = version.toString();
-
-		return versionString;
-	}
-
 	public static void saveMetadata(URI root, InstallableUnitMapping iu) throws CoreException {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		URIConverter uriConverter = resourceSet.getURIConverter();
 		Map<String, MavenMetadataHelper> metadataCollector = new HashMap<String, MavenMetadataHelper>();
 
-		savePOMs(root, iu, uriConverter, MESSAGE_DIGESTERS, metadataCollector);
-		saveXMLs(root, uriConverter, MESSAGE_DIGESTERS, metadataCollector);
+		savePOMs(root, iu, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector);
+		saveXMLs(root, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector);
 	}
 
 	private static void addMappingRule(List<String[]> mappingRulesList, InstallableUnitMapping iu) throws CoreException {
 		if(iu.getMainArtifact() != null) {
 			IArtifactKey artifact = iu.getMainArtifact();
 			mappingRulesList.add(new String[] {
-					"(& (classifier=" + GeneralUtils.encodeFilterValue(artifact.getClassifier()) + ")(id="
-							+ GeneralUtils.encodeFilterValue(artifact.getId()) + ")(version="
-							+ GeneralUtils.encodeFilterValue(iu.getVersion().toString()) + "))",
+					"(& (classifier=" + IUUtils.encodeFilterValue(artifact.getClassifier()) + ")(id="
+							+ IUUtils.encodeFilterValue(artifact.getId()) + ")(version="
+							+ IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))",
 					"${repoUrl}/" + iu.getRelativeFullPath() });
 		}
 	}
@@ -283,20 +235,6 @@ public class MavenManager {
 		return URI.createURI(root.toString() + "/" + md.getRelativePath() + "/maven-metadata.xml");
 	}
 
-	private static String encode(String str, int algorithmIndex) {
-		byte[] digest = MESSAGE_DIGESTERS[algorithmIndex].digest(str.getBytes());
-		return formatDigest(digest);
-	}
-
-	private static String formatDigest(byte[] digest) {
-		StringBuilder result = new StringBuilder(digest.length << 1);
-
-		for(byte b : digest)
-			result.append(String.format("%02x", Byte.valueOf(b)));
-
-		return result.toString();
-	}
-
 	private static void savePOMs(URI root, InstallableUnitMapping iu, URIConverter uriConverter,
 			MessageDigest[] digests, Map<String, MavenMetadataHelper> metadataCollector) throws CoreException {
 		if(!iu.isTransient()) {
@@ -336,12 +274,12 @@ public class MavenManager {
 			versioning.setLastUpdated(timestamp);
 			Version release = mdh.getRelease();
 			if(release != null)
-				versioning.setRelease(getVersionString(release));
+				versioning.setRelease(VersionUtil.getVersionString(release));
 			Versions versions = MetadataFactory.eINSTANCE.createVersions();
 			versioning.setVersions(versions);
 			List<String> versionList = versions.getVersion();
 			for(Version version : mdh.getVersions())
-				versionList.add(getVersionString(version));
+				versionList.add(VersionUtil.getVersionString(version));
 
 			URI xmlUri = createXmlURI(root, mdh);
 			mdConainter.save(xmlUri);
