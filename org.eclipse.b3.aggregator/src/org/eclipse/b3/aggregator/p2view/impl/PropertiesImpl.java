@@ -14,10 +14,13 @@ import java.util.Collection;
 import org.eclipse.b3.aggregator.Property;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.Properties;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Properties</b></em>'. <!-- end-user-doc -->
@@ -41,7 +44,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	protected int eFlags = 0;
 
 	/**
-	 * The cached value of the '{@link #getPropertyList() <em>Property List</em>}' reference list.
+	 * The cached value of the '{@link #getPropertyList() <em>Property List</em>}' containment reference list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -72,6 +75,21 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 			return getPropertyList();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+		case P2viewPackage.PROPERTIES__PROPERTY_LIST:
+			return ((InternalEList<?>) getPropertyList()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -127,7 +145,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	 */
 	public EList<Property> getPropertyList() {
 		if(propertyList == null) {
-			propertyList = new EObjectResolvingEList<Property>(Property.class, this,
+			propertyList = new EObjectContainmentEList.Resolving<Property>(Property.class, this,
 					P2viewPackage.PROPERTIES__PROPERTY_LIST);
 		}
 		return propertyList;

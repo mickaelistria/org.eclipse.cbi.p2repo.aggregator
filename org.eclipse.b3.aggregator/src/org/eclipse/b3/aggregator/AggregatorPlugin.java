@@ -8,18 +8,13 @@ package org.eclipse.b3.aggregator;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.eclipse.b3.aggregator.loader.IRepositoryLoader;
-import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceFactoryImpl;
+import org.eclipse.b3.p2.loader.IRepositoryLoader;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -35,8 +30,6 @@ public final class AggregatorPlugin extends EMFPlugin {
 	 * @generated NOT
 	 */
 	public static class Implementation extends EclipsePlugin {
-		private Map<String, Object> repositoryResourceFactories;
-
 		private List<String> supportedNatures;
 
 		/**
@@ -54,33 +47,24 @@ public final class AggregatorPlugin extends EMFPlugin {
 		}
 
 		public List<String> getSupportedRepositoryNatureList() {
-			if(supportedNatures == null) {
-				List<String> aux = new ArrayList<String>(repositoryResourceFactories.keySet());
-				Collections.sort(aux);
-				supportedNatures = Collections.unmodifiableList(aux);
-			}
 			return supportedNatures;
 		}
 
 		@Override
 		public void start(BundleContext context) throws Exception {
 			super.start(context);
-			repositoryResourceFactories = new HashMap<String, Object>();
+			supportedNatures = new ArrayList<String>();
 
 			for(IConfigurationElement extension : Platform.getExtensionRegistry().getConfigurationElementsFor(
 					IRepositoryLoader.EXTENSION_POINT_ID))
-				repositoryResourceFactories.put(
-						extension.getAttribute(IRepositoryLoader.EXTENSION_POINT_ATTRIBUTE_NATURE),
-						new MetadataRepositoryResourceFactoryImpl());
-			Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap().putAll(repositoryResourceFactories);
+				supportedNatures.add(extension.getAttribute(IRepositoryLoader.EXTENSION_POINT_ATTRIBUTE_NATURE));
+
+			Collections.sort(supportedNatures);
 		}
 
 		@Override
 		public void stop(BundleContext context) throws Exception {
 			super.stop(context);
-			Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap().keySet().removeAll(
-					repositoryResourceFactories.keySet());
-			repositoryResourceFactories = null;
 			supportedNatures = null;
 		}
 	}
@@ -93,6 +77,8 @@ public final class AggregatorPlugin extends EMFPlugin {
 	 */
 	public static final AggregatorPlugin INSTANCE = new AggregatorPlugin();
 
+	public static final String B3AGGR_URI_SCHEME = "b3aggr";
+
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -100,10 +86,6 @@ public final class AggregatorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	private static Implementation plugin;
-
-	public static ILog getLog() {
-		return Platform.getLog(getPlugin().getBundle());
-	}
 
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.

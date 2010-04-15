@@ -15,13 +15,16 @@ import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Provided Capabilities</b></em>'. <!--
@@ -80,6 +83,21 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+		case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
+			return ((InternalEList<?>) getProvidedCapabilities()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -132,7 +150,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 	 */
 	public EList<ProvidedCapabilityWrapper> getProvidedCapabilities() {
 		if(providedCapabilities == null) {
-			providedCapabilities = new EObjectResolvingEList<ProvidedCapabilityWrapper>(
+			providedCapabilities = new EObjectContainmentEList.Resolving<ProvidedCapabilityWrapper>(
 					ProvidedCapabilityWrapper.class, this, P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES);
 		}
 		return providedCapabilities;

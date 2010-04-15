@@ -12,47 +12,12 @@ import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.equinox.p2.metadata.Version;
 
 /**
  * @author Karel Brezina
  * 
  */
 public class GeneralUtils {
-
-	public static String encodeFilterValue(String value) {
-		boolean encoded = false;
-		int inlen = value.length();
-		int outlen = inlen << 1; /* inlen * 2 */
-
-		char[] output = new char[outlen];
-		value.getChars(0, inlen, output, inlen);
-
-		int cursor = 0;
-		for(int i = inlen; i < outlen; i++) {
-			char c = output[i];
-
-			switch(c) {
-			case '(':
-			case '*':
-			case ')':
-			case '\\': {
-				output[cursor] = '\\';
-				cursor++;
-				encoded = true;
-
-				break;
-			}
-			}
-
-			output[cursor] = c;
-			cursor++;
-		}
-
-		return encoded
-				? new String(output, 0, cursor)
-				: value;
-	}
 
 	public static Aggregator getAggregator(EObject eObject) {
 		EList<EObject> contents = getAggregatorResource(eObject).getContents();
@@ -75,14 +40,5 @@ public class GeneralUtils {
 		}
 
 		throw new IllegalArgumentException("AggregatorResource was not found");
-	}
-
-	public static String stringifyVersion(Version version) {
-		String result = version.getOriginal();
-
-		if(result == null)
-			result = version.toString();
-
-		return result;
 	}
 }

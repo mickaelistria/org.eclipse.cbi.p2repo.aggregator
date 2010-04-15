@@ -8,24 +8,15 @@
 
 package org.eclipse.b3.aggregator.util;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.IAggregatorConstants;
 import org.eclipse.b3.aggregator.InstallableUnitType;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
+import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.util.StringUtils;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
-import org.eclipse.equinox.p2.metadata.VersionedId;
 import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
 
 /**
@@ -33,8 +24,6 @@ import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescriptio
  * 
  */
 public class InstallableUnitUtils {
-	private static final Pattern proxyFragmentPattern = Pattern.compile("^//@metadataRepository/@installableUnits\\[id='([^']*)',version='([^']*)'\\]$");
-
 	public static Status getStatus(InstallableUnit iu) {
 		synchronized(iu) {
 			return StringUtils.trimmedOrNull(iu.getId()) != null
@@ -55,45 +44,6 @@ public class InstallableUnitUtils {
 		if(isOSGiBundle(iu))
 			return InstallableUnitType.BUNDLE;
 		return InstallableUnitType.OTHER;
-	}
-
-	/**
-	 * Obtains the name and version information either from the proxy URI fragment or from attributes. So, it works for
-	 * both genuine instance or proxy.
-	 */
-	public static VersionedId getVersionedName(InstallableUnit iu) {
-		if(((EObject) iu).eIsProxy())
-			return getVersionedNameFromProxy(iu);
-		else
-			return new VersionedId(iu.getId(), iu.getVersion());
-	}
-
-	/**
-	 * Obtains the name and version information from the proxy URI fragment
-	 */
-	public static VersionedId getVersionedNameFromProxy(InstallableUnit iu) {
-		return getVersionedNameFromProxy((InternalEObject) iu);
-	}
-
-	// needed for dynamic EMF
-	public static VersionedId getVersionedNameFromProxy(InternalEObject iu) {
-		URI uri = iu.eProxyURI();
-		if(uri == null)
-			return null;
-
-		String frag = uri.fragment();
-		if(frag == null)
-			return null;
-
-		Matcher m = proxyFragmentPattern.matcher(frag);
-		try {
-			return m.matches()
-					? new VersionedId(URLDecoder.decode(m.group(1), "UTF-8"), m.group(2))
-					: null;
-		}
-		catch(UnsupportedEncodingException e) {
-			throw new RuntimeException(e);
-		}
 	}
 
 	private static boolean isOSGiBundle(IInstallableUnit iu) {

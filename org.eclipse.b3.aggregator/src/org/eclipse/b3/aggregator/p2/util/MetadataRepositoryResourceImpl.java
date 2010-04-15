@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * The code, documentation and other materials contained herein have been
+ * licensed under the Eclipse Public License - v 1.0 by the copyright holder
+ * listed above, as the Initial Contributor under such license. The text of
+ * such license is available at www.eclipse.org.
+ */
 package org.eclipse.b3.aggregator.p2.util;
 
 import static java.lang.String.format;
@@ -16,6 +23,7 @@ import java.util.regex.Pattern;
 
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
+import org.eclipse.b3.aggregator.AggregatorPlugin;
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.InstallableUnitType;
@@ -26,11 +34,6 @@ import org.eclipse.b3.aggregator.Property;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
-import org.eclipse.b3.aggregator.loader.IRepositoryLoader;
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
-import org.eclipse.b3.aggregator.p2.P2Factory;
-import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
-import org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Categories;
 import org.eclipse.b3.aggregator.p2view.Category;
@@ -41,15 +44,20 @@ import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
 import org.eclipse.b3.aggregator.p2view.P2viewFactory;
 import org.eclipse.b3.aggregator.p2view.Product;
-import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
-import org.eclipse.b3.aggregator.util.LogUtils;
-import org.eclipse.b3.aggregator.util.MonitorUtils;
-import org.eclipse.b3.aggregator.util.RepositoryTranslationSupport;
 import org.eclipse.b3.aggregator.util.ResourceDiagnosticImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.TimeUtils;
 import org.eclipse.b3.aggregator.util.TwoColumnMatrix;
+import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.p2.P2Factory;
+import org.eclipse.b3.p2.impl.InstallableUnitImpl;
+import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
+import org.eclipse.b3.p2.loader.IRepositoryLoader;
+import org.eclipse.b3.p2.util.IUUtils;
+import org.eclipse.b3.p2.util.RepositoryTranslationSupport;
+import org.eclipse.b3.util.LogUtils;
+import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -318,7 +326,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 							? name
 							: iu.getId());
 				else
-					iuPresentation.setLabel(iu.getId() + " / " + GeneralUtils.stringifyVersion(iu.getVersion())
+					iuPresentation.setLabel(iu.getId() + " / " + IUUtils.stringifyVersion(iu.getVersion())
 							+ (name != null && name.length() > 0
 									? " (" + name + ")"
 									: ""));
@@ -540,7 +548,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	}
 
 	public static URI getResourceUriForNatureAndLocation(String nature, String location) {
-		return URI.createGenericURI(nature, location, null);
+		return URI.createGenericURI(AggregatorPlugin.B3AGGR_URI_SCHEME, nature + ":" + location, null);
 	}
 
 	private static Throwable unwrap(Exception loadException) {
@@ -688,7 +696,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 				java.net.URI location;
 				try {
-					location = new java.net.URI(getURI().opaquePart());
+					location = getLocationFromURI(getURI());
 				}
 				catch(URISyntaxException e) {
 					lastException = new Resource.IOWrappedException(e);
@@ -965,6 +973,12 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		childPath.add(lastChild);
 
 		return getLastChild(childPath);
+	}
+
+	private java.net.URI getLocationFromURI(URI uri) throws URISyntaxException {
+		String opaquePart = uri.opaquePart();
+		int pos = opaquePart.indexOf(':');
+		return new java.net.URI(opaquePart.substring(pos + 1));
 	}
 
 	private List<Object> getNextNode(List<Object> nodePath, boolean forward) {

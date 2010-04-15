@@ -27,7 +27,7 @@ package org.eclipse.b3.aggregator.p2view;
  */
 public interface Feature extends IUPresentationWithDetails {
 	/**
-	 * Returns the value of the '<em><b>Bundle Container</b></em>' reference.
+	 * Returns the value of the '<em><b>Bundle Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Bundle Container</em>' reference isn't clear, there really should be more of a
@@ -35,16 +35,16 @@ public interface Feature extends IUPresentationWithDetails {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Bundle Container</em>' reference.
+	 * @return the value of the '<em>Bundle Container</em>' containment reference.
 	 * @see #setBundleContainer(Bundles)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFeature_BundleContainer()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	Bundles getBundleContainer();
 
 	/**
-	 * Returns the value of the '<em><b>Feature Container</b></em>' reference.
+	 * Returns the value of the '<em><b>Feature Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Feature Container</em>' reference isn't clear, there really should be more of a
@@ -52,16 +52,16 @@ public interface Feature extends IUPresentationWithDetails {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Feature Container</em>' reference.
+	 * @return the value of the '<em>Feature Container</em>' containment reference.
 	 * @see #setFeatureContainer(Features)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFeature_FeatureContainer()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	Features getFeatureContainer();
 
 	/**
-	 * Returns the value of the '<em><b>Fragment Container</b></em>' reference.
+	 * Returns the value of the '<em><b>Fragment Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Fragment Container</em>' reference isn't clear, there really should be more of a
@@ -69,10 +69,10 @@ public interface Feature extends IUPresentationWithDetails {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Fragment Container</em>' reference.
+	 * @return the value of the '<em>Fragment Container</em>' containment reference.
 	 * @see #setFragmentContainer(Fragments)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFeature_FragmentContainer()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	Fragments getFragmentContainer();
@@ -103,11 +103,11 @@ public interface Feature extends IUPresentationWithDetails {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Feature#getBundleContainer
-	 * <em>Bundle Container</em>}' reference.
+	 * <em>Bundle Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Bundle Container</em>' reference.
+	 *            the new value of the '<em>Bundle Container</em>' containment reference.
 	 * @see #getBundleContainer()
 	 * @generated
 	 */
@@ -115,11 +115,11 @@ public interface Feature extends IUPresentationWithDetails {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Feature#getFeatureContainer
-	 * <em>Feature Container</em>}' reference.
+	 * <em>Feature Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Feature Container</em>' reference.
+	 *            the new value of the '<em>Feature Container</em>' containment reference.
 	 * @see #getFeatureContainer()
 	 * @generated
 	 */
@@ -127,11 +127,11 @@ public interface Feature extends IUPresentationWithDetails {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Feature#getFragmentContainer
-	 * <em>Fragment Container</em>}' reference.
+	 * <em>Fragment Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Fragment Container</em>' reference.
+	 *            the new value of the '<em>Fragment Container</em>' containment reference.
 	 * @see #getFragmentContainer()
 	 * @generated
 	 */

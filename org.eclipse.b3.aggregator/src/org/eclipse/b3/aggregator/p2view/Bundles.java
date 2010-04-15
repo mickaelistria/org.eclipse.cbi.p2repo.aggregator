@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Bundles extends ChildrenProvider<Bundle> {
 	/**
-	 * Returns the value of the '<em><b>Bundles</b></em>' reference list.
+	 * Returns the value of the '<em><b>Bundles</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.Bundle}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -37,9 +37,9 @@ public interface Bundles extends ChildrenProvider<Bundle> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Bundles</em>' reference list.
+	 * @return the value of the '<em>Bundles</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getBundles_Bundles()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Bundle> getBundles();

@@ -40,7 +40,7 @@ public interface Licenses {
 	 * 
 	 * @return the value of the '<em>Licenses</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getLicenses_Licenses()
-	 * @model type="org.eclipse.b3.aggregator.p2.ILicense"
+	 * @model type="org.eclipse.b3.p2.ILicense"
 	 * @generated
 	 */
 	EList<ILicense> getLicenses();

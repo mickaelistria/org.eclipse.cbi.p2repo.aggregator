@@ -12,7 +12,7 @@ package org.eclipse.b3.aggregator.p2view;
 import java.util.Comparator;
 
 import org.eclipse.b3.aggregator.InstallableUnitType;
-import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
+import org.eclipse.b3.p2.util.IUSelectionComparator;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.Version;
 
@@ -49,7 +49,7 @@ public interface IUPresentation {
 					? iup2.getInstallableUnit()
 					: null;
 
-			return InstallableUnitImpl.SELECTION_COMPARATOR.compare(iu1, iu2);
+			return IUSelectionComparator.INSTANCE.compare(iu1, iu2);
 		}
 	}
 
@@ -116,7 +116,7 @@ public interface IUPresentation {
 	 * @return the value of the '<em>Installable Unit</em>' reference.
 	 * @see #setInstallableUnit(IInstallableUnit)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_InstallableUnit()
-	 * @model type="org.eclipse.b3.aggregator.p2.IInstallableUnit" resolveProxies="false"
+	 * @model type="org.eclipse.b3.p2.IInstallableUnit" resolveProxies="false"
 	 * @generated
 	 */
 	IInstallableUnit getInstallableUnit();
@@ -186,7 +186,7 @@ public interface IUPresentation {
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(Version)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_Version()
-	 * @model dataType="org.eclipse.b3.aggregator.p2.Version"
+	 * @model dataType="org.eclipse.b3.p2.Version"
 	 * @generated
 	 */
 	Version getVersion();

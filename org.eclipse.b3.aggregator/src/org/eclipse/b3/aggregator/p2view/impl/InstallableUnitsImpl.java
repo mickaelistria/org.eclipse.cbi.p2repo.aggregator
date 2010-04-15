@@ -19,6 +19,7 @@ import org.eclipse.b3.aggregator.p2view.P2viewFactory;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.Products;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -88,7 +89,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	protected Products productContainer;
 
 	/**
-	 * The cached value of the '{@link #getBundleContainer() <em>Bundle Container</em>}' reference.
+	 * The cached value of the '{@link #getBundleContainer() <em>Bundle Container</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -182,6 +183,128 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetBundleContainer(Bundles newBundleContainer, NotificationChain msgs) {
+		Bundles oldBundleContainer = bundleContainer;
+		bundleContainer = newBundleContainer;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2viewPackage.INSTALLABLE_UNITS__BUNDLE_CONTAINER, oldBundleContainer, newBundleContainer);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetCategoryContainer(Categories newCategoryContainer, NotificationChain msgs) {
+		Categories oldCategoryContainer = categoryContainer;
+		categoryContainer = newCategoryContainer;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER, oldCategoryContainer, newCategoryContainer);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetFeatureContainer(Features newFeatureContainer, NotificationChain msgs) {
+		Features oldFeatureContainer = featureContainer;
+		featureContainer = newFeatureContainer;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2viewPackage.INSTALLABLE_UNITS__FEATURE_CONTAINER, oldFeatureContainer, newFeatureContainer);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetFragmentContainer(Fragments newFragmentContainer, NotificationChain msgs) {
+		Fragments oldFragmentContainer = fragmentContainer;
+		fragmentContainer = newFragmentContainer;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2viewPackage.INSTALLABLE_UNITS__FRAGMENT_CONTAINER, oldFragmentContainer, newFragmentContainer);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetMiscellaneousContainer(Miscellaneous newMiscellaneousContainer,
+			NotificationChain msgs) {
+		Miscellaneous oldMiscellaneousContainer = miscellaneousContainer;
+		miscellaneousContainer = newMiscellaneousContainer;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2viewPackage.INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER, oldMiscellaneousContainer,
+					newMiscellaneousContainer);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetProductContainer(Products newProductContainer, NotificationChain msgs) {
+		Products oldProductContainer = productContainer;
+		productContainer = newProductContainer;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2viewPackage.INSTALLABLE_UNITS__PRODUCT_CONTAINER, oldProductContainer, newProductContainer);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -217,6 +340,31 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 			return basicGetMiscellaneousContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+		case P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER:
+			return basicSetCategoryContainer(null, msgs);
+		case P2viewPackage.INSTALLABLE_UNITS__FEATURE_CONTAINER:
+			return basicSetFeatureContainer(null, msgs);
+		case P2viewPackage.INSTALLABLE_UNITS__PRODUCT_CONTAINER:
+			return basicSetProductContainer(null, msgs);
+		case P2viewPackage.INSTALLABLE_UNITS__BUNDLE_CONTAINER:
+			return basicSetBundleContainer(null, msgs);
+		case P2viewPackage.INSTALLABLE_UNITS__FRAGMENT_CONTAINER:
+			return basicSetFragmentContainer(null, msgs);
+		case P2viewPackage.INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER:
+			return basicSetMiscellaneousContainer(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -315,6 +463,15 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 			InternalEObject oldBundleContainer = (InternalEObject) bundleContainer;
 			bundleContainer = (Bundles) eResolveProxy(oldBundleContainer);
 			if(bundleContainer != oldBundleContainer) {
+				InternalEObject newBundleContainer = (InternalEObject) bundleContainer;
+				NotificationChain msgs = oldBundleContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__BUNDLE_CONTAINER, null, null);
+				if(newBundleContainer.eInternalContainer() == null) {
+					msgs = newBundleContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+							- P2viewPackage.INSTALLABLE_UNITS__BUNDLE_CONTAINER, null, msgs);
+				}
+				if(msgs != null)
+					msgs.dispatch();
 				if(eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
 							P2viewPackage.INSTALLABLE_UNITS__BUNDLE_CONTAINER, oldBundleContainer, bundleContainer));
@@ -333,6 +490,15 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 			InternalEObject oldCategoryContainer = (InternalEObject) categoryContainer;
 			categoryContainer = (Categories) eResolveProxy(oldCategoryContainer);
 			if(categoryContainer != oldCategoryContainer) {
+				InternalEObject newCategoryContainer = (InternalEObject) categoryContainer;
+				NotificationChain msgs = oldCategoryContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER, null, null);
+				if(newCategoryContainer.eInternalContainer() == null) {
+					msgs = newCategoryContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+							- P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER, null, msgs);
+				}
+				if(msgs != null)
+					msgs.dispatch();
 				if(eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
 							P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER, oldCategoryContainer,
@@ -376,6 +542,15 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 			InternalEObject oldFeatureContainer = (InternalEObject) featureContainer;
 			featureContainer = (Features) eResolveProxy(oldFeatureContainer);
 			if(featureContainer != oldFeatureContainer) {
+				InternalEObject newFeatureContainer = (InternalEObject) featureContainer;
+				NotificationChain msgs = oldFeatureContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__FEATURE_CONTAINER, null, null);
+				if(newFeatureContainer.eInternalContainer() == null) {
+					msgs = newFeatureContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+							- P2viewPackage.INSTALLABLE_UNITS__FEATURE_CONTAINER, null, msgs);
+				}
+				if(msgs != null)
+					msgs.dispatch();
 				if(eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
 							P2viewPackage.INSTALLABLE_UNITS__FEATURE_CONTAINER, oldFeatureContainer, featureContainer));
@@ -394,6 +569,15 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 			InternalEObject oldFragmentContainer = (InternalEObject) fragmentContainer;
 			fragmentContainer = (Fragments) eResolveProxy(oldFragmentContainer);
 			if(fragmentContainer != oldFragmentContainer) {
+				InternalEObject newFragmentContainer = (InternalEObject) fragmentContainer;
+				NotificationChain msgs = oldFragmentContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__FRAGMENT_CONTAINER, null, null);
+				if(newFragmentContainer.eInternalContainer() == null) {
+					msgs = newFragmentContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+							- P2viewPackage.INSTALLABLE_UNITS__FRAGMENT_CONTAINER, null, msgs);
+				}
+				if(msgs != null)
+					msgs.dispatch();
 				if(eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
 							P2viewPackage.INSTALLABLE_UNITS__FRAGMENT_CONTAINER, oldFragmentContainer,
@@ -413,6 +597,15 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 			InternalEObject oldMiscellaneousContainer = (InternalEObject) miscellaneousContainer;
 			miscellaneousContainer = (Miscellaneous) eResolveProxy(oldMiscellaneousContainer);
 			if(miscellaneousContainer != oldMiscellaneousContainer) {
+				InternalEObject newMiscellaneousContainer = (InternalEObject) miscellaneousContainer;
+				NotificationChain msgs = oldMiscellaneousContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER, null, null);
+				if(newMiscellaneousContainer.eInternalContainer() == null) {
+					msgs = newMiscellaneousContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+							- P2viewPackage.INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER, null, msgs);
+				}
+				if(msgs != null)
+					msgs.dispatch();
 				if(eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
 							P2viewPackage.INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER, oldMiscellaneousContainer,
@@ -504,6 +697,15 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 			InternalEObject oldProductContainer = (InternalEObject) productContainer;
 			productContainer = (Products) eResolveProxy(oldProductContainer);
 			if(productContainer != oldProductContainer) {
+				InternalEObject newProductContainer = (InternalEObject) productContainer;
+				NotificationChain msgs = oldProductContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__PRODUCT_CONTAINER, null, null);
+				if(newProductContainer.eInternalContainer() == null) {
+					msgs = newProductContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+							- P2viewPackage.INSTALLABLE_UNITS__PRODUCT_CONTAINER, null, msgs);
+				}
+				if(msgs != null)
+					msgs.dispatch();
 				if(eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
 							P2viewPackage.INSTALLABLE_UNITS__PRODUCT_CONTAINER, oldProductContainer, productContainer));
@@ -518,11 +720,21 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	public void setBundleContainer(Bundles newBundleContainer) {
-		Bundles oldBundleContainer = bundleContainer;
-		bundleContainer = newBundleContainer;
-		if(eNotificationRequired())
+		if(newBundleContainer != bundleContainer) {
+			NotificationChain msgs = null;
+			if(bundleContainer != null)
+				msgs = ((InternalEObject) bundleContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__BUNDLE_CONTAINER, null, msgs);
+			if(newBundleContainer != null)
+				msgs = ((InternalEObject) newBundleContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__BUNDLE_CONTAINER, null, msgs);
+			msgs = basicSetBundleContainer(newBundleContainer, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.INSTALLABLE_UNITS__BUNDLE_CONTAINER,
-					oldBundleContainer, bundleContainer));
+					newBundleContainer, newBundleContainer));
 	}
 
 	/**
@@ -531,11 +743,21 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	public void setCategoryContainer(Categories newCategoryContainer) {
-		Categories oldCategoryContainer = categoryContainer;
-		categoryContainer = newCategoryContainer;
-		if(eNotificationRequired())
+		if(newCategoryContainer != categoryContainer) {
+			NotificationChain msgs = null;
+			if(categoryContainer != null)
+				msgs = ((InternalEObject) categoryContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER, null, msgs);
+			if(newCategoryContainer != null)
+				msgs = ((InternalEObject) newCategoryContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER, null, msgs);
+			msgs = basicSetCategoryContainer(newCategoryContainer, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER,
-					oldCategoryContainer, categoryContainer));
+					newCategoryContainer, newCategoryContainer));
 	}
 
 	/**
@@ -544,11 +766,21 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	public void setFeatureContainer(Features newFeatureContainer) {
-		Features oldFeatureContainer = featureContainer;
-		featureContainer = newFeatureContainer;
-		if(eNotificationRequired())
+		if(newFeatureContainer != featureContainer) {
+			NotificationChain msgs = null;
+			if(featureContainer != null)
+				msgs = ((InternalEObject) featureContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__FEATURE_CONTAINER, null, msgs);
+			if(newFeatureContainer != null)
+				msgs = ((InternalEObject) newFeatureContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__FEATURE_CONTAINER, null, msgs);
+			msgs = basicSetFeatureContainer(newFeatureContainer, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.INSTALLABLE_UNITS__FEATURE_CONTAINER,
-					oldFeatureContainer, featureContainer));
+					newFeatureContainer, newFeatureContainer));
 	}
 
 	/**
@@ -557,11 +789,21 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	public void setFragmentContainer(Fragments newFragmentContainer) {
-		Fragments oldFragmentContainer = fragmentContainer;
-		fragmentContainer = newFragmentContainer;
-		if(eNotificationRequired())
+		if(newFragmentContainer != fragmentContainer) {
+			NotificationChain msgs = null;
+			if(fragmentContainer != null)
+				msgs = ((InternalEObject) fragmentContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__FRAGMENT_CONTAINER, null, msgs);
+			if(newFragmentContainer != null)
+				msgs = ((InternalEObject) newFragmentContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__FRAGMENT_CONTAINER, null, msgs);
+			msgs = basicSetFragmentContainer(newFragmentContainer, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.INSTALLABLE_UNITS__FRAGMENT_CONTAINER,
-					oldFragmentContainer, fragmentContainer));
+					newFragmentContainer, newFragmentContainer));
 	}
 
 	/**
@@ -570,12 +812,22 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	public void setMiscellaneousContainer(Miscellaneous newMiscellaneousContainer) {
-		Miscellaneous oldMiscellaneousContainer = miscellaneousContainer;
-		miscellaneousContainer = newMiscellaneousContainer;
-		if(eNotificationRequired())
+		if(newMiscellaneousContainer != miscellaneousContainer) {
+			NotificationChain msgs = null;
+			if(miscellaneousContainer != null)
+				msgs = ((InternalEObject) miscellaneousContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER, null, msgs);
+			if(newMiscellaneousContainer != null)
+				msgs = ((InternalEObject) newMiscellaneousContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER, null, msgs);
+			msgs = basicSetMiscellaneousContainer(newMiscellaneousContainer, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER, oldMiscellaneousContainer,
-					miscellaneousContainer));
+					P2viewPackage.INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER, newMiscellaneousContainer,
+					newMiscellaneousContainer));
 	}
 
 	/**
@@ -584,11 +836,21 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	public void setProductContainer(Products newProductContainer) {
-		Products oldProductContainer = productContainer;
-		productContainer = newProductContainer;
-		if(eNotificationRequired())
+		if(newProductContainer != productContainer) {
+			NotificationChain msgs = null;
+			if(productContainer != null)
+				msgs = ((InternalEObject) productContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__PRODUCT_CONTAINER, null, msgs);
+			if(newProductContainer != null)
+				msgs = ((InternalEObject) newProductContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.INSTALLABLE_UNITS__PRODUCT_CONTAINER, null, msgs);
+			msgs = basicSetProductContainer(newProductContainer, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.INSTALLABLE_UNITS__PRODUCT_CONTAINER,
-					oldProductContainer, productContainer));
+					newProductContainer, newProductContainer));
 	}
 
 	/**

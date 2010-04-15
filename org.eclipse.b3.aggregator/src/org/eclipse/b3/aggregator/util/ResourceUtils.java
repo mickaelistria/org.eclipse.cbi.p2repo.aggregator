@@ -18,9 +18,9 @@ import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.cli.HeadlessActivator;
+import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
@@ -69,8 +69,8 @@ public class ResourceUtils {
 				for(MappedRepository mappedRepository : contribution.getRepositories()) {
 					if(mappedRepository.isBranchEnabled()) {
 						if(mappedRepository.getResolvedLocation() != null) {
-							org.eclipse.emf.common.util.URI repoURI = org.eclipse.emf.common.util.URI.createGenericURI(
-									mappedRepository.getNature(), mappedRepository.getResolvedLocation(), null);
+							org.eclipse.emf.common.util.URI repoURI = MetadataRepositoryResourceImpl.getResourceUriForNatureAndLocation(
+									mappedRepository.getNature(), mappedRepository.getResolvedLocation());
 							referencedResources.add(topSet.getResource(repoURI, false));
 						}
 					}
@@ -84,8 +84,8 @@ public class ResourceUtils {
 			for(MetadataRepositoryReference repoRef : aggregator.getValidationRepositories()) {
 				if(repoRef.isBranchEnabled()) {
 					if(repoRef.getResolvedLocation() != null) {
-						org.eclipse.emf.common.util.URI repoURI = org.eclipse.emf.common.util.URI.createGenericURI(
-								repoRef.getNature(), repoRef.getResolvedLocation(), null);
+						org.eclipse.emf.common.util.URI repoURI = MetadataRepositoryResourceImpl.getResourceUriForNatureAndLocation(
+								repoRef.getNature(), repoRef.getResolvedLocation());
 						referencedResources.add(topSet.getResource(repoURI, false));
 					}
 				}

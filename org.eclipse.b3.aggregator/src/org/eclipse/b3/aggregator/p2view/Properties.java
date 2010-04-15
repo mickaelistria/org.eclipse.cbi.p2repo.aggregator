@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Properties {
 	/**
-	 * Returns the value of the '<em><b>Property List</b></em>' reference list.
+	 * Returns the value of the '<em><b>Property List</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Property}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -37,9 +37,9 @@ public interface Properties {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Property List</em>' reference list.
+	 * @return the value of the '<em>Property List</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProperties_PropertyList()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Property> getPropertyList();

@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Features extends ChildrenProvider<Feature> {
 	/**
-	 * Returns the value of the '<em><b>Features</b></em>' reference list.
+	 * Returns the value of the '<em><b>Features</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.Feature}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -37,9 +37,9 @@ public interface Features extends ChildrenProvider<Feature> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Features</em>' reference list.
+	 * @return the value of the '<em>Features</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFeatures_Features()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Feature> getFeatures();

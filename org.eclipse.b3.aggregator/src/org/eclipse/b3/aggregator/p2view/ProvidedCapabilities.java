@@ -29,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ProvidedCapabilities {
 	/**
-	 * Returns the value of the '<em><b>Provided Capabilities</b></em>' reference list.
+	 * Returns the value of the '<em><b>Provided Capabilities</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -38,9 +38,9 @@ public interface ProvidedCapabilities {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Provided Capabilities</em>' reference list.
+	 * @return the value of the '<em>Provided Capabilities</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProvidedCapabilities_ProvidedCapabilities()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<ProvidedCapabilityWrapper> getProvidedCapabilities();

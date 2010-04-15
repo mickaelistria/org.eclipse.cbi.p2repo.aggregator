@@ -15,13 +15,16 @@ import org.eclipse.b3.aggregator.p2view.Fragment;
 import org.eclipse.b3.aggregator.p2view.Fragments;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Fragments</b></em>'. <!-- end-user-doc -->
@@ -46,7 +49,7 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 	protected int eFlags = 0;
 
 	/**
-	 * The cached value of the '{@link #getFragments() <em>Fragments</em>}' reference list.
+	 * The cached value of the '{@link #getFragments() <em>Fragments</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -79,6 +82,21 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 			return getFragments();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+		case P2viewPackage.FRAGMENTS__FRAGMENTS:
+			return ((InternalEList<?>) getFragments()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -145,7 +163,8 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 	 */
 	public EList<Fragment> getFragments() {
 		if(fragments == null) {
-			fragments = new EObjectResolvingEList<Fragment>(Fragment.class, this, P2viewPackage.FRAGMENTS__FRAGMENTS);
+			fragments = new EObjectContainmentEList.Resolving<Fragment>(Fragment.class, this,
+					P2viewPackage.FRAGMENTS__FRAGMENTS);
 		}
 		return fragments;
 	}

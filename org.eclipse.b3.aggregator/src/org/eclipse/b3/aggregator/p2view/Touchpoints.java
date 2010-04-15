@@ -41,7 +41,7 @@ public interface Touchpoints {
 	 * 
 	 * @return the value of the '<em>Touchpoint Data List</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getTouchpoints_TouchpointDataList()
-	 * @model type="org.eclipse.b3.aggregator.p2.ITouchpointData"
+	 * @model type="org.eclipse.b3.p2.ITouchpointData"
 	 * @generated
 	 */
 	EList<ITouchpointData> getTouchpointDataList();
@@ -58,7 +58,7 @@ public interface Touchpoints {
 	 * @return the value of the '<em>Touchpoint Type</em>' reference.
 	 * @see #setTouchpointType(ITouchpointType)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getTouchpoints_TouchpointType()
-	 * @model type="org.eclipse.b3.aggregator.p2.ITouchpointType"
+	 * @model type="org.eclipse.b3.p2.ITouchpointType"
 	 * @generated
 	 */
 	ITouchpointType getTouchpointType();

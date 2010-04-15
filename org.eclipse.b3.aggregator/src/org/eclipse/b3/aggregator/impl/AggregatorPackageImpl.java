@@ -7,7 +7,6 @@
 package org.eclipse.b3.aggregator.impl;
 
 import java.lang.Comparable;
-
 import org.eclipse.b3.aggregator.AggregateType;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -46,13 +45,11 @@ import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
 import org.eclipse.b3.aggregator.VersionMatch;
 import org.eclipse.b3.aggregator.WindowSystem;
-import org.eclipse.b3.aggregator.p2.P2Package;
-import org.eclipse.b3.aggregator.p2.impl.P2PackageImpl;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl;
+import org.eclipse.b3.p2.P2Package;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
@@ -93,24 +90,20 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		isInited = true;
 
 		// Initialize simple dependencies
+		P2Package.eINSTANCE.eClass();
 		XMLTypePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		P2PackageImpl theP2Package = (P2PackageImpl) (EPackage.Registry.INSTANCE.getEPackage(P2Package.eNS_URI) instanceof P2PackageImpl
-				? EPackage.Registry.INSTANCE.getEPackage(P2Package.eNS_URI)
-				: P2Package.eINSTANCE);
 		P2viewPackageImpl theP2viewPackage = (P2viewPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(P2viewPackage.eNS_URI) instanceof P2viewPackageImpl
 				? EPackage.Registry.INSTANCE.getEPackage(P2viewPackage.eNS_URI)
 				: P2viewPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAggregatorPackage.createPackageContents();
-		theP2Package.createPackageContents();
 		theP2viewPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAggregatorPackage.initializePackageContents();
-		theP2Package.initializePackageContents();
 		theP2viewPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
@@ -389,13 +382,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
-	private EDataType uriEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	private static boolean isInited = false;
 
 	/**
@@ -576,9 +562,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		installableUnitTypeEEnum = createEEnum(INSTALLABLE_UNIT_TYPE);
 		statusCodeEEnum = createEEnum(STATUS_CODE);
 		versionMatchEEnum = createEEnum(VERSION_MATCH);
-
-		// Create data types
-		uriEDataType = createEDataType(URI);
 	}
 
 	/**
@@ -1507,15 +1490,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
-	public EDataType getURI() {
-		return uriEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EClass getValidConfigurationsRule() {
 		return validConfigurationsRuleEClass;
 	}
@@ -1566,12 +1540,11 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		P2Package theP2Package = (P2Package) EPackage.Registry.INSTANCE.getEPackage(P2Package.eNS_URI);
 		P2viewPackage theP2viewPackage = (P2viewPackage) EPackage.Registry.INSTANCE.getEPackage(P2viewPackage.eNS_URI);
+		P2Package theP2Package = (P2Package) EPackage.Registry.INSTANCE.getEPackage(P2Package.eNS_URI);
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage) EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 
 		// Add subpackages
-		getESubpackages().add(theP2Package);
 		getESubpackages().add(theP2viewPackage);
 
 		// Create type parameters
@@ -2017,9 +1990,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(versionMatchEEnum, VersionMatch.BELOW);
 		addEEnumLiteral(versionMatchEEnum, VersionMatch.MATCHES);
 		addEEnumLiteral(versionMatchEEnum, VersionMatch.ABOVE);
-
-		// Initialize data types
-		initEDataType(uriEDataType, java.net.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

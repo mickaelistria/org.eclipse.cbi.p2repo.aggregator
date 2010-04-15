@@ -10,7 +10,7 @@
 package org.eclipse.b3.aggregator.p2view;
 
 import org.eclipse.b3.aggregator.ChildrenProvider;
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
+import org.eclipse.b3.p2.MetadataRepository;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Metadata Repository Structured View</b></em>'.

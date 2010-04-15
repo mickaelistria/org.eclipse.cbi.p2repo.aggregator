@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Miscellaneous extends ChildrenProvider<OtherIU> {
 	/**
-	 * Returns the value of the '<em><b>Others</b></em>' reference list.
+	 * Returns the value of the '<em><b>Others</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.OtherIU}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -37,9 +37,9 @@ public interface Miscellaneous extends ChildrenProvider<OtherIU> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Others</em>' reference list.
+	 * @return the value of the '<em>Others</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMiscellaneous_Others()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<OtherIU> getOthers();

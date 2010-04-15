@@ -15,13 +15,16 @@ import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.Product;
 import org.eclipse.b3.aggregator.p2view.Products;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Products</b></em>'. <!-- end-user-doc -->
@@ -46,7 +49,7 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	protected int eFlags = 0;
 
 	/**
-	 * The cached value of the '{@link #getProducts() <em>Products</em>}' reference list.
+	 * The cached value of the '{@link #getProducts() <em>Products</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -79,6 +82,21 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 			return getProducts();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+		case P2viewPackage.PRODUCTS__PRODUCTS:
+			return ((InternalEList<?>) getProducts()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -145,7 +163,8 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	 */
 	public EList<Product> getProducts() {
 		if(products == null) {
-			products = new EObjectResolvingEList<Product>(Product.class, this, P2viewPackage.PRODUCTS__PRODUCTS);
+			products = new EObjectContainmentEList.Resolving<Product>(Product.class, this,
+					P2viewPackage.PRODUCTS__PRODUCTS);
 		}
 		return products;
 	}

@@ -13,13 +13,16 @@ import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.b3.aggregator.p2view.Requirements;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +49,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	protected int eFlags = 0;
 
 	/**
-	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' reference list.
+	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -79,6 +82,21 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 			return getRequirements();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+		case P2viewPackage.REQUIREMENTS__REQUIREMENTS:
+			return ((InternalEList<?>) getRequirements()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -138,7 +156,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	 */
 	public EList<RequirementWrapper> getRequirements() {
 		if(requirements == null) {
-			requirements = new EObjectResolvingEList<RequirementWrapper>(RequirementWrapper.class, this,
+			requirements = new EObjectContainmentEList.Resolving<RequirementWrapper>(RequirementWrapper.class, this,
 					P2viewPackage.REQUIREMENTS__REQUIREMENTS);
 		}
 		return requirements;

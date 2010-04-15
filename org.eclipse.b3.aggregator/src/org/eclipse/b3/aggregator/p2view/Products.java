@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Products extends ChildrenProvider<Product> {
 	/**
-	 * Returns the value of the '<em><b>Products</b></em>' reference list.
+	 * Returns the value of the '<em><b>Products</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.Product}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -37,9 +37,9 @@ public interface Products extends ChildrenProvider<Product> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Products</em>' reference list.
+	 * @return the value of the '<em>Products</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProducts_Products()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Product> getProducts();

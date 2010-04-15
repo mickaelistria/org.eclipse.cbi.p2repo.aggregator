@@ -8,7 +8,6 @@ package org.eclipse.b3.aggregator;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -1028,16 +1027,6 @@ public interface AggregatorPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum VERSION_MATCH = eINSTANCE.getVersionMatch();
-
-		/**
-		 * The meta object literal for the '<em>URI</em>' data type.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @see java.net.URI
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getURI()
-		 * @generated
-		 */
-		EDataType URI = eINSTANCE.getURI();
 
 	}
 
@@ -3492,16 +3481,6 @@ public interface AggregatorPackage extends EPackage {
 	int VERSION_MATCH = 36;
 
 	/**
-	 * The meta object id for the '<em>URI</em>' data type.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see java.net.URI
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getURI()
-	 * @generated
-	 */
-	int URI = 37;
-
-	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.AggregateType <em>Aggregate Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -4672,18 +4651,6 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStatusProvider_Status();
-
-	/**
-	 * Returns the meta object for data type '{@link java.net.URI <em>URI</em>}'.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @return the meta object for data type '<em>URI</em>'.
-	 * @see java.net.URI
-	 * @model instanceClass="java.net.URI"
-	 * @generated
-	 */
-	EDataType getURI();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.ValidConfigurationsRule

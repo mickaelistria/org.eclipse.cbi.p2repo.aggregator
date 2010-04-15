@@ -100,7 +100,7 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * @return the value of the '<em>Version Range</em>' attribute.
 	 * @see #setVersionRange(VersionRange)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getInstallableUnitRequest_VersionRange()
-	 * @model default="0.0.0" dataType="org.eclipse.b3.aggregator.p2.VersionRange"
+	 * @model default="0.0.0" dataType="org.eclipse.b3.p2.VersionRange"
 	 * @generated
 	 */
 	VersionRange getVersionRange();
@@ -133,7 +133,7 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model type="org.eclipse.b3.aggregator.p2.IInstallableUnit"
+	 * @model type="org.eclipse.b3.p2.IInstallableUnit"
 	 * @generated
 	 */
 	IInstallableUnit resolveAsSingleton();
@@ -142,7 +142,7 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model type="org.eclipse.b3.aggregator.p2.IInstallableUnit"
+	 * @model type="org.eclipse.b3.p2.IInstallableUnit"
 	 * @generated
 	 */
 	IInstallableUnit resolveAsSingleton(boolean forceResolve);

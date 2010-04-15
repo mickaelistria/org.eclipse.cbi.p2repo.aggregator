@@ -44,7 +44,7 @@ public interface AvailableVersion {
 	 * @return the value of the '<em>Filter</em>' attribute.
 	 * @see #setFilter(IMatchExpression)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion_Filter()
-	 * @model dataType="org.eclipse.b3.aggregator.p2.IMatchExpression<org.eclipse.b3.aggregator.p2.IInstallableUnit>"
+	 * @model dataType="org.eclipse.b3.p2.IMatchExpression<org.eclipse.b3.p2.IInstallableUnit>"
 	 * @generated
 	 */
 	IMatchExpression<IInstallableUnit> getFilter();
@@ -61,7 +61,7 @@ public interface AvailableVersion {
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(Version)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion_Version()
-	 * @model dataType="org.eclipse.b3.aggregator.p2.Version"
+	 * @model dataType="org.eclipse.b3.p2.Version"
 	 * @generated
 	 */
 	Version getVersion();

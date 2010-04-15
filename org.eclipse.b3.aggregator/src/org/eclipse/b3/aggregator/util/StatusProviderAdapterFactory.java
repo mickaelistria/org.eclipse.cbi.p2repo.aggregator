@@ -10,7 +10,7 @@ package org.eclipse.b3.aggregator.util;
 
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusProvider;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
+import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;

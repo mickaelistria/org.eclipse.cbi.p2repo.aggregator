@@ -6,8 +6,6 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
-import java.net.URI;
-
 import org.eclipse.b3.aggregator.AggregateType;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -41,8 +39,8 @@ import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
 import org.eclipse.b3.aggregator.VersionMatch;
 import org.eclipse.b3.aggregator.WindowSystem;
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
+import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -189,20 +187,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			return convertStatusCodeToString(eDataType, instanceValue);
 		case AggregatorPackage.VERSION_MATCH:
 			return convertVersionMatchToString(eDataType, instanceValue);
-		case AggregatorPackage.URI:
-			return convertURIToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public String convertURIToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**
@@ -455,8 +442,6 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			return createStatusCodeFromString(eDataType, initialValue);
 		case AggregatorPackage.VERSION_MATCH:
 			return createVersionMatchFromString(eDataType, initialValue);
-		case AggregatorPackage.URI:
-			return createURIFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -676,15 +661,6 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
 					+ eDataType.getName() + "'");
 		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public URI createURIFromString(EDataType eDataType, String initialValue) {
-		return (URI) super.createFromString(eDataType, initialValue);
 	}
 
 	/**

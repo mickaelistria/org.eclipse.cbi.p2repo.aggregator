@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Requirements {
 	/**
-	 * Returns the value of the '<em><b>Requirements</b></em>' reference list.
+	 * Returns the value of the '<em><b>Requirements</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -36,9 +36,9 @@ public interface Requirements {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Requirements</em>' reference list.
+	 * @return the value of the '<em>Requirements</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRequirements_Requirements()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<RequirementWrapper> getRequirements();

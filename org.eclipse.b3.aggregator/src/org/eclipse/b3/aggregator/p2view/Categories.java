@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Categories extends ChildrenProvider<Category> {
 	/**
-	 * Returns the value of the '<em><b>Categories</b></em>' reference list.
+	 * Returns the value of the '<em><b>Categories</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.Category}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -37,9 +37,9 @@ public interface Categories extends ChildrenProvider<Category> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Categories</em>' reference list.
+	 * @return the value of the '<em>Categories</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getCategories_Categories()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Category> getCategories();

@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface InstallableUnits extends ChildrenProvider<EObject> {
 	/**
-	 * Returns the value of the '<em><b>Bundle Container</b></em>' reference.
+	 * Returns the value of the '<em><b>Bundle Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Bundle Container</em>' reference isn't clear, there really should be more of a
@@ -42,16 +42,16 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Bundle Container</em>' reference.
+	 * @return the value of the '<em>Bundle Container</em>' containment reference.
 	 * @see #setBundleContainer(Bundles)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getInstallableUnits_BundleContainer()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	Bundles getBundleContainer();
 
 	/**
-	 * Returns the value of the '<em><b>Category Container</b></em>' reference.
+	 * Returns the value of the '<em><b>Category Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Category Container</em>' reference isn't clear, there really should be more of a
@@ -59,16 +59,16 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Category Container</em>' reference.
+	 * @return the value of the '<em>Category Container</em>' containment reference.
 	 * @see #setCategoryContainer(Categories)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getInstallableUnits_CategoryContainer()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	Categories getCategoryContainer();
 
 	/**
-	 * Returns the value of the '<em><b>Feature Container</b></em>' reference.
+	 * Returns the value of the '<em><b>Feature Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Feature Container</em>' reference isn't clear, there really should be more of a
@@ -76,16 +76,16 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Feature Container</em>' reference.
+	 * @return the value of the '<em>Feature Container</em>' containment reference.
 	 * @see #setFeatureContainer(Features)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getInstallableUnits_FeatureContainer()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	Features getFeatureContainer();
 
 	/**
-	 * Returns the value of the '<em><b>Fragment Container</b></em>' reference.
+	 * Returns the value of the '<em><b>Fragment Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Fragment Container</em>' reference isn't clear, there really should be more of a
@@ -93,16 +93,16 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Fragment Container</em>' reference.
+	 * @return the value of the '<em>Fragment Container</em>' containment reference.
 	 * @see #setFragmentContainer(Fragments)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getInstallableUnits_FragmentContainer()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	Fragments getFragmentContainer();
 
 	/**
-	 * Returns the value of the '<em><b>Miscellaneous Container</b></em>' reference.
+	 * Returns the value of the '<em><b>Miscellaneous Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Miscellaneous Container</em>' reference isn't clear, there really should be more of a
@@ -110,10 +110,10 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Miscellaneous Container</em>' reference.
+	 * @return the value of the '<em>Miscellaneous Container</em>' containment reference.
 	 * @see #setMiscellaneousContainer(Miscellaneous)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getInstallableUnits_MiscellaneousContainer()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	Miscellaneous getMiscellaneousContainer();
@@ -167,7 +167,7 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 	Products getNotNullProductContainer();
 
 	/**
-	 * Returns the value of the '<em><b>Product Container</b></em>' reference.
+	 * Returns the value of the '<em><b>Product Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Product Container</em>' reference isn't clear, there really should be more of a
@@ -175,21 +175,21 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Product Container</em>' reference.
+	 * @return the value of the '<em>Product Container</em>' containment reference.
 	 * @see #setProductContainer(Products)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getInstallableUnits_ProductContainer()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	Products getProductContainer();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.InstallableUnits#getBundleContainer
-	 * <em>Bundle Container</em>}' reference.
+	 * <em>Bundle Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Bundle Container</em>' reference.
+	 *            the new value of the '<em>Bundle Container</em>' containment reference.
 	 * @see #getBundleContainer()
 	 * @generated
 	 */
@@ -197,11 +197,11 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.InstallableUnits#getCategoryContainer
-	 * <em>Category Container</em>}' reference.
+	 * <em>Category Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Category Container</em>' reference.
+	 *            the new value of the '<em>Category Container</em>' containment reference.
 	 * @see #getCategoryContainer()
 	 * @generated
 	 */
@@ -209,11 +209,11 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.InstallableUnits#getFeatureContainer
-	 * <em>Feature Container</em>}' reference.
+	 * <em>Feature Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Feature Container</em>' reference.
+	 *            the new value of the '<em>Feature Container</em>' containment reference.
 	 * @see #getFeatureContainer()
 	 * @generated
 	 */
@@ -221,11 +221,11 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.InstallableUnits#getFragmentContainer
-	 * <em>Fragment Container</em>}' reference.
+	 * <em>Fragment Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Fragment Container</em>' reference.
+	 *            the new value of the '<em>Fragment Container</em>' containment reference.
 	 * @see #getFragmentContainer()
 	 * @generated
 	 */
@@ -233,11 +233,11 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.InstallableUnits#getMiscellaneousContainer
-	 * <em>Miscellaneous Container</em>}' reference.
+	 * <em>Miscellaneous Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Miscellaneous Container</em>' reference.
+	 *            the new value of the '<em>Miscellaneous Container</em>' containment reference.
 	 * @see #getMiscellaneousContainer()
 	 * @generated
 	 */
@@ -245,11 +245,11 @@ public interface InstallableUnits extends ChildrenProvider<EObject> {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.InstallableUnits#getProductContainer
-	 * <em>Product Container</em>}' reference.
+	 * <em>Product Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Product Container</em>' reference.
+	 *            the new value of the '<em>Product Container</em>' containment reference.
 	 * @see #getProductContainer()
 	 * @generated
 	 */

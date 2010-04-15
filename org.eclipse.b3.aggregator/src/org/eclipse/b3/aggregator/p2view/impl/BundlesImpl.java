@@ -15,13 +15,16 @@ import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Bundles;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Bundles</b></em>'. <!-- end-user-doc -->
@@ -46,7 +49,7 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	protected int eFlags = 0;
 
 	/**
-	 * The cached value of the '{@link #getBundles() <em>Bundles</em>}' reference list.
+	 * The cached value of the '{@link #getBundles() <em>Bundles</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -79,6 +82,21 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 			return getBundles();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+		case P2viewPackage.BUNDLES__BUNDLES:
+			return ((InternalEList<?>) getBundles()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -136,7 +154,7 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	 */
 	public EList<Bundle> getBundles() {
 		if(bundles == null) {
-			bundles = new EObjectResolvingEList<Bundle>(Bundle.class, this, P2viewPackage.BUNDLES__BUNDLES);
+			bundles = new EObjectContainmentEList.Resolving<Bundle>(Bundle.class, this, P2viewPackage.BUNDLES__BUNDLES);
 		}
 		return bundles;
 	}

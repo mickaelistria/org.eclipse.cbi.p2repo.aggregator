@@ -15,13 +15,16 @@ import org.eclipse.b3.aggregator.p2view.Categories;
 import org.eclipse.b3.aggregator.p2view.Category;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Categories</b></em>'. <!-- end-user-doc -->
@@ -46,7 +49,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	protected int eFlags = 0;
 
 	/**
-	 * The cached value of the '{@link #getCategories() <em>Categories</em>}' reference list.
+	 * The cached value of the '{@link #getCategories() <em>Categories</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -79,6 +82,21 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 			return getCategories();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+		case P2viewPackage.CATEGORIES__CATEGORIES:
+			return ((InternalEList<?>) getCategories()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -136,7 +154,8 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	 */
 	public EList<Category> getCategories() {
 		if(categories == null) {
-			categories = new EObjectResolvingEList<Category>(Category.class, this, P2viewPackage.CATEGORIES__CATEGORIES);
+			categories = new EObjectContainmentEList.Resolving<Category>(Category.class, this,
+					P2viewPackage.CATEGORIES__CATEGORIES);
 		}
 		return categories;
 	}
