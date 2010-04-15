@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="loader" name="Repository Loader" schema="schema/loader.exsd"/>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.eclipse.org/b3/2010/p2/1.0.0"
+            class="org.eclipse.b3.p2.P2Package"
+            genModel="model/p2.genmodel"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.b3.p2.loader">
+      <loader
+      		nature="p2"
+            class="org.eclipse.b3.p2.loader.impl.P2RepositoryLoader"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.protocol_parser">
+      <parser
+            class="org.eclipse.b3.p2.util.P2ResourceFactoryImpl"
+            protocolName="b3">
+      </parser>
+   </extension>
+
+</plugin>
