@@ -125,8 +125,8 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 		ConfigurationType oldConfiguration = configuration;
 		configuration = newConfiguration;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.REPORT_SET__CONFIGURATION, oldConfiguration, newConfiguration);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_SET__CONFIGURATION, oldConfiguration, newConfiguration);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -144,8 +144,8 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 		ReportSetReportsType oldReports = reports;
 		reports = newReports;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.REPORT_SET__REPORTS, oldReports, newReports);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_SET__REPORTS, oldReports, newReports);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -162,14 +162,14 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.REPORT_SET__ID:
-			return getId();
-		case PomPackage.REPORT_SET__CONFIGURATION:
-			return getConfiguration();
-		case PomPackage.REPORT_SET__INHERITED:
-			return getInherited();
-		case PomPackage.REPORT_SET__REPORTS:
-			return getReports();
+			case PomPackage.REPORT_SET__ID:
+				return getId();
+			case PomPackage.REPORT_SET__CONFIGURATION:
+				return getConfiguration();
+			case PomPackage.REPORT_SET__INHERITED:
+				return getInherited();
+			case PomPackage.REPORT_SET__REPORTS:
+				return getReports();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,10 +182,10 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.REPORT_SET__CONFIGURATION:
-			return basicSetConfiguration(null, msgs);
-		case PomPackage.REPORT_SET__REPORTS:
-			return basicSetReports(null, msgs);
+			case PomPackage.REPORT_SET__CONFIGURATION:
+				return basicSetConfiguration(null, msgs);
+			case PomPackage.REPORT_SET__REPORTS:
+				return basicSetReports(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -198,16 +198,16 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORT_SET__ID:
-			return isSetId();
-		case PomPackage.REPORT_SET__CONFIGURATION:
-			return configuration != null;
-		case PomPackage.REPORT_SET__INHERITED:
-			return INHERITED_EDEFAULT == null
-					? inherited != null
-					: !INHERITED_EDEFAULT.equals(inherited);
-		case PomPackage.REPORT_SET__REPORTS:
-			return reports != null;
+			case PomPackage.REPORT_SET__ID:
+				return isSetId();
+			case PomPackage.REPORT_SET__CONFIGURATION:
+				return configuration != null;
+			case PomPackage.REPORT_SET__INHERITED:
+				return INHERITED_EDEFAULT == null
+						? inherited != null
+						: !INHERITED_EDEFAULT.equals(inherited);
+			case PomPackage.REPORT_SET__REPORTS:
+				return reports != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -220,18 +220,18 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.REPORT_SET__ID:
-			setId((String) newValue);
-			return;
-		case PomPackage.REPORT_SET__CONFIGURATION:
-			setConfiguration((ConfigurationType) newValue);
-			return;
-		case PomPackage.REPORT_SET__INHERITED:
-			setInherited((String) newValue);
-			return;
-		case PomPackage.REPORT_SET__REPORTS:
-			setReports((ReportSetReportsType) newValue);
-			return;
+			case PomPackage.REPORT_SET__ID:
+				setId((String) newValue);
+				return;
+			case PomPackage.REPORT_SET__CONFIGURATION:
+				setConfiguration((ConfigurationType) newValue);
+				return;
+			case PomPackage.REPORT_SET__INHERITED:
+				setInherited((String) newValue);
+				return;
+			case PomPackage.REPORT_SET__REPORTS:
+				setReports((ReportSetReportsType) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -244,18 +244,18 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORT_SET__ID:
-			unsetId();
-			return;
-		case PomPackage.REPORT_SET__CONFIGURATION:
-			setConfiguration((ConfigurationType) null);
-			return;
-		case PomPackage.REPORT_SET__INHERITED:
-			setInherited(INHERITED_EDEFAULT);
-			return;
-		case PomPackage.REPORT_SET__REPORTS:
-			setReports((ReportSetReportsType) null);
-			return;
+			case PomPackage.REPORT_SET__ID:
+				unsetId();
+				return;
+			case PomPackage.REPORT_SET__CONFIGURATION:
+				setConfiguration((ConfigurationType) null);
+				return;
+			case PomPackage.REPORT_SET__INHERITED:
+				setInherited(INHERITED_EDEFAULT);
+				return;
+			case PomPackage.REPORT_SET__REPORTS:
+				setReports((ReportSetReportsType) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -314,18 +314,18 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 		if(newConfiguration != configuration) {
 			NotificationChain msgs = null;
 			if(configuration != null)
-				msgs = ((InternalEObject) configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPORT_SET__CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject) configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPORT_SET__CONFIGURATION, null, msgs);
 			if(newConfiguration != null)
-				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPORT_SET__CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPORT_SET__CONFIGURATION, null, msgs);
 			msgs = basicSetConfiguration(newConfiguration, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_SET__CONFIGURATION,
-					newConfiguration, newConfiguration));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_SET__CONFIGURATION, newConfiguration, newConfiguration));
 	}
 
 	/**
@@ -351,8 +351,8 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 		String oldInherited = inherited;
 		inherited = newInherited;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_SET__INHERITED, oldInherited,
-					inherited));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_SET__INHERITED, oldInherited, inherited));
 	}
 
 	/**
@@ -364,18 +364,18 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 		if(newReports != reports) {
 			NotificationChain msgs = null;
 			if(reports != null)
-				msgs = ((InternalEObject) reports).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPORT_SET__REPORTS, null, msgs);
+				msgs = ((InternalEObject) reports).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPORT_SET__REPORTS, null, msgs);
 			if(newReports != null)
-				msgs = ((InternalEObject) newReports).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPORT_SET__REPORTS, null, msgs);
+				msgs = ((InternalEObject) newReports).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPORT_SET__REPORTS, null, msgs);
 			msgs = basicSetReports(newReports, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_SET__REPORTS, newReports,
-					newReports));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_SET__REPORTS, newReports, newReports));
 	}
 
 	/**
@@ -411,8 +411,8 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 		id = ID_EDEFAULT;
 		idESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.REPORT_SET__ID, oldId, ID_EDEFAULT,
-					oldIdESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.REPORT_SET__ID, oldId, ID_EDEFAULT, oldIdESet));
 	}
 
 	/**

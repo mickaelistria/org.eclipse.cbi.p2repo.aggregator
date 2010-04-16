@@ -57,8 +57,8 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case MetadataPackage.VERSIONS__VERSION:
-			return getVersion();
+			case MetadataPackage.VERSIONS__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -71,8 +71,8 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case MetadataPackage.VERSIONS__VERSION:
-			return version != null && !version.isEmpty();
+			case MetadataPackage.VERSIONS__VERSION:
+				return version != null && !version.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -86,10 +86,10 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case MetadataPackage.VERSIONS__VERSION:
-			getVersion().clear();
-			getVersion().addAll((Collection<? extends String>) newValue);
-			return;
+			case MetadataPackage.VERSIONS__VERSION:
+				getVersion().clear();
+				getVersion().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -102,9 +102,9 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case MetadataPackage.VERSIONS__VERSION:
-			getVersion().clear();
-			return;
+			case MetadataPackage.VERSIONS__VERSION:
+				getVersion().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

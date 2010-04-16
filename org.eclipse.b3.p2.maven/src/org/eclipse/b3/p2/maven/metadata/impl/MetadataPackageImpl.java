@@ -349,46 +349,57 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_XMLNSPrefixMap(), ecorePackage.getEStringToStringMapEntry(), null,
-				"xMLNSPrefixMap", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_XSISchemaLocation(), ecorePackage.getEStringToStringMapEntry(), null,
-				"xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_Metadata(), this.getMetaData(), null, "metadata", null, 0, -2, null,
-				IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				IS_DERIVED, IS_ORDERED);
+		initEClass(
+			documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getDocumentRoot_XMLNSPrefixMap(), ecorePackage.getEStringToStringMapEntry(), null, "xMLNSPrefixMap", null,
+			0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getDocumentRoot_XSISchemaLocation(), ecorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation",
+			null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getDocumentRoot_Metadata(), this.getMetaData(), null, "metadata", null, 0, -2, null, IS_TRANSIENT,
+			IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
+			IS_ORDERED);
 
 		initEClass(metaDataEClass, MetaData.class, "MetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMetaData_GroupId(), theXMLTypePackage.getString(), "groupId", null, 0, 1, MetaData.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMetaData_ArtifactId(), theXMLTypePackage.getString(), "artifactId", null, 0, 1,
-				MetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMetaData_Version(), theXMLTypePackage.getString(), "version", null, 0, 1, MetaData.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMetaData_Versioning(), this.getVersioning(), null, "versioning", null, 1, 1, MetaData.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMetaData_GroupId(), theXMLTypePackage.getString(), "groupId", null, 0, 1, MetaData.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMetaData_ArtifactId(), theXMLTypePackage.getString(), "artifactId", null, 0, 1, MetaData.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMetaData_Version(), theXMLTypePackage.getString(), "version", null, 0, 1, MetaData.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMetaData_Versioning(), this.getVersioning(), null, "versioning", null, 1, 1, MetaData.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
-		initEClass(versioningEClass, Versioning.class, "Versioning", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVersioning_Release(), theXMLTypePackage.getString(), "release", null, 0, 1, Versioning.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVersioning_Versions(), this.getVersions(), null, "versions", null, 1, 1, Versioning.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVersioning_LastUpdated(), theXMLTypePackage.getString(), "lastUpdated", null, 0, 1,
-				Versioning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(
+			versioningEClass, Versioning.class, "Versioning", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getVersioning_Release(), theXMLTypePackage.getString(), "release", null, 0, 1, Versioning.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getVersioning_Versions(), this.getVersions(), null, "versions", null, 1, 1, Versioning.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getVersioning_LastUpdated(), theXMLTypePackage.getString(), "lastUpdated", null, 0, 1, Versioning.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(versionsEClass, Versions.class, "Versions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVersions_Version(), theXMLTypePackage.getString(), "version", null, 1, -1, Versions.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getVersions_Version(), theXMLTypePackage.getString(), "version", null, 1, -1, Versions.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -409,31 +420,31 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
 		addAnnotation(documentRootEClass, source, new String[] { "name", "", "kind", "mixed" });
 		addAnnotation(getDocumentRoot_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" });
-		addAnnotation(getDocumentRoot_XMLNSPrefixMap(), source, new String[] { "kind", "attribute", "name",
-				"xmlns:prefix" });
-		addAnnotation(getDocumentRoot_XSISchemaLocation(), source, new String[] { "kind", "attribute", "name",
-				"xsi:schemaLocation" });
-		addAnnotation(getDocumentRoot_Metadata(), source, new String[] { "kind", "element", "name", "metadata",
-				"namespace", "##targetNamespace" });
+		addAnnotation(getDocumentRoot_XMLNSPrefixMap(), source, new String[] {
+				"kind", "attribute", "name", "xmlns:prefix" });
+		addAnnotation(getDocumentRoot_XSISchemaLocation(), source, new String[] {
+				"kind", "attribute", "name", "xsi:schemaLocation" });
+		addAnnotation(getDocumentRoot_Metadata(), source, new String[] {
+				"kind", "element", "name", "metadata", "namespace", "##targetNamespace" });
 		addAnnotation(metaDataEClass, source, new String[] { "name", "MetaData", "kind", "elementOnly" });
-		addAnnotation(getMetaData_GroupId(), source, new String[] { "kind", "element", "name", "groupId", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getMetaData_ArtifactId(), source, new String[] { "kind", "element", "name", "artifactId",
-				"namespace", "##targetNamespace" });
-		addAnnotation(getMetaData_Version(), source, new String[] { "kind", "element", "name", "version", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getMetaData_Versioning(), source, new String[] { "kind", "element", "name", "versioning",
-				"namespace", "##targetNamespace" });
+		addAnnotation(getMetaData_GroupId(), source, new String[] {
+				"kind", "element", "name", "groupId", "namespace", "##targetNamespace" });
+		addAnnotation(getMetaData_ArtifactId(), source, new String[] {
+				"kind", "element", "name", "artifactId", "namespace", "##targetNamespace" });
+		addAnnotation(getMetaData_Version(), source, new String[] {
+				"kind", "element", "name", "version", "namespace", "##targetNamespace" });
+		addAnnotation(getMetaData_Versioning(), source, new String[] {
+				"kind", "element", "name", "versioning", "namespace", "##targetNamespace" });
 		addAnnotation(versioningEClass, source, new String[] { "name", "Versioning", "kind", "elementOnly" });
-		addAnnotation(getVersioning_Release(), source, new String[] { "kind", "element", "name", "release",
-				"namespace", "##targetNamespace" });
-		addAnnotation(getVersioning_Versions(), source, new String[] { "kind", "element", "name", "versions",
-				"namespace", "##targetNamespace" });
-		addAnnotation(getVersioning_LastUpdated(), source, new String[] { "kind", "element", "name", "lastUpdated",
-				"namespace", "##targetNamespace" });
+		addAnnotation(getVersioning_Release(), source, new String[] {
+				"kind", "element", "name", "release", "namespace", "##targetNamespace" });
+		addAnnotation(getVersioning_Versions(), source, new String[] {
+				"kind", "element", "name", "versions", "namespace", "##targetNamespace" });
+		addAnnotation(getVersioning_LastUpdated(), source, new String[] {
+				"kind", "element", "name", "lastUpdated", "namespace", "##targetNamespace" });
 		addAnnotation(versionsEClass, source, new String[] { "name", "Versions", "kind", "elementOnly" });
-		addAnnotation(getVersions_Version(), source, new String[] { "kind", "element", "name", "version", "namespace",
-				"##targetNamespace" });
+		addAnnotation(getVersions_Version(), source, new String[] {
+				"kind", "element", "name", "version", "namespace", "##targetNamespace" });
 	}
 
 } // MetadataPackageImpl

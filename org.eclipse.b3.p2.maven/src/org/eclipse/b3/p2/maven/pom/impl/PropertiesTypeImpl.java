@@ -61,10 +61,10 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.PROPERTIES_TYPE__ANY:
-			if(coreType)
-				return getAny();
-			return ((FeatureMap.Internal) getAny()).getWrapper();
+			case PomPackage.PROPERTIES_TYPE__ANY:
+				if(coreType)
+					return getAny();
+				return ((FeatureMap.Internal) getAny()).getWrapper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -77,8 +77,8 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.PROPERTIES_TYPE__ANY:
-			return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
+			case PomPackage.PROPERTIES_TYPE__ANY:
+				return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -91,8 +91,8 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.PROPERTIES_TYPE__ANY:
-			return any != null && !any.isEmpty();
+			case PomPackage.PROPERTIES_TYPE__ANY:
+				return any != null && !any.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -105,9 +105,9 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.PROPERTIES_TYPE__ANY:
-			((FeatureMap.Internal) getAny()).set(newValue);
-			return;
+			case PomPackage.PROPERTIES_TYPE__ANY:
+				((FeatureMap.Internal) getAny()).set(newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -120,9 +120,9 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.PROPERTIES_TYPE__ANY:
-			getAny().clear();
-			return;
+			case PomPackage.PROPERTIES_TYPE__ANY:
+				getAny().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

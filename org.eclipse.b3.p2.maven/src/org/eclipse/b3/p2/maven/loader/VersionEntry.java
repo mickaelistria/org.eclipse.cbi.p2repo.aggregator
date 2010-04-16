@@ -23,6 +23,7 @@ public class VersionEntry {
 		this.version = version;
 	}
 
+	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder(groupId);
 		sb.append('/');

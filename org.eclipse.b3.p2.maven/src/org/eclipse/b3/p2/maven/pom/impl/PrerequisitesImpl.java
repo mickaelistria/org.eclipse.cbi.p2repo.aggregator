@@ -75,8 +75,8 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.PREREQUISITES__MAVEN:
-			return getMaven();
+			case PomPackage.PREREQUISITES__MAVEN:
+				return getMaven();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -89,8 +89,8 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.PREREQUISITES__MAVEN:
-			return isSetMaven();
+			case PomPackage.PREREQUISITES__MAVEN:
+				return isSetMaven();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -103,9 +103,9 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.PREREQUISITES__MAVEN:
-			setMaven((String) newValue);
-			return;
+			case PomPackage.PREREQUISITES__MAVEN:
+				setMaven((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -118,9 +118,9 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.PREREQUISITES__MAVEN:
-			unsetMaven();
-			return;
+			case PomPackage.PREREQUISITES__MAVEN:
+				unsetMaven();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -154,8 +154,8 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 		boolean oldMavenESet = mavenESet;
 		mavenESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PREREQUISITES__MAVEN, oldMaven, maven,
-					!oldMavenESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.PREREQUISITES__MAVEN, oldMaven, maven, !oldMavenESet));
 	}
 
 	/**
@@ -189,8 +189,8 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 		maven = MAVEN_EDEFAULT;
 		mavenESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.PREREQUISITES__MAVEN, oldMaven,
-					MAVEN_EDEFAULT, oldMavenESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.PREREQUISITES__MAVEN, oldMaven, MAVEN_EDEFAULT, oldMavenESet));
 	}
 
 	/**

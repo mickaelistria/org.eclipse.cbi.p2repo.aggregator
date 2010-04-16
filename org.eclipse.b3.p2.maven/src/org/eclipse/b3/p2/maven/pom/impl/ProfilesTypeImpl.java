@@ -64,8 +64,8 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.PROFILES_TYPE__PROFILE:
-			return getProfile();
+			case PomPackage.PROFILES_TYPE__PROFILE:
+				return getProfile();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,8 +78,8 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.PROFILES_TYPE__PROFILE:
-			return ((InternalEList<?>) getProfile()).basicRemove(otherEnd, msgs);
+			case PomPackage.PROFILES_TYPE__PROFILE:
+				return ((InternalEList<?>) getProfile()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,8 +92,8 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.PROFILES_TYPE__PROFILE:
-			return profile != null && !profile.isEmpty();
+			case PomPackage.PROFILES_TYPE__PROFILE:
+				return profile != null && !profile.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,10 +107,10 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.PROFILES_TYPE__PROFILE:
-			getProfile().clear();
-			getProfile().addAll((Collection<? extends Profile>) newValue);
-			return;
+			case PomPackage.PROFILES_TYPE__PROFILE:
+				getProfile().clear();
+				getProfile().addAll((Collection<? extends Profile>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,9 +123,9 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.PROFILES_TYPE__PROFILE:
-			getProfile().clear();
-			return;
+			case PomPackage.PROFILES_TYPE__PROFILE:
+				getProfile().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

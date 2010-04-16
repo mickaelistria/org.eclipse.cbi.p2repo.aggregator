@@ -64,8 +64,8 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
-			return getTestResource();
+			case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
+				return getTestResource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,8 +78,8 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
-			return ((InternalEList<?>) getTestResource()).basicRemove(otherEnd, msgs);
+			case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
+				return ((InternalEList<?>) getTestResource()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,8 +92,8 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
-			return testResource != null && !testResource.isEmpty();
+			case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
+				return testResource != null && !testResource.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,10 +107,10 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
-			getTestResource().clear();
-			getTestResource().addAll((Collection<? extends Resource>) newValue);
-			return;
+			case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
+				getTestResource().clear();
+				getTestResource().addAll((Collection<? extends Resource>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,9 +123,9 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
-			getTestResource().clear();
-			return;
+			case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
+				getTestResource().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -137,8 +137,8 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	 */
 	public EList<Resource> getTestResource() {
 		if(testResource == null) {
-			testResource = new EObjectContainmentEList<Resource>(Resource.class, this,
-					PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE);
+			testResource = new EObjectContainmentEList<Resource>(
+				Resource.class, this, PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE);
 		}
 		return testResource;
 	}

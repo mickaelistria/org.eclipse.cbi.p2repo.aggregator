@@ -207,8 +207,9 @@ public class ResolvedModel extends ResolvedModelBase {
 	public ContributorsType getContributors() {
 		if(!contributorsResolved) {
 			contributorsResolved = true;
-			contributors = resolveWrappedListFeature(PomPackage.MODEL__CONTRIBUTORS,
-					PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR, ContributorsType.class, Contributor.class);
+			contributors = resolveWrappedListFeature(
+				PomPackage.MODEL__CONTRIBUTORS, PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR, ContributorsType.class,
+				Contributor.class);
 		}
 
 		return contributors;
@@ -217,8 +218,9 @@ public class ResolvedModel extends ResolvedModelBase {
 	public DependenciesType getDependencies() {
 		if(!dependenciesResolved) {
 			dependenciesResolved = true;
-			dependencies = resolveWrappedListFeature(PomPackage.MODEL__DEPENDENCIES,
-					PomPackage.DEPENDENCIES_TYPE__DEPENDENCY, DependenciesType.class, Dependency.class);
+			dependencies = resolveWrappedListFeature(
+				PomPackage.MODEL__DEPENDENCIES, PomPackage.DEPENDENCIES_TYPE__DEPENDENCY, DependenciesType.class,
+				Dependency.class);
 		}
 
 		return dependencies;
@@ -245,8 +247,9 @@ public class ResolvedModel extends ResolvedModelBase {
 	public DevelopersType getDevelopers() {
 		if(!developersResolved) {
 			developersResolved = true;
-			developers = resolveWrappedListFeature(PomPackage.MODEL__DEVELOPERS, PomPackage.DEVELOPERS_TYPE__DEVELOPER,
-					DevelopersType.class, Developer.class);
+			developers = resolveWrappedListFeature(
+				PomPackage.MODEL__DEVELOPERS, PomPackage.DEVELOPERS_TYPE__DEVELOPER, DevelopersType.class,
+				Developer.class);
 		}
 
 		return developers;
@@ -291,8 +294,8 @@ public class ResolvedModel extends ResolvedModelBase {
 	public LicensesType getLicenses() {
 		if(!licensesResolved) {
 			licensesResolved = true;
-			licenses = resolveWrappedListFeature(PomPackage.MODEL__LICENSES, PomPackage.LICENSES_TYPE__LICENSE,
-					LicensesType.class, License.class);
+			licenses = resolveWrappedListFeature(
+				PomPackage.MODEL__LICENSES, PomPackage.LICENSES_TYPE__LICENSE, LicensesType.class, License.class);
 		}
 
 		return licenses;
@@ -301,8 +304,9 @@ public class ResolvedModel extends ResolvedModelBase {
 	public MailingListsType getMailingLists() {
 		if(!mailingListsResolved) {
 			mailingListsResolved = true;
-			mailingLists = resolveWrappedListFeature(PomPackage.MODEL__MAILING_LISTS,
-					PomPackage.MAILING_LISTS_TYPE__MAILING_LIST, MailingListsType.class, MailingList.class);
+			mailingLists = resolveWrappedListFeature(
+				PomPackage.MODEL__MAILING_LISTS, PomPackage.MAILING_LISTS_TYPE__MAILING_LIST, MailingListsType.class,
+				MailingList.class);
 		}
 
 		return mailingLists;
@@ -320,8 +324,8 @@ public class ResolvedModel extends ResolvedModelBase {
 	public ModulesType getModules() {
 		if(!modulesResolved) {
 			modulesResolved = true;
-			modules = resolveWrappedListFeature(PomPackage.MODEL__MODULES, PomPackage.MODULES_TYPE__MODULE,
-					ModulesType.class, String.class);
+			modules = resolveWrappedListFeature(
+				PomPackage.MODEL__MODULES, PomPackage.MODULES_TYPE__MODULE, ModulesType.class, String.class);
 		}
 
 		return modules;
@@ -361,9 +365,9 @@ public class ResolvedModel extends ResolvedModelBase {
 	public PluginRepositoriesType getPluginRepositories() {
 		if(!pluginRepositoriesResolved) {
 			pluginRepositoriesResolved = true;
-			pluginRepositories = resolveWrappedListFeature(PomPackage.MODEL__PLUGIN_REPOSITORIES,
-					PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY, PluginRepositoriesType.class,
-					Repository.class);
+			pluginRepositories = resolveWrappedListFeature(
+				PomPackage.MODEL__PLUGIN_REPOSITORIES, PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY,
+				PluginRepositoriesType.class, Repository.class);
 		}
 
 		return pluginRepositories;
@@ -381,8 +385,8 @@ public class ResolvedModel extends ResolvedModelBase {
 	public ProfilesType getProfiles() {
 		if(!profilesResolved) {
 			profilesResolved = true;
-			profiles = resolveWrappedListFeature(PomPackage.MODEL__PROFILES, PomPackage.PROFILES_TYPE__PROFILE,
-					ProfilesType.class, Profile.class);
+			profiles = resolveWrappedListFeature(
+				PomPackage.MODEL__PROFILES, PomPackage.PROFILES_TYPE__PROFILE, ProfilesType.class, Profile.class);
 		}
 
 		return profiles;
@@ -411,8 +415,8 @@ public class ResolvedModel extends ResolvedModelBase {
 			if(parent != null) {
 				propertyMap.put("parent.version", parent.getVersion());
 
-				ResolvedModel parentModel = POM.getPOM(repoRoot, parent.getGroupId(), parent.getArtifactId(),
-						parent.getVersion()).getResolvedProject();
+				ResolvedModel parentModel = POM.getPOM(
+					repoRoot, parent.getGroupId(), parent.getArtifactId(), parent.getVersion()).getResolvedProject();
 
 				for(Map.Entry<String, String> entry : parentModel.getPropertyMap().entrySet())
 					if(!propertyMap.containsKey(entry.getKey()))
@@ -439,8 +443,9 @@ public class ResolvedModel extends ResolvedModelBase {
 	public RepositoriesType getRepositories() {
 		if(!repositoriesResolved) {
 			repositoriesResolved = true;
-			repositories = resolveWrappedListFeature(PomPackage.MODEL__REPOSITORIES,
-					PomPackage.REPOSITORIES_TYPE__REPOSITORY, RepositoriesType.class, Repository.class);
+			repositories = resolveWrappedListFeature(
+				PomPackage.MODEL__REPOSITORIES, PomPackage.REPOSITORIES_TYPE__REPOSITORY, RepositoriesType.class,
+				Repository.class);
 		}
 
 		return repositories;
@@ -487,14 +492,14 @@ public class ResolvedModel extends ResolvedModelBase {
 				FeatureMap valueMap = ((AnyTypeImpl) entry.getValue()).getMixed();
 				String value;
 				switch(valueMap.size()) {
-				case 0:
-					value = null;
-					break;
-				case 1:
-					value = (String) ((AnyTypeImpl) entry.getValue()).getMixed().getValue(0);
-					break;
-				default:
-					throw ExceptionUtils.fromMessage("Unexpected property map size: %d", valueMap.size());
+					case 0:
+						value = null;
+						break;
+					case 1:
+						value = (String) ((AnyTypeImpl) entry.getValue()).getMixed().getValue(0);
+						break;
+					default:
+						throw ExceptionUtils.fromMessage("Unexpected property map size: %d", valueMap.size());
 				}
 
 				propertyMap.put(entry.getEStructuralFeature().getName(), value);
@@ -515,7 +520,7 @@ public class ResolvedModel extends ResolvedModelBase {
 				Parent parent = getParent();
 				if(parent != null)
 					result = (T) POM.getPOM(repoRoot, parent.getGroupId(), parent.getArtifactId(), parent.getVersion()).getResolvedProject().resolveFeature(
-							featureID);
+						featureID);
 			}
 
 			if(result instanceof String)
@@ -544,8 +549,8 @@ public class ResolvedModel extends ResolvedModelBase {
 				}
 				Parent parent = model.getParent();
 				if(parent != null)
-					model = (ModelImpl) POM.getPOM(repoRoot, parent.getGroupId(), parent.getArtifactId(),
-							parent.getVersion()).getProject();
+					model = (ModelImpl) POM.getPOM(
+						repoRoot, parent.getGroupId(), parent.getArtifactId(), parent.getVersion()).getProject();
 				else
 					model = null;
 			}

@@ -136,14 +136,14 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.RELOCATION__GROUP_ID:
-			return getGroupId();
-		case PomPackage.RELOCATION__ARTIFACT_ID:
-			return getArtifactId();
-		case PomPackage.RELOCATION__VERSION:
-			return getVersion();
-		case PomPackage.RELOCATION__MESSAGE:
-			return getMessage();
+			case PomPackage.RELOCATION__GROUP_ID:
+				return getGroupId();
+			case PomPackage.RELOCATION__ARTIFACT_ID:
+				return getArtifactId();
+			case PomPackage.RELOCATION__VERSION:
+				return getVersion();
+			case PomPackage.RELOCATION__MESSAGE:
+				return getMessage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,22 +156,22 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.RELOCATION__GROUP_ID:
-			return GROUP_ID_EDEFAULT == null
-					? groupId != null
-					: !GROUP_ID_EDEFAULT.equals(groupId);
-		case PomPackage.RELOCATION__ARTIFACT_ID:
-			return ARTIFACT_ID_EDEFAULT == null
-					? artifactId != null
-					: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
-		case PomPackage.RELOCATION__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
-		case PomPackage.RELOCATION__MESSAGE:
-			return MESSAGE_EDEFAULT == null
-					? message != null
-					: !MESSAGE_EDEFAULT.equals(message);
+			case PomPackage.RELOCATION__GROUP_ID:
+				return GROUP_ID_EDEFAULT == null
+						? groupId != null
+						: !GROUP_ID_EDEFAULT.equals(groupId);
+			case PomPackage.RELOCATION__ARTIFACT_ID:
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+			case PomPackage.RELOCATION__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
+			case PomPackage.RELOCATION__MESSAGE:
+				return MESSAGE_EDEFAULT == null
+						? message != null
+						: !MESSAGE_EDEFAULT.equals(message);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -184,18 +184,18 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.RELOCATION__GROUP_ID:
-			setGroupId((String) newValue);
-			return;
-		case PomPackage.RELOCATION__ARTIFACT_ID:
-			setArtifactId((String) newValue);
-			return;
-		case PomPackage.RELOCATION__VERSION:
-			setVersion((String) newValue);
-			return;
-		case PomPackage.RELOCATION__MESSAGE:
-			setMessage((String) newValue);
-			return;
+			case PomPackage.RELOCATION__GROUP_ID:
+				setGroupId((String) newValue);
+				return;
+			case PomPackage.RELOCATION__ARTIFACT_ID:
+				setArtifactId((String) newValue);
+				return;
+			case PomPackage.RELOCATION__VERSION:
+				setVersion((String) newValue);
+				return;
+			case PomPackage.RELOCATION__MESSAGE:
+				setMessage((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -208,18 +208,18 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.RELOCATION__GROUP_ID:
-			setGroupId(GROUP_ID_EDEFAULT);
-			return;
-		case PomPackage.RELOCATION__ARTIFACT_ID:
-			setArtifactId(ARTIFACT_ID_EDEFAULT);
-			return;
-		case PomPackage.RELOCATION__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case PomPackage.RELOCATION__MESSAGE:
-			setMessage(MESSAGE_EDEFAULT);
-			return;
+			case PomPackage.RELOCATION__GROUP_ID:
+				setGroupId(GROUP_ID_EDEFAULT);
+				return;
+			case PomPackage.RELOCATION__ARTIFACT_ID:
+				setArtifactId(ARTIFACT_ID_EDEFAULT);
+				return;
+			case PomPackage.RELOCATION__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case PomPackage.RELOCATION__MESSAGE:
+				setMessage(MESSAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -269,8 +269,8 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.RELOCATION__ARTIFACT_ID, oldArtifactId,
-					artifactId));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.RELOCATION__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**

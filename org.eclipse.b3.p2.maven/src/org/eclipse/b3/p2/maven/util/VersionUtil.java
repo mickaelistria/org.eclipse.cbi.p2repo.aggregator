@@ -58,8 +58,8 @@ public class VersionUtil {
 
 		Matcher m = versionRangePattern.matcher(vr);
 		if(m.matches()) {
-			return new VersionRange(createVersion(m.group(2)), "[".equals(m.group(1)), createVersion(m.group(3)),
-					"[".equals(m.group(4)));
+			return new VersionRange(
+				createVersion(m.group(2)), "[".equals(m.group(1)), createVersion(m.group(3)), "[".equals(m.group(4)));
 		}
 		else {
 			Version v = createVersion(vr);

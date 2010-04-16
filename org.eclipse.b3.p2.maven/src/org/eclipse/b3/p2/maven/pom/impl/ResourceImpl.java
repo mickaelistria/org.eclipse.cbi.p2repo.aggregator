@@ -151,8 +151,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		ExcludesType oldExcludes = excludes;
 		excludes = newExcludes;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.RESOURCE__EXCLUDES, oldExcludes, newExcludes);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.RESOURCE__EXCLUDES, oldExcludes, newExcludes);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -170,8 +170,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		IncludesType oldIncludes = includes;
 		includes = newIncludes;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.RESOURCE__INCLUDES, oldIncludes, newIncludes);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.RESOURCE__INCLUDES, oldIncludes, newIncludes);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -188,16 +188,16 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.RESOURCE__TARGET_PATH:
-			return getTargetPath();
-		case PomPackage.RESOURCE__FILTERING:
-			return isFiltering();
-		case PomPackage.RESOURCE__DIRECTORY:
-			return getDirectory();
-		case PomPackage.RESOURCE__INCLUDES:
-			return getIncludes();
-		case PomPackage.RESOURCE__EXCLUDES:
-			return getExcludes();
+			case PomPackage.RESOURCE__TARGET_PATH:
+				return getTargetPath();
+			case PomPackage.RESOURCE__FILTERING:
+				return isFiltering();
+			case PomPackage.RESOURCE__DIRECTORY:
+				return getDirectory();
+			case PomPackage.RESOURCE__INCLUDES:
+				return getIncludes();
+			case PomPackage.RESOURCE__EXCLUDES:
+				return getExcludes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,10 +210,10 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.RESOURCE__INCLUDES:
-			return basicSetIncludes(null, msgs);
-		case PomPackage.RESOURCE__EXCLUDES:
-			return basicSetExcludes(null, msgs);
+			case PomPackage.RESOURCE__INCLUDES:
+				return basicSetIncludes(null, msgs);
+			case PomPackage.RESOURCE__EXCLUDES:
+				return basicSetExcludes(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -226,20 +226,20 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.RESOURCE__TARGET_PATH:
-			return TARGET_PATH_EDEFAULT == null
-					? targetPath != null
-					: !TARGET_PATH_EDEFAULT.equals(targetPath);
-		case PomPackage.RESOURCE__FILTERING:
-			return isSetFiltering();
-		case PomPackage.RESOURCE__DIRECTORY:
-			return DIRECTORY_EDEFAULT == null
-					? directory != null
-					: !DIRECTORY_EDEFAULT.equals(directory);
-		case PomPackage.RESOURCE__INCLUDES:
-			return includes != null;
-		case PomPackage.RESOURCE__EXCLUDES:
-			return excludes != null;
+			case PomPackage.RESOURCE__TARGET_PATH:
+				return TARGET_PATH_EDEFAULT == null
+						? targetPath != null
+						: !TARGET_PATH_EDEFAULT.equals(targetPath);
+			case PomPackage.RESOURCE__FILTERING:
+				return isSetFiltering();
+			case PomPackage.RESOURCE__DIRECTORY:
+				return DIRECTORY_EDEFAULT == null
+						? directory != null
+						: !DIRECTORY_EDEFAULT.equals(directory);
+			case PomPackage.RESOURCE__INCLUDES:
+				return includes != null;
+			case PomPackage.RESOURCE__EXCLUDES:
+				return excludes != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -252,21 +252,21 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.RESOURCE__TARGET_PATH:
-			setTargetPath((String) newValue);
-			return;
-		case PomPackage.RESOURCE__FILTERING:
-			setFiltering((Boolean) newValue);
-			return;
-		case PomPackage.RESOURCE__DIRECTORY:
-			setDirectory((String) newValue);
-			return;
-		case PomPackage.RESOURCE__INCLUDES:
-			setIncludes((IncludesType) newValue);
-			return;
-		case PomPackage.RESOURCE__EXCLUDES:
-			setExcludes((ExcludesType) newValue);
-			return;
+			case PomPackage.RESOURCE__TARGET_PATH:
+				setTargetPath((String) newValue);
+				return;
+			case PomPackage.RESOURCE__FILTERING:
+				setFiltering((Boolean) newValue);
+				return;
+			case PomPackage.RESOURCE__DIRECTORY:
+				setDirectory((String) newValue);
+				return;
+			case PomPackage.RESOURCE__INCLUDES:
+				setIncludes((IncludesType) newValue);
+				return;
+			case PomPackage.RESOURCE__EXCLUDES:
+				setExcludes((ExcludesType) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -279,21 +279,21 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.RESOURCE__TARGET_PATH:
-			setTargetPath(TARGET_PATH_EDEFAULT);
-			return;
-		case PomPackage.RESOURCE__FILTERING:
-			unsetFiltering();
-			return;
-		case PomPackage.RESOURCE__DIRECTORY:
-			setDirectory(DIRECTORY_EDEFAULT);
-			return;
-		case PomPackage.RESOURCE__INCLUDES:
-			setIncludes((IncludesType) null);
-			return;
-		case PomPackage.RESOURCE__EXCLUDES:
-			setExcludes((ExcludesType) null);
-			return;
+			case PomPackage.RESOURCE__TARGET_PATH:
+				setTargetPath(TARGET_PATH_EDEFAULT);
+				return;
+			case PomPackage.RESOURCE__FILTERING:
+				unsetFiltering();
+				return;
+			case PomPackage.RESOURCE__DIRECTORY:
+				setDirectory(DIRECTORY_EDEFAULT);
+				return;
+			case PomPackage.RESOURCE__INCLUDES:
+				setIncludes((IncludesType) null);
+				return;
+			case PomPackage.RESOURCE__EXCLUDES:
+				setExcludes((ExcludesType) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -361,8 +361,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		String oldDirectory = directory;
 		directory = newDirectory;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.RESOURCE__DIRECTORY, oldDirectory,
-					directory));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.RESOURCE__DIRECTORY, oldDirectory, directory));
 	}
 
 	/**
@@ -374,18 +374,18 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		if(newExcludes != excludes) {
 			NotificationChain msgs = null;
 			if(excludes != null)
-				msgs = ((InternalEObject) excludes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.RESOURCE__EXCLUDES, null, msgs);
+				msgs = ((InternalEObject) excludes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.RESOURCE__EXCLUDES, null, msgs);
 			if(newExcludes != null)
-				msgs = ((InternalEObject) newExcludes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.RESOURCE__EXCLUDES, null, msgs);
+				msgs = ((InternalEObject) newExcludes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.RESOURCE__EXCLUDES, null, msgs);
 			msgs = basicSetExcludes(newExcludes, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.RESOURCE__EXCLUDES, newExcludes,
-					newExcludes));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.RESOURCE__EXCLUDES, newExcludes, newExcludes));
 	}
 
 	/**
@@ -399,8 +399,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		boolean oldFilteringESet = filteringESet;
 		filteringESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.RESOURCE__FILTERING, oldFiltering,
-					filtering, !oldFilteringESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.RESOURCE__FILTERING, oldFiltering, filtering, !oldFilteringESet));
 	}
 
 	/**
@@ -412,18 +412,18 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		if(newIncludes != includes) {
 			NotificationChain msgs = null;
 			if(includes != null)
-				msgs = ((InternalEObject) includes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.RESOURCE__INCLUDES, null, msgs);
+				msgs = ((InternalEObject) includes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.RESOURCE__INCLUDES, null, msgs);
 			if(newIncludes != null)
-				msgs = ((InternalEObject) newIncludes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.RESOURCE__INCLUDES, null, msgs);
+				msgs = ((InternalEObject) newIncludes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.RESOURCE__INCLUDES, null, msgs);
 			msgs = basicSetIncludes(newIncludes, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.RESOURCE__INCLUDES, newIncludes,
-					newIncludes));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.RESOURCE__INCLUDES, newIncludes, newIncludes));
 	}
 
 	/**
@@ -435,8 +435,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		String oldTargetPath = targetPath;
 		targetPath = newTargetPath;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.RESOURCE__TARGET_PATH, oldTargetPath,
-					targetPath));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.RESOURCE__TARGET_PATH, oldTargetPath, targetPath));
 	}
 
 	/**
@@ -474,8 +474,9 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		filtering = FILTERING_EDEFAULT;
 		filteringESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.RESOURCE__FILTERING, oldFiltering,
-					FILTERING_EDEFAULT, oldFilteringESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.RESOURCE__FILTERING, oldFiltering, FILTERING_EDEFAULT,
+				oldFilteringESet));
 	}
 
 	/**

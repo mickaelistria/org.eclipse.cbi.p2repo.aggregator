@@ -161,36 +161,36 @@ public class MetadataSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch(classifierID) {
-		case MetadataPackage.DOCUMENT_ROOT: {
-			DocumentRoot documentRoot = (DocumentRoot) theEObject;
-			T result = caseDocumentRoot(documentRoot);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MetadataPackage.META_DATA: {
-			MetaData metaData = (MetaData) theEObject;
-			T result = caseMetaData(metaData);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MetadataPackage.VERSIONING: {
-			Versioning versioning = (Versioning) theEObject;
-			T result = caseVersioning(versioning);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MetadataPackage.VERSIONS: {
-			Versions versions = (Versions) theEObject;
-			T result = caseVersions(versions);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case MetadataPackage.DOCUMENT_ROOT: {
+				DocumentRoot documentRoot = (DocumentRoot) theEObject;
+				T result = caseDocumentRoot(documentRoot);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MetadataPackage.META_DATA: {
+				MetaData metaData = (MetaData) theEObject;
+				T result = caseMetaData(metaData);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MetadataPackage.VERSIONING: {
+				Versioning versioning = (Versioning) theEObject;
+				T result = caseVersioning(versioning);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MetadataPackage.VERSIONS: {
+				Versions versions = (Versions) theEObject;
+				T result = caseVersions(versions);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			default:
+				return defaultCase(theEObject);
 		}
 	}
 

@@ -153,8 +153,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 	private static final IQuery<IInstallableUnit> QUERY_ALL_IUS = QueryUtil.createIUAnyQuery();
 
-	public static final String SIMPLE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID
-			+ ".simpleRepository"; //$NON-NLS-1$
+	public static final String SIMPLE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID +
+			".simpleRepository"; //$NON-NLS-1$
 
 	private Stack<UriIterator> iteratorStack;
 
@@ -194,8 +194,9 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			throws CoreException {
 		monitor.beginTask("Generating artifact repository", 100);
 		SubMonitor subMon = SubMonitor.convert(monitor);
-		SimpleArtifactRepository ar = new SimpleArtifactRepository(mdr.getProvisioningAgent(), mdr.getName(),
-				mdr.getLocation(), null) {
+		SimpleArtifactRepository ar = new SimpleArtifactRepository(
+			mdr.getProvisioningAgent(), mdr.getName(), mdr.getLocation(), null) {
+			@Override
 			public void save() {
 				// no-op
 			}
@@ -224,9 +225,9 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				String id = iu.getProperty(PROP_MAVEN_ID);
 
 				String version = VersionUtil.getVersionString(iu.getVersion());
-				ad.setRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE, mdr.getLocation().toString()
-						+ '/' + groupPath + '/' + id + '/' + version + '/' + id + '-' + version + '.'
-						+ key.getClassifier());
+				ad.setRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE, mdr.getLocation().toString() +
+						'/' + groupPath + '/' + id + '/' + version + '/' + id + '-' + version + '.' +
+						key.getClassifier());
 				ar.addDescriptor(ad);
 			}
 			targetMon.worked(1);
@@ -347,8 +348,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		POM pom;
 		Model model;
 		try {
-			pom = POM.getPOM(location.toString(), versionEntry.groupId, versionEntry.artifactId,
-					versionEntry.version.getOriginal());
+			pom = POM.getPOM(
+				location.toString(), versionEntry.groupId, versionEntry.artifactId, versionEntry.version.getOriginal());
 
 			String md5 = pom.getMd5();
 			String sha1 = pom.getSha1();
@@ -362,11 +363,11 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				iu.getPropertyMap().put(PROP_POM_TIMESTAMP, timestamp.toString());
 
 			if(!versionEntry.groupId.equals(pom.getGroupId()))
-				throw new IOException(String.format("Bad groupId in POM: expected %s, found %s", versionEntry.groupId,
-						pom.getGroupId()));
+				throw new IOException(String.format(
+					"Bad groupId in POM: expected %s, found %s", versionEntry.groupId, pom.getGroupId()));
 			if(!versionEntry.artifactId.equals(pom.getArtifactId()))
-				throw new IOException(String.format("Bad artifactId in POM: expected %s, found %s",
-						versionEntry.artifactId, pom.getArtifactId()));
+				throw new IOException(String.format(
+					"Bad artifactId in POM: expected %s, found %s", versionEntry.artifactId, pom.getArtifactId()));
 
 			model = pom.getProject();
 
@@ -390,7 +391,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 					VersionRange vr = VersionUtil.createVersionRange(versionRange);
 
 					IRequirement rc = P2Bridge.importToModel(MetadataFactory.createRequirement(namespace, createP2Id(
-							groupId, artifactId), vr, null, dependency.isSetOptional(), false, true));
+						groupId, artifactId), vr, null, dependency.isSetOptional(), false, true));
 
 					iu.getRequirements().add(rc);
 				}
@@ -423,8 +424,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 					String name = license.getName();
 					String comments = license.getComments();
 
-					if(name != null && name.toLowerCase().contains(match) || comments != null
-							&& comments.toLowerCase().contains(match))
+					if(name != null && name.toLowerCase().contains(match) || comments != null &&
+							comments.toLowerCase().contains(match))
 						toCopyright.add(license);
 					else
 						toLicense.add(license);
@@ -563,7 +564,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 					List<String> versions;
 					try {
 						MavenMetadata md = new MavenMetadata(
-								org.eclipse.emf.common.util.URI.createURI(mavenMetadataURI.toString()));
+							org.eclipse.emf.common.util.URI.createURI(mavenMetadataURI.toString()));
 						versions = md.getMetaData().getVersioning().getVersions().getVersion();
 					}
 					catch(Exception e) {
@@ -714,8 +715,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				versionEntries.add(new VersionEntry(groupId, artifactId, VersionUtil.createVersion(versionString)));
 			}
 			catch(IllegalArgumentException e) {
-				LogUtils.warning("Skipping component " + groupId + '/' + artifactId + '#' + versionString + ": "
-						+ e.getMessage());
+				LogUtils.warning("Skipping component " + groupId + '/' + artifactId + '#' + versionString + ": " +
+						e.getMessage());
 			}
 		}
 
@@ -735,8 +736,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			try {
 				method.setFollowRedirects(false);
 				int status;
-				if((status = httpClient.executeMethod(method)) == HttpStatus.SC_MOVED_PERMANENTLY
-						|| status == HttpStatus.SC_MOVED_TEMPORARILY) {
+				if((status = httpClient.executeMethod(method)) == HttpStatus.SC_MOVED_PERMANENTLY ||
+						status == HttpStatus.SC_MOVED_TEMPORARILY) {
 					Header target = method.getResponseHeader("location");
 					if(target != null && target.getValue() != null && target.getValue().endsWith("/"))
 						return true;
@@ -795,8 +796,9 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 			if(remoteTime == 0L || remoteTime > cacheTime) {
 				if(remoteTime == 0L)
-					LogUtils.debug("Unable to check if cache for %s is obsolete, repository will be scanned again",
-							location.toString());
+					LogUtils.debug(
+						"Unable to check if cache for %s is obsolete, repository will be scanned again",
+						location.toString());
 				else
 					LogUtils.debug("Cache for %s is obsolete, repository will be scanned again", location.toString());
 
@@ -846,8 +848,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			// This will set a property named 'description' after saving.
 			repository.setDescription(location.toString() + " converted to p2 format");
 			// To appear is immediately in the model we also set the property directly
-			repository.getPropertyMap().put(MetadataRepository.PROP_DESCRIPTION,
-					location.toString() + " converted to p2 format");
+			repository.getPropertyMap().put(
+				IRepository.PROP_DESCRIPTION, location.toString() + " converted to p2 format");
 
 			SubMonitor crawlMon;
 			if(indexer != null) {
@@ -929,8 +931,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				}
 
 				IRequirement rc = P2Bridge.importToModel(MetadataFactory.createRequirement(
-						IInstallableUnit.NAMESPACE_IU_ID, iu.getId(), new VersionRange(iu.getVersion(), true,
-								iu.getVersion(), true), null, false, false, true));
+					IInstallableUnit.NAMESPACE_IU_ID, iu.getId(), new VersionRange(
+						iu.getVersion(), true, iu.getVersion(), true), null, false, false, true));
 				List<IRequirement> rcList = category.getRequirements();
 				rcList.add(rc);
 
@@ -1026,8 +1028,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			properties.put(IRepository.PROP_DESCRIPTION, repository.getDescription());
 			IMetadataRepository mdr = null;
 			try {
-				mdr = mdrMgr.createRepository(getCacheLocation().toURI(), repository.getName(), SIMPLE_METADATA_TYPE,
-						properties);
+				mdr = mdrMgr.createRepository(
+					getCacheLocation().toURI(), repository.getName(), SIMPLE_METADATA_TYPE, properties);
 			}
 			catch(MalformedURLException e) {
 				throw ExceptionUtils.wrap(e);

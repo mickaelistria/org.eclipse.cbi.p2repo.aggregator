@@ -101,22 +101,22 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.DOCUMENT_ROOT__MIXED:
-			if(coreType)
-				return getMixed();
-			return ((FeatureMap.Internal) getMixed()).getWrapper();
-		case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			if(coreType)
-				return getXMLNSPrefixMap();
-			else
-				return getXMLNSPrefixMap().map();
-		case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			if(coreType)
-				return getXSISchemaLocation();
-			else
-				return getXSISchemaLocation().map();
-		case PomPackage.DOCUMENT_ROOT__PROJECT:
-			return getProject();
+			case PomPackage.DOCUMENT_ROOT__MIXED:
+				if(coreType)
+					return getMixed();
+				return ((FeatureMap.Internal) getMixed()).getWrapper();
+			case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+				if(coreType)
+					return getXMLNSPrefixMap();
+				else
+					return getXMLNSPrefixMap().map();
+			case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+				if(coreType)
+					return getXSISchemaLocation();
+				else
+					return getXSISchemaLocation().map();
+			case PomPackage.DOCUMENT_ROOT__PROJECT:
+				return getProject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -129,14 +129,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.DOCUMENT_ROOT__MIXED:
-			return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
-		case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
-		case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(otherEnd, msgs);
-		case PomPackage.DOCUMENT_ROOT__PROJECT:
-			return basicSetProject(null, msgs);
+			case PomPackage.DOCUMENT_ROOT__MIXED:
+				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
+			case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+				return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
+			case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+				return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(otherEnd, msgs);
+			case PomPackage.DOCUMENT_ROOT__PROJECT:
+				return basicSetProject(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -149,14 +149,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.DOCUMENT_ROOT__MIXED:
-			return mixed != null && !mixed.isEmpty();
-		case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			return xMLNSPrefixMap != null && !xMLNSPrefixMap.isEmpty();
-		case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
-		case PomPackage.DOCUMENT_ROOT__PROJECT:
-			return getProject() != null;
+			case PomPackage.DOCUMENT_ROOT__MIXED:
+				return mixed != null && !mixed.isEmpty();
+			case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+				return xMLNSPrefixMap != null && !xMLNSPrefixMap.isEmpty();
+			case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+				return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
+			case PomPackage.DOCUMENT_ROOT__PROJECT:
+				return getProject() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -169,18 +169,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.DOCUMENT_ROOT__MIXED:
-			((FeatureMap.Internal) getMixed()).set(newValue);
-			return;
-		case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			((EStructuralFeature.Setting) getXMLNSPrefixMap()).set(newValue);
-			return;
-		case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			((EStructuralFeature.Setting) getXSISchemaLocation()).set(newValue);
-			return;
-		case PomPackage.DOCUMENT_ROOT__PROJECT:
-			setProject((Model) newValue);
-			return;
+			case PomPackage.DOCUMENT_ROOT__MIXED:
+				((FeatureMap.Internal) getMixed()).set(newValue);
+				return;
+			case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+				((EStructuralFeature.Setting) getXMLNSPrefixMap()).set(newValue);
+				return;
+			case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+				((EStructuralFeature.Setting) getXSISchemaLocation()).set(newValue);
+				return;
+			case PomPackage.DOCUMENT_ROOT__PROJECT:
+				setProject((Model) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -193,18 +193,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.DOCUMENT_ROOT__MIXED:
-			getMixed().clear();
-			return;
-		case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			getXMLNSPrefixMap().clear();
-			return;
-		case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			getXSISchemaLocation().clear();
-			return;
-		case PomPackage.DOCUMENT_ROOT__PROJECT:
-			setProject((Model) null);
-			return;
+			case PomPackage.DOCUMENT_ROOT__MIXED:
+				getMixed().clear();
+				return;
+			case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+				getXMLNSPrefixMap().clear();
+				return;
+			case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+				getXSISchemaLocation().clear();
+				return;
+			case PomPackage.DOCUMENT_ROOT__PROJECT:
+				setProject((Model) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -237,8 +237,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public EMap<String, String> getXMLNSPrefixMap() {
 		if(xMLNSPrefixMap == null) {
-			xMLNSPrefixMap = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-					EStringToStringMapEntryImpl.class, this, PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+			xMLNSPrefixMap = new EcoreEMap<String, String>(
+				EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this,
+				PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
 		}
 		return xMLNSPrefixMap;
 	}
@@ -250,8 +251,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public EMap<String, String> getXSISchemaLocation() {
 		if(xSISchemaLocation == null) {
-			xSISchemaLocation = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-					EStringToStringMapEntryImpl.class, this, PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+			xSISchemaLocation = new EcoreEMap<String, String>(
+				EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this,
+				PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
 		}
 		return xSISchemaLocation;
 	}

@@ -90,10 +90,10 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.EXCLUSION__ARTIFACT_ID:
-			return getArtifactId();
-		case PomPackage.EXCLUSION__GROUP_ID:
-			return getGroupId();
+			case PomPackage.EXCLUSION__ARTIFACT_ID:
+				return getArtifactId();
+			case PomPackage.EXCLUSION__GROUP_ID:
+				return getGroupId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,14 +106,14 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXCLUSION__ARTIFACT_ID:
-			return ARTIFACT_ID_EDEFAULT == null
-					? artifactId != null
-					: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
-		case PomPackage.EXCLUSION__GROUP_ID:
-			return GROUP_ID_EDEFAULT == null
-					? groupId != null
-					: !GROUP_ID_EDEFAULT.equals(groupId);
+			case PomPackage.EXCLUSION__ARTIFACT_ID:
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+			case PomPackage.EXCLUSION__GROUP_ID:
+				return GROUP_ID_EDEFAULT == null
+						? groupId != null
+						: !GROUP_ID_EDEFAULT.equals(groupId);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -126,12 +126,12 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.EXCLUSION__ARTIFACT_ID:
-			setArtifactId((String) newValue);
-			return;
-		case PomPackage.EXCLUSION__GROUP_ID:
-			setGroupId((String) newValue);
-			return;
+			case PomPackage.EXCLUSION__ARTIFACT_ID:
+				setArtifactId((String) newValue);
+				return;
+			case PomPackage.EXCLUSION__GROUP_ID:
+				setGroupId((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -144,12 +144,12 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXCLUSION__ARTIFACT_ID:
-			setArtifactId(ARTIFACT_ID_EDEFAULT);
-			return;
-		case PomPackage.EXCLUSION__GROUP_ID:
-			setGroupId(GROUP_ID_EDEFAULT);
-			return;
+			case PomPackage.EXCLUSION__ARTIFACT_ID:
+				setArtifactId(ARTIFACT_ID_EDEFAULT);
+				return;
+			case PomPackage.EXCLUSION__GROUP_ID:
+				setGroupId(GROUP_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -181,8 +181,8 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.EXCLUSION__ARTIFACT_ID, oldArtifactId,
-					artifactId));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.EXCLUSION__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**

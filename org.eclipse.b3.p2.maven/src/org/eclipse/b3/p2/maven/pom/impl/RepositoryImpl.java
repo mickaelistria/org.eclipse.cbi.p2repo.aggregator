@@ -167,8 +167,8 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		RepositoryPolicy oldReleases = releases;
 		releases = newReleases;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.REPOSITORY__RELEASES, oldReleases, newReleases);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPOSITORY__RELEASES, oldReleases, newReleases);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -186,8 +186,8 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		RepositoryPolicy oldSnapshots = snapshots;
 		snapshots = newSnapshots;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.REPOSITORY__SNAPSHOTS, oldSnapshots, newSnapshots);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPOSITORY__SNAPSHOTS, oldSnapshots, newSnapshots);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -204,18 +204,18 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.REPOSITORY__RELEASES:
-			return getReleases();
-		case PomPackage.REPOSITORY__SNAPSHOTS:
-			return getSnapshots();
-		case PomPackage.REPOSITORY__ID:
-			return getId();
-		case PomPackage.REPOSITORY__NAME:
-			return getName();
-		case PomPackage.REPOSITORY__URL:
-			return getUrl();
-		case PomPackage.REPOSITORY__LAYOUT:
-			return getLayout();
+			case PomPackage.REPOSITORY__RELEASES:
+				return getReleases();
+			case PomPackage.REPOSITORY__SNAPSHOTS:
+				return getSnapshots();
+			case PomPackage.REPOSITORY__ID:
+				return getId();
+			case PomPackage.REPOSITORY__NAME:
+				return getName();
+			case PomPackage.REPOSITORY__URL:
+				return getUrl();
+			case PomPackage.REPOSITORY__LAYOUT:
+				return getLayout();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,10 +228,10 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.REPOSITORY__RELEASES:
-			return basicSetReleases(null, msgs);
-		case PomPackage.REPOSITORY__SNAPSHOTS:
-			return basicSetSnapshots(null, msgs);
+			case PomPackage.REPOSITORY__RELEASES:
+				return basicSetReleases(null, msgs);
+			case PomPackage.REPOSITORY__SNAPSHOTS:
+				return basicSetSnapshots(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -244,24 +244,24 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPOSITORY__RELEASES:
-			return releases != null;
-		case PomPackage.REPOSITORY__SNAPSHOTS:
-			return snapshots != null;
-		case PomPackage.REPOSITORY__ID:
-			return ID_EDEFAULT == null
-					? id != null
-					: !ID_EDEFAULT.equals(id);
-		case PomPackage.REPOSITORY__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case PomPackage.REPOSITORY__URL:
-			return URL_EDEFAULT == null
-					? url != null
-					: !URL_EDEFAULT.equals(url);
-		case PomPackage.REPOSITORY__LAYOUT:
-			return isSetLayout();
+			case PomPackage.REPOSITORY__RELEASES:
+				return releases != null;
+			case PomPackage.REPOSITORY__SNAPSHOTS:
+				return snapshots != null;
+			case PomPackage.REPOSITORY__ID:
+				return ID_EDEFAULT == null
+						? id != null
+						: !ID_EDEFAULT.equals(id);
+			case PomPackage.REPOSITORY__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case PomPackage.REPOSITORY__URL:
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
+			case PomPackage.REPOSITORY__LAYOUT:
+				return isSetLayout();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -274,24 +274,24 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.REPOSITORY__RELEASES:
-			setReleases((RepositoryPolicy) newValue);
-			return;
-		case PomPackage.REPOSITORY__SNAPSHOTS:
-			setSnapshots((RepositoryPolicy) newValue);
-			return;
-		case PomPackage.REPOSITORY__ID:
-			setId((String) newValue);
-			return;
-		case PomPackage.REPOSITORY__NAME:
-			setName((String) newValue);
-			return;
-		case PomPackage.REPOSITORY__URL:
-			setUrl((String) newValue);
-			return;
-		case PomPackage.REPOSITORY__LAYOUT:
-			setLayout((String) newValue);
-			return;
+			case PomPackage.REPOSITORY__RELEASES:
+				setReleases((RepositoryPolicy) newValue);
+				return;
+			case PomPackage.REPOSITORY__SNAPSHOTS:
+				setSnapshots((RepositoryPolicy) newValue);
+				return;
+			case PomPackage.REPOSITORY__ID:
+				setId((String) newValue);
+				return;
+			case PomPackage.REPOSITORY__NAME:
+				setName((String) newValue);
+				return;
+			case PomPackage.REPOSITORY__URL:
+				setUrl((String) newValue);
+				return;
+			case PomPackage.REPOSITORY__LAYOUT:
+				setLayout((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -304,24 +304,24 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPOSITORY__RELEASES:
-			setReleases((RepositoryPolicy) null);
-			return;
-		case PomPackage.REPOSITORY__SNAPSHOTS:
-			setSnapshots((RepositoryPolicy) null);
-			return;
-		case PomPackage.REPOSITORY__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case PomPackage.REPOSITORY__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case PomPackage.REPOSITORY__URL:
-			setUrl(URL_EDEFAULT);
-			return;
-		case PomPackage.REPOSITORY__LAYOUT:
-			unsetLayout();
-			return;
+			case PomPackage.REPOSITORY__RELEASES:
+				setReleases((RepositoryPolicy) null);
+				return;
+			case PomPackage.REPOSITORY__SNAPSHOTS:
+				setSnapshots((RepositoryPolicy) null);
+				return;
+			case PomPackage.REPOSITORY__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case PomPackage.REPOSITORY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case PomPackage.REPOSITORY__URL:
+				setUrl(URL_EDEFAULT);
+				return;
+			case PomPackage.REPOSITORY__LAYOUT:
+				unsetLayout();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -412,8 +412,8 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		boolean oldLayoutESet = layoutESet;
 		layoutESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY__LAYOUT, oldLayout, layout,
-					!oldLayoutESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPOSITORY__LAYOUT, oldLayout, layout, !oldLayoutESet));
 	}
 
 	/**
@@ -437,18 +437,18 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		if(newReleases != releases) {
 			NotificationChain msgs = null;
 			if(releases != null)
-				msgs = ((InternalEObject) releases).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPOSITORY__RELEASES, null, msgs);
+				msgs = ((InternalEObject) releases).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPOSITORY__RELEASES, null, msgs);
 			if(newReleases != null)
-				msgs = ((InternalEObject) newReleases).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPOSITORY__RELEASES, null, msgs);
+				msgs = ((InternalEObject) newReleases).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPOSITORY__RELEASES, null, msgs);
 			msgs = basicSetReleases(newReleases, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY__RELEASES, newReleases,
-					newReleases));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPOSITORY__RELEASES, newReleases, newReleases));
 	}
 
 	/**
@@ -460,18 +460,18 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		if(newSnapshots != snapshots) {
 			NotificationChain msgs = null;
 			if(snapshots != null)
-				msgs = ((InternalEObject) snapshots).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPOSITORY__SNAPSHOTS, null, msgs);
+				msgs = ((InternalEObject) snapshots).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPOSITORY__SNAPSHOTS, null, msgs);
 			if(newSnapshots != null)
-				msgs = ((InternalEObject) newSnapshots).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPOSITORY__SNAPSHOTS, null, msgs);
+				msgs = ((InternalEObject) newSnapshots).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPOSITORY__SNAPSHOTS, null, msgs);
 			msgs = basicSetSnapshots(newSnapshots, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY__SNAPSHOTS, newSnapshots,
-					newSnapshots));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPOSITORY__SNAPSHOTS, newSnapshots, newSnapshots));
 	}
 
 	/**
@@ -523,8 +523,8 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		layout = LAYOUT_EDEFAULT;
 		layoutESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.REPOSITORY__LAYOUT, oldLayout,
-					LAYOUT_EDEFAULT, oldLayoutESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.REPOSITORY__LAYOUT, oldLayout, LAYOUT_EDEFAULT, oldLayoutESet));
 	}
 
 	/**

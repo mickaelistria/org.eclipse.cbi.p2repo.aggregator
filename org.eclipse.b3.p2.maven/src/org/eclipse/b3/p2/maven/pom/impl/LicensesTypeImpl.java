@@ -64,8 +64,8 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.LICENSES_TYPE__LICENSE:
-			return getLicense();
+			case PomPackage.LICENSES_TYPE__LICENSE:
+				return getLicense();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,8 +78,8 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.LICENSES_TYPE__LICENSE:
-			return ((InternalEList<?>) getLicense()).basicRemove(otherEnd, msgs);
+			case PomPackage.LICENSES_TYPE__LICENSE:
+				return ((InternalEList<?>) getLicense()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,8 +92,8 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.LICENSES_TYPE__LICENSE:
-			return license != null && !license.isEmpty();
+			case PomPackage.LICENSES_TYPE__LICENSE:
+				return license != null && !license.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,10 +107,10 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.LICENSES_TYPE__LICENSE:
-			getLicense().clear();
-			getLicense().addAll((Collection<? extends License>) newValue);
-			return;
+			case PomPackage.LICENSES_TYPE__LICENSE:
+				getLicense().clear();
+				getLicense().addAll((Collection<? extends License>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,9 +123,9 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.LICENSES_TYPE__LICENSE:
-			getLicense().clear();
-			return;
+			case PomPackage.LICENSES_TYPE__LICENSE:
+				getLicense().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

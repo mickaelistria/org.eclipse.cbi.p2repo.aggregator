@@ -64,8 +64,8 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.EXTENSIONS_TYPE__EXTENSION:
-			return getExtension();
+			case PomPackage.EXTENSIONS_TYPE__EXTENSION:
+				return getExtension();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,8 +78,8 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.EXTENSIONS_TYPE__EXTENSION:
-			return ((InternalEList<?>) getExtension()).basicRemove(otherEnd, msgs);
+			case PomPackage.EXTENSIONS_TYPE__EXTENSION:
+				return ((InternalEList<?>) getExtension()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,8 +92,8 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXTENSIONS_TYPE__EXTENSION:
-			return extension != null && !extension.isEmpty();
+			case PomPackage.EXTENSIONS_TYPE__EXTENSION:
+				return extension != null && !extension.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,10 +107,10 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.EXTENSIONS_TYPE__EXTENSION:
-			getExtension().clear();
-			getExtension().addAll((Collection<? extends Extension>) newValue);
-			return;
+			case PomPackage.EXTENSIONS_TYPE__EXTENSION:
+				getExtension().clear();
+				getExtension().addAll((Collection<? extends Extension>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,9 +123,9 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXTENSIONS_TYPE__EXTENSION:
-			getExtension().clear();
-			return;
+			case PomPackage.EXTENSIONS_TYPE__EXTENSION:
+				getExtension().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -137,8 +137,8 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType {
 	 */
 	public EList<Extension> getExtension() {
 		if(extension == null) {
-			extension = new EObjectContainmentEList<Extension>(Extension.class, this,
-					PomPackage.EXTENSIONS_TYPE__EXTENSION);
+			extension = new EObjectContainmentEList<Extension>(
+				Extension.class, this, PomPackage.EXTENSIONS_TYPE__EXTENSION);
 		}
 		return extension;
 	}

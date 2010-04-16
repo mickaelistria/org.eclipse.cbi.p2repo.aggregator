@@ -63,8 +63,8 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
-			return getNotifier();
+			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
+				return getNotifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -77,8 +77,8 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
-			return ((InternalEList<?>) getNotifier()).basicRemove(otherEnd, msgs);
+			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
+				return ((InternalEList<?>) getNotifier()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -91,8 +91,8 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
-			return notifier != null && !notifier.isEmpty();
+			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
+				return notifier != null && !notifier.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -106,10 +106,10 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
-			getNotifier().clear();
-			getNotifier().addAll((Collection<? extends Notifier>) newValue);
-			return;
+			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
+				getNotifier().clear();
+				getNotifier().addAll((Collection<? extends Notifier>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -122,9 +122,9 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
-			getNotifier().clear();
-			return;
+			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
+				getNotifier().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

@@ -145,14 +145,14 @@ public class ParentImpl extends EObjectImpl implements Parent {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.PARENT__ARTIFACT_ID:
-			return getArtifactId();
-		case PomPackage.PARENT__GROUP_ID:
-			return getGroupId();
-		case PomPackage.PARENT__VERSION:
-			return getVersion();
-		case PomPackage.PARENT__RELATIVE_PATH:
-			return getRelativePath();
+			case PomPackage.PARENT__ARTIFACT_ID:
+				return getArtifactId();
+			case PomPackage.PARENT__GROUP_ID:
+				return getGroupId();
+			case PomPackage.PARENT__VERSION:
+				return getVersion();
+			case PomPackage.PARENT__RELATIVE_PATH:
+				return getRelativePath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,20 +165,20 @@ public class ParentImpl extends EObjectImpl implements Parent {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.PARENT__ARTIFACT_ID:
-			return ARTIFACT_ID_EDEFAULT == null
-					? artifactId != null
-					: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
-		case PomPackage.PARENT__GROUP_ID:
-			return GROUP_ID_EDEFAULT == null
-					? groupId != null
-					: !GROUP_ID_EDEFAULT.equals(groupId);
-		case PomPackage.PARENT__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
-		case PomPackage.PARENT__RELATIVE_PATH:
-			return isSetRelativePath();
+			case PomPackage.PARENT__ARTIFACT_ID:
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+			case PomPackage.PARENT__GROUP_ID:
+				return GROUP_ID_EDEFAULT == null
+						? groupId != null
+						: !GROUP_ID_EDEFAULT.equals(groupId);
+			case PomPackage.PARENT__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
+			case PomPackage.PARENT__RELATIVE_PATH:
+				return isSetRelativePath();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -191,18 +191,18 @@ public class ParentImpl extends EObjectImpl implements Parent {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.PARENT__ARTIFACT_ID:
-			setArtifactId((String) newValue);
-			return;
-		case PomPackage.PARENT__GROUP_ID:
-			setGroupId((String) newValue);
-			return;
-		case PomPackage.PARENT__VERSION:
-			setVersion((String) newValue);
-			return;
-		case PomPackage.PARENT__RELATIVE_PATH:
-			setRelativePath((String) newValue);
-			return;
+			case PomPackage.PARENT__ARTIFACT_ID:
+				setArtifactId((String) newValue);
+				return;
+			case PomPackage.PARENT__GROUP_ID:
+				setGroupId((String) newValue);
+				return;
+			case PomPackage.PARENT__VERSION:
+				setVersion((String) newValue);
+				return;
+			case PomPackage.PARENT__RELATIVE_PATH:
+				setRelativePath((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -215,18 +215,18 @@ public class ParentImpl extends EObjectImpl implements Parent {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.PARENT__ARTIFACT_ID:
-			setArtifactId(ARTIFACT_ID_EDEFAULT);
-			return;
-		case PomPackage.PARENT__GROUP_ID:
-			setGroupId(GROUP_ID_EDEFAULT);
-			return;
-		case PomPackage.PARENT__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case PomPackage.PARENT__RELATIVE_PATH:
-			unsetRelativePath();
-			return;
+			case PomPackage.PARENT__ARTIFACT_ID:
+				setArtifactId(ARTIFACT_ID_EDEFAULT);
+				return;
+			case PomPackage.PARENT__GROUP_ID:
+				setGroupId(GROUP_ID_EDEFAULT);
+				return;
+			case PomPackage.PARENT__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case PomPackage.PARENT__RELATIVE_PATH:
+				unsetRelativePath();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -285,8 +285,8 @@ public class ParentImpl extends EObjectImpl implements Parent {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PARENT__ARTIFACT_ID, oldArtifactId,
-					artifactId));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.PARENT__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
@@ -312,8 +312,9 @@ public class ParentImpl extends EObjectImpl implements Parent {
 		boolean oldRelativePathESet = relativePathESet;
 		relativePathESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PARENT__RELATIVE_PATH, oldRelativePath,
-					relativePath, !oldRelativePathESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.PARENT__RELATIVE_PATH, oldRelativePath, relativePath,
+				!oldRelativePathESet));
 	}
 
 	/**
@@ -365,8 +366,9 @@ public class ParentImpl extends EObjectImpl implements Parent {
 		relativePath = RELATIVE_PATH_EDEFAULT;
 		relativePathESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.PARENT__RELATIVE_PATH, oldRelativePath,
-					RELATIVE_PATH_EDEFAULT, oldRelativePathESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.PARENT__RELATIVE_PATH, oldRelativePath, RELATIVE_PATH_EDEFAULT,
+				oldRelativePathESet));
 	}
 
 	/**

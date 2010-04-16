@@ -129,8 +129,8 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 		Versioning oldVersioning = versioning;
 		versioning = newVersioning;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					MetadataPackage.META_DATA__VERSIONING, oldVersioning, newVersioning);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, MetadataPackage.META_DATA__VERSIONING, oldVersioning, newVersioning);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -147,14 +147,14 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case MetadataPackage.META_DATA__GROUP_ID:
-			return getGroupId();
-		case MetadataPackage.META_DATA__ARTIFACT_ID:
-			return getArtifactId();
-		case MetadataPackage.META_DATA__VERSION:
-			return getVersion();
-		case MetadataPackage.META_DATA__VERSIONING:
-			return getVersioning();
+			case MetadataPackage.META_DATA__GROUP_ID:
+				return getGroupId();
+			case MetadataPackage.META_DATA__ARTIFACT_ID:
+				return getArtifactId();
+			case MetadataPackage.META_DATA__VERSION:
+				return getVersion();
+			case MetadataPackage.META_DATA__VERSIONING:
+				return getVersioning();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -167,8 +167,8 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case MetadataPackage.META_DATA__VERSIONING:
-			return basicSetVersioning(null, msgs);
+			case MetadataPackage.META_DATA__VERSIONING:
+				return basicSetVersioning(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -181,20 +181,20 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case MetadataPackage.META_DATA__GROUP_ID:
-			return GROUP_ID_EDEFAULT == null
-					? groupId != null
-					: !GROUP_ID_EDEFAULT.equals(groupId);
-		case MetadataPackage.META_DATA__ARTIFACT_ID:
-			return ARTIFACT_ID_EDEFAULT == null
-					? artifactId != null
-					: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
-		case MetadataPackage.META_DATA__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
-		case MetadataPackage.META_DATA__VERSIONING:
-			return versioning != null;
+			case MetadataPackage.META_DATA__GROUP_ID:
+				return GROUP_ID_EDEFAULT == null
+						? groupId != null
+						: !GROUP_ID_EDEFAULT.equals(groupId);
+			case MetadataPackage.META_DATA__ARTIFACT_ID:
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+			case MetadataPackage.META_DATA__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
+			case MetadataPackage.META_DATA__VERSIONING:
+				return versioning != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -207,18 +207,18 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case MetadataPackage.META_DATA__GROUP_ID:
-			setGroupId((String) newValue);
-			return;
-		case MetadataPackage.META_DATA__ARTIFACT_ID:
-			setArtifactId((String) newValue);
-			return;
-		case MetadataPackage.META_DATA__VERSION:
-			setVersion((String) newValue);
-			return;
-		case MetadataPackage.META_DATA__VERSIONING:
-			setVersioning((Versioning) newValue);
-			return;
+			case MetadataPackage.META_DATA__GROUP_ID:
+				setGroupId((String) newValue);
+				return;
+			case MetadataPackage.META_DATA__ARTIFACT_ID:
+				setArtifactId((String) newValue);
+				return;
+			case MetadataPackage.META_DATA__VERSION:
+				setVersion((String) newValue);
+				return;
+			case MetadataPackage.META_DATA__VERSIONING:
+				setVersioning((Versioning) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -231,18 +231,18 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case MetadataPackage.META_DATA__GROUP_ID:
-			setGroupId(GROUP_ID_EDEFAULT);
-			return;
-		case MetadataPackage.META_DATA__ARTIFACT_ID:
-			setArtifactId(ARTIFACT_ID_EDEFAULT);
-			return;
-		case MetadataPackage.META_DATA__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case MetadataPackage.META_DATA__VERSIONING:
-			setVersioning((Versioning) null);
-			return;
+			case MetadataPackage.META_DATA__GROUP_ID:
+				setGroupId(GROUP_ID_EDEFAULT);
+				return;
+			case MetadataPackage.META_DATA__ARTIFACT_ID:
+				setArtifactId(ARTIFACT_ID_EDEFAULT);
+				return;
+			case MetadataPackage.META_DATA__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case MetadataPackage.META_DATA__VERSIONING:
+				setVersioning((Versioning) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -292,8 +292,8 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.META_DATA__ARTIFACT_ID,
-					oldArtifactId, artifactId));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, MetadataPackage.META_DATA__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
@@ -305,8 +305,8 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.META_DATA__GROUP_ID, oldGroupId,
-					groupId));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, MetadataPackage.META_DATA__GROUP_ID, oldGroupId, groupId));
 	}
 
 	/**
@@ -318,8 +318,8 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 		String oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.META_DATA__VERSION, oldVersion,
-					version));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, MetadataPackage.META_DATA__VERSION, oldVersion, version));
 	}
 
 	/**
@@ -331,18 +331,18 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 		if(newVersioning != versioning) {
 			NotificationChain msgs = null;
 			if(versioning != null)
-				msgs = ((InternalEObject) versioning).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- MetadataPackage.META_DATA__VERSIONING, null, msgs);
+				msgs = ((InternalEObject) versioning).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						MetadataPackage.META_DATA__VERSIONING, null, msgs);
 			if(newVersioning != null)
-				msgs = ((InternalEObject) newVersioning).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- MetadataPackage.META_DATA__VERSIONING, null, msgs);
+				msgs = ((InternalEObject) newVersioning).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						MetadataPackage.META_DATA__VERSIONING, null, msgs);
 			msgs = basicSetVersioning(newVersioning, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.META_DATA__VERSIONING, newVersioning,
-					newVersioning));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, MetadataPackage.META_DATA__VERSIONING, newVersioning, newVersioning));
 	}
 
 	/**

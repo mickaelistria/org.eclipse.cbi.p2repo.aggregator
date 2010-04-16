@@ -59,8 +59,8 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.FILTERS_TYPE__FILTER:
-			return getFilter();
+			case PomPackage.FILTERS_TYPE__FILTER:
+				return getFilter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -73,8 +73,8 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.FILTERS_TYPE__FILTER:
-			return filter != null && !filter.isEmpty();
+			case PomPackage.FILTERS_TYPE__FILTER:
+				return filter != null && !filter.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -88,10 +88,10 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.FILTERS_TYPE__FILTER:
-			getFilter().clear();
-			getFilter().addAll((Collection<? extends String>) newValue);
-			return;
+			case PomPackage.FILTERS_TYPE__FILTER:
+				getFilter().clear();
+				getFilter().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -104,9 +104,9 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.FILTERS_TYPE__FILTER:
-			getFilter().clear();
-			return;
+			case PomPackage.FILTERS_TYPE__FILTER:
+				getFilter().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

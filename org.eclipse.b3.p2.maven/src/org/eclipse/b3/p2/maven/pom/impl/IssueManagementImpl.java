@@ -89,10 +89,10 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
-			return getSystem();
-		case PomPackage.ISSUE_MANAGEMENT__URL:
-			return getUrl();
+			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
+				return getSystem();
+			case PomPackage.ISSUE_MANAGEMENT__URL:
+				return getUrl();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -105,14 +105,14 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
-			return SYSTEM_EDEFAULT == null
-					? system != null
-					: !SYSTEM_EDEFAULT.equals(system);
-		case PomPackage.ISSUE_MANAGEMENT__URL:
-			return URL_EDEFAULT == null
-					? url != null
-					: !URL_EDEFAULT.equals(url);
+			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
+				return SYSTEM_EDEFAULT == null
+						? system != null
+						: !SYSTEM_EDEFAULT.equals(system);
+			case PomPackage.ISSUE_MANAGEMENT__URL:
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -125,12 +125,12 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
-			setSystem((String) newValue);
-			return;
-		case PomPackage.ISSUE_MANAGEMENT__URL:
-			setUrl((String) newValue);
-			return;
+			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
+				setSystem((String) newValue);
+				return;
+			case PomPackage.ISSUE_MANAGEMENT__URL:
+				setUrl((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -143,12 +143,12 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
-			setSystem(SYSTEM_EDEFAULT);
-			return;
-		case PomPackage.ISSUE_MANAGEMENT__URL:
-			setUrl(URL_EDEFAULT);
-			return;
+			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
+				setSystem(SYSTEM_EDEFAULT);
+				return;
+			case PomPackage.ISSUE_MANAGEMENT__URL:
+				setUrl(URL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -180,8 +180,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 		String oldSystem = system;
 		system = newSystem;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ISSUE_MANAGEMENT__SYSTEM, oldSystem,
-					system));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.ISSUE_MANAGEMENT__SYSTEM, oldSystem, system));
 	}
 
 	/**

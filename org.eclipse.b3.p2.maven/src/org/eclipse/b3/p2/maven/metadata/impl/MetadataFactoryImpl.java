@@ -70,16 +70,16 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch(eClass.getClassifierID()) {
-		case MetadataPackage.DOCUMENT_ROOT:
-			return createDocumentRoot();
-		case MetadataPackage.META_DATA:
-			return createMetaData();
-		case MetadataPackage.VERSIONING:
-			return createVersioning();
-		case MetadataPackage.VERSIONS:
-			return createVersions();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case MetadataPackage.DOCUMENT_ROOT:
+				return createDocumentRoot();
+			case MetadataPackage.META_DATA:
+				return createMetaData();
+			case MetadataPackage.VERSIONING:
+				return createVersioning();
+			case MetadataPackage.VERSIONS:
+				return createVersions();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 

@@ -106,8 +106,8 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 		Versions oldVersions = versions;
 		versions = newVersions;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					MetadataPackage.VERSIONING__VERSIONS, oldVersions, newVersions);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, MetadataPackage.VERSIONING__VERSIONS, oldVersions, newVersions);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -124,12 +124,12 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case MetadataPackage.VERSIONING__RELEASE:
-			return getRelease();
-		case MetadataPackage.VERSIONING__VERSIONS:
-			return getVersions();
-		case MetadataPackage.VERSIONING__LAST_UPDATED:
-			return getLastUpdated();
+			case MetadataPackage.VERSIONING__RELEASE:
+				return getRelease();
+			case MetadataPackage.VERSIONING__VERSIONS:
+				return getVersions();
+			case MetadataPackage.VERSIONING__LAST_UPDATED:
+				return getLastUpdated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -142,8 +142,8 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case MetadataPackage.VERSIONING__VERSIONS:
-			return basicSetVersions(null, msgs);
+			case MetadataPackage.VERSIONING__VERSIONS:
+				return basicSetVersions(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -156,16 +156,16 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case MetadataPackage.VERSIONING__RELEASE:
-			return RELEASE_EDEFAULT == null
-					? release != null
-					: !RELEASE_EDEFAULT.equals(release);
-		case MetadataPackage.VERSIONING__VERSIONS:
-			return versions != null;
-		case MetadataPackage.VERSIONING__LAST_UPDATED:
-			return LAST_UPDATED_EDEFAULT == null
-					? lastUpdated != null
-					: !LAST_UPDATED_EDEFAULT.equals(lastUpdated);
+			case MetadataPackage.VERSIONING__RELEASE:
+				return RELEASE_EDEFAULT == null
+						? release != null
+						: !RELEASE_EDEFAULT.equals(release);
+			case MetadataPackage.VERSIONING__VERSIONS:
+				return versions != null;
+			case MetadataPackage.VERSIONING__LAST_UPDATED:
+				return LAST_UPDATED_EDEFAULT == null
+						? lastUpdated != null
+						: !LAST_UPDATED_EDEFAULT.equals(lastUpdated);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -178,15 +178,15 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case MetadataPackage.VERSIONING__RELEASE:
-			setRelease((String) newValue);
-			return;
-		case MetadataPackage.VERSIONING__VERSIONS:
-			setVersions((Versions) newValue);
-			return;
-		case MetadataPackage.VERSIONING__LAST_UPDATED:
-			setLastUpdated((String) newValue);
-			return;
+			case MetadataPackage.VERSIONING__RELEASE:
+				setRelease((String) newValue);
+				return;
+			case MetadataPackage.VERSIONING__VERSIONS:
+				setVersions((Versions) newValue);
+				return;
+			case MetadataPackage.VERSIONING__LAST_UPDATED:
+				setLastUpdated((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -199,15 +199,15 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case MetadataPackage.VERSIONING__RELEASE:
-			setRelease(RELEASE_EDEFAULT);
-			return;
-		case MetadataPackage.VERSIONING__VERSIONS:
-			setVersions((Versions) null);
-			return;
-		case MetadataPackage.VERSIONING__LAST_UPDATED:
-			setLastUpdated(LAST_UPDATED_EDEFAULT);
-			return;
+			case MetadataPackage.VERSIONING__RELEASE:
+				setRelease(RELEASE_EDEFAULT);
+				return;
+			case MetadataPackage.VERSIONING__VERSIONS:
+				setVersions((Versions) null);
+				return;
+			case MetadataPackage.VERSIONING__LAST_UPDATED:
+				setLastUpdated(LAST_UPDATED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -248,8 +248,8 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 		String oldLastUpdated = lastUpdated;
 		lastUpdated = newLastUpdated;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__LAST_UPDATED,
-					oldLastUpdated, lastUpdated));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, MetadataPackage.VERSIONING__LAST_UPDATED, oldLastUpdated, lastUpdated));
 	}
 
 	/**
@@ -261,8 +261,8 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 		String oldRelease = release;
 		release = newRelease;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__RELEASE, oldRelease,
-					release));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, MetadataPackage.VERSIONING__RELEASE, oldRelease, release));
 	}
 
 	/**
@@ -274,18 +274,18 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 		if(newVersions != versions) {
 			NotificationChain msgs = null;
 			if(versions != null)
-				msgs = ((InternalEObject) versions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- MetadataPackage.VERSIONING__VERSIONS, null, msgs);
+				msgs = ((InternalEObject) versions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						MetadataPackage.VERSIONING__VERSIONS, null, msgs);
 			if(newVersions != null)
-				msgs = ((InternalEObject) newVersions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- MetadataPackage.VERSIONING__VERSIONS, null, msgs);
+				msgs = ((InternalEObject) newVersions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						MetadataPackage.VERSIONING__VERSIONS, null, msgs);
 			msgs = basicSetVersions(newVersions, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__VERSIONS, newVersions,
-					newVersions));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, MetadataPackage.VERSIONING__VERSIONS, newVersions, newVersions));
 	}
 
 	/**

@@ -59,8 +59,8 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.INCLUDES_TYPE__INCLUDE:
-			return getInclude();
+			case PomPackage.INCLUDES_TYPE__INCLUDE:
+				return getInclude();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -73,8 +73,8 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.INCLUDES_TYPE__INCLUDE:
-			return include != null && !include.isEmpty();
+			case PomPackage.INCLUDES_TYPE__INCLUDE:
+				return include != null && !include.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -88,10 +88,10 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.INCLUDES_TYPE__INCLUDE:
-			getInclude().clear();
-			getInclude().addAll((Collection<? extends String>) newValue);
-			return;
+			case PomPackage.INCLUDES_TYPE__INCLUDE:
+				getInclude().clear();
+				getInclude().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -104,9 +104,9 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.INCLUDES_TYPE__INCLUDE:
-			getInclude().clear();
-			return;
+			case PomPackage.INCLUDES_TYPE__INCLUDE:
+				getInclude().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

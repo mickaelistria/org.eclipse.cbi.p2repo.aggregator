@@ -27,8 +27,8 @@ public class DigestUtil {
 				MESSAGE_DIGESTERS[i++] = MessageDigest.getInstance(checkSumAlgorithm);
 			}
 			catch(NoSuchAlgorithmException e) {
-				throw new RuntimeException("Unable to create checksum algorithm for " + checkSumAlgorithm + ": "
-						+ e.getMessage());
+				throw new RuntimeException("Unable to create checksum algorithm for " + checkSumAlgorithm + ": " +
+						e.getMessage());
 			}
 	}
 

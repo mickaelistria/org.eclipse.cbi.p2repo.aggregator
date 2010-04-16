@@ -90,8 +90,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public NotificationChain basicSetMetadata(MetaData newMetadata, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MetadataPackage.Literals.DOCUMENT_ROOT__METADATA,
-				newMetadata, msgs);
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+			MetadataPackage.Literals.DOCUMENT_ROOT__METADATA, newMetadata, msgs);
 	}
 
 	/**
@@ -102,22 +102,22 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case MetadataPackage.DOCUMENT_ROOT__MIXED:
-			if(coreType)
-				return getMixed();
-			return ((FeatureMap.Internal) getMixed()).getWrapper();
-		case MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			if(coreType)
-				return getXMLNSPrefixMap();
-			else
-				return getXMLNSPrefixMap().map();
-		case MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			if(coreType)
-				return getXSISchemaLocation();
-			else
-				return getXSISchemaLocation().map();
-		case MetadataPackage.DOCUMENT_ROOT__METADATA:
-			return getMetadata();
+			case MetadataPackage.DOCUMENT_ROOT__MIXED:
+				if(coreType)
+					return getMixed();
+				return ((FeatureMap.Internal) getMixed()).getWrapper();
+			case MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+				if(coreType)
+					return getXMLNSPrefixMap();
+				else
+					return getXMLNSPrefixMap().map();
+			case MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+				if(coreType)
+					return getXSISchemaLocation();
+				else
+					return getXSISchemaLocation().map();
+			case MetadataPackage.DOCUMENT_ROOT__METADATA:
+				return getMetadata();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -130,14 +130,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case MetadataPackage.DOCUMENT_ROOT__MIXED:
-			return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
-		case MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
-		case MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(otherEnd, msgs);
-		case MetadataPackage.DOCUMENT_ROOT__METADATA:
-			return basicSetMetadata(null, msgs);
+			case MetadataPackage.DOCUMENT_ROOT__MIXED:
+				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
+			case MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+				return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
+			case MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+				return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(otherEnd, msgs);
+			case MetadataPackage.DOCUMENT_ROOT__METADATA:
+				return basicSetMetadata(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -150,14 +150,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case MetadataPackage.DOCUMENT_ROOT__MIXED:
-			return mixed != null && !mixed.isEmpty();
-		case MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			return xMLNSPrefixMap != null && !xMLNSPrefixMap.isEmpty();
-		case MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
-		case MetadataPackage.DOCUMENT_ROOT__METADATA:
-			return getMetadata() != null;
+			case MetadataPackage.DOCUMENT_ROOT__MIXED:
+				return mixed != null && !mixed.isEmpty();
+			case MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+				return xMLNSPrefixMap != null && !xMLNSPrefixMap.isEmpty();
+			case MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+				return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
+			case MetadataPackage.DOCUMENT_ROOT__METADATA:
+				return getMetadata() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -170,18 +170,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case MetadataPackage.DOCUMENT_ROOT__MIXED:
-			((FeatureMap.Internal) getMixed()).set(newValue);
-			return;
-		case MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			((EStructuralFeature.Setting) getXMLNSPrefixMap()).set(newValue);
-			return;
-		case MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			((EStructuralFeature.Setting) getXSISchemaLocation()).set(newValue);
-			return;
-		case MetadataPackage.DOCUMENT_ROOT__METADATA:
-			setMetadata((MetaData) newValue);
-			return;
+			case MetadataPackage.DOCUMENT_ROOT__MIXED:
+				((FeatureMap.Internal) getMixed()).set(newValue);
+				return;
+			case MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+				((EStructuralFeature.Setting) getXMLNSPrefixMap()).set(newValue);
+				return;
+			case MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+				((EStructuralFeature.Setting) getXSISchemaLocation()).set(newValue);
+				return;
+			case MetadataPackage.DOCUMENT_ROOT__METADATA:
+				setMetadata((MetaData) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -194,18 +194,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case MetadataPackage.DOCUMENT_ROOT__MIXED:
-			getMixed().clear();
-			return;
-		case MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			getXMLNSPrefixMap().clear();
-			return;
-		case MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			getXSISchemaLocation().clear();
-			return;
-		case MetadataPackage.DOCUMENT_ROOT__METADATA:
-			setMetadata((MetaData) null);
-			return;
+			case MetadataPackage.DOCUMENT_ROOT__MIXED:
+				getMixed().clear();
+				return;
+			case MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+				getXMLNSPrefixMap().clear();
+				return;
+			case MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+				getXSISchemaLocation().clear();
+				return;
+			case MetadataPackage.DOCUMENT_ROOT__METADATA:
+				setMetadata((MetaData) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -238,8 +238,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public EMap<String, String> getXMLNSPrefixMap() {
 		if(xMLNSPrefixMap == null) {
-			xMLNSPrefixMap = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-					EStringToStringMapEntryImpl.class, this, MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+			xMLNSPrefixMap = new EcoreEMap<String, String>(
+				EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this,
+				MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
 		}
 		return xMLNSPrefixMap;
 	}
@@ -251,8 +252,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public EMap<String, String> getXSISchemaLocation() {
 		if(xSISchemaLocation == null) {
-			xSISchemaLocation = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-					EStringToStringMapEntryImpl.class, this, MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+			xSISchemaLocation = new EcoreEMap<String, String>(
+				EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this,
+				MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
 		}
 		return xSISchemaLocation;
 	}

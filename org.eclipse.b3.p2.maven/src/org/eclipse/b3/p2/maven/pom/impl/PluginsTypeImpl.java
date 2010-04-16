@@ -64,8 +64,8 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.PLUGINS_TYPE__PLUGIN:
-			return getPlugin();
+			case PomPackage.PLUGINS_TYPE__PLUGIN:
+				return getPlugin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,8 +78,8 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.PLUGINS_TYPE__PLUGIN:
-			return ((InternalEList<?>) getPlugin()).basicRemove(otherEnd, msgs);
+			case PomPackage.PLUGINS_TYPE__PLUGIN:
+				return ((InternalEList<?>) getPlugin()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,8 +92,8 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.PLUGINS_TYPE__PLUGIN:
-			return plugin != null && !plugin.isEmpty();
+			case PomPackage.PLUGINS_TYPE__PLUGIN:
+				return plugin != null && !plugin.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,10 +107,10 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.PLUGINS_TYPE__PLUGIN:
-			getPlugin().clear();
-			getPlugin().addAll((Collection<? extends Plugin>) newValue);
-			return;
+			case PomPackage.PLUGINS_TYPE__PLUGIN:
+				getPlugin().clear();
+				getPlugin().addAll((Collection<? extends Plugin>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,9 +123,9 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.PLUGINS_TYPE__PLUGIN:
-			getPlugin().clear();
-			return;
+			case PomPackage.PLUGINS_TYPE__PLUGIN:
+				getPlugin().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

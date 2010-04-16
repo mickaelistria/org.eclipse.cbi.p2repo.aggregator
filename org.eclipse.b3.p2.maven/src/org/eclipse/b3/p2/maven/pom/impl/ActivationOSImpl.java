@@ -132,14 +132,14 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_OS__NAME:
-			return getName();
-		case PomPackage.ACTIVATION_OS__FAMILY:
-			return getFamily();
-		case PomPackage.ACTIVATION_OS__ARCH:
-			return getArch();
-		case PomPackage.ACTIVATION_OS__VERSION:
-			return getVersion();
+			case PomPackage.ACTIVATION_OS__NAME:
+				return getName();
+			case PomPackage.ACTIVATION_OS__FAMILY:
+				return getFamily();
+			case PomPackage.ACTIVATION_OS__ARCH:
+				return getArch();
+			case PomPackage.ACTIVATION_OS__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,22 +152,22 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_OS__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case PomPackage.ACTIVATION_OS__FAMILY:
-			return FAMILY_EDEFAULT == null
-					? family != null
-					: !FAMILY_EDEFAULT.equals(family);
-		case PomPackage.ACTIVATION_OS__ARCH:
-			return ARCH_EDEFAULT == null
-					? arch != null
-					: !ARCH_EDEFAULT.equals(arch);
-		case PomPackage.ACTIVATION_OS__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
+			case PomPackage.ACTIVATION_OS__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case PomPackage.ACTIVATION_OS__FAMILY:
+				return FAMILY_EDEFAULT == null
+						? family != null
+						: !FAMILY_EDEFAULT.equals(family);
+			case PomPackage.ACTIVATION_OS__ARCH:
+				return ARCH_EDEFAULT == null
+						? arch != null
+						: !ARCH_EDEFAULT.equals(arch);
+			case PomPackage.ACTIVATION_OS__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -180,18 +180,18 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_OS__NAME:
-			setName((String) newValue);
-			return;
-		case PomPackage.ACTIVATION_OS__FAMILY:
-			setFamily((String) newValue);
-			return;
-		case PomPackage.ACTIVATION_OS__ARCH:
-			setArch((String) newValue);
-			return;
-		case PomPackage.ACTIVATION_OS__VERSION:
-			setVersion((String) newValue);
-			return;
+			case PomPackage.ACTIVATION_OS__NAME:
+				setName((String) newValue);
+				return;
+			case PomPackage.ACTIVATION_OS__FAMILY:
+				setFamily((String) newValue);
+				return;
+			case PomPackage.ACTIVATION_OS__ARCH:
+				setArch((String) newValue);
+				return;
+			case PomPackage.ACTIVATION_OS__VERSION:
+				setVersion((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -204,18 +204,18 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_OS__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case PomPackage.ACTIVATION_OS__FAMILY:
-			setFamily(FAMILY_EDEFAULT);
-			return;
-		case PomPackage.ACTIVATION_OS__ARCH:
-			setArch(ARCH_EDEFAULT);
-			return;
-		case PomPackage.ACTIVATION_OS__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
+			case PomPackage.ACTIVATION_OS__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case PomPackage.ACTIVATION_OS__FAMILY:
+				setFamily(FAMILY_EDEFAULT);
+				return;
+			case PomPackage.ACTIVATION_OS__ARCH:
+				setArch(ARCH_EDEFAULT);
+				return;
+			case PomPackage.ACTIVATION_OS__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -301,8 +301,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 		String oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ACTIVATION_OS__VERSION, oldVersion,
-					version));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.ACTIVATION_OS__VERSION, oldVersion, version));
 	}
 
 	/**

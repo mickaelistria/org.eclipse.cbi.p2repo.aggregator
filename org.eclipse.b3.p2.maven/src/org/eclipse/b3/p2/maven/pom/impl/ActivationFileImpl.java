@@ -91,10 +91,10 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_FILE__MISSING:
-			return getMissing();
-		case PomPackage.ACTIVATION_FILE__EXISTS:
-			return getExists();
+			case PomPackage.ACTIVATION_FILE__MISSING:
+				return getMissing();
+			case PomPackage.ACTIVATION_FILE__EXISTS:
+				return getExists();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,14 +107,14 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_FILE__MISSING:
-			return MISSING_EDEFAULT == null
-					? missing != null
-					: !MISSING_EDEFAULT.equals(missing);
-		case PomPackage.ACTIVATION_FILE__EXISTS:
-			return EXISTS_EDEFAULT == null
-					? exists != null
-					: !EXISTS_EDEFAULT.equals(exists);
+			case PomPackage.ACTIVATION_FILE__MISSING:
+				return MISSING_EDEFAULT == null
+						? missing != null
+						: !MISSING_EDEFAULT.equals(missing);
+			case PomPackage.ACTIVATION_FILE__EXISTS:
+				return EXISTS_EDEFAULT == null
+						? exists != null
+						: !EXISTS_EDEFAULT.equals(exists);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -127,12 +127,12 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_FILE__MISSING:
-			setMissing((String) newValue);
-			return;
-		case PomPackage.ACTIVATION_FILE__EXISTS:
-			setExists((String) newValue);
-			return;
+			case PomPackage.ACTIVATION_FILE__MISSING:
+				setMissing((String) newValue);
+				return;
+			case PomPackage.ACTIVATION_FILE__EXISTS:
+				setExists((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -145,12 +145,12 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_FILE__MISSING:
-			setMissing(MISSING_EDEFAULT);
-			return;
-		case PomPackage.ACTIVATION_FILE__EXISTS:
-			setExists(EXISTS_EDEFAULT);
-			return;
+			case PomPackage.ACTIVATION_FILE__MISSING:
+				setMissing(MISSING_EDEFAULT);
+				return;
+			case PomPackage.ACTIVATION_FILE__EXISTS:
+				setExists(EXISTS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -194,8 +194,8 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 		String oldMissing = missing;
 		missing = newMissing;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ACTIVATION_FILE__MISSING, oldMissing,
-					missing));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.ACTIVATION_FILE__MISSING, oldMissing, missing));
 	}
 
 	/**

@@ -60,8 +60,9 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 		DependenciesType oldDependencies = dependencies;
 		dependencies = newDependencies;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, oldDependencies, newDependencies);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, oldDependencies,
+				newDependencies);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -78,8 +79,8 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
-			return getDependencies();
+			case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
+				return getDependencies();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -92,8 +93,8 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
-			return basicSetDependencies(null, msgs);
+			case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
+				return basicSetDependencies(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -106,8 +107,8 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
-			return dependencies != null;
+			case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
+				return dependencies != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -120,9 +121,9 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
-			setDependencies((DependenciesType) newValue);
-			return;
+			case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
+				setDependencies((DependenciesType) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -135,9 +136,9 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
-			setDependencies((DependenciesType) null);
-			return;
+			case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
+				setDependencies((DependenciesType) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -160,18 +161,19 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 		if(newDependencies != dependencies) {
 			NotificationChain msgs = null;
 			if(dependencies != null)
-				msgs = ((InternalEObject) dependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, null, msgs);
+				msgs = ((InternalEObject) dependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, null, msgs);
 			if(newDependencies != null)
-				msgs = ((InternalEObject) newDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, null, msgs);
+				msgs = ((InternalEObject) newDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, null, msgs);
 			msgs = basicSetDependencies(newDependencies, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES,
-					newDependencies, newDependencies));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, newDependencies,
+				newDependencies));
 	}
 
 	/**

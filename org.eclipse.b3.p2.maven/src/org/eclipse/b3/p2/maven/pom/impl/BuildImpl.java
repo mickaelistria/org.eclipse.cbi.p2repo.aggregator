@@ -301,8 +301,8 @@ public class BuildImpl extends EObjectImpl implements Build {
 		ExtensionsType oldExtensions = extensions;
 		extensions = newExtensions;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.BUILD__EXTENSIONS, oldExtensions, newExtensions);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__EXTENSIONS, oldExtensions, newExtensions);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -320,8 +320,8 @@ public class BuildImpl extends EObjectImpl implements Build {
 		FiltersType oldFilters = filters;
 		filters = newFilters;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__FILTERS,
-					oldFilters, newFilters);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__FILTERS, oldFilters, newFilters);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -339,8 +339,8 @@ public class BuildImpl extends EObjectImpl implements Build {
 		PluginManagement oldPluginManagement = pluginManagement;
 		pluginManagement = newPluginManagement;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.BUILD__PLUGIN_MANAGEMENT, oldPluginManagement, newPluginManagement);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__PLUGIN_MANAGEMENT, oldPluginManagement, newPluginManagement);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -358,8 +358,8 @@ public class BuildImpl extends EObjectImpl implements Build {
 		PluginsType oldPlugins = plugins;
 		plugins = newPlugins;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__PLUGINS,
-					oldPlugins, newPlugins);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__PLUGINS, oldPlugins, newPlugins);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -377,8 +377,8 @@ public class BuildImpl extends EObjectImpl implements Build {
 		ResourcesType oldResources = resources;
 		resources = newResources;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__RESOURCES,
-					oldResources, newResources);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__RESOURCES, oldResources, newResources);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -396,8 +396,8 @@ public class BuildImpl extends EObjectImpl implements Build {
 		TestResourcesType oldTestResources = testResources;
 		testResources = newTestResources;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.BUILD__TEST_RESOURCES, oldTestResources, newTestResources);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__TEST_RESOURCES, oldTestResources, newTestResources);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -414,34 +414,34 @@ public class BuildImpl extends EObjectImpl implements Build {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.BUILD__SOURCE_DIRECTORY:
-			return getSourceDirectory();
-		case PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY:
-			return getScriptSourceDirectory();
-		case PomPackage.BUILD__TEST_SOURCE_DIRECTORY:
-			return getTestSourceDirectory();
-		case PomPackage.BUILD__OUTPUT_DIRECTORY:
-			return getOutputDirectory();
-		case PomPackage.BUILD__TEST_OUTPUT_DIRECTORY:
-			return getTestOutputDirectory();
-		case PomPackage.BUILD__EXTENSIONS:
-			return getExtensions();
-		case PomPackage.BUILD__DEFAULT_GOAL:
-			return getDefaultGoal();
-		case PomPackage.BUILD__RESOURCES:
-			return getResources();
-		case PomPackage.BUILD__TEST_RESOURCES:
-			return getTestResources();
-		case PomPackage.BUILD__DIRECTORY:
-			return getDirectory();
-		case PomPackage.BUILD__FINAL_NAME:
-			return getFinalName();
-		case PomPackage.BUILD__FILTERS:
-			return getFilters();
-		case PomPackage.BUILD__PLUGIN_MANAGEMENT:
-			return getPluginManagement();
-		case PomPackage.BUILD__PLUGINS:
-			return getPlugins();
+			case PomPackage.BUILD__SOURCE_DIRECTORY:
+				return getSourceDirectory();
+			case PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY:
+				return getScriptSourceDirectory();
+			case PomPackage.BUILD__TEST_SOURCE_DIRECTORY:
+				return getTestSourceDirectory();
+			case PomPackage.BUILD__OUTPUT_DIRECTORY:
+				return getOutputDirectory();
+			case PomPackage.BUILD__TEST_OUTPUT_DIRECTORY:
+				return getTestOutputDirectory();
+			case PomPackage.BUILD__EXTENSIONS:
+				return getExtensions();
+			case PomPackage.BUILD__DEFAULT_GOAL:
+				return getDefaultGoal();
+			case PomPackage.BUILD__RESOURCES:
+				return getResources();
+			case PomPackage.BUILD__TEST_RESOURCES:
+				return getTestResources();
+			case PomPackage.BUILD__DIRECTORY:
+				return getDirectory();
+			case PomPackage.BUILD__FINAL_NAME:
+				return getFinalName();
+			case PomPackage.BUILD__FILTERS:
+				return getFilters();
+			case PomPackage.BUILD__PLUGIN_MANAGEMENT:
+				return getPluginManagement();
+			case PomPackage.BUILD__PLUGINS:
+				return getPlugins();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -454,18 +454,18 @@ public class BuildImpl extends EObjectImpl implements Build {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.BUILD__EXTENSIONS:
-			return basicSetExtensions(null, msgs);
-		case PomPackage.BUILD__RESOURCES:
-			return basicSetResources(null, msgs);
-		case PomPackage.BUILD__TEST_RESOURCES:
-			return basicSetTestResources(null, msgs);
-		case PomPackage.BUILD__FILTERS:
-			return basicSetFilters(null, msgs);
-		case PomPackage.BUILD__PLUGIN_MANAGEMENT:
-			return basicSetPluginManagement(null, msgs);
-		case PomPackage.BUILD__PLUGINS:
-			return basicSetPlugins(null, msgs);
+			case PomPackage.BUILD__EXTENSIONS:
+				return basicSetExtensions(null, msgs);
+			case PomPackage.BUILD__RESOURCES:
+				return basicSetResources(null, msgs);
+			case PomPackage.BUILD__TEST_RESOURCES:
+				return basicSetTestResources(null, msgs);
+			case PomPackage.BUILD__FILTERS:
+				return basicSetFilters(null, msgs);
+			case PomPackage.BUILD__PLUGIN_MANAGEMENT:
+				return basicSetPluginManagement(null, msgs);
+			case PomPackage.BUILD__PLUGINS:
+				return basicSetPlugins(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -478,50 +478,50 @@ public class BuildImpl extends EObjectImpl implements Build {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.BUILD__SOURCE_DIRECTORY:
-			return SOURCE_DIRECTORY_EDEFAULT == null
-					? sourceDirectory != null
-					: !SOURCE_DIRECTORY_EDEFAULT.equals(sourceDirectory);
-		case PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY:
-			return SCRIPT_SOURCE_DIRECTORY_EDEFAULT == null
-					? scriptSourceDirectory != null
-					: !SCRIPT_SOURCE_DIRECTORY_EDEFAULT.equals(scriptSourceDirectory);
-		case PomPackage.BUILD__TEST_SOURCE_DIRECTORY:
-			return TEST_SOURCE_DIRECTORY_EDEFAULT == null
-					? testSourceDirectory != null
-					: !TEST_SOURCE_DIRECTORY_EDEFAULT.equals(testSourceDirectory);
-		case PomPackage.BUILD__OUTPUT_DIRECTORY:
-			return OUTPUT_DIRECTORY_EDEFAULT == null
-					? outputDirectory != null
-					: !OUTPUT_DIRECTORY_EDEFAULT.equals(outputDirectory);
-		case PomPackage.BUILD__TEST_OUTPUT_DIRECTORY:
-			return TEST_OUTPUT_DIRECTORY_EDEFAULT == null
-					? testOutputDirectory != null
-					: !TEST_OUTPUT_DIRECTORY_EDEFAULT.equals(testOutputDirectory);
-		case PomPackage.BUILD__EXTENSIONS:
-			return extensions != null;
-		case PomPackage.BUILD__DEFAULT_GOAL:
-			return DEFAULT_GOAL_EDEFAULT == null
-					? defaultGoal != null
-					: !DEFAULT_GOAL_EDEFAULT.equals(defaultGoal);
-		case PomPackage.BUILD__RESOURCES:
-			return resources != null;
-		case PomPackage.BUILD__TEST_RESOURCES:
-			return testResources != null;
-		case PomPackage.BUILD__DIRECTORY:
-			return DIRECTORY_EDEFAULT == null
-					? directory != null
-					: !DIRECTORY_EDEFAULT.equals(directory);
-		case PomPackage.BUILD__FINAL_NAME:
-			return FINAL_NAME_EDEFAULT == null
-					? finalName != null
-					: !FINAL_NAME_EDEFAULT.equals(finalName);
-		case PomPackage.BUILD__FILTERS:
-			return filters != null;
-		case PomPackage.BUILD__PLUGIN_MANAGEMENT:
-			return pluginManagement != null;
-		case PomPackage.BUILD__PLUGINS:
-			return plugins != null;
+			case PomPackage.BUILD__SOURCE_DIRECTORY:
+				return SOURCE_DIRECTORY_EDEFAULT == null
+						? sourceDirectory != null
+						: !SOURCE_DIRECTORY_EDEFAULT.equals(sourceDirectory);
+			case PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY:
+				return SCRIPT_SOURCE_DIRECTORY_EDEFAULT == null
+						? scriptSourceDirectory != null
+						: !SCRIPT_SOURCE_DIRECTORY_EDEFAULT.equals(scriptSourceDirectory);
+			case PomPackage.BUILD__TEST_SOURCE_DIRECTORY:
+				return TEST_SOURCE_DIRECTORY_EDEFAULT == null
+						? testSourceDirectory != null
+						: !TEST_SOURCE_DIRECTORY_EDEFAULT.equals(testSourceDirectory);
+			case PomPackage.BUILD__OUTPUT_DIRECTORY:
+				return OUTPUT_DIRECTORY_EDEFAULT == null
+						? outputDirectory != null
+						: !OUTPUT_DIRECTORY_EDEFAULT.equals(outputDirectory);
+			case PomPackage.BUILD__TEST_OUTPUT_DIRECTORY:
+				return TEST_OUTPUT_DIRECTORY_EDEFAULT == null
+						? testOutputDirectory != null
+						: !TEST_OUTPUT_DIRECTORY_EDEFAULT.equals(testOutputDirectory);
+			case PomPackage.BUILD__EXTENSIONS:
+				return extensions != null;
+			case PomPackage.BUILD__DEFAULT_GOAL:
+				return DEFAULT_GOAL_EDEFAULT == null
+						? defaultGoal != null
+						: !DEFAULT_GOAL_EDEFAULT.equals(defaultGoal);
+			case PomPackage.BUILD__RESOURCES:
+				return resources != null;
+			case PomPackage.BUILD__TEST_RESOURCES:
+				return testResources != null;
+			case PomPackage.BUILD__DIRECTORY:
+				return DIRECTORY_EDEFAULT == null
+						? directory != null
+						: !DIRECTORY_EDEFAULT.equals(directory);
+			case PomPackage.BUILD__FINAL_NAME:
+				return FINAL_NAME_EDEFAULT == null
+						? finalName != null
+						: !FINAL_NAME_EDEFAULT.equals(finalName);
+			case PomPackage.BUILD__FILTERS:
+				return filters != null;
+			case PomPackage.BUILD__PLUGIN_MANAGEMENT:
+				return pluginManagement != null;
+			case PomPackage.BUILD__PLUGINS:
+				return plugins != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -534,48 +534,48 @@ public class BuildImpl extends EObjectImpl implements Build {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.BUILD__SOURCE_DIRECTORY:
-			setSourceDirectory((String) newValue);
-			return;
-		case PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY:
-			setScriptSourceDirectory((String) newValue);
-			return;
-		case PomPackage.BUILD__TEST_SOURCE_DIRECTORY:
-			setTestSourceDirectory((String) newValue);
-			return;
-		case PomPackage.BUILD__OUTPUT_DIRECTORY:
-			setOutputDirectory((String) newValue);
-			return;
-		case PomPackage.BUILD__TEST_OUTPUT_DIRECTORY:
-			setTestOutputDirectory((String) newValue);
-			return;
-		case PomPackage.BUILD__EXTENSIONS:
-			setExtensions((ExtensionsType) newValue);
-			return;
-		case PomPackage.BUILD__DEFAULT_GOAL:
-			setDefaultGoal((String) newValue);
-			return;
-		case PomPackage.BUILD__RESOURCES:
-			setResources((ResourcesType) newValue);
-			return;
-		case PomPackage.BUILD__TEST_RESOURCES:
-			setTestResources((TestResourcesType) newValue);
-			return;
-		case PomPackage.BUILD__DIRECTORY:
-			setDirectory((String) newValue);
-			return;
-		case PomPackage.BUILD__FINAL_NAME:
-			setFinalName((String) newValue);
-			return;
-		case PomPackage.BUILD__FILTERS:
-			setFilters((FiltersType) newValue);
-			return;
-		case PomPackage.BUILD__PLUGIN_MANAGEMENT:
-			setPluginManagement((PluginManagement) newValue);
-			return;
-		case PomPackage.BUILD__PLUGINS:
-			setPlugins((PluginsType) newValue);
-			return;
+			case PomPackage.BUILD__SOURCE_DIRECTORY:
+				setSourceDirectory((String) newValue);
+				return;
+			case PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY:
+				setScriptSourceDirectory((String) newValue);
+				return;
+			case PomPackage.BUILD__TEST_SOURCE_DIRECTORY:
+				setTestSourceDirectory((String) newValue);
+				return;
+			case PomPackage.BUILD__OUTPUT_DIRECTORY:
+				setOutputDirectory((String) newValue);
+				return;
+			case PomPackage.BUILD__TEST_OUTPUT_DIRECTORY:
+				setTestOutputDirectory((String) newValue);
+				return;
+			case PomPackage.BUILD__EXTENSIONS:
+				setExtensions((ExtensionsType) newValue);
+				return;
+			case PomPackage.BUILD__DEFAULT_GOAL:
+				setDefaultGoal((String) newValue);
+				return;
+			case PomPackage.BUILD__RESOURCES:
+				setResources((ResourcesType) newValue);
+				return;
+			case PomPackage.BUILD__TEST_RESOURCES:
+				setTestResources((TestResourcesType) newValue);
+				return;
+			case PomPackage.BUILD__DIRECTORY:
+				setDirectory((String) newValue);
+				return;
+			case PomPackage.BUILD__FINAL_NAME:
+				setFinalName((String) newValue);
+				return;
+			case PomPackage.BUILD__FILTERS:
+				setFilters((FiltersType) newValue);
+				return;
+			case PomPackage.BUILD__PLUGIN_MANAGEMENT:
+				setPluginManagement((PluginManagement) newValue);
+				return;
+			case PomPackage.BUILD__PLUGINS:
+				setPlugins((PluginsType) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -588,48 +588,48 @@ public class BuildImpl extends EObjectImpl implements Build {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.BUILD__SOURCE_DIRECTORY:
-			setSourceDirectory(SOURCE_DIRECTORY_EDEFAULT);
-			return;
-		case PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY:
-			setScriptSourceDirectory(SCRIPT_SOURCE_DIRECTORY_EDEFAULT);
-			return;
-		case PomPackage.BUILD__TEST_SOURCE_DIRECTORY:
-			setTestSourceDirectory(TEST_SOURCE_DIRECTORY_EDEFAULT);
-			return;
-		case PomPackage.BUILD__OUTPUT_DIRECTORY:
-			setOutputDirectory(OUTPUT_DIRECTORY_EDEFAULT);
-			return;
-		case PomPackage.BUILD__TEST_OUTPUT_DIRECTORY:
-			setTestOutputDirectory(TEST_OUTPUT_DIRECTORY_EDEFAULT);
-			return;
-		case PomPackage.BUILD__EXTENSIONS:
-			setExtensions((ExtensionsType) null);
-			return;
-		case PomPackage.BUILD__DEFAULT_GOAL:
-			setDefaultGoal(DEFAULT_GOAL_EDEFAULT);
-			return;
-		case PomPackage.BUILD__RESOURCES:
-			setResources((ResourcesType) null);
-			return;
-		case PomPackage.BUILD__TEST_RESOURCES:
-			setTestResources((TestResourcesType) null);
-			return;
-		case PomPackage.BUILD__DIRECTORY:
-			setDirectory(DIRECTORY_EDEFAULT);
-			return;
-		case PomPackage.BUILD__FINAL_NAME:
-			setFinalName(FINAL_NAME_EDEFAULT);
-			return;
-		case PomPackage.BUILD__FILTERS:
-			setFilters((FiltersType) null);
-			return;
-		case PomPackage.BUILD__PLUGIN_MANAGEMENT:
-			setPluginManagement((PluginManagement) null);
-			return;
-		case PomPackage.BUILD__PLUGINS:
-			setPlugins((PluginsType) null);
-			return;
+			case PomPackage.BUILD__SOURCE_DIRECTORY:
+				setSourceDirectory(SOURCE_DIRECTORY_EDEFAULT);
+				return;
+			case PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY:
+				setScriptSourceDirectory(SCRIPT_SOURCE_DIRECTORY_EDEFAULT);
+				return;
+			case PomPackage.BUILD__TEST_SOURCE_DIRECTORY:
+				setTestSourceDirectory(TEST_SOURCE_DIRECTORY_EDEFAULT);
+				return;
+			case PomPackage.BUILD__OUTPUT_DIRECTORY:
+				setOutputDirectory(OUTPUT_DIRECTORY_EDEFAULT);
+				return;
+			case PomPackage.BUILD__TEST_OUTPUT_DIRECTORY:
+				setTestOutputDirectory(TEST_OUTPUT_DIRECTORY_EDEFAULT);
+				return;
+			case PomPackage.BUILD__EXTENSIONS:
+				setExtensions((ExtensionsType) null);
+				return;
+			case PomPackage.BUILD__DEFAULT_GOAL:
+				setDefaultGoal(DEFAULT_GOAL_EDEFAULT);
+				return;
+			case PomPackage.BUILD__RESOURCES:
+				setResources((ResourcesType) null);
+				return;
+			case PomPackage.BUILD__TEST_RESOURCES:
+				setTestResources((TestResourcesType) null);
+				return;
+			case PomPackage.BUILD__DIRECTORY:
+				setDirectory(DIRECTORY_EDEFAULT);
+				return;
+			case PomPackage.BUILD__FINAL_NAME:
+				setFinalName(FINAL_NAME_EDEFAULT);
+				return;
+			case PomPackage.BUILD__FILTERS:
+				setFilters((FiltersType) null);
+				return;
+			case PomPackage.BUILD__PLUGIN_MANAGEMENT:
+				setPluginManagement((PluginManagement) null);
+				return;
+			case PomPackage.BUILD__PLUGINS:
+				setPlugins((PluginsType) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -769,8 +769,8 @@ public class BuildImpl extends EObjectImpl implements Build {
 		String oldDefaultGoal = defaultGoal;
 		defaultGoal = newDefaultGoal;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__DEFAULT_GOAL, oldDefaultGoal,
-					defaultGoal));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__DEFAULT_GOAL, oldDefaultGoal, defaultGoal));
 	}
 
 	/**
@@ -794,18 +794,18 @@ public class BuildImpl extends EObjectImpl implements Build {
 		if(newExtensions != extensions) {
 			NotificationChain msgs = null;
 			if(extensions != null)
-				msgs = ((InternalEObject) extensions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__EXTENSIONS, null, msgs);
+				msgs = ((InternalEObject) extensions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__EXTENSIONS, null, msgs);
 			if(newExtensions != null)
-				msgs = ((InternalEObject) newExtensions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__EXTENSIONS, null, msgs);
+				msgs = ((InternalEObject) newExtensions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__EXTENSIONS, null, msgs);
 			msgs = basicSetExtensions(newExtensions, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__EXTENSIONS, newExtensions,
-					newExtensions));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__EXTENSIONS, newExtensions, newExtensions));
 	}
 
 	/**
@@ -817,11 +817,11 @@ public class BuildImpl extends EObjectImpl implements Build {
 		if(newFilters != filters) {
 			NotificationChain msgs = null;
 			if(filters != null)
-				msgs = ((InternalEObject) filters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__FILTERS, null, msgs);
+				msgs = ((InternalEObject) filters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__FILTERS, null, msgs);
 			if(newFilters != null)
-				msgs = ((InternalEObject) newFilters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__FILTERS, null, msgs);
+				msgs = ((InternalEObject) newFilters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__FILTERS, null, msgs);
 			msgs = basicSetFilters(newFilters, msgs);
 			if(msgs != null)
 				msgs.dispatch();
@@ -851,8 +851,8 @@ public class BuildImpl extends EObjectImpl implements Build {
 		String oldOutputDirectory = outputDirectory;
 		outputDirectory = newOutputDirectory;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__OUTPUT_DIRECTORY,
-					oldOutputDirectory, outputDirectory));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__OUTPUT_DIRECTORY, oldOutputDirectory, outputDirectory));
 	}
 
 	/**
@@ -864,18 +864,18 @@ public class BuildImpl extends EObjectImpl implements Build {
 		if(newPluginManagement != pluginManagement) {
 			NotificationChain msgs = null;
 			if(pluginManagement != null)
-				msgs = ((InternalEObject) pluginManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__PLUGIN_MANAGEMENT, null, msgs);
+				msgs = ((InternalEObject) pluginManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__PLUGIN_MANAGEMENT, null, msgs);
 			if(newPluginManagement != null)
-				msgs = ((InternalEObject) newPluginManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__PLUGIN_MANAGEMENT, null, msgs);
+				msgs = ((InternalEObject) newPluginManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__PLUGIN_MANAGEMENT, null, msgs);
 			msgs = basicSetPluginManagement(newPluginManagement, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__PLUGIN_MANAGEMENT,
-					newPluginManagement, newPluginManagement));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__PLUGIN_MANAGEMENT, newPluginManagement, newPluginManagement));
 	}
 
 	/**
@@ -887,11 +887,11 @@ public class BuildImpl extends EObjectImpl implements Build {
 		if(newPlugins != plugins) {
 			NotificationChain msgs = null;
 			if(plugins != null)
-				msgs = ((InternalEObject) plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__PLUGINS, null, msgs);
+				msgs = ((InternalEObject) plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__PLUGINS, null, msgs);
 			if(newPlugins != null)
-				msgs = ((InternalEObject) newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__PLUGINS, null, msgs);
+				msgs = ((InternalEObject) newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__PLUGINS, null, msgs);
 			msgs = basicSetPlugins(newPlugins, msgs);
 			if(msgs != null)
 				msgs.dispatch();
@@ -909,18 +909,18 @@ public class BuildImpl extends EObjectImpl implements Build {
 		if(newResources != resources) {
 			NotificationChain msgs = null;
 			if(resources != null)
-				msgs = ((InternalEObject) resources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__RESOURCES, null, msgs);
+				msgs = ((InternalEObject) resources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__RESOURCES, null, msgs);
 			if(newResources != null)
-				msgs = ((InternalEObject) newResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__RESOURCES, null, msgs);
+				msgs = ((InternalEObject) newResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__RESOURCES, null, msgs);
 			msgs = basicSetResources(newResources, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__RESOURCES, newResources,
-					newResources));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__RESOURCES, newResources, newResources));
 	}
 
 	/**
@@ -932,8 +932,9 @@ public class BuildImpl extends EObjectImpl implements Build {
 		String oldScriptSourceDirectory = scriptSourceDirectory;
 		scriptSourceDirectory = newScriptSourceDirectory;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY,
-					oldScriptSourceDirectory, scriptSourceDirectory));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY, oldScriptSourceDirectory,
+				scriptSourceDirectory));
 	}
 
 	/**
@@ -945,8 +946,8 @@ public class BuildImpl extends EObjectImpl implements Build {
 		String oldSourceDirectory = sourceDirectory;
 		sourceDirectory = newSourceDirectory;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__SOURCE_DIRECTORY,
-					oldSourceDirectory, sourceDirectory));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__SOURCE_DIRECTORY, oldSourceDirectory, sourceDirectory));
 	}
 
 	/**
@@ -958,8 +959,9 @@ public class BuildImpl extends EObjectImpl implements Build {
 		String oldTestOutputDirectory = testOutputDirectory;
 		testOutputDirectory = newTestOutputDirectory;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__TEST_OUTPUT_DIRECTORY,
-					oldTestOutputDirectory, testOutputDirectory));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__TEST_OUTPUT_DIRECTORY, oldTestOutputDirectory,
+				testOutputDirectory));
 	}
 
 	/**
@@ -971,18 +973,18 @@ public class BuildImpl extends EObjectImpl implements Build {
 		if(newTestResources != testResources) {
 			NotificationChain msgs = null;
 			if(testResources != null)
-				msgs = ((InternalEObject) testResources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__TEST_RESOURCES, null, msgs);
+				msgs = ((InternalEObject) testResources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__TEST_RESOURCES, null, msgs);
 			if(newTestResources != null)
-				msgs = ((InternalEObject) newTestResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.BUILD__TEST_RESOURCES, null, msgs);
+				msgs = ((InternalEObject) newTestResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.BUILD__TEST_RESOURCES, null, msgs);
 			msgs = basicSetTestResources(newTestResources, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__TEST_RESOURCES, newTestResources,
-					newTestResources));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__TEST_RESOURCES, newTestResources, newTestResources));
 	}
 
 	/**
@@ -994,8 +996,9 @@ public class BuildImpl extends EObjectImpl implements Build {
 		String oldTestSourceDirectory = testSourceDirectory;
 		testSourceDirectory = newTestSourceDirectory;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__TEST_SOURCE_DIRECTORY,
-					oldTestSourceDirectory, testSourceDirectory));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.BUILD__TEST_SOURCE_DIRECTORY, oldTestSourceDirectory,
+				testSourceDirectory));
 	}
 
 	/**

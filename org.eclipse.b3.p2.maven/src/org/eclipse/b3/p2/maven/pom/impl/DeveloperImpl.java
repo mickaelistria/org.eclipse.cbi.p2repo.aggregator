@@ -227,8 +227,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 		PropertiesType oldProperties = properties;
 		properties = newProperties;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.DEVELOPER__PROPERTIES, oldProperties, newProperties);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEVELOPER__PROPERTIES, oldProperties, newProperties);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -246,8 +246,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 		RolesType oldRoles = roles;
 		roles = newRoles;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.DEVELOPER__ROLES,
-					oldRoles, newRoles);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEVELOPER__ROLES, oldRoles, newRoles);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -264,24 +264,24 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.DEVELOPER__ID:
-			return getId();
-		case PomPackage.DEVELOPER__NAME:
-			return getName();
-		case PomPackage.DEVELOPER__EMAIL:
-			return getEmail();
-		case PomPackage.DEVELOPER__URL:
-			return getUrl();
-		case PomPackage.DEVELOPER__ORGANIZATION:
-			return getOrganization();
-		case PomPackage.DEVELOPER__ORGANIZATION_URL:
-			return getOrganizationUrl();
-		case PomPackage.DEVELOPER__ROLES:
-			return getRoles();
-		case PomPackage.DEVELOPER__TIMEZONE:
-			return getTimezone();
-		case PomPackage.DEVELOPER__PROPERTIES:
-			return getProperties();
+			case PomPackage.DEVELOPER__ID:
+				return getId();
+			case PomPackage.DEVELOPER__NAME:
+				return getName();
+			case PomPackage.DEVELOPER__EMAIL:
+				return getEmail();
+			case PomPackage.DEVELOPER__URL:
+				return getUrl();
+			case PomPackage.DEVELOPER__ORGANIZATION:
+				return getOrganization();
+			case PomPackage.DEVELOPER__ORGANIZATION_URL:
+				return getOrganizationUrl();
+			case PomPackage.DEVELOPER__ROLES:
+				return getRoles();
+			case PomPackage.DEVELOPER__TIMEZONE:
+				return getTimezone();
+			case PomPackage.DEVELOPER__PROPERTIES:
+				return getProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,10 +294,10 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.DEVELOPER__ROLES:
-			return basicSetRoles(null, msgs);
-		case PomPackage.DEVELOPER__PROPERTIES:
-			return basicSetProperties(null, msgs);
+			case PomPackage.DEVELOPER__ROLES:
+				return basicSetRoles(null, msgs);
+			case PomPackage.DEVELOPER__PROPERTIES:
+				return basicSetProperties(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -310,38 +310,38 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.DEVELOPER__ID:
-			return ID_EDEFAULT == null
-					? id != null
-					: !ID_EDEFAULT.equals(id);
-		case PomPackage.DEVELOPER__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case PomPackage.DEVELOPER__EMAIL:
-			return EMAIL_EDEFAULT == null
-					? email != null
-					: !EMAIL_EDEFAULT.equals(email);
-		case PomPackage.DEVELOPER__URL:
-			return URL_EDEFAULT == null
-					? url != null
-					: !URL_EDEFAULT.equals(url);
-		case PomPackage.DEVELOPER__ORGANIZATION:
-			return ORGANIZATION_EDEFAULT == null
-					? organization != null
-					: !ORGANIZATION_EDEFAULT.equals(organization);
-		case PomPackage.DEVELOPER__ORGANIZATION_URL:
-			return ORGANIZATION_URL_EDEFAULT == null
-					? organizationUrl != null
-					: !ORGANIZATION_URL_EDEFAULT.equals(organizationUrl);
-		case PomPackage.DEVELOPER__ROLES:
-			return roles != null;
-		case PomPackage.DEVELOPER__TIMEZONE:
-			return TIMEZONE_EDEFAULT == null
-					? timezone != null
-					: !TIMEZONE_EDEFAULT.equals(timezone);
-		case PomPackage.DEVELOPER__PROPERTIES:
-			return properties != null;
+			case PomPackage.DEVELOPER__ID:
+				return ID_EDEFAULT == null
+						? id != null
+						: !ID_EDEFAULT.equals(id);
+			case PomPackage.DEVELOPER__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case PomPackage.DEVELOPER__EMAIL:
+				return EMAIL_EDEFAULT == null
+						? email != null
+						: !EMAIL_EDEFAULT.equals(email);
+			case PomPackage.DEVELOPER__URL:
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
+			case PomPackage.DEVELOPER__ORGANIZATION:
+				return ORGANIZATION_EDEFAULT == null
+						? organization != null
+						: !ORGANIZATION_EDEFAULT.equals(organization);
+			case PomPackage.DEVELOPER__ORGANIZATION_URL:
+				return ORGANIZATION_URL_EDEFAULT == null
+						? organizationUrl != null
+						: !ORGANIZATION_URL_EDEFAULT.equals(organizationUrl);
+			case PomPackage.DEVELOPER__ROLES:
+				return roles != null;
+			case PomPackage.DEVELOPER__TIMEZONE:
+				return TIMEZONE_EDEFAULT == null
+						? timezone != null
+						: !TIMEZONE_EDEFAULT.equals(timezone);
+			case PomPackage.DEVELOPER__PROPERTIES:
+				return properties != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -354,33 +354,33 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.DEVELOPER__ID:
-			setId((String) newValue);
-			return;
-		case PomPackage.DEVELOPER__NAME:
-			setName((String) newValue);
-			return;
-		case PomPackage.DEVELOPER__EMAIL:
-			setEmail((String) newValue);
-			return;
-		case PomPackage.DEVELOPER__URL:
-			setUrl((String) newValue);
-			return;
-		case PomPackage.DEVELOPER__ORGANIZATION:
-			setOrganization((String) newValue);
-			return;
-		case PomPackage.DEVELOPER__ORGANIZATION_URL:
-			setOrganizationUrl((String) newValue);
-			return;
-		case PomPackage.DEVELOPER__ROLES:
-			setRoles((RolesType) newValue);
-			return;
-		case PomPackage.DEVELOPER__TIMEZONE:
-			setTimezone((String) newValue);
-			return;
-		case PomPackage.DEVELOPER__PROPERTIES:
-			setProperties((PropertiesType) newValue);
-			return;
+			case PomPackage.DEVELOPER__ID:
+				setId((String) newValue);
+				return;
+			case PomPackage.DEVELOPER__NAME:
+				setName((String) newValue);
+				return;
+			case PomPackage.DEVELOPER__EMAIL:
+				setEmail((String) newValue);
+				return;
+			case PomPackage.DEVELOPER__URL:
+				setUrl((String) newValue);
+				return;
+			case PomPackage.DEVELOPER__ORGANIZATION:
+				setOrganization((String) newValue);
+				return;
+			case PomPackage.DEVELOPER__ORGANIZATION_URL:
+				setOrganizationUrl((String) newValue);
+				return;
+			case PomPackage.DEVELOPER__ROLES:
+				setRoles((RolesType) newValue);
+				return;
+			case PomPackage.DEVELOPER__TIMEZONE:
+				setTimezone((String) newValue);
+				return;
+			case PomPackage.DEVELOPER__PROPERTIES:
+				setProperties((PropertiesType) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -393,33 +393,33 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.DEVELOPER__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case PomPackage.DEVELOPER__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case PomPackage.DEVELOPER__EMAIL:
-			setEmail(EMAIL_EDEFAULT);
-			return;
-		case PomPackage.DEVELOPER__URL:
-			setUrl(URL_EDEFAULT);
-			return;
-		case PomPackage.DEVELOPER__ORGANIZATION:
-			setOrganization(ORGANIZATION_EDEFAULT);
-			return;
-		case PomPackage.DEVELOPER__ORGANIZATION_URL:
-			setOrganizationUrl(ORGANIZATION_URL_EDEFAULT);
-			return;
-		case PomPackage.DEVELOPER__ROLES:
-			setRoles((RolesType) null);
-			return;
-		case PomPackage.DEVELOPER__TIMEZONE:
-			setTimezone(TIMEZONE_EDEFAULT);
-			return;
-		case PomPackage.DEVELOPER__PROPERTIES:
-			setProperties((PropertiesType) null);
-			return;
+			case PomPackage.DEVELOPER__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case PomPackage.DEVELOPER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case PomPackage.DEVELOPER__EMAIL:
+				setEmail(EMAIL_EDEFAULT);
+				return;
+			case PomPackage.DEVELOPER__URL:
+				setUrl(URL_EDEFAULT);
+				return;
+			case PomPackage.DEVELOPER__ORGANIZATION:
+				setOrganization(ORGANIZATION_EDEFAULT);
+				return;
+			case PomPackage.DEVELOPER__ORGANIZATION_URL:
+				setOrganizationUrl(ORGANIZATION_URL_EDEFAULT);
+				return;
+			case PomPackage.DEVELOPER__ROLES:
+				setRoles((RolesType) null);
+				return;
+			case PomPackage.DEVELOPER__TIMEZONE:
+				setTimezone(TIMEZONE_EDEFAULT);
+				return;
+			case PomPackage.DEVELOPER__PROPERTIES:
+				setProperties((PropertiesType) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -550,8 +550,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 		String oldOrganization = organization;
 		organization = newOrganization;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEVELOPER__ORGANIZATION, oldOrganization,
-					organization));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEVELOPER__ORGANIZATION, oldOrganization, organization));
 	}
 
 	/**
@@ -563,8 +563,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 		String oldOrganizationUrl = organizationUrl;
 		organizationUrl = newOrganizationUrl;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEVELOPER__ORGANIZATION_URL,
-					oldOrganizationUrl, organizationUrl));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEVELOPER__ORGANIZATION_URL, oldOrganizationUrl, organizationUrl));
 	}
 
 	/**
@@ -576,18 +576,18 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 		if(newProperties != properties) {
 			NotificationChain msgs = null;
 			if(properties != null)
-				msgs = ((InternalEObject) properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DEVELOPER__PROPERTIES, null, msgs);
+				msgs = ((InternalEObject) properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DEVELOPER__PROPERTIES, null, msgs);
 			if(newProperties != null)
-				msgs = ((InternalEObject) newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DEVELOPER__PROPERTIES, null, msgs);
+				msgs = ((InternalEObject) newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DEVELOPER__PROPERTIES, null, msgs);
 			msgs = basicSetProperties(newProperties, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEVELOPER__PROPERTIES, newProperties,
-					newProperties));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEVELOPER__PROPERTIES, newProperties, newProperties));
 	}
 
 	/**
@@ -599,11 +599,11 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 		if(newRoles != roles) {
 			NotificationChain msgs = null;
 			if(roles != null)
-				msgs = ((InternalEObject) roles).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DEVELOPER__ROLES, null, msgs);
+				msgs = ((InternalEObject) roles).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DEVELOPER__ROLES, null, msgs);
 			if(newRoles != null)
-				msgs = ((InternalEObject) newRoles).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DEVELOPER__ROLES, null, msgs);
+				msgs = ((InternalEObject) newRoles).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DEVELOPER__ROLES, null, msgs);
 			msgs = basicSetRoles(newRoles, msgs);
 			if(msgs != null)
 				msgs.dispatch();

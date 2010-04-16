@@ -172,8 +172,8 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 		ConfigurationType oldConfiguration = configuration;
 		configuration = newConfiguration;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.REPORT_PLUGIN__CONFIGURATION, oldConfiguration, newConfiguration);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_PLUGIN__CONFIGURATION, oldConfiguration, newConfiguration);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -191,8 +191,8 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 		ReportSetsType oldReportSets = reportSets;
 		reportSets = newReportSets;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.REPORT_PLUGIN__REPORT_SETS, oldReportSets, newReportSets);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_PLUGIN__REPORT_SETS, oldReportSets, newReportSets);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -209,18 +209,18 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.REPORT_PLUGIN__GROUP_ID:
-			return getGroupId();
-		case PomPackage.REPORT_PLUGIN__ARTIFACT_ID:
-			return getArtifactId();
-		case PomPackage.REPORT_PLUGIN__VERSION:
-			return getVersion();
-		case PomPackage.REPORT_PLUGIN__INHERITED:
-			return getInherited();
-		case PomPackage.REPORT_PLUGIN__CONFIGURATION:
-			return getConfiguration();
-		case PomPackage.REPORT_PLUGIN__REPORT_SETS:
-			return getReportSets();
+			case PomPackage.REPORT_PLUGIN__GROUP_ID:
+				return getGroupId();
+			case PomPackage.REPORT_PLUGIN__ARTIFACT_ID:
+				return getArtifactId();
+			case PomPackage.REPORT_PLUGIN__VERSION:
+				return getVersion();
+			case PomPackage.REPORT_PLUGIN__INHERITED:
+				return getInherited();
+			case PomPackage.REPORT_PLUGIN__CONFIGURATION:
+				return getConfiguration();
+			case PomPackage.REPORT_PLUGIN__REPORT_SETS:
+				return getReportSets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -233,10 +233,10 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.REPORT_PLUGIN__CONFIGURATION:
-			return basicSetConfiguration(null, msgs);
-		case PomPackage.REPORT_PLUGIN__REPORT_SETS:
-			return basicSetReportSets(null, msgs);
+			case PomPackage.REPORT_PLUGIN__CONFIGURATION:
+				return basicSetConfiguration(null, msgs);
+			case PomPackage.REPORT_PLUGIN__REPORT_SETS:
+				return basicSetReportSets(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -249,24 +249,24 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORT_PLUGIN__GROUP_ID:
-			return isSetGroupId();
-		case PomPackage.REPORT_PLUGIN__ARTIFACT_ID:
-			return ARTIFACT_ID_EDEFAULT == null
-					? artifactId != null
-					: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
-		case PomPackage.REPORT_PLUGIN__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
-		case PomPackage.REPORT_PLUGIN__INHERITED:
-			return INHERITED_EDEFAULT == null
-					? inherited != null
-					: !INHERITED_EDEFAULT.equals(inherited);
-		case PomPackage.REPORT_PLUGIN__CONFIGURATION:
-			return configuration != null;
-		case PomPackage.REPORT_PLUGIN__REPORT_SETS:
-			return reportSets != null;
+			case PomPackage.REPORT_PLUGIN__GROUP_ID:
+				return isSetGroupId();
+			case PomPackage.REPORT_PLUGIN__ARTIFACT_ID:
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+			case PomPackage.REPORT_PLUGIN__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
+			case PomPackage.REPORT_PLUGIN__INHERITED:
+				return INHERITED_EDEFAULT == null
+						? inherited != null
+						: !INHERITED_EDEFAULT.equals(inherited);
+			case PomPackage.REPORT_PLUGIN__CONFIGURATION:
+				return configuration != null;
+			case PomPackage.REPORT_PLUGIN__REPORT_SETS:
+				return reportSets != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -279,24 +279,24 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.REPORT_PLUGIN__GROUP_ID:
-			setGroupId((String) newValue);
-			return;
-		case PomPackage.REPORT_PLUGIN__ARTIFACT_ID:
-			setArtifactId((String) newValue);
-			return;
-		case PomPackage.REPORT_PLUGIN__VERSION:
-			setVersion((String) newValue);
-			return;
-		case PomPackage.REPORT_PLUGIN__INHERITED:
-			setInherited((String) newValue);
-			return;
-		case PomPackage.REPORT_PLUGIN__CONFIGURATION:
-			setConfiguration((ConfigurationType) newValue);
-			return;
-		case PomPackage.REPORT_PLUGIN__REPORT_SETS:
-			setReportSets((ReportSetsType) newValue);
-			return;
+			case PomPackage.REPORT_PLUGIN__GROUP_ID:
+				setGroupId((String) newValue);
+				return;
+			case PomPackage.REPORT_PLUGIN__ARTIFACT_ID:
+				setArtifactId((String) newValue);
+				return;
+			case PomPackage.REPORT_PLUGIN__VERSION:
+				setVersion((String) newValue);
+				return;
+			case PomPackage.REPORT_PLUGIN__INHERITED:
+				setInherited((String) newValue);
+				return;
+			case PomPackage.REPORT_PLUGIN__CONFIGURATION:
+				setConfiguration((ConfigurationType) newValue);
+				return;
+			case PomPackage.REPORT_PLUGIN__REPORT_SETS:
+				setReportSets((ReportSetsType) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -309,24 +309,24 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORT_PLUGIN__GROUP_ID:
-			unsetGroupId();
-			return;
-		case PomPackage.REPORT_PLUGIN__ARTIFACT_ID:
-			setArtifactId(ARTIFACT_ID_EDEFAULT);
-			return;
-		case PomPackage.REPORT_PLUGIN__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case PomPackage.REPORT_PLUGIN__INHERITED:
-			setInherited(INHERITED_EDEFAULT);
-			return;
-		case PomPackage.REPORT_PLUGIN__CONFIGURATION:
-			setConfiguration((ConfigurationType) null);
-			return;
-		case PomPackage.REPORT_PLUGIN__REPORT_SETS:
-			setReportSets((ReportSetsType) null);
-			return;
+			case PomPackage.REPORT_PLUGIN__GROUP_ID:
+				unsetGroupId();
+				return;
+			case PomPackage.REPORT_PLUGIN__ARTIFACT_ID:
+				setArtifactId(ARTIFACT_ID_EDEFAULT);
+				return;
+			case PomPackage.REPORT_PLUGIN__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case PomPackage.REPORT_PLUGIN__INHERITED:
+				setInherited(INHERITED_EDEFAULT);
+				return;
+			case PomPackage.REPORT_PLUGIN__CONFIGURATION:
+				setConfiguration((ConfigurationType) null);
+				return;
+			case PomPackage.REPORT_PLUGIN__REPORT_SETS:
+				setReportSets((ReportSetsType) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -403,8 +403,8 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__ARTIFACT_ID, oldArtifactId,
-					artifactId));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_PLUGIN__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
@@ -416,18 +416,18 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 		if(newConfiguration != configuration) {
 			NotificationChain msgs = null;
 			if(configuration != null)
-				msgs = ((InternalEObject) configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPORT_PLUGIN__CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject) configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPORT_PLUGIN__CONFIGURATION, null, msgs);
 			if(newConfiguration != null)
-				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPORT_PLUGIN__CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPORT_PLUGIN__CONFIGURATION, null, msgs);
 			msgs = basicSetConfiguration(newConfiguration, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__CONFIGURATION,
-					newConfiguration, newConfiguration));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_PLUGIN__CONFIGURATION, newConfiguration, newConfiguration));
 	}
 
 	/**
@@ -441,8 +441,8 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 		boolean oldGroupIdESet = groupIdESet;
 		groupIdESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__GROUP_ID, oldGroupId,
-					groupId, !oldGroupIdESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_PLUGIN__GROUP_ID, oldGroupId, groupId, !oldGroupIdESet));
 	}
 
 	/**
@@ -454,8 +454,8 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 		String oldInherited = inherited;
 		inherited = newInherited;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__INHERITED, oldInherited,
-					inherited));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_PLUGIN__INHERITED, oldInherited, inherited));
 	}
 
 	/**
@@ -467,18 +467,18 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 		if(newReportSets != reportSets) {
 			NotificationChain msgs = null;
 			if(reportSets != null)
-				msgs = ((InternalEObject) reportSets).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPORT_PLUGIN__REPORT_SETS, null, msgs);
+				msgs = ((InternalEObject) reportSets).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPORT_PLUGIN__REPORT_SETS, null, msgs);
 			if(newReportSets != null)
-				msgs = ((InternalEObject) newReportSets).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.REPORT_PLUGIN__REPORT_SETS, null, msgs);
+				msgs = ((InternalEObject) newReportSets).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.REPORT_PLUGIN__REPORT_SETS, null, msgs);
 			msgs = basicSetReportSets(newReportSets, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__REPORT_SETS, newReportSets,
-					newReportSets));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_PLUGIN__REPORT_SETS, newReportSets, newReportSets));
 	}
 
 	/**
@@ -490,8 +490,8 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 		String oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__VERSION, oldVersion,
-					version));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPORT_PLUGIN__VERSION, oldVersion, version));
 	}
 
 	/**
@@ -531,8 +531,9 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 		groupId = GROUP_ID_EDEFAULT;
 		groupIdESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.REPORT_PLUGIN__GROUP_ID, oldGroupId,
-					GROUP_ID_EDEFAULT, oldGroupIdESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.REPORT_PLUGIN__GROUP_ID, oldGroupId, GROUP_ID_EDEFAULT,
+				oldGroupIdESet));
 	}
 
 	/**

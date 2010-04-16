@@ -63,8 +63,8 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.RESOURCES_TYPE__RESOURCE:
-			return getResource();
+			case PomPackage.RESOURCES_TYPE__RESOURCE:
+				return getResource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -77,8 +77,8 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.RESOURCES_TYPE__RESOURCE:
-			return ((InternalEList<?>) getResource()).basicRemove(otherEnd, msgs);
+			case PomPackage.RESOURCES_TYPE__RESOURCE:
+				return ((InternalEList<?>) getResource()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -91,8 +91,8 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.RESOURCES_TYPE__RESOURCE:
-			return resource != null && !resource.isEmpty();
+			case PomPackage.RESOURCES_TYPE__RESOURCE:
+				return resource != null && !resource.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -106,10 +106,10 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.RESOURCES_TYPE__RESOURCE:
-			getResource().clear();
-			getResource().addAll((Collection<? extends Resource>) newValue);
-			return;
+			case PomPackage.RESOURCES_TYPE__RESOURCE:
+				getResource().clear();
+				getResource().addAll((Collection<? extends Resource>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -122,9 +122,9 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.RESOURCES_TYPE__RESOURCE:
-			getResource().clear();
-			return;
+			case PomPackage.RESOURCES_TYPE__RESOURCE:
+				getResource().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

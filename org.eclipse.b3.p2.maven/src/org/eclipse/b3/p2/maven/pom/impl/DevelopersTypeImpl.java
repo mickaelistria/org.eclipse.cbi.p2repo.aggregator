@@ -64,8 +64,8 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
-			return getDeveloper();
+			case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
+				return getDeveloper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,8 +78,8 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
-			return ((InternalEList<?>) getDeveloper()).basicRemove(otherEnd, msgs);
+			case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
+				return ((InternalEList<?>) getDeveloper()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,8 +92,8 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
-			return developer != null && !developer.isEmpty();
+			case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
+				return developer != null && !developer.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,10 +107,10 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
-			getDeveloper().clear();
-			getDeveloper().addAll((Collection<? extends Developer>) newValue);
-			return;
+			case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
+				getDeveloper().clear();
+				getDeveloper().addAll((Collection<? extends Developer>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,9 +123,9 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
-			getDeveloper().clear();
-			return;
+			case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
+				getDeveloper().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -137,8 +137,8 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 	 */
 	public EList<Developer> getDeveloper() {
 		if(developer == null) {
-			developer = new EObjectContainmentEList<Developer>(Developer.class, this,
-					PomPackage.DEVELOPERS_TYPE__DEVELOPER);
+			developer = new EObjectContainmentEList<Developer>(
+				Developer.class, this, PomPackage.DEVELOPERS_TYPE__DEVELOPER);
 		}
 		return developer;
 	}

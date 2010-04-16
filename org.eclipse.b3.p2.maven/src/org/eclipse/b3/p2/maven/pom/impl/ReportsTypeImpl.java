@@ -60,10 +60,10 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.REPORTS_TYPE__ANY:
-			if(coreType)
-				return getAny();
-			return ((FeatureMap.Internal) getAny()).getWrapper();
+			case PomPackage.REPORTS_TYPE__ANY:
+				if(coreType)
+					return getAny();
+				return ((FeatureMap.Internal) getAny()).getWrapper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -76,8 +76,8 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.REPORTS_TYPE__ANY:
-			return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
+			case PomPackage.REPORTS_TYPE__ANY:
+				return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -90,8 +90,8 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORTS_TYPE__ANY:
-			return any != null && !any.isEmpty();
+			case PomPackage.REPORTS_TYPE__ANY:
+				return any != null && !any.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -104,9 +104,9 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.REPORTS_TYPE__ANY:
-			((FeatureMap.Internal) getAny()).set(newValue);
-			return;
+			case PomPackage.REPORTS_TYPE__ANY:
+				((FeatureMap.Internal) getAny()).set(newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -119,9 +119,9 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORTS_TYPE__ANY:
-			getAny().clear();
-			return;
+			case PomPackage.REPORTS_TYPE__ANY:
+				getAny().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

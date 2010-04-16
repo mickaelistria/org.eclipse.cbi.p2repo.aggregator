@@ -60,8 +60,8 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
-			return getReport();
+			case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
+				return getReport();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -74,8 +74,8 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
-			return report != null && !report.isEmpty();
+			case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
+				return report != null && !report.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -89,10 +89,10 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
-			getReport().clear();
-			getReport().addAll((Collection<? extends String>) newValue);
-			return;
+			case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
+				getReport().clear();
+				getReport().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -105,9 +105,9 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
-			getReport().clear();
-			return;
+			case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
+				getReport().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

@@ -64,8 +64,8 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
-			return getExclusion();
+			case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
+				return getExclusion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,8 +78,8 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
-			return ((InternalEList<?>) getExclusion()).basicRemove(otherEnd, msgs);
+			case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
+				return ((InternalEList<?>) getExclusion()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,8 +92,8 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
-			return exclusion != null && !exclusion.isEmpty();
+			case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
+				return exclusion != null && !exclusion.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,10 +107,10 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
-			getExclusion().clear();
-			getExclusion().addAll((Collection<? extends Exclusion>) newValue);
-			return;
+			case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
+				getExclusion().clear();
+				getExclusion().addAll((Collection<? extends Exclusion>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,9 +123,9 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
-			getExclusion().clear();
-			return;
+			case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
+				getExclusion().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -137,8 +137,8 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 	 */
 	public EList<Exclusion> getExclusion() {
 		if(exclusion == null) {
-			exclusion = new EObjectContainmentEList<Exclusion>(Exclusion.class, this,
-					PomPackage.EXCLUSIONS_TYPE__EXCLUSION);
+			exclusion = new EObjectContainmentEList<Exclusion>(
+				Exclusion.class, this, PomPackage.EXCLUSIONS_TYPE__EXCLUSION);
 		}
 		return exclusion;
 	}

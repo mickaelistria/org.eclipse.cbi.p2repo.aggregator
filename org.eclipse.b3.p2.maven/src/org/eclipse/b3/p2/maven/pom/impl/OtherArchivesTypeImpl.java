@@ -60,8 +60,8 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
-			return getOtherArchive();
+			case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
+				return getOtherArchive();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -74,8 +74,8 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
-			return otherArchive != null && !otherArchive.isEmpty();
+			case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
+				return otherArchive != null && !otherArchive.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -89,10 +89,10 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
-			getOtherArchive().clear();
-			getOtherArchive().addAll((Collection<? extends String>) newValue);
-			return;
+			case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
+				getOtherArchive().clear();
+				getOtherArchive().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -105,9 +105,9 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
-			getOtherArchive().clear();
-			return;
+			case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
+				getOtherArchive().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

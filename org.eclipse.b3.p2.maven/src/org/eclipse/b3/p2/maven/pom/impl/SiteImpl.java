@@ -107,12 +107,12 @@ public class SiteImpl extends EObjectImpl implements Site {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.SITE__ID:
-			return getId();
-		case PomPackage.SITE__NAME:
-			return getName();
-		case PomPackage.SITE__URL:
-			return getUrl();
+			case PomPackage.SITE__ID:
+				return getId();
+			case PomPackage.SITE__NAME:
+				return getName();
+			case PomPackage.SITE__URL:
+				return getUrl();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -125,18 +125,18 @@ public class SiteImpl extends EObjectImpl implements Site {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.SITE__ID:
-			return ID_EDEFAULT == null
-					? id != null
-					: !ID_EDEFAULT.equals(id);
-		case PomPackage.SITE__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case PomPackage.SITE__URL:
-			return URL_EDEFAULT == null
-					? url != null
-					: !URL_EDEFAULT.equals(url);
+			case PomPackage.SITE__ID:
+				return ID_EDEFAULT == null
+						? id != null
+						: !ID_EDEFAULT.equals(id);
+			case PomPackage.SITE__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case PomPackage.SITE__URL:
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -149,15 +149,15 @@ public class SiteImpl extends EObjectImpl implements Site {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.SITE__ID:
-			setId((String) newValue);
-			return;
-		case PomPackage.SITE__NAME:
-			setName((String) newValue);
-			return;
-		case PomPackage.SITE__URL:
-			setUrl((String) newValue);
-			return;
+			case PomPackage.SITE__ID:
+				setId((String) newValue);
+				return;
+			case PomPackage.SITE__NAME:
+				setName((String) newValue);
+				return;
+			case PomPackage.SITE__URL:
+				setUrl((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -170,15 +170,15 @@ public class SiteImpl extends EObjectImpl implements Site {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.SITE__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case PomPackage.SITE__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case PomPackage.SITE__URL:
-			setUrl(URL_EDEFAULT);
-			return;
+			case PomPackage.SITE__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case PomPackage.SITE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case PomPackage.SITE__URL:
+				setUrl(URL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}

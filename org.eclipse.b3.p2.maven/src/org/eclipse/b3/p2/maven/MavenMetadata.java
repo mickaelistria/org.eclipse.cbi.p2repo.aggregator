@@ -44,8 +44,8 @@ public class MavenMetadata {
 		Resource resource = getResourceSet().getResource(uri, true);
 		EList<EObject> content = resource.getContents();
 		if(content.size() != 1)
-			throw ExceptionUtils.fromMessage("ECore Resource did not contain one resource. It had %d",
-					Integer.valueOf(content.size()));
+			throw ExceptionUtils.fromMessage(
+				"ECore Resource did not contain one resource. It had %d", Integer.valueOf(content.size()));
 
 		documentRoot = (DocumentRoot) content.get(0);
 		Diagnostic diag = Diagnostician.INSTANCE.validate(documentRoot);
@@ -94,6 +94,7 @@ public class MavenMetadata {
 	private ResourceSet getResourceSet() {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		resourceSet.setResourceFactoryRegistry(new ResourceFactoryRegistryImpl() {
+			@Override
 			public Resource.Factory getFactory(URI uri) {
 				return new MetadataResourceFactoryImpl();
 			}

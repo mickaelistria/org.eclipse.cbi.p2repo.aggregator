@@ -104,8 +104,8 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 		NotifiersType oldNotifiers = notifiers;
 		notifiers = newNotifiers;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.CI_MANAGEMENT__NOTIFIERS, oldNotifiers, newNotifiers);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.CI_MANAGEMENT__NOTIFIERS, oldNotifiers, newNotifiers);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -122,12 +122,12 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.CI_MANAGEMENT__SYSTEM:
-			return getSystem();
-		case PomPackage.CI_MANAGEMENT__URL:
-			return getUrl();
-		case PomPackage.CI_MANAGEMENT__NOTIFIERS:
-			return getNotifiers();
+			case PomPackage.CI_MANAGEMENT__SYSTEM:
+				return getSystem();
+			case PomPackage.CI_MANAGEMENT__URL:
+				return getUrl();
+			case PomPackage.CI_MANAGEMENT__NOTIFIERS:
+				return getNotifiers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -140,8 +140,8 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.CI_MANAGEMENT__NOTIFIERS:
-			return basicSetNotifiers(null, msgs);
+			case PomPackage.CI_MANAGEMENT__NOTIFIERS:
+				return basicSetNotifiers(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -154,16 +154,16 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.CI_MANAGEMENT__SYSTEM:
-			return SYSTEM_EDEFAULT == null
-					? system != null
-					: !SYSTEM_EDEFAULT.equals(system);
-		case PomPackage.CI_MANAGEMENT__URL:
-			return URL_EDEFAULT == null
-					? url != null
-					: !URL_EDEFAULT.equals(url);
-		case PomPackage.CI_MANAGEMENT__NOTIFIERS:
-			return notifiers != null;
+			case PomPackage.CI_MANAGEMENT__SYSTEM:
+				return SYSTEM_EDEFAULT == null
+						? system != null
+						: !SYSTEM_EDEFAULT.equals(system);
+			case PomPackage.CI_MANAGEMENT__URL:
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
+			case PomPackage.CI_MANAGEMENT__NOTIFIERS:
+				return notifiers != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -176,15 +176,15 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.CI_MANAGEMENT__SYSTEM:
-			setSystem((String) newValue);
-			return;
-		case PomPackage.CI_MANAGEMENT__URL:
-			setUrl((String) newValue);
-			return;
-		case PomPackage.CI_MANAGEMENT__NOTIFIERS:
-			setNotifiers((NotifiersType) newValue);
-			return;
+			case PomPackage.CI_MANAGEMENT__SYSTEM:
+				setSystem((String) newValue);
+				return;
+			case PomPackage.CI_MANAGEMENT__URL:
+				setUrl((String) newValue);
+				return;
+			case PomPackage.CI_MANAGEMENT__NOTIFIERS:
+				setNotifiers((NotifiersType) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -197,15 +197,15 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.CI_MANAGEMENT__SYSTEM:
-			setSystem(SYSTEM_EDEFAULT);
-			return;
-		case PomPackage.CI_MANAGEMENT__URL:
-			setUrl(URL_EDEFAULT);
-			return;
-		case PomPackage.CI_MANAGEMENT__NOTIFIERS:
-			setNotifiers((NotifiersType) null);
-			return;
+			case PomPackage.CI_MANAGEMENT__SYSTEM:
+				setSystem(SYSTEM_EDEFAULT);
+				return;
+			case PomPackage.CI_MANAGEMENT__URL:
+				setUrl(URL_EDEFAULT);
+				return;
+			case PomPackage.CI_MANAGEMENT__NOTIFIERS:
+				setNotifiers((NotifiersType) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -246,18 +246,18 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 		if(newNotifiers != notifiers) {
 			NotificationChain msgs = null;
 			if(notifiers != null)
-				msgs = ((InternalEObject) notifiers).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.CI_MANAGEMENT__NOTIFIERS, null, msgs);
+				msgs = ((InternalEObject) notifiers).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.CI_MANAGEMENT__NOTIFIERS, null, msgs);
 			if(newNotifiers != null)
-				msgs = ((InternalEObject) newNotifiers).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.CI_MANAGEMENT__NOTIFIERS, null, msgs);
+				msgs = ((InternalEObject) newNotifiers).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.CI_MANAGEMENT__NOTIFIERS, null, msgs);
 			msgs = basicSetNotifiers(newNotifiers, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CI_MANAGEMENT__NOTIFIERS, newNotifiers,
-					newNotifiers));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.CI_MANAGEMENT__NOTIFIERS, newNotifiers, newNotifiers));
 	}
 
 	/**

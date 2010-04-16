@@ -145,8 +145,8 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 		Relocation oldRelocation = relocation;
 		relocation = newRelocation;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, oldRelocation, newRelocation);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, oldRelocation, newRelocation);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -164,8 +164,8 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 		DeploymentRepository oldRepository = repository;
 		repository = newRepository;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, oldRepository, newRepository);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, oldRepository, newRepository);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -183,8 +183,8 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 		Site oldSite = site;
 		site = newSite;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.DISTRIBUTION_MANAGEMENT__SITE, oldSite, newSite);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__SITE, oldSite, newSite);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -203,9 +203,9 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 		DeploymentRepository oldSnapshotRepository = snapshotRepository;
 		snapshotRepository = newSnapshotRepository;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, oldSnapshotRepository,
-					newSnapshotRepository);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, oldSnapshotRepository,
+				newSnapshotRepository);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -222,18 +222,18 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
-			return getRepository();
-		case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
-			return getSnapshotRepository();
-		case PomPackage.DISTRIBUTION_MANAGEMENT__SITE:
-			return getSite();
-		case PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL:
-			return getDownloadUrl();
-		case PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION:
-			return getRelocation();
-		case PomPackage.DISTRIBUTION_MANAGEMENT__STATUS:
-			return getStatus();
+			case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
+				return getRepository();
+			case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
+				return getSnapshotRepository();
+			case PomPackage.DISTRIBUTION_MANAGEMENT__SITE:
+				return getSite();
+			case PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL:
+				return getDownloadUrl();
+			case PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION:
+				return getRelocation();
+			case PomPackage.DISTRIBUTION_MANAGEMENT__STATUS:
+				return getStatus();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -246,14 +246,14 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
-			return basicSetRepository(null, msgs);
-		case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
-			return basicSetSnapshotRepository(null, msgs);
-		case PomPackage.DISTRIBUTION_MANAGEMENT__SITE:
-			return basicSetSite(null, msgs);
-		case PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION:
-			return basicSetRelocation(null, msgs);
+			case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
+				return basicSetRepository(null, msgs);
+			case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
+				return basicSetSnapshotRepository(null, msgs);
+			case PomPackage.DISTRIBUTION_MANAGEMENT__SITE:
+				return basicSetSite(null, msgs);
+			case PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION:
+				return basicSetRelocation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -266,22 +266,22 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
-			return repository != null;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
-			return snapshotRepository != null;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__SITE:
-			return site != null;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL:
-			return DOWNLOAD_URL_EDEFAULT == null
-					? downloadUrl != null
-					: !DOWNLOAD_URL_EDEFAULT.equals(downloadUrl);
-		case PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION:
-			return relocation != null;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__STATUS:
-			return STATUS_EDEFAULT == null
-					? status != null
-					: !STATUS_EDEFAULT.equals(status);
+			case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
+				return repository != null;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
+				return snapshotRepository != null;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__SITE:
+				return site != null;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL:
+				return DOWNLOAD_URL_EDEFAULT == null
+						? downloadUrl != null
+						: !DOWNLOAD_URL_EDEFAULT.equals(downloadUrl);
+			case PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION:
+				return relocation != null;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__STATUS:
+				return STATUS_EDEFAULT == null
+						? status != null
+						: !STATUS_EDEFAULT.equals(status);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -294,24 +294,24 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
-			setRepository((DeploymentRepository) newValue);
-			return;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
-			setSnapshotRepository((DeploymentRepository) newValue);
-			return;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__SITE:
-			setSite((Site) newValue);
-			return;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL:
-			setDownloadUrl((String) newValue);
-			return;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION:
-			setRelocation((Relocation) newValue);
-			return;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__STATUS:
-			setStatus((String) newValue);
-			return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
+				setRepository((DeploymentRepository) newValue);
+				return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
+				setSnapshotRepository((DeploymentRepository) newValue);
+				return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__SITE:
+				setSite((Site) newValue);
+				return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL:
+				setDownloadUrl((String) newValue);
+				return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION:
+				setRelocation((Relocation) newValue);
+				return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__STATUS:
+				setStatus((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -324,24 +324,24 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
-			setRepository((DeploymentRepository) null);
-			return;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
-			setSnapshotRepository((DeploymentRepository) null);
-			return;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__SITE:
-			setSite((Site) null);
-			return;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL:
-			setDownloadUrl(DOWNLOAD_URL_EDEFAULT);
-			return;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION:
-			setRelocation((Relocation) null);
-			return;
-		case PomPackage.DISTRIBUTION_MANAGEMENT__STATUS:
-			setStatus(STATUS_EDEFAULT);
-			return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
+				setRepository((DeploymentRepository) null);
+				return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
+				setSnapshotRepository((DeploymentRepository) null);
+				return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__SITE:
+				setSite((Site) null);
+				return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL:
+				setDownloadUrl(DOWNLOAD_URL_EDEFAULT);
+				return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION:
+				setRelocation((Relocation) null);
+				return;
+			case PomPackage.DISTRIBUTION_MANAGEMENT__STATUS:
+				setStatus(STATUS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -409,8 +409,8 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 		String oldDownloadUrl = downloadUrl;
 		downloadUrl = newDownloadUrl;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL,
-					oldDownloadUrl, downloadUrl));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL, oldDownloadUrl, downloadUrl));
 	}
 
 	/**
@@ -422,18 +422,18 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 		if(newRelocation != relocation) {
 			NotificationChain msgs = null;
 			if(relocation != null)
-				msgs = ((InternalEObject) relocation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, null, msgs);
+				msgs = ((InternalEObject) relocation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, null, msgs);
 			if(newRelocation != null)
-				msgs = ((InternalEObject) newRelocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, null, msgs);
+				msgs = ((InternalEObject) newRelocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, null, msgs);
 			msgs = basicSetRelocation(newRelocation, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION,
-					newRelocation, newRelocation));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, newRelocation, newRelocation));
 	}
 
 	/**
@@ -445,18 +445,18 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 		if(newRepository != repository) {
 			NotificationChain msgs = null;
 			if(repository != null)
-				msgs = ((InternalEObject) repository).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, null, msgs);
+				msgs = ((InternalEObject) repository).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, null, msgs);
 			if(newRepository != null)
-				msgs = ((InternalEObject) newRepository).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, null, msgs);
+				msgs = ((InternalEObject) newRepository).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, null, msgs);
 			msgs = basicSetRepository(newRepository, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY,
-					newRepository, newRepository));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, newRepository, newRepository));
 	}
 
 	/**
@@ -468,18 +468,18 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 		if(newSite != site) {
 			NotificationChain msgs = null;
 			if(site != null)
-				msgs = ((InternalEObject) site).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DISTRIBUTION_MANAGEMENT__SITE, null, msgs);
+				msgs = ((InternalEObject) site).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DISTRIBUTION_MANAGEMENT__SITE, null, msgs);
 			if(newSite != null)
-				msgs = ((InternalEObject) newSite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DISTRIBUTION_MANAGEMENT__SITE, null, msgs);
+				msgs = ((InternalEObject) newSite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DISTRIBUTION_MANAGEMENT__SITE, null, msgs);
 			msgs = basicSetSite(newSite, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__SITE, newSite,
-					newSite));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__SITE, newSite, newSite));
 	}
 
 	/**
@@ -491,19 +491,19 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 		if(newSnapshotRepository != snapshotRepository) {
 			NotificationChain msgs = null;
 			if(snapshotRepository != null)
-				msgs = ((InternalEObject) snapshotRepository).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, null, msgs);
+				msgs = ((InternalEObject) snapshotRepository).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, null, msgs);
 			if(newSnapshotRepository != null)
-				msgs = ((InternalEObject) newSnapshotRepository).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, null, msgs);
+				msgs = ((InternalEObject) newSnapshotRepository).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, null, msgs);
 			msgs = basicSetSnapshotRepository(newSnapshotRepository, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, newSnapshotRepository,
-					newSnapshotRepository));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, newSnapshotRepository,
+				newSnapshotRepository));
 	}
 
 	/**
@@ -515,8 +515,8 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 		String oldStatus = status;
 		status = newStatus;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__STATUS,
-					oldStatus, status));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__STATUS, oldStatus, status));
 	}
 
 	/**

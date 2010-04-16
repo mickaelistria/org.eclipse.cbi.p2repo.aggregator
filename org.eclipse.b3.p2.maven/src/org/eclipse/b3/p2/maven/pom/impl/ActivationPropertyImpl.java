@@ -88,10 +88,10 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_PROPERTY__NAME:
-			return getName();
-		case PomPackage.ACTIVATION_PROPERTY__VALUE:
-			return getValue();
+			case PomPackage.ACTIVATION_PROPERTY__NAME:
+				return getName();
+			case PomPackage.ACTIVATION_PROPERTY__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -104,14 +104,14 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_PROPERTY__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case PomPackage.ACTIVATION_PROPERTY__VALUE:
-			return VALUE_EDEFAULT == null
-					? value != null
-					: !VALUE_EDEFAULT.equals(value);
+			case PomPackage.ACTIVATION_PROPERTY__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case PomPackage.ACTIVATION_PROPERTY__VALUE:
+				return VALUE_EDEFAULT == null
+						? value != null
+						: !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -124,12 +124,12 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_PROPERTY__NAME:
-			setName((String) newValue);
-			return;
-		case PomPackage.ACTIVATION_PROPERTY__VALUE:
-			setValue((String) newValue);
-			return;
+			case PomPackage.ACTIVATION_PROPERTY__NAME:
+				setName((String) newValue);
+				return;
+			case PomPackage.ACTIVATION_PROPERTY__VALUE:
+				setValue((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -142,12 +142,12 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.ACTIVATION_PROPERTY__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case PomPackage.ACTIVATION_PROPERTY__VALUE:
-			setValue(VALUE_EDEFAULT);
-			return;
+			case PomPackage.ACTIVATION_PROPERTY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case PomPackage.ACTIVATION_PROPERTY__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -191,8 +191,8 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 		String oldValue = value;
 		value = newValue;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ACTIVATION_PROPERTY__VALUE, oldValue,
-					value));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.ACTIVATION_PROPERTY__VALUE, oldValue, value));
 	}
 
 	/**

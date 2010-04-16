@@ -139,14 +139,14 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.SCM__CONNECTION:
-			return getConnection();
-		case PomPackage.SCM__DEVELOPER_CONNECTION:
-			return getDeveloperConnection();
-		case PomPackage.SCM__TAG:
-			return getTag();
-		case PomPackage.SCM__URL:
-			return getUrl();
+			case PomPackage.SCM__CONNECTION:
+				return getConnection();
+			case PomPackage.SCM__DEVELOPER_CONNECTION:
+				return getDeveloperConnection();
+			case PomPackage.SCM__TAG:
+				return getTag();
+			case PomPackage.SCM__URL:
+				return getUrl();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -159,20 +159,20 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.SCM__CONNECTION:
-			return CONNECTION_EDEFAULT == null
-					? connection != null
-					: !CONNECTION_EDEFAULT.equals(connection);
-		case PomPackage.SCM__DEVELOPER_CONNECTION:
-			return DEVELOPER_CONNECTION_EDEFAULT == null
-					? developerConnection != null
-					: !DEVELOPER_CONNECTION_EDEFAULT.equals(developerConnection);
-		case PomPackage.SCM__TAG:
-			return isSetTag();
-		case PomPackage.SCM__URL:
-			return URL_EDEFAULT == null
-					? url != null
-					: !URL_EDEFAULT.equals(url);
+			case PomPackage.SCM__CONNECTION:
+				return CONNECTION_EDEFAULT == null
+						? connection != null
+						: !CONNECTION_EDEFAULT.equals(connection);
+			case PomPackage.SCM__DEVELOPER_CONNECTION:
+				return DEVELOPER_CONNECTION_EDEFAULT == null
+						? developerConnection != null
+						: !DEVELOPER_CONNECTION_EDEFAULT.equals(developerConnection);
+			case PomPackage.SCM__TAG:
+				return isSetTag();
+			case PomPackage.SCM__URL:
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -185,18 +185,18 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.SCM__CONNECTION:
-			setConnection((String) newValue);
-			return;
-		case PomPackage.SCM__DEVELOPER_CONNECTION:
-			setDeveloperConnection((String) newValue);
-			return;
-		case PomPackage.SCM__TAG:
-			setTag((String) newValue);
-			return;
-		case PomPackage.SCM__URL:
-			setUrl((String) newValue);
-			return;
+			case PomPackage.SCM__CONNECTION:
+				setConnection((String) newValue);
+				return;
+			case PomPackage.SCM__DEVELOPER_CONNECTION:
+				setDeveloperConnection((String) newValue);
+				return;
+			case PomPackage.SCM__TAG:
+				setTag((String) newValue);
+				return;
+			case PomPackage.SCM__URL:
+				setUrl((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -209,18 +209,18 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.SCM__CONNECTION:
-			setConnection(CONNECTION_EDEFAULT);
-			return;
-		case PomPackage.SCM__DEVELOPER_CONNECTION:
-			setDeveloperConnection(DEVELOPER_CONNECTION_EDEFAULT);
-			return;
-		case PomPackage.SCM__TAG:
-			unsetTag();
-			return;
-		case PomPackage.SCM__URL:
-			setUrl(URL_EDEFAULT);
-			return;
+			case PomPackage.SCM__CONNECTION:
+				setConnection(CONNECTION_EDEFAULT);
+				return;
+			case PomPackage.SCM__DEVELOPER_CONNECTION:
+				setDeveloperConnection(DEVELOPER_CONNECTION_EDEFAULT);
+				return;
+			case PomPackage.SCM__TAG:
+				unsetTag();
+				return;
+			case PomPackage.SCM__URL:
+				setUrl(URL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -291,8 +291,9 @@ public class ScmImpl extends EObjectImpl implements Scm {
 		String oldDeveloperConnection = developerConnection;
 		developerConnection = newDeveloperConnection;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.SCM__DEVELOPER_CONNECTION,
-					oldDeveloperConnection, developerConnection));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.SCM__DEVELOPER_CONNECTION, oldDeveloperConnection,
+				developerConnection));
 	}
 
 	/**
@@ -358,8 +359,8 @@ public class ScmImpl extends EObjectImpl implements Scm {
 		tag = TAG_EDEFAULT;
 		tagESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.SCM__TAG, oldTag, TAG_EDEFAULT,
-					oldTagESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.SCM__TAG, oldTag, TAG_EDEFAULT, oldTagESet));
 	}
 
 	/**

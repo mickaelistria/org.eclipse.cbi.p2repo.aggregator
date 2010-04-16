@@ -148,8 +148,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 		ConfigurationType oldConfiguration = configuration;
 		configuration = newConfiguration;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.PLUGIN_EXECUTION__CONFIGURATION, oldConfiguration, newConfiguration);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.PLUGIN_EXECUTION__CONFIGURATION, oldConfiguration, newConfiguration);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -167,8 +167,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 		ExecutionGoalsType oldGoals = goals;
 		goals = newGoals;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.PLUGIN_EXECUTION__GOALS, oldGoals, newGoals);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.PLUGIN_EXECUTION__GOALS, oldGoals, newGoals);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -185,16 +185,16 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_EXECUTION__ID:
-			return getId();
-		case PomPackage.PLUGIN_EXECUTION__PHASE:
-			return getPhase();
-		case PomPackage.PLUGIN_EXECUTION__GOALS:
-			return getGoals();
-		case PomPackage.PLUGIN_EXECUTION__INHERITED:
-			return getInherited();
-		case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
-			return getConfiguration();
+			case PomPackage.PLUGIN_EXECUTION__ID:
+				return getId();
+			case PomPackage.PLUGIN_EXECUTION__PHASE:
+				return getPhase();
+			case PomPackage.PLUGIN_EXECUTION__GOALS:
+				return getGoals();
+			case PomPackage.PLUGIN_EXECUTION__INHERITED:
+				return getInherited();
+			case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
+				return getConfiguration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -207,10 +207,10 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_EXECUTION__GOALS:
-			return basicSetGoals(null, msgs);
-		case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
-			return basicSetConfiguration(null, msgs);
+			case PomPackage.PLUGIN_EXECUTION__GOALS:
+				return basicSetGoals(null, msgs);
+			case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
+				return basicSetConfiguration(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -223,20 +223,20 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_EXECUTION__ID:
-			return isSetId();
-		case PomPackage.PLUGIN_EXECUTION__PHASE:
-			return PHASE_EDEFAULT == null
-					? phase != null
-					: !PHASE_EDEFAULT.equals(phase);
-		case PomPackage.PLUGIN_EXECUTION__GOALS:
-			return goals != null;
-		case PomPackage.PLUGIN_EXECUTION__INHERITED:
-			return INHERITED_EDEFAULT == null
-					? inherited != null
-					: !INHERITED_EDEFAULT.equals(inherited);
-		case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
-			return configuration != null;
+			case PomPackage.PLUGIN_EXECUTION__ID:
+				return isSetId();
+			case PomPackage.PLUGIN_EXECUTION__PHASE:
+				return PHASE_EDEFAULT == null
+						? phase != null
+						: !PHASE_EDEFAULT.equals(phase);
+			case PomPackage.PLUGIN_EXECUTION__GOALS:
+				return goals != null;
+			case PomPackage.PLUGIN_EXECUTION__INHERITED:
+				return INHERITED_EDEFAULT == null
+						? inherited != null
+						: !INHERITED_EDEFAULT.equals(inherited);
+			case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
+				return configuration != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -249,21 +249,21 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_EXECUTION__ID:
-			setId((String) newValue);
-			return;
-		case PomPackage.PLUGIN_EXECUTION__PHASE:
-			setPhase((String) newValue);
-			return;
-		case PomPackage.PLUGIN_EXECUTION__GOALS:
-			setGoals((ExecutionGoalsType) newValue);
-			return;
-		case PomPackage.PLUGIN_EXECUTION__INHERITED:
-			setInherited((String) newValue);
-			return;
-		case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
-			setConfiguration((ConfigurationType) newValue);
-			return;
+			case PomPackage.PLUGIN_EXECUTION__ID:
+				setId((String) newValue);
+				return;
+			case PomPackage.PLUGIN_EXECUTION__PHASE:
+				setPhase((String) newValue);
+				return;
+			case PomPackage.PLUGIN_EXECUTION__GOALS:
+				setGoals((ExecutionGoalsType) newValue);
+				return;
+			case PomPackage.PLUGIN_EXECUTION__INHERITED:
+				setInherited((String) newValue);
+				return;
+			case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
+				setConfiguration((ConfigurationType) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -276,21 +276,21 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_EXECUTION__ID:
-			unsetId();
-			return;
-		case PomPackage.PLUGIN_EXECUTION__PHASE:
-			setPhase(PHASE_EDEFAULT);
-			return;
-		case PomPackage.PLUGIN_EXECUTION__GOALS:
-			setGoals((ExecutionGoalsType) null);
-			return;
-		case PomPackage.PLUGIN_EXECUTION__INHERITED:
-			setInherited(INHERITED_EDEFAULT);
-			return;
-		case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
-			setConfiguration((ConfigurationType) null);
-			return;
+			case PomPackage.PLUGIN_EXECUTION__ID:
+				unsetId();
+				return;
+			case PomPackage.PLUGIN_EXECUTION__PHASE:
+				setPhase(PHASE_EDEFAULT);
+				return;
+			case PomPackage.PLUGIN_EXECUTION__GOALS:
+				setGoals((ExecutionGoalsType) null);
+				return;
+			case PomPackage.PLUGIN_EXECUTION__INHERITED:
+				setInherited(INHERITED_EDEFAULT);
+				return;
+			case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
+				setConfiguration((ConfigurationType) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -358,18 +358,18 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 		if(newConfiguration != configuration) {
 			NotificationChain msgs = null;
 			if(configuration != null)
-				msgs = ((InternalEObject) configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.PLUGIN_EXECUTION__CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject) configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.PLUGIN_EXECUTION__CONFIGURATION, null, msgs);
 			if(newConfiguration != null)
-				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.PLUGIN_EXECUTION__CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.PLUGIN_EXECUTION__CONFIGURATION, null, msgs);
 			msgs = basicSetConfiguration(newConfiguration, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__CONFIGURATION,
-					newConfiguration, newConfiguration));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.PLUGIN_EXECUTION__CONFIGURATION, newConfiguration, newConfiguration));
 	}
 
 	/**
@@ -381,18 +381,18 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 		if(newGoals != goals) {
 			NotificationChain msgs = null;
 			if(goals != null)
-				msgs = ((InternalEObject) goals).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.PLUGIN_EXECUTION__GOALS, null, msgs);
+				msgs = ((InternalEObject) goals).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.PLUGIN_EXECUTION__GOALS, null, msgs);
 			if(newGoals != null)
-				msgs = ((InternalEObject) newGoals).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.PLUGIN_EXECUTION__GOALS, null, msgs);
+				msgs = ((InternalEObject) newGoals).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.PLUGIN_EXECUTION__GOALS, null, msgs);
 			msgs = basicSetGoals(newGoals, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__GOALS, newGoals,
-					newGoals));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.PLUGIN_EXECUTION__GOALS, newGoals, newGoals));
 	}
 
 	/**
@@ -406,8 +406,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 		boolean oldIdESet = idESet;
 		idESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__ID, oldId, id,
-					!oldIdESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.PLUGIN_EXECUTION__ID, oldId, id, !oldIdESet));
 	}
 
 	/**
@@ -419,8 +419,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 		String oldInherited = inherited;
 		inherited = newInherited;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__INHERITED, oldInherited,
-					inherited));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.PLUGIN_EXECUTION__INHERITED, oldInherited, inherited));
 	}
 
 	/**
@@ -470,8 +470,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 		id = ID_EDEFAULT;
 		idESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.PLUGIN_EXECUTION__ID, oldId,
-					ID_EDEFAULT, oldIdESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.PLUGIN_EXECUTION__ID, oldId, ID_EDEFAULT, oldIdESet));
 	}
 
 	/**

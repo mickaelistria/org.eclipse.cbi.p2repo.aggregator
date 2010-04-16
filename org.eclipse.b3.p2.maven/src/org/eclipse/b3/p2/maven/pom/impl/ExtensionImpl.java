@@ -113,12 +113,12 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.EXTENSION__GROUP_ID:
-			return getGroupId();
-		case PomPackage.EXTENSION__ARTIFACT_ID:
-			return getArtifactId();
-		case PomPackage.EXTENSION__VERSION:
-			return getVersion();
+			case PomPackage.EXTENSION__GROUP_ID:
+				return getGroupId();
+			case PomPackage.EXTENSION__ARTIFACT_ID:
+				return getArtifactId();
+			case PomPackage.EXTENSION__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -131,18 +131,18 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXTENSION__GROUP_ID:
-			return GROUP_ID_EDEFAULT == null
-					? groupId != null
-					: !GROUP_ID_EDEFAULT.equals(groupId);
-		case PomPackage.EXTENSION__ARTIFACT_ID:
-			return ARTIFACT_ID_EDEFAULT == null
-					? artifactId != null
-					: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
-		case PomPackage.EXTENSION__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
+			case PomPackage.EXTENSION__GROUP_ID:
+				return GROUP_ID_EDEFAULT == null
+						? groupId != null
+						: !GROUP_ID_EDEFAULT.equals(groupId);
+			case PomPackage.EXTENSION__ARTIFACT_ID:
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+			case PomPackage.EXTENSION__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -155,15 +155,15 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.EXTENSION__GROUP_ID:
-			setGroupId((String) newValue);
-			return;
-		case PomPackage.EXTENSION__ARTIFACT_ID:
-			setArtifactId((String) newValue);
-			return;
-		case PomPackage.EXTENSION__VERSION:
-			setVersion((String) newValue);
-			return;
+			case PomPackage.EXTENSION__GROUP_ID:
+				setGroupId((String) newValue);
+				return;
+			case PomPackage.EXTENSION__ARTIFACT_ID:
+				setArtifactId((String) newValue);
+				return;
+			case PomPackage.EXTENSION__VERSION:
+				setVersion((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -176,15 +176,15 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXTENSION__GROUP_ID:
-			setGroupId(GROUP_ID_EDEFAULT);
-			return;
-		case PomPackage.EXTENSION__ARTIFACT_ID:
-			setArtifactId(ARTIFACT_ID_EDEFAULT);
-			return;
-		case PomPackage.EXTENSION__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
+			case PomPackage.EXTENSION__GROUP_ID:
+				setGroupId(GROUP_ID_EDEFAULT);
+				return;
+			case PomPackage.EXTENSION__ARTIFACT_ID:
+				setArtifactId(ARTIFACT_ID_EDEFAULT);
+				return;
+			case PomPackage.EXTENSION__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -225,8 +225,8 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.EXTENSION__ARTIFACT_ID, oldArtifactId,
-					artifactId));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.EXTENSION__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**

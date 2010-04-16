@@ -523,8 +523,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		Build oldBuild = build;
 		build = newBuild;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__BUILD,
-					oldBuild, newBuild);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__BUILD, oldBuild, newBuild);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -542,8 +542,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		CiManagement oldCiManagement = ciManagement;
 		ciManagement = newCiManagement;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__CI_MANAGEMENT, oldCiManagement, newCiManagement);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__CI_MANAGEMENT, oldCiManagement, newCiManagement);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -561,8 +561,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		ContributorsType oldContributors = contributors;
 		contributors = newContributors;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__CONTRIBUTORS, oldContributors, newContributors);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__CONTRIBUTORS, oldContributors, newContributors);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -580,8 +580,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		DependenciesType oldDependencies = dependencies;
 		dependencies = newDependencies;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__DEPENDENCIES, oldDependencies, newDependencies);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__DEPENDENCIES, oldDependencies, newDependencies);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -600,8 +600,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 		DependencyManagement oldDependencyManagement = dependencyManagement;
 		dependencyManagement = newDependencyManagement;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__DEPENDENCY_MANAGEMENT, oldDependencyManagement, newDependencyManagement);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__DEPENDENCY_MANAGEMENT, oldDependencyManagement,
+				newDependencyManagement);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -619,8 +620,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		DevelopersType oldDevelopers = developers;
 		developers = newDevelopers;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__DEVELOPERS, oldDevelopers, newDevelopers);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__DEVELOPERS, oldDevelopers, newDevelopers);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -639,8 +640,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 		DistributionManagement oldDistributionManagement = distributionManagement;
 		distributionManagement = newDistributionManagement;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, oldDistributionManagement, newDistributionManagement);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, oldDistributionManagement,
+				newDistributionManagement);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -658,8 +660,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		IssueManagement oldIssueManagement = issueManagement;
 		issueManagement = newIssueManagement;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__ISSUE_MANAGEMENT, oldIssueManagement, newIssueManagement);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__ISSUE_MANAGEMENT, oldIssueManagement, newIssueManagement);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -677,8 +679,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		LicensesType oldLicenses = licenses;
 		licenses = newLicenses;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__LICENSES,
-					oldLicenses, newLicenses);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__LICENSES, oldLicenses, newLicenses);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -696,8 +698,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		MailingListsType oldMailingLists = mailingLists;
 		mailingLists = newMailingLists;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__MAILING_LISTS, oldMailingLists, newMailingLists);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__MAILING_LISTS, oldMailingLists, newMailingLists);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -715,8 +717,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		ModulesType oldModules = modules;
 		modules = newModules;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__MODULES,
-					oldModules, newModules);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__MODULES, oldModules, newModules);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -734,8 +736,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		Organization oldOrganization = organization;
 		organization = newOrganization;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__ORGANIZATION, oldOrganization, newOrganization);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__ORGANIZATION, oldOrganization, newOrganization);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -753,8 +755,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		Parent oldParent = parent;
 		parent = newParent;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PARENT,
-					oldParent, newParent);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__PARENT, oldParent, newParent);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -773,8 +775,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 		PluginRepositoriesType oldPluginRepositories = pluginRepositories;
 		pluginRepositories = newPluginRepositories;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__PLUGIN_REPOSITORIES, oldPluginRepositories, newPluginRepositories);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__PLUGIN_REPOSITORIES, oldPluginRepositories,
+				newPluginRepositories);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -792,8 +795,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		Prerequisites oldPrerequisites = prerequisites;
 		prerequisites = newPrerequisites;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__PREREQUISITES, oldPrerequisites, newPrerequisites);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__PREREQUISITES, oldPrerequisites, newPrerequisites);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -811,8 +814,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		ProfilesType oldProfiles = profiles;
 		profiles = newProfiles;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PROFILES,
-					oldProfiles, newProfiles);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__PROFILES, oldProfiles, newProfiles);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -830,8 +833,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		PropertiesType oldProperties = properties;
 		properties = newProperties;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__PROPERTIES, oldProperties, newProperties);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__PROPERTIES, oldProperties, newProperties);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -849,8 +852,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		Reporting oldReporting = reporting;
 		reporting = newReporting;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__REPORTING,
-					oldReporting, newReporting);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__REPORTING, oldReporting, newReporting);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -868,8 +871,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		ReportsType oldReports = reports;
 		reports = newReports;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__REPORTS,
-					oldReports, newReports);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__REPORTS, oldReports, newReports);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -887,8 +890,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		RepositoriesType oldRepositories = repositories;
 		repositories = newRepositories;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.MODEL__REPOSITORIES, oldRepositories, newRepositories);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__REPOSITORIES, oldRepositories, newRepositories);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -906,8 +909,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		Scm oldScm = scm;
 		scm = newScm;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__SCM,
-					oldScm, newScm);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__SCM, oldScm, newScm);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -924,66 +927,66 @@ public class ModelImpl extends EObjectImpl implements Model {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.MODEL__PARENT:
-			return getParent();
-		case PomPackage.MODEL__MODEL_VERSION:
-			return getModelVersion();
-		case PomPackage.MODEL__GROUP_ID:
-			return getGroupId();
-		case PomPackage.MODEL__ARTIFACT_ID:
-			return getArtifactId();
-		case PomPackage.MODEL__PACKAGING:
-			return getPackaging();
-		case PomPackage.MODEL__NAME:
-			return getName();
-		case PomPackage.MODEL__VERSION:
-			return getVersion();
-		case PomPackage.MODEL__DESCRIPTION:
-			return getDescription();
-		case PomPackage.MODEL__URL:
-			return getUrl();
-		case PomPackage.MODEL__PREREQUISITES:
-			return getPrerequisites();
-		case PomPackage.MODEL__ISSUE_MANAGEMENT:
-			return getIssueManagement();
-		case PomPackage.MODEL__CI_MANAGEMENT:
-			return getCiManagement();
-		case PomPackage.MODEL__INCEPTION_YEAR:
-			return getInceptionYear();
-		case PomPackage.MODEL__MAILING_LISTS:
-			return getMailingLists();
-		case PomPackage.MODEL__DEVELOPERS:
-			return getDevelopers();
-		case PomPackage.MODEL__CONTRIBUTORS:
-			return getContributors();
-		case PomPackage.MODEL__LICENSES:
-			return getLicenses();
-		case PomPackage.MODEL__SCM:
-			return getScm();
-		case PomPackage.MODEL__ORGANIZATION:
-			return getOrganization();
-		case PomPackage.MODEL__BUILD:
-			return getBuild();
-		case PomPackage.MODEL__PROFILES:
-			return getProfiles();
-		case PomPackage.MODEL__MODULES:
-			return getModules();
-		case PomPackage.MODEL__REPOSITORIES:
-			return getRepositories();
-		case PomPackage.MODEL__PLUGIN_REPOSITORIES:
-			return getPluginRepositories();
-		case PomPackage.MODEL__DEPENDENCIES:
-			return getDependencies();
-		case PomPackage.MODEL__REPORTS:
-			return getReports();
-		case PomPackage.MODEL__REPORTING:
-			return getReporting();
-		case PomPackage.MODEL__DEPENDENCY_MANAGEMENT:
-			return getDependencyManagement();
-		case PomPackage.MODEL__DISTRIBUTION_MANAGEMENT:
-			return getDistributionManagement();
-		case PomPackage.MODEL__PROPERTIES:
-			return getProperties();
+			case PomPackage.MODEL__PARENT:
+				return getParent();
+			case PomPackage.MODEL__MODEL_VERSION:
+				return getModelVersion();
+			case PomPackage.MODEL__GROUP_ID:
+				return getGroupId();
+			case PomPackage.MODEL__ARTIFACT_ID:
+				return getArtifactId();
+			case PomPackage.MODEL__PACKAGING:
+				return getPackaging();
+			case PomPackage.MODEL__NAME:
+				return getName();
+			case PomPackage.MODEL__VERSION:
+				return getVersion();
+			case PomPackage.MODEL__DESCRIPTION:
+				return getDescription();
+			case PomPackage.MODEL__URL:
+				return getUrl();
+			case PomPackage.MODEL__PREREQUISITES:
+				return getPrerequisites();
+			case PomPackage.MODEL__ISSUE_MANAGEMENT:
+				return getIssueManagement();
+			case PomPackage.MODEL__CI_MANAGEMENT:
+				return getCiManagement();
+			case PomPackage.MODEL__INCEPTION_YEAR:
+				return getInceptionYear();
+			case PomPackage.MODEL__MAILING_LISTS:
+				return getMailingLists();
+			case PomPackage.MODEL__DEVELOPERS:
+				return getDevelopers();
+			case PomPackage.MODEL__CONTRIBUTORS:
+				return getContributors();
+			case PomPackage.MODEL__LICENSES:
+				return getLicenses();
+			case PomPackage.MODEL__SCM:
+				return getScm();
+			case PomPackage.MODEL__ORGANIZATION:
+				return getOrganization();
+			case PomPackage.MODEL__BUILD:
+				return getBuild();
+			case PomPackage.MODEL__PROFILES:
+				return getProfiles();
+			case PomPackage.MODEL__MODULES:
+				return getModules();
+			case PomPackage.MODEL__REPOSITORIES:
+				return getRepositories();
+			case PomPackage.MODEL__PLUGIN_REPOSITORIES:
+				return getPluginRepositories();
+			case PomPackage.MODEL__DEPENDENCIES:
+				return getDependencies();
+			case PomPackage.MODEL__REPORTS:
+				return getReports();
+			case PomPackage.MODEL__REPORTING:
+				return getReporting();
+			case PomPackage.MODEL__DEPENDENCY_MANAGEMENT:
+				return getDependencyManagement();
+			case PomPackage.MODEL__DISTRIBUTION_MANAGEMENT:
+				return getDistributionManagement();
+			case PomPackage.MODEL__PROPERTIES:
+				return getProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -996,48 +999,48 @@ public class ModelImpl extends EObjectImpl implements Model {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.MODEL__PARENT:
-			return basicSetParent(null, msgs);
-		case PomPackage.MODEL__PREREQUISITES:
-			return basicSetPrerequisites(null, msgs);
-		case PomPackage.MODEL__ISSUE_MANAGEMENT:
-			return basicSetIssueManagement(null, msgs);
-		case PomPackage.MODEL__CI_MANAGEMENT:
-			return basicSetCiManagement(null, msgs);
-		case PomPackage.MODEL__MAILING_LISTS:
-			return basicSetMailingLists(null, msgs);
-		case PomPackage.MODEL__DEVELOPERS:
-			return basicSetDevelopers(null, msgs);
-		case PomPackage.MODEL__CONTRIBUTORS:
-			return basicSetContributors(null, msgs);
-		case PomPackage.MODEL__LICENSES:
-			return basicSetLicenses(null, msgs);
-		case PomPackage.MODEL__SCM:
-			return basicSetScm(null, msgs);
-		case PomPackage.MODEL__ORGANIZATION:
-			return basicSetOrganization(null, msgs);
-		case PomPackage.MODEL__BUILD:
-			return basicSetBuild(null, msgs);
-		case PomPackage.MODEL__PROFILES:
-			return basicSetProfiles(null, msgs);
-		case PomPackage.MODEL__MODULES:
-			return basicSetModules(null, msgs);
-		case PomPackage.MODEL__REPOSITORIES:
-			return basicSetRepositories(null, msgs);
-		case PomPackage.MODEL__PLUGIN_REPOSITORIES:
-			return basicSetPluginRepositories(null, msgs);
-		case PomPackage.MODEL__DEPENDENCIES:
-			return basicSetDependencies(null, msgs);
-		case PomPackage.MODEL__REPORTS:
-			return basicSetReports(null, msgs);
-		case PomPackage.MODEL__REPORTING:
-			return basicSetReporting(null, msgs);
-		case PomPackage.MODEL__DEPENDENCY_MANAGEMENT:
-			return basicSetDependencyManagement(null, msgs);
-		case PomPackage.MODEL__DISTRIBUTION_MANAGEMENT:
-			return basicSetDistributionManagement(null, msgs);
-		case PomPackage.MODEL__PROPERTIES:
-			return basicSetProperties(null, msgs);
+			case PomPackage.MODEL__PARENT:
+				return basicSetParent(null, msgs);
+			case PomPackage.MODEL__PREREQUISITES:
+				return basicSetPrerequisites(null, msgs);
+			case PomPackage.MODEL__ISSUE_MANAGEMENT:
+				return basicSetIssueManagement(null, msgs);
+			case PomPackage.MODEL__CI_MANAGEMENT:
+				return basicSetCiManagement(null, msgs);
+			case PomPackage.MODEL__MAILING_LISTS:
+				return basicSetMailingLists(null, msgs);
+			case PomPackage.MODEL__DEVELOPERS:
+				return basicSetDevelopers(null, msgs);
+			case PomPackage.MODEL__CONTRIBUTORS:
+				return basicSetContributors(null, msgs);
+			case PomPackage.MODEL__LICENSES:
+				return basicSetLicenses(null, msgs);
+			case PomPackage.MODEL__SCM:
+				return basicSetScm(null, msgs);
+			case PomPackage.MODEL__ORGANIZATION:
+				return basicSetOrganization(null, msgs);
+			case PomPackage.MODEL__BUILD:
+				return basicSetBuild(null, msgs);
+			case PomPackage.MODEL__PROFILES:
+				return basicSetProfiles(null, msgs);
+			case PomPackage.MODEL__MODULES:
+				return basicSetModules(null, msgs);
+			case PomPackage.MODEL__REPOSITORIES:
+				return basicSetRepositories(null, msgs);
+			case PomPackage.MODEL__PLUGIN_REPOSITORIES:
+				return basicSetPluginRepositories(null, msgs);
+			case PomPackage.MODEL__DEPENDENCIES:
+				return basicSetDependencies(null, msgs);
+			case PomPackage.MODEL__REPORTS:
+				return basicSetReports(null, msgs);
+			case PomPackage.MODEL__REPORTING:
+				return basicSetReporting(null, msgs);
+			case PomPackage.MODEL__DEPENDENCY_MANAGEMENT:
+				return basicSetDependencyManagement(null, msgs);
+			case PomPackage.MODEL__DISTRIBUTION_MANAGEMENT:
+				return basicSetDistributionManagement(null, msgs);
+			case PomPackage.MODEL__PROPERTIES:
+				return basicSetProperties(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1050,82 +1053,82 @@ public class ModelImpl extends EObjectImpl implements Model {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.MODEL__PARENT:
-			return parent != null;
-		case PomPackage.MODEL__MODEL_VERSION:
-			return MODEL_VERSION_EDEFAULT == null
-					? modelVersion != null
-					: !MODEL_VERSION_EDEFAULT.equals(modelVersion);
-		case PomPackage.MODEL__GROUP_ID:
-			return GROUP_ID_EDEFAULT == null
-					? groupId != null
-					: !GROUP_ID_EDEFAULT.equals(groupId);
-		case PomPackage.MODEL__ARTIFACT_ID:
-			return ARTIFACT_ID_EDEFAULT == null
-					? artifactId != null
-					: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
-		case PomPackage.MODEL__PACKAGING:
-			return isSetPackaging();
-		case PomPackage.MODEL__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case PomPackage.MODEL__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
-		case PomPackage.MODEL__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null
-					? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case PomPackage.MODEL__URL:
-			return URL_EDEFAULT == null
-					? url != null
-					: !URL_EDEFAULT.equals(url);
-		case PomPackage.MODEL__PREREQUISITES:
-			return prerequisites != null;
-		case PomPackage.MODEL__ISSUE_MANAGEMENT:
-			return issueManagement != null;
-		case PomPackage.MODEL__CI_MANAGEMENT:
-			return ciManagement != null;
-		case PomPackage.MODEL__INCEPTION_YEAR:
-			return INCEPTION_YEAR_EDEFAULT == null
-					? inceptionYear != null
-					: !INCEPTION_YEAR_EDEFAULT.equals(inceptionYear);
-		case PomPackage.MODEL__MAILING_LISTS:
-			return mailingLists != null;
-		case PomPackage.MODEL__DEVELOPERS:
-			return developers != null;
-		case PomPackage.MODEL__CONTRIBUTORS:
-			return contributors != null;
-		case PomPackage.MODEL__LICENSES:
-			return licenses != null;
-		case PomPackage.MODEL__SCM:
-			return scm != null;
-		case PomPackage.MODEL__ORGANIZATION:
-			return organization != null;
-		case PomPackage.MODEL__BUILD:
-			return build != null;
-		case PomPackage.MODEL__PROFILES:
-			return profiles != null;
-		case PomPackage.MODEL__MODULES:
-			return modules != null;
-		case PomPackage.MODEL__REPOSITORIES:
-			return repositories != null;
-		case PomPackage.MODEL__PLUGIN_REPOSITORIES:
-			return pluginRepositories != null;
-		case PomPackage.MODEL__DEPENDENCIES:
-			return dependencies != null;
-		case PomPackage.MODEL__REPORTS:
-			return reports != null;
-		case PomPackage.MODEL__REPORTING:
-			return reporting != null;
-		case PomPackage.MODEL__DEPENDENCY_MANAGEMENT:
-			return dependencyManagement != null;
-		case PomPackage.MODEL__DISTRIBUTION_MANAGEMENT:
-			return distributionManagement != null;
-		case PomPackage.MODEL__PROPERTIES:
-			return properties != null;
+			case PomPackage.MODEL__PARENT:
+				return parent != null;
+			case PomPackage.MODEL__MODEL_VERSION:
+				return MODEL_VERSION_EDEFAULT == null
+						? modelVersion != null
+						: !MODEL_VERSION_EDEFAULT.equals(modelVersion);
+			case PomPackage.MODEL__GROUP_ID:
+				return GROUP_ID_EDEFAULT == null
+						? groupId != null
+						: !GROUP_ID_EDEFAULT.equals(groupId);
+			case PomPackage.MODEL__ARTIFACT_ID:
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+			case PomPackage.MODEL__PACKAGING:
+				return isSetPackaging();
+			case PomPackage.MODEL__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case PomPackage.MODEL__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
+			case PomPackage.MODEL__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null
+						? description != null
+						: !DESCRIPTION_EDEFAULT.equals(description);
+			case PomPackage.MODEL__URL:
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
+			case PomPackage.MODEL__PREREQUISITES:
+				return prerequisites != null;
+			case PomPackage.MODEL__ISSUE_MANAGEMENT:
+				return issueManagement != null;
+			case PomPackage.MODEL__CI_MANAGEMENT:
+				return ciManagement != null;
+			case PomPackage.MODEL__INCEPTION_YEAR:
+				return INCEPTION_YEAR_EDEFAULT == null
+						? inceptionYear != null
+						: !INCEPTION_YEAR_EDEFAULT.equals(inceptionYear);
+			case PomPackage.MODEL__MAILING_LISTS:
+				return mailingLists != null;
+			case PomPackage.MODEL__DEVELOPERS:
+				return developers != null;
+			case PomPackage.MODEL__CONTRIBUTORS:
+				return contributors != null;
+			case PomPackage.MODEL__LICENSES:
+				return licenses != null;
+			case PomPackage.MODEL__SCM:
+				return scm != null;
+			case PomPackage.MODEL__ORGANIZATION:
+				return organization != null;
+			case PomPackage.MODEL__BUILD:
+				return build != null;
+			case PomPackage.MODEL__PROFILES:
+				return profiles != null;
+			case PomPackage.MODEL__MODULES:
+				return modules != null;
+			case PomPackage.MODEL__REPOSITORIES:
+				return repositories != null;
+			case PomPackage.MODEL__PLUGIN_REPOSITORIES:
+				return pluginRepositories != null;
+			case PomPackage.MODEL__DEPENDENCIES:
+				return dependencies != null;
+			case PomPackage.MODEL__REPORTS:
+				return reports != null;
+			case PomPackage.MODEL__REPORTING:
+				return reporting != null;
+			case PomPackage.MODEL__DEPENDENCY_MANAGEMENT:
+				return dependencyManagement != null;
+			case PomPackage.MODEL__DISTRIBUTION_MANAGEMENT:
+				return distributionManagement != null;
+			case PomPackage.MODEL__PROPERTIES:
+				return properties != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1138,96 +1141,96 @@ public class ModelImpl extends EObjectImpl implements Model {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.MODEL__PARENT:
-			setParent((Parent) newValue);
-			return;
-		case PomPackage.MODEL__MODEL_VERSION:
-			setModelVersion((String) newValue);
-			return;
-		case PomPackage.MODEL__GROUP_ID:
-			setGroupId((String) newValue);
-			return;
-		case PomPackage.MODEL__ARTIFACT_ID:
-			setArtifactId((String) newValue);
-			return;
-		case PomPackage.MODEL__PACKAGING:
-			setPackaging((String) newValue);
-			return;
-		case PomPackage.MODEL__NAME:
-			setName((String) newValue);
-			return;
-		case PomPackage.MODEL__VERSION:
-			setVersion((String) newValue);
-			return;
-		case PomPackage.MODEL__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case PomPackage.MODEL__URL:
-			setUrl((String) newValue);
-			return;
-		case PomPackage.MODEL__PREREQUISITES:
-			setPrerequisites((Prerequisites) newValue);
-			return;
-		case PomPackage.MODEL__ISSUE_MANAGEMENT:
-			setIssueManagement((IssueManagement) newValue);
-			return;
-		case PomPackage.MODEL__CI_MANAGEMENT:
-			setCiManagement((CiManagement) newValue);
-			return;
-		case PomPackage.MODEL__INCEPTION_YEAR:
-			setInceptionYear((String) newValue);
-			return;
-		case PomPackage.MODEL__MAILING_LISTS:
-			setMailingLists((MailingListsType) newValue);
-			return;
-		case PomPackage.MODEL__DEVELOPERS:
-			setDevelopers((DevelopersType) newValue);
-			return;
-		case PomPackage.MODEL__CONTRIBUTORS:
-			setContributors((ContributorsType) newValue);
-			return;
-		case PomPackage.MODEL__LICENSES:
-			setLicenses((LicensesType) newValue);
-			return;
-		case PomPackage.MODEL__SCM:
-			setScm((Scm) newValue);
-			return;
-		case PomPackage.MODEL__ORGANIZATION:
-			setOrganization((Organization) newValue);
-			return;
-		case PomPackage.MODEL__BUILD:
-			setBuild((Build) newValue);
-			return;
-		case PomPackage.MODEL__PROFILES:
-			setProfiles((ProfilesType) newValue);
-			return;
-		case PomPackage.MODEL__MODULES:
-			setModules((ModulesType) newValue);
-			return;
-		case PomPackage.MODEL__REPOSITORIES:
-			setRepositories((RepositoriesType) newValue);
-			return;
-		case PomPackage.MODEL__PLUGIN_REPOSITORIES:
-			setPluginRepositories((PluginRepositoriesType) newValue);
-			return;
-		case PomPackage.MODEL__DEPENDENCIES:
-			setDependencies((DependenciesType) newValue);
-			return;
-		case PomPackage.MODEL__REPORTS:
-			setReports((ReportsType) newValue);
-			return;
-		case PomPackage.MODEL__REPORTING:
-			setReporting((Reporting) newValue);
-			return;
-		case PomPackage.MODEL__DEPENDENCY_MANAGEMENT:
-			setDependencyManagement((DependencyManagement) newValue);
-			return;
-		case PomPackage.MODEL__DISTRIBUTION_MANAGEMENT:
-			setDistributionManagement((DistributionManagement) newValue);
-			return;
-		case PomPackage.MODEL__PROPERTIES:
-			setProperties((PropertiesType) newValue);
-			return;
+			case PomPackage.MODEL__PARENT:
+				setParent((Parent) newValue);
+				return;
+			case PomPackage.MODEL__MODEL_VERSION:
+				setModelVersion((String) newValue);
+				return;
+			case PomPackage.MODEL__GROUP_ID:
+				setGroupId((String) newValue);
+				return;
+			case PomPackage.MODEL__ARTIFACT_ID:
+				setArtifactId((String) newValue);
+				return;
+			case PomPackage.MODEL__PACKAGING:
+				setPackaging((String) newValue);
+				return;
+			case PomPackage.MODEL__NAME:
+				setName((String) newValue);
+				return;
+			case PomPackage.MODEL__VERSION:
+				setVersion((String) newValue);
+				return;
+			case PomPackage.MODEL__DESCRIPTION:
+				setDescription((String) newValue);
+				return;
+			case PomPackage.MODEL__URL:
+				setUrl((String) newValue);
+				return;
+			case PomPackage.MODEL__PREREQUISITES:
+				setPrerequisites((Prerequisites) newValue);
+				return;
+			case PomPackage.MODEL__ISSUE_MANAGEMENT:
+				setIssueManagement((IssueManagement) newValue);
+				return;
+			case PomPackage.MODEL__CI_MANAGEMENT:
+				setCiManagement((CiManagement) newValue);
+				return;
+			case PomPackage.MODEL__INCEPTION_YEAR:
+				setInceptionYear((String) newValue);
+				return;
+			case PomPackage.MODEL__MAILING_LISTS:
+				setMailingLists((MailingListsType) newValue);
+				return;
+			case PomPackage.MODEL__DEVELOPERS:
+				setDevelopers((DevelopersType) newValue);
+				return;
+			case PomPackage.MODEL__CONTRIBUTORS:
+				setContributors((ContributorsType) newValue);
+				return;
+			case PomPackage.MODEL__LICENSES:
+				setLicenses((LicensesType) newValue);
+				return;
+			case PomPackage.MODEL__SCM:
+				setScm((Scm) newValue);
+				return;
+			case PomPackage.MODEL__ORGANIZATION:
+				setOrganization((Organization) newValue);
+				return;
+			case PomPackage.MODEL__BUILD:
+				setBuild((Build) newValue);
+				return;
+			case PomPackage.MODEL__PROFILES:
+				setProfiles((ProfilesType) newValue);
+				return;
+			case PomPackage.MODEL__MODULES:
+				setModules((ModulesType) newValue);
+				return;
+			case PomPackage.MODEL__REPOSITORIES:
+				setRepositories((RepositoriesType) newValue);
+				return;
+			case PomPackage.MODEL__PLUGIN_REPOSITORIES:
+				setPluginRepositories((PluginRepositoriesType) newValue);
+				return;
+			case PomPackage.MODEL__DEPENDENCIES:
+				setDependencies((DependenciesType) newValue);
+				return;
+			case PomPackage.MODEL__REPORTS:
+				setReports((ReportsType) newValue);
+				return;
+			case PomPackage.MODEL__REPORTING:
+				setReporting((Reporting) newValue);
+				return;
+			case PomPackage.MODEL__DEPENDENCY_MANAGEMENT:
+				setDependencyManagement((DependencyManagement) newValue);
+				return;
+			case PomPackage.MODEL__DISTRIBUTION_MANAGEMENT:
+				setDistributionManagement((DistributionManagement) newValue);
+				return;
+			case PomPackage.MODEL__PROPERTIES:
+				setProperties((PropertiesType) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1240,96 +1243,96 @@ public class ModelImpl extends EObjectImpl implements Model {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.MODEL__PARENT:
-			setParent((Parent) null);
-			return;
-		case PomPackage.MODEL__MODEL_VERSION:
-			setModelVersion(MODEL_VERSION_EDEFAULT);
-			return;
-		case PomPackage.MODEL__GROUP_ID:
-			setGroupId(GROUP_ID_EDEFAULT);
-			return;
-		case PomPackage.MODEL__ARTIFACT_ID:
-			setArtifactId(ARTIFACT_ID_EDEFAULT);
-			return;
-		case PomPackage.MODEL__PACKAGING:
-			unsetPackaging();
-			return;
-		case PomPackage.MODEL__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case PomPackage.MODEL__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case PomPackage.MODEL__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case PomPackage.MODEL__URL:
-			setUrl(URL_EDEFAULT);
-			return;
-		case PomPackage.MODEL__PREREQUISITES:
-			setPrerequisites((Prerequisites) null);
-			return;
-		case PomPackage.MODEL__ISSUE_MANAGEMENT:
-			setIssueManagement((IssueManagement) null);
-			return;
-		case PomPackage.MODEL__CI_MANAGEMENT:
-			setCiManagement((CiManagement) null);
-			return;
-		case PomPackage.MODEL__INCEPTION_YEAR:
-			setInceptionYear(INCEPTION_YEAR_EDEFAULT);
-			return;
-		case PomPackage.MODEL__MAILING_LISTS:
-			setMailingLists((MailingListsType) null);
-			return;
-		case PomPackage.MODEL__DEVELOPERS:
-			setDevelopers((DevelopersType) null);
-			return;
-		case PomPackage.MODEL__CONTRIBUTORS:
-			setContributors((ContributorsType) null);
-			return;
-		case PomPackage.MODEL__LICENSES:
-			setLicenses((LicensesType) null);
-			return;
-		case PomPackage.MODEL__SCM:
-			setScm((Scm) null);
-			return;
-		case PomPackage.MODEL__ORGANIZATION:
-			setOrganization((Organization) null);
-			return;
-		case PomPackage.MODEL__BUILD:
-			setBuild((Build) null);
-			return;
-		case PomPackage.MODEL__PROFILES:
-			setProfiles((ProfilesType) null);
-			return;
-		case PomPackage.MODEL__MODULES:
-			setModules((ModulesType) null);
-			return;
-		case PomPackage.MODEL__REPOSITORIES:
-			setRepositories((RepositoriesType) null);
-			return;
-		case PomPackage.MODEL__PLUGIN_REPOSITORIES:
-			setPluginRepositories((PluginRepositoriesType) null);
-			return;
-		case PomPackage.MODEL__DEPENDENCIES:
-			setDependencies((DependenciesType) null);
-			return;
-		case PomPackage.MODEL__REPORTS:
-			setReports((ReportsType) null);
-			return;
-		case PomPackage.MODEL__REPORTING:
-			setReporting((Reporting) null);
-			return;
-		case PomPackage.MODEL__DEPENDENCY_MANAGEMENT:
-			setDependencyManagement((DependencyManagement) null);
-			return;
-		case PomPackage.MODEL__DISTRIBUTION_MANAGEMENT:
-			setDistributionManagement((DistributionManagement) null);
-			return;
-		case PomPackage.MODEL__PROPERTIES:
-			setProperties((PropertiesType) null);
-			return;
+			case PomPackage.MODEL__PARENT:
+				setParent((Parent) null);
+				return;
+			case PomPackage.MODEL__MODEL_VERSION:
+				setModelVersion(MODEL_VERSION_EDEFAULT);
+				return;
+			case PomPackage.MODEL__GROUP_ID:
+				setGroupId(GROUP_ID_EDEFAULT);
+				return;
+			case PomPackage.MODEL__ARTIFACT_ID:
+				setArtifactId(ARTIFACT_ID_EDEFAULT);
+				return;
+			case PomPackage.MODEL__PACKAGING:
+				unsetPackaging();
+				return;
+			case PomPackage.MODEL__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case PomPackage.MODEL__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case PomPackage.MODEL__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case PomPackage.MODEL__URL:
+				setUrl(URL_EDEFAULT);
+				return;
+			case PomPackage.MODEL__PREREQUISITES:
+				setPrerequisites((Prerequisites) null);
+				return;
+			case PomPackage.MODEL__ISSUE_MANAGEMENT:
+				setIssueManagement((IssueManagement) null);
+				return;
+			case PomPackage.MODEL__CI_MANAGEMENT:
+				setCiManagement((CiManagement) null);
+				return;
+			case PomPackage.MODEL__INCEPTION_YEAR:
+				setInceptionYear(INCEPTION_YEAR_EDEFAULT);
+				return;
+			case PomPackage.MODEL__MAILING_LISTS:
+				setMailingLists((MailingListsType) null);
+				return;
+			case PomPackage.MODEL__DEVELOPERS:
+				setDevelopers((DevelopersType) null);
+				return;
+			case PomPackage.MODEL__CONTRIBUTORS:
+				setContributors((ContributorsType) null);
+				return;
+			case PomPackage.MODEL__LICENSES:
+				setLicenses((LicensesType) null);
+				return;
+			case PomPackage.MODEL__SCM:
+				setScm((Scm) null);
+				return;
+			case PomPackage.MODEL__ORGANIZATION:
+				setOrganization((Organization) null);
+				return;
+			case PomPackage.MODEL__BUILD:
+				setBuild((Build) null);
+				return;
+			case PomPackage.MODEL__PROFILES:
+				setProfiles((ProfilesType) null);
+				return;
+			case PomPackage.MODEL__MODULES:
+				setModules((ModulesType) null);
+				return;
+			case PomPackage.MODEL__REPOSITORIES:
+				setRepositories((RepositoriesType) null);
+				return;
+			case PomPackage.MODEL__PLUGIN_REPOSITORIES:
+				setPluginRepositories((PluginRepositoriesType) null);
+				return;
+			case PomPackage.MODEL__DEPENDENCIES:
+				setDependencies((DependenciesType) null);
+				return;
+			case PomPackage.MODEL__REPORTS:
+				setReports((ReportsType) null);
+				return;
+			case PomPackage.MODEL__REPORTING:
+				setReporting((Reporting) null);
+				return;
+			case PomPackage.MODEL__DEPENDENCY_MANAGEMENT:
+				setDependencyManagement((DependencyManagement) null);
+				return;
+			case PomPackage.MODEL__DISTRIBUTION_MANAGEMENT:
+				setDistributionManagement((DistributionManagement) null);
+				return;
+			case PomPackage.MODEL__PROPERTIES:
+				setProperties((PropertiesType) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1622,8 +1625,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__ARTIFACT_ID, oldArtifactId,
-					artifactId));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
@@ -1635,11 +1638,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newBuild != build) {
 			NotificationChain msgs = null;
 			if(build != null)
-				msgs = ((InternalEObject) build).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__BUILD,
-						null, msgs);
+				msgs = ((InternalEObject) build).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__BUILD, null, msgs);
 			if(newBuild != null)
-				msgs = ((InternalEObject) newBuild).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__BUILD,
-						null, msgs);
+				msgs = ((InternalEObject) newBuild).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__BUILD, null, msgs);
 			msgs = basicSetBuild(newBuild, msgs);
 			if(msgs != null)
 				msgs.dispatch();
@@ -1657,18 +1660,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newCiManagement != ciManagement) {
 			NotificationChain msgs = null;
 			if(ciManagement != null)
-				msgs = ((InternalEObject) ciManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__CI_MANAGEMENT, null, msgs);
+				msgs = ((InternalEObject) ciManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__CI_MANAGEMENT, null, msgs);
 			if(newCiManagement != null)
-				msgs = ((InternalEObject) newCiManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__CI_MANAGEMENT, null, msgs);
+				msgs = ((InternalEObject) newCiManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__CI_MANAGEMENT, null, msgs);
 			msgs = basicSetCiManagement(newCiManagement, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__CI_MANAGEMENT, newCiManagement,
-					newCiManagement));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__CI_MANAGEMENT, newCiManagement, newCiManagement));
 	}
 
 	/**
@@ -1680,18 +1683,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newContributors != contributors) {
 			NotificationChain msgs = null;
 			if(contributors != null)
-				msgs = ((InternalEObject) contributors).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__CONTRIBUTORS, null, msgs);
+				msgs = ((InternalEObject) contributors).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__CONTRIBUTORS, null, msgs);
 			if(newContributors != null)
-				msgs = ((InternalEObject) newContributors).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__CONTRIBUTORS, null, msgs);
+				msgs = ((InternalEObject) newContributors).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__CONTRIBUTORS, null, msgs);
 			msgs = basicSetContributors(newContributors, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__CONTRIBUTORS, newContributors,
-					newContributors));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__CONTRIBUTORS, newContributors, newContributors));
 	}
 
 	/**
@@ -1703,18 +1706,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newDependencies != dependencies) {
 			NotificationChain msgs = null;
 			if(dependencies != null)
-				msgs = ((InternalEObject) dependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__DEPENDENCIES, null, msgs);
+				msgs = ((InternalEObject) dependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__DEPENDENCIES, null, msgs);
 			if(newDependencies != null)
-				msgs = ((InternalEObject) newDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__DEPENDENCIES, null, msgs);
+				msgs = ((InternalEObject) newDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__DEPENDENCIES, null, msgs);
 			msgs = basicSetDependencies(newDependencies, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__DEPENDENCIES, newDependencies,
-					newDependencies));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__DEPENDENCIES, newDependencies, newDependencies));
 	}
 
 	/**
@@ -1726,18 +1729,19 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newDependencyManagement != dependencyManagement) {
 			NotificationChain msgs = null;
 			if(dependencyManagement != null)
-				msgs = ((InternalEObject) dependencyManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__DEPENDENCY_MANAGEMENT, null, msgs);
+				msgs = ((InternalEObject) dependencyManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__DEPENDENCY_MANAGEMENT, null, msgs);
 			if(newDependencyManagement != null)
-				msgs = ((InternalEObject) newDependencyManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__DEPENDENCY_MANAGEMENT, null, msgs);
+				msgs = ((InternalEObject) newDependencyManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__DEPENDENCY_MANAGEMENT, null, msgs);
 			msgs = basicSetDependencyManagement(newDependencyManagement, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__DEPENDENCY_MANAGEMENT,
-					newDependencyManagement, newDependencyManagement));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__DEPENDENCY_MANAGEMENT, newDependencyManagement,
+				newDependencyManagement));
 	}
 
 	/**
@@ -1749,8 +1753,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		String oldDescription = description;
 		description = newDescription;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__DESCRIPTION, oldDescription,
-					description));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -1762,18 +1766,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newDevelopers != developers) {
 			NotificationChain msgs = null;
 			if(developers != null)
-				msgs = ((InternalEObject) developers).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__DEVELOPERS, null, msgs);
+				msgs = ((InternalEObject) developers).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__DEVELOPERS, null, msgs);
 			if(newDevelopers != null)
-				msgs = ((InternalEObject) newDevelopers).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__DEVELOPERS, null, msgs);
+				msgs = ((InternalEObject) newDevelopers).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__DEVELOPERS, null, msgs);
 			msgs = basicSetDevelopers(newDevelopers, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__DEVELOPERS, newDevelopers,
-					newDevelopers));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__DEVELOPERS, newDevelopers, newDevelopers));
 	}
 
 	/**
@@ -1785,18 +1789,19 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newDistributionManagement != distributionManagement) {
 			NotificationChain msgs = null;
 			if(distributionManagement != null)
-				msgs = ((InternalEObject) distributionManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, null, msgs);
+				msgs = ((InternalEObject) distributionManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, null, msgs);
 			if(newDistributionManagement != null)
-				msgs = ((InternalEObject) newDistributionManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, null, msgs);
+				msgs = ((InternalEObject) newDistributionManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, null, msgs);
 			msgs = basicSetDistributionManagement(newDistributionManagement, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__DISTRIBUTION_MANAGEMENT,
-					newDistributionManagement, newDistributionManagement));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, newDistributionManagement,
+				newDistributionManagement));
 	}
 
 	/**
@@ -1820,8 +1825,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		String oldInceptionYear = inceptionYear;
 		inceptionYear = newInceptionYear;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__INCEPTION_YEAR, oldInceptionYear,
-					inceptionYear));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__INCEPTION_YEAR, oldInceptionYear, inceptionYear));
 	}
 
 	/**
@@ -1833,18 +1838,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newIssueManagement != issueManagement) {
 			NotificationChain msgs = null;
 			if(issueManagement != null)
-				msgs = ((InternalEObject) issueManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__ISSUE_MANAGEMENT, null, msgs);
+				msgs = ((InternalEObject) issueManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__ISSUE_MANAGEMENT, null, msgs);
 			if(newIssueManagement != null)
-				msgs = ((InternalEObject) newIssueManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__ISSUE_MANAGEMENT, null, msgs);
+				msgs = ((InternalEObject) newIssueManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__ISSUE_MANAGEMENT, null, msgs);
 			msgs = basicSetIssueManagement(newIssueManagement, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__ISSUE_MANAGEMENT,
-					newIssueManagement, newIssueManagement));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__ISSUE_MANAGEMENT, newIssueManagement, newIssueManagement));
 	}
 
 	/**
@@ -1856,11 +1861,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newLicenses != licenses) {
 			NotificationChain msgs = null;
 			if(licenses != null)
-				msgs = ((InternalEObject) licenses).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__LICENSES, null, msgs);
+				msgs = ((InternalEObject) licenses).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__LICENSES, null, msgs);
 			if(newLicenses != null)
-				msgs = ((InternalEObject) newLicenses).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__LICENSES, null, msgs);
+				msgs = ((InternalEObject) newLicenses).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__LICENSES, null, msgs);
 			msgs = basicSetLicenses(newLicenses, msgs);
 			if(msgs != null)
 				msgs.dispatch();
@@ -1878,18 +1883,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newMailingLists != mailingLists) {
 			NotificationChain msgs = null;
 			if(mailingLists != null)
-				msgs = ((InternalEObject) mailingLists).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__MAILING_LISTS, null, msgs);
+				msgs = ((InternalEObject) mailingLists).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__MAILING_LISTS, null, msgs);
 			if(newMailingLists != null)
-				msgs = ((InternalEObject) newMailingLists).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__MAILING_LISTS, null, msgs);
+				msgs = ((InternalEObject) newMailingLists).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__MAILING_LISTS, null, msgs);
 			msgs = basicSetMailingLists(newMailingLists, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__MAILING_LISTS, newMailingLists,
-					newMailingLists));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__MAILING_LISTS, newMailingLists, newMailingLists));
 	}
 
 	/**
@@ -1901,8 +1906,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		String oldModelVersion = modelVersion;
 		modelVersion = newModelVersion;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__MODEL_VERSION, oldModelVersion,
-					modelVersion));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__MODEL_VERSION, oldModelVersion, modelVersion));
 	}
 
 	/**
@@ -1914,11 +1919,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newModules != modules) {
 			NotificationChain msgs = null;
 			if(modules != null)
-				msgs = ((InternalEObject) modules).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__MODULES, null, msgs);
+				msgs = ((InternalEObject) modules).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__MODULES, null, msgs);
 			if(newModules != null)
-				msgs = ((InternalEObject) newModules).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__MODULES, null, msgs);
+				msgs = ((InternalEObject) newModules).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__MODULES, null, msgs);
 			msgs = basicSetModules(newModules, msgs);
 			if(msgs != null)
 				msgs.dispatch();
@@ -1948,18 +1953,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newOrganization != organization) {
 			NotificationChain msgs = null;
 			if(organization != null)
-				msgs = ((InternalEObject) organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__ORGANIZATION, null, msgs);
+				msgs = ((InternalEObject) organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__ORGANIZATION, null, msgs);
 			if(newOrganization != null)
-				msgs = ((InternalEObject) newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__ORGANIZATION, null, msgs);
+				msgs = ((InternalEObject) newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__ORGANIZATION, null, msgs);
 			msgs = basicSetOrganization(newOrganization, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__ORGANIZATION, newOrganization,
-					newOrganization));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__ORGANIZATION, newOrganization, newOrganization));
 	}
 
 	/**
@@ -1973,8 +1978,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 		boolean oldPackagingESet = packagingESet;
 		packagingESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PACKAGING, oldPackaging, packaging,
-					!oldPackagingESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__PACKAGING, oldPackaging, packaging, !oldPackagingESet));
 	}
 
 	/**
@@ -1986,11 +1991,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newParent != parent) {
 			NotificationChain msgs = null;
 			if(parent != null)
-				msgs = ((InternalEObject) parent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__PARENT, null, msgs);
+				msgs = ((InternalEObject) parent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__PARENT, null, msgs);
 			if(newParent != null)
-				msgs = ((InternalEObject) newParent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__PARENT, null, msgs);
+				msgs = ((InternalEObject) newParent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__PARENT, null, msgs);
 			msgs = basicSetParent(newParent, msgs);
 			if(msgs != null)
 				msgs.dispatch();
@@ -2008,18 +2013,19 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newPluginRepositories != pluginRepositories) {
 			NotificationChain msgs = null;
 			if(pluginRepositories != null)
-				msgs = ((InternalEObject) pluginRepositories).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__PLUGIN_REPOSITORIES, null, msgs);
+				msgs = ((InternalEObject) pluginRepositories).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__PLUGIN_REPOSITORIES, null, msgs);
 			if(newPluginRepositories != null)
-				msgs = ((InternalEObject) newPluginRepositories).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__PLUGIN_REPOSITORIES, null, msgs);
+				msgs = ((InternalEObject) newPluginRepositories).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__PLUGIN_REPOSITORIES, null, msgs);
 			msgs = basicSetPluginRepositories(newPluginRepositories, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PLUGIN_REPOSITORIES,
-					newPluginRepositories, newPluginRepositories));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__PLUGIN_REPOSITORIES, newPluginRepositories,
+				newPluginRepositories));
 	}
 
 	/**
@@ -2031,18 +2037,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newPrerequisites != prerequisites) {
 			NotificationChain msgs = null;
 			if(prerequisites != null)
-				msgs = ((InternalEObject) prerequisites).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__PREREQUISITES, null, msgs);
+				msgs = ((InternalEObject) prerequisites).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__PREREQUISITES, null, msgs);
 			if(newPrerequisites != null)
-				msgs = ((InternalEObject) newPrerequisites).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__PREREQUISITES, null, msgs);
+				msgs = ((InternalEObject) newPrerequisites).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__PREREQUISITES, null, msgs);
 			msgs = basicSetPrerequisites(newPrerequisites, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PREREQUISITES, newPrerequisites,
-					newPrerequisites));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__PREREQUISITES, newPrerequisites, newPrerequisites));
 	}
 
 	/**
@@ -2054,11 +2060,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newProfiles != profiles) {
 			NotificationChain msgs = null;
 			if(profiles != null)
-				msgs = ((InternalEObject) profiles).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__PROFILES, null, msgs);
+				msgs = ((InternalEObject) profiles).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__PROFILES, null, msgs);
 			if(newProfiles != null)
-				msgs = ((InternalEObject) newProfiles).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__PROFILES, null, msgs);
+				msgs = ((InternalEObject) newProfiles).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__PROFILES, null, msgs);
 			msgs = basicSetProfiles(newProfiles, msgs);
 			if(msgs != null)
 				msgs.dispatch();
@@ -2076,18 +2082,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newProperties != properties) {
 			NotificationChain msgs = null;
 			if(properties != null)
-				msgs = ((InternalEObject) properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__PROPERTIES, null, msgs);
+				msgs = ((InternalEObject) properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__PROPERTIES, null, msgs);
 			if(newProperties != null)
-				msgs = ((InternalEObject) newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__PROPERTIES, null, msgs);
+				msgs = ((InternalEObject) newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__PROPERTIES, null, msgs);
 			msgs = basicSetProperties(newProperties, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PROPERTIES, newProperties,
-					newProperties));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__PROPERTIES, newProperties, newProperties));
 	}
 
 	/**
@@ -2099,18 +2105,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newReporting != reporting) {
 			NotificationChain msgs = null;
 			if(reporting != null)
-				msgs = ((InternalEObject) reporting).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__REPORTING, null, msgs);
+				msgs = ((InternalEObject) reporting).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__REPORTING, null, msgs);
 			if(newReporting != null)
-				msgs = ((InternalEObject) newReporting).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__REPORTING, null, msgs);
+				msgs = ((InternalEObject) newReporting).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__REPORTING, null, msgs);
 			msgs = basicSetReporting(newReporting, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__REPORTING, newReporting,
-					newReporting));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__REPORTING, newReporting, newReporting));
 	}
 
 	/**
@@ -2122,11 +2128,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newReports != reports) {
 			NotificationChain msgs = null;
 			if(reports != null)
-				msgs = ((InternalEObject) reports).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__REPORTS, null, msgs);
+				msgs = ((InternalEObject) reports).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__REPORTS, null, msgs);
 			if(newReports != null)
-				msgs = ((InternalEObject) newReports).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__REPORTS, null, msgs);
+				msgs = ((InternalEObject) newReports).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__REPORTS, null, msgs);
 			msgs = basicSetReports(newReports, msgs);
 			if(msgs != null)
 				msgs.dispatch();
@@ -2144,18 +2150,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newRepositories != repositories) {
 			NotificationChain msgs = null;
 			if(repositories != null)
-				msgs = ((InternalEObject) repositories).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__REPOSITORIES, null, msgs);
+				msgs = ((InternalEObject) repositories).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__REPOSITORIES, null, msgs);
 			if(newRepositories != null)
-				msgs = ((InternalEObject) newRepositories).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.MODEL__REPOSITORIES, null, msgs);
+				msgs = ((InternalEObject) newRepositories).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.MODEL__REPOSITORIES, null, msgs);
 			msgs = basicSetRepositories(newRepositories, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__REPOSITORIES, newRepositories,
-					newRepositories));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.MODEL__REPOSITORIES, newRepositories, newRepositories));
 	}
 
 	/**
@@ -2167,11 +2173,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 		if(newScm != scm) {
 			NotificationChain msgs = null;
 			if(scm != null)
-				msgs = ((InternalEObject) scm).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__SCM,
-						null, msgs);
+				msgs = ((InternalEObject) scm).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__SCM, null, msgs);
 			if(newScm != null)
-				msgs = ((InternalEObject) newScm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__SCM,
-						null, msgs);
+				msgs = ((InternalEObject) newScm).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__SCM, null, msgs);
 			msgs = basicSetScm(newScm, msgs);
 			if(msgs != null)
 				msgs.dispatch();
@@ -2251,8 +2257,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 		packaging = PACKAGING_EDEFAULT;
 		packagingESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.MODEL__PACKAGING, oldPackaging,
-					PACKAGING_EDEFAULT, oldPackagingESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.MODEL__PACKAGING, oldPackaging, PACKAGING_EDEFAULT,
+				oldPackagingESet));
 	}
 
 	/**

@@ -63,8 +63,8 @@ public class UriUtils {
 	 * leading too deep)
 	 */
 	private static final Pattern htmlPattern = Pattern.compile(
-			"<A\\s+HREF=\"" + linkPatternString + "\"\\s*>[^<]+</A>", //$NON-NLS-1$
-			Pattern.CASE_INSENSITIVE);
+		"<A\\s+HREF=\"" + linkPatternString + "\"\\s*>[^<]+</A>", //$NON-NLS-1$
+		Pattern.CASE_INSENSITIVE);
 
 	/**
 	 * Pattern that scans for links that are relative, don't start with '?' and don't contain a slash (i.e. folders
@@ -77,8 +77,8 @@ public class UriUtils {
 	 * might contain a link, i.e. xxx -> yyy.
 	 */
 	private static final Pattern ftpPattern = Pattern.compile(
-			"[a-z]+\\s+[0-9]+\\s+(?:(?:[0-9]+:[0-9]+)|(?:[0-9]{4}))\\s+(.+?)(?:([\\r|\\n])|(\\s+->\\s+))", //$NON-NLS-1$
-			Pattern.CASE_INSENSITIVE);
+		"[a-z]+\\s+[0-9]+\\s+(?:(?:[0-9]+:[0-9]+)|(?:[0-9]{4}))\\s+(.+?)(?:([\\r|\\n])|(\\s+->\\s+))", //$NON-NLS-1$
+		Pattern.CASE_INSENSITIVE);
 
 	/**
 	 * Check if pattern matches an index.html or other index.xxx. We transform such URL's to denote folders instead.
@@ -99,8 +99,8 @@ public class UriUtils {
 		if(!uri.getPath().endsWith("/")) //$NON-NLS-1$
 		{
 			try {
-				uri = new URI(uri.getScheme(), uri.getAuthority(), uri.getPath() + '/', uri.getQuery(),
-						uri.getFragment());
+				uri = new URI(
+					uri.getScheme(), uri.getAuthority(), uri.getPath() + '/', uri.getQuery(), uri.getFragment());
 			}
 			catch(RuntimeException e) {
 				throw e;
@@ -237,8 +237,9 @@ public class UriUtils {
 				uri = appendTrailingSlash(uri);
 				while(scanner.findWithinHorizon(ftpPattern, 0) != null) {
 					MatchResult mr = scanner.match();
-					result.add(new URI(uri.getScheme(), uri.getAuthority(), uri.getPath() + '/' + mr.group(1),
-							uri.getQuery(), uri.getFragment()));
+					result.add(new URI(
+						uri.getScheme(), uri.getAuthority(), uri.getPath() + '/' + mr.group(1), uri.getQuery(),
+						uri.getFragment()));
 				}
 				return result.toArray(new URI[result.size()]);
 			}
@@ -330,8 +331,8 @@ public class UriUtils {
 		if(link.equals("../")) //$NON-NLS-1$
 			return;
 
-		links.add(new URI(parent.getScheme(), parent.getAuthority(), parent.getPath() + link, parent.getQuery(),
-				parent.getFragment()));
+		links.add(new URI(
+			parent.getScheme(), parent.getAuthority(), parent.getPath() + link, parent.getQuery(), parent.getFragment()));
 	}
 
 	private static void collectLinks(Element element, URI parent, ArrayList<URI> links) throws URISyntaxException {

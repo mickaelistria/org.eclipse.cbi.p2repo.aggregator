@@ -60,8 +60,8 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
-			return getGoal();
+			case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
+				return getGoal();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -74,8 +74,8 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
-			return goal != null && !goal.isEmpty();
+			case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
+				return goal != null && !goal.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -89,10 +89,10 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
-			getGoal().clear();
-			getGoal().addAll((Collection<? extends String>) newValue);
-			return;
+			case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
+				getGoal().clear();
+				getGoal().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -105,9 +105,9 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
-			getGoal().clear();
-			return;
+			case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
+				getGoal().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

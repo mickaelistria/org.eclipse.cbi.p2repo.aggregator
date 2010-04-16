@@ -46,6 +46,7 @@ public class POM {
 	private static final HashMap<URI, POM> pomCacheLRU = new LinkedHashMap<URI, POM>(MAX_CACHE_SIZE, 0.75f, true) {
 		private static final long serialVersionUID = 1L;
 
+		@Override
 		protected boolean removeEldestEntry(Map.Entry<URI, POM> entry) {
 			return size() >= MAX_CACHE_SIZE;
 		}
@@ -132,8 +133,8 @@ public class POM {
 		Resource resource = getResourceSet().getResource(uri, true);
 		EList<EObject> content = resource.getContents();
 		if(content.size() != 1)
-			throw ExceptionUtils.fromMessage("ECore Resource did not contain one resource. It had %d",
-					Integer.valueOf(content.size()));
+			throw ExceptionUtils.fromMessage(
+				"ECore Resource did not contain one resource. It had %d", Integer.valueOf(content.size()));
 
 		if(resource instanceof PomResourceImpl) {
 			PomResourceImpl pomResource = (PomResourceImpl) resource;
@@ -163,9 +164,9 @@ public class POM {
 
 		this.repoRoot = repoRoot;
 		Model resolvedModel = getResolvedProject();
-		String relativePath = "/"
-				+ createRelativePath(resolvedModel.getGroupId(), resolvedModel.getArtifactId(),
-						resolvedModel.getVersion());
+		String relativePath = "/" +
+				createRelativePath(
+					resolvedModel.getGroupId(), resolvedModel.getArtifactId(), resolvedModel.getVersion());
 		String uriStr = uri.toString();
 		if(!uriStr.endsWith(relativePath))
 			throw ExceptionUtils.fromMessage("Invalid path, %s should end with %s", uriStr, relativePath);
@@ -190,7 +191,7 @@ public class POM {
 		Model model = getProject();
 		Parent parent = model.getParent();
 		if(parent != null)
-			return(parentPOM = getPOM(repoRoot, parent.getGroupId(), parent.getArtifactId(), parent.getVersion()));
+			return (parentPOM = getPOM(repoRoot, parent.getGroupId(), parent.getArtifactId(), parent.getVersion()));
 
 		return null;
 	}

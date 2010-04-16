@@ -123,12 +123,12 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.REPOSITORY_POLICY__ENABLED:
-			return isEnabled();
-		case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
-			return getUpdatePolicy();
-		case PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY:
-			return getChecksumPolicy();
+			case PomPackage.REPOSITORY_POLICY__ENABLED:
+				return isEnabled();
+			case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
+				return getUpdatePolicy();
+			case PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY:
+				return getChecksumPolicy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -141,16 +141,16 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPOSITORY_POLICY__ENABLED:
-			return isSetEnabled();
-		case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
-			return UPDATE_POLICY_EDEFAULT == null
-					? updatePolicy != null
-					: !UPDATE_POLICY_EDEFAULT.equals(updatePolicy);
-		case PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY:
-			return CHECKSUM_POLICY_EDEFAULT == null
-					? checksumPolicy != null
-					: !CHECKSUM_POLICY_EDEFAULT.equals(checksumPolicy);
+			case PomPackage.REPOSITORY_POLICY__ENABLED:
+				return isSetEnabled();
+			case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
+				return UPDATE_POLICY_EDEFAULT == null
+						? updatePolicy != null
+						: !UPDATE_POLICY_EDEFAULT.equals(updatePolicy);
+			case PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY:
+				return CHECKSUM_POLICY_EDEFAULT == null
+						? checksumPolicy != null
+						: !CHECKSUM_POLICY_EDEFAULT.equals(checksumPolicy);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -163,15 +163,15 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.REPOSITORY_POLICY__ENABLED:
-			setEnabled((Boolean) newValue);
-			return;
-		case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
-			setUpdatePolicy((String) newValue);
-			return;
-		case PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY:
-			setChecksumPolicy((String) newValue);
-			return;
+			case PomPackage.REPOSITORY_POLICY__ENABLED:
+				setEnabled((Boolean) newValue);
+				return;
+			case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
+				setUpdatePolicy((String) newValue);
+				return;
+			case PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY:
+				setChecksumPolicy((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -184,15 +184,15 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPOSITORY_POLICY__ENABLED:
-			unsetEnabled();
-			return;
-		case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
-			setUpdatePolicy(UPDATE_POLICY_EDEFAULT);
-			return;
-		case PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY:
-			setChecksumPolicy(CHECKSUM_POLICY_EDEFAULT);
-			return;
+			case PomPackage.REPOSITORY_POLICY__ENABLED:
+				unsetEnabled();
+				return;
+			case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
+				setUpdatePolicy(UPDATE_POLICY_EDEFAULT);
+				return;
+			case PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY:
+				setChecksumPolicy(CHECKSUM_POLICY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -242,8 +242,9 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 		String oldChecksumPolicy = checksumPolicy;
 		checksumPolicy = newChecksumPolicy;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY,
-					oldChecksumPolicy, checksumPolicy));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY, oldChecksumPolicy,
+				checksumPolicy));
 	}
 
 	/**
@@ -257,8 +258,8 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 		boolean oldEnabledESet = enabledESet;
 		enabledESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY_POLICY__ENABLED, oldEnabled,
-					enabled, !oldEnabledESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPOSITORY_POLICY__ENABLED, oldEnabled, enabled, !oldEnabledESet));
 	}
 
 	/**
@@ -270,8 +271,8 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 		String oldUpdatePolicy = updatePolicy;
 		updatePolicy = newUpdatePolicy;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY_POLICY__UPDATE_POLICY,
-					oldUpdatePolicy, updatePolicy));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.REPOSITORY_POLICY__UPDATE_POLICY, oldUpdatePolicy, updatePolicy));
 	}
 
 	/**
@@ -309,8 +310,9 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 		enabled = ENABLED_EDEFAULT;
 		enabledESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.REPOSITORY_POLICY__ENABLED, oldEnabled,
-					ENABLED_EDEFAULT, oldEnabledESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.REPOSITORY_POLICY__ENABLED, oldEnabled, ENABLED_EDEFAULT,
+				oldEnabledESet));
 	}
 
 	/**

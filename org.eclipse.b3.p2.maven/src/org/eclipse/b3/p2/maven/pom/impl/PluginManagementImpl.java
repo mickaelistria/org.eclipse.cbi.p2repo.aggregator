@@ -61,8 +61,8 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 		PluginsType oldPlugins = plugins;
 		plugins = newPlugins;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.PLUGIN_MANAGEMENT__PLUGINS, oldPlugins, newPlugins);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.PLUGIN_MANAGEMENT__PLUGINS, oldPlugins, newPlugins);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -79,8 +79,8 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
-			return getPlugins();
+			case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
+				return getPlugins();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -93,8 +93,8 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
-			return basicSetPlugins(null, msgs);
+			case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
+				return basicSetPlugins(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -107,8 +107,8 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
-			return plugins != null;
+			case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
+				return plugins != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -121,9 +121,9 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
-			setPlugins((PluginsType) newValue);
-			return;
+			case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
+				setPlugins((PluginsType) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -136,9 +136,9 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
-			setPlugins((PluginsType) null);
-			return;
+			case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
+				setPlugins((PluginsType) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -161,18 +161,18 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 		if(newPlugins != plugins) {
 			NotificationChain msgs = null;
 			if(plugins != null)
-				msgs = ((InternalEObject) plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.PLUGIN_MANAGEMENT__PLUGINS, null, msgs);
+				msgs = ((InternalEObject) plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.PLUGIN_MANAGEMENT__PLUGINS, null, msgs);
 			if(newPlugins != null)
-				msgs = ((InternalEObject) newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.PLUGIN_MANAGEMENT__PLUGINS, null, msgs);
+				msgs = ((InternalEObject) newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.PLUGIN_MANAGEMENT__PLUGINS, null, msgs);
 			msgs = basicSetPlugins(newPlugins, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_MANAGEMENT__PLUGINS, newPlugins,
-					newPlugins));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.PLUGIN_MANAGEMENT__PLUGINS, newPlugins, newPlugins));
 	}
 
 	/**

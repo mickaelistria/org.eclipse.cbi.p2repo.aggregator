@@ -70,7 +70,7 @@ public class XMLResourceImplWithCheck extends XMLResourceImpl {
 		private static final long MAX_FILE_LENGTH = 10000000;
 
 		private static final SimpleDateFormat LAST_MODIFIED_DATE_FORMAT = new SimpleDateFormat(
-				"EEE, d MMM yyyy HH:mm:ss Z");
+			"EEE, d MMM yyyy HH:mm:ss Z");
 
 		public static void register(URIConverter owner) {
 			new URIHandlerWithCheck(owner);
@@ -184,8 +184,8 @@ public class XMLResourceImplWithCheck extends XMLResourceImpl {
 				long total = 0;
 				while((read = is.read(buffer)) != -1) {
 					if((total += read) > MAX_FILE_LENGTH)
-						throw new IOException("Remote file (" + uriStr + ") exceeds maximum expected size of "
-								+ MAX_FILE_LENGTH + " bytes");
+						throw new IOException("Remote file (" + uriStr + ") exceeds maximum expected size of " +
+								MAX_FILE_LENGTH + " bytes");
 					os.write(buffer, 0, read);
 				}
 				InputStreamWithInfo result = new InputStreamWithInfo(os.toByteArray());

@@ -64,8 +64,8 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
-			return getContributor();
+			case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
+				return getContributor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,8 +78,8 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
-			return ((InternalEList<?>) getContributor()).basicRemove(otherEnd, msgs);
+			case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
+				return ((InternalEList<?>) getContributor()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,8 +92,8 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
-			return contributor != null && !contributor.isEmpty();
+			case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
+				return contributor != null && !contributor.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,10 +107,10 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
-			getContributor().clear();
-			getContributor().addAll((Collection<? extends Contributor>) newValue);
-			return;
+			case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
+				getContributor().clear();
+				getContributor().addAll((Collection<? extends Contributor>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,9 +123,9 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
-			getContributor().clear();
-			return;
+			case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
+				getContributor().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -137,8 +137,8 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	 */
 	public EList<Contributor> getContributor() {
 		if(contributor == null) {
-			contributor = new EObjectContainmentEList<Contributor>(Contributor.class, this,
-					PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR);
+			contributor = new EObjectContainmentEList<Contributor>(
+				Contributor.class, this, PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR);
 		}
 		return contributor;
 	}

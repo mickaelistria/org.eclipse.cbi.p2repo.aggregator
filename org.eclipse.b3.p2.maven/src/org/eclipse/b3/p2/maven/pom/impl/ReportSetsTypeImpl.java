@@ -64,8 +64,8 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
-			return getReportSet();
+			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
+				return getReportSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,8 +78,8 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
-			return ((InternalEList<?>) getReportSet()).basicRemove(otherEnd, msgs);
+			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
+				return ((InternalEList<?>) getReportSet()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,8 +92,8 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
-			return reportSet != null && !reportSet.isEmpty();
+			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
+				return reportSet != null && !reportSet.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,10 +107,10 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
-			getReportSet().clear();
-			getReportSet().addAll((Collection<? extends ReportSet>) newValue);
-			return;
+			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
+				getReportSet().clear();
+				getReportSet().addAll((Collection<? extends ReportSet>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,9 +123,9 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
-			getReportSet().clear();
-			return;
+			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
+				getReportSet().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -137,8 +137,8 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 	 */
 	public EList<ReportSet> getReportSet() {
 		if(reportSet == null) {
-			reportSet = new EObjectContainmentEList<ReportSet>(ReportSet.class, this,
-					PomPackage.REPORT_SETS_TYPE__REPORT_SET);
+			reportSet = new EObjectContainmentEList<ReportSet>(
+				ReportSet.class, this, PomPackage.REPORT_SETS_TYPE__REPORT_SET);
 		}
 		return reportSet;
 	}

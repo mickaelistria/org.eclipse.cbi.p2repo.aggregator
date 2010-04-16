@@ -65,8 +65,8 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
-			return getPluginRepository();
+			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
+				return getPluginRepository();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -79,8 +79,8 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
-			return ((InternalEList<?>) getPluginRepository()).basicRemove(otherEnd, msgs);
+			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
+				return ((InternalEList<?>) getPluginRepository()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -93,8 +93,8 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
-			return pluginRepository != null && !pluginRepository.isEmpty();
+			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
+				return pluginRepository != null && !pluginRepository.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -108,10 +108,10 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
-			getPluginRepository().clear();
-			getPluginRepository().addAll((Collection<? extends Repository>) newValue);
-			return;
+			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
+				getPluginRepository().clear();
+				getPluginRepository().addAll((Collection<? extends Repository>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -124,9 +124,9 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
-			getPluginRepository().clear();
-			return;
+			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
+				getPluginRepository().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -138,8 +138,8 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 	 */
 	public EList<Repository> getPluginRepository() {
 		if(pluginRepository == null) {
-			pluginRepository = new EObjectContainmentEList<Repository>(Repository.class, this,
-					PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY);
+			pluginRepository = new EObjectContainmentEList<Repository>(
+				Repository.class, this, PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY);
 		}
 		return pluginRepository;
 	}

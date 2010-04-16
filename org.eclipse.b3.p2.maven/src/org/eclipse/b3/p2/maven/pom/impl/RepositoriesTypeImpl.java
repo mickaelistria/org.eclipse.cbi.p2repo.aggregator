@@ -64,8 +64,8 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
-			return getRepository();
+			case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
+				return getRepository();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,8 +78,8 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
-			return ((InternalEList<?>) getRepository()).basicRemove(otherEnd, msgs);
+			case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
+				return ((InternalEList<?>) getRepository()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,8 +92,8 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
-			return repository != null && !repository.isEmpty();
+			case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
+				return repository != null && !repository.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,10 +107,10 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
-			getRepository().clear();
-			getRepository().addAll((Collection<? extends Repository>) newValue);
-			return;
+			case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
+				getRepository().clear();
+				getRepository().addAll((Collection<? extends Repository>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,9 +123,9 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
-			getRepository().clear();
-			return;
+			case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
+				getRepository().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -137,8 +137,8 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	 */
 	public EList<Repository> getRepository() {
 		if(repository == null) {
-			repository = new EObjectContainmentEList<Repository>(Repository.class, this,
-					PomPackage.REPOSITORIES_TYPE__REPOSITORY);
+			repository = new EObjectContainmentEList<Repository>(
+				Repository.class, this, PomPackage.REPOSITORIES_TYPE__REPOSITORY);
 		}
 		return repository;
 	}

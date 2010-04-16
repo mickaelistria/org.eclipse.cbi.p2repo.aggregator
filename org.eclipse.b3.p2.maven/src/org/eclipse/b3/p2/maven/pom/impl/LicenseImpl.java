@@ -132,14 +132,14 @@ public class LicenseImpl extends EObjectImpl implements License {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.LICENSE__NAME:
-			return getName();
-		case PomPackage.LICENSE__URL:
-			return getUrl();
-		case PomPackage.LICENSE__DISTRIBUTION:
-			return getDistribution();
-		case PomPackage.LICENSE__COMMENTS:
-			return getComments();
+			case PomPackage.LICENSE__NAME:
+				return getName();
+			case PomPackage.LICENSE__URL:
+				return getUrl();
+			case PomPackage.LICENSE__DISTRIBUTION:
+				return getDistribution();
+			case PomPackage.LICENSE__COMMENTS:
+				return getComments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,22 +152,22 @@ public class LicenseImpl extends EObjectImpl implements License {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.LICENSE__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case PomPackage.LICENSE__URL:
-			return URL_EDEFAULT == null
-					? url != null
-					: !URL_EDEFAULT.equals(url);
-		case PomPackage.LICENSE__DISTRIBUTION:
-			return DISTRIBUTION_EDEFAULT == null
-					? distribution != null
-					: !DISTRIBUTION_EDEFAULT.equals(distribution);
-		case PomPackage.LICENSE__COMMENTS:
-			return COMMENTS_EDEFAULT == null
-					? comments != null
-					: !COMMENTS_EDEFAULT.equals(comments);
+			case PomPackage.LICENSE__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case PomPackage.LICENSE__URL:
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
+			case PomPackage.LICENSE__DISTRIBUTION:
+				return DISTRIBUTION_EDEFAULT == null
+						? distribution != null
+						: !DISTRIBUTION_EDEFAULT.equals(distribution);
+			case PomPackage.LICENSE__COMMENTS:
+				return COMMENTS_EDEFAULT == null
+						? comments != null
+						: !COMMENTS_EDEFAULT.equals(comments);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -180,18 +180,18 @@ public class LicenseImpl extends EObjectImpl implements License {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.LICENSE__NAME:
-			setName((String) newValue);
-			return;
-		case PomPackage.LICENSE__URL:
-			setUrl((String) newValue);
-			return;
-		case PomPackage.LICENSE__DISTRIBUTION:
-			setDistribution((String) newValue);
-			return;
-		case PomPackage.LICENSE__COMMENTS:
-			setComments((String) newValue);
-			return;
+			case PomPackage.LICENSE__NAME:
+				setName((String) newValue);
+				return;
+			case PomPackage.LICENSE__URL:
+				setUrl((String) newValue);
+				return;
+			case PomPackage.LICENSE__DISTRIBUTION:
+				setDistribution((String) newValue);
+				return;
+			case PomPackage.LICENSE__COMMENTS:
+				setComments((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -204,18 +204,18 @@ public class LicenseImpl extends EObjectImpl implements License {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.LICENSE__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case PomPackage.LICENSE__URL:
-			setUrl(URL_EDEFAULT);
-			return;
-		case PomPackage.LICENSE__DISTRIBUTION:
-			setDistribution(DISTRIBUTION_EDEFAULT);
-			return;
-		case PomPackage.LICENSE__COMMENTS:
-			setComments(COMMENTS_EDEFAULT);
-			return;
+			case PomPackage.LICENSE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case PomPackage.LICENSE__URL:
+				setUrl(URL_EDEFAULT);
+				return;
+			case PomPackage.LICENSE__DISTRIBUTION:
+				setDistribution(DISTRIBUTION_EDEFAULT);
+				return;
+			case PomPackage.LICENSE__COMMENTS:
+				setComments(COMMENTS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -277,8 +277,8 @@ public class LicenseImpl extends EObjectImpl implements License {
 		String oldDistribution = distribution;
 		distribution = newDistribution;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.LICENSE__DISTRIBUTION, oldDistribution,
-					distribution));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.LICENSE__DISTRIBUTION, oldDistribution, distribution));
 	}
 
 	/**

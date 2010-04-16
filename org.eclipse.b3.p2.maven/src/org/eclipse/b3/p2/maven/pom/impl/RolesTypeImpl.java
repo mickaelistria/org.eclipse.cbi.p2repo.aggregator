@@ -59,8 +59,8 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.ROLES_TYPE__ROLE:
-			return getRole();
+			case PomPackage.ROLES_TYPE__ROLE:
+				return getRole();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -73,8 +73,8 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.ROLES_TYPE__ROLE:
-			return role != null && !role.isEmpty();
+			case PomPackage.ROLES_TYPE__ROLE:
+				return role != null && !role.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -88,10 +88,10 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.ROLES_TYPE__ROLE:
-			getRole().clear();
-			getRole().addAll((Collection<? extends String>) newValue);
-			return;
+			case PomPackage.ROLES_TYPE__ROLE:
+				getRole().clear();
+				getRole().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -104,9 +104,9 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.ROLES_TYPE__ROLE:
-			getRole().clear();
-			return;
+			case PomPackage.ROLES_TYPE__ROLE:
+				getRole().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

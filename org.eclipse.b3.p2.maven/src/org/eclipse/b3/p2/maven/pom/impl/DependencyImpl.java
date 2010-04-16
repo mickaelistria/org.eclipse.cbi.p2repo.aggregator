@@ -259,8 +259,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		ExclusionsType oldExclusions = exclusions;
 		exclusions = newExclusions;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.DEPENDENCY__EXCLUSIONS, oldExclusions, newExclusions);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEPENDENCY__EXCLUSIONS, oldExclusions, newExclusions);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -277,24 +277,24 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.DEPENDENCY__GROUP_ID:
-			return getGroupId();
-		case PomPackage.DEPENDENCY__ARTIFACT_ID:
-			return getArtifactId();
-		case PomPackage.DEPENDENCY__VERSION:
-			return getVersion();
-		case PomPackage.DEPENDENCY__TYPE:
-			return getType();
-		case PomPackage.DEPENDENCY__CLASSIFIER:
-			return getClassifier();
-		case PomPackage.DEPENDENCY__SCOPE:
-			return getScope();
-		case PomPackage.DEPENDENCY__SYSTEM_PATH:
-			return getSystemPath();
-		case PomPackage.DEPENDENCY__EXCLUSIONS:
-			return getExclusions();
-		case PomPackage.DEPENDENCY__OPTIONAL:
-			return isOptional();
+			case PomPackage.DEPENDENCY__GROUP_ID:
+				return getGroupId();
+			case PomPackage.DEPENDENCY__ARTIFACT_ID:
+				return getArtifactId();
+			case PomPackage.DEPENDENCY__VERSION:
+				return getVersion();
+			case PomPackage.DEPENDENCY__TYPE:
+				return getType();
+			case PomPackage.DEPENDENCY__CLASSIFIER:
+				return getClassifier();
+			case PomPackage.DEPENDENCY__SCOPE:
+				return getScope();
+			case PomPackage.DEPENDENCY__SYSTEM_PATH:
+				return getSystemPath();
+			case PomPackage.DEPENDENCY__EXCLUSIONS:
+				return getExclusions();
+			case PomPackage.DEPENDENCY__OPTIONAL:
+				return isOptional();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -307,8 +307,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.DEPENDENCY__EXCLUSIONS:
-			return basicSetExclusions(null, msgs);
+			case PomPackage.DEPENDENCY__EXCLUSIONS:
+				return basicSetExclusions(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -321,36 +321,36 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.DEPENDENCY__GROUP_ID:
-			return GROUP_ID_EDEFAULT == null
-					? groupId != null
-					: !GROUP_ID_EDEFAULT.equals(groupId);
-		case PomPackage.DEPENDENCY__ARTIFACT_ID:
-			return ARTIFACT_ID_EDEFAULT == null
-					? artifactId != null
-					: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
-		case PomPackage.DEPENDENCY__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
-		case PomPackage.DEPENDENCY__TYPE:
-			return isSetType();
-		case PomPackage.DEPENDENCY__CLASSIFIER:
-			return CLASSIFIER_EDEFAULT == null
-					? classifier != null
-					: !CLASSIFIER_EDEFAULT.equals(classifier);
-		case PomPackage.DEPENDENCY__SCOPE:
-			return SCOPE_EDEFAULT == null
-					? scope != null
-					: !SCOPE_EDEFAULT.equals(scope);
-		case PomPackage.DEPENDENCY__SYSTEM_PATH:
-			return SYSTEM_PATH_EDEFAULT == null
-					? systemPath != null
-					: !SYSTEM_PATH_EDEFAULT.equals(systemPath);
-		case PomPackage.DEPENDENCY__EXCLUSIONS:
-			return exclusions != null;
-		case PomPackage.DEPENDENCY__OPTIONAL:
-			return isSetOptional();
+			case PomPackage.DEPENDENCY__GROUP_ID:
+				return GROUP_ID_EDEFAULT == null
+						? groupId != null
+						: !GROUP_ID_EDEFAULT.equals(groupId);
+			case PomPackage.DEPENDENCY__ARTIFACT_ID:
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+			case PomPackage.DEPENDENCY__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
+			case PomPackage.DEPENDENCY__TYPE:
+				return isSetType();
+			case PomPackage.DEPENDENCY__CLASSIFIER:
+				return CLASSIFIER_EDEFAULT == null
+						? classifier != null
+						: !CLASSIFIER_EDEFAULT.equals(classifier);
+			case PomPackage.DEPENDENCY__SCOPE:
+				return SCOPE_EDEFAULT == null
+						? scope != null
+						: !SCOPE_EDEFAULT.equals(scope);
+			case PomPackage.DEPENDENCY__SYSTEM_PATH:
+				return SYSTEM_PATH_EDEFAULT == null
+						? systemPath != null
+						: !SYSTEM_PATH_EDEFAULT.equals(systemPath);
+			case PomPackage.DEPENDENCY__EXCLUSIONS:
+				return exclusions != null;
+			case PomPackage.DEPENDENCY__OPTIONAL:
+				return isSetOptional();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -363,33 +363,33 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.DEPENDENCY__GROUP_ID:
-			setGroupId((String) newValue);
-			return;
-		case PomPackage.DEPENDENCY__ARTIFACT_ID:
-			setArtifactId((String) newValue);
-			return;
-		case PomPackage.DEPENDENCY__VERSION:
-			setVersion((String) newValue);
-			return;
-		case PomPackage.DEPENDENCY__TYPE:
-			setType((String) newValue);
-			return;
-		case PomPackage.DEPENDENCY__CLASSIFIER:
-			setClassifier((String) newValue);
-			return;
-		case PomPackage.DEPENDENCY__SCOPE:
-			setScope((String) newValue);
-			return;
-		case PomPackage.DEPENDENCY__SYSTEM_PATH:
-			setSystemPath((String) newValue);
-			return;
-		case PomPackage.DEPENDENCY__EXCLUSIONS:
-			setExclusions((ExclusionsType) newValue);
-			return;
-		case PomPackage.DEPENDENCY__OPTIONAL:
-			setOptional((Boolean) newValue);
-			return;
+			case PomPackage.DEPENDENCY__GROUP_ID:
+				setGroupId((String) newValue);
+				return;
+			case PomPackage.DEPENDENCY__ARTIFACT_ID:
+				setArtifactId((String) newValue);
+				return;
+			case PomPackage.DEPENDENCY__VERSION:
+				setVersion((String) newValue);
+				return;
+			case PomPackage.DEPENDENCY__TYPE:
+				setType((String) newValue);
+				return;
+			case PomPackage.DEPENDENCY__CLASSIFIER:
+				setClassifier((String) newValue);
+				return;
+			case PomPackage.DEPENDENCY__SCOPE:
+				setScope((String) newValue);
+				return;
+			case PomPackage.DEPENDENCY__SYSTEM_PATH:
+				setSystemPath((String) newValue);
+				return;
+			case PomPackage.DEPENDENCY__EXCLUSIONS:
+				setExclusions((ExclusionsType) newValue);
+				return;
+			case PomPackage.DEPENDENCY__OPTIONAL:
+				setOptional((Boolean) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -402,33 +402,33 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.DEPENDENCY__GROUP_ID:
-			setGroupId(GROUP_ID_EDEFAULT);
-			return;
-		case PomPackage.DEPENDENCY__ARTIFACT_ID:
-			setArtifactId(ARTIFACT_ID_EDEFAULT);
-			return;
-		case PomPackage.DEPENDENCY__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case PomPackage.DEPENDENCY__TYPE:
-			unsetType();
-			return;
-		case PomPackage.DEPENDENCY__CLASSIFIER:
-			setClassifier(CLASSIFIER_EDEFAULT);
-			return;
-		case PomPackage.DEPENDENCY__SCOPE:
-			setScope(SCOPE_EDEFAULT);
-			return;
-		case PomPackage.DEPENDENCY__SYSTEM_PATH:
-			setSystemPath(SYSTEM_PATH_EDEFAULT);
-			return;
-		case PomPackage.DEPENDENCY__EXCLUSIONS:
-			setExclusions((ExclusionsType) null);
-			return;
-		case PomPackage.DEPENDENCY__OPTIONAL:
-			unsetOptional();
-			return;
+			case PomPackage.DEPENDENCY__GROUP_ID:
+				setGroupId(GROUP_ID_EDEFAULT);
+				return;
+			case PomPackage.DEPENDENCY__ARTIFACT_ID:
+				setArtifactId(ARTIFACT_ID_EDEFAULT);
+				return;
+			case PomPackage.DEPENDENCY__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case PomPackage.DEPENDENCY__TYPE:
+				unsetType();
+				return;
+			case PomPackage.DEPENDENCY__CLASSIFIER:
+				setClassifier(CLASSIFIER_EDEFAULT);
+				return;
+			case PomPackage.DEPENDENCY__SCOPE:
+				setScope(SCOPE_EDEFAULT);
+				return;
+			case PomPackage.DEPENDENCY__SYSTEM_PATH:
+				setSystemPath(SYSTEM_PATH_EDEFAULT);
+				return;
+			case PomPackage.DEPENDENCY__EXCLUSIONS:
+				setExclusions((ExclusionsType) null);
+				return;
+			case PomPackage.DEPENDENCY__OPTIONAL:
+				unsetOptional();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -541,8 +541,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__ARTIFACT_ID, oldArtifactId,
-					artifactId));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEPENDENCY__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
@@ -554,8 +554,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		String oldClassifier = classifier;
 		classifier = newClassifier;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__CLASSIFIER, oldClassifier,
-					classifier));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEPENDENCY__CLASSIFIER, oldClassifier, classifier));
 	}
 
 	/**
@@ -567,18 +567,18 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		if(newExclusions != exclusions) {
 			NotificationChain msgs = null;
 			if(exclusions != null)
-				msgs = ((InternalEObject) exclusions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DEPENDENCY__EXCLUSIONS, null, msgs);
+				msgs = ((InternalEObject) exclusions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DEPENDENCY__EXCLUSIONS, null, msgs);
 			if(newExclusions != null)
-				msgs = ((InternalEObject) newExclusions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.DEPENDENCY__EXCLUSIONS, null, msgs);
+				msgs = ((InternalEObject) newExclusions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.DEPENDENCY__EXCLUSIONS, null, msgs);
 			msgs = basicSetExclusions(newExclusions, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__EXCLUSIONS, newExclusions,
-					newExclusions));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEPENDENCY__EXCLUSIONS, newExclusions, newExclusions));
 	}
 
 	/**
@@ -604,8 +604,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		boolean oldOptionalESet = optionalESet;
 		optionalESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__OPTIONAL, oldOptional,
-					optional, !oldOptionalESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEPENDENCY__OPTIONAL, oldOptional, optional, !oldOptionalESet));
 	}
 
 	/**
@@ -629,8 +629,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		String oldSystemPath = systemPath;
 		systemPath = newSystemPath;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__SYSTEM_PATH, oldSystemPath,
-					systemPath));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEPENDENCY__SYSTEM_PATH, oldSystemPath, systemPath));
 	}
 
 	/**
@@ -644,8 +644,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__TYPE, oldType, type,
-					!oldTypeESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.DEPENDENCY__TYPE, oldType, type, !oldTypeESet));
 	}
 
 	/**
@@ -708,8 +708,9 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		optional = OPTIONAL_EDEFAULT;
 		optionalESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.DEPENDENCY__OPTIONAL, oldOptional,
-					OPTIONAL_EDEFAULT, oldOptionalESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.DEPENDENCY__OPTIONAL, oldOptional, OPTIONAL_EDEFAULT,
+				oldOptionalESet));
 	}
 
 	/**
@@ -723,8 +724,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		type = TYPE_EDEFAULT;
 		typeESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.DEPENDENCY__TYPE, oldType,
-					TYPE_EDEFAULT, oldTypeESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.DEPENDENCY__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet));
 	}
 
 	/**

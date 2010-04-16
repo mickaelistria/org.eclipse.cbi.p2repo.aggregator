@@ -59,8 +59,8 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.MODULES_TYPE__MODULE:
-			return getModule();
+			case PomPackage.MODULES_TYPE__MODULE:
+				return getModule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -73,8 +73,8 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.MODULES_TYPE__MODULE:
-			return module != null && !module.isEmpty();
+			case PomPackage.MODULES_TYPE__MODULE:
+				return module != null && !module.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -88,10 +88,10 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.MODULES_TYPE__MODULE:
-			getModule().clear();
-			getModule().addAll((Collection<? extends String>) newValue);
-			return;
+			case PomPackage.MODULES_TYPE__MODULE:
+				getModule().clear();
+				getModule().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -104,9 +104,9 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.MODULES_TYPE__MODULE:
-			getModule().clear();
-			return;
+			case PomPackage.MODULES_TYPE__MODULE:
+				getModule().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

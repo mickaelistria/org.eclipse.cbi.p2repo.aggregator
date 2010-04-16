@@ -65,8 +65,8 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
-			return getPlugin();
+			case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
+				return getPlugin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -79,8 +79,8 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
-			return ((InternalEList<?>) getPlugin()).basicRemove(otherEnd, msgs);
+			case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
+				return ((InternalEList<?>) getPlugin()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -93,8 +93,8 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
-			return plugin != null && !plugin.isEmpty();
+			case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
+				return plugin != null && !plugin.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -108,10 +108,10 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
-			getPlugin().clear();
-			getPlugin().addAll((Collection<? extends ReportPlugin>) newValue);
-			return;
+			case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
+				getPlugin().clear();
+				getPlugin().addAll((Collection<? extends ReportPlugin>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -124,9 +124,9 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
-			getPlugin().clear();
-			return;
+			case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
+				getPlugin().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -138,8 +138,8 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	 */
 	public EList<ReportPlugin> getPlugin() {
 		if(plugin == null) {
-			plugin = new EObjectContainmentEList<ReportPlugin>(ReportPlugin.class, this,
-					PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN);
+			plugin = new EObjectContainmentEList<ReportPlugin>(
+				ReportPlugin.class, this, PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN);
 		}
 		return plugin;
 	}

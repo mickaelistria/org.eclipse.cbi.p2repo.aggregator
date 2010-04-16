@@ -240,8 +240,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		ConfigurationType oldConfiguration = configuration;
 		configuration = newConfiguration;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PomPackage.NOTIFIER__CONFIGURATION, oldConfiguration, newConfiguration);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.NOTIFIER__CONFIGURATION, oldConfiguration, newConfiguration);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -258,20 +258,20 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.NOTIFIER__TYPE:
-			return getType();
-		case PomPackage.NOTIFIER__SEND_ON_ERROR:
-			return isSendOnError();
-		case PomPackage.NOTIFIER__SEND_ON_FAILURE:
-			return isSendOnFailure();
-		case PomPackage.NOTIFIER__SEND_ON_SUCCESS:
-			return isSendOnSuccess();
-		case PomPackage.NOTIFIER__SEND_ON_WARNING:
-			return isSendOnWarning();
-		case PomPackage.NOTIFIER__ADDRESS:
-			return getAddress();
-		case PomPackage.NOTIFIER__CONFIGURATION:
-			return getConfiguration();
+			case PomPackage.NOTIFIER__TYPE:
+				return getType();
+			case PomPackage.NOTIFIER__SEND_ON_ERROR:
+				return isSendOnError();
+			case PomPackage.NOTIFIER__SEND_ON_FAILURE:
+				return isSendOnFailure();
+			case PomPackage.NOTIFIER__SEND_ON_SUCCESS:
+				return isSendOnSuccess();
+			case PomPackage.NOTIFIER__SEND_ON_WARNING:
+				return isSendOnWarning();
+			case PomPackage.NOTIFIER__ADDRESS:
+				return getAddress();
+			case PomPackage.NOTIFIER__CONFIGURATION:
+				return getConfiguration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -284,8 +284,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case PomPackage.NOTIFIER__CONFIGURATION:
-			return basicSetConfiguration(null, msgs);
+			case PomPackage.NOTIFIER__CONFIGURATION:
+				return basicSetConfiguration(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -298,22 +298,22 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.NOTIFIER__TYPE:
-			return isSetType();
-		case PomPackage.NOTIFIER__SEND_ON_ERROR:
-			return isSetSendOnError();
-		case PomPackage.NOTIFIER__SEND_ON_FAILURE:
-			return isSetSendOnFailure();
-		case PomPackage.NOTIFIER__SEND_ON_SUCCESS:
-			return isSetSendOnSuccess();
-		case PomPackage.NOTIFIER__SEND_ON_WARNING:
-			return isSetSendOnWarning();
-		case PomPackage.NOTIFIER__ADDRESS:
-			return ADDRESS_EDEFAULT == null
-					? address != null
-					: !ADDRESS_EDEFAULT.equals(address);
-		case PomPackage.NOTIFIER__CONFIGURATION:
-			return configuration != null;
+			case PomPackage.NOTIFIER__TYPE:
+				return isSetType();
+			case PomPackage.NOTIFIER__SEND_ON_ERROR:
+				return isSetSendOnError();
+			case PomPackage.NOTIFIER__SEND_ON_FAILURE:
+				return isSetSendOnFailure();
+			case PomPackage.NOTIFIER__SEND_ON_SUCCESS:
+				return isSetSendOnSuccess();
+			case PomPackage.NOTIFIER__SEND_ON_WARNING:
+				return isSetSendOnWarning();
+			case PomPackage.NOTIFIER__ADDRESS:
+				return ADDRESS_EDEFAULT == null
+						? address != null
+						: !ADDRESS_EDEFAULT.equals(address);
+			case PomPackage.NOTIFIER__CONFIGURATION:
+				return configuration != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -326,27 +326,27 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.NOTIFIER__TYPE:
-			setType((String) newValue);
-			return;
-		case PomPackage.NOTIFIER__SEND_ON_ERROR:
-			setSendOnError((Boolean) newValue);
-			return;
-		case PomPackage.NOTIFIER__SEND_ON_FAILURE:
-			setSendOnFailure((Boolean) newValue);
-			return;
-		case PomPackage.NOTIFIER__SEND_ON_SUCCESS:
-			setSendOnSuccess((Boolean) newValue);
-			return;
-		case PomPackage.NOTIFIER__SEND_ON_WARNING:
-			setSendOnWarning((Boolean) newValue);
-			return;
-		case PomPackage.NOTIFIER__ADDRESS:
-			setAddress((String) newValue);
-			return;
-		case PomPackage.NOTIFIER__CONFIGURATION:
-			setConfiguration((ConfigurationType) newValue);
-			return;
+			case PomPackage.NOTIFIER__TYPE:
+				setType((String) newValue);
+				return;
+			case PomPackage.NOTIFIER__SEND_ON_ERROR:
+				setSendOnError((Boolean) newValue);
+				return;
+			case PomPackage.NOTIFIER__SEND_ON_FAILURE:
+				setSendOnFailure((Boolean) newValue);
+				return;
+			case PomPackage.NOTIFIER__SEND_ON_SUCCESS:
+				setSendOnSuccess((Boolean) newValue);
+				return;
+			case PomPackage.NOTIFIER__SEND_ON_WARNING:
+				setSendOnWarning((Boolean) newValue);
+				return;
+			case PomPackage.NOTIFIER__ADDRESS:
+				setAddress((String) newValue);
+				return;
+			case PomPackage.NOTIFIER__CONFIGURATION:
+				setConfiguration((ConfigurationType) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -359,27 +359,27 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.NOTIFIER__TYPE:
-			unsetType();
-			return;
-		case PomPackage.NOTIFIER__SEND_ON_ERROR:
-			unsetSendOnError();
-			return;
-		case PomPackage.NOTIFIER__SEND_ON_FAILURE:
-			unsetSendOnFailure();
-			return;
-		case PomPackage.NOTIFIER__SEND_ON_SUCCESS:
-			unsetSendOnSuccess();
-			return;
-		case PomPackage.NOTIFIER__SEND_ON_WARNING:
-			unsetSendOnWarning();
-			return;
-		case PomPackage.NOTIFIER__ADDRESS:
-			setAddress(ADDRESS_EDEFAULT);
-			return;
-		case PomPackage.NOTIFIER__CONFIGURATION:
-			setConfiguration((ConfigurationType) null);
-			return;
+			case PomPackage.NOTIFIER__TYPE:
+				unsetType();
+				return;
+			case PomPackage.NOTIFIER__SEND_ON_ERROR:
+				unsetSendOnError();
+				return;
+			case PomPackage.NOTIFIER__SEND_ON_FAILURE:
+				unsetSendOnFailure();
+				return;
+			case PomPackage.NOTIFIER__SEND_ON_SUCCESS:
+				unsetSendOnSuccess();
+				return;
+			case PomPackage.NOTIFIER__SEND_ON_WARNING:
+				unsetSendOnWarning();
+				return;
+			case PomPackage.NOTIFIER__ADDRESS:
+				setAddress(ADDRESS_EDEFAULT);
+				return;
+			case PomPackage.NOTIFIER__CONFIGURATION:
+				setConfiguration((ConfigurationType) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -513,18 +513,18 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		if(newConfiguration != configuration) {
 			NotificationChain msgs = null;
 			if(configuration != null)
-				msgs = ((InternalEObject) configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.NOTIFIER__CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject) configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.NOTIFIER__CONFIGURATION, null, msgs);
 			if(newConfiguration != null)
-				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PomPackage.NOTIFIER__CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						PomPackage.NOTIFIER__CONFIGURATION, null, msgs);
 			msgs = basicSetConfiguration(newConfiguration, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__CONFIGURATION, newConfiguration,
-					newConfiguration));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.NOTIFIER__CONFIGURATION, newConfiguration, newConfiguration));
 	}
 
 	/**
@@ -538,8 +538,9 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		boolean oldSendOnErrorESet = sendOnErrorESet;
 		sendOnErrorESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_ERROR, oldSendOnError,
-					sendOnError, !oldSendOnErrorESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_ERROR, oldSendOnError, sendOnError,
+				!oldSendOnErrorESet));
 	}
 
 	/**
@@ -553,8 +554,9 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		boolean oldSendOnFailureESet = sendOnFailureESet;
 		sendOnFailureESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_FAILURE,
-					oldSendOnFailure, sendOnFailure, !oldSendOnFailureESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_FAILURE, oldSendOnFailure, sendOnFailure,
+				!oldSendOnFailureESet));
 	}
 
 	/**
@@ -568,8 +570,9 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		boolean oldSendOnSuccessESet = sendOnSuccessESet;
 		sendOnSuccessESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_SUCCESS,
-					oldSendOnSuccess, sendOnSuccess, !oldSendOnSuccessESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_SUCCESS, oldSendOnSuccess, sendOnSuccess,
+				!oldSendOnSuccessESet));
 	}
 
 	/**
@@ -583,8 +586,9 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		boolean oldSendOnWarningESet = sendOnWarningESet;
 		sendOnWarningESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_WARNING,
-					oldSendOnWarning, sendOnWarning, !oldSendOnWarningESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_WARNING, oldSendOnWarning, sendOnWarning,
+				!oldSendOnWarningESet));
 	}
 
 	/**
@@ -598,8 +602,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__TYPE, oldType, type,
-					!oldTypeESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PomPackage.NOTIFIER__TYPE, oldType, type, !oldTypeESet));
 	}
 
 	/**
@@ -655,8 +659,9 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		sendOnError = SEND_ON_ERROR_EDEFAULT;
 		sendOnErrorESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_ERROR, oldSendOnError,
-					SEND_ON_ERROR_EDEFAULT, oldSendOnErrorESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_ERROR, oldSendOnError, SEND_ON_ERROR_EDEFAULT,
+				oldSendOnErrorESet));
 	}
 
 	/**
@@ -670,8 +675,9 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		sendOnFailure = SEND_ON_FAILURE_EDEFAULT;
 		sendOnFailureESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_FAILURE,
-					oldSendOnFailure, SEND_ON_FAILURE_EDEFAULT, oldSendOnFailureESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_FAILURE, oldSendOnFailure,
+				SEND_ON_FAILURE_EDEFAULT, oldSendOnFailureESet));
 	}
 
 	/**
@@ -685,8 +691,9 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		sendOnSuccess = SEND_ON_SUCCESS_EDEFAULT;
 		sendOnSuccessESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_SUCCESS,
-					oldSendOnSuccess, SEND_ON_SUCCESS_EDEFAULT, oldSendOnSuccessESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_SUCCESS, oldSendOnSuccess,
+				SEND_ON_SUCCESS_EDEFAULT, oldSendOnSuccessESet));
 	}
 
 	/**
@@ -700,8 +707,9 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		sendOnWarning = SEND_ON_WARNING_EDEFAULT;
 		sendOnWarningESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_WARNING,
-					oldSendOnWarning, SEND_ON_WARNING_EDEFAULT, oldSendOnWarningESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_WARNING, oldSendOnWarning,
+				SEND_ON_WARNING_EDEFAULT, oldSendOnWarningESet));
 	}
 
 	/**
@@ -715,8 +723,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		type = TYPE_EDEFAULT;
 		typeESet = false;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.NOTIFIER__TYPE, oldType, TYPE_EDEFAULT,
-					oldTypeESet));
+			eNotify(new ENotificationImpl(
+				this, Notification.UNSET, PomPackage.NOTIFIER__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet));
 	}
 
 	/**

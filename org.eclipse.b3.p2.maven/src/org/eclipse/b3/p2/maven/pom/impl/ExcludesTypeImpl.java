@@ -59,8 +59,8 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case PomPackage.EXCLUDES_TYPE__EXCLUDE:
-			return getExclude();
+			case PomPackage.EXCLUDES_TYPE__EXCLUDE:
+				return getExclude();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -73,8 +73,8 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXCLUDES_TYPE__EXCLUDE:
-			return exclude != null && !exclude.isEmpty();
+			case PomPackage.EXCLUDES_TYPE__EXCLUDE:
+				return exclude != null && !exclude.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -88,10 +88,10 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case PomPackage.EXCLUDES_TYPE__EXCLUDE:
-			getExclude().clear();
-			getExclude().addAll((Collection<? extends String>) newValue);
-			return;
+			case PomPackage.EXCLUDES_TYPE__EXCLUDE:
+				getExclude().clear();
+				getExclude().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -104,9 +104,9 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case PomPackage.EXCLUDES_TYPE__EXCLUDE:
-			getExclude().clear();
-			return;
+			case PomPackage.EXCLUDES_TYPE__EXCLUDE:
+				getExclude().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
