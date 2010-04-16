@@ -54,10 +54,12 @@ public class MultiRangeRequirement implements IRequirement {
 					: parameters;
 		}
 
+		@Override
 		public boolean accept(IExpressionVisitor visitor) {
 			return myOperand.accept(visitor);
 		}
 
+		@Override
 		public int compareTo(Expression e) {
 			int cmp = getPriority() - e.getPriority();
 			if(cmp == 0) {
@@ -80,10 +82,12 @@ public class MultiRangeRequirement implements IRequirement {
 			return EvaluationContext.create(parameters, ExpressionFactory.THIS);
 		}
 
+		@Override
 		public boolean equals(Object o) {
 			return super.equals(o) && Arrays.equals(parameters, ((HackingMatchExpression) o).parameters);
 		}
 
+		@Override
 		public Object evaluate(IEvaluationContext context) {
 			return myOperand.evaluate(parameters.length == 0
 					? context
@@ -94,10 +98,12 @@ public class MultiRangeRequirement implements IRequirement {
 			return 0;
 		}
 
+		@Override
 		public Expression getOperand() {
 			return myOperand;
 		}
 
+		@Override
 		public String getOperator() {
 			throw new UnsupportedOperationException();
 		}
@@ -106,10 +112,12 @@ public class MultiRangeRequirement implements IRequirement {
 			return parameters;
 		}
 
+		@Override
 		public int getPriority() {
 			return myOperand.getPriority();
 		}
 
+		@Override
 		public int hashCode() {
 			return myOperand.hashCode() * 31 + CollectionUtils.hashCode(parameters);
 		}
@@ -123,10 +131,12 @@ public class MultiRangeRequirement implements IRequirement {
 			return isMatch(createContext(), value);
 		}
 
+		@Override
 		public void toLDAPString(StringBuffer bld) {
 			myOperand.toLDAPString(bld);
 		}
 
+		@Override
 		public void toString(StringBuffer bld, Variable rootVariable) {
 			myOperand.toString(bld, rootVariable);
 		}
@@ -146,11 +156,11 @@ public class MultiRangeRequirement implements IRequirement {
 
 	private static IExpression xVar = factory.variable("x"); //$NON-NLS-1$
 
-	private static IExpression nameEqual = factory.equals(factory.member(xVar, MEMBER_NAME),
-			factory.indexedParameter(0));
+	private static IExpression nameEqual = factory.equals(
+		factory.member(xVar, MEMBER_NAME), factory.indexedParameter(0));
 
-	private static IExpression namespaceEqual = factory.equals(factory.member(xVar, MEMBER_NAMESPACE),
-			factory.indexedParameter(1));
+	private static IExpression namespaceEqual = factory.equals(
+		factory.member(xVar, MEMBER_NAMESPACE), factory.indexedParameter(1));
 
 	private static IExpression versionMember = factory.member(xVar, MEMBER_VERSION);
 
@@ -239,10 +249,10 @@ public class MultiRangeRequirement implements IRequirement {
 		// TODO This is the hack
 		RequiredCapability fakeCapability = new RequiredCapability(namespace, name, null, null, false, true);
 		Expression fakeOperand = ((Unary) fakeCapability.getMatches()).operand;
-		matchExpression = new HackingMatchExpression((Expression) factory.exists(pvMember, factory.lambda(xVar,
-				factory.and(nameEqual, namespaceEqual,
-						factory.or(expressions.toArray(new IExpression[expressions.size()]))))), fakeOperand,
-				parameters.toArray(new Object[parameters.size()]));
+		matchExpression = new HackingMatchExpression(
+			(Expression) factory.exists(pvMember, factory.lambda(xVar, factory.and(
+				nameEqual, namespaceEqual, factory.or(expressions.toArray(new IExpression[expressions.size()]))))),
+			fakeOperand, parameters.toArray(new Object[parameters.size()]));
 	}
 
 	public String getDescription() {
@@ -301,6 +311,7 @@ public class MultiRangeRequirement implements IRequirement {
 		return getMatches().isMatch(iu);
 	}
 
+	@Override
 	public String toString() {
 		StringBuffer result = new StringBuffer();
 

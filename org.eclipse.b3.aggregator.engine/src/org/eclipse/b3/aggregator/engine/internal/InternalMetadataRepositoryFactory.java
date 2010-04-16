@@ -80,8 +80,8 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 				if(localFile.getAbsolutePath().endsWith(JAR_EXTENSION)) {
 					jarStream = new JarInputStream(inStream);
 					JarEntry jarEntry = jarStream.getNextJarEntry();
-					String entryName = InternalMetadataRepository.CONTENT_FILENAME
-							+ InternalMetadataRepository.XML_EXTENSION;
+					String entryName = InternalMetadataRepository.CONTENT_FILENAME +
+							InternalMetadataRepository.XML_EXTENSION;
 					while(jarEntry != null && (!entryName.equals(jarEntry.getName()))) {
 						jarEntry = jarStream.getNextJarEntry();
 					}
@@ -96,9 +96,9 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 							? jarStream
 							: inStream;
 					IMetadataRepository result = new InternalMetadataRepositoryIO(getAgent()).read(
-							localFile.toURI().toURL(), descriptorStream, sub.newChild(100));
-					if(result != null && (flags & IRepositoryManager.REPOSITORY_HINT_MODIFIABLE) > 0
-							&& !result.isModifiable())
+						localFile.toURI().toURL(), descriptorStream, sub.newChild(100));
+					if(result != null && (flags & IRepositoryManager.REPOSITORY_HINT_MODIFIABLE) > 0 &&
+							!result.isModifiable())
 						return null;
 					if(result instanceof LocalMetadataRepository)
 						((LocalMetadataRepository) result).initializeAfterLoad(location);
@@ -118,13 +118,13 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 		}
 		catch(FileNotFoundException e) {
 			String msg = NLS.bind(Messages.io_failedRead, location);
-			throw new ProvisionException(new Status(IStatus.ERROR, Activator.ID,
-					ProvisionException.REPOSITORY_NOT_FOUND, msg, e));
+			throw new ProvisionException(new Status(
+				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_NOT_FOUND, msg, e));
 		}
 		catch(IOException e) {
 			String msg = NLS.bind(Messages.io_failedRead, location);
-			throw new ProvisionException(new Status(IStatus.ERROR, Activator.ID,
-					ProvisionException.REPOSITORY_FAILED_READ, msg, e));
+			throw new ProvisionException(new Status(
+				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_READ, msg, e));
 		}
 		finally {
 			if(monitor != null)
@@ -148,8 +148,8 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 			if(localFile.exists())
 				return localFile;
 			String msg = NLS.bind(Messages.io_failedRead, location);
-			throw new ProvisionException(new Status(IStatus.ERROR, Activator.ID,
-					ProvisionException.REPOSITORY_NOT_FOUND, msg, null));
+			throw new ProvisionException(new Status(
+				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_NOT_FOUND, msg, null));
 		}
 		// file is not local, create a cache of the repository metadata
 		CacheManager cache = (CacheManager) getAgent().getService(CacheManager.SERVICE_NAME);
@@ -160,8 +160,9 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 			// there is no remote file in either form - this should not really happen as
 			// createCache should bail out with exception if something is wrong. This is an internal
 			// error.
-			throw new ProvisionException(new Status(IStatus.ERROR, Activator.ID,
-					ProvisionException.REPOSITORY_NOT_FOUND, Messages.repoMan_internalError, null));
+			throw new ProvisionException(new Status(
+				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_NOT_FOUND, Messages.repoMan_internalError,
+				null));
 		}
 		return localFile;
 	}

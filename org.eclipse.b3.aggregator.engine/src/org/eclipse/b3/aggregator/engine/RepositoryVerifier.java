@@ -76,8 +76,8 @@ public class RepositoryVerifier extends BuilderPhase {
 	private static IInstallableUnit[] getRootIUs(IMetadataRepository site, IProfile profile, String iuName,
 			Version version, IProgressMonitor monitor) throws CoreException {
 		IQuery<IInstallableUnit> query = QueryUtil.createIUQuery(iuName, version);
-		IQueryResult<IInstallableUnit> roots = site.query(QueryUtil.createCompoundQuery(query,
-				QueryUtil.createLatestIUQuery(), true), monitor);
+		IQueryResult<IInstallableUnit> roots = site.query(QueryUtil.createCompoundQuery(
+			query, QueryUtil.createLatestIUQuery(), true), monitor);
 
 		if(roots.isEmpty())
 			roots = profile.query(query, new NullProgressMonitor());
@@ -108,8 +108,8 @@ public class RepositoryVerifier extends BuilderPhase {
 		final Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate();
 		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(getBuilder().getProvisioningAgent());
 		IPlanner planner = P2Utils.getPlanner(getBuilder().getProvisioningAgent());
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(),
-				IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
+			getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
 		try {
 			URI repoLocation = builder.getSourceCompositeURI();
 			Set<IInstallableUnit> validationOnlyIUs = null;
@@ -150,22 +150,24 @@ public class RepositoryVerifier extends BuilderPhase {
 				if(profile == null)
 					profile = profileRegistry.addProfile(profileId, props);
 
-				IInstallableUnit[] rootArr = getRootIUs(sourceRepo, profile, Builder.ALL_CONTRIBUTED_CONTENT_FEATURE,
-						Builder.ALL_CONTRIBUTED_CONTENT_VERSION, subMon.newChild(9));
+				IInstallableUnit[] rootArr = getRootIUs(
+					sourceRepo, profile, Builder.ALL_CONTRIBUTED_CONTENT_FEATURE,
+					Builder.ALL_CONTRIBUTED_CONTENT_VERSION, subMon.newChild(9));
 
 				// Add as root IU's to a request
 				ProfileChangeRequest request = new ProfileChangeRequest(profile);
 				for(IInstallableUnit rootIU : rootArr)
-					request.setInstallableUnitProfileProperty(rootIU, IProfile.PROP_PROFILE_ROOT_IU,
-							Boolean.TRUE.toString());
+					request.setInstallableUnitProfileProperty(
+						rootIU, IProfile.PROP_PROFILE_ROOT_IU, Boolean.TRUE.toString());
 				request.addInstallableUnits(rootArr);
 
 				boolean hadPartials = true;
 				while(hadPartials) {
 					hadPartials = false;
 					ProvisioningContext context = createContext(repoLocation);
-					ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(request, context,
-							subMon.newChild(80, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
+					ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(
+						request, context, subMon.newChild(80, SubMonitor.SUPPRESS_BEGINTASK |
+								SubMonitor.SUPPRESS_SETTASKNAME));
 
 					IStatus status = plan.getStatus();
 					if(status.getSeverity() == IStatus.ERROR) {
@@ -186,8 +188,8 @@ public class RepositoryVerifier extends BuilderPhase {
 							continue;
 
 						String id = iu.getId();
-						if(Builder.ALL_CONTRIBUTED_CONTENT_FEATURE.equals(id)
-								|| Builder.PDE_TARGET_PLATFORM_NAME.equals(id))
+						if(Builder.ALL_CONTRIBUTED_CONTENT_FEATURE.equals(id) ||
+								Builder.PDE_TARGET_PLATFORM_NAME.equals(id))
 							continue;
 
 						if(validationOnlyIUs.contains(iu)) {
@@ -208,12 +210,12 @@ public class RepositoryVerifier extends BuilderPhase {
 						}
 					}
 
-					Iterator<IInstallableUnit> itor = sourceRepo.query(QueryUtil.createIUPatchQuery(),
-							subMon.newChild(1)).iterator();
+					Iterator<IInstallableUnit> itor = sourceRepo.query(
+						QueryUtil.createIUPatchQuery(), subMon.newChild(1)).iterator();
 
 					while(itor.hasNext()) {
-						Set<IInstallableUnit> units = getUnpatchedTransitiveScope((IInstallableUnitPatch) itor.next(),
-								profile, planner, repoLocation, subMon.newChild(1));
+						Set<IInstallableUnit> units = getUnpatchedTransitiveScope(
+							(IInstallableUnitPatch) itor.next(), profile, planner, repoLocation, subMon.newChild(1));
 						for(IInstallableUnit iu : units) {
 							if(validationOnlyIUs.contains(iu)) {
 								// This IU should not be included unless it is also included in one of
@@ -241,8 +243,8 @@ public class RepositoryVerifier extends BuilderPhase {
 						final Set<IInstallableUnit> candidates = suspectedValidationOnlyIUs;
 						final boolean hadPartialsHolder[] = new boolean[] { false };
 
-						Iterator<IInstallableUnit> allIUs = sourceRepo.query(QueryUtil.createIUAnyQuery(),
-								subMon.newChild(1)).iterator();
+						Iterator<IInstallableUnit> allIUs = sourceRepo.query(
+							QueryUtil.createIUAnyQuery(), subMon.newChild(1)).iterator();
 
 						while(allIUs.hasNext()) {
 							IInstallableUnit iu = allIUs.next();
@@ -283,8 +285,8 @@ public class RepositoryVerifier extends BuilderPhase {
 	}
 
 	InstallableUnit resolvePartialIU(IInstallableUnit iu, SubMonitor subMon) throws CoreException {
-		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(),
-				IArtifactRepositoryManager.class);
+		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(
+			getBuilder().getProvisioningAgent(), IArtifactRepositoryManager.class);
 		String info = "Converting partial IU for " + iu.getId() + "...";
 		subMon.beginTask(info, IProgressMonitor.UNKNOWN);
 		LogUtils.debug(info);
@@ -306,8 +308,8 @@ public class RepositoryVerifier extends BuilderPhase {
 			}
 
 		if(mdr == null)
-			throw ExceptionUtils.fromMessage("Unable to locate mapped repository for IU %s/%s", iu.getId(),
-					iu.getVersion());
+			throw ExceptionUtils.fromMessage(
+				"Unable to locate mapped repository for IU %s/%s", iu.getId(), iu.getVersion());
 
 		try {
 			IArtifactRepository sourceAr = arMgr.loadRepository(mdr.getLocation(), subMon.newChild(10));
@@ -326,15 +328,15 @@ public class RepositoryVerifier extends BuilderPhase {
 
 			Collection<IArtifactKey> artifacts = miu.getArtifacts();
 			ArrayList<String> errors = new ArrayList<String>();
-			MirrorGenerator.mirror(artifacts, null, sourceAr, tempAr, PackedStrategy.UNPACK_AS_SIBLING, errors,
-					subMon.newChild(1));
+			MirrorGenerator.mirror(
+				artifacts, null, sourceAr, tempAr, PackedStrategy.UNPACK_AS_SIBLING, errors, subMon.newChild(1));
 			int numErrors = errors.size();
 			if(numErrors > 0) {
 				IStatus[] children = new IStatus[numErrors];
 				for(int idx = 0; idx < numErrors; ++idx)
 					children[idx] = new Status(IStatus.ERROR, Engine.PLUGIN_ID, errors.get(idx));
-				MultiStatus status = new MultiStatus(Engine.PLUGIN_ID, IStatus.ERROR, children, "Unable to mirror",
-						null);
+				MultiStatus status = new MultiStatus(
+					Engine.PLUGIN_ID, IStatus.ERROR, children, "Unable to mirror", null);
 				throw new CoreException(status);
 			}
 
@@ -342,12 +344,12 @@ public class RepositoryVerifier extends BuilderPhase {
 			File bundleFile = tempAr.getArtifactFile(key);
 			if(bundleFile == null)
 				throw ExceptionUtils.fromMessage(
-						"Unable to resolve partial IU. Artifact file for %s could not be found", key);
+					"Unable to resolve partial IU. Artifact file for %s could not be found", key);
 
 			IInstallableUnit preparedIU = PublisherUtil.createBundleIU(key, bundleFile);
 			if(preparedIU == null)
 				throw ExceptionUtils.fromMessage(
-						"Unable to resolve partial IU. Artifact file for %s did not contain a bundle manifest", key);
+					"Unable to resolve partial IU. Artifact file for %s did not contain a bundle manifest", key);
 			InstallableUnit newIU = P2Bridge.importToModel(preparedIU);
 
 			List<IInstallableUnit> allIUs = mdr.getInstallableUnits();
@@ -445,8 +447,8 @@ public class RepositoryVerifier extends BuilderPhase {
 
 		IRequiredCapability cap = (IRequiredCapability) rq;
 		Contribution contrib = null;
-		if(Builder.NAMESPACE_OSGI_BUNDLE.equals(cap.getNamespace())
-				|| IInstallableUnit.NAMESPACE_IU_ID.equals(cap.getNamespace()))
+		if(Builder.NAMESPACE_OSGI_BUNDLE.equals(cap.getNamespace()) ||
+				IInstallableUnit.NAMESPACE_IU_ID.equals(cap.getNamespace()))
 			contrib = findContribution(cap.getName());
 
 		if(contrib == null)
@@ -466,8 +468,8 @@ public class RepositoryVerifier extends BuilderPhase {
 
 	private Set<IInstallableUnit> getUnpatchedTransitiveScope(IInstallableUnitPatch patch, IProfile profile,
 			IPlanner planner, URI repoLocation, SubMonitor monitor) throws CoreException {
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(),
-				IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
+			getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
 		try {
 			monitor.beginTask(null, 10);
 			IMetadataRepository sourceRepo = mdrMgr.loadRepository(repoLocation, monitor.newChild(1));
@@ -478,8 +480,8 @@ public class RepositoryVerifier extends BuilderPhase {
 			// Add as root IU's to a request
 			ProfileChangeRequest request = new ProfileChangeRequest(profile);
 			for(IInstallableUnit rootIU : rootArr)
-				request.setInstallableUnitProfileProperty(rootIU, IProfile.PROP_PROFILE_ROOT_IU,
-						Boolean.TRUE.toString());
+				request.setInstallableUnitProfileProperty(
+					rootIU, IProfile.PROP_PROFILE_ROOT_IU, Boolean.TRUE.toString());
 			request.addInstallableUnits(rootArr);
 
 			ProvisioningContext context = new ProvisioningContext(getBuilder().getProvisioningAgent());
@@ -487,8 +489,8 @@ public class RepositoryVerifier extends BuilderPhase {
 			// we don't pass the main monitor since we expect a possible failure which is silently ignored
 			// to avoid this, we use a null monitor and when the plan is ready, we add the full amount of ticks
 			// to the main monitor
-			ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(request, context,
-					new NullProgressMonitor());
+			ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(
+				request, context, new NullProgressMonitor());
 			monitor.worked(8);
 
 			HashSet<IInstallableUnit> units = new HashSet<IInstallableUnit>();

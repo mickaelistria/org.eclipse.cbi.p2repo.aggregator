@@ -91,11 +91,12 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 
 	public synchronized String basicSetProperty(String key, String value) {
 		assertModifiable();
-		return(value == null
+		return (value == null
 				? getProperties().remove(key)
 				: getProperties().put(key, value));
 	}
 
+	@Override
 	public synchronized void removeAll() {
 		units.clear();
 		save();
@@ -112,6 +113,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		return changed;
 	}
 
+	@Override
 	public String setProperty(String key, String newValue) {
 		String oldValue = null;
 		synchronized(this) {
@@ -122,7 +124,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		}
 		// force repository manager to reload this repository because it caches properties
 		MetadataRepositoryManager manager = (MetadataRepositoryManager) ServiceHelper.getService(
-				Activator.getContext(), IMetadataRepositoryManager.SERVICE_NAME);
+			Activator.getContext(), IMetadataRepositoryManager.SERVICE_NAME);
 		if(manager.removeRepository(getLocation()))
 			manager.addRepository(this);
 		return oldValue;
@@ -163,8 +165,9 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 			new InternalMetadataRepositoryIO(getProvisioningAgent()).write(this, output);
 		}
 		catch(IOException e) {
-			LogHelper.log(new Status(IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_WRITE,
-					"Error saving metadata repository: " + getLocation(), e)); //$NON-NLS-1$
+			LogHelper.log(new Status(
+				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_WRITE,
+				"Error saving metadata repository: " + getLocation(), e)); //$NON-NLS-1$
 		}
 	}
 }

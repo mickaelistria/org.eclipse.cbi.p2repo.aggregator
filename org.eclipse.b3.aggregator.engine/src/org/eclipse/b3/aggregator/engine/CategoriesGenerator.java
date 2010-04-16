@@ -160,8 +160,8 @@ public class CategoriesGenerator extends BuilderPhase {
 			allIUs: for(IInstallableUnit iu : repo.getMetadataRepository().getInstallableUnits()) {
 				if(builder.isTopLevelCategory(iu)) {
 					for(MapRule mapRule : mapRules)
-						if(mapRule instanceof ExclusionRule && iu.getId().equals(mapRule.getName())
-								&& mapRule.getVersionRange().isIncluded(iu.getVersion()))
+						if(mapRule instanceof ExclusionRule && iu.getId().equals(mapRule.getName()) &&
+								mapRule.getVersionRange().isIncluded(iu.getVersion()))
 							continue allIUs;
 					categoryIUs.add(iu);
 				}
@@ -285,8 +285,9 @@ public class CategoriesGenerator extends BuilderPhase {
 		for(Contribution contrib : builder.getAggregator().getContributions(true)) {
 			for(MappedRepository mappedRepo : contrib.getRepositories(true)) {
 				if(mappedRepo.getMetadataRepository() == parent && builder.isMapVerbatim(mappedRepo)) {
-					LogUtils.debug("Excluding %s from verbatim mapping since category %s has been normalized",
-							mappedRepo.getLocation(), category.getProperty(IInstallableUnit.PROP_NAME));
+					LogUtils.debug(
+						"Excluding %s from verbatim mapping since category %s has been normalized",
+						mappedRepo.getLocation(), category.getProperty(IInstallableUnit.PROP_NAME));
 					builder.addMappingExclusion(mappedRepo);
 				}
 			}

@@ -52,8 +52,8 @@ public class SourceCompositeGenerator extends BuilderPhase {
 		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 		boolean errorsFound = false;
 
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(),
-				IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
+			getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
 
 		try {
 			Builder builder = getBuilder();
@@ -62,7 +62,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 			FileUtils.deleteAll(new File(builder.getBuildRoot(), Builder.REPO_FOLDER_INTERIM));
 
 			CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
-					locationURI, name, Builder.COMPOSITE_METADATA_TYPE, properties);
+				locationURI, name, Builder.COMPOSITE_METADATA_TYPE, properties);
 
 			MonitorUtils.worked(subMon, 100);
 			for(Contribution contrib : contribs) {
@@ -108,8 +108,8 @@ public class SourceCompositeGenerator extends BuilderPhase {
 	private IRepository<IInstallableUnit> createLocalMdr(URI locationBase, MetadataRepository mdr)
 			throws URISyntaxException, NoSuchAlgorithmException {
 		URI location = new URI(locationBase.toString() + "/transformed/" + encode(mdr.getLocation().toString()));
-		LocalMetadataRepository localMdr = new LocalMetadataRepository(getBuilder().getProvisioningAgent(), location,
-				mdr.getName(), mdr.getProperties());
+		LocalMetadataRepository localMdr = new LocalMetadataRepository(
+			getBuilder().getProvisioningAgent(), location, mdr.getName(), mdr.getProperties());
 		localMdr.setDescription(mdr.getDescription());
 		localMdr.setProvider(mdr.getProvider());
 		localMdr.addInstallableUnits(mdr.getInstallableUnits());

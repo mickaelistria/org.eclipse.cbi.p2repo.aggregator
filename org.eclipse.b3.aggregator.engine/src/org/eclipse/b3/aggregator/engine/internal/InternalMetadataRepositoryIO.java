@@ -112,6 +112,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				unitsPointer = units;
 			}
 
+			@Override
 			public void startElement(String name, Attributes attributes) {
 				checkCancel();
 
@@ -158,6 +159,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				return result;
 			}
 
+			@Override
 			public void startElement(String name, Attributes attributes) {
 				if(name.equals(INSTALLABLE_UNIT_ELEMENT)) {
 					new InternalInstallableUnitHandler(this, attributes, units);
@@ -187,12 +189,13 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 					List<IRequirement> requirements) {
 				super(parentHandler, REQUIREMENT_ELEMENT);
 				this.requirements = requirements;
-				String[] values = parseAttributes(attributes, MANDATORY_REQIUREMENT_ATTRIBUTES,
-						OPTIONAL_REQIUREMENT_ATTRIBUTES);
+				String[] values = parseAttributes(
+					attributes, MANDATORY_REQIUREMENT_ATTRIBUTES, OPTIONAL_REQIUREMENT_ATTRIBUTES);
 				namespace = values[0];
 				name = values[1];
 			}
 
+			@Override
 			public void startElement(String name, Attributes attributes) {
 				if(name.equals(CAPABILITY_FILTER_ELEMENT)) {
 					filterHandler = new TextHandler(this, CAPABILITY_FILTER_ELEMENT, attributes);
@@ -205,12 +208,13 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				}
 			}
 
+			@Override
 			protected void finished() {
 				if(isValidXML()) {
 					IMatchExpression<IInstallableUnit> filter = null;
 					if(filterHandler != null)
 						filter = ExpressionUtil.getFactory().matchExpression(
-								ExpressionUtil.parse(filterHandler.getText()));
+							ExpressionUtil.parse(filterHandler.getText()));
 					if(versionsHandler != null) {
 						versions = versionsHandler.getVersions();
 						versionRanges = versionsHandler.getVersionRanges();
@@ -232,6 +236,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				return requirements.toArray(new IRequirement[requirements.size()]);
 			}
 
+			@Override
 			public void startElement(String name, Attributes attributes) {
 				if(name.equals(REQUIREMENT_ELEMENT)) {
 					if(attributes.getIndex(VERSION_RANGE_ATTRIBUTE) != -1)
@@ -255,8 +260,8 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				super(parentHandler, REQUIREMENT_VERSION_ELEMENT);
 				this.versions = versions;
 
-				String[] versionString = parseAttributes(attributes,
-						new String[] { REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE }, new String[0]);
+				String[] versionString = parseAttributes(
+					attributes, new String[] { REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE }, new String[0]);
 				version = Version.create(versionString[0]);
 			}
 
@@ -282,8 +287,8 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				super(parentHandler, REQUIREMENT_VERSION_RANGE_ELEMENT);
 				this.versionRanges = versionRanges;
 
-				String[] versionRangeString = parseAttributes(attributes,
-						new String[] { REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE }, new String[0]);
+				String[] versionRangeString = parseAttributes(
+					attributes, new String[] { REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE }, new String[0]);
 				versionRange = new VersionRange(versionRangeString[0]);
 			}
 
@@ -338,12 +343,13 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				super(rootName, rootHandler);
 			}
 
+			@Override
 			public void processingInstruction(String target, String data) throws SAXException {
 				if(PI_REPOSITORY_TARGET.equals(target)) {
 					Version repositoryVersion = extractPIVersion(target, data);
 					if(!XMLConstants.XML_TOLERANCE.isIncluded(repositoryVersion)) {
-						throw new SAXException(NLS.bind(Messages.io_IncompatibleVersion, repositoryVersion,
-								XMLConstants.XML_TOLERANCE));
+						throw new SAXException(NLS.bind(
+							Messages.io_IncompatibleVersion, repositoryVersion, XMLConstants.XML_TOLERANCE));
 					}
 				}
 			}
@@ -374,6 +380,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				return repository;
 			}
 
+			@Override
 			public void startElement(String name, Attributes attributes) {
 				checkCancel();
 				if(PROPERTIES_ELEMENT.equals(name)) {
@@ -405,6 +412,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				}
 			}
 
+			@Override
 			protected void finished() {
 				if(isValidXML()) {
 					state.Properties = (propertiesHandler == null
@@ -442,6 +450,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				}
 			}
 
+			@Override
 			protected void handleRootAttributes(Attributes attributes) {
 				String[] values = parseAttributes(attributes, required, optional);
 				Version version = checkVersion(this.elementHandled, VERSION_ATTRIBUTE, values[2]);
@@ -492,15 +501,18 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 			}
 		}
 
+		@Override
 		public String toString() {
 			// TODO:
 			return null;
 		}
 
+		@Override
 		protected String getErrorMessage() {
 			return Messages.io_parseError;
 		}
 
+		@Override
 		protected Object getRootObject() {
 			return theRepository;
 		}
@@ -514,7 +526,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 		public static final Version COMPATIBLE_VERSION = Version.createOSGi(1, 0, 0);
 
 		public static final VersionRange XML_TOLERANCE = new VersionRange(COMPATIBLE_VERSION, true, Version.createOSGi(
-				2, 0, 0), false);
+			2, 0, 0), false);
 
 		// Constants for processing Instructions
 		public static final String PI_REPOSITORY_TARGET = "metadataRepository"; //$NON-NLS-1$
@@ -543,6 +555,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 		super(agent);
 	}
 
+	@Override
 	public IMetadataRepository read(URL location, InputStream input, IProgressMonitor monitor)
 			throws ProvisionException {
 		BufferedInputStream bufferedInput = null;
@@ -554,13 +567,13 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				repositoryParser.parse(input, monitor);
 				IStatus result = repositoryParser.getStatus();
 				switch(result.getSeverity()) {
-				case IStatus.CANCEL:
-					throw new OperationCanceledException();
-				case IStatus.ERROR:
-					throw new ProvisionException(result);
-				case IStatus.WARNING:
-				case IStatus.INFO:
-					LogHelper.log(result);
+					case IStatus.CANCEL:
+						throw new OperationCanceledException();
+					case IStatus.ERROR:
+						throw new ProvisionException(result);
+					case IStatus.WARNING:
+					case IStatus.INFO:
+						LogHelper.log(result);
 				}
 				return repositoryParser.getRepository();
 			}
@@ -571,11 +584,12 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 		}
 		catch(IOException ioe) {
 			String msg = NLS.bind(Messages.io_failedRead, location);
-			throw new ProvisionException(new Status(IStatus.ERROR, Activator.ID,
-					ProvisionException.REPOSITORY_FAILED_READ, msg, ioe));
+			throw new ProvisionException(new Status(
+				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_READ, msg, ioe));
 		}
 	}
 
+	@Override
 	public void write(IMetadataRepository repository, OutputStream output) throws IOException {
 		OutputStream bufferedOutput = null;
 		try {

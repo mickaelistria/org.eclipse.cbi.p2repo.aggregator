@@ -65,8 +65,8 @@ public class RequirementUtils {
 				if(inheritedFilter == null)
 					inheritedFilter = iuFilter;
 				else if(!inheritedFilter.equals(iuFilter)) {
-					LogUtils.log(LogUtils.INFO, "More than one filter definition found on %s; using an empty filter",
-							name);
+					LogUtils.log(
+						LogUtils.INFO, "More than one filter definition found on %s; using an empty filter", name);
 					inheritedFilter = null;
 					break;
 				}
@@ -81,8 +81,8 @@ public class RequirementUtils {
 					Object[] compoundParams = new Object[inheritedFilterParams.length + filterParams.length];
 					System.arraycopy(inheritedFilterParams, 0, compoundParams, 0, inheritedFilterParams.length);
 					System.arraycopy(filterParams, 0, compoundParams, inheritedFilterParams.length, filterParams.length);
-					filter = ExpressionFactory.INSTANCE.matchExpression(ExpressionFactory.INSTANCE.and(inheritedFilter,
-							filter), compoundParams);
+					filter = ExpressionFactory.INSTANCE.matchExpression(ExpressionFactory.INSTANCE.and(
+						inheritedFilter, filter), compoundParams);
 				}
 			}
 
@@ -141,10 +141,10 @@ public class RequirementUtils {
 
 			if(!vreq1.getName().equals(vreq2.getName()))
 				throw new RuntimeException(
-						"Unable to create a version union of expressions with different name requests");
+					"Unable to create a version union of expressions with different name requests");
 			if(!vreq1.getNamespace().equals(vreq2.getNamespace()))
 				throw new RuntimeException(
-						"Unable to create a version union of expressions with different namespace requests");
+					"Unable to create a version union of expressions with different namespace requests");
 			IMatchExpression<IInstallableUnit> f1 = vreq1.getFilter();
 			IMatchExpression<IInstallableUnit> f2 = vreq2.getFilter();
 

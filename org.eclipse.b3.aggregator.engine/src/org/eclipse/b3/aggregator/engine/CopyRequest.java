@@ -62,8 +62,8 @@ public class CopyRequest extends ArtifactRequest {
 
 		// if the descriptor is not set now then the repo does not have the requested artifact
 		if(descriptor == null) {
-			setResult(new Status(IStatus.ERROR, AggregatorPlugin.getPluginID(), "Artifact not found: "
-					+ getArtifactKey()));
+			setResult(new Status(IStatus.ERROR, AggregatorPlugin.getPluginID(), "Artifact not found: " +
+					getArtifactKey()));
 			return;
 		}
 

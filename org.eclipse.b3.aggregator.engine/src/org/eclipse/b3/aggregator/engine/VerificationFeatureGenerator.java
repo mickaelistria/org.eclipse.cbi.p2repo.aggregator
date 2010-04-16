@@ -40,8 +40,8 @@ public class VerificationFeatureGenerator extends BuilderPhase {
 		Map<String, String> properties = new HashMap<String, String>();
 		URI locationURI = Builder.createURI(location);
 
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(),
-				IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
+			getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
 
 		try {
 			mdrMgr.removeRepository(locationURI);
@@ -49,8 +49,8 @@ public class VerificationFeatureGenerator extends BuilderPhase {
 			// TODO Use this to activate the "version enumeration" policy workaround
 			// IMetadataRepository mdr = mdrMgr.createRepository(locationURI, name, Builder.INTERNAL_METADATA_TYPE,
 			// properties);
-			IMetadataRepository mdr = mdrMgr.createRepository(locationURI, name, Builder.SIMPLE_METADATA_TYPE,
-					properties);
+			IMetadataRepository mdr = mdrMgr.createRepository(
+				locationURI, name, Builder.SIMPLE_METADATA_TYPE, properties);
 
 			PublisherInfo pubInfo = new PublisherInfo();
 			pubInfo.setMetadataRepository(mdr);

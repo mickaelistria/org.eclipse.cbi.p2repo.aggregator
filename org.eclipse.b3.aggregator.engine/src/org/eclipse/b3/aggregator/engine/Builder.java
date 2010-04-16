@@ -73,7 +73,7 @@ import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.Option;
 
 public class Builder extends AbstractCommand {
-	public enum ActionType{
+	public enum ActionType {
 		CLEAN, VERIFY, BUILD, CLEAN_BUILD
 	}
 
@@ -104,11 +104,11 @@ public class Builder extends AbstractCommand {
 
 	public static final Version ALL_CONTRIBUTED_CONTENT_VERSION = Version.createOSGi(1, 0, 0);
 
-	public static final String COMPOSITE_ARTIFACTS_TYPE = org.eclipse.equinox.internal.p2.artifact.repository.Activator.ID
-			+ ".compositeRepository"; //$NON-NLS-1$
+	public static final String COMPOSITE_ARTIFACTS_TYPE = org.eclipse.equinox.internal.p2.artifact.repository.Activator.ID +
+			".compositeRepository"; //$NON-NLS-1$
 
-	public static final String COMPOSITE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID
-			+ ".compositeRepository"; //$NON-NLS-1$
+	public static final String COMPOSITE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID +
+			".compositeRepository"; //$NON-NLS-1$
 
 	public static final String LINE_SEPARATOR = System.getProperty("line.separator"); //$NON-NLS-1$
 
@@ -126,11 +126,11 @@ public class Builder extends AbstractCommand {
 
 	public static final String REPO_FOLDER_AGGREGATE = "aggregate"; //$NON-NLS-1$
 
-	public static final String SIMPLE_ARTIFACTS_TYPE = org.eclipse.equinox.internal.p2.artifact.repository.Activator.ID
-			+ ".simpleRepository"; //$NON-NLS-1$
+	public static final String SIMPLE_ARTIFACTS_TYPE = org.eclipse.equinox.internal.p2.artifact.repository.Activator.ID +
+			".simpleRepository"; //$NON-NLS-1$
 
-	public static final String SIMPLE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID
-			+ ".simpleRepository"; //$NON-NLS-1$
+	public static final String SIMPLE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID +
+			".simpleRepository"; //$NON-NLS-1$
 
 	public static final String INTERNAL_METADATA_TYPE = "org.eclipse.b3.aggregator.engine.internalRepository"; //$NON-NLS-1$
 
@@ -412,9 +412,9 @@ public class Builder extends AbstractCommand {
 	 * @return true if the repository is mapped verbatim.
 	 */
 	public boolean isMapVerbatim(MappedRepository repo) {
-		return !(repo.isMapExclusive() || repo.isMirrorArtifacts())
-				&& StringUtils.trimmedOrNull(repo.getCategoryPrefix()) == null
-				&& !(exclusions != null && exclusions.contains(repo) && "p2".equals(repo.getNature()));
+		return !(repo.isMapExclusive() || repo.isMirrorArtifacts()) &&
+				StringUtils.trimmedOrNull(repo.getCategoryPrefix()) == null &&
+				!(exclusions != null && exclusions.contains(repo) && "p2".equals(repo.getNature()));
 	}
 
 	public boolean isMatchedReference(String reference) {
@@ -445,8 +445,8 @@ public class Builder extends AbstractCommand {
 	}
 
 	public boolean isTopLevelCategory(IInstallableUnit iu) {
-		return iu != null && "true".equalsIgnoreCase(iu.getProperty(InstallableUnitDescription.PROP_TYPE_CATEGORY))
-				&& !"true".equalsIgnoreCase(iu.getProperty(InstallableUnitDescription.PROP_TYPE_GROUP));
+		return iu != null && "true".equalsIgnoreCase(iu.getProperty(InstallableUnitDescription.PROP_TYPE_CATEGORY)) &&
+				!"true".equalsIgnoreCase(iu.getProperty(InstallableUnitDescription.PROP_TYPE_GROUP));
 	}
 
 	public boolean isVerifyOnly() {
@@ -461,17 +461,17 @@ public class Builder extends AbstractCommand {
 	public int run(boolean fromIDE, IProgressMonitor monitor) throws Exception {
 		int ticks;
 		switch(action) {
-		case CLEAN:
-			ticks = 50;
-			break;
-		case VERIFY:
-			ticks = 200;
-			break;
-		case BUILD:
-			ticks = 2150;
-			break;
-		default:
-			ticks = 2200;
+			case CLEAN:
+				ticks = 50;
+				break;
+			case VERIFY:
+				ticks = 200;
+				break;
+			case BUILD:
+				ticks = 2150;
+				break;
+			default:
+				ticks = 2200;
 		}
 		MonitorUtils.begin(monitor, ticks);
 
@@ -494,12 +494,12 @@ public class Builder extends AbstractCommand {
 			provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
 
 			switch(action) {
-			case CLEAN:
-			case CLEAN_BUILD:
-				cleanAll();
-				break;
-			default:
-				cleanMetadata(provisioningAgent);
+				case CLEAN:
+				case CLEAN_BUILD:
+					cleanAll();
+					break;
+				default:
+					cleanMetadata(provisioningAgent);
 			}
 
 			if(action == ActionType.CLEAN)
@@ -790,7 +790,7 @@ public class Builder extends AbstractCommand {
 		// first, set up asynchronous loading jobs so that the repos are loaded in parallel
 		for(MetadataRepositoryReference repo : getAggregator().getAllMetadataRepositoryReferences(true)) {
 			MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-					repo.getNature(), repo.getResolvedLocation(), repo.getAggregator());
+				repo.getNature(), repo.getResolvedLocation(), repo.getAggregator());
 			res.startAsynchronousLoad(false);
 			repositoriesToLoad.add(repo);
 		}
@@ -800,8 +800,8 @@ public class Builder extends AbstractCommand {
 			for(MetadataRepositoryReference repo : repositoriesToLoad) {
 				MetadataRepository mdr;
 				if((mdr = repo.getMetadataRepository()) == null || ((EObject) mdr).eIsProxy())
-					throw ExceptionUtils.fromMessage("Unable to load repository %s:%s", repo.getNature(),
-							repo.getLocation());
+					throw ExceptionUtils.fromMessage(
+						"Unable to load repository %s:%s", repo.getNature(), repo.getLocation());
 			}
 		}
 		catch(CoreException e) {
@@ -859,8 +859,8 @@ public class Builder extends AbstractCommand {
 
 			EList<EObject> content = resource.getContents();
 			if(content.size() != 1)
-				throw ExceptionUtils.fromMessage("ECore Resource did not contain one resource. It had %d",
-						Integer.valueOf(content.size()));
+				throw ExceptionUtils.fromMessage(
+					"ECore Resource did not contain one resource. It had %d", Integer.valueOf(content.size()));
 
 			aggregator = (Aggregator) content.get(0);
 

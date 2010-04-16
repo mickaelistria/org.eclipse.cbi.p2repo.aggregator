@@ -65,13 +65,14 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 
 		boolean explicit;
 
+		@Override
 		public boolean equals(Object o) {
 			if(!(o instanceof RepositoryRequirement))
 				return false;
 
 			RepositoryRequirement other = (RepositoryRequirement) o;
-			return other.repository.equals(repository) && other.requirement.equals(requirement)
-					&& other.explicit == explicit;
+			return other.repository.equals(repository) && other.requirement.equals(requirement) &&
+					other.explicit == explicit;
 		}
 	}
 
@@ -149,8 +150,8 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 					if(repository.isMapExclusive()) {
 						for(MappedUnit mu : repository.getUnits(true)) {
 							if(mu instanceof Category) {
-								addCategoryContent(mu.resolveAsSingleton(true), repository, allIUs, required, errors,
-										explicit);
+								addCategoryContent(
+									mu.resolveAsSingleton(true), repository, allIUs, required, errors, explicit);
 								continue;
 							}
 							addRequirementFor(repository, mu.getRequirement(), required, errors, explicit, true);
@@ -169,8 +170,8 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 							if(riuType == InstallableUnitType.PRODUCT || riuType == InstallableUnitType.FEATURE) {
 								IMatchExpression<IInstallableUnit> filter = null;
 								for(MapRule rule : mapRules) {
-									if(riu.getId().equals(rule.getName())
-											&& rule.getVersionRange().isIncluded(riu.getVersion())) {
+									if(riu.getId().equals(rule.getName()) &&
+											rule.getVersionRange().isIncluded(riu.getVersion())) {
 										if(rule instanceof ExclusionRule) {
 											builder.addMappingExclusion(repository);
 											continue allIUs;
@@ -188,7 +189,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 
 						for(Map.Entry<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>> entry : preSelectedIUs.entrySet())
 							for(IRequirement req : RequirementUtils.createAllAvailableVersionsRequirements(
-									entry.getValue(), entry.getKey()))
+								entry.getValue(), entry.getKey()))
 								addRequirementFor(repository, req, required, errors, explicit, false);
 					}
 				}
@@ -212,10 +213,10 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 			pdePlatform.setId(Builder.PDE_TARGET_PLATFORM_NAME);
 			pdePlatform.setVersion(Version.emptyVersion);
 			pdePlatform.addProvidedCapabilities(Collections.singletonList(MetadataFactory.createProvidedCapability(
-					Builder.PDE_TARGET_PLATFORM_NAMESPACE, pdePlatform.getId(), pdePlatform.getVersion())));
+				Builder.PDE_TARGET_PLATFORM_NAMESPACE, pdePlatform.getId(), pdePlatform.getVersion())));
 
-			mdr.addInstallableUnits(Arrays.asList(new IInstallableUnit[] { MetadataFactory.createInstallableUnit(iu),
-					MetadataFactory.createInstallableUnit(pdePlatform) }));
+			mdr.addInstallableUnits(Arrays.asList(new IInstallableUnit[] {
+					MetadataFactory.createInstallableUnit(iu), MetadataFactory.createInstallableUnit(pdePlatform) }));
 			return Status.OK_STATUS;
 		}
 		finally {
@@ -244,8 +245,8 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 
 			// Categorized IU is not found
 			//
-			String error = format("Category %s includes a requirement for %s that cannot be fulfilled",
-					category.getId(), rc);
+			String error = format(
+				"Category %s includes a requirement for %s that cannot be fulfilled", category.getId(), rc);
 			errors.add(error);
 			LogUtils.error(error);
 		}
@@ -270,11 +271,11 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 				System.arraycopy(origFilterParams, 0, compoundParams, 0, origFilterParams.length);
 				System.arraycopy(filterParams, 0, compoundParams, origFilterParams.length, filterParams.length);
 				iuFilter = ExpressionFactory.INSTANCE.matchExpression(
-						ExpressionFactory.INSTANCE.and(origFilter, filter), compoundParams);
+					ExpressionFactory.INSTANCE.and(origFilter, filter), compoundParams);
 			}
 		}
-		IRequirement rc = MetadataFactory.createRequirement(IInstallableUnit.NAMESPACE_IU_ID, id, range, iuFilter,
-				false, false);
+		IRequirement rc = MetadataFactory.createRequirement(
+			IInstallableUnit.NAMESPACE_IU_ID, id, range, iuFilter, false, false);
 		// TODO Use this to activate the "version enumeration" policy workaround
 		// IRequirement req = RequirementUtils.createMultiRangeRequirement(mr.getMetadataRepository(), rc);
 		IRequirement req = rc;
@@ -319,8 +320,8 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 				String error;
 				boolean filtersAllTheSame = true;
 				for(RepositoryRequirement req : repoReqs) {
-					if(rc.getFilter() != null && !rc.getFilter().equals(req.requirement.getFilter())
-							|| rc.getFilter() == null && req.requirement.getFilter() != null) {
+					if(rc.getFilter() != null && !rc.getFilter().equals(req.requirement.getFilter()) ||
+							rc.getFilter() == null && req.requirement.getFilter() != null) {
 						filtersAllTheSame = false;
 						break;
 					}
@@ -363,8 +364,8 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 
 		// TODO Use this to activate the "version enumeration" policy workaround
 		// IRequirement modifiedReq = RequirementUtils.versionUnion(orig, rq.requirement);
-		IRequirement modifiedReq = MetadataFactory.createRequirement(IInstallableUnit.NAMESPACE_IU_ID, id,
-				VersionRange.emptyRange, orig.getFilter(), false, false);
+		IRequirement modifiedReq = MetadataFactory.createRequirement(
+			IInstallableUnit.NAMESPACE_IU_ID, id, VersionRange.emptyRange, orig.getFilter(), false, false);
 
 		for(RepositoryRequirement req : repoReqs)
 			req.requirement = modifiedReq;
