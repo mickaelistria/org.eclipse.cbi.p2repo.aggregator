@@ -2036,73 +2036,91 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		repositoryReferenceEClass.getESuperTypes().add(this.getIRepositoryReference());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(iArtifactKeyEClass, IArtifactKey.class, "IArtifactKey", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIArtifactKey_Classifier(), ecorePackage.getEString(), "classifier", null, 1, 1,
-				IArtifactKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIArtifactKey_Id(), ecorePackage.getEString(), "id", null, 1, 1, IArtifactKey.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIArtifactKey_Version(), this.getVersion(), "version", null, 0, 1, IArtifactKey.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			iArtifactKeyEClass, IArtifactKey.class, "IArtifactKey", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getIArtifactKey_Classifier(), ecorePackage.getEString(), "classifier", null, 1, 1, IArtifactKey.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIArtifactKey_Id(), ecorePackage.getEString(), "id", null, 1, 1, IArtifactKey.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIArtifactKey_Version(), this.getVersion(), "version", null, 0, 1, IArtifactKey.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(iArtifactKeyEClass, ecorePackage.getEString(), "toExternalForm", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(iCopyrightEClass, ICopyright.class, "ICopyright", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getICopyright_Location(), this.getURI(), "location", null, 0, 1, ICopyright.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getICopyright_Body(), ecorePackage.getEString(), "body", null, 0, 1, ICopyright.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			iCopyrightEClass, ICopyright.class, "ICopyright", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getICopyright_Location(), this.getURI(), "location", null, 0, 1, ICopyright.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getICopyright_Body(), ecorePackage.getEString(), "body", null, 0, 1, ICopyright.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(iInstallableUnitEClass, IInstallableUnit.class, "IInstallableUnit", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIInstallableUnit_Artifacts(), this.getIArtifactKey(), null, "artifacts", null, 0, -1,
-				IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIInstallableUnit_Copyright(), this.getICopyright(), null, "copyright", null, 0, 1,
-				IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			iInstallableUnitEClass, IInstallableUnit.class, "IInstallableUnit", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getIInstallableUnit_Artifacts(), this.getIArtifactKey(), null, "artifacts", null, 0, -1,
+			IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIInstallableUnit_Copyright(), this.getICopyright(), null, "copyright", null, 0, 1,
+			IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getIMatchExpression());
 		g2 = createEGenericType(this.getIInstallableUnit());
 		g1.getETypeArguments().add(g2);
-		initEAttribute(getIInstallableUnit_Filter(), g1, "filter", "", 0, 1, IInstallableUnit.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIInstallableUnit_Fragments(), this.getIInstallableUnitFragment(), null, "fragments", null, 0,
-				-1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIInstallableUnit_Licenses(), this.getILicense(), null, "licenses", null, 0, -1,
-				IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIInstallableUnit_MetaRequirements(), this.getIRequirement(), null, "metaRequirements", null,
-				0, -1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIInstallableUnit_ProvidedCapabilities(), this.getIProvidedCapability(), null,
-				"providedCapabilities", null, 0, -1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIInstallableUnit_Requirements(), this.getIRequirement(), null, "requirements", null, 0, -1,
-				IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIInstallableUnit_TouchpointData(), this.getITouchpointData(), null, "touchpointData", null,
-				0, -1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIInstallableUnit_TouchpointType(), this.getITouchpointType(), null, "touchpointType", null,
-				0, 1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIInstallableUnit_UpdateDescriptor(), this.getIUpdateDescriptor(), null, "updateDescriptor",
-				null, 0, 1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIInstallableUnit_Resolved(), ecorePackage.getEBoolean(), "resolved", null, 0, 1,
-				IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIInstallableUnit_Singleton(), ecorePackage.getEBoolean(), "singleton", null, 0, 1,
-				IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIInstallableUnit_Filter(), g1, "filter", "", 0, 1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIInstallableUnit_Fragments(), this.getIInstallableUnitFragment(), null, "fragments", null, 0, -1,
+			IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIInstallableUnit_Licenses(), this.getILicense(), null, "licenses", null, 0, -1, IInstallableUnit.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIInstallableUnit_MetaRequirements(), this.getIRequirement(), null, "metaRequirements", null, 0, -1,
+			IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIInstallableUnit_ProvidedCapabilities(), this.getIProvidedCapability(), null, "providedCapabilities",
+			null, 0, -1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIInstallableUnit_Requirements(), this.getIRequirement(), null, "requirements", null, 0, -1,
+			IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIInstallableUnit_TouchpointData(), this.getITouchpointData(), null, "touchpointData", null, 0, -1,
+			IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIInstallableUnit_TouchpointType(), this.getITouchpointType(), null, "touchpointType", null, 0, 1,
+			IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIInstallableUnit_UpdateDescriptor(), this.getIUpdateDescriptor(), null, "updateDescriptor", null, 0, 1,
+			IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIInstallableUnit_Resolved(), ecorePackage.getEBoolean(), "resolved", null, 0, 1, IInstallableUnit.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIInstallableUnit_Singleton(), ecorePackage.getEBoolean(), "singleton", null, 0, 1,
+			IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		addEOperation(iInstallableUnitEClass, this.getIInstallableUnit(), "unresolved", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = addEOperation(iInstallableUnitEClass, this.getICopyright(), "getCopyright", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		EOperation op = addEOperation(
+			iInstallableUnitEClass, this.getICopyright(), "getCopyright", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iInstallableUnitEClass, this.getILicense(), "getLicenses", 0, -1, IS_UNIQUE, IS_ORDERED);
@@ -2116,80 +2134,95 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = addEOperation(iInstallableUnitEClass, ecorePackage.getEString(), "getProperty", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(
+			iInstallableUnitEClass, ecorePackage.getEString(), "getProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iInstallableUnitEClass, ecorePackage.getEString(), "getProperty", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(
+			iInstallableUnitEClass, ecorePackage.getEString(), "getProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iInstallableUnitEClass, ecorePackage.getEBoolean(), "satisfies", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIRequirement(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(iInstallableUnitFragmentEClass, IInstallableUnitFragment.class, "IInstallableUnitFragment",
-				IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			iInstallableUnitFragmentEClass, IInstallableUnitFragment.class, "IInstallableUnitFragment", IS_ABSTRACT,
+			IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iLicenseEClass, ILicense.class, "ILicense", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getILicense_Location(), this.getURI(), "location", null, 0, 1, ILicense.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getILicense_Body(), ecorePackage.getEString(), "body", null, 0, 1, ILicense.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getILicense_UUID(), ecorePackage.getEString(), "UUID", null, 0, 1, ILicense.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getILicense_Location(), this.getURI(), "location", null, 0, 1, ILicense.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getILicense_Body(), ecorePackage.getEString(), "body", null, 0, 1, ILicense.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getILicense_UUID(), ecorePackage.getEString(), "UUID", null, 0, 1, ILicense.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(iProvidedCapabilityEClass, IProvidedCapability.class, "IProvidedCapability", IS_ABSTRACT,
-				IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIProvidedCapability_Name(), ecorePackage.getEString(), "name", null, 0, 1,
-				IProvidedCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIProvidedCapability_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1,
-				IProvidedCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIProvidedCapability_Version(), this.getVersion(), "version", null, 0, 1,
-				IProvidedCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			iProvidedCapabilityEClass, IProvidedCapability.class, "IProvidedCapability", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getIProvidedCapability_Name(), ecorePackage.getEString(), "name", null, 0, 1, IProvidedCapability.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIProvidedCapability_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1,
+			IProvidedCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIProvidedCapability_Version(), this.getVersion(), "version", null, 0, 1, IProvidedCapability.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(iRequirementEClass, IRequirement.class, "IRequirement", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			iRequirementEClass, IRequirement.class, "IRequirement", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getIMatchExpression());
 		g2 = createEGenericType(this.getIInstallableUnit());
 		g1.getETypeArguments().add(g2);
-		initEAttribute(getIRequirement_Filter(), g1, "filter", null, 0, 1, IRequirement.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRequirement_Max(), theXMLTypePackage.getInt(), "max", null, 0, 1, IRequirement.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRequirement_Min(), theXMLTypePackage.getInt(), "min", null, 0, 1, IRequirement.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRequirement_Filter(), g1, "filter", null, 0, 1, IRequirement.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRequirement_Max(), theXMLTypePackage.getInt(), "max", null, 0, 1, IRequirement.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRequirement_Min(), theXMLTypePackage.getInt(), "min", null, 0, 1, IRequirement.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getIMatchExpression());
 		g2 = createEGenericType(this.getIInstallableUnit());
 		g1.getETypeArguments().add(g2);
-		initEAttribute(getIRequirement_Matches(), g1, "matches", null, 0, 1, IRequirement.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRequirement_Greedy(), ecorePackage.getEBoolean(), "greedy", null, 0, 1, IRequirement.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRequirement_Description(), ecorePackage.getEString(), "description", null, 0, 1,
-				IRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRequirement_Matches(), g1, "matches", null, 0, 1, IRequirement.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRequirement_Greedy(), ecorePackage.getEBoolean(), "greedy", null, 0, 1, IRequirement.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRequirement_Description(), ecorePackage.getEString(), "description", null, 0, 1, IRequirement.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(iRequirementEClass, ecorePackage.getEBoolean(), "isMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIInstallableUnit(), "installableUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(iRequiredCapabilityEClass, IRequiredCapability.class, "IRequiredCapability", IS_ABSTRACT,
-				IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIRequiredCapability_Name(), ecorePackage.getEString(), "name", null, 0, 1,
-				IRequiredCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRequiredCapability_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1,
-				IRequiredCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRequiredCapability_Range(), this.getVersionRange(), "range", null, 0, 1,
-				IRequiredCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			iRequiredCapabilityEClass, IRequiredCapability.class, "IRequiredCapability", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getIRequiredCapability_Name(), ecorePackage.getEString(), "name", null, 0, 1, IRequiredCapability.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRequiredCapability_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1,
+			IRequiredCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRequiredCapability_Range(), this.getVersionRange(), "range", null, 0, 1, IRequiredCapability.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(iTouchpointDataEClass, ITouchpointData.class, "ITouchpointData", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			iTouchpointDataEClass, ITouchpointData.class, "ITouchpointData", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(iTouchpointDataEClass, null, "getInstructions", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getMap());
@@ -2199,46 +2232,58 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = addEOperation(iTouchpointDataEClass, this.getITouchpointInstruction(), "getInstruction", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(
+			iTouchpointDataEClass, this.getITouchpointInstruction(), "getInstruction", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(iTouchpointInstructionEClass, ITouchpointInstruction.class, "ITouchpointInstruction", IS_ABSTRACT,
-				IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getITouchpointInstruction_Body(), ecorePackage.getEString(), "body", null, 0, 1,
-				ITouchpointInstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getITouchpointInstruction_ImportAttribute(), ecorePackage.getEString(), "importAttribute", null,
-				0, 1, ITouchpointInstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			iTouchpointInstructionEClass, ITouchpointInstruction.class, "ITouchpointInstruction", IS_ABSTRACT,
+			IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getITouchpointInstruction_Body(), ecorePackage.getEString(), "body", null, 0, 1,
+			ITouchpointInstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getITouchpointInstruction_ImportAttribute(), ecorePackage.getEString(), "importAttribute", null, 0, 1,
+			ITouchpointInstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(iTouchpointTypeEClass, ITouchpointType.class, "ITouchpointType", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getITouchpointType_Id(), ecorePackage.getEString(), "id", null, 0, 1, ITouchpointType.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getITouchpointType_Version(), this.getVersion(), "version", null, 0, 1, ITouchpointType.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			iTouchpointTypeEClass, ITouchpointType.class, "ITouchpointType", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getITouchpointType_Id(), ecorePackage.getEString(), "id", null, 0, 1, ITouchpointType.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getITouchpointType_Version(), this.getVersion(), "version", null, 0, 1, ITouchpointType.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(iVersionedIdEClass, IVersionedId.class, "IVersionedId", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIVersionedId_Id(), ecorePackage.getEString(), "id", "", 0, 1, IVersionedId.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIVersionedId_Version(), this.getVersion(), "version", null, 0, 1, IVersionedId.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			iVersionedIdEClass, IVersionedId.class, "IVersionedId", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getIVersionedId_Id(), ecorePackage.getEString(), "id", "", 0, 1, IVersionedId.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIVersionedId_Version(), this.getVersion(), "version", null, 0, 1, IVersionedId.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(iUpdateDescriptorEClass, IUpdateDescriptor.class, "IUpdateDescriptor", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIUpdateDescriptor_Description(), ecorePackage.getEString(), "description", null, 0, 1,
-				IUpdateDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIUpdateDescriptor_Severity(), ecorePackage.getEInt(), "severity", null, 0, 1,
-				IUpdateDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIUpdateDescriptor_Location(), this.getURI(), "location", null, 0, 1, IUpdateDescriptor.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			iUpdateDescriptorEClass, IUpdateDescriptor.class, "IUpdateDescriptor", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getIUpdateDescriptor_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+			IUpdateDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIUpdateDescriptor_Severity(), ecorePackage.getEInt(), "severity", null, 0, 1, IUpdateDescriptor.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIUpdateDescriptor_Location(), this.getURI(), "location", null, 0, 1, IUpdateDescriptor.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(iUpdateDescriptorEClass, ecorePackage.getEBoolean(), "isUpdateOf", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(
+			iUpdateDescriptorEClass, ecorePackage.getEBoolean(), "isUpdateOf", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIInstallableUnit(), "installableUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iUpdateDescriptorEClass, null, "getIUsBeingUpdated", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2249,34 +2294,42 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		g2.getETypeArguments().add(g3);
 		initEOperation(op, g1);
 
-		initEClass(artifactKeyEClass, ArtifactKey.class, "ArtifactKey", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			artifactKeyEClass, ArtifactKey.class, "ArtifactKey", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(copyrightEClass, Copyright.class, "Copyright", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			copyrightEClass, Copyright.class, "Copyright", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(metadataRepositoryEClass, MetadataRepository.class, "MetadataRepository", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMetadataRepository_InstallableUnits(), this.getIInstallableUnit(), null, "installableUnits",
-				null, 0, -1, MetadataRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			metadataRepositoryEClass, MetadataRepository.class, "MetadataRepository", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getMetadataRepository_InstallableUnits(), this.getIInstallableUnit(), null, "installableUnits", null, 0,
+			-1, MetadataRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getMetadataRepository_InstallableUnits().getEKeys().add(this.getIVersionedId_Id());
 		getMetadataRepository_InstallableUnits().getEKeys().add(this.getIVersionedId_Version());
-		initEReference(getMetadataRepository_References(), this.getIRepositoryReference(), null, "references", null, 0,
-				-1, MetadataRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMetadataRepository_PropertyMap(), this.getProperty(), null, "propertyMap", null, 0, -1,
-				MetadataRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMetadataRepository_References(), this.getIRepositoryReference(), null, "references", null, 0, -1,
+			MetadataRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMetadataRepository_PropertyMap(), this.getProperty(), null, "propertyMap", null, 0, -1,
+			MetadataRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(installableUnitEClass, InstallableUnit.class, "InstallableUnit", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInstallableUnit_PropertyMap(), this.getProperty(), null, "propertyMap", null, 0, -1,
-				InstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			installableUnitEClass, InstallableUnit.class, "InstallableUnit", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getInstallableUnit_PropertyMap(), this.getProperty(), null, "propertyMap", null, 0, -1,
+			InstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(installableUnitFragmentEClass, InstallableUnitFragment.class, "InstallableUnitFragment",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			installableUnitFragmentEClass, InstallableUnitFragment.class, "InstallableUnitFragment", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(installableUnitFragmentEClass, null, "getHost", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getCollection());
@@ -2286,47 +2339,60 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		initEClass(licenseEClass, License.class, "License", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(providedCapabilityEClass, ProvidedCapability.class, "ProvidedCapability", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			providedCapabilityEClass, ProvidedCapability.class, "ProvidedCapability", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(requiredCapabilityEClass, RequiredCapability.class, "RequiredCapability", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			requiredCapabilityEClass, RequiredCapability.class, "RequiredCapability", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(requirementEClass, Requirement.class, "Requirement", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			requirementEClass, Requirement.class, "Requirement", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(touchpointDataEClass, TouchpointData.class, "TouchpointData", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTouchpointData_InstructionMap(), this.getInstructionMap(), null, "instructionMap", null, 0,
-				-1, TouchpointData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			touchpointDataEClass, TouchpointData.class, "TouchpointData", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getTouchpointData_InstructionMap(), this.getInstructionMap(), null, "instructionMap", null, 0, -1,
+			TouchpointData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(touchpointInstructionEClass, TouchpointInstruction.class, "TouchpointInstruction", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			touchpointInstructionEClass, TouchpointInstruction.class, "TouchpointInstruction", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(touchpointTypeEClass, TouchpointType.class, "TouchpointType", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			touchpointTypeEClass, TouchpointType.class, "TouchpointType", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(updateDescriptorEClass, UpdateDescriptor.class, "UpdateDescriptor", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			updateDescriptorEClass, UpdateDescriptor.class, "UpdateDescriptor", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propertyEClass, Map.Entry.class, "Property", !IS_ABSTRACT, !IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProperty_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Map.Entry.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			propertyEClass, Map.Entry.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getProperty_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(instructionMapEClass, Map.Entry.class, "InstructionMap", !IS_ABSTRACT, !IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInstructionMap_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstructionMap_Value(), this.getITouchpointInstruction(), null, "value", null, 0, 1,
-				Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			instructionMapEClass, Map.Entry.class, "InstructionMap", !IS_ABSTRACT, !IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getInstructionMap_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getInstructionMap_Value(), this.getITouchpointInstruction(), null, "value", null, 0, 1, Map.Entry.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
-		initEClass(iQueryableEClass, IQueryable.class, "IQueryable", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			iQueryableEClass, IQueryable.class, "IQueryable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(iQueryableEClass, null, "query", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getIQuery());
@@ -2339,8 +2405,9 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		initEClass(iMetadataRepositoryEClass, IMetadataRepository.class, "IMetadataRepository", IS_ABSTRACT,
-				IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			iMetadataRepositoryEClass, IMetadataRepository.class, "IMetadataRepository", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(iMetadataRepositoryEClass, null, "addInstallableUnits", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getCollection());
@@ -2358,8 +2425,9 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		addEOperation(iMetadataRepositoryEClass, null, "removeAll", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iMetadataRepositoryEClass, ecorePackage.getEBoolean(), "removeInstallableUnits", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(
+			iMetadataRepositoryEClass, ecorePackage.getEBoolean(), "removeInstallableUnits", 0, 1, IS_UNIQUE,
+			IS_ORDERED);
 		g1 = createEGenericType(this.getCollection());
 		g2 = createEGenericType(this.getIInstallableUnit());
 		g1.getETypeArguments().add(g2);
@@ -2369,24 +2437,30 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		addEParameter(op, this.getIRunnableWithProgress(), "runnable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(iRepositoryEClass, IRepository.class, "IRepository", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIRepository_Location(), this.getURI(), "location", null, 1, 1, IRepository.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRepository_Name(), ecorePackage.getEString(), "name", null, 0, 1, IRepository.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRepository_Type(), ecorePackage.getEString(), "type", null, 0, 1, IRepository.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRepository_Version(), ecorePackage.getEString(), "version", null, 0, 1, IRepository.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRepository_Description(), ecorePackage.getEString(), "description", null, 0, 1,
-				IRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRepository_Provider(), ecorePackage.getEString(), "provider", null, 0, 1, IRepository.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIRepository_Modifiable(), ecorePackage.getEBoolean(), "modifiable", null, 0, 1,
-				IRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(
+			iRepositoryEClass, IRepository.class, "IRepository", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getIRepository_Location(), this.getURI(), "location", null, 1, 1, IRepository.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRepository_Name(), ecorePackage.getEString(), "name", null, 0, 1, IRepository.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRepository_Type(), ecorePackage.getEString(), "type", null, 0, 1, IRepository.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRepository_Version(), ecorePackage.getEString(), "version", null, 0, 1, IRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRepository_Description(), ecorePackage.getEString(), "description", null, 0, 1, IRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRepository_Provider(), ecorePackage.getEString(), "provider", null, 0, 1, IRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRepository_Modifiable(), ecorePackage.getEBoolean(), "modifiable", null, 0, 1, IRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(iRepositoryEClass, null, "getProperties", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getMap());
@@ -2400,42 +2474,45 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(iRepositoryEClass, this.getIProvisioningAgent(), "getProvisioningAgent", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		addEOperation(
+			iRepositoryEClass, this.getIProvisioningAgent(), "getProvisioningAgent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iRepositoryEClass, ecorePackage.getEString(), "getProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(iRepositoryReferenceEClass, IRepositoryReference.class, "IRepositoryReference", IS_ABSTRACT,
-				IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			iRepositoryReferenceEClass, IRepositoryReference.class, "IRepositoryReference", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(repositoryReferenceEClass, RepositoryReference.class, "RepositoryReference", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRepositoryReference_Location(), this.getURI(), "location", null, 0, 1,
-				RepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRepositoryReference_Type(), ecorePackage.getEInt(), "type", null, 0, 1,
-				RepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRepositoryReference_Options(), ecorePackage.getEInt(), "options", null, 0, 1,
-				RepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRepositoryReference_Nickname(), ecorePackage.getEString(), "nickname", null, 0, 1,
-				RepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			repositoryReferenceEClass, RepositoryReference.class, "RepositoryReference", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getRepositoryReference_Location(), this.getURI(), "location", null, 0, 1, RepositoryReference.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getRepositoryReference_Type(), ecorePackage.getEInt(), "type", null, 0, 1, RepositoryReference.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getRepositoryReference_Options(), ecorePackage.getEInt(), "options", null, 0, 1, RepositoryReference.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getRepositoryReference_Nickname(), ecorePackage.getEString(), "nickname", null, 0, 1,
+			RepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
-		initEClass(iAdaptableEClass, IAdaptable.class, "IAdaptable", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			iAdaptableEClass, IAdaptable.class, "IAdaptable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(iAdaptableEClass, theXMLTypePackage.getAnySimpleType(), "getAdapter", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(
+			iAdaptableEClass, theXMLTypePackage.getAnySimpleType(), "getAdapter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "adapter", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(comparableEClass, ecorePackage.getEInt(), "compareTo", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(comparableEClass_T);
@@ -2443,39 +2520,48 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		// Initialize data types
 		initEDataType(versionEDataType, Version.class, "Version", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(versionRangeEDataType, VersionRange.class, "VersionRange", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iInstallableUnitArrayEDataType, IInstallableUnit[].class, "IInstallableUnitArray",
-				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(collectionEDataType, Collection.class, "Collection", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iProvidedCapabilityArrayEDataType, IProvidedCapability[].class, "IProvidedCapabilityArray",
-				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iInstallableUnitFragmentArrayEDataType, IInstallableUnitFragment[].class,
-				"IInstallableUnitFragmentArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iArtifactKeyArrayEDataType, IArtifactKey[].class, "IArtifactKeyArray", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iTouchpointDataArrayEDataType, ITouchpointData[].class, "ITouchpointDataArray", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(stringArrayEDataType, String[].class, "StringArray", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			versionRangeEDataType, VersionRange.class, "VersionRange", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iInstallableUnitArrayEDataType, IInstallableUnit[].class, "IInstallableUnitArray", IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			collectionEDataType, Collection.class, "Collection", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iProvidedCapabilityArrayEDataType, IProvidedCapability[].class, "IProvidedCapabilityArray",
+			IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iInstallableUnitFragmentArrayEDataType, IInstallableUnitFragment[].class, "IInstallableUnitFragmentArray",
+			IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iArtifactKeyArrayEDataType, IArtifactKey[].class, "IArtifactKeyArray", IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iTouchpointDataArrayEDataType, ITouchpointData[].class, "ITouchpointDataArray", IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			stringArrayEDataType, String[].class, "StringArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(untypedMapEDataType, Map.class, "UntypedMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(mapEDataType, Map.class, "Map", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iLicenseArrayEDataType, ILicense[].class, "ILicenseArray", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iQueryResultEDataType, IQueryResult.class, "IQueryResult", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iLicenseArrayEDataType, ILicense[].class, "ILicenseArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iQueryResultEDataType, IQueryResult.class, "IQueryResult", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iQueryEDataType, IQuery.class, "IQuery", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(collectorEDataType, Collector.class, "Collector", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iProgressMonitorEDataType, IProgressMonitor.class, "IProgressMonitor", !IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iRunnableWithProgressEDataType, IRunnableWithProgress.class, "IRunnableWithProgress",
-				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iProgressMonitorEDataType, IProgressMonitor.class, "IProgressMonitor", !IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iRunnableWithProgressEDataType, IRunnableWithProgress.class, "IRunnableWithProgress", IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iStatusEDataType, IStatus.class, "IStatus", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iMatchExpressionEDataType, IMatchExpression.class, "IMatchExpression", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iProvisioningAgentEDataType, IProvisioningAgent.class, "IProvisioningAgent", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iMatchExpressionEDataType, IMatchExpression.class, "IMatchExpression", IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iProvisioningAgentEDataType, IProvisioningAgent.class, "IProvisioningAgent", IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(uriEDataType, java.net.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource

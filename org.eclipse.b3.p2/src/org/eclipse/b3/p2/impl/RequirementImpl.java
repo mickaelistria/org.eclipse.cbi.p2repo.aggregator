@@ -174,18 +174,18 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.REQUIREMENT__FILTER:
-			return getFilter();
-		case P2Package.REQUIREMENT__MAX:
-			return getMax();
-		case P2Package.REQUIREMENT__MIN:
-			return getMin();
-		case P2Package.REQUIREMENT__MATCHES:
-			return getMatches();
-		case P2Package.REQUIREMENT__GREEDY:
-			return isGreedy();
-		case P2Package.REQUIREMENT__DESCRIPTION:
-			return getDescription();
+			case P2Package.REQUIREMENT__FILTER:
+				return getFilter();
+			case P2Package.REQUIREMENT__MAX:
+				return getMax();
+			case P2Package.REQUIREMENT__MIN:
+				return getMin();
+			case P2Package.REQUIREMENT__MATCHES:
+				return getMatches();
+			case P2Package.REQUIREMENT__GREEDY:
+				return isGreedy();
+			case P2Package.REQUIREMENT__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -199,20 +199,20 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.REQUIREMENT__FILTER:
-			return filter != null;
-		case P2Package.REQUIREMENT__MAX:
-			return max != MAX_EDEFAULT;
-		case P2Package.REQUIREMENT__MIN:
-			return min != MIN_EDEFAULT;
-		case P2Package.REQUIREMENT__MATCHES:
-			return matches != null;
-		case P2Package.REQUIREMENT__GREEDY:
-			return ((eFlags & GREEDY_EFLAG) != 0) != GREEDY_EDEFAULT;
-		case P2Package.REQUIREMENT__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null
-					? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
+			case P2Package.REQUIREMENT__FILTER:
+				return filter != null;
+			case P2Package.REQUIREMENT__MAX:
+				return max != MAX_EDEFAULT;
+			case P2Package.REQUIREMENT__MIN:
+				return min != MIN_EDEFAULT;
+			case P2Package.REQUIREMENT__MATCHES:
+				return matches != null;
+			case P2Package.REQUIREMENT__GREEDY:
+				return ((eFlags & GREEDY_EFLAG) != 0) != GREEDY_EDEFAULT;
+			case P2Package.REQUIREMENT__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null
+						? description != null
+						: !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -227,24 +227,24 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.REQUIREMENT__FILTER:
-			setFilter((IMatchExpression<IInstallableUnit>) newValue);
-			return;
-		case P2Package.REQUIREMENT__MAX:
-			setMax((Integer) newValue);
-			return;
-		case P2Package.REQUIREMENT__MIN:
-			setMin((Integer) newValue);
-			return;
-		case P2Package.REQUIREMENT__MATCHES:
-			setMatches((IMatchExpression<IInstallableUnit>) newValue);
-			return;
-		case P2Package.REQUIREMENT__GREEDY:
-			setGreedy((Boolean) newValue);
-			return;
-		case P2Package.REQUIREMENT__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
+			case P2Package.REQUIREMENT__FILTER:
+				setFilter((IMatchExpression<IInstallableUnit>) newValue);
+				return;
+			case P2Package.REQUIREMENT__MAX:
+				setMax((Integer) newValue);
+				return;
+			case P2Package.REQUIREMENT__MIN:
+				setMin((Integer) newValue);
+				return;
+			case P2Package.REQUIREMENT__MATCHES:
+				setMatches((IMatchExpression<IInstallableUnit>) newValue);
+				return;
+			case P2Package.REQUIREMENT__GREEDY:
+				setGreedy((Boolean) newValue);
+				return;
+			case P2Package.REQUIREMENT__DESCRIPTION:
+				setDescription((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -258,24 +258,24 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.REQUIREMENT__FILTER:
-			setFilter((IMatchExpression<IInstallableUnit>) null);
-			return;
-		case P2Package.REQUIREMENT__MAX:
-			setMax(MAX_EDEFAULT);
-			return;
-		case P2Package.REQUIREMENT__MIN:
-			setMin(MIN_EDEFAULT);
-			return;
-		case P2Package.REQUIREMENT__MATCHES:
-			setMatches((IMatchExpression<IInstallableUnit>) null);
-			return;
-		case P2Package.REQUIREMENT__GREEDY:
-			setGreedy(GREEDY_EDEFAULT);
-			return;
-		case P2Package.REQUIREMENT__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
+			case P2Package.REQUIREMENT__FILTER:
+				setFilter((IMatchExpression<IInstallableUnit>) null);
+				return;
+			case P2Package.REQUIREMENT__MAX:
+				setMax(MAX_EDEFAULT);
+				return;
+			case P2Package.REQUIREMENT__MIN:
+				setMin(MIN_EDEFAULT);
+				return;
+			case P2Package.REQUIREMENT__MATCHES:
+				setMatches((IMatchExpression<IInstallableUnit>) null);
+				return;
+			case P2Package.REQUIREMENT__GREEDY:
+				setGreedy(GREEDY_EDEFAULT);
+				return;
+			case P2Package.REQUIREMENT__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -360,8 +360,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 		String oldDescription = description;
 		description = newDescription;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__DESCRIPTION, oldDescription,
-					description));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.REQUIREMENT__DESCRIPTION, oldDescription, description));
 	}
 
 	/**

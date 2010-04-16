@@ -129,8 +129,8 @@ public class P2ResourceImpl extends XMLResourceImpl {
 				warnings.clear();
 
 				try {
-					loaderJob = new LoaderJob("Loading repository " + getURI().toFileString(),
-							getLocationFromURI(getURI()));
+					loaderJob = new LoaderJob(
+						"Loading repository " + getURI().toFileString(), getLocationFromURI(getURI()));
 					loaderJob.setUser(false);
 					loaderJob.schedule();
 				}

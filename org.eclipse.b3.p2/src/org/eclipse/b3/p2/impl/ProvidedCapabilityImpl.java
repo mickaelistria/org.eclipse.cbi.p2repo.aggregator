@@ -127,12 +127,12 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.PROVIDED_CAPABILITY__NAME:
-			return getName();
-		case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
-			return getNamespace();
-		case P2Package.PROVIDED_CAPABILITY__VERSION:
-			return getVersion();
+			case P2Package.PROVIDED_CAPABILITY__NAME:
+				return getName();
+			case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
+				return getNamespace();
+			case P2Package.PROVIDED_CAPABILITY__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,22 +146,23 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.PROVIDED_CAPABILITY__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
-			return NAMESPACE_EDEFAULT == null
-					? namespace != null
-					: !NAMESPACE_EDEFAULT.equals(namespace);
-		case P2Package.PROVIDED_CAPABILITY__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
+			case P2Package.PROVIDED_CAPABILITY__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
+				return NAMESPACE_EDEFAULT == null
+						? namespace != null
+						: !NAMESPACE_EDEFAULT.equals(namespace);
+			case P2Package.PROVIDED_CAPABILITY__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
 
+	@Override
 	public boolean equals(Object other) {
 		if(other == null)
 			return false;
@@ -184,15 +185,15 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.PROVIDED_CAPABILITY__NAME:
-			setName((String) newValue);
-			return;
-		case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
-			setNamespace((String) newValue);
-			return;
-		case P2Package.PROVIDED_CAPABILITY__VERSION:
-			setVersion((Version) newValue);
-			return;
+			case P2Package.PROVIDED_CAPABILITY__NAME:
+				setName((String) newValue);
+				return;
+			case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
+				setNamespace((String) newValue);
+				return;
+			case P2Package.PROVIDED_CAPABILITY__VERSION:
+				setVersion((Version) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -206,15 +207,15 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.PROVIDED_CAPABILITY__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
-			setNamespace(NAMESPACE_EDEFAULT);
-			return;
-		case P2Package.PROVIDED_CAPABILITY__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
+			case P2Package.PROVIDED_CAPABILITY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
+				setNamespace(NAMESPACE_EDEFAULT);
+				return;
+			case P2Package.PROVIDED_CAPABILITY__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -249,6 +250,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 		return version;
 	}
 
+	@Override
 	public int hashCode() {
 		return namespace.hashCode() * name.hashCode() * version.hashCode();
 	}
@@ -276,8 +278,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 		String oldNamespace = namespace;
 		namespace = newNamespace;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.PROVIDED_CAPABILITY__NAMESPACE,
-					oldNamespace, namespace));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.PROVIDED_CAPABILITY__NAMESPACE, oldNamespace, namespace));
 	}
 
 	/**
@@ -290,8 +292,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 		Version oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.PROVIDED_CAPABILITY__VERSION, oldVersion,
-					version));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.PROVIDED_CAPABILITY__VERSION, oldVersion, version));
 	}
 
 	/**

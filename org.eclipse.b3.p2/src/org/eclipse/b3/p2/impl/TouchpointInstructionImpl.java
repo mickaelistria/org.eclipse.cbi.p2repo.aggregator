@@ -103,10 +103,10 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.TOUCHPOINT_INSTRUCTION__BODY:
-			return getBody();
-		case P2Package.TOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE:
-			return getImportAttribute();
+			case P2Package.TOUCHPOINT_INSTRUCTION__BODY:
+				return getBody();
+			case P2Package.TOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE:
+				return getImportAttribute();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -120,18 +120,19 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.TOUCHPOINT_INSTRUCTION__BODY:
-			return BODY_EDEFAULT == null
-					? body != null
-					: !BODY_EDEFAULT.equals(body);
-		case P2Package.TOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE:
-			return IMPORT_ATTRIBUTE_EDEFAULT == null
-					? importAttribute != null
-					: !IMPORT_ATTRIBUTE_EDEFAULT.equals(importAttribute);
+			case P2Package.TOUCHPOINT_INSTRUCTION__BODY:
+				return BODY_EDEFAULT == null
+						? body != null
+						: !BODY_EDEFAULT.equals(body);
+			case P2Package.TOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE:
+				return IMPORT_ATTRIBUTE_EDEFAULT == null
+						? importAttribute != null
+						: !IMPORT_ATTRIBUTE_EDEFAULT.equals(importAttribute);
 		}
 		return super.eIsSet(featureID);
 	}
 
+	@Override
 	public boolean equals(Object obj) {
 		if(this == obj)
 			return true;
@@ -164,12 +165,12 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.TOUCHPOINT_INSTRUCTION__BODY:
-			setBody((String) newValue);
-			return;
-		case P2Package.TOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE:
-			setImportAttribute((String) newValue);
-			return;
+			case P2Package.TOUCHPOINT_INSTRUCTION__BODY:
+				setBody((String) newValue);
+				return;
+			case P2Package.TOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE:
+				setImportAttribute((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -183,12 +184,12 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.TOUCHPOINT_INSTRUCTION__BODY:
-			setBody(BODY_EDEFAULT);
-			return;
-		case P2Package.TOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE:
-			setImportAttribute(IMPORT_ATTRIBUTE_EDEFAULT);
-			return;
+			case P2Package.TOUCHPOINT_INSTRUCTION__BODY:
+				setBody(BODY_EDEFAULT);
+				return;
+			case P2Package.TOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE:
+				setImportAttribute(IMPORT_ATTRIBUTE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -213,6 +214,7 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 		return importAttribute;
 	}
 
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -248,8 +250,9 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 		String oldImportAttribute = importAttribute;
 		importAttribute = newImportAttribute;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.TOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE,
-					oldImportAttribute, importAttribute));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.TOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE, oldImportAttribute,
+				importAttribute));
 	}
 
 	/**

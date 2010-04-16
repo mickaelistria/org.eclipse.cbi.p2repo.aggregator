@@ -347,29 +347,29 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.METADATA_REPOSITORY__LOCATION:
-			return getLocation();
-		case P2Package.METADATA_REPOSITORY__NAME:
-			return getName();
-		case P2Package.METADATA_REPOSITORY__TYPE:
-			return getType();
-		case P2Package.METADATA_REPOSITORY__VERSION:
-			return getVersion();
-		case P2Package.METADATA_REPOSITORY__DESCRIPTION:
-			return getDescription();
-		case P2Package.METADATA_REPOSITORY__PROVIDER:
-			return getProvider();
-		case P2Package.METADATA_REPOSITORY__MODIFIABLE:
-			return isModifiable();
-		case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
-			return getInstallableUnits();
-		case P2Package.METADATA_REPOSITORY__REFERENCES:
-			return getReferences();
-		case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
-			if(coreType)
-				return getPropertyMap();
-			else
-				return getPropertyMap().map();
+			case P2Package.METADATA_REPOSITORY__LOCATION:
+				return getLocation();
+			case P2Package.METADATA_REPOSITORY__NAME:
+				return getName();
+			case P2Package.METADATA_REPOSITORY__TYPE:
+				return getType();
+			case P2Package.METADATA_REPOSITORY__VERSION:
+				return getVersion();
+			case P2Package.METADATA_REPOSITORY__DESCRIPTION:
+				return getDescription();
+			case P2Package.METADATA_REPOSITORY__PROVIDER:
+				return getProvider();
+			case P2Package.METADATA_REPOSITORY__MODIFIABLE:
+				return isModifiable();
+			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
+				return getInstallableUnits();
+			case P2Package.METADATA_REPOSITORY__REFERENCES:
+				return getReferences();
+			case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
+				if(coreType)
+					return getPropertyMap();
+				else
+					return getPropertyMap().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -383,12 +383,12 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
-			return ((InternalEList<?>) getInstallableUnits()).basicRemove(otherEnd, msgs);
-		case P2Package.METADATA_REPOSITORY__REFERENCES:
-			return ((InternalEList<?>) getReferences()).basicRemove(otherEnd, msgs);
-		case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
-			return ((InternalEList<?>) getPropertyMap()).basicRemove(otherEnd, msgs);
+			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
+				return ((InternalEList<?>) getInstallableUnits()).basicRemove(otherEnd, msgs);
+			case P2Package.METADATA_REPOSITORY__REFERENCES:
+				return ((InternalEList<?>) getReferences()).basicRemove(otherEnd, msgs);
+			case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
+				return ((InternalEList<?>) getPropertyMap()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -402,38 +402,38 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.METADATA_REPOSITORY__LOCATION:
-			return LOCATION_EDEFAULT == null
-					? location != null
-					: !LOCATION_EDEFAULT.equals(location);
-		case P2Package.METADATA_REPOSITORY__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case P2Package.METADATA_REPOSITORY__TYPE:
-			return TYPE_EDEFAULT == null
-					? type != null
-					: !TYPE_EDEFAULT.equals(type);
-		case P2Package.METADATA_REPOSITORY__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
-		case P2Package.METADATA_REPOSITORY__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null
-					? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case P2Package.METADATA_REPOSITORY__PROVIDER:
-			return PROVIDER_EDEFAULT == null
-					? provider != null
-					: !PROVIDER_EDEFAULT.equals(provider);
-		case P2Package.METADATA_REPOSITORY__MODIFIABLE:
-			return ((eFlags & MODIFIABLE_EFLAG) != 0) != MODIFIABLE_EDEFAULT;
-		case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
-			return installableUnits != null && !installableUnits.isEmpty();
-		case P2Package.METADATA_REPOSITORY__REFERENCES:
-			return references != null && !references.isEmpty();
-		case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
-			return propertyMap != null && !propertyMap.isEmpty();
+			case P2Package.METADATA_REPOSITORY__LOCATION:
+				return LOCATION_EDEFAULT == null
+						? location != null
+						: !LOCATION_EDEFAULT.equals(location);
+			case P2Package.METADATA_REPOSITORY__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case P2Package.METADATA_REPOSITORY__TYPE:
+				return TYPE_EDEFAULT == null
+						? type != null
+						: !TYPE_EDEFAULT.equals(type);
+			case P2Package.METADATA_REPOSITORY__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
+			case P2Package.METADATA_REPOSITORY__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null
+						? description != null
+						: !DESCRIPTION_EDEFAULT.equals(description);
+			case P2Package.METADATA_REPOSITORY__PROVIDER:
+				return PROVIDER_EDEFAULT == null
+						? provider != null
+						: !PROVIDER_EDEFAULT.equals(provider);
+			case P2Package.METADATA_REPOSITORY__MODIFIABLE:
+				return ((eFlags & MODIFIABLE_EFLAG) != 0) != MODIFIABLE_EDEFAULT;
+			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
+				return installableUnits != null && !installableUnits.isEmpty();
+			case P2Package.METADATA_REPOSITORY__REFERENCES:
+				return references != null && !references.isEmpty();
+			case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
+				return propertyMap != null && !propertyMap.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -457,38 +457,38 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.METADATA_REPOSITORY__LOCATION:
-			setLocation((URI) newValue);
-			return;
-		case P2Package.METADATA_REPOSITORY__NAME:
-			setName((String) newValue);
-			return;
-		case P2Package.METADATA_REPOSITORY__TYPE:
-			setType((String) newValue);
-			return;
-		case P2Package.METADATA_REPOSITORY__VERSION:
-			setVersion((String) newValue);
-			return;
-		case P2Package.METADATA_REPOSITORY__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case P2Package.METADATA_REPOSITORY__PROVIDER:
-			setProvider((String) newValue);
-			return;
-		case P2Package.METADATA_REPOSITORY__MODIFIABLE:
-			setModifiable((Boolean) newValue);
-			return;
-		case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
-			getInstallableUnits().clear();
-			getInstallableUnits().addAll((Collection<? extends IInstallableUnit>) newValue);
-			return;
-		case P2Package.METADATA_REPOSITORY__REFERENCES:
-			getReferences().clear();
-			getReferences().addAll((Collection<? extends IRepositoryReference>) newValue);
-			return;
-		case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
-			((EStructuralFeature.Setting) getPropertyMap()).set(newValue);
-			return;
+			case P2Package.METADATA_REPOSITORY__LOCATION:
+				setLocation((URI) newValue);
+				return;
+			case P2Package.METADATA_REPOSITORY__NAME:
+				setName((String) newValue);
+				return;
+			case P2Package.METADATA_REPOSITORY__TYPE:
+				setType((String) newValue);
+				return;
+			case P2Package.METADATA_REPOSITORY__VERSION:
+				setVersion((String) newValue);
+				return;
+			case P2Package.METADATA_REPOSITORY__DESCRIPTION:
+				setDescription((String) newValue);
+				return;
+			case P2Package.METADATA_REPOSITORY__PROVIDER:
+				setProvider((String) newValue);
+				return;
+			case P2Package.METADATA_REPOSITORY__MODIFIABLE:
+				setModifiable((Boolean) newValue);
+				return;
+			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
+				getInstallableUnits().clear();
+				getInstallableUnits().addAll((Collection<? extends IInstallableUnit>) newValue);
+				return;
+			case P2Package.METADATA_REPOSITORY__REFERENCES:
+				getReferences().clear();
+				getReferences().addAll((Collection<? extends IRepositoryReference>) newValue);
+				return;
+			case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
+				((EStructuralFeature.Setting) getPropertyMap()).set(newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -502,36 +502,36 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.METADATA_REPOSITORY__LOCATION:
-			setLocation(LOCATION_EDEFAULT);
-			return;
-		case P2Package.METADATA_REPOSITORY__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case P2Package.METADATA_REPOSITORY__TYPE:
-			setType(TYPE_EDEFAULT);
-			return;
-		case P2Package.METADATA_REPOSITORY__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case P2Package.METADATA_REPOSITORY__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case P2Package.METADATA_REPOSITORY__PROVIDER:
-			setProvider(PROVIDER_EDEFAULT);
-			return;
-		case P2Package.METADATA_REPOSITORY__MODIFIABLE:
-			setModifiable(MODIFIABLE_EDEFAULT);
-			return;
-		case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
-			getInstallableUnits().clear();
-			return;
-		case P2Package.METADATA_REPOSITORY__REFERENCES:
-			getReferences().clear();
-			return;
-		case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
-			getPropertyMap().clear();
-			return;
+			case P2Package.METADATA_REPOSITORY__LOCATION:
+				setLocation(LOCATION_EDEFAULT);
+				return;
+			case P2Package.METADATA_REPOSITORY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case P2Package.METADATA_REPOSITORY__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
+			case P2Package.METADATA_REPOSITORY__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case P2Package.METADATA_REPOSITORY__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case P2Package.METADATA_REPOSITORY__PROVIDER:
+				setProvider(PROVIDER_EDEFAULT);
+				return;
+			case P2Package.METADATA_REPOSITORY__MODIFIABLE:
+				setModifiable(MODIFIABLE_EDEFAULT);
+				return;
+			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
+				getInstallableUnits().clear();
+				return;
+			case P2Package.METADATA_REPOSITORY__REFERENCES:
+				getReferences().clear();
+				return;
+			case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
+				getPropertyMap().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -575,8 +575,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public EList<IInstallableUnit> getInstallableUnits() {
 		if(installableUnits == null) {
-			installableUnits = new EObjectContainmentEList.Resolving<IInstallableUnit>(IInstallableUnit.class, this,
-					P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS);
+			installableUnits = new EObjectContainmentEList.Resolving<IInstallableUnit>(
+				IInstallableUnit.class, this, P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS);
 		}
 		return installableUnits;
 	}
@@ -646,8 +646,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public EMap<String, String> getPropertyMap() {
 		if(propertyMap == null) {
-			propertyMap = new EcoreEMap<String, String>(P2Package.Literals.PROPERTY, PropertyImpl.class, this,
-					P2Package.METADATA_REPOSITORY__PROPERTY_MAP);
+			propertyMap = new EcoreEMap<String, String>(
+				P2Package.Literals.PROPERTY, PropertyImpl.class, this, P2Package.METADATA_REPOSITORY__PROPERTY_MAP);
 		}
 		return propertyMap;
 	}
@@ -680,8 +680,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public EList<IRepositoryReference> getReferences() {
 		if(references == null) {
-			references = new EObjectContainmentEList.Resolving<IRepositoryReference>(IRepositoryReference.class, this,
-					P2Package.METADATA_REPOSITORY__REFERENCES);
+			references = new EObjectContainmentEList.Resolving<IRepositoryReference>(
+				IRepositoryReference.class, this, P2Package.METADATA_REPOSITORY__REFERENCES);
 		}
 		return references;
 	}
@@ -767,8 +767,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 		String oldDescription = description;
 		description = newDescription;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.METADATA_REPOSITORY__DESCRIPTION,
-					oldDescription, description));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.METADATA_REPOSITORY__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -781,8 +781,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 		URI oldLocation = location;
 		location = newLocation;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.METADATA_REPOSITORY__LOCATION, oldLocation,
-					location));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.METADATA_REPOSITORY__LOCATION, oldLocation, location));
 	}
 
 	/**
@@ -798,8 +798,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 		else
 			eFlags &= ~MODIFIABLE_EFLAG;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.METADATA_REPOSITORY__MODIFIABLE,
-					oldModifiable, newModifiable));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.METADATA_REPOSITORY__MODIFIABLE, oldModifiable, newModifiable));
 	}
 
 	/**
@@ -835,8 +835,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 		String oldProvider = provider;
 		provider = newProvider;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.METADATA_REPOSITORY__PROVIDER, oldProvider,
-					provider));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.METADATA_REPOSITORY__PROVIDER, oldProvider, provider));
 	}
 
 	/**
@@ -872,8 +872,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 		String oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.METADATA_REPOSITORY__VERSION, oldVersion,
-					version));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.METADATA_REPOSITORY__VERSION, oldVersion, version));
 	}
 
 	/**

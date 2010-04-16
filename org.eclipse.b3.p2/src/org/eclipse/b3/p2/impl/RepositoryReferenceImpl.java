@@ -150,14 +150,14 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.REPOSITORY_REFERENCE__LOCATION:
-			return getLocation();
-		case P2Package.REPOSITORY_REFERENCE__TYPE:
-			return getType();
-		case P2Package.REPOSITORY_REFERENCE__OPTIONS:
-			return getOptions();
-		case P2Package.REPOSITORY_REFERENCE__NICKNAME:
-			return getNickname();
+			case P2Package.REPOSITORY_REFERENCE__LOCATION:
+				return getLocation();
+			case P2Package.REPOSITORY_REFERENCE__TYPE:
+				return getType();
+			case P2Package.REPOSITORY_REFERENCE__OPTIONS:
+				return getOptions();
+			case P2Package.REPOSITORY_REFERENCE__NICKNAME:
+				return getNickname();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,18 +171,18 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.REPOSITORY_REFERENCE__LOCATION:
-			return LOCATION_EDEFAULT == null
-					? location != null
-					: !LOCATION_EDEFAULT.equals(location);
-		case P2Package.REPOSITORY_REFERENCE__TYPE:
-			return type != TYPE_EDEFAULT;
-		case P2Package.REPOSITORY_REFERENCE__OPTIONS:
-			return options != OPTIONS_EDEFAULT;
-		case P2Package.REPOSITORY_REFERENCE__NICKNAME:
-			return NICKNAME_EDEFAULT == null
-					? nickname != null
-					: !NICKNAME_EDEFAULT.equals(nickname);
+			case P2Package.REPOSITORY_REFERENCE__LOCATION:
+				return LOCATION_EDEFAULT == null
+						? location != null
+						: !LOCATION_EDEFAULT.equals(location);
+			case P2Package.REPOSITORY_REFERENCE__TYPE:
+				return type != TYPE_EDEFAULT;
+			case P2Package.REPOSITORY_REFERENCE__OPTIONS:
+				return options != OPTIONS_EDEFAULT;
+			case P2Package.REPOSITORY_REFERENCE__NICKNAME:
+				return NICKNAME_EDEFAULT == null
+						? nickname != null
+						: !NICKNAME_EDEFAULT.equals(nickname);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -196,18 +196,18 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.REPOSITORY_REFERENCE__LOCATION:
-			setLocation((URI) newValue);
-			return;
-		case P2Package.REPOSITORY_REFERENCE__TYPE:
-			setType((Integer) newValue);
-			return;
-		case P2Package.REPOSITORY_REFERENCE__OPTIONS:
-			setOptions((Integer) newValue);
-			return;
-		case P2Package.REPOSITORY_REFERENCE__NICKNAME:
-			setNickname((String) newValue);
-			return;
+			case P2Package.REPOSITORY_REFERENCE__LOCATION:
+				setLocation((URI) newValue);
+				return;
+			case P2Package.REPOSITORY_REFERENCE__TYPE:
+				setType((Integer) newValue);
+				return;
+			case P2Package.REPOSITORY_REFERENCE__OPTIONS:
+				setOptions((Integer) newValue);
+				return;
+			case P2Package.REPOSITORY_REFERENCE__NICKNAME:
+				setNickname((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -221,18 +221,18 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.REPOSITORY_REFERENCE__LOCATION:
-			setLocation(LOCATION_EDEFAULT);
-			return;
-		case P2Package.REPOSITORY_REFERENCE__TYPE:
-			setType(TYPE_EDEFAULT);
-			return;
-		case P2Package.REPOSITORY_REFERENCE__OPTIONS:
-			setOptions(OPTIONS_EDEFAULT);
-			return;
-		case P2Package.REPOSITORY_REFERENCE__NICKNAME:
-			setNickname(NICKNAME_EDEFAULT);
-			return;
+			case P2Package.REPOSITORY_REFERENCE__LOCATION:
+				setLocation(LOCATION_EDEFAULT);
+				return;
+			case P2Package.REPOSITORY_REFERENCE__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
+			case P2Package.REPOSITORY_REFERENCE__OPTIONS:
+				setOptions(OPTIONS_EDEFAULT);
+				return;
+			case P2Package.REPOSITORY_REFERENCE__NICKNAME:
+				setNickname(NICKNAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -287,8 +287,8 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 		URI oldLocation = location;
 		location = newLocation;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY_REFERENCE__LOCATION,
-					oldLocation, location));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.REPOSITORY_REFERENCE__LOCATION, oldLocation, location));
 	}
 
 	/**
@@ -301,8 +301,8 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 		String oldNickname = nickname;
 		nickname = newNickname;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY_REFERENCE__NICKNAME,
-					oldNickname, nickname));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.REPOSITORY_REFERENCE__NICKNAME, oldNickname, nickname));
 	}
 
 	/**
@@ -315,8 +315,8 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 		int oldOptions = options;
 		options = newOptions;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY_REFERENCE__OPTIONS, oldOptions,
-					options));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.REPOSITORY_REFERENCE__OPTIONS, oldOptions, options));
 	}
 
 	/**

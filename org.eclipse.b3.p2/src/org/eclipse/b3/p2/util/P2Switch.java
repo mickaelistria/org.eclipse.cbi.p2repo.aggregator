@@ -745,172 +745,172 @@ public class P2Switch<T1> {
 	 */
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch(classifierID) {
-		case P2Package.ARTIFACT_KEY: {
-			ArtifactKey artifactKey = (ArtifactKey) theEObject;
-			T1 result = caseArtifactKey(artifactKey);
-			if(result == null)
-				result = caseIArtifactKey(artifactKey);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.COPYRIGHT: {
-			Copyright copyright = (Copyright) theEObject;
-			T1 result = caseCopyright(copyright);
-			if(result == null)
-				result = caseICopyright(copyright);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.METADATA_REPOSITORY: {
-			MetadataRepository metadataRepository = (MetadataRepository) theEObject;
-			T1 result = caseMetadataRepository(metadataRepository);
-			if(result == null)
-				result = caseIMetadataRepository(metadataRepository);
-			if(result == null)
-				result = caseIRepository(metadataRepository);
-			if(result == null)
-				result = caseIAdaptable(metadataRepository);
-			if(result == null)
-				result = caseIQueryable(metadataRepository);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.INSTALLABLE_UNIT: {
-			InstallableUnit installableUnit = (InstallableUnit) theEObject;
-			T1 result = caseInstallableUnit(installableUnit);
-			if(result == null)
-				result = caseIInstallableUnit(installableUnit);
-			if(result == null)
-				result = caseIVersionedId(installableUnit);
-			if(result == null)
-				result = caseComparable(installableUnit);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.INSTALLABLE_UNIT_FRAGMENT: {
-			InstallableUnitFragment installableUnitFragment = (InstallableUnitFragment) theEObject;
-			T1 result = caseInstallableUnitFragment(installableUnitFragment);
-			if(result == null)
-				result = caseInstallableUnit(installableUnitFragment);
-			if(result == null)
-				result = caseIInstallableUnitFragment(installableUnitFragment);
-			if(result == null)
-				result = caseIInstallableUnit(installableUnitFragment);
-			if(result == null)
-				result = caseIVersionedId(installableUnitFragment);
-			if(result == null)
-				result = caseComparable(installableUnitFragment);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.LICENSE: {
-			License license = (License) theEObject;
-			T1 result = caseLicense(license);
-			if(result == null)
-				result = caseILicense(license);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.PROVIDED_CAPABILITY: {
-			ProvidedCapability providedCapability = (ProvidedCapability) theEObject;
-			T1 result = caseProvidedCapability(providedCapability);
-			if(result == null)
-				result = caseIProvidedCapability(providedCapability);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.REQUIRED_CAPABILITY: {
-			RequiredCapability requiredCapability = (RequiredCapability) theEObject;
-			T1 result = caseRequiredCapability(requiredCapability);
-			if(result == null)
-				result = caseRequirement(requiredCapability);
-			if(result == null)
-				result = caseIRequiredCapability(requiredCapability);
-			if(result == null)
-				result = caseIRequirement(requiredCapability);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.REQUIREMENT: {
-			Requirement requirement = (Requirement) theEObject;
-			T1 result = caseRequirement(requirement);
-			if(result == null)
-				result = caseIRequirement(requirement);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.TOUCHPOINT_DATA: {
-			TouchpointData touchpointData = (TouchpointData) theEObject;
-			T1 result = caseTouchpointData(touchpointData);
-			if(result == null)
-				result = caseITouchpointData(touchpointData);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.TOUCHPOINT_INSTRUCTION: {
-			TouchpointInstruction touchpointInstruction = (TouchpointInstruction) theEObject;
-			T1 result = caseTouchpointInstruction(touchpointInstruction);
-			if(result == null)
-				result = caseITouchpointInstruction(touchpointInstruction);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.TOUCHPOINT_TYPE: {
-			TouchpointType touchpointType = (TouchpointType) theEObject;
-			T1 result = caseTouchpointType(touchpointType);
-			if(result == null)
-				result = caseITouchpointType(touchpointType);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.UPDATE_DESCRIPTOR: {
-			UpdateDescriptor updateDescriptor = (UpdateDescriptor) theEObject;
-			T1 result = caseUpdateDescriptor(updateDescriptor);
-			if(result == null)
-				result = caseIUpdateDescriptor(updateDescriptor);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.PROPERTY: {
-			@SuppressWarnings("unchecked")
-			Map.Entry<String, String> property = (Map.Entry<String, String>) theEObject;
-			T1 result = caseProperty(property);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.INSTRUCTION_MAP: {
-			@SuppressWarnings("unchecked")
-			Map.Entry<String, ITouchpointInstruction> instructionMap = (Map.Entry<String, ITouchpointInstruction>) theEObject;
-			T1 result = caseInstructionMap(instructionMap);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2Package.REPOSITORY_REFERENCE: {
-			RepositoryReference repositoryReference = (RepositoryReference) theEObject;
-			T1 result = caseRepositoryReference(repositoryReference);
-			if(result == null)
-				result = caseIRepositoryReference(repositoryReference);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case P2Package.ARTIFACT_KEY: {
+				ArtifactKey artifactKey = (ArtifactKey) theEObject;
+				T1 result = caseArtifactKey(artifactKey);
+				if(result == null)
+					result = caseIArtifactKey(artifactKey);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.COPYRIGHT: {
+				Copyright copyright = (Copyright) theEObject;
+				T1 result = caseCopyright(copyright);
+				if(result == null)
+					result = caseICopyright(copyright);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.METADATA_REPOSITORY: {
+				MetadataRepository metadataRepository = (MetadataRepository) theEObject;
+				T1 result = caseMetadataRepository(metadataRepository);
+				if(result == null)
+					result = caseIMetadataRepository(metadataRepository);
+				if(result == null)
+					result = caseIRepository(metadataRepository);
+				if(result == null)
+					result = caseIAdaptable(metadataRepository);
+				if(result == null)
+					result = caseIQueryable(metadataRepository);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.INSTALLABLE_UNIT: {
+				InstallableUnit installableUnit = (InstallableUnit) theEObject;
+				T1 result = caseInstallableUnit(installableUnit);
+				if(result == null)
+					result = caseIInstallableUnit(installableUnit);
+				if(result == null)
+					result = caseIVersionedId(installableUnit);
+				if(result == null)
+					result = caseComparable(installableUnit);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.INSTALLABLE_UNIT_FRAGMENT: {
+				InstallableUnitFragment installableUnitFragment = (InstallableUnitFragment) theEObject;
+				T1 result = caseInstallableUnitFragment(installableUnitFragment);
+				if(result == null)
+					result = caseInstallableUnit(installableUnitFragment);
+				if(result == null)
+					result = caseIInstallableUnitFragment(installableUnitFragment);
+				if(result == null)
+					result = caseIInstallableUnit(installableUnitFragment);
+				if(result == null)
+					result = caseIVersionedId(installableUnitFragment);
+				if(result == null)
+					result = caseComparable(installableUnitFragment);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.LICENSE: {
+				License license = (License) theEObject;
+				T1 result = caseLicense(license);
+				if(result == null)
+					result = caseILicense(license);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.PROVIDED_CAPABILITY: {
+				ProvidedCapability providedCapability = (ProvidedCapability) theEObject;
+				T1 result = caseProvidedCapability(providedCapability);
+				if(result == null)
+					result = caseIProvidedCapability(providedCapability);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.REQUIRED_CAPABILITY: {
+				RequiredCapability requiredCapability = (RequiredCapability) theEObject;
+				T1 result = caseRequiredCapability(requiredCapability);
+				if(result == null)
+					result = caseRequirement(requiredCapability);
+				if(result == null)
+					result = caseIRequiredCapability(requiredCapability);
+				if(result == null)
+					result = caseIRequirement(requiredCapability);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.REQUIREMENT: {
+				Requirement requirement = (Requirement) theEObject;
+				T1 result = caseRequirement(requirement);
+				if(result == null)
+					result = caseIRequirement(requirement);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.TOUCHPOINT_DATA: {
+				TouchpointData touchpointData = (TouchpointData) theEObject;
+				T1 result = caseTouchpointData(touchpointData);
+				if(result == null)
+					result = caseITouchpointData(touchpointData);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.TOUCHPOINT_INSTRUCTION: {
+				TouchpointInstruction touchpointInstruction = (TouchpointInstruction) theEObject;
+				T1 result = caseTouchpointInstruction(touchpointInstruction);
+				if(result == null)
+					result = caseITouchpointInstruction(touchpointInstruction);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.TOUCHPOINT_TYPE: {
+				TouchpointType touchpointType = (TouchpointType) theEObject;
+				T1 result = caseTouchpointType(touchpointType);
+				if(result == null)
+					result = caseITouchpointType(touchpointType);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.UPDATE_DESCRIPTOR: {
+				UpdateDescriptor updateDescriptor = (UpdateDescriptor) theEObject;
+				T1 result = caseUpdateDescriptor(updateDescriptor);
+				if(result == null)
+					result = caseIUpdateDescriptor(updateDescriptor);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.PROPERTY: {
+				@SuppressWarnings("unchecked")
+				Map.Entry<String, String> property = (Map.Entry<String, String>) theEObject;
+				T1 result = caseProperty(property);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.INSTRUCTION_MAP: {
+				@SuppressWarnings("unchecked")
+				Map.Entry<String, ITouchpointInstruction> instructionMap = (Map.Entry<String, ITouchpointInstruction>) theEObject;
+				T1 result = caseInstructionMap(instructionMap);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.REPOSITORY_REFERENCE: {
+				RepositoryReference repositoryReference = (RepositoryReference) theEObject;
+				T1 result = caseRepositoryReference(repositoryReference);
+				if(result == null)
+					result = caseIRepositoryReference(repositoryReference);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			default:
+				return defaultCase(theEObject);
 		}
 	}
 

@@ -104,10 +104,10 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 			}
 			catch(ProvisionException e) {
 				Throwable t = e.getCause();
-				if(i > 0 && t instanceof IOException && t.getMessage() != null
-						&& t.getMessage().contains("SAX parser service")) {
-					LogUtils.warning("Error loading repository: %s Trying to recover (attempts remaining: %d)",
-							t.getMessage(), i);
+				if(i > 0 && t instanceof IOException && t.getMessage() != null &&
+						t.getMessage().contains("SAX parser service")) {
+					LogUtils.warning(
+						"Error loading repository: %s Trying to recover (attempts remaining: %d)", t.getMessage(), i);
 					try {
 						Thread.sleep(1000 * (3 - i));
 					}
@@ -117,7 +117,7 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 					continue;
 				}
 
-				throw(e);
+				throw (e);
 			}
 		}
 

@@ -121,14 +121,14 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if(baseClass == IRequiredCapability.class) {
 			switch(derivedFeatureID) {
-			case P2Package.REQUIRED_CAPABILITY__NAME:
-				return P2Package.IREQUIRED_CAPABILITY__NAME;
-			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
-				return P2Package.IREQUIRED_CAPABILITY__NAMESPACE;
-			case P2Package.REQUIRED_CAPABILITY__RANGE:
-				return P2Package.IREQUIRED_CAPABILITY__RANGE;
-			default:
-				return -1;
+				case P2Package.REQUIRED_CAPABILITY__NAME:
+					return P2Package.IREQUIRED_CAPABILITY__NAME;
+				case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
+					return P2Package.IREQUIRED_CAPABILITY__NAMESPACE;
+				case P2Package.REQUIRED_CAPABILITY__RANGE:
+					return P2Package.IREQUIRED_CAPABILITY__RANGE;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -144,14 +144,14 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if(baseClass == IRequiredCapability.class) {
 			switch(baseFeatureID) {
-			case P2Package.IREQUIRED_CAPABILITY__NAME:
-				return P2Package.REQUIRED_CAPABILITY__NAME;
-			case P2Package.IREQUIRED_CAPABILITY__NAMESPACE:
-				return P2Package.REQUIRED_CAPABILITY__NAMESPACE;
-			case P2Package.IREQUIRED_CAPABILITY__RANGE:
-				return P2Package.REQUIRED_CAPABILITY__RANGE;
-			default:
-				return -1;
+				case P2Package.IREQUIRED_CAPABILITY__NAME:
+					return P2Package.REQUIRED_CAPABILITY__NAME;
+				case P2Package.IREQUIRED_CAPABILITY__NAMESPACE:
+					return P2Package.REQUIRED_CAPABILITY__NAMESPACE;
+				case P2Package.IREQUIRED_CAPABILITY__RANGE:
+					return P2Package.REQUIRED_CAPABILITY__RANGE;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -166,12 +166,12 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.REQUIRED_CAPABILITY__NAME:
-			return getName();
-		case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
-			return getNamespace();
-		case P2Package.REQUIRED_CAPABILITY__RANGE:
-			return getRange();
+			case P2Package.REQUIRED_CAPABILITY__NAME:
+				return getName();
+			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
+				return getNamespace();
+			case P2Package.REQUIRED_CAPABILITY__RANGE:
+				return getRange();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,22 +185,23 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.REQUIRED_CAPABILITY__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
-			return NAMESPACE_EDEFAULT == null
-					? namespace != null
-					: !NAMESPACE_EDEFAULT.equals(namespace);
-		case P2Package.REQUIRED_CAPABILITY__RANGE:
-			return RANGE_EDEFAULT == null
-					? range != null
-					: !RANGE_EDEFAULT.equals(range);
+			case P2Package.REQUIRED_CAPABILITY__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
+				return NAMESPACE_EDEFAULT == null
+						? namespace != null
+						: !NAMESPACE_EDEFAULT.equals(namespace);
+			case P2Package.REQUIRED_CAPABILITY__RANGE:
+				return RANGE_EDEFAULT == null
+						? range != null
+						: !RANGE_EDEFAULT.equals(range);
 		}
 		return super.eIsSet(featureID);
 	}
 
+	@Override
 	public boolean equals(Object obj) {
 		if(this == obj)
 			return true;
@@ -237,15 +238,15 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.REQUIRED_CAPABILITY__NAME:
-			setName((String) newValue);
-			return;
-		case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
-			setNamespace((String) newValue);
-			return;
-		case P2Package.REQUIRED_CAPABILITY__RANGE:
-			setRange((VersionRange) newValue);
-			return;
+			case P2Package.REQUIRED_CAPABILITY__NAME:
+				setName((String) newValue);
+				return;
+			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
+				setNamespace((String) newValue);
+				return;
+			case P2Package.REQUIRED_CAPABILITY__RANGE:
+				setRange((VersionRange) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -259,15 +260,15 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.REQUIRED_CAPABILITY__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
-			setNamespace(NAMESPACE_EDEFAULT);
-			return;
-		case P2Package.REQUIRED_CAPABILITY__RANGE:
-			setRange(RANGE_EDEFAULT);
-			return;
+			case P2Package.REQUIRED_CAPABILITY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
+				setNamespace(NAMESPACE_EDEFAULT);
+				return;
+			case P2Package.REQUIRED_CAPABILITY__RANGE:
+				setRange(RANGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -310,6 +311,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 		return range;
 	}
 
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -374,8 +376,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 		String oldNamespace = namespace;
 		namespace = newNamespace;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__NAMESPACE,
-					oldNamespace, namespace));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.REQUIRED_CAPABILITY__NAMESPACE, oldNamespace, namespace));
 	}
 
 	/**
@@ -449,7 +451,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	synchronized private void computeMatches() {
 		if(matchesDirty) {
 			org.eclipse.equinox.internal.p2.metadata.RequiredCapability rc = new org.eclipse.equinox.internal.p2.metadata.RequiredCapability(
-					getNamespace(), getName(), getRange(), getFilter(), getMin(), getMax(), isGreedy());
+				getNamespace(), getName(), getRange(), getFilter(), getMin(), getMax(), isGreedy());
 			super.setMatches(rc.getMatches());
 		}
 

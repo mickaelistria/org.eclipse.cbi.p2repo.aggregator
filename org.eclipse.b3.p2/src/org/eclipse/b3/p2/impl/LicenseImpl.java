@@ -128,12 +128,12 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.LICENSE__LOCATION:
-			return getLocation();
-		case P2Package.LICENSE__BODY:
-			return getBody();
-		case P2Package.LICENSE__UUID:
-			return getUUID();
+			case P2Package.LICENSE__LOCATION:
+				return getLocation();
+			case P2Package.LICENSE__BODY:
+				return getBody();
+			case P2Package.LICENSE__UUID:
+				return getUUID();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,22 +147,23 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.LICENSE__LOCATION:
-			return LOCATION_EDEFAULT == null
-					? location != null
-					: !LOCATION_EDEFAULT.equals(location);
-		case P2Package.LICENSE__BODY:
-			return BODY_EDEFAULT == null
-					? body != null
-					: !BODY_EDEFAULT.equals(body);
-		case P2Package.LICENSE__UUID:
-			return UUID_EDEFAULT == null
-					? uuid != null
-					: !UUID_EDEFAULT.equals(uuid);
+			case P2Package.LICENSE__LOCATION:
+				return LOCATION_EDEFAULT == null
+						? location != null
+						: !LOCATION_EDEFAULT.equals(location);
+			case P2Package.LICENSE__BODY:
+				return BODY_EDEFAULT == null
+						? body != null
+						: !BODY_EDEFAULT.equals(body);
+			case P2Package.LICENSE__UUID:
+				return UUID_EDEFAULT == null
+						? uuid != null
+						: !UUID_EDEFAULT.equals(uuid);
 		}
 		return super.eIsSet(featureID);
 	}
 
+	@Override
 	public boolean equals(Object obj) {
 		if(obj == this)
 			return true;
@@ -185,15 +186,15 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.LICENSE__LOCATION:
-			setLocation((URI) newValue);
-			return;
-		case P2Package.LICENSE__BODY:
-			setBody((String) newValue);
-			return;
-		case P2Package.LICENSE__UUID:
-			setUUID((String) newValue);
-			return;
+			case P2Package.LICENSE__LOCATION:
+				setLocation((URI) newValue);
+				return;
+			case P2Package.LICENSE__BODY:
+				setBody((String) newValue);
+				return;
+			case P2Package.LICENSE__UUID:
+				setUUID((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -207,15 +208,15 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.LICENSE__LOCATION:
-			setLocation(LOCATION_EDEFAULT);
-			return;
-		case P2Package.LICENSE__BODY:
-			setBody(BODY_EDEFAULT);
-			return;
-		case P2Package.LICENSE__UUID:
-			setUUID(UUID_EDEFAULT);
-			return;
+			case P2Package.LICENSE__LOCATION:
+				setLocation(LOCATION_EDEFAULT);
+				return;
+			case P2Package.LICENSE__BODY:
+				setBody(BODY_EDEFAULT);
+				return;
+			case P2Package.LICENSE__UUID:
+				setUUID(UUID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -250,6 +251,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 		return uuid;
 	}
 
+	@Override
 	public int hashCode() {
 		return getUUID().hashCode();
 	}

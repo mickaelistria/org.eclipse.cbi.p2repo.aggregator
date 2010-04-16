@@ -87,7 +87,7 @@ public class P2Utils {
 
 				if(agent == null) {
 					IProvisioningAgentProvider agentProvider = B3Util.getPlugin().getService(
-							IProvisioningAgentProvider.class);
+						IProvisioningAgentProvider.class);
 					agent = agentProvider.createAgent(null);
 					B3Util.getPlugin().ungetService(agentProvider);
 				}

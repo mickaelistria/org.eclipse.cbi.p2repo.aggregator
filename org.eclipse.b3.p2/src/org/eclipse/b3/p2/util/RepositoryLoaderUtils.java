@@ -21,7 +21,7 @@ import org.eclipse.core.runtime.Platform;
 public class RepositoryLoaderUtils {
 	public static IConfigurationElement getLoaderFor(String nature) throws CoreException {
 		for(IConfigurationElement extension : Platform.getExtensionRegistry().getConfigurationElementsFor(
-				IRepositoryLoader.EXTENSION_POINT_ID)) {
+			IRepositoryLoader.EXTENSION_POINT_ID)) {
 			if(nature.equals(extension.getAttribute(IRepositoryLoader.EXTENSION_POINT_ATTRIBUTE_NATURE)))
 				return extension;
 		}

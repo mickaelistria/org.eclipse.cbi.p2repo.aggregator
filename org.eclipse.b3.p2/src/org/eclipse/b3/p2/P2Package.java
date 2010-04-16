@@ -4059,6 +4059,7 @@ public interface P2Package extends EPackage {
 	 * @return the meta object for class '<em>IInstallable Unit</em>'.
 	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnit
 	 * @model instanceClass="org.eclipse.equinox.p2.metadata.IInstallableUnit"
+	 *        
 	 *        superTypes="org.eclipse.b3.p2.IVersionedId org.eclipse.b3.p2.Comparable<org.eclipse.b3.p2.IInstallableUnit>"
 	 * @generated
 	 */

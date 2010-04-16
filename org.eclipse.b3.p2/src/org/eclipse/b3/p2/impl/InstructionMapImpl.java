@@ -116,8 +116,8 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 		ITouchpointInstruction oldValue = value;
 		value = newValue;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					P2Package.INSTRUCTION_MAP__VALUE, oldValue, newValue);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2Package.INSTRUCTION_MAP__VALUE, oldValue, newValue);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -135,12 +135,12 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.INSTRUCTION_MAP__KEY:
-			return getTypedKey();
-		case P2Package.INSTRUCTION_MAP__VALUE:
-			if(resolve)
-				return getTypedValue();
-			return basicGetTypedValue();
+			case P2Package.INSTRUCTION_MAP__KEY:
+				return getTypedKey();
+			case P2Package.INSTRUCTION_MAP__VALUE:
+				if(resolve)
+					return getTypedValue();
+				return basicGetTypedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -154,8 +154,8 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case P2Package.INSTRUCTION_MAP__VALUE:
-			return basicSetTypedValue(null, msgs);
+			case P2Package.INSTRUCTION_MAP__VALUE:
+				return basicSetTypedValue(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -169,12 +169,12 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.INSTRUCTION_MAP__KEY:
-			return KEY_EDEFAULT == null
-					? key != null
-					: !KEY_EDEFAULT.equals(key);
-		case P2Package.INSTRUCTION_MAP__VALUE:
-			return value != null;
+			case P2Package.INSTRUCTION_MAP__KEY:
+				return KEY_EDEFAULT == null
+						? key != null
+						: !KEY_EDEFAULT.equals(key);
+			case P2Package.INSTRUCTION_MAP__VALUE:
+				return value != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -188,12 +188,12 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.INSTRUCTION_MAP__KEY:
-			setTypedKey((String) newValue);
-			return;
-		case P2Package.INSTRUCTION_MAP__VALUE:
-			setTypedValue((ITouchpointInstruction) newValue);
-			return;
+			case P2Package.INSTRUCTION_MAP__KEY:
+				setTypedKey((String) newValue);
+				return;
+			case P2Package.INSTRUCTION_MAP__VALUE:
+				setTypedValue((ITouchpointInstruction) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -207,12 +207,12 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.INSTRUCTION_MAP__KEY:
-			setTypedKey(KEY_EDEFAULT);
-			return;
-		case P2Package.INSTRUCTION_MAP__VALUE:
-			setTypedValue((ITouchpointInstruction) null);
-			return;
+			case P2Package.INSTRUCTION_MAP__KEY:
+				setTypedKey(KEY_EDEFAULT);
+				return;
+			case P2Package.INSTRUCTION_MAP__VALUE:
+				setTypedValue((ITouchpointInstruction) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -279,17 +279,17 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 			value = (ITouchpointInstruction) eResolveProxy(oldValue);
 			if(value != oldValue) {
 				InternalEObject newValue = (InternalEObject) value;
-				NotificationChain msgs = oldValue.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2Package.INSTRUCTION_MAP__VALUE, null, null);
+				NotificationChain msgs = oldValue.eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2Package.INSTRUCTION_MAP__VALUE, null, null);
 				if(newValue.eInternalContainer() == null) {
-					msgs = newValue.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTRUCTION_MAP__VALUE, null,
-							msgs);
+					msgs = newValue.eInverseAdd(
+						this, EOPPOSITE_FEATURE_BASE - P2Package.INSTRUCTION_MAP__VALUE, null, msgs);
 				}
 				if(msgs != null)
 					msgs.dispatch();
 				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2Package.INSTRUCTION_MAP__VALUE,
-							oldValue, value));
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, P2Package.INSTRUCTION_MAP__VALUE, oldValue, value));
 			}
 		}
 		return value;
@@ -348,11 +348,11 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 		if(newValue != value) {
 			NotificationChain msgs = null;
 			if(value != null)
-				msgs = ((InternalEObject) value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2Package.INSTRUCTION_MAP__VALUE, null, msgs);
+				msgs = ((InternalEObject) value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2Package.INSTRUCTION_MAP__VALUE, null, msgs);
 			if(newValue != null)
-				msgs = ((InternalEObject) newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- P2Package.INSTRUCTION_MAP__VALUE, null, msgs);
+				msgs = ((InternalEObject) newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						P2Package.INSTRUCTION_MAP__VALUE, null, msgs);
 			msgs = basicSetTypedValue(newValue, msgs);
 			if(msgs != null)
 				msgs.dispatch();

@@ -133,12 +133,12 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-			return getDescription();
-		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
-			return getSeverity();
-		case P2Package.UPDATE_DESCRIPTOR__LOCATION:
-			return getLocation();
+			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+				return getDescription();
+			case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
+				return getSeverity();
+			case P2Package.UPDATE_DESCRIPTOR__LOCATION:
+				return getLocation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,16 +152,16 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null
-					? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
-			return severity != SEVERITY_EDEFAULT;
-		case P2Package.UPDATE_DESCRIPTOR__LOCATION:
-			return LOCATION_EDEFAULT == null
-					? location != null
-					: !LOCATION_EDEFAULT.equals(location);
+			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null
+						? description != null
+						: !DESCRIPTION_EDEFAULT.equals(description);
+			case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
+				return severity != SEVERITY_EDEFAULT;
+			case P2Package.UPDATE_DESCRIPTOR__LOCATION:
+				return LOCATION_EDEFAULT == null
+						? location != null
+						: !LOCATION_EDEFAULT.equals(location);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -175,15 +175,15 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
-			setSeverity((Integer) newValue);
-			return;
-		case P2Package.UPDATE_DESCRIPTOR__LOCATION:
-			setLocation((URI) newValue);
-			return;
+			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+				setDescription((String) newValue);
+				return;
+			case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
+				setSeverity((Integer) newValue);
+				return;
+			case P2Package.UPDATE_DESCRIPTOR__LOCATION:
+				setLocation((URI) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -197,15 +197,15 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
-			setSeverity(SEVERITY_EDEFAULT);
-			return;
-		case P2Package.UPDATE_DESCRIPTOR__LOCATION:
-			setLocation(LOCATION_EDEFAULT);
-			return;
+			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
+				setSeverity(SEVERITY_EDEFAULT);
+				return;
+			case P2Package.UPDATE_DESCRIPTOR__LOCATION:
+				setLocation(LOCATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -278,8 +278,8 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 		String oldDescription = description;
 		description = newDescription;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__DESCRIPTION,
-					oldDescription, description));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__DESCRIPTION, oldDescription, description));
 	}
 
 	public void setIUsBeingUpdated(Collection<IMatchExpression<IInstallableUnit>> IUsBeingUpdated) {
@@ -296,8 +296,8 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 		URI oldLocation = location;
 		location = newLocation;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__LOCATION, oldLocation,
-					location));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__LOCATION, oldLocation, location));
 	}
 
 	/**
@@ -310,8 +310,8 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 		int oldSeverity = severity;
 		severity = newSeverity;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__SEVERITY, oldSeverity,
-					severity));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__SEVERITY, oldSeverity, severity));
 	}
 
 	/**

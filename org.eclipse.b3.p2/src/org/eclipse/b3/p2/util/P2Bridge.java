@@ -78,8 +78,8 @@ public class P2Bridge {
 	public static void exportFromModel(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr, URI targetLocation,
 			IProgressMonitor monitor, boolean sortIUs) throws CoreException {
 
-		IMetadataRepository target = mdrMgr.createRepository(targetLocation, mdr.getName(), mdr.getType(),
-				mdr.getProperties());
+		IMetadataRepository target = mdrMgr.createRepository(
+			targetLocation, mdr.getName(), mdr.getType(), mdr.getProperties());
 
 		monitor = MonitorUtils.ensureNotNull(monitor);
 		IQueryResult<IInstallableUnit> result = mdr.query(QUERY_ALL_IUS, monitor);

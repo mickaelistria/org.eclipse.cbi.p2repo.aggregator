@@ -40,16 +40,16 @@ public class IUUtils {
 			char c = output[i];
 
 			switch(c) {
-			case '(':
-			case '*':
-			case ')':
-			case '\\': {
-				output[cursor] = '\\';
-				cursor++;
-				encoded = true;
+				case '(':
+				case '*':
+				case ')':
+				case '\\': {
+					output[cursor] = '\\';
+					cursor++;
+					encoded = true;
 
-				break;
-			}
+					break;
+				}
 			}
 
 			output[cursor] = c;

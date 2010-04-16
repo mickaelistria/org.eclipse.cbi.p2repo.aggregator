@@ -127,12 +127,12 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.ARTIFACT_KEY__CLASSIFIER:
-			return getClassifier();
-		case P2Package.ARTIFACT_KEY__ID:
-			return getId();
-		case P2Package.ARTIFACT_KEY__VERSION:
-			return getVersion();
+			case P2Package.ARTIFACT_KEY__CLASSIFIER:
+				return getClassifier();
+			case P2Package.ARTIFACT_KEY__ID:
+				return getId();
+			case P2Package.ARTIFACT_KEY__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,18 +146,18 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.ARTIFACT_KEY__CLASSIFIER:
-			return CLASSIFIER_EDEFAULT == null
-					? classifier != null
-					: !CLASSIFIER_EDEFAULT.equals(classifier);
-		case P2Package.ARTIFACT_KEY__ID:
-			return ID_EDEFAULT == null
-					? id != null
-					: !ID_EDEFAULT.equals(id);
-		case P2Package.ARTIFACT_KEY__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
+			case P2Package.ARTIFACT_KEY__CLASSIFIER:
+				return CLASSIFIER_EDEFAULT == null
+						? classifier != null
+						: !CLASSIFIER_EDEFAULT.equals(classifier);
+			case P2Package.ARTIFACT_KEY__ID:
+				return ID_EDEFAULT == null
+						? id != null
+						: !ID_EDEFAULT.equals(id);
+			case P2Package.ARTIFACT_KEY__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -179,15 +179,15 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.ARTIFACT_KEY__CLASSIFIER:
-			setClassifier((String) newValue);
-			return;
-		case P2Package.ARTIFACT_KEY__ID:
-			setId((String) newValue);
-			return;
-		case P2Package.ARTIFACT_KEY__VERSION:
-			setVersion((Version) newValue);
-			return;
+			case P2Package.ARTIFACT_KEY__CLASSIFIER:
+				setClassifier((String) newValue);
+				return;
+			case P2Package.ARTIFACT_KEY__ID:
+				setId((String) newValue);
+				return;
+			case P2Package.ARTIFACT_KEY__VERSION:
+				setVersion((Version) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -201,15 +201,15 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.ARTIFACT_KEY__CLASSIFIER:
-			setClassifier(CLASSIFIER_EDEFAULT);
-			return;
-		case P2Package.ARTIFACT_KEY__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case P2Package.ARTIFACT_KEY__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
+			case P2Package.ARTIFACT_KEY__CLASSIFIER:
+				setClassifier(CLASSIFIER_EDEFAULT);
+				return;
+			case P2Package.ARTIFACT_KEY__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case P2Package.ARTIFACT_KEY__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -262,8 +262,8 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 		String oldClassifier = classifier;
 		classifier = newClassifier;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.ARTIFACT_KEY__CLASSIFIER, oldClassifier,
-					classifier));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.ARTIFACT_KEY__CLASSIFIER, oldClassifier, classifier));
 	}
 
 	/**

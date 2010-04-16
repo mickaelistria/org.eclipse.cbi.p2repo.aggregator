@@ -253,44 +253,45 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch(eDataType.getClassifierID()) {
-		case P2Package.VERSION:
-			return convertVersionToString(eDataType, instanceValue);
-		case P2Package.VERSION_RANGE:
-			return convertVersionRangeToString(eDataType, instanceValue);
-		case P2Package.IINSTALLABLE_UNIT_ARRAY:
-			return convertIInstallableUnitArrayToString(eDataType, instanceValue);
-		case P2Package.COLLECTION:
-			return convertCollectionToString(eDataType, instanceValue);
-		case P2Package.IPROVIDED_CAPABILITY_ARRAY:
-			return convertIProvidedCapabilityArrayToString(eDataType, instanceValue);
-		case P2Package.IINSTALLABLE_UNIT_FRAGMENT_ARRAY:
-			return convertIInstallableUnitFragmentArrayToString(eDataType, instanceValue);
-		case P2Package.IARTIFACT_KEY_ARRAY:
-			return convertIArtifactKeyArrayToString(eDataType, instanceValue);
-		case P2Package.ITOUCHPOINT_DATA_ARRAY:
-			return convertITouchpointDataArrayToString(eDataType, instanceValue);
-		case P2Package.STRING_ARRAY:
-			return convertStringArrayToString(eDataType, instanceValue);
-		case P2Package.UNTYPED_MAP:
-			return convertUntypedMapToString(eDataType, instanceValue);
-		case P2Package.MAP:
-			return convertMapToString(eDataType, instanceValue);
-		case P2Package.ILICENSE_ARRAY:
-			return convertILicenseArrayToString(eDataType, instanceValue);
-		case P2Package.IQUERY_RESULT:
-			return convertIQueryResultToString(eDataType, instanceValue);
-		case P2Package.IRUNNABLE_WITH_PROGRESS:
-			return convertIRunnableWithProgressToString(eDataType, instanceValue);
-		case P2Package.ISTATUS:
-			return convertIStatusToString(eDataType, instanceValue);
-		case P2Package.IMATCH_EXPRESSION:
-			return convertIMatchExpressionToString(eDataType, instanceValue);
-		case P2Package.IPROVISIONING_AGENT:
-			return convertIProvisioningAgentToString(eDataType, instanceValue);
-		case P2Package.URI:
-			return convertURIToString(eDataType, instanceValue);
-		default:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+			case P2Package.VERSION:
+				return convertVersionToString(eDataType, instanceValue);
+			case P2Package.VERSION_RANGE:
+				return convertVersionRangeToString(eDataType, instanceValue);
+			case P2Package.IINSTALLABLE_UNIT_ARRAY:
+				return convertIInstallableUnitArrayToString(eDataType, instanceValue);
+			case P2Package.COLLECTION:
+				return convertCollectionToString(eDataType, instanceValue);
+			case P2Package.IPROVIDED_CAPABILITY_ARRAY:
+				return convertIProvidedCapabilityArrayToString(eDataType, instanceValue);
+			case P2Package.IINSTALLABLE_UNIT_FRAGMENT_ARRAY:
+				return convertIInstallableUnitFragmentArrayToString(eDataType, instanceValue);
+			case P2Package.IARTIFACT_KEY_ARRAY:
+				return convertIArtifactKeyArrayToString(eDataType, instanceValue);
+			case P2Package.ITOUCHPOINT_DATA_ARRAY:
+				return convertITouchpointDataArrayToString(eDataType, instanceValue);
+			case P2Package.STRING_ARRAY:
+				return convertStringArrayToString(eDataType, instanceValue);
+			case P2Package.UNTYPED_MAP:
+				return convertUntypedMapToString(eDataType, instanceValue);
+			case P2Package.MAP:
+				return convertMapToString(eDataType, instanceValue);
+			case P2Package.ILICENSE_ARRAY:
+				return convertILicenseArrayToString(eDataType, instanceValue);
+			case P2Package.IQUERY_RESULT:
+				return convertIQueryResultToString(eDataType, instanceValue);
+			case P2Package.IRUNNABLE_WITH_PROGRESS:
+				return convertIRunnableWithProgressToString(eDataType, instanceValue);
+			case P2Package.ISTATUS:
+				return convertIStatusToString(eDataType, instanceValue);
+			case P2Package.IMATCH_EXPRESSION:
+				return convertIMatchExpressionToString(eDataType, instanceValue);
+			case P2Package.IPROVISIONING_AGENT:
+				return convertIProvisioningAgentToString(eDataType, instanceValue);
+			case P2Package.URI:
+				return convertURIToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
+						"' is not a valid classifier");
 		}
 	}
 
@@ -343,40 +344,40 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch(eClass.getClassifierID()) {
-		case P2Package.ARTIFACT_KEY:
-			return (EObject) createArtifactKey();
-		case P2Package.COPYRIGHT:
-			return (EObject) createCopyright();
-		case P2Package.METADATA_REPOSITORY:
-			return (EObject) createMetadataRepository();
-		case P2Package.INSTALLABLE_UNIT:
-			return (EObject) createInstallableUnit();
-		case P2Package.INSTALLABLE_UNIT_FRAGMENT:
-			return (EObject) createInstallableUnitFragment();
-		case P2Package.LICENSE:
-			return (EObject) createLicense();
-		case P2Package.PROVIDED_CAPABILITY:
-			return (EObject) createProvidedCapability();
-		case P2Package.REQUIRED_CAPABILITY:
-			return (EObject) createRequiredCapability();
-		case P2Package.REQUIREMENT:
-			return (EObject) createRequirement();
-		case P2Package.TOUCHPOINT_DATA:
-			return (EObject) createTouchpointData();
-		case P2Package.TOUCHPOINT_INSTRUCTION:
-			return (EObject) createTouchpointInstruction();
-		case P2Package.TOUCHPOINT_TYPE:
-			return (EObject) createTouchpointType();
-		case P2Package.UPDATE_DESCRIPTOR:
-			return (EObject) createUpdateDescriptor();
-		case P2Package.PROPERTY:
-			return (EObject) createProperty();
-		case P2Package.INSTRUCTION_MAP:
-			return (EObject) createInstructionMap();
-		case P2Package.REPOSITORY_REFERENCE:
-			return (EObject) createRepositoryReference();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case P2Package.ARTIFACT_KEY:
+				return (EObject) createArtifactKey();
+			case P2Package.COPYRIGHT:
+				return (EObject) createCopyright();
+			case P2Package.METADATA_REPOSITORY:
+				return (EObject) createMetadataRepository();
+			case P2Package.INSTALLABLE_UNIT:
+				return (EObject) createInstallableUnit();
+			case P2Package.INSTALLABLE_UNIT_FRAGMENT:
+				return (EObject) createInstallableUnitFragment();
+			case P2Package.LICENSE:
+				return (EObject) createLicense();
+			case P2Package.PROVIDED_CAPABILITY:
+				return (EObject) createProvidedCapability();
+			case P2Package.REQUIRED_CAPABILITY:
+				return (EObject) createRequiredCapability();
+			case P2Package.REQUIREMENT:
+				return (EObject) createRequirement();
+			case P2Package.TOUCHPOINT_DATA:
+				return (EObject) createTouchpointData();
+			case P2Package.TOUCHPOINT_INSTRUCTION:
+				return (EObject) createTouchpointInstruction();
+			case P2Package.TOUCHPOINT_TYPE:
+				return (EObject) createTouchpointType();
+			case P2Package.UPDATE_DESCRIPTOR:
+				return (EObject) createUpdateDescriptor();
+			case P2Package.PROPERTY:
+				return (EObject) createProperty();
+			case P2Package.INSTRUCTION_MAP:
+				return (EObject) createInstructionMap();
+			case P2Package.REPOSITORY_REFERENCE:
+				return (EObject) createRepositoryReference();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -421,44 +422,45 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch(eDataType.getClassifierID()) {
-		case P2Package.VERSION:
-			return createVersionFromString(eDataType, initialValue);
-		case P2Package.VERSION_RANGE:
-			return createVersionRangeFromString(eDataType, initialValue);
-		case P2Package.IINSTALLABLE_UNIT_ARRAY:
-			return createIInstallableUnitArrayFromString(eDataType, initialValue);
-		case P2Package.COLLECTION:
-			return createCollectionFromString(eDataType, initialValue);
-		case P2Package.IPROVIDED_CAPABILITY_ARRAY:
-			return createIProvidedCapabilityArrayFromString(eDataType, initialValue);
-		case P2Package.IINSTALLABLE_UNIT_FRAGMENT_ARRAY:
-			return createIInstallableUnitFragmentArrayFromString(eDataType, initialValue);
-		case P2Package.IARTIFACT_KEY_ARRAY:
-			return createIArtifactKeyArrayFromString(eDataType, initialValue);
-		case P2Package.ITOUCHPOINT_DATA_ARRAY:
-			return createITouchpointDataArrayFromString(eDataType, initialValue);
-		case P2Package.STRING_ARRAY:
-			return createStringArrayFromString(eDataType, initialValue);
-		case P2Package.UNTYPED_MAP:
-			return createUntypedMapFromString(eDataType, initialValue);
-		case P2Package.MAP:
-			return createMapFromString(eDataType, initialValue);
-		case P2Package.ILICENSE_ARRAY:
-			return createILicenseArrayFromString(eDataType, initialValue);
-		case P2Package.IQUERY_RESULT:
-			return createIQueryResultFromString(eDataType, initialValue);
-		case P2Package.IRUNNABLE_WITH_PROGRESS:
-			return createIRunnableWithProgressFromString(eDataType, initialValue);
-		case P2Package.ISTATUS:
-			return createIStatusFromString(eDataType, initialValue);
-		case P2Package.IMATCH_EXPRESSION:
-			return createIMatchExpressionFromString(eDataType, initialValue);
-		case P2Package.IPROVISIONING_AGENT:
-			return createIProvisioningAgentFromString(eDataType, initialValue);
-		case P2Package.URI:
-			return createURIFromString(eDataType, initialValue);
-		default:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+			case P2Package.VERSION:
+				return createVersionFromString(eDataType, initialValue);
+			case P2Package.VERSION_RANGE:
+				return createVersionRangeFromString(eDataType, initialValue);
+			case P2Package.IINSTALLABLE_UNIT_ARRAY:
+				return createIInstallableUnitArrayFromString(eDataType, initialValue);
+			case P2Package.COLLECTION:
+				return createCollectionFromString(eDataType, initialValue);
+			case P2Package.IPROVIDED_CAPABILITY_ARRAY:
+				return createIProvidedCapabilityArrayFromString(eDataType, initialValue);
+			case P2Package.IINSTALLABLE_UNIT_FRAGMENT_ARRAY:
+				return createIInstallableUnitFragmentArrayFromString(eDataType, initialValue);
+			case P2Package.IARTIFACT_KEY_ARRAY:
+				return createIArtifactKeyArrayFromString(eDataType, initialValue);
+			case P2Package.ITOUCHPOINT_DATA_ARRAY:
+				return createITouchpointDataArrayFromString(eDataType, initialValue);
+			case P2Package.STRING_ARRAY:
+				return createStringArrayFromString(eDataType, initialValue);
+			case P2Package.UNTYPED_MAP:
+				return createUntypedMapFromString(eDataType, initialValue);
+			case P2Package.MAP:
+				return createMapFromString(eDataType, initialValue);
+			case P2Package.ILICENSE_ARRAY:
+				return createILicenseArrayFromString(eDataType, initialValue);
+			case P2Package.IQUERY_RESULT:
+				return createIQueryResultFromString(eDataType, initialValue);
+			case P2Package.IRUNNABLE_WITH_PROGRESS:
+				return createIRunnableWithProgressFromString(eDataType, initialValue);
+			case P2Package.ISTATUS:
+				return createIStatusFromString(eDataType, initialValue);
+			case P2Package.IMATCH_EXPRESSION:
+				return createIMatchExpressionFromString(eDataType, initialValue);
+			case P2Package.IPROVISIONING_AGENT:
+				return createIProvisioningAgentFromString(eDataType, initialValue);
+			case P2Package.URI:
+				return createURIFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
+						"' is not a valid classifier");
 		}
 	}
 

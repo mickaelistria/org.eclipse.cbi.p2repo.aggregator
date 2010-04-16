@@ -104,10 +104,10 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.TOUCHPOINT_TYPE__ID:
-			return getId();
-		case P2Package.TOUCHPOINT_TYPE__VERSION:
-			return getVersion();
+			case P2Package.TOUCHPOINT_TYPE__ID:
+				return getId();
+			case P2Package.TOUCHPOINT_TYPE__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -121,18 +121,19 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.TOUCHPOINT_TYPE__ID:
-			return ID_EDEFAULT == null
-					? id != null
-					: !ID_EDEFAULT.equals(id);
-		case P2Package.TOUCHPOINT_TYPE__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
+			case P2Package.TOUCHPOINT_TYPE__ID:
+				return ID_EDEFAULT == null
+						? id != null
+						: !ID_EDEFAULT.equals(id);
+			case P2Package.TOUCHPOINT_TYPE__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
 
+	@Override
 	public boolean equals(Object obj) {
 		if(this == obj)
 			return true;
@@ -153,12 +154,12 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.TOUCHPOINT_TYPE__ID:
-			setId((String) newValue);
-			return;
-		case P2Package.TOUCHPOINT_TYPE__VERSION:
-			setVersion((Version) newValue);
-			return;
+			case P2Package.TOUCHPOINT_TYPE__ID:
+				setId((String) newValue);
+				return;
+			case P2Package.TOUCHPOINT_TYPE__VERSION:
+				setVersion((Version) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -172,12 +173,12 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.TOUCHPOINT_TYPE__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case P2Package.TOUCHPOINT_TYPE__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
+			case P2Package.TOUCHPOINT_TYPE__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case P2Package.TOUCHPOINT_TYPE__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -202,6 +203,7 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 		return version;
 	}
 
+	@Override
 	public int hashCode() {
 		return 31 * id.hashCode() + version.hashCode();
 	}
@@ -229,8 +231,8 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 		Version oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.TOUCHPOINT_TYPE__VERSION, oldVersion,
-					version));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2Package.TOUCHPOINT_TYPE__VERSION, oldVersion, version));
 	}
 
 	/**
