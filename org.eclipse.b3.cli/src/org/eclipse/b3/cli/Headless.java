@@ -102,8 +102,8 @@ public class Headless implements IApplication {
 								int end = 0;
 								while(end != BreakIterator.DONE) {
 									end = breaker.next();
-									if(end == BreakIterator.DONE
-											|| (end - start - (Character.isWhitespace(helpLine.charAt(end - 1))
+									if(end == BreakIterator.DONE ||
+											(end - start - (Character.isWhitespace(helpLine.charAt(end - 1))
 													? 1
 													: 0)) > CONSOLE_WIDTH) {
 										output.print(StringUtils.trimRight(helpLine.substring(start, endOk)));

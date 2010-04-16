@@ -32,14 +32,14 @@ public class ScriptLineParser implements Iterator<String> {
 
 	private static char getEscapedChar(char escaped) {
 		switch(escaped) {
-		case 't':
-			return '\t';
-		case 'n':
-			return '\n';
-		case 'r':
-			return '\r';
-		default:
-			return escaped;
+			case 't':
+				return '\t';
+			case 'n':
+				return '\n';
+			case 'r':
+				return '\r';
+			default:
+				return escaped;
 		}
 	}
 
@@ -184,28 +184,28 @@ public class ScriptLineParser implements Iterator<String> {
 		while(pos < top) {
 			char c = line.charAt(pos);
 			switch(c) {
-			case '\'':
-				// Find matching end quote. No expansion is performed
-				//
-				++pos;
-				outerBld.append(getQuoted('\''));
-				continue;
-			case '"':
-				// Find matching end quote and perform expansion
-				//
-				++pos;
-				getExpanded(outerBld, getQuoted('"'));
-				continue;
-
-			default:
-				if(Character.isWhitespace(c)) {
+				case '\'':
+					// Find matching end quote. No expansion is performed
+					//
 					++pos;
-					while(pos < top && Character.isWhitespace(line.charAt(pos)))
+					outerBld.append(getQuoted('\''));
+					continue;
+				case '"':
+					// Find matching end quote and perform expansion
+					//
+					++pos;
+					getExpanded(outerBld, getQuoted('"'));
+					continue;
+
+				default:
+					if(Character.isWhitespace(c)) {
 						++pos;
-					break;
-				}
-				getExpanded(outerBld, getSpaceDelimited());
-				continue;
+						while(pos < top && Character.isWhitespace(line.charAt(pos)))
+							++pos;
+						break;
+					}
+					getExpanded(outerBld, getSpaceDelimited());
+					continue;
 			}
 			break;
 		}

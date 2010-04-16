@@ -43,14 +43,14 @@ public class RunScript extends AbstractCommand {
 	@Override
 	public InputStream getHelpStream() {
 		return new ByteArrayInputStream(
-				("Commands defined in the script file are launched sequentially. Following rules apply:\n"
-						+ "- command is defined on a single line" //
-						+ "- parameters may be enclosed in quotes or double quotes" //
-						+ "- parameters may contain variables ${var}, $var or $env:var, ${env.var}" //
-						+ "- variables are expanded only if parameters are double quoted" //
-						+ "- parameters may contain escaped characters" //
-						+ "- \\t, \\r and \\n are replaced with tab, return or new line" //
-						+ "- empty lines and lines beginning with '#' are comments").getBytes());
+			("Commands defined in the script file are launched sequentially. Following rules apply:\n"
+					+ "- command is defined on a single line" //
+					+ "- parameters may be enclosed in quotes or double quotes" //
+					+ "- parameters may contain variables ${var}, $var or $env:var, ${env.var}" //
+					+ "- variables are expanded only if parameters are double quoted" //
+					+ "- parameters may contain escaped characters" //
+					+ "- \\t, \\r and \\n are replaced with tab, return or new line" //
+					+ "- empty lines and lines beginning with '#' are comments").getBytes());
 	}
 
 	@Override
