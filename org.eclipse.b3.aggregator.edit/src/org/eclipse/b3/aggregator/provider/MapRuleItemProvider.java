@@ -97,23 +97,23 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 			return;
 		MapRule notifier = ((MapRule) notification.getNotifier());
 		switch(notification.getFeatureID(ExclusionRule.class)) {
-		case AggregatorPackage.EXCLUSION_RULE__NAME:
-		case AggregatorPackage.EXCLUSION_RULE__VERSION_RANGE:
-			fireNotifyChanged(new ViewerNotification(notification, notifier, true, false));
+			case AggregatorPackage.EXCLUSION_RULE__NAME:
+			case AggregatorPackage.EXCLUSION_RULE__VERSION_RANGE:
+				fireNotifyChanged(new ViewerNotification(notification, notifier, true, false));
 
-			Set<Object> affectedNodes = new HashSet<Object>();
-			affectedNodes.add(notifier);
+				Set<Object> affectedNodes = new HashSet<Object>();
+				affectedNodes.add(notifier);
 
-			// Go through all direct ancestors first
-			EObject container = ((EObject) notifier).eContainer();
-			affectedNodes.add(((EObject) notifier).eResource());
-			while(container != null) {
-				affectedNodes.add(container);
-				container = container.eContainer();
-			}
-			for(Object affectedNode : affectedNodes)
-				fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
-			return;
+				// Go through all direct ancestors first
+				EObject container = ((EObject) notifier).eContainer();
+				affectedNodes.add(((EObject) notifier).eResource());
+				while(container != null) {
+					affectedNodes.add(container);
+					container = container.eContainer();
+				}
+				for(Object affectedNode : affectedNodes)
+					fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
+				return;
 		}
 	}
 
@@ -152,7 +152,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 
 	@Override
 	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
-		return QueryUtil.createCompoundQuery(SpecialQueries.createProductQuery(), SpecialQueries.createFeatureQuery(),
-				false);
+		return QueryUtil.createCompoundQuery(
+			SpecialQueries.createProductQuery(), SpecialQueries.createFeatureQuery(), false);
 	}
 }

@@ -148,10 +148,12 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	protected void addRequirementsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Requirements_requirements_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Requirements_requirements_feature", "_UI_Requirements_type"),
-				P2viewPackage.Literals.REQUIREMENTS__REQUIREMENTS, false, false, true, null, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_Requirements_requirements_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_Requirements_requirements_feature", "_UI_Requirements_type"),
+			P2viewPackage.Literals.REQUIREMENTS__REQUIREMENTS, false, false, true, null, null, null));
 	}
 
 	/**

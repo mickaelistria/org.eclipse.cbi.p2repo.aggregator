@@ -122,12 +122,12 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(ProvidedCapabilityWrapper.class)) {
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -140,11 +140,11 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_LabelProvider_label_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_LabelProvider_label_feature", "_UI_LabelProvider_type"),
-				AggregatorPackage.Literals.LABEL_PROVIDER__LABEL, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_LabelProvider_label_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_LabelProvider_label_feature", "_UI_LabelProvider_type"),
+			AggregatorPackage.Literals.LABEL_PROVIDER__LABEL, false, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -155,11 +155,11 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IProvidedCapability_name_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IProvidedCapability_name_feature", "_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_IProvidedCapability_name_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_name_feature",
+				"_UI_IProvidedCapability_type"), P2Package.Literals.IPROVIDED_CAPABILITY__NAME, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -170,11 +170,11 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	 */
 	protected void addNamespacePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IProvidedCapability_namespace_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IProvidedCapability_namespace_feature", "_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__NAMESPACE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_IProvidedCapability_namespace_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_namespace_feature",
+				"_UI_IProvidedCapability_type"), P2Package.Literals.IPROVIDED_CAPABILITY__NAMESPACE, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -185,11 +185,11 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IProvidedCapability_version_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IProvidedCapability_version_feature", "_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__VERSION, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_IProvidedCapability_version_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_version_feature",
+				"_UI_IProvidedCapability_type"), P2Package.Literals.IPROVIDED_CAPABILITY__VERSION, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

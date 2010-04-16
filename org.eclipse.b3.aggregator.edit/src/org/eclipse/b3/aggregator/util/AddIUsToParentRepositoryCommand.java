@@ -80,10 +80,10 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 				MapRule rule = ItemUtils.findMapRule(repo, iu);
 
 				if(rule == null) {
-					rule = AggregatorFactory.eINSTANCE.createMapRule(iu,
-							(operation & AggregatorEditPlugin.ADD_EXCLUSION_RULE) > 0
-									? ExclusionRule.class
-									: ValidConfigurationsRule.class);
+					rule = AggregatorFactory.eINSTANCE.createMapRule(
+						iu, (operation & AggregatorEditPlugin.ADD_EXCLUSION_RULE) > 0
+								? ExclusionRule.class
+								: ValidConfigurationsRule.class);
 					repo.getMapRules().add(rule);
 
 					List<MapRule> rules = rulesAddedToMappedRepo.get(repo);

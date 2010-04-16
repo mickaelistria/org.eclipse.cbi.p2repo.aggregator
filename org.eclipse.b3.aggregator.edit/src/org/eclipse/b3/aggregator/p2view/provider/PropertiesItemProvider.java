@@ -139,10 +139,10 @@ public class PropertiesItemProvider extends AggregatorItemProviderAdapter implem
 	 */
 	protected void addPropertyListPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Properties_propertyList_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Properties_propertyList_feature", "_UI_Properties_type"),
-				P2viewPackage.Literals.PROPERTIES__PROPERTY_LIST, false, false, true, null, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_Properties_propertyList_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_Properties_propertyList_feature", "_UI_Properties_type"),
+			P2viewPackage.Literals.PROPERTIES__PROPERTY_LIST, false, false, true, null, null, null));
 	}
 
 	/**

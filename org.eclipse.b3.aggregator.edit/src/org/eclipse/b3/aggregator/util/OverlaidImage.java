@@ -33,6 +33,7 @@ public class OverlaidImage extends ComposedImage {
 		this.positions = positions;
 	}
 
+	@Override
 	public List<Point> getDrawPoints(Size size) {
 		List<Point> results = new ArrayList<Point>();
 
@@ -42,25 +43,25 @@ public class OverlaidImage extends ComposedImage {
 
 			if(i < positions.length)
 				switch(positions[i]) {
-				case OVERLAY_TOP_RIGHT:
-					point.x = size.width - imageSize.width;
-					point.y = 0;
-					break;
-				case OVERLAY_BOTTOM_LEFT:
-					point.x = 0;
-					point.y = size.height - imageSize.height;
-					break;
-				case OVERLAY_BOTTOM_RIGHT:
-					point.x = size.width - imageSize.width;
-					point.y = size.height - imageSize.height;
-					break;
-				case OVERLAY_CENTER:
-					point.x = (size.width - imageSize.width) / 2;
-					point.y = (size.height - imageSize.height) / 2;
-					break;
-				default:
-					point.x = 0;
-					point.y = 0;
+					case OVERLAY_TOP_RIGHT:
+						point.x = size.width - imageSize.width;
+						point.y = 0;
+						break;
+					case OVERLAY_BOTTOM_LEFT:
+						point.x = 0;
+						point.y = size.height - imageSize.height;
+						break;
+					case OVERLAY_BOTTOM_RIGHT:
+						point.x = size.width - imageSize.width;
+						point.y = size.height - imageSize.height;
+						break;
+					case OVERLAY_CENTER:
+						point.x = (size.width - imageSize.width) / 2;
+						point.y = (size.height - imageSize.height) / 2;
+						break;
+					default:
+						point.x = 0;
+						point.y = 0;
 				}
 
 			results.add(point);

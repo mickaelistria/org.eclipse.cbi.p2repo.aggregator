@@ -115,9 +115,9 @@ public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapt
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(DescriptionProvider.class)) {
-		case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -130,11 +130,11 @@ public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapt
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_DescriptionProvider_description_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
-						"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
-				true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_DescriptionProvider_description_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+				"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true,
+			true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

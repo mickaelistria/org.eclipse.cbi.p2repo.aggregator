@@ -57,9 +57,9 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/Category" + (!((Category) object).isBranchDisabledOrMappedRepositoryBroken()
-						? ""
-						: "Disabled")));
+			"full/obj16/Category" + (!((Category) object).isBranchDisabledOrMappedRepositoryBroken()
+					? ""
+					: "Disabled")));
 	}
 
 	/**
@@ -115,9 +115,9 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(Category.class)) {
-		case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -130,11 +130,11 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	 */
 	protected void addLabelOverridePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Category_labelOverride_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Category_labelOverride_feature", "_UI_Category_type"),
-				AggregatorPackage.Literals.CATEGORY__LABEL_OVERRIDE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_Category_labelOverride_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_Category_labelOverride_feature", "_UI_Category_type"),
+			AggregatorPackage.Literals.CATEGORY__LABEL_OVERRIDE, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

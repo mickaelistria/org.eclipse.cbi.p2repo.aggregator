@@ -73,7 +73,7 @@ public class SortCommand<T> extends AbstractCommand {
 		this.itemTemplate = itemTemplate;
 
 		labelProvider = (IItemLabelProvider) ((AdapterFactoryEditingDomain) editingDomain).getAdapterFactory().adapt(
-				itemTemplate, IItemLabelProvider.class);
+			itemTemplate, IItemLabelProvider.class);
 
 		if(labelProvider == null)
 			throw new IllegalArgumentException(itemTemplate.getClass() + " does not provide label");

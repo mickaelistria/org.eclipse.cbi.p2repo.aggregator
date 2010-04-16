@@ -22,8 +22,9 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 				boolean multiLine, boolean sortChoices, Object staticImage, String category, String[] filterFlags)
 
 		{
-			super(adapterFactory, resourceLocator, displayName, description, feature, isSettable, multiLine,
-					sortChoices, staticImage, category, filterFlags);
+			super(
+				adapterFactory, resourceLocator, displayName, description, feature, isSettable, multiLine, sortChoices,
+				staticImage, category, filterFlags);
 		}
 
 		@Override
@@ -33,9 +34,9 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 			if(result)
 				if(parentsEnabled(object)) {
 					if(object instanceof EnabledStatusProvider)
-						result = ((EnabledStatusProvider) object).isEnabled()
-								|| AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED.getName().equals(
-										getId(object));
+						result = ((EnabledStatusProvider) object).isEnabled() ||
+								AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED.getName().equals(
+									getId(object));
 				}
 				else
 					result = false;
@@ -121,8 +122,9 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 			ResourceLocator resourceLocator, String displayName, String description, EStructuralFeature feature,
 			boolean isSettable, boolean multiLine, boolean sortChoices, Object staticImage, String category,
 			String[] filterFlags) {
-		return new AggregatorItemPropertyDescriptor(adapterFactory, resourceLocator, displayName, description, feature,
-				isSettable, multiLine, sortChoices, staticImage, category, filterFlags);
+		return new AggregatorItemPropertyDescriptor(
+			adapterFactory, resourceLocator, displayName, description, feature, isSettable, multiLine, sortChoices,
+			staticImage, category, filterFlags);
 	}
 
 	@Override

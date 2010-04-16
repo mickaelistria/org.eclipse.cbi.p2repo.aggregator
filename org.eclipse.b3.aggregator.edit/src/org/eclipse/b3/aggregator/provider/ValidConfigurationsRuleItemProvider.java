@@ -55,10 +55,10 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/ValidConfigurationsRule"
-						+ (!((ValidConfigurationsRule) object).isBranchDisabledOrMappedRepositoryBroken()
-								? ""
-								: "Disabled")));
+			"full/obj16/ValidConfigurationsRule" +
+					(!((ValidConfigurationsRule) object).isBranchDisabledOrMappedRepositoryBroken()
+							? ""
+							: "Disabled")));
 	}
 
 	/**
@@ -115,9 +115,9 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(ValidConfigurationsRule.class)) {
-		case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -130,12 +130,12 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	 */
 	protected void addValidConfigurationsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ValidConfigurationsRule_validConfigurations_feature"), getString(
-						"_UI_PropertyDescriptor_description",
-						"_UI_ValidConfigurationsRule_validConfigurations_feature", "_UI_ValidConfigurationsRule_type"),
-				AggregatorPackage.Literals.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS, true, false, true, null,
-				null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_ValidConfigurationsRule_validConfigurations_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_ValidConfigurationsRule_validConfigurations_feature",
+				"_UI_ValidConfigurationsRule_type"),
+			AggregatorPackage.Literals.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS, true, false, true, null, null,
+			null));
 	}
 
 	/**

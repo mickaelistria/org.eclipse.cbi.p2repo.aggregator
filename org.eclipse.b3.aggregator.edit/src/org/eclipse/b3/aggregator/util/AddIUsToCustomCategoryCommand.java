@@ -43,8 +43,8 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 	private Map<MappedRepository, List<MappedUnit>> unitsAddedToMappedRepo = new HashMap<MappedRepository, List<MappedUnit>>();
 
 	public AddIUsToCustomCategoryCommand(CustomCategory category, List<IInstallableUnit> selectedFeatures) {
-		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Add_to_command_prefix") + " "
-				+ ((category.getLabel() == null || category.getLabel().length() == 0)
+		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Add_to_command_prefix") + " " +
+				((category.getLabel() == null || category.getLabel().length() == 0)
 						? AggregatorEditPlugin.INSTANCE.getString("_UI_Category_type") + " ''"
 						: AggregatorEditPlugin.INSTANCE.getString("_UI_Category_type") + " " + category.getLabel()));
 

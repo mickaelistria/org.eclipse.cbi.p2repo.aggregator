@@ -138,9 +138,9 @@ public class AvailableVersionsHeaderItemProvider extends AggregatorItemProviderA
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(AvailableVersionsHeader.class)) {
-		case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}

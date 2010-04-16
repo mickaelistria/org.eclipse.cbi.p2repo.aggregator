@@ -144,14 +144,14 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(CustomCategory.class)) {
-		case AggregatorPackage.CUSTOM_CATEGORY__IDENTIFIER:
-		case AggregatorPackage.CUSTOM_CATEGORY__LABEL:
-		case AggregatorPackage.CUSTOM_CATEGORY__DESCRIPTION:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		case AggregatorPackage.CUSTOM_CATEGORY__FEATURES:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case AggregatorPackage.CUSTOM_CATEGORY__IDENTIFIER:
+			case AggregatorPackage.CUSTOM_CATEGORY__LABEL:
+			case AggregatorPackage.CUSTOM_CATEGORY__DESCRIPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case AggregatorPackage.CUSTOM_CATEGORY__FEATURES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -164,11 +164,11 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_CustomCategory_description_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_CustomCategory_description_feature", "_UI_CustomCategory_type"),
-				AggregatorPackage.Literals.CUSTOM_CATEGORY__DESCRIPTION, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_CustomCategory_description_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_CustomCategory_description_feature",
+				"_UI_CustomCategory_type"), AggregatorPackage.Literals.CUSTOM_CATEGORY__DESCRIPTION, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -179,10 +179,12 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	protected void addFeaturesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_CustomCategory_features_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_CustomCategory_features_feature", "_UI_CustomCategory_type"),
-				AggregatorPackage.Literals.CUSTOM_CATEGORY__FEATURES, true, false, true, null, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_CustomCategory_features_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_CustomCategory_features_feature", "_UI_CustomCategory_type"),
+			AggregatorPackage.Literals.CUSTOM_CATEGORY__FEATURES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -193,11 +195,11 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	protected void addIdentifierPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_CustomCategory_identifier_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_CustomCategory_identifier_feature", "_UI_CustomCategory_type"),
-				AggregatorPackage.Literals.CUSTOM_CATEGORY__IDENTIFIER, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_CustomCategory_identifier_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_CustomCategory_identifier_feature",
+				"_UI_CustomCategory_type"), AggregatorPackage.Literals.CUSTOM_CATEGORY__IDENTIFIER, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -208,11 +210,11 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_CustomCategory_label_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_CustomCategory_label_feature", "_UI_CustomCategory_type"),
-				AggregatorPackage.Literals.CUSTOM_CATEGORY__LABEL, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_CustomCategory_label_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_CustomCategory_label_feature", "_UI_CustomCategory_type"),
+			AggregatorPackage.Literals.CUSTOM_CATEGORY__LABEL, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -249,8 +251,8 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	@Override
 	protected Command factorAddCommand(EditingDomain domain, CommandParameter commandParameter) {
-		Command command = createAddIUsToCustomCategoryCommand(commandParameter.getOwner(),
-				commandParameter.getCollection());
+		Command command = createAddIUsToCustomCategoryCommand(
+			commandParameter.getOwner(), commandParameter.getCollection());
 
 		if(command != null)
 			return command;
@@ -284,9 +286,9 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	private Command createAddIUsToCustomCategoryCommand(Object owner, Collection<?> collection) {
 		ItemSorter itemSorter = new ItemSorter(collection);
 
-		if(itemSorter.getTotalItemCount() > 0
-				&& (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
-						ItemGroup.FEATURE_STRUCTURED).size()))) {
+		if(itemSorter.getTotalItemCount() > 0 &&
+				(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
+					ItemGroup.FEATURE_STRUCTURED).size()))) {
 			List<IInstallableUnit> features = new ArrayList<IInstallableUnit>();
 			features.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.FEATURE));
 			features.addAll(ItemUtils.getIUs((List<org.eclipse.b3.aggregator.p2view.Feature>) itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED)));

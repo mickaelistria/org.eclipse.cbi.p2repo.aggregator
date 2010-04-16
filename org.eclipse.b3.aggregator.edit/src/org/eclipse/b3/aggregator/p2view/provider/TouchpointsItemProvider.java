@@ -141,11 +141,11 @@ public class TouchpointsItemProvider extends AggregatorItemProviderAdapter imple
 	 */
 	protected void addTouchpointDataListPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Touchpoints_touchpointDataList_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_Touchpoints_touchpointDataList_feature",
-						"_UI_Touchpoints_type"), P2viewPackage.Literals.TOUCHPOINTS__TOUCHPOINT_DATA_LIST, false,
-				false, true, null, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_Touchpoints_touchpointDataList_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_Touchpoints_touchpointDataList_feature",
+				"_UI_Touchpoints_type"), P2viewPackage.Literals.TOUCHPOINTS__TOUCHPOINT_DATA_LIST, false, false, true,
+			null, null, null));
 	}
 
 	/**
@@ -156,10 +156,12 @@ public class TouchpointsItemProvider extends AggregatorItemProviderAdapter imple
 	 */
 	protected void addTouchpointTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Touchpoints_touchpointType_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Touchpoints_touchpointType_feature", "_UI_Touchpoints_type"),
-				P2viewPackage.Literals.TOUCHPOINTS__TOUCHPOINT_TYPE, false, false, true, null, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_Touchpoints_touchpointType_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_Touchpoints_touchpointType_feature", "_UI_Touchpoints_type"),
+			P2viewPackage.Literals.TOUCHPOINTS__TOUCHPOINT_TYPE, false, false, true, null, null, null));
 	}
 
 	/**

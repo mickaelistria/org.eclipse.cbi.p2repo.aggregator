@@ -147,10 +147,10 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 */
 	protected void addLicensesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Licenses_licenses_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Licenses_licenses_feature", "_UI_Licenses_type"),
-				P2viewPackage.Literals.LICENSES__LICENSES, false, false, true, null, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_Licenses_licenses_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_Licenses_licenses_feature", "_UI_Licenses_type"),
+			P2viewPackage.Literals.LICENSES__LICENSES, false, false, true, null, null, null));
 	}
 
 	/**

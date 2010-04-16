@@ -53,9 +53,9 @@ public class ProductItemProvider extends MappedUnitItemProvider implements IEdit
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/Product" + (!((Product) object).isBranchDisabledOrMappedRepositoryBroken()
-						? ""
-						: "Disabled")));
+			"full/obj16/Product" + (!((Product) object).isBranchDisabledOrMappedRepositoryBroken()
+					? ""
+					: "Disabled")));
 	}
 
 	/**

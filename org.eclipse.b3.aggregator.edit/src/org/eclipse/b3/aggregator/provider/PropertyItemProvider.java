@@ -107,10 +107,10 @@ public class PropertyItemProvider extends AggregatorItemProviderAdapter implemen
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(Property.class)) {
-		case AggregatorPackage.PROPERTY__KEY:
-		case AggregatorPackage.PROPERTY__VALUE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case AggregatorPackage.PROPERTY__KEY:
+			case AggregatorPackage.PROPERTY__VALUE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -123,10 +123,11 @@ public class PropertyItemProvider extends AggregatorItemProviderAdapter implemen
 	 */
 	protected void addKeyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Property_key_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Property_key_feature", "_UI_Property_type"), AggregatorPackage.Literals.PROPERTY__KEY,
-				false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_Property_key_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_Property_key_feature", "_UI_Property_type"),
+			AggregatorPackage.Literals.PROPERTY__KEY, false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			null, null));
 	}
 
 	/**
@@ -137,10 +138,11 @@ public class PropertyItemProvider extends AggregatorItemProviderAdapter implemen
 	 */
 	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Property_value_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Property_value_feature", "_UI_Property_type"), AggregatorPackage.Literals.PROPERTY__VALUE,
-				false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_Property_value_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_Property_value_feature", "_UI_Property_type"),
+			AggregatorPackage.Literals.PROPERTY__VALUE, false, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

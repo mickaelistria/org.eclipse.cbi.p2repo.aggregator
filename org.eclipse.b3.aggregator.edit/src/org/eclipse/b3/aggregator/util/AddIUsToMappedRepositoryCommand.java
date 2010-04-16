@@ -44,8 +44,8 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 
 	public AddIUsToMappedRepositoryCommand(MappedRepository mappedRepo, List<IInstallableUnit> selectedIUs,
 			int operation) {
-		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Map_to_command_prefix") + " "
-				+ AggregatorEditPlugin.INSTANCE.getString("_UI_MappedRepository_type") + " " + mappedRepo.getLocation());
+		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Map_to_command_prefix") + " " +
+				AggregatorEditPlugin.INSTANCE.getString("_UI_MappedRepository_type") + " " + mappedRepo.getLocation());
 
 		this.mappedRepo = mappedRepo;
 		this.selectedIUs = selectedIUs;
@@ -64,10 +64,10 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 			}
 		else if((operation & (AggregatorEditPlugin.ADD_EXCLUSION_RULE | AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) > 0)
 			for(IInstallableUnit iu : selectedIUs) {
-				MapRule newMR = ItemUtils.addMapRule(mappedRepo, iu,
-						(operation & AggregatorEditPlugin.ADD_EXCLUSION_RULE) > 0
-								? ExclusionRule.class
-								: ValidConfigurationsRule.class);
+				MapRule newMR = ItemUtils.addMapRule(
+					mappedRepo, iu, (operation & AggregatorEditPlugin.ADD_EXCLUSION_RULE) > 0
+							? ExclusionRule.class
+							: ValidConfigurationsRule.class);
 				if(newMR != null)
 					addedMapRules.add(newMR);
 			}
@@ -105,8 +105,8 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 
 	@Override
 	protected boolean prepare() {
-		boolean result = mappedRepo != null && mappedRepo.isBranchEnabled() && selectedIUs != null
-				&& selectedIUs.size() > 0 && ItemUtils.haveSameLocation(mappedRepo, selectedIUs);
+		boolean result = mappedRepo != null && mappedRepo.isBranchEnabled() && selectedIUs != null &&
+				selectedIUs.size() > 0 && ItemUtils.haveSameLocation(mappedRepo, selectedIUs);
 
 		if(result)
 			for(IInstallableUnit iu : selectedIUs)

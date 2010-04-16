@@ -39,12 +39,12 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 
 	public AddIUsToContributionCommand(Contribution contribution, List<MetadataRepository> selectedMDRs,
 			List<IInstallableUnit> selectedIUs) {
-		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Map_to_command_prefix")
-				+ " "
-				+ ((contribution.getLabel() == null || contribution.getLabel().length() == 0)
+		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Map_to_command_prefix") +
+				" " +
+				((contribution.getLabel() == null || contribution.getLabel().length() == 0)
 						? AggregatorEditPlugin.INSTANCE.getString("_UI_Contribution_type") + " ''"
-						: AggregatorEditPlugin.INSTANCE.getString("_UI_Contribution_type") + " "
-								+ contribution.getLabel()));
+						: AggregatorEditPlugin.INSTANCE.getString("_UI_Contribution_type") + " " +
+								contribution.getLabel()));
 
 		this.contribution = contribution;
 		this.selectedMDRs = selectedMDRs;
@@ -111,8 +111,8 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 
 	@Override
 	protected boolean prepare() {
-		boolean result = contribution != null && contribution.isEnabled()
-				&& (selectedMDRs != null && selectedMDRs.size() > 0 || selectedIUs != null && selectedIUs.size() > 0);
+		boolean result = contribution != null && contribution.isEnabled() &&
+				(selectedMDRs != null && selectedMDRs.size() > 0 || selectedIUs != null && selectedIUs.size() > 0);
 
 		if(result)
 			for(IInstallableUnit iu : selectedIUs) {
@@ -123,8 +123,8 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 
 				MappedRepository mappedRepo = ItemUtils.findMappedRepository(contribution, mdr);
 				if(mappedRepo != null)
-					if(ItemUtils.findMappedUnit(mappedRepo, iu) != null
-							|| ItemUtils.findMapRule(mappedRepo, iu) != null)
+					if(ItemUtils.findMappedUnit(mappedRepo, iu) != null ||
+							ItemUtils.findMapRule(mappedRepo, iu) != null)
 						return false;
 			}
 

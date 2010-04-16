@@ -162,21 +162,21 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(InstallableUnitRequest.class)) {
-		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__NAME:
-		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE:
-			InstallableUnitRequest iuRequest = (InstallableUnitRequest) notification.getNotifier();
-			iuRequest.resolveAvailableVersions(true);
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			((AggregatorResource) ((EObject) iuRequest).eResource()).analyzeResource();
-			return;
-		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
-		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
-		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS:
-		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__NAME:
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE:
+				InstallableUnitRequest iuRequest = (InstallableUnitRequest) notification.getNotifier();
+				iuRequest.resolveAvailableVersions(true);
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				((AggregatorResource) ((EObject) iuRequest).eResource()).analyzeResource();
+				return;
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS:
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -190,11 +190,11 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_DescriptionProvider_description_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
-						"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
-				true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_DescriptionProvider_description_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+				"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true,
+			true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -206,12 +206,13 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(new ContributionItemProvider.DynamicItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_InstallableUnitRequest_name_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_InstallableUnitRequest_name_feature", "_UI_InstallableUnitRequest_type"),
-				AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_InstallableUnitRequest_name_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_InstallableUnitRequest_name_feature",
+				"_UI_InstallableUnitRequest_type"), AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__NAME, true,
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
 
+			@Override
 			public Collection<?> getChoiceOfValues(Object object) {
 				InstallableUnitRequest self = (InstallableUnitRequest) object;
 				MappedRepository container = (MappedRepository) ((EObject) self).eContainer();
@@ -272,12 +273,11 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 */
 	protected void addVersionRangePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_InstallableUnitRequest_versionRange_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_InstallableUnitRequest_versionRange_feature",
-						"_UI_InstallableUnitRequest_type"),
-				AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_InstallableUnitRequest_versionRange_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_InstallableUnitRequest_versionRange_feature",
+				"_UI_InstallableUnitRequest_type"), AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE,
+			true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	protected boolean appendIUText(Object object, StringBuilder bld) {
@@ -298,8 +298,8 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		IInstallableUnit iu = iuRef.resolveAsSingleton();
 		if(iu != null) {
 			String name = RepositoryTranslationSupport.getInstance(
-					(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(iu,
-					IInstallableUnit.PROP_NAME);
+				(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(
+				iu, IInstallableUnit.PROP_NAME);
 			if(name != null && !name.startsWith("%")) {
 				bld.append(" (");
 				bld.append(name);

@@ -121,10 +121,10 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(Status.class)) {
-		case AggregatorPackage.STATUS__CODE:
-		case AggregatorPackage.STATUS__MESSAGE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case AggregatorPackage.STATUS__CODE:
+			case AggregatorPackage.STATUS__MESSAGE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -137,10 +137,11 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 	 */
 	protected void addCodePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Status_code_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Status_code_feature", "_UI_Status_type"), AggregatorPackage.Literals.STATUS__CODE, false,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_Status_code_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_Status_code_feature", "_UI_Status_type"),
+			AggregatorPackage.Literals.STATUS__CODE, false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			null, null));
 	}
 
 	/**
@@ -151,10 +152,11 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 	 */
 	protected void addMessagePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Status_message_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Status_message_feature", "_UI_Status_type"), AggregatorPackage.Literals.STATUS__MESSAGE,
-				false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_Status_message_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_Status_message_feature", "_UI_Status_type"),
+			AggregatorPackage.Literals.STATUS__MESSAGE, false, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

@@ -54,9 +54,9 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/Bundle" + (!((Bundle) object).isBranchDisabledOrMappedRepositoryBroken()
-						? ""
-						: "Disabled")));
+			"full/obj16/Bundle" + (!((Bundle) object).isBranchDisabledOrMappedRepositoryBroken()
+					? ""
+					: "Disabled")));
 	}
 
 	/**

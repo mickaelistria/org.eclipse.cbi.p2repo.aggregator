@@ -65,12 +65,12 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 			return overlayImage(object, getResourceLocator().getImage("full/obj16/NoVersionAvailable"));
 
 		switch(((AvailableVersion) object).getVersionMatch()) {
-		case BELOW:
-			return overlayImage(object, getResourceLocator().getImage("full/obj16/VersionBelowRange"));
-		case MATCHES:
-			return overlayImage(object, getResourceLocator().getImage("full/obj16/VersionOK"));
-		case ABOVE:
-			return overlayImage(object, getResourceLocator().getImage("full/obj16/VersionAboveRange"));
+			case BELOW:
+				return overlayImage(object, getResourceLocator().getImage("full/obj16/VersionBelowRange"));
+			case MATCHES:
+				return overlayImage(object, getResourceLocator().getImage("full/obj16/VersionOK"));
+			case ABOVE:
+				return overlayImage(object, getResourceLocator().getImage("full/obj16/VersionAboveRange"));
 		}
 
 		return null;
@@ -138,12 +138,12 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 			return null;
 
 		switch(((AvailableVersion) object).getVersionMatch()) {
-		case BELOW:
-			return "This version is too low to match the version range";
-		case MATCHES:
-			return "This version matches the version range";
-		case ABOVE:
-			return "This version is too high to match the version range";
+			case BELOW:
+				return "This version is too low to match the version range";
+			case MATCHES:
+				return "This version matches the version range";
+			case ABOVE:
+				return "This version is too high to match the version range";
 		}
 
 		return null;
@@ -162,11 +162,11 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(AvailableVersion.class)) {
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
-		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
+			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
+			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -180,11 +180,11 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_AvailableVersion_filter_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_AvailableVersion_filter_feature", "_UI_AvailableVersion_type"),
-				AggregatorPackage.Literals.AVAILABLE_VERSION__FILTER, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_AvailableVersion_filter_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_filter_feature",
+				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__FILTER, false, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -196,11 +196,11 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 */
 	protected void addVersionMatchPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_AvailableVersion_versionMatch_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_AvailableVersion_versionMatch_feature", "_UI_AvailableVersion_type"),
-				AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION_MATCH, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_AvailableVersion_versionMatch_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_versionMatch_feature",
+				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION_MATCH, false,
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -212,11 +212,11 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_AvailableVersion_version_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_AvailableVersion_version_feature", "_UI_AvailableVersion_type"),
-				AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_AvailableVersion_version_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_version_feature",
+				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION, false, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

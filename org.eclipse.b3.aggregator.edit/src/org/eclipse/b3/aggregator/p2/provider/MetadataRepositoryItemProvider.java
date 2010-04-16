@@ -30,7 +30,7 @@ public class MetadataRepositoryItemProvider extends org.eclipse.b3.p2.provider.M
 			return;
 
 		Aggregator aggregator = (Aggregator) ((EObject) notification.getNotifier()).eResource().getResourceSet().getResources().get(
-				0).getContents().get(0);
+			0).getContents().get(0);
 		fireNotifyChanged(new ViewerNotification(notification, aggregator, true, true));
 	}
 }

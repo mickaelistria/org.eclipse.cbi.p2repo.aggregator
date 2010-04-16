@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @author Karel Brezina
  */
 public class ItemSorter {
-	public static enum ItemGroup{
+	public static enum ItemGroup {
 		MDR, IU, FEATURE, MDR_STRUCTURED, IU_STRUCTURED, FEATURE_STRUCTURED, OTHER
 	}
 
@@ -53,8 +53,8 @@ public class ItemSorter {
 
 				if(item instanceof InstallableUnit) {
 					InstallableUnit iu = (InstallableUnit) item;
-					if(((EObject) iu).eContainer() instanceof MetadataRepository
-							&& InstallableUnitUtils.getType(iu) != InstallableUnitType.OTHER) {
+					if(((EObject) iu).eContainer() instanceof MetadataRepository &&
+							InstallableUnitUtils.getType(iu) != InstallableUnitType.OTHER) {
 						ius.add(iu);
 
 						if(InstallableUnitUtils.getType(iu) == InstallableUnitType.FEATURE)

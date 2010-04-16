@@ -91,9 +91,9 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/MetadataRepositoryReference" + (((MetadataRepositoryReference) object).isBranchEnabled()
-						? ""
-						: "Disabled")));
+			"full/obj16/MetadataRepositoryReference" + (((MetadataRepositoryReference) object).isBranchEnabled()
+					? ""
+					: "Disabled")));
 
 	}
 
@@ -200,70 +200,70 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 
 		MetadataRepositoryReference repoRef = (MetadataRepositoryReference) notification.getNotifier();
 		switch(notification.getFeatureID(MetadataRepositoryReference.class)) {
-		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
-			fireNotifyChanged(new ViewerNotification(notification, repoRef, true, false));
-			return;
-		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:
-		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
-			if(notification.getNewStringValue() != null
-					&& !notification.getNewStringValue().equals(notification.getOldStringValue())
-					|| notification.getOldStringValue() != null
-					&& !notification.getOldStringValue().equals(notification.getNewStringValue())) {
-				onLocationChange(repoRef);
-				// we have started repository load in the background - that's all for now
-				// once the repository is loaded (or fails to load), we'll return again
-				// by setting a MDR reference (which may be null if the load fails)
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
+				fireNotifyChanged(new ViewerNotification(notification, repoRef, true, false));
 				return;
-			}
-
-		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY:
-		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
-			fireNotifyChanged(new ViewerNotification(notification, repoRef, true, false));
-
-			Set<Object> affectedNodeLabels = new HashSet<Object>();
-			affectedNodeLabels.add(repoRef);
-
-			// Go through all direct ancestors first
-			EObject container = ((EObject) repoRef).eContainer();
-
-			// Add the aggregator resource. If the contribution is detached, then the primary resource
-			// is different from the top resource! We must go up to the resource set and get the first
-			// resource which is supposed to be the one we are looking for
-			affectedNodeLabels.add(((EObject) repoRef).eResource().getResourceSet().getResources().get(0));
-
-			while(container != null) {
-				affectedNodeLabels.add(container);
-				container = container.eContainer();
-			}
-
-			if(repoRef instanceof MappedRepository) {
-				// Browse all mapped units which may have changed their virtual status (inherently enabled/disabled)
-				Set<EObject> affectedNodes = new HashSet<EObject>();
-				for(MappedUnit unit : ((MappedRepository) repoRef).getUnits(true)) {
-					affectedNodes.add((EObject) unit);
-					// And now, find all categories which may contain the feature just being enabled/disabled
-					if(unit instanceof Feature)
-						for(CustomCategory category : ((Feature) unit).getCategories())
-							affectedNodes.add((EObject) category);
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
+				if(notification.getNewStringValue() != null &&
+						!notification.getNewStringValue().equals(notification.getOldStringValue()) ||
+						notification.getOldStringValue() != null &&
+						!notification.getOldStringValue().equals(notification.getNewStringValue())) {
+					onLocationChange(repoRef);
+					// we have started repository load in the background - that's all for now
+					// once the repository is loaded (or fails to load), we'll return again
+					// by setting a MDR reference (which may be null if the load fails)
+					return;
 				}
-				for(EObject affectedNode : affectedNodes)
-					fireNotifyChanged(new ViewerNotification(notification, affectedNode, true, true));
-			}
 
-			for(Object affectedNode : affectedNodeLabels)
-				fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY:
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
+				fireNotifyChanged(new ViewerNotification(notification, repoRef, true, false));
 
-			Aggregator aggregator = repoRef.getAggregator();
-			if(notification.getFeatureID(MetadataRepositoryReference.class) == AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED) {
-				if(notification.getNewBooleanValue())
-					ResourceUtils.loadResourceForMappedRepository(repoRef);
+				Set<Object> affectedNodeLabels = new HashSet<Object>();
+				affectedNodeLabels.add(repoRef);
+
+				// Go through all direct ancestors first
+				EObject container = ((EObject) repoRef).eContainer();
+
+				// Add the aggregator resource. If the contribution is detached, then the primary resource
+				// is different from the top resource! We must go up to the resource set and get the first
+				// resource which is supposed to be the one we are looking for
+				affectedNodeLabels.add(((EObject) repoRef).eResource().getResourceSet().getResources().get(0));
+
+				while(container != null) {
+					affectedNodeLabels.add(container);
+					container = container.eContainer();
+				}
+
+				if(repoRef instanceof MappedRepository) {
+					// Browse all mapped units which may have changed their virtual status (inherently enabled/disabled)
+					Set<EObject> affectedNodes = new HashSet<EObject>();
+					for(MappedUnit unit : ((MappedRepository) repoRef).getUnits(true)) {
+						affectedNodes.add((EObject) unit);
+						// And now, find all categories which may contain the feature just being enabled/disabled
+						if(unit instanceof Feature)
+							for(CustomCategory category : ((Feature) unit).getCategories())
+								affectedNodes.add((EObject) category);
+					}
+					for(EObject affectedNode : affectedNodes)
+						fireNotifyChanged(new ViewerNotification(notification, affectedNode, true, true));
+				}
+
+				for(Object affectedNode : affectedNodeLabels)
+					fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
+
+				Aggregator aggregator = repoRef.getAggregator();
+				if(notification.getFeatureID(MetadataRepositoryReference.class) == AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED) {
+					if(notification.getNewBooleanValue())
+						ResourceUtils.loadResourceForMappedRepository(repoRef);
+					else
+						ResourceUtils.cleanUpResources(aggregator);
+				}
 				else
 					ResourceUtils.cleanUpResources(aggregator);
-			}
-			else
-				ResourceUtils.cleanUpResources(aggregator);
 
-			break;
+				break;
 		}
 
 	}
@@ -279,11 +279,11 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(MetadataRepositoryReference.class)) {
-		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
-		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
-		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -296,11 +296,11 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_EnabledStatusProvider_enabled_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
-				AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true, false, false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_EnabledStatusProvider_enabled_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
+				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true,
+			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -311,12 +311,12 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_MetadataRepositoryReference_location_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_location_feature",
-						"_UI_MetadataRepositoryReference_type"),
-				AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__LOCATION, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_MetadataRepositoryReference_location_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_location_feature",
+				"_UI_MetadataRepositoryReference_type"),
+			AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__LOCATION, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -327,13 +327,12 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 */
 	protected void addMetadataRepositoryPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(new ContributionItemProvider.DynamicItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_MetadataRepositoryReference_metadataRepository_feature"), getString(
-						"_UI_PropertyDescriptor_description",
-						"_UI_MetadataRepositoryReference_metadataRepository_feature",
-						"_UI_MetadataRepositoryReference_type"),
-				AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY, true, false, true, null,
-				null, null) {
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_MetadataRepositoryReference_metadataRepository_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_metadataRepository_feature",
+				"_UI_MetadataRepositoryReference_type"),
+			AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY, true, false, true, null,
+			null, null) {
 			@Override
 			public Collection<?> getChoiceOfValues(Object object) {
 				// Provide a list of repositories that has not already been mapped
@@ -369,12 +368,12 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 */
 	protected void addNaturePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(new ItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_MetadataRepositoryReference_nature_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_nature_feature",
-						"_UI_MetadataRepositoryReference_type"),
-				AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__NATURE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_MetadataRepositoryReference_nature_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_nature_feature",
+				"_UI_MetadataRepositoryReference_type"),
+			AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__NATURE, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
 			@Override
 			public Collection<?> getChoiceOfValues(Object object) {
 				MetadataRepositoryReference repo = (MetadataRepositoryReference) object;
