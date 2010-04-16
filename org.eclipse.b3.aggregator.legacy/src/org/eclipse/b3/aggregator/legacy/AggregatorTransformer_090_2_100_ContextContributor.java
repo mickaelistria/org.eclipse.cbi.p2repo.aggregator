@@ -18,6 +18,7 @@ import org.eclipse.b3.aggregator.transformer.TransformerContextContributor;
  */
 public class AggregatorTransformer_090_2_100_ContextContributor extends TransformerContextContributor {
 
+	@Override
 	public void contributeDefaultsToContext(Map<String, Object> context) {
 		context.put(AggregatorTransformer_090_2_100.CONTEXT_FIXED_VERSION, true);
 	}

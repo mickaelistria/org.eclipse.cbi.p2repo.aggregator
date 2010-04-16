@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 
 /**
- * Transforms scrResource to trgtResource using the same node, attribute and reference names.
- * Extend this class if there is a need for a special handling.
+ * Transforms scrResource to trgtResource using the same node, attribute and reference names. Extend this class if there
+ * is a need for a special handling.
  * 
  * @author Karel Brezina
  */
@@ -35,8 +35,8 @@ public class ResourceTransformer implements ITransformer {
 		EStructuralFeature feature = eobject.eClass().getEStructuralFeature(featureName);
 
 		if(feature == null)
-			throw new IllegalArgumentException(featureName + " is not a valid feature name of "
-					+ eobject.eClass().getName() + " EClass");
+			throw new IllegalArgumentException(featureName + " is not a valid feature name of " +
+					eobject.eClass().getName() + " EClass");
 
 		return eobject.eGet(feature);
 	}
@@ -95,8 +95,8 @@ public class ResourceTransformer implements ITransformer {
 
 			if(srcEAttrValue instanceof EEnumLiteral)
 				// tries to create an enum with the same name and value
-				trgtEAttrValue = createTrgtEEnumLiteral(((EEnumLiteral) srcEAttrValue).getEEnum().getName(),
-						((EEnumLiteral) srcEAttrValue).getLiteral());
+				trgtEAttrValue = createTrgtEEnumLiteral(
+					((EEnumLiteral) srcEAttrValue).getEEnum().getName(), ((EEnumLiteral) srcEAttrValue).getLiteral());
 			else
 				trgtEAttrValue = srcEAttrValue;
 
@@ -113,8 +113,8 @@ public class ResourceTransformer implements ITransformer {
 		Object enumerator = trgtPackageFactory.createFromString(trgtEDataType, literal);
 
 		if(enumerator == null)
-			throw new IllegalArgumentException(literal + " is not a valid literal for EEnum " + enumName
-					+ " in the target model");
+			throw new IllegalArgumentException(literal + " is not a valid literal for EEnum " + enumName +
+					" in the target model");
 
 		return enumerator;
 	}
@@ -137,8 +137,8 @@ public class ResourceTransformer implements ITransformer {
 		EStructuralFeature feature = eobject.eClass().getEStructuralFeature(featureName);
 
 		if(feature == null)
-			throw new IllegalArgumentException(featureName + " is not a valid feature in " + eobject.eClass().getName()
-					+ " EClass");
+			throw new IllegalArgumentException(featureName + " is not a valid feature in " +
+					eobject.eClass().getName() + " EClass");
 
 		return eobject.eGet(feature);
 	}

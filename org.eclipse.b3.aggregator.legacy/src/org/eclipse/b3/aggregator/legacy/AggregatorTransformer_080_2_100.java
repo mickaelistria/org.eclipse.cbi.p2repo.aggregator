@@ -213,8 +213,8 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 				continue;
 
 			if("type".equals(srcEAttr.getName())) {
-				Object trgtEAttrValue = createTrgtEEnumLiteral(AGGREGATETYPE_ENUM,
-						((EEnumLiteral) srcEAttrValue).getLiteral());
+				Object trgtEAttrValue = createTrgtEEnumLiteral(
+					AGGREGATETYPE_ENUM, ((EEnumLiteral) srcEAttrValue).getLiteral());
 				trgtEObject.eSet(trgtEAttr, trgtEAttrValue);
 			}
 			else {
@@ -253,20 +253,20 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 			if(OS_ATTR.equals(srcEAttr.getName())) {
 				EAttribute trgtEAttr = (EAttribute) trgtEObject.eClass().getEStructuralFeature(OPERATINGSYSTEM_ATTR);
-				Object trgtEAttrValue = createTrgtEEnumLiteral(OPERATINGSYSTEM_ENUM,
-						((EEnumLiteral) srcEAttrValue).getLiteral());
+				Object trgtEAttrValue = createTrgtEEnumLiteral(
+					OPERATINGSYSTEM_ENUM, ((EEnumLiteral) srcEAttrValue).getLiteral());
 				trgtEObject.eSet(trgtEAttr, trgtEAttrValue);
 			}
 			else if(WS_ATTR.equals(srcEAttr.getName())) {
 				EAttribute trgtEAttr = (EAttribute) trgtEObject.eClass().getEStructuralFeature(WINDOWSYSTEM_ATTR);
-				Object trgtEAttrValue = createTrgtEEnumLiteral(WINDOWSYSTEM_ENUM,
-						((EEnumLiteral) srcEAttrValue).getLiteral());
+				Object trgtEAttrValue = createTrgtEEnumLiteral(
+					WINDOWSYSTEM_ENUM, ((EEnumLiteral) srcEAttrValue).getLiteral());
 				trgtEObject.eSet(trgtEAttr, trgtEAttrValue);
 			}
 			else if(ARCH_ATTR.equals(srcEAttr.getName())) {
 				EAttribute trgtEAttr = (EAttribute) trgtEObject.eClass().getEStructuralFeature(ARCHITECTURE_ATTR);
-				Object trgtEAttrValue = createTrgtEEnumLiteral(ARCHITECTURE_ENUM,
-						((EEnumLiteral) srcEAttrValue).getLiteral());
+				Object trgtEAttrValue = createTrgtEEnumLiteral(
+					ARCHITECTURE_ENUM, ((EEnumLiteral) srcEAttrValue).getLiteral());
 				trgtEObject.eSet(trgtEAttr, trgtEAttrValue);
 			}
 			else
@@ -330,8 +330,8 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 		trgtParentTreePath.addToLastSegmentContainer(aggregatorEObject);
 		copyBuildNodeAttributes(srcEObject, aggregatorEObject);
 
-		List<String> unsupportedRefs = Arrays.asList(new String[] { PLATFORMS_REF, MAP_REF, PRODUCT_REF, BASE_REF,
-				BUILDER_REF, COMPILER_REF, PROMOTION_REF });
+		List<String> unsupportedRefs = Arrays.asList(new String[] {
+				PLATFORMS_REF, MAP_REF, PRODUCT_REF, BASE_REF, BUILDER_REF, COMPILER_REF, PROMOTION_REF });
 
 		for(EReference srcERef : srcEObject.eClass().getEAllContainments()) {
 			if(unsupportedRefs.contains(srcERef.getName()))
@@ -369,7 +369,7 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 			if(BUILDMASTER_REF.equals(srcERef.getName())) {
 				EReference buildmasterERef = (EReference) aggregatorEObject.eClass().getEStructuralFeature(
-						BUILDMASTER_REF);
+					BUILDMASTER_REF);
 				aggregatorEObject.eSet(buildmasterERef, transformationMapping.get(srcERefValue));
 			}
 		}
@@ -420,8 +420,8 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 						String srcContributionLabel = (String) getValue(srcContribution, LABEL_ATTR);
 						String srcFeatureId = (String) getValue(srcFeature, ID_ATTR);
 
-						throw new RuntimeException("Category " + srcCategoryName + " references feature "
-								+ srcFeatureId + " which belongs to a missing contribution " + srcContributionLabel);
+						throw new RuntimeException("Category " + srcCategoryName + " references feature " +
+								srcFeatureId + " which belongs to a missing contribution " + srcContributionLabel);
 					}
 
 					// e.g. branding feature - only for source build not for aggregation
@@ -433,8 +433,8 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 					if(trgtFeature == null) {
 						String srcIUId = (String) getFeatureValue(srcFeature, ID_ATTR);
 						String srcCategoryName = (String) getFeatureValue(srcCategory, NAME_ATTR);
-						throw new RuntimeException("Feature " + srcIUId + " is located in category " + srcCategoryName
-								+ " but not in any contribution");
+						throw new RuntimeException("Feature " + srcIUId + " is located in category " + srcCategoryName +
+								" but not in any contribution");
 					}
 
 					if(trgtCategoriesERef == null)
