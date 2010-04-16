@@ -57,8 +57,8 @@ public class RepositoryTests {
 
 			IQueryResult<IInstallableUnit> iusCreated = created.query(P2Bridge.QUERY_ALL_IUS, new NullProgressMonitor());
 			Iterator<IInstallableUnit> itorCreated = iusCreated.iterator();
-			IQueryResult<IInstallableUnit> iusReloaded = reloaded.query(P2Bridge.QUERY_ALL_IUS,
-					new NullProgressMonitor());
+			IQueryResult<IInstallableUnit> iusReloaded = reloaded.query(
+				P2Bridge.QUERY_ALL_IUS, new NullProgressMonitor());
 			Iterator<IInstallableUnit> itorReloaded = iusReloaded.iterator();
 
 			while(itorCreated.hasNext()) {
@@ -97,7 +97,7 @@ public class RepositoryTests {
 		InstallableUnitImpl iu2 = createTestingIU("org.eclipse.b3.testing.iu.02", "1.0.0");
 		RequiredCapabilityImpl dep = (RequiredCapabilityImpl) P2Factory.eINSTANCE.createRequiredCapability();
 		dep.setName(iu2.getId());
-		dep.setNamespace(InstallableUnit.NAMESPACE_IU_ID);
+		dep.setNamespace(IInstallableUnit.NAMESPACE_IU_ID);
 		dep.setGreedy(true);
 		dep.setRange(new VersionRange("1.0.0"));
 
@@ -122,8 +122,8 @@ public class RepositoryTests {
 	private IMetadataRepository loadMetadataRepository(IMetadataRepositoryManager mdrMgr, File location)
 			throws Exception {
 		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource resource = resourceSet.getResource(org.eclipse.emf.common.util.URI.createGenericURI("b3", "p2:"
-				+ location.toURI(), null), true);
+		Resource resource = resourceSet.getResource(org.eclipse.emf.common.util.URI.createGenericURI("b3", "p2:" +
+				location.toURI(), null), true);
 		if(resource.getErrors().size() > 0)
 			throw new Exception(resource.getErrors().get(0).getMessage());
 
