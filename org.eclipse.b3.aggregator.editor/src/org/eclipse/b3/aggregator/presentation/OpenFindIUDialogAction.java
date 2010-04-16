@@ -20,7 +20,7 @@ public class OpenFindIUDialogAction extends AbstractHandler {
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		FindIUDialog dialog = new FindIUDialog(
-				AggregatorEditorPlugin.getPlugin().getWorkbench().getActiveWorkbenchWindow());
+			AggregatorEditorPlugin.getPlugin().getWorkbench().getActiveWorkbenchWindow());
 		dialog.open();
 
 		return null;

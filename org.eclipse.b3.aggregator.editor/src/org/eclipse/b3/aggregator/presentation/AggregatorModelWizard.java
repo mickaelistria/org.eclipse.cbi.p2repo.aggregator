@@ -63,15 +63,13 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
 /**
- * This is a simple wizard for creating a new model file.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * This is a simple wizard for creating a new model file. <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
  * @generated
  */
 public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
-	 * This is the page where the type of object to create is selected.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is the page where the type of object to create is selected. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -107,8 +105,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		};
 
 		/**
-		 * Pass in the selection.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -243,7 +240,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 			if(encodings == null) {
 				encodings = new ArrayList<String>();
 				for(StringTokenizer stringTokenizer = new StringTokenizer(
-						AggregatorEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();) {
+					AggregatorEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -251,8 +248,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * Returns the label for the specified type name.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -277,15 +273,13 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * This is the one page of the wizard.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is the one page of the wizard. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public class AggregatorModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
-		 * Pass in the selection.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -303,8 +297,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * The framework calls this to see if the file is correct.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The framework calls this to see if the file is correct. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -316,8 +309,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 					String key = FILE_EXTENSIONS.size() > 1
 							? "_WARN_FilenameExtensions"
 							: "_WARN_FilenameExtension";
-					setErrorMessage(AggregatorEditorPlugin.INSTANCE.getString(key,
-							new Object[] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(AggregatorEditorPlugin.INSTANCE.getString(
+						key, new Object[] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -327,13 +320,12 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * The supported extensions for created files.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The supported extensions for created files. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(AggregatorEditorPlugin.INSTANCE.getString(
-			"_UI_AggregatorEditorFilenameExtensions").split("\\s*,\\s*")));
+		"_UI_AggregatorEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display. <!-- begin-user-doc --> <!-- end-user-doc
@@ -342,43 +334,38 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS = AggregatorEditorPlugin.INSTANCE.getString(
-			"_UI_AggregatorEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		"_UI_AggregatorEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
-	 * This caches an instance of the model package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This caches an instance of the model package. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected AggregatorPackage aggregatorPackage = AggregatorPackage.eINSTANCE;
 
 	/**
-	 * This caches an instance of the model factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This caches an instance of the model factory. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected AggregatorFactory aggregatorFactory = aggregatorPackage.getAggregatorFactory();
 
 	/**
-	 * This is the file creation page.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is the file creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected AggregatorModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
-	 * This is the initial object creation page.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is the initial object creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected AggregatorModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
-	 * Remember the selection during initialization for populating the default container.
-	 * <!-- begin-user-doc --> <!--
+	 * Remember the selection during initialization for populating the default container. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
@@ -386,8 +373,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	protected IStructuredSelection selection;
 
 	/**
-	 * Remember the workbench during initialization.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Remember the workbench during initialization. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -413,8 +399,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		newFileCreationPage = new AggregatorModelWizardNewFileCreationPage("Whatever", selection);
 		newFileCreationPage.setTitle(AggregatorEditorPlugin.INSTANCE.getString("_UI_AggregatorModelWizard_label"));
 		newFileCreationPage.setDescription(AggregatorEditorPlugin.INSTANCE.getString("_UI_AggregatorModelWizard_description"));
-		newFileCreationPage.setFileName(AggregatorEditorPlugin.INSTANCE.getString("_UI_AggregatorEditorFilenameDefaultBase")
-				+ "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setFileName(AggregatorEditorPlugin.INSTANCE.getString("_UI_AggregatorEditorFilenameDefaultBase") +
+				"." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -453,8 +439,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * Get the file from the page.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Get the file from the page. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -546,11 +531,12 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 			//
 			try {
 				page.openEditor(new FileEditorInput(modelFile), workbench.getEditorRegistry().getDefaultEditor(
-						modelFile.getFullPath().toString()).getId());
+					modelFile.getFullPath().toString()).getId());
 			}
 			catch(PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(),
-						AggregatorEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(
+					workbenchWindow.getShell(), AggregatorEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
+					exception.getMessage());
 				return false;
 			}
 

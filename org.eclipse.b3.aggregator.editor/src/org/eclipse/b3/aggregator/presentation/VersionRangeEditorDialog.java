@@ -41,8 +41,8 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 public class VersionRangeEditorDialog extends Dialog {
 
 	// VersionRange.OSGi_versionMax is not visible
-	private static final Version OSGi_versionMax = Version.createOSGi(Integer.MAX_VALUE, Integer.MAX_VALUE,
-			Integer.MAX_VALUE);
+	private static final Version OSGi_versionMax = Version.createOSGi(
+		Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
 
 	private static final int VERSION_TEXT_WIDTH_HINT = 160;
 
@@ -58,8 +58,9 @@ public class VersionRangeEditorDialog extends Dialog {
 
 	private static final int VERSION_TYPE_USER_DEFINED_IDX = 4;
 
-	private static final String[] VERSION_TYPES = { VERSION_TYPE_OSGI, VERSION_TYPE_STRING, VERSION_TYPE_TIMESTAMP,
-			VERSION_TYPE_TRIPLET, VERSION_TYPE_USER_DEFINED };
+	private static final String[] VERSION_TYPES = {
+			VERSION_TYPE_OSGI, VERSION_TYPE_STRING, VERSION_TYPE_TIMESTAMP, VERSION_TYPE_TRIPLET,
+			VERSION_TYPE_USER_DEFINED };
 
 	private static final IVersionFormat VERSION_FORMAT_OSGI;
 
@@ -85,8 +86,8 @@ public class VersionRangeEditorDialog extends Dialog {
 			throw new IllegalArgumentException(e.getMessage());
 		}
 
-		VERSION_FORMATS = new IVersionFormat[] { VERSION_FORMAT_OSGI, VERSION_FORMAT_STRING, VERSION_FORMAT_TIMESTAMP,
-				VERSION_FORMAT_TRIPLET };
+		VERSION_FORMATS = new IVersionFormat[] {
+				VERSION_FORMAT_OSGI, VERSION_FORMAT_STRING, VERSION_FORMAT_TIMESTAMP, VERSION_FORMAT_TRIPLET };
 	}
 
 	private static String getString(String key) {
@@ -160,22 +161,25 @@ public class VersionRangeEditorDialog extends Dialog {
 		return result;
 	}
 
+	@Override
 	protected void buttonPressed(int buttonId) {
 		switch(buttonId) {
-		case IDialogConstants.CANCEL_ID:
-			close();
-			break;
-		default:
-			if(performAction(buttonId))
+			case IDialogConstants.CANCEL_ID:
 				close();
+				break;
+			default:
+				if(performAction(buttonId))
+					close();
 		}
 	}
 
+	@Override
 	protected void configureShell(Shell shell) {
 		super.configureShell(shell);
 		shell.setText(getString("_UI_VersionRangeEditor_windowTitle"));
 	}
 
+	@Override
 	protected Control createButtonBar(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -199,6 +203,7 @@ public class VersionRangeEditorDialog extends Dialog {
 		return composite;
 	}
 
+	@Override
 	protected Control createDialogArea(Composite parent) {
 		Composite result = (Composite) super.createDialogArea(parent);
 
@@ -209,7 +214,8 @@ public class VersionRangeEditorDialog extends Dialog {
 	}
 
 	protected Control createPageArea(Composite parent) {
-		final String[] inclusiveExclusive = new String[] { getString("_UI_VersionRangeEditor_inclusiveChoice"),
+		final String[] inclusiveExclusive = new String[] {
+				getString("_UI_VersionRangeEditor_inclusiveChoice"),
 				getString("_UI_VersionRangeEditor_exclusiveChoice") };
 
 		topComposite = new Composite(parent, SWT.NONE);
@@ -288,6 +294,7 @@ public class VersionRangeEditorDialog extends Dialog {
 		advancedButton.setLayoutData(data);
 
 		advancedButton.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				handleAdvancedButtonSelect();
 			}
@@ -326,19 +333,19 @@ public class VersionRangeEditorDialog extends Dialog {
 		result = null;
 
 		switch(actionID) {
-		case CANCEL:
-			return true;
-		case OK:
-			try {
-				result = createVersionRange();
-			}
-			catch(IllegalArgumentException e) {
-				statusMessage(true, e.getMessage());
+			case CANCEL:
+				return true;
+			case OK:
+				try {
+					result = createVersionRange();
+				}
+				catch(IllegalArgumentException e) {
+					statusMessage(true, e.getMessage());
+					return false;
+				}
+				return true;
+			default:
 				return false;
-			}
-			return true;
-		default:
-			return false;
 		}
 	}
 
@@ -362,6 +369,7 @@ public class VersionRangeEditorDialog extends Dialog {
 		versionTypeCombo.select(currentVersionTypeIdx);
 		versionTypeCombo.addSelectionListener(new SelectionAdapter() {
 
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				currentVersionTypeIdx = versionTypeCombo.getSelectionIndex();
 
@@ -414,8 +422,8 @@ public class VersionRangeEditorDialog extends Dialog {
 		String maxVersionString = UIUtils.trimmedValue(maxVersionText);
 
 		if(minVersionString == null)
-			throw new IllegalArgumentException(getString("_UI_VersionRangeEditor_minimumVersionMessage") + " "
-					+ getString("_UI_VersionRangeEditor_notSpecifiedMessage"));
+			throw new IllegalArgumentException(getString("_UI_VersionRangeEditor_minimumVersionMessage") + " " +
+					getString("_UI_VersionRangeEditor_notSpecifiedMessage"));
 
 		Version minVersion = null;
 		Version maxVersion = null;
@@ -427,8 +435,8 @@ public class VersionRangeEditorDialog extends Dialog {
 				minVersion = currentFormat.parse(minVersionString);
 		}
 		catch(IllegalArgumentException e) {
-			throw new IllegalArgumentException(getString("_UI_VersionRangeEditor_minimumVersionMessage") + " "
-					+ e.getMessage());
+			throw new IllegalArgumentException(getString("_UI_VersionRangeEditor_minimumVersionMessage") + " " +
+					e.getMessage());
 		}
 
 		if(maxVersionString != null) {
@@ -439,13 +447,14 @@ public class VersionRangeEditorDialog extends Dialog {
 					maxVersion = currentFormat.parse(maxVersionString);
 			}
 			catch(IllegalArgumentException e) {
-				throw new IllegalArgumentException(getString("_UI_VersionRangeEditor_maximumVersionMessage") + " "
-						+ e.getMessage());
+				throw new IllegalArgumentException(getString("_UI_VersionRangeEditor_maximumVersionMessage") + " " +
+						e.getMessage());
 			}
 		}
 
-		return new VersionRange(minVersion, minVersionInclusiveCombo.getSelectionIndex() == 0, maxVersion,
-				maxVersionInclusiveCombo.getSelectionIndex() == 0);
+		return new VersionRange(
+			minVersion, minVersionInclusiveCombo.getSelectionIndex() == 0, maxVersion,
+			maxVersionInclusiveCombo.getSelectionIndex() == 0);
 	}
 
 	// "format(S)" -> "S"

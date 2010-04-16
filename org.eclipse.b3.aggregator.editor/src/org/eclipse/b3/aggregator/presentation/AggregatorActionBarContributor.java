@@ -128,8 +128,7 @@ import org.eclipse.ui.PartInitException;
 import org.xml.sax.SAXException;
 
 /**
- * This is the action bar contributor for the Aggregator model editor.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * This is the action bar contributor for the Aggregator model editor. <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
  * @generated
  */
@@ -170,8 +169,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		public AddToParentRepositoryAction(EditingDomain domain, List<IInstallableUnit> selectedIUs, int operation) {
 			this.domain = domain;
-			command = new AddIUsToParentRepositoryCommand(ResourceUtils.getAggregator(domain.getResourceSet()),
-					selectedIUs, operation);
+			command = new AddIUsToParentRepositoryCommand(
+				ResourceUtils.getAggregator(domain.getResourceSet()), selectedIUs, operation);
 
 			Object imageURL = null;
 
@@ -209,19 +208,19 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			String txt;
 			String imageURLPath = null;
 			switch(actionType) {
-			case CLEAN:
-				txt = "Clean Repository";
-				break;
-			case VERIFY:
-				txt = "Verify Repository";
-				break;
-			case BUILD:
-				txt = "Build Repository";
-				imageURLPath = "full/obj16/start_task.gif";
-				break;
-			default:
-				txt = "Clean then Build Repository";
-				imageURLPath = "full/obj16/start_task.gif";
+				case CLEAN:
+					txt = "Clean Repository";
+					break;
+				case VERIFY:
+					txt = "Verify Repository";
+					break;
+				case BUILD:
+					txt = "Build Repository";
+					imageURLPath = "full/obj16/start_task.gif";
+					break;
+				default:
+					txt = "Clean then Build Repository";
+					imageURLPath = "full/obj16/start_task.gif";
 			}
 			setText(txt);
 			if(imageURLPath != null) {
@@ -253,13 +252,13 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 						try {
 							Builder builder = new Builder();
 							Resource resource = ((IEditingDomainProvider) activeEditorPart).getEditingDomain().getResourceSet().getResources().get(
-									0);
+								0);
 							org.eclipse.emf.common.util.URI emfURI = resource.getURI();
 							URL fileURL = FileLocator.toFileURL(new URI(emfURI.toString()).toURL());
 							if(!"file".equals(fileURL.getProtocol()))
 								throw new Exception("URI scheme is not \"file\"");
-							URI uri = new URI(fileURL.getProtocol() + ":/"
-									+ URLEncoder.encode(fileURL.getPath(), "UTF-8").replaceAll("\\+", "%20"));
+							URI uri = new URI(fileURL.getProtocol() + ":/" +
+									URLEncoder.encode(fileURL.getPath(), "UTF-8").replaceAll("\\+", "%20"));
 							builder.setBuildModelLocation(new File(uri));
 							// builder.setLogLevel(LogUtils.DEBUG);
 							builder.setAction(actionType);
@@ -307,8 +306,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				// We don't use instanceof operator since we want
 				// the explicit class, not subclasses.
 				//
-				if(tc != RuntimeException.class && tc != InvocationTargetException.class && tc != SAXException.class
-						&& tc != IOException.class)
+				if(tc != RuntimeException.class && tc != InvocationTargetException.class && tc != SAXException.class &&
+						tc != IOException.class)
 					break;
 
 				Throwable cause = t.getCause();
@@ -367,12 +366,11 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		public void initialize(List<EnabledStatusProvider> selectedItems, EditingDomain domain) {
 			for(EnabledStatusProvider enabledStatusProvider : selectedItems) {
 				IEditingDomainItemProvider itemProvider = (IEditingDomainItemProvider) ((AdapterFactoryEditingDomain) domain).getAdapterFactory().adapt(
-						enabledStatusProvider, IEditingDomainItemProvider.class);
+					enabledStatusProvider, IEditingDomainItemProvider.class);
 				if(itemProvider instanceof ItemProviderAdapter) {
 					ItemProviderAdapter itemProviderAdapter = (ItemProviderAdapter) itemProvider;
 					IItemPropertyDescriptor itemPropertyDescriptor = itemProviderAdapter.getPropertyDescriptor(
-							enabledStatusProvider,
-							AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED.getName());
+						enabledStatusProvider, AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED.getName());
 					setEnabled(itemPropertyDescriptor.canSetProperty(enabledStatusProvider));
 					return;
 				}
@@ -406,8 +404,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			for(EnabledStatusProvider ref : refs) {
 				EStructuralFeature feature = ((EObject) ref).eClass().getEStructuralFeature("enabled");
 
-				SetCommand command = (SetCommand) SetCommand.create(domain, ref, feature,
-						Boolean.valueOf(isEnableState()));
+				SetCommand command = (SetCommand) SetCommand.create(
+					domain, ref, feature, Boolean.valueOf(isEnableState()));
 				compoundCommand.append(command);
 			}
 
@@ -476,12 +474,14 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			metadataRepositoryResources.add(res);
 		}
 
+		@Override
 		synchronized public ImageDescriptor getImageDescriptor() {
 			return nextActionIsLoad
 					? reloadImageDescriptor
 					: cancelImageDescriptor;
 		}
 
+		@Override
 		synchronized public String getText() {
 			// the getText() is the first thing to be called when opening the menu - let's set the next action here
 			nextActionIsLoad = !isLoading();
@@ -553,7 +553,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 							continue;
 
 						TwoColumnMatrix<IUPresentation, Object[]> result = mdrResource.findIUPresentationsWhichSatisfies(
-								requirement, true);
+							requirement, true);
 
 						if(result != null && result.size() > 0)
 							foundIUs.put(mdrResource, result);
@@ -561,20 +561,20 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 					if(foundIUs.size() == 0) {
 						parent.getDisplay().beep();
-						MessageDialog.openWarning(parent, getString("_UI_Warning_windowTitle"),
-								getString("_UI_No_matching_IU_was_found"));
+						MessageDialog.openWarning(
+							parent, getString("_UI_Warning_windowTitle"), getString("_UI_No_matching_IU_was_found"));
 					}
 					else if(foundIUs.size() == 1 && foundIUs.values().size() == 1) {
 						TwoColumnMatrix<IUPresentation, Object[]> foundIU = foundIUs.values().iterator().next();
 
 						viewer.setSelection(new TreeSelection(
-								new TreePath(foundIU.getValue(0)).createChildPath(foundIU.getKey(0))), true);
+							new TreePath(foundIU.getValue(0)).createChildPath(foundIU.getKey(0))), true);
 					}
 					else {
 
-						final PopupDialog pppDialog = new PopupDialog(parent, PopupDialog.INFOPOPUP_SHELLSTYLE, true,
-								false, false, false, false, getString("_UI_More_matching_IUs_were_found"),
-								getString("_UI_select_IU")) {
+						final PopupDialog pppDialog = new PopupDialog(
+							parent, PopupDialog.INFOPOPUP_SHELLSTYLE, true, false, false, false, false,
+							getString("_UI_More_matching_IUs_were_found"), getString("_UI_select_IU")) {
 							class MouseListener extends MouseTrackAdapter implements MouseMoveListener {
 								private Tree tree;
 
@@ -607,16 +607,18 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 									if(item != null)
 										item.setBackground(tree.getDisplay().getSystemColor(
-												SWT.COLOR_WIDGET_LIGHT_SHADOW));
+											SWT.COLOR_WIDGET_LIGHT_SHADOW));
 
 									lastSelectedTreeItem = item;
 								}
 							}
 
+							@Override
 							protected Control createDialogArea(Composite parent) {
 								Composite composite = (Composite) super.createDialogArea(parent);
 								final TreeViewer treeViewer = new TreeViewer(composite, SWT.NO_FOCUS);
 								treeViewer.setLabelProvider(new LabelProvider() {
+									@Override
 									public Image getImage(Object element) {
 										if(element == null)
 											return null;
@@ -627,13 +629,14 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 											return null;
 
 										IItemLabelProvider labelProvider = (IItemLabelProvider) ((AdapterFactoryEditingDomain) editingDomain).getAdapterFactory().adapt(
-												realElement, IItemLabelProvider.class);
+											realElement, IItemLabelProvider.class);
 										if(labelProvider == null)
 											return null;
 										return ExtendedImageRegistry.getInstance().getImage(
-												labelProvider.getImage(realElement));
+											labelProvider.getImage(realElement));
 									}
 
+									@Override
 									public String getText(Object element) {
 										if(element == null)
 											return "";
@@ -644,12 +647,13 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 											return element.toString();
 
 										IItemLabelProvider labelProvider = (IItemLabelProvider) ((AdapterFactoryEditingDomain) editingDomain).getAdapterFactory().adapt(
-												realElement, IItemLabelProvider.class);
+											realElement, IItemLabelProvider.class);
 										if(labelProvider == null)
 											return realElement.toString();
 										return labelProvider.getText(realElement);
 									}
 
+									@Override
 									public boolean isLabelProperty(Object element, String property) {
 										return false;
 									}
@@ -704,9 +708,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 										if(matrixEntry != null)
 											viewer.setSelection(
-													new TreeSelection(
-															new TreePath(matrixEntry.getValue()).createChildPath(matrixEntry.getKey())),
-													true);
+												new TreeSelection(
+													new TreePath(matrixEntry.getValue()).createChildPath(matrixEntry.getKey())),
+												true);
 
 									}
 								});
@@ -755,29 +759,26 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	/**
-	 * This keeps track of the active editor.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This keeps track of the active editor. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected IEditorPart activeEditorPart;
 
 	/**
-	 * This keeps track of the current selection provider.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This keeps track of the current selection provider. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected ISelectionProvider selectionProvider;
 
 	/**
-	 * This action opens the Properties view.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This action opens the Properties view. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction = new Action(
-			AggregatorEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+		AggregatorEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
 		@Override
 		public void run() {
 			try {
@@ -790,14 +791,13 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	};
 
 	/**
-	 * This action refreshes the viewer of the current editor if the editor
-	 * implements {@link org.eclipse.emf.common.ui.viewer.IViewerProvider}.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This action refreshes the viewer of the current editor if the editor implements
+	 * {@link org.eclipse.emf.common.ui.viewer.IViewerProvider}. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected IAction refreshViewerAction = new Action(
-			AggregatorEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+		AggregatorEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
 		@Override
 		public boolean isEnabled() {
 			return activeEditorPart instanceof IViewerProvider;
@@ -816,8 +816,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	/**
 	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to each descriptor
-	 * generated for the current selection by the item provider.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * generated for the current selection by the item provider. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -833,8 +832,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	/**
 	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} corresponding to each descriptor
-	 * generated for the current selection by the item provider.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * generated for the current selection by the item provider. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -898,9 +896,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	/**
-	 * This adds to the menu bar a menu and some separators for editor additions,
-	 * as well as the sub-menus for object creation items.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds to the menu bar a menu and some separators for editor additions, as well as the sub-menus for object
+	 * creation items. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -909,8 +906,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		super.contributeToMenu(menuManager);
 
 		IMenuManager submenuManager = new MenuManager(
-				AggregatorEditorPlugin.INSTANCE.getString("_UI_AggregatorEditor_menu"),
-				"org.eclipse.b3.aggregatorMenuID");
+			AggregatorEditorPlugin.INSTANCE.getString("_UI_AggregatorEditor_menu"), "org.eclipse.b3.aggregatorMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -925,7 +921,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		// Prepare for CreateSibling item addition or removal.
 		//
 		createSiblingMenuManager = new MenuManager(
-				AggregatorEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+			AggregatorEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
@@ -940,8 +936,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	/**
-	 * This adds Separators for editor additions to the tool bar.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds Separators for editor additions to the tool bar. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -975,14 +970,14 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			}
 			else {
 				MenuManager submenuManager = new MenuManager(
-						AggregatorEditorPlugin.INSTANCE.getString("_UI_Add_to_parent_Mapped_Repository_As"));
+					AggregatorEditorPlugin.INSTANCE.getString("_UI_Add_to_parent_Mapped_Repository_As"));
 				populateManager(submenuManager, addToParentRepositoryActions, null);
 				menuManager.insertBefore("edit", submenuManager);
 			}
 
 		if(addToCustomCategoriesActions != null && addToCustomCategoriesActions.size() > 0) {
 			MenuManager submenuManager = new MenuManager(
-					AggregatorEditorPlugin.INSTANCE.getString("_UI_Add_to_Custom_Category_menu_item"));
+				AggregatorEditorPlugin.INSTANCE.getString("_UI_Add_to_Custom_Category_menu_item"));
 			populateManager(submenuManager, addToCustomCategoriesActions, null);
 			menuManager.insertBefore("edit", submenuManager);
 		}
@@ -1000,6 +995,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			depopulateManager(menuManager, Collections.singleton(reloadOrCancelRepoAction));
 			menuManager.insertBefore("edit", new ActionContributionItem(reloadOrCancelRepoAction) {
 				// force updating the text and image immediately
+				@Override
 				public boolean isDynamic() {
 					return true;
 				}
@@ -1009,15 +1005,17 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		if(aggregatorSelected) {
 			EditingDomain editingDomain = ((IEditingDomainProvider) activeEditorPart).getEditingDomain();
 
-			IAction sortConfigurationsAction = new SortAction<Configuration>(editingDomain,
-					aggregator.getConfigurations(), AggregatorFactory.eINSTANCE.createConfiguration(), "Configurations");
-			IAction sortContactsAction = new SortAction<Contact>(editingDomain, aggregator.getContacts(),
-					AggregatorFactory.eINSTANCE.createContact(), "Contacts");
-			IAction sortContributionsAction = new SortAction<Contribution>(editingDomain,
-					aggregator.getContributions(), AggregatorFactory.eINSTANCE.createContribution(), "Contributions");
-			IAction sortCustomCategoriesAction = new SortAction<CustomCategory>(editingDomain,
-					aggregator.getCustomCategories(), AggregatorFactory.eINSTANCE.createCustomCategory(),
-					"Custom Categories");
+			IAction sortConfigurationsAction = new SortAction<Configuration>(
+				editingDomain, aggregator.getConfigurations(), AggregatorFactory.eINSTANCE.createConfiguration(),
+				"Configurations");
+			IAction sortContactsAction = new SortAction<Contact>(
+				editingDomain, aggregator.getContacts(), AggregatorFactory.eINSTANCE.createContact(), "Contacts");
+			IAction sortContributionsAction = new SortAction<Contribution>(
+				editingDomain, aggregator.getContributions(), AggregatorFactory.eINSTANCE.createContribution(),
+				"Contributions");
+			IAction sortCustomCategoriesAction = new SortAction<CustomCategory>(
+				editingDomain, aggregator.getCustomCategories(), AggregatorFactory.eINSTANCE.createCustomCategory(),
+				"Custom Categories");
 
 			MenuManager submenuManager = new MenuManager("Sort");
 			submenuManager.add(sortConfigurationsAction);
@@ -1029,8 +1027,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	/**
-	 * This populates the pop-up menu before it appears.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This populates the pop-up menu before it appears. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -1060,10 +1057,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	/**
-	 * This implements {@link org.eclipse.jface.viewers.ISelectionChangedListener},
-	 * handling {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and siblings
-	 * that can be added to the selected object and updating the menus accordingly.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This implements {@link org.eclipse.jface.viewers.ISelectionChangedListener}, handling
+	 * {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and siblings that can be
+	 * added to the selected object and updating the menus accordingly. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -1177,12 +1173,12 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 						first = false;
 					}
 
-					if((state == EnabledStatusAction.DISABLE || state == EnabledStatusAction.BOTH)
-							&& sa.getKey().isEnableState()) {
+					if((state == EnabledStatusAction.DISABLE || state == EnabledStatusAction.BOTH) &&
+							sa.getKey().isEnableState()) {
 						sa.setValue(Boolean.TRUE);
 					}
-					if((state == EnabledStatusAction.ENABLE || state == EnabledStatusAction.BOTH)
-							&& !sa.getKey().isEnableState()) {
+					if((state == EnabledStatusAction.ENABLE || state == EnabledStatusAction.BOTH) &&
+							!sa.getKey().isEnableState()) {
 						sa.setValue(Boolean.TRUE);
 					}
 				}
@@ -1209,8 +1205,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 						MetadataRepositoryReference metadataRepositoryReference = (MetadataRepositoryReference) object;
 						if(metadataRepositoryReference.isBranchEnabled()) {
 							MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-									metadataRepositoryReference.getNature(),
-									metadataRepositoryReference.getResolvedLocation(), aggregator);
+								metadataRepositoryReference.getNature(),
+								metadataRepositoryReference.getResolvedLocation(), aggregator);
 							reloadOrCancelRepoAction.addMetadataRepositoryResource(res);
 						}
 						else {
@@ -1246,8 +1242,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					MappedUnit mappedUnit = (MappedUnit) ((EObject) av).eContainer();
 
 					IRequirement requiredCapability = MetadataFactory.createRequirement(
-							IInstallableUnit.NAMESPACE_IU_ID, mappedUnit.getName(), new VersionRange(av.getVersion(),
-									true, av.getVersion(), true), null, false, true);
+						IInstallableUnit.NAMESPACE_IU_ID, mappedUnit.getName(), new VersionRange(
+							av.getVersion(), true, av.getVersion(), true), null, false, true);
 					selectMatchingIUAction = new SelectMatchingIUAction(null, requiredCapability);
 				}
 			}
@@ -1279,8 +1275,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	/**
-	 * This inserts global actions before the "additions-end" separator.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This inserts global actions before the "additions-end" separator. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -1360,10 +1355,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	/**
 	 * This populates the specified <code>manager</code> with {@link org.eclipse.jface.action.ActionContributionItem}s
-	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection,
-	 * by inserting them before the specified contribution item <code>contributionID</code>.
-	 * If <code>contributionID</code> is <code>null</code>, they are simply added.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection, by
+	 * inserting them before the specified contribution item <code>contributionID</code>. If <code>contributionID</code>
+	 * is <code>null</code>, they are simply added. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -1382,8 +1376,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	/**
-	 * This ensures that a delete action will clean up all references to deleted objects.
-	 * <!-- begin-user-doc --> <!--
+	 * This ensures that a delete action will clean up all references to deleted objects. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
@@ -1400,16 +1393,16 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 			List<IAction> addToActions = new ArrayList<IAction>();
 
-			if(itemSorter.getTotalItemCount() > 0
-					&& (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
-							ItemGroup.FEATURE_STRUCTURED).size()))) {
+			if(itemSorter.getTotalItemCount() > 0 &&
+					(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
+						ItemGroup.FEATURE_STRUCTURED).size()))) {
 				List<IInstallableUnit> features = new ArrayList<IInstallableUnit>();
 				features.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.FEATURE));
 				features.addAll(ItemUtils.getIUs((List<org.eclipse.b3.aggregator.p2view.Feature>) itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED)));
 
 				for(CustomCategory customCategory : getAggregator().getCustomCategories())
 					addToActions.add(new AddToCustomCategoryAction(
-							((IEditingDomainProvider) activeEditorPart).getEditingDomain(), customCategory, features));
+						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), customCategory, features));
 			}
 
 			return addToActions;
@@ -1425,9 +1418,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		if(selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() > 0) {
 			ItemSorter itemSorter = new ItemSorter(((IStructuredSelection) selection).toList());
 
-			if(itemSorter.getTotalItemCount() > 0
-					&& (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
-							ItemGroup.IU_STRUCTURED).size()))) {
+			if(itemSorter.getTotalItemCount() > 0 &&
+					(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
+						ItemGroup.IU_STRUCTURED).size()))) {
 				List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
 
 				ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
@@ -1435,19 +1428,19 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 				if(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED).size()) {
 					actions.add(new AddToParentRepositoryAction(
-							((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
-							AggregatorEditPlugin.ADD_IU));
+						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
+						AggregatorEditPlugin.ADD_IU));
 					actions.add(new AddToParentRepositoryAction(
-							((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
-							AggregatorEditPlugin.ADD_EXCLUSION_RULE));
+						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
+						AggregatorEditPlugin.ADD_EXCLUSION_RULE));
 					actions.add(new AddToParentRepositoryAction(
-							((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
-							AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE));
+						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
+						AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE));
 				}
 				else {
 					actions.add(new AddToParentRepositoryAction(
-							((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
-							AggregatorEditPlugin.ADD_IU));
+						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
+						AggregatorEditPlugin.ADD_IU));
 				}
 			}
 

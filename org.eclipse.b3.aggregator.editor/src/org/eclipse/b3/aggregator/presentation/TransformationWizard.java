@@ -44,8 +44,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 /**
- * This is a simple wizard for creating a new model file.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * This is a simple wizard for creating a new model file. <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
  * @author Karel Brezina
  */
@@ -88,13 +87,11 @@ public class TransformationWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * This is the one page of the wizard.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is the one page of the wizard. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public class NewFileCreationPage extends WizardNewFileCreationPage {
 		/**
-		 * Pass in the selection.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 */
 		public NewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
@@ -108,8 +105,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * The framework calls this to see if the file is correct.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The framework calls this to see if the file is correct. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 */
 		@Override
 		protected boolean validatePage() {
@@ -119,8 +115,8 @@ public class TransformationWizard extends Wizard implements INewWizard {
 					String key = FILE_EXTENSIONS.size() > 1
 							? "_WARN_FilenameExtensions"
 							: "_WARN_FilenameExtension";
-					setErrorMessage(AggregatorEditorPlugin.INSTANCE.getString(key,
-							new Object[] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(AggregatorEditorPlugin.INSTANCE.getString(
+						key, new Object[] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -136,28 +132,25 @@ public class TransformationWizard extends Wizard implements INewWizard {
 	private static final String LEGACY_TRANSFORMATION_ATTR_CLASS = "class";
 
 	/**
-	 * The supported extensions for created files.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The supported extensions for created files. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(AggregatorEditorPlugin.INSTANCE.getString(
-			"_UI_AggregatorEditorFilenameExtensions").split("\\s*,\\s*")));
+		"_UI_AggregatorEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS = AggregatorEditorPlugin.INSTANCE.getString(
-			"_UI_AggregatorEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		"_UI_AggregatorEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
-	 * This caches an instance of the model package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This caches an instance of the model package. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected AggregatorPackage aggregatorPackage = AggregatorPackage.eINSTANCE;
 
 	/**
-	 * This caches an instance of the model factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This caches an instance of the model factory. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected AggregatorFactory aggregatorFactory = aggregatorPackage.getAggregatorFactory();
 
@@ -166,23 +159,20 @@ public class TransformationWizard extends Wizard implements INewWizard {
 	protected List<IWizardPage> contextContributorWizardPages = new ArrayList<IWizardPage>();
 
 	/**
-	 * This is the file creation page.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is the file creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected NewFileCreationPage newFileCreationPage;
 
 	protected URI srcResourceURI;
 
 	/**
-	 * Remember the selection during initialization for populating the default container.
-	 * <!-- begin-user-doc --> <!--
+	 * Remember the selection during initialization for populating the default container. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 */
 	protected IStructuredSelection selection;
 
 	/**
-	 * Remember the workbench during initialization.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Remember the workbench during initialization. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected IWorkbench workbench;
 
@@ -201,7 +191,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 	public TransformationWizard(URI srcResourceURI) {
 		this.srcResourceURI = srcResourceURI;
 		final IConfigurationElement[] transformationsUI = Platform.getExtensionRegistry().getConfigurationElementsFor(
-				LEGACY_TRANSFORMATION_UI_ID);
+			LEGACY_TRANSFORMATION_UI_ID);
 
 		TransformationManager.ContributorListener listener = new TransformationManager.ContributorListener() {
 
@@ -209,7 +199,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 					throws CoreException {
 				for(IConfigurationElement transformationUI : transformationsUI) {
 					if(transformationUI.getAttribute(LEGACY_TRANSFORMATION_ATTR_NAME).equals(
-							config.getAttribute(LEGACY_TRANSFORMATION_ATTR_NAME))) {
+						config.getAttribute(LEGACY_TRANSFORMATION_ATTR_NAME))) {
 						TransformerContributorWizardPage wizPage = (TransformerContributorWizardPage) transformationUI.createExecutableExtension(LEGACY_TRANSFORMATION_ATTR_CLASS);
 						wizPage.setContextContributor(contributor);
 						contextContributorWizardPages.add(wizPage);
@@ -227,8 +217,9 @@ public class TransformationWizard extends Wizard implements INewWizard {
 	 */
 	@Override
 	public void addPages() {
-		infoPage = new InfoPage("InfoPage", manager.isSrcNamespaceFound(), manager.getTransformationSequence() != null
-				&& !manager.getTransformationSequence().isEmpty());
+		infoPage = new InfoPage(
+			"InfoPage", manager.isSrcNamespaceFound(), manager.getTransformationSequence() != null &&
+					!manager.getTransformationSequence().isEmpty());
 		infoPage.setTitle("Depricated Resource");
 		infoPage.setDescription("Selected resource needs to be transformed to the up-to-date structure");
 		addPage(infoPage);
@@ -240,8 +231,8 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		newFileCreationPage = new NewFileCreationPage("FileCreationPage", selection);
 		newFileCreationPage.setTitle("Target Location");
 		newFileCreationPage.setDescription("Provide location for the transformed model");
-		newFileCreationPage.setFileName(srcResourceURI.lastSegment().replaceAll("\\.[^.]*$", "") + "."
-				+ FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setFileName(srcResourceURI.lastSegment().replaceAll("\\.[^.]*$", "") + "." +
+				FILE_EXTENSIONS.get(0));
 		newFileCreationPage.setContainerFullPath(Path.fromOSString(srcResourceURI.isPlatform()
 				? srcResourceURI.toPlatformString(true)
 				: srcResourceURI.toFileString()).makeAbsolute().removeLastSegments(1));
@@ -300,8 +291,8 @@ public class TransformationWizard extends Wizard implements INewWizard {
 			getContainer().run(true, false, operation);
 		}
 		catch(InvocationTargetException e) {
-			((WizardPage) getContainer().getCurrentPage()).setErrorMessage("Transformation error: "
-					+ e.getCause().getMessage());
+			((WizardPage) getContainer().getCurrentPage()).setErrorMessage("Transformation error: " +
+					e.getCause().getMessage());
 			return false;
 		}
 		catch(InterruptedException e) {

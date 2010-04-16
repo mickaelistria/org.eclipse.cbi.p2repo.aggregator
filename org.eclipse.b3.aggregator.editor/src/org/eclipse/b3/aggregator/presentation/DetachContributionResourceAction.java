@@ -121,9 +121,10 @@ public class DetachContributionResourceAction extends ControlAction {
 		return result;
 	}
 
+	@Override
 	protected Resource getResource() {
 		DetachContributionResourceDialog dialog = new DetachContributionResourceDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), domain, eObject);
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), domain, eObject);
 		dialog.open();
 		return dialog.getResource();
 	}

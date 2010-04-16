@@ -72,22 +72,25 @@ public class FindIUDialog extends TrayDialog {
 		aggregatorEditor = (AggregatorEditor) window.getActivePage().getActivePart();
 	}
 
+	@Override
 	protected void buttonPressed(int buttonId) {
 		switch(buttonId) {
-		case IDialogConstants.CANCEL_ID:
-			close();
-			break;
-		default:
-			if(performAction(buttonId))
+			case IDialogConstants.CANCEL_ID:
 				close();
+				break;
+			default:
+				if(performAction(buttonId))
+					close();
 		}
 	}
 
+	@Override
 	protected void configureShell(Shell shell) {
 		super.configureShell(shell);
 		shell.setText(getString("_UI_FindIUDialog_windowTitle"));
 	}
 
+	@Override
 	protected Control createButtonBar(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -111,6 +114,7 @@ public class FindIUDialog extends TrayDialog {
 		return composite;
 	}
 
+	@Override
 	protected Control createDialogArea(Composite parent) {
 		Composite result = (Composite) super.createDialogArea(parent);
 
@@ -144,6 +148,7 @@ public class FindIUDialog extends TrayDialog {
 		layoutData.horizontalSpan = 3;
 		regularExprButton.setLayoutData(layoutData);
 		regularExprButton.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				patterFieldContentAssist.setEnabled(isFindEnabled());
 			}
@@ -151,9 +156,10 @@ public class FindIUDialog extends TrayDialog {
 
 		TextContentAdapter contentAdapter = new TextContentAdapter();
 		FindReplaceDocumentAdapterContentProposalProvider findProposer = new FindReplaceDocumentAdapterContentProposalProvider(
-				true);
-		patterFieldContentAssist = new ContentAssistCommandAdapter(idPatternText, contentAdapter, findProposer,
-				ITextEditorActionDefinitionIds.CONTENT_ASSIST_PROPOSALS, new char[] { '\\', '[', '(' }, true);
+			true);
+		patterFieldContentAssist = new ContentAssistCommandAdapter(
+			idPatternText, contentAdapter, findProposer, ITextEditorActionDefinitionIds.CONTENT_ASSIST_PROPOSALS,
+			new char[] { '\\', '[', '(' }, true);
 
 		patterFieldContentAssist.setEnabled(regularExprButton.getSelection());
 
@@ -193,12 +199,12 @@ public class FindIUDialog extends TrayDialog {
 
 	protected boolean performAction(int actionID) {
 		switch(actionID) {
-		case CANCEL:
-			return true;
-		case FIND_ID:
-			return performFind();
-		default:
-			return false;
+			case CANCEL:
+				return true;
+			case FIND_ID:
+				return performFind();
+			default:
+				return false;
 		}
 	}
 

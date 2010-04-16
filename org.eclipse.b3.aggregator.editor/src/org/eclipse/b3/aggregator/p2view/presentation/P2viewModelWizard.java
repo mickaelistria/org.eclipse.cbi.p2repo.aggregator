@@ -268,7 +268,7 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 			if(encodings == null) {
 				encodings = new ArrayList<String>();
 				for(StringTokenizer stringTokenizer = new StringTokenizer(
-						AggregatorEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();) {
+					AggregatorEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -337,8 +337,8 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 					String key = FILE_EXTENSIONS.size() > 1
 							? "_WARN_FilenameExtensions"
 							: "_WARN_FilenameExtension";
-					setErrorMessage(AggregatorEditorPlugin.INSTANCE.getString(key,
-							new Object[] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(AggregatorEditorPlugin.INSTANCE.getString(
+						key, new Object[] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -353,7 +353,7 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(AggregatorEditorPlugin.INSTANCE.getString(
-			"_UI_P2viewEditorFilenameExtensions").split("\\s*,\\s*")));
+		"_UI_P2viewEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display. <!-- begin-user-doc --> <!-- end-user-doc
@@ -362,7 +362,7 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS = AggregatorEditorPlugin.INSTANCE.getString(
-			"_UI_P2viewEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		"_UI_P2viewEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -427,8 +427,8 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 		newFileCreationPage = new P2viewModelWizardNewFileCreationPage("Whatever", selection);
 		newFileCreationPage.setTitle(AggregatorEditorPlugin.INSTANCE.getString("_UI_P2viewModelWizard_label"));
 		newFileCreationPage.setDescription(AggregatorEditorPlugin.INSTANCE.getString("_UI_P2viewModelWizard_description"));
-		newFileCreationPage.setFileName(AggregatorEditorPlugin.INSTANCE.getString("_UI_P2viewEditorFilenameDefaultBase")
-				+ "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setFileName(AggregatorEditorPlugin.INSTANCE.getString("_UI_P2viewEditorFilenameDefaultBase") +
+				"." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -563,11 +563,12 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 			//
 			try {
 				page.openEditor(new FileEditorInput(modelFile), workbench.getEditorRegistry().getDefaultEditor(
-						modelFile.getFullPath().toString()).getId());
+					modelFile.getFullPath().toString()).getId());
 			}
 			catch(PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(),
-						AggregatorEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(
+					workbenchWindow.getShell(), AggregatorEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
+					exception.getMessage());
 				return false;
 			}
 
