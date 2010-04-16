@@ -38,12 +38,14 @@ public class Activator extends Plugin {
 		return plexus;
 	}
 
+	@Override
 	public void start(BundleContext context) throws Exception {
 		ContainerConfiguration cc = new DefaultContainerConfiguration().setClassWorld(
-				new ClassWorld("b3.aggregator", Activator.class.getClassLoader())).setName("b3.plexus");
+			new ClassWorld("b3.aggregator", Activator.class.getClassLoader())).setName("b3.plexus");
 		plexus = new DefaultPlexusContainer(cc);
 	}
 
+	@Override
 	public void stop(BundleContext context) {
 		plexus.dispose();
 		plexus = null;

@@ -201,22 +201,22 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 			String repoId = "mavenRepo";
 			if(!clearLocalCache)
 				context = indexer.addIndexingContext(repoId, // index id (usually the same as repository
-						// id)
-						repoId, // repository id
-						(File) null, // null for remote repo
-						indexDirectory, // Lucene directory where index is stored
-						location.toString(), // repository url, used by index updater
-						null, // null if derived from repositoryUrl
-						Collections.singletonList(creator));
+					// id)
+					repoId, // repository id
+					(File) null, // null for remote repo
+					indexDirectory, // Lucene directory where index is stored
+					location.toString(), // repository url, used by index updater
+					null, // null if derived from repositoryUrl
+					Collections.singletonList(creator));
 			else
 				context = indexer.addIndexingContextForced(repoId, // index id (usually the same as repository
-						// id)
-						repoId, // repository id
-						(File) null, // null for remote repo
-						indexDirectory, // Lucene directory where index is stored
-						location.toString(), // repository url, used by index updater
-						null, // null if derived from repositoryUrl
-						Collections.singletonList(creator));
+					// id)
+					repoId, // repository id
+					(File) null, // null for remote repo
+					indexDirectory, // Lucene directory where index is stored
+					location.toString(), // repository url, used by index updater
+					null, // null if derived from repositoryUrl
+					Collections.singletonList(creator));
 
 			IndexUpdateRequest request = new IndexUpdateRequest(context);
 			request.setResourceFetcher(new DefaultIndexUpdater.WagonFetcher(wagonManager, null, null, null));
@@ -236,13 +236,13 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 			String repoId = "mavenRepo";
 			File repository = new File(location);
 			File index = new File(repository, ".index");
-			File internalIndex = new File(new File(repository.getParentFile().getParentFile(), "interim"),
-					"maven-index");
+			File internalIndex = new File(
+				new File(repository.getParentFile().getParentFile(), "interim"), "maven-index");
 			List<IndexCreator> creators = new ArrayList<IndexCreator>(2);
 			creators.add(plexus.lookup(IndexCreator.class, "min"));
 			creators.add(plexus.lookup(IndexCreator.class, "jarContent"));
-			IndexingContext context = indexer.addIndexingContext(repoId, repoId, repository, internalIndex, null, null,
-					creators);
+			IndexingContext context = indexer.addIndexingContext(
+				repoId, repoId, repository, internalIndex, null, null, creators);
 			try {
 				indexer.scan(context, !createNew);
 				IndexPackingRequest request = new IndexPackingRequest(context, index);
