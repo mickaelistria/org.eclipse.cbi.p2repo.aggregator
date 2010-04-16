@@ -63,8 +63,8 @@ public abstract class ExceptionUtils {
 			// We don't use instanceof operator since we want
 			// the explicit class, not subclasses.
 			//
-			if(tc != RuntimeException.class && tc != InvocationTargetException.class && tc != SAXException.class
-					&& tc != IOException.class)
+			if(tc != RuntimeException.class && tc != InvocationTargetException.class && tc != SAXException.class &&
+					tc != IOException.class)
 				break;
 
 			Throwable cause = t.getCause();
