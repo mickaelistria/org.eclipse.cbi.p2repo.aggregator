@@ -56,6 +56,7 @@ public class AggregatorTransformer_090_2_100_WizardPage extends TransformerContr
 				: 0);
 
 		transformationTypeCombo.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				selectedType = transformationTypeCombo.getSelectionIndex();
 			}
