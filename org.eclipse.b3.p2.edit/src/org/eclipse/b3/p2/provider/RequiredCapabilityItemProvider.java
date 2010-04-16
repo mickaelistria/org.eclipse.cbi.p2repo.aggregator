@@ -104,11 +104,11 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(RequiredCapability.class)) {
-		case P2Package.REQUIRED_CAPABILITY__NAME:
-		case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
-		case P2Package.REQUIRED_CAPABILITY__RANGE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case P2Package.REQUIRED_CAPABILITY__NAME:
+			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
+			case P2Package.REQUIRED_CAPABILITY__RANGE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -122,11 +122,11 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_name_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IRequiredCapability_name_feature", "_UI_IRequiredCapability_type"),
-				P2Package.Literals.IREQUIRED_CAPABILITY__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_IRequiredCapability_name_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_name_feature",
+				"_UI_IRequiredCapability_type"), P2Package.Literals.IREQUIRED_CAPABILITY__NAME, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -138,11 +138,11 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 */
 	protected void addNamespacePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_namespace_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IRequiredCapability_namespace_feature", "_UI_IRequiredCapability_type"),
-				P2Package.Literals.IREQUIRED_CAPABILITY__NAMESPACE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_IRequiredCapability_namespace_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_namespace_feature",
+				"_UI_IRequiredCapability_type"), P2Package.Literals.IREQUIRED_CAPABILITY__NAMESPACE, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -154,11 +154,11 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 */
 	protected void addRangePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_range_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IRequiredCapability_range_feature", "_UI_IRequiredCapability_type"),
-				P2Package.Literals.IREQUIRED_CAPABILITY__RANGE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_IRequiredCapability_range_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_range_feature",
+				"_UI_IRequiredCapability_type"), P2Package.Literals.IREQUIRED_CAPABILITY__RANGE, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

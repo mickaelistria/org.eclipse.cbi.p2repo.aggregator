@@ -125,10 +125,10 @@ public class CopyrightItemProvider extends ItemProviderAdapter implements IEditi
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(Copyright.class)) {
-		case P2Package.COPYRIGHT__LOCATION:
-		case P2Package.COPYRIGHT__BODY:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case P2Package.COPYRIGHT__LOCATION:
+			case P2Package.COPYRIGHT__BODY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -142,10 +142,11 @@ public class CopyrightItemProvider extends ItemProviderAdapter implements IEditi
 	 */
 	protected void addBodyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ICopyright_body_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_ICopyright_body_feature", "_UI_ICopyright_type"), P2Package.Literals.ICOPYRIGHT__BODY,
-				true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_ICopyright_body_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_ICopyright_body_feature", "_UI_ICopyright_type"),
+			P2Package.Literals.ICOPYRIGHT__BODY, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+			null));
 	}
 
 	/**
@@ -157,11 +158,11 @@ public class CopyrightItemProvider extends ItemProviderAdapter implements IEditi
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ICopyright_location_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_ICopyright_location_feature", "_UI_ICopyright_type"),
-				P2Package.Literals.ICOPYRIGHT__LOCATION, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_ICopyright_location_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_ICopyright_location_feature", "_UI_ICopyright_type"),
+			P2Package.Literals.ICOPYRIGHT__LOCATION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			null, null));
 	}
 
 	/**

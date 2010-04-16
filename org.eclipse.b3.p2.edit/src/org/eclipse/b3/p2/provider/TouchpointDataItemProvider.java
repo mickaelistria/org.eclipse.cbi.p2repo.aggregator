@@ -136,9 +136,9 @@ public class TouchpointDataItemProvider extends ItemProviderAdapter implements I
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(TouchpointData.class)) {
-		case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -152,10 +152,11 @@ public class TouchpointDataItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addInstructionMapPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_TouchpointData_instructionMap_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_TouchpointData_instructionMap_feature", "_UI_TouchpointData_type"),
-				P2Package.Literals.TOUCHPOINT_DATA__INSTRUCTION_MAP, false, false, false, null, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_TouchpointData_instructionMap_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_TouchpointData_instructionMap_feature",
+				"_UI_TouchpointData_type"), P2Package.Literals.TOUCHPOINT_DATA__INSTRUCTION_MAP, false, false, false,
+			null, null, null));
 	}
 
 	/**
@@ -170,8 +171,9 @@ public class TouchpointDataItemProvider extends ItemProviderAdapter implements I
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.TOUCHPOINT_DATA__INSTRUCTION_MAP,
-				P2Factory.eINSTANCE.create(P2Package.Literals.INSTRUCTION_MAP)));
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.TOUCHPOINT_DATA__INSTRUCTION_MAP,
+			P2Factory.eINSTANCE.create(P2Package.Literals.INSTRUCTION_MAP)));
 	}
 
 	/**

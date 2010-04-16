@@ -55,12 +55,12 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 		Object childFeature = feature;
 		Object childObject = child;
 
-		boolean qualify = childFeature == P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS
-				|| childFeature == P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS;
+		boolean qualify = childFeature == P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS ||
+				childFeature == P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS;
 
 		if(qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
-					getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

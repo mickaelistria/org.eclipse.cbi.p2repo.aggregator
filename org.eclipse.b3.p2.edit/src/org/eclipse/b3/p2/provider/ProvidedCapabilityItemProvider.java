@@ -118,11 +118,11 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(ProvidedCapability.class)) {
-		case P2Package.PROVIDED_CAPABILITY__NAME:
-		case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
-		case P2Package.PROVIDED_CAPABILITY__VERSION:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case P2Package.PROVIDED_CAPABILITY__NAME:
+			case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
+			case P2Package.PROVIDED_CAPABILITY__VERSION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -136,11 +136,11 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IProvidedCapability_name_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IProvidedCapability_name_feature", "_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_IProvidedCapability_name_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_name_feature",
+				"_UI_IProvidedCapability_type"), P2Package.Literals.IPROVIDED_CAPABILITY__NAME, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -152,11 +152,11 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addNamespacePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IProvidedCapability_namespace_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IProvidedCapability_namespace_feature", "_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__NAMESPACE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_IProvidedCapability_namespace_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_namespace_feature",
+				"_UI_IProvidedCapability_type"), P2Package.Literals.IPROVIDED_CAPABILITY__NAMESPACE, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -168,11 +168,11 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IProvidedCapability_version_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IProvidedCapability_version_feature", "_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__VERSION, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_IProvidedCapability_version_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_version_feature",
+				"_UI_IProvidedCapability_type"), P2Package.Literals.IPROVIDED_CAPABILITY__VERSION, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

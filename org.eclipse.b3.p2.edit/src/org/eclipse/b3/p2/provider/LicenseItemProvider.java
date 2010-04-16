@@ -126,11 +126,11 @@ public class LicenseItemProvider extends ItemProviderAdapter implements IEditing
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(License.class)) {
-		case P2Package.LICENSE__LOCATION:
-		case P2Package.LICENSE__BODY:
-		case P2Package.LICENSE__UUID:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case P2Package.LICENSE__LOCATION:
+			case P2Package.LICENSE__BODY:
+			case P2Package.LICENSE__UUID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -144,10 +144,11 @@ public class LicenseItemProvider extends ItemProviderAdapter implements IEditing
 	 */
 	protected void addBodyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ILicense_body_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_ILicense_body_feature", "_UI_ILicense_type"), P2Package.Literals.ILICENSE__BODY, true,
-				true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_ILicense_body_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_ILicense_body_feature", "_UI_ILicense_type"),
+			P2Package.Literals.ILICENSE__BODY, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+			null));
 	}
 
 	/**
@@ -159,10 +160,11 @@ public class LicenseItemProvider extends ItemProviderAdapter implements IEditing
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ILicense_location_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_ILicense_location_feature", "_UI_ILicense_type"), P2Package.Literals.ILICENSE__LOCATION,
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_ILicense_location_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_ILicense_location_feature", "_UI_ILicense_type"),
+			P2Package.Literals.ILICENSE__LOCATION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			null, null));
 	}
 
 	/**
@@ -174,10 +176,11 @@ public class LicenseItemProvider extends ItemProviderAdapter implements IEditing
 	 */
 	protected void addUUIDPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ILicense_UUID_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_ILicense_UUID_feature", "_UI_ILicense_type"), P2Package.Literals.ILICENSE__UUID, true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_ILicense_UUID_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_ILicense_UUID_feature", "_UI_ILicense_type"),
+			P2Package.Literals.ILICENSE__UUID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+			null));
 	}
 
 	/**

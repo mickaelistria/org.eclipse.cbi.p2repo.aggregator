@@ -123,12 +123,12 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(RepositoryReference.class)) {
-		case P2Package.REPOSITORY_REFERENCE__LOCATION:
-		case P2Package.REPOSITORY_REFERENCE__TYPE:
-		case P2Package.REPOSITORY_REFERENCE__OPTIONS:
-		case P2Package.REPOSITORY_REFERENCE__NICKNAME:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case P2Package.REPOSITORY_REFERENCE__LOCATION:
+			case P2Package.REPOSITORY_REFERENCE__TYPE:
+			case P2Package.REPOSITORY_REFERENCE__OPTIONS:
+			case P2Package.REPOSITORY_REFERENCE__NICKNAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -142,11 +142,11 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_RepositoryReference_location_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryReference_location_feature", "_UI_RepositoryReference_type"),
-				P2Package.Literals.REPOSITORY_REFERENCE__LOCATION, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_RepositoryReference_location_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_RepositoryReference_location_feature",
+				"_UI_RepositoryReference_type"), P2Package.Literals.REPOSITORY_REFERENCE__LOCATION, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -158,11 +158,11 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 */
 	protected void addNicknamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_RepositoryReference_nickname_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryReference_nickname_feature", "_UI_RepositoryReference_type"),
-				P2Package.Literals.REPOSITORY_REFERENCE__NICKNAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_RepositoryReference_nickname_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_RepositoryReference_nickname_feature",
+				"_UI_RepositoryReference_type"), P2Package.Literals.REPOSITORY_REFERENCE__NICKNAME, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -174,11 +174,11 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 */
 	protected void addOptionsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_RepositoryReference_options_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryReference_options_feature", "_UI_RepositoryReference_type"),
-				P2Package.Literals.REPOSITORY_REFERENCE__OPTIONS, true, false, false,
-				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_RepositoryReference_options_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_RepositoryReference_options_feature",
+				"_UI_RepositoryReference_type"), P2Package.Literals.REPOSITORY_REFERENCE__OPTIONS, true, false, false,
+			ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -190,11 +190,11 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_RepositoryReference_type_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryReference_type_feature", "_UI_RepositoryReference_type"),
-				P2Package.Literals.REPOSITORY_REFERENCE__TYPE, true, false, false,
-				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_RepositoryReference_type_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_RepositoryReference_type_feature",
+				"_UI_RepositoryReference_type"), P2Package.Literals.REPOSITORY_REFERENCE__TYPE, true, false, false,
+			ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
