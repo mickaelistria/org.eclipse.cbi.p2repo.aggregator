@@ -29,6 +29,7 @@ public class MetadataRepositoryResourceFactoryImpl extends ResourceFactoryImpl {
 		super();
 	}
 
+	@Override
 	public Resource createResource(URI uri) {
 		String nature;
 		Matcher matcher = URI_LOADER_PATTERN.matcher(uri.opaquePart());
@@ -47,8 +48,8 @@ public class MetadataRepositoryResourceFactoryImpl extends ResourceFactoryImpl {
 			}
 
 		try {
-			return new MetadataRepositoryResourceImpl(uri,
-					(IRepositoryLoader) loaderConfiguration.createExecutableExtension("class"));
+			return new MetadataRepositoryResourceImpl(
+				uri, (IRepositoryLoader) loaderConfiguration.createExecutableExtension("class"));
 		}
 		catch(CoreException e) {
 			throw new RuntimeException(e.getMessage(), e);

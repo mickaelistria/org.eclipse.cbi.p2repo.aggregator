@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum WindowSystem implements Enumerator{
+public enum WindowSystem implements Enumerator {
 	/**
 	 * The '<em><b>Win32</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -146,14 +146,14 @@ public enum WindowSystem implements Enumerator{
 	 */
 	public static WindowSystem get(int value) {
 		switch(value) {
-		case WIN32_VALUE:
-			return WIN32;
-		case GTK_VALUE:
-			return GTK;
-		case CARBON_VALUE:
-			return CARBON;
-		case COCOA_VALUE:
-			return COCOA;
+			case WIN32_VALUE:
+				return WIN32;
+			case GTK_VALUE:
+				return GTK;
+			case CARBON_VALUE:
+				return CARBON;
+			case COCOA_VALUE:
+				return COCOA;
 		}
 		return null;
 	}

@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum InstallableUnitType implements Enumerator{
+public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>BUNDLE</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -187,8 +187,8 @@ public enum InstallableUnitType implements Enumerator{
 	 * 
 	 * @generated
 	 */
-	private static final InstallableUnitType[] VALUES_ARRAY = new InstallableUnitType[] { BUNDLE, FEATURE, PRODUCT,
-			CATEGORY, FRAGMENT, OTHER, };
+	private static final InstallableUnitType[] VALUES_ARRAY = new InstallableUnitType[] {
+			BUNDLE, FEATURE, PRODUCT, CATEGORY, FRAGMENT, OTHER, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Installable Unit Type</b></em>' enumerators.
@@ -208,18 +208,18 @@ public enum InstallableUnitType implements Enumerator{
 	 */
 	public static InstallableUnitType get(int value) {
 		switch(value) {
-		case BUNDLE_VALUE:
-			return BUNDLE;
-		case FEATURE_VALUE:
-			return FEATURE;
-		case PRODUCT_VALUE:
-			return PRODUCT;
-		case CATEGORY_VALUE:
-			return CATEGORY;
-		case FRAGMENT_VALUE:
-			return FRAGMENT;
-		case OTHER_VALUE:
-			return OTHER;
+			case BUNDLE_VALUE:
+				return BUNDLE;
+			case FEATURE_VALUE:
+				return FEATURE;
+			case PRODUCT_VALUE:
+				return PRODUCT;
+			case CATEGORY_VALUE:
+				return CATEGORY;
+			case FRAGMENT_VALUE:
+				return FRAGMENT;
+			case OTHER_VALUE:
+				return OTHER;
 		}
 		return null;
 	}

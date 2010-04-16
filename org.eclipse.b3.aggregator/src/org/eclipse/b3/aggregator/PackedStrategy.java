@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum PackedStrategy implements Enumerator{
+public enum PackedStrategy implements Enumerator {
 	/**
 	 * The '<em><b>Copy</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -160,8 +160,8 @@ public enum PackedStrategy implements Enumerator{
 	 * 
 	 * @generated
 	 */
-	private static final PackedStrategy[] VALUES_ARRAY = new PackedStrategy[] { COPY, VERIFY, UNPACK_AS_SIBLING,
-			UNPACK, SKIP, };
+	private static final PackedStrategy[] VALUES_ARRAY = new PackedStrategy[] {
+			COPY, VERIFY, UNPACK_AS_SIBLING, UNPACK, SKIP, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Packed Strategy</b></em>' enumerators.
@@ -181,16 +181,16 @@ public enum PackedStrategy implements Enumerator{
 	 */
 	public static PackedStrategy get(int value) {
 		switch(value) {
-		case COPY_VALUE:
-			return COPY;
-		case VERIFY_VALUE:
-			return VERIFY;
-		case UNPACK_AS_SIBLING_VALUE:
-			return UNPACK_AS_SIBLING;
-		case UNPACK_VALUE:
-			return UNPACK;
-		case SKIP_VALUE:
-			return SKIP;
+			case COPY_VALUE:
+				return COPY;
+			case VERIFY_VALUE:
+				return VERIFY;
+			case UNPACK_AS_SIBLING_VALUE:
+				return UNPACK_AS_SIBLING;
+			case UNPACK_VALUE:
+				return UNPACK;
+			case SKIP_VALUE:
+				return SKIP;
 		}
 		return null;
 	}

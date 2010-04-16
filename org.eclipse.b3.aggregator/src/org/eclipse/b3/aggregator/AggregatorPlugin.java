@@ -56,7 +56,7 @@ public final class AggregatorPlugin extends EMFPlugin {
 			supportedNatures = new ArrayList<String>();
 
 			for(IConfigurationElement extension : Platform.getExtensionRegistry().getConfigurationElementsFor(
-					IRepositoryLoader.EXTENSION_POINT_ID))
+				IRepositoryLoader.EXTENSION_POINT_ID))
 				supportedNatures.add(extension.getAttribute(IRepositoryLoader.EXTENSION_POINT_ATTRIBUTE_NATURE));
 
 			Collections.sort(supportedNatures);

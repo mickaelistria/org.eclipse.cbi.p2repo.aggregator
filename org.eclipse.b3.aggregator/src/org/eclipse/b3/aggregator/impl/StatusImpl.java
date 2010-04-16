@@ -36,12 +36,12 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	public static Status createStatus(StatusCode statusCode) {
 		switch(statusCode) {
-		case BROKEN:
-			return brokenStatus;
-		case WAITING:
-			return waitingStatus;
-		default:
-			return okStatus;
+			case BROKEN:
+				return brokenStatus;
+			case WAITING:
+				return waitingStatus;
+			default:
+				return okStatus;
 		}
 	}
 
@@ -166,10 +166,10 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.STATUS__CODE:
-			return getCode();
-		case AggregatorPackage.STATUS__MESSAGE:
-			return getMessage();
+			case AggregatorPackage.STATUS__CODE:
+				return getCode();
+			case AggregatorPackage.STATUS__MESSAGE:
+				return getMessage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,12 +182,12 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.STATUS__CODE:
-			return (eFlags & CODE_EFLAG) != CODE_EFLAG_DEFAULT;
-		case AggregatorPackage.STATUS__MESSAGE:
-			return MESSAGE_EDEFAULT == null
-					? message != null
-					: !MESSAGE_EDEFAULT.equals(message);
+			case AggregatorPackage.STATUS__CODE:
+				return (eFlags & CODE_EFLAG) != CODE_EFLAG_DEFAULT;
+			case AggregatorPackage.STATUS__MESSAGE:
+				return MESSAGE_EDEFAULT == null
+						? message != null
+						: !MESSAGE_EDEFAULT.equals(message);
 		}
 		return super.eIsSet(featureID);
 	}

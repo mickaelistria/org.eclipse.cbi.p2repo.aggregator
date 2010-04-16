@@ -112,10 +112,10 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.PROPERTY__KEY:
-			return getKey();
-		case AggregatorPackage.PROPERTY__VALUE:
-			return getValue();
+			case AggregatorPackage.PROPERTY__KEY:
+				return getKey();
+			case AggregatorPackage.PROPERTY__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -128,14 +128,14 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.PROPERTY__KEY:
-			return KEY_EDEFAULT == null
-					? key != null
-					: !KEY_EDEFAULT.equals(key);
-		case AggregatorPackage.PROPERTY__VALUE:
-			return VALUE_EDEFAULT == null
-					? value != null
-					: !VALUE_EDEFAULT.equals(value);
+			case AggregatorPackage.PROPERTY__KEY:
+				return KEY_EDEFAULT == null
+						? key != null
+						: !KEY_EDEFAULT.equals(key);
+			case AggregatorPackage.PROPERTY__VALUE:
+				return VALUE_EDEFAULT == null
+						? value != null
+						: !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -148,12 +148,12 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case AggregatorPackage.PROPERTY__KEY:
-			setKey((String) newValue);
-			return;
-		case AggregatorPackage.PROPERTY__VALUE:
-			setValue((String) newValue);
-			return;
+			case AggregatorPackage.PROPERTY__KEY:
+				setKey((String) newValue);
+				return;
+			case AggregatorPackage.PROPERTY__VALUE:
+				setValue((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -166,12 +166,12 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.PROPERTY__KEY:
-			setKey(KEY_EDEFAULT);
-			return;
-		case AggregatorPackage.PROPERTY__VALUE:
-			setValue(VALUE_EDEFAULT);
-			return;
+			case AggregatorPackage.PROPERTY__KEY:
+				setKey(KEY_EDEFAULT);
+				return;
+			case AggregatorPackage.PROPERTY__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}

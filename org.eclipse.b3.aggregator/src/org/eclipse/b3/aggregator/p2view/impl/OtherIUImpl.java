@@ -41,6 +41,7 @@ public class OtherIUImpl extends IUPresentationWithDetailsImpl implements OtherI
 		super(iu);
 	}
 
+	@Override
 	public InstallableUnitType getType() {
 		return InstallableUnitType.OTHER;
 	}

@@ -95,12 +95,12 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.INFOS_PROVIDER__ERRORS:
-			return getErrors();
-		case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
-			return getWarnings();
-		case AggregatorPackage.INFOS_PROVIDER__INFOS:
-			return getInfos();
+			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+				return getErrors();
+			case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+				return getWarnings();
+			case AggregatorPackage.INFOS_PROVIDER__INFOS:
+				return getInfos();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,12 +113,12 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.INFOS_PROVIDER__ERRORS:
-			return errors != null && !errors.isEmpty();
-		case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
-			return warnings != null && !warnings.isEmpty();
-		case AggregatorPackage.INFOS_PROVIDER__INFOS:
-			return infos != null && !infos.isEmpty();
+			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+				return errors != null && !errors.isEmpty();
+			case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+				return warnings != null && !warnings.isEmpty();
+			case AggregatorPackage.INFOS_PROVIDER__INFOS:
+				return infos != null && !infos.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -132,18 +132,18 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case AggregatorPackage.INFOS_PROVIDER__ERRORS:
-			getErrors().clear();
-			getErrors().addAll((Collection<? extends String>) newValue);
-			return;
-		case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
-			getWarnings().clear();
-			getWarnings().addAll((Collection<? extends String>) newValue);
-			return;
-		case AggregatorPackage.INFOS_PROVIDER__INFOS:
-			getInfos().clear();
-			getInfos().addAll((Collection<? extends String>) newValue);
-			return;
+			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+				getErrors().clear();
+				getErrors().addAll((Collection<? extends String>) newValue);
+				return;
+			case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+				getWarnings().clear();
+				getWarnings().addAll((Collection<? extends String>) newValue);
+				return;
+			case AggregatorPackage.INFOS_PROVIDER__INFOS:
+				getInfos().clear();
+				getInfos().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -156,15 +156,15 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.INFOS_PROVIDER__ERRORS:
-			getErrors().clear();
-			return;
-		case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
-			getWarnings().clear();
-			return;
-		case AggregatorPackage.INFOS_PROVIDER__INFOS:
-			getInfos().clear();
-			return;
+			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+				getErrors().clear();
+				return;
+			case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+				getWarnings().clear();
+				return;
+			case AggregatorPackage.INFOS_PROVIDER__INFOS:
+				getInfos().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

@@ -26,13 +26,13 @@ public class SpecialQueries {
 	 * match every {@link IInstallableUnit} that describes an OSGi bundle.
 	 */
 	private static final IMatchExpression<IInstallableUnit> bundles = ExpressionUtil.getFactory().matchExpression(
-			ExpressionUtil.parse("providedCapabilities.exists(p | p.namespace == 'osgi.bundle')")); //$NON-NLS-1$
+		ExpressionUtil.parse("providedCapabilities.exists(p | p.namespace == 'osgi.bundle')")); //$NON-NLS-1$
 
 	/**
 	 * match every {@link IInstallableUnit} that describes a feature.
 	 */
 	private static final IMatchExpression<IInstallableUnit> features = ExpressionUtil.getFactory().matchExpression(
-			ExpressionUtil.parse("name == '*.feature.group'")); //$NON-NLS-1$
+		ExpressionUtil.parse("name == '*.feature.group'")); //$NON-NLS-1$
 
 	public static IQuery<IInstallableUnit> createBundleQuery() {
 		return QueryUtil.createMatchQuery(bundles);
@@ -43,8 +43,8 @@ public class SpecialQueries {
 	}
 
 	public static IQuery<IInstallableUnit> createPatchApplicabilityQuery(IInstallableUnitPatch patch) {
-		return QueryUtil.createMatchQuery("$0.exists(rcs | rcs.all(rc | this ~= rc))",
-				(Object) patch.getApplicabilityScope());
+		return QueryUtil.createMatchQuery(
+			"$0.exists(rcs | rcs.all(rc | this ~= rc))", (Object) patch.getApplicabilityScope());
 	}
 
 	public static IQuery<IInstallableUnit> createProductQuery() {

@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum AggregateType implements Enumerator{
+public enum AggregateType implements Enumerator {
 	/**
 	 * The '<em><b>Stable</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -183,8 +183,8 @@ public enum AggregateType implements Enumerator{
 	 * 
 	 * @generated
 	 */
-	private static final AggregateType[] VALUES_ARRAY = new AggregateType[] { STABLE, INTEGRATION, NIGHTLY,
-			MAINTENANCE, CONTINUOUS, RELEASE, };
+	private static final AggregateType[] VALUES_ARRAY = new AggregateType[] {
+			STABLE, INTEGRATION, NIGHTLY, MAINTENANCE, CONTINUOUS, RELEASE, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Aggregate Type</b></em>' enumerators.
@@ -204,18 +204,18 @@ public enum AggregateType implements Enumerator{
 	 */
 	public static AggregateType get(int value) {
 		switch(value) {
-		case STABLE_VALUE:
-			return STABLE;
-		case INTEGRATION_VALUE:
-			return INTEGRATION;
-		case NIGHTLY_VALUE:
-			return NIGHTLY;
-		case MAINTENANCE_VALUE:
-			return MAINTENANCE;
-		case CONTINUOUS_VALUE:
-			return CONTINUOUS;
-		case RELEASE_VALUE:
-			return RELEASE;
+			case STABLE_VALUE:
+				return STABLE;
+			case INTEGRATION_VALUE:
+				return INTEGRATION;
+			case NIGHTLY_VALUE:
+				return NIGHTLY;
+			case MAINTENANCE_VALUE:
+				return MAINTENANCE;
+			case CONTINUOUS_VALUE:
+				return CONTINUOUS;
+			case RELEASE_VALUE:
+				return RELEASE;
 		}
 		return null;
 	}

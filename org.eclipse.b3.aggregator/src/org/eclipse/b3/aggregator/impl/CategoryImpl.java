@@ -64,8 +64,8 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
-			return getLabelOverride();
+			case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
+				return getLabelOverride();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,10 +78,10 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
-			return LABEL_OVERRIDE_EDEFAULT == null
-					? labelOverride != null
-					: !LABEL_OVERRIDE_EDEFAULT.equals(labelOverride);
+			case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
+				return LABEL_OVERRIDE_EDEFAULT == null
+						? labelOverride != null
+						: !LABEL_OVERRIDE_EDEFAULT.equals(labelOverride);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -94,9 +94,9 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
-			setLabelOverride((String) newValue);
-			return;
+			case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
+				setLabelOverride((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -109,9 +109,9 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
-			setLabelOverride(LABEL_OVERRIDE_EDEFAULT);
-			return;
+			case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
+				setLabelOverride(LABEL_OVERRIDE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -134,8 +134,8 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 		String oldLabelOverride = labelOverride;
 		labelOverride = newLabelOverride;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CATEGORY__LABEL_OVERRIDE,
-					oldLabelOverride, labelOverride));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.CATEGORY__LABEL_OVERRIDE, oldLabelOverride, labelOverride));
 	}
 
 	/**

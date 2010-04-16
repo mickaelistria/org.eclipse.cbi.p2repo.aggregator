@@ -278,30 +278,30 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				IUPresentation iuPresentation;
 
 				switch(InstallableUnitUtils.getType(iu)) {
-				case CATEGORY:
-					iuPresentation = P2viewFactory.eINSTANCE.createCategory(iu);
-					if(!((Category) iuPresentation).isNested())
-						categories.add((Category) iuPresentation);
-					break;
-				case FEATURE:
-					iuPresentation = P2viewFactory.eINSTANCE.createFeature(iu);
-					features.add((Feature) iuPresentation);
-					break;
-				case PRODUCT:
-					iuPresentation = P2viewFactory.eINSTANCE.createProduct(iu);
-					products.add((Product) iuPresentation);
-					break;
-				case BUNDLE:
-					iuPresentation = P2viewFactory.eINSTANCE.createBundle(iu);
-					bundles.add((Bundle) iuPresentation);
-					break;
-				case FRAGMENT:
-					iuPresentation = P2viewFactory.eINSTANCE.createFragment(iu);
-					fragments.add((Fragment) iuPresentation);
-					break;
-				default:
-					iuPresentation = P2viewFactory.eINSTANCE.createOtherIU(iu);
-					miscellaneous.add((OtherIU) iuPresentation);
+					case CATEGORY:
+						iuPresentation = P2viewFactory.eINSTANCE.createCategory(iu);
+						if(!((Category) iuPresentation).isNested())
+							categories.add((Category) iuPresentation);
+						break;
+					case FEATURE:
+						iuPresentation = P2viewFactory.eINSTANCE.createFeature(iu);
+						features.add((Feature) iuPresentation);
+						break;
+					case PRODUCT:
+						iuPresentation = P2viewFactory.eINSTANCE.createProduct(iu);
+						products.add((Product) iuPresentation);
+						break;
+					case BUNDLE:
+						iuPresentation = P2viewFactory.eINSTANCE.createBundle(iu);
+						bundles.add((Bundle) iuPresentation);
+						break;
+					case FRAGMENT:
+						iuPresentation = P2viewFactory.eINSTANCE.createFragment(iu);
+						fragments.add((Fragment) iuPresentation);
+						break;
+					default:
+						iuPresentation = P2viewFactory.eINSTANCE.createOtherIU(iu);
+						miscellaneous.add((OtherIU) iuPresentation);
 				}
 
 				iuPresentation.setId(iu.getId());
@@ -311,8 +311,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 					iuPresentation.setFilter(filter.toString());
 
 				String name = RepositoryTranslationSupport.getInstance(
-						(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(iu,
-						IInstallableUnit.PROP_NAME);
+					(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(
+					iu, IInstallableUnit.PROP_NAME);
 				if(name == null || name.length() == 0)
 					iuPresentation.setName(iu.getId());
 				else
@@ -326,13 +326,13 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 							? name
 							: iu.getId());
 				else
-					iuPresentation.setLabel(iu.getId() + " / " + IUUtils.stringifyVersion(iu.getVersion())
-							+ (name != null && name.length() > 0
+					iuPresentation.setLabel(iu.getId() + " / " + IUUtils.stringifyVersion(iu.getVersion()) +
+							(name != null && name.length() > 0
 									? " (" + name + ")"
 									: ""));
 				iuPresentation.setDescription(RepositoryTranslationSupport.getInstance(
-						(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(iu,
-						IInstallableUnit.PROP_DESCRIPTION));
+					(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(
+					iu, IInstallableUnit.PROP_DESCRIPTION));
 
 				Map<Version, IUPresentation> versionMap = iuMap.get(iu.getId());
 				if(versionMap == null)
@@ -435,8 +435,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				IRequiredCapability rc = (IRequiredCapability) requirement;
 
 				VersionRange range = rc.getRange();
-				if(!range.getMinimum().equals(range.getMaximum()) || !range.getIncludeMinimum()
-						|| !range.getIncludeMaximum())
+				if(!range.getMinimum().equals(range.getMaximum()) || !range.getIncludeMinimum() ||
+						!range.getIncludeMaximum())
 					continue;
 				Map<Version, IUPresentation> iuCandidates = iuMap.get(rc.getName());
 				if(iuCandidates == null)
@@ -668,6 +668,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		return status;
 	}
 
+	@Override
 	public void load(Map<?, ?> options) throws IOException {
 		lastException = null;
 
@@ -715,8 +716,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				if(resourceSet instanceof ResourceSetWithAgent)
 					agent = ((ResourceSetWithAgent) resourceSet).getProvisioningAgent();
 
-				loadingJob = new RepositoryLoaderJob(agent, repository, location, forceReload, repoView,
-						allIUPresentationMatrix);
+				loadingJob = new RepositoryLoaderJob(
+					agent, repository, location, forceReload, repoView, allIUPresentationMatrix);
 				loadingJob.schedule();
 			}
 		}
@@ -732,7 +733,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 			if(!jobManagerReadyBeforeJobScheduled)
 				lastException = new UnknownStatusException(
-						"Unknown repository status - loading job was scheduled while job manager was suspended");
+					"Unknown repository status - loading job was scheduled while job manager was suspended");
 		}
 		catch(InterruptedException e) {
 			loadingJob.cancel();
@@ -745,8 +746,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 	public MetadataRepository loadRepository(boolean force) {
 		Exception loadException = null;
-		Map<String, Notification[]> notificationCollector = Collections.singletonMap(NOTIFICATION_KEY,
-				new Notification[] { null });
+		Map<String, Notification[]> notificationCollector = Collections.singletonMap(
+			NOTIFICATION_KEY, new Notification[] { null });
 
 		try {
 			if(warnings != null)
@@ -768,8 +769,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				throw getLastException();
 
 			List<EObject> contents = getContents();
-			if(contents.size() != 1
-					|| ((MetadataRepositoryStructuredView) contents.get(0)).getMetadataRepository().getLocation() == null)
+			if(contents.size() != 1 ||
+					((MetadataRepositoryStructuredView) contents.get(0)).getMetadataRepository().getLocation() == null)
 				throw new Exception(String.format("Unable to load repository %s", getURI().toString()));
 
 			return ((MetadataRepositoryStructuredView) contents.get(0)).getMetadataRepository();
@@ -797,6 +798,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		}
 	}
 
+	@Override
 	public void save(Map<?, ?> options) throws IOException {
 		// Let this be a no-op.
 	}

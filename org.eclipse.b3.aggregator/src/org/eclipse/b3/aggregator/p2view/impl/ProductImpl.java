@@ -124,8 +124,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 		Bundles oldBundleContainer = bundleContainer;
 		bundleContainer = newBundleContainer;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.PRODUCT__BUNDLE_CONTAINER, oldBundleContainer, newBundleContainer);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.PRODUCT__BUNDLE_CONTAINER, oldBundleContainer, newBundleContainer);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -144,8 +144,9 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 		Features oldFeatureContainer = featureContainer;
 		featureContainer = newFeatureContainer;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.PRODUCT__FEATURE_CONTAINER, oldFeatureContainer, newFeatureContainer);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.PRODUCT__FEATURE_CONTAINER, oldFeatureContainer,
+				newFeatureContainer);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -164,8 +165,9 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 		Fragments oldFragmentContainer = fragmentContainer;
 		fragmentContainer = newFragmentContainer;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, oldFragmentContainer, newFragmentContainer);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, oldFragmentContainer,
+				newFragmentContainer);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -182,18 +184,18 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.PRODUCT__FEATURE_CONTAINER:
-			if(resolve)
-				return getFeatureContainer();
-			return basicGetFeatureContainer();
-		case P2viewPackage.PRODUCT__BUNDLE_CONTAINER:
-			if(resolve)
-				return getBundleContainer();
-			return basicGetBundleContainer();
-		case P2viewPackage.PRODUCT__FRAGMENT_CONTAINER:
-			if(resolve)
-				return getFragmentContainer();
-			return basicGetFragmentContainer();
+			case P2viewPackage.PRODUCT__FEATURE_CONTAINER:
+				if(resolve)
+					return getFeatureContainer();
+				return basicGetFeatureContainer();
+			case P2viewPackage.PRODUCT__BUNDLE_CONTAINER:
+				if(resolve)
+					return getBundleContainer();
+				return basicGetBundleContainer();
+			case P2viewPackage.PRODUCT__FRAGMENT_CONTAINER:
+				if(resolve)
+					return getFragmentContainer();
+				return basicGetFragmentContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -207,12 +209,12 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case P2viewPackage.PRODUCT__FEATURE_CONTAINER:
-			return basicSetFeatureContainer(null, msgs);
-		case P2viewPackage.PRODUCT__BUNDLE_CONTAINER:
-			return basicSetBundleContainer(null, msgs);
-		case P2viewPackage.PRODUCT__FRAGMENT_CONTAINER:
-			return basicSetFragmentContainer(null, msgs);
+			case P2viewPackage.PRODUCT__FEATURE_CONTAINER:
+				return basicSetFeatureContainer(null, msgs);
+			case P2viewPackage.PRODUCT__BUNDLE_CONTAINER:
+				return basicSetBundleContainer(null, msgs);
+			case P2viewPackage.PRODUCT__FRAGMENT_CONTAINER:
+				return basicSetFragmentContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -225,12 +227,12 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.PRODUCT__FEATURE_CONTAINER:
-			return featureContainer != null;
-		case P2viewPackage.PRODUCT__BUNDLE_CONTAINER:
-			return bundleContainer != null;
-		case P2viewPackage.PRODUCT__FRAGMENT_CONTAINER:
-			return fragmentContainer != null;
+			case P2viewPackage.PRODUCT__FEATURE_CONTAINER:
+				return featureContainer != null;
+			case P2viewPackage.PRODUCT__BUNDLE_CONTAINER:
+				return bundleContainer != null;
+			case P2viewPackage.PRODUCT__FRAGMENT_CONTAINER:
+				return fragmentContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -243,15 +245,15 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.PRODUCT__FEATURE_CONTAINER:
-			setFeatureContainer((Features) newValue);
-			return;
-		case P2viewPackage.PRODUCT__BUNDLE_CONTAINER:
-			setBundleContainer((Bundles) newValue);
-			return;
-		case P2viewPackage.PRODUCT__FRAGMENT_CONTAINER:
-			setFragmentContainer((Fragments) newValue);
-			return;
+			case P2viewPackage.PRODUCT__FEATURE_CONTAINER:
+				setFeatureContainer((Features) newValue);
+				return;
+			case P2viewPackage.PRODUCT__BUNDLE_CONTAINER:
+				setBundleContainer((Bundles) newValue);
+				return;
+			case P2viewPackage.PRODUCT__FRAGMENT_CONTAINER:
+				setFragmentContainer((Fragments) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -264,15 +266,15 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.PRODUCT__FEATURE_CONTAINER:
-			setFeatureContainer((Features) null);
-			return;
-		case P2viewPackage.PRODUCT__BUNDLE_CONTAINER:
-			setBundleContainer((Bundles) null);
-			return;
-		case P2viewPackage.PRODUCT__FRAGMENT_CONTAINER:
-			setFragmentContainer((Fragments) null);
-			return;
+			case P2viewPackage.PRODUCT__FEATURE_CONTAINER:
+				setFeatureContainer((Features) null);
+				return;
+			case P2viewPackage.PRODUCT__BUNDLE_CONTAINER:
+				setBundleContainer((Bundles) null);
+				return;
+			case P2viewPackage.PRODUCT__FRAGMENT_CONTAINER:
+				setFragmentContainer((Fragments) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -288,17 +290,18 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 			bundleContainer = (Bundles) eResolveProxy(oldBundleContainer);
 			if(bundleContainer != oldBundleContainer) {
 				InternalEObject newBundleContainer = (InternalEObject) bundleContainer;
-				NotificationChain msgs = oldBundleContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.PRODUCT__BUNDLE_CONTAINER, null, null);
+				NotificationChain msgs = oldBundleContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.PRODUCT__BUNDLE_CONTAINER, null, null);
 				if(newBundleContainer.eInternalContainer() == null) {
-					msgs = newBundleContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-							- P2viewPackage.PRODUCT__BUNDLE_CONTAINER, null, msgs);
+					msgs = newBundleContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+							P2viewPackage.PRODUCT__BUNDLE_CONTAINER, null, msgs);
 				}
 				if(msgs != null)
 					msgs.dispatch();
 				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2viewPackage.PRODUCT__BUNDLE_CONTAINER,
-							oldBundleContainer, bundleContainer));
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, P2viewPackage.PRODUCT__BUNDLE_CONTAINER, oldBundleContainer,
+						bundleContainer));
 			}
 		}
 		return bundleContainer;
@@ -315,17 +318,18 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 			featureContainer = (Features) eResolveProxy(oldFeatureContainer);
 			if(featureContainer != oldFeatureContainer) {
 				InternalEObject newFeatureContainer = (InternalEObject) featureContainer;
-				NotificationChain msgs = oldFeatureContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.PRODUCT__FEATURE_CONTAINER, null, null);
+				NotificationChain msgs = oldFeatureContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.PRODUCT__FEATURE_CONTAINER, null, null);
 				if(newFeatureContainer.eInternalContainer() == null) {
-					msgs = newFeatureContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-							- P2viewPackage.PRODUCT__FEATURE_CONTAINER, null, msgs);
+					msgs = newFeatureContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+							P2viewPackage.PRODUCT__FEATURE_CONTAINER, null, msgs);
 				}
 				if(msgs != null)
 					msgs.dispatch();
 				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2viewPackage.PRODUCT__FEATURE_CONTAINER,
-							oldFeatureContainer, featureContainer));
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, P2viewPackage.PRODUCT__FEATURE_CONTAINER, oldFeatureContainer,
+						featureContainer));
 			}
 		}
 		return featureContainer;
@@ -342,17 +346,18 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 			fragmentContainer = (Fragments) eResolveProxy(oldFragmentContainer);
 			if(fragmentContainer != oldFragmentContainer) {
 				InternalEObject newFragmentContainer = (InternalEObject) fragmentContainer;
-				NotificationChain msgs = oldFragmentContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, null, null);
+				NotificationChain msgs = oldFragmentContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, null, null);
 				if(newFragmentContainer.eInternalContainer() == null) {
-					msgs = newFragmentContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-							- P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, null, msgs);
+					msgs = newFragmentContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+							P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, null, msgs);
 				}
 				if(msgs != null)
 					msgs.dispatch();
 				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, oldFragmentContainer, fragmentContainer));
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, oldFragmentContainer,
+						fragmentContainer));
 			}
 		}
 		return fragmentContainer;
@@ -394,6 +399,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 		return getFragmentContainer();
 	}
 
+	@Override
 	public InstallableUnitType getType() {
 		return InstallableUnitType.PRODUCT;
 	}
@@ -407,18 +413,18 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 		if(newBundleContainer != bundleContainer) {
 			NotificationChain msgs = null;
 			if(bundleContainer != null)
-				msgs = ((InternalEObject) bundleContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.PRODUCT__BUNDLE_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) bundleContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.PRODUCT__BUNDLE_CONTAINER, null, msgs);
 			if(newBundleContainer != null)
-				msgs = ((InternalEObject) newBundleContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.PRODUCT__BUNDLE_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) newBundleContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.PRODUCT__BUNDLE_CONTAINER, null, msgs);
 			msgs = basicSetBundleContainer(newBundleContainer, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.PRODUCT__BUNDLE_CONTAINER,
-					newBundleContainer, newBundleContainer));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.PRODUCT__BUNDLE_CONTAINER, newBundleContainer, newBundleContainer));
 	}
 
 	/**
@@ -430,18 +436,19 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 		if(newFeatureContainer != featureContainer) {
 			NotificationChain msgs = null;
 			if(featureContainer != null)
-				msgs = ((InternalEObject) featureContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.PRODUCT__FEATURE_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) featureContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.PRODUCT__FEATURE_CONTAINER, null, msgs);
 			if(newFeatureContainer != null)
-				msgs = ((InternalEObject) newFeatureContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.PRODUCT__FEATURE_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) newFeatureContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.PRODUCT__FEATURE_CONTAINER, null, msgs);
 			msgs = basicSetFeatureContainer(newFeatureContainer, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.PRODUCT__FEATURE_CONTAINER,
-					newFeatureContainer, newFeatureContainer));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.PRODUCT__FEATURE_CONTAINER, newFeatureContainer,
+				newFeatureContainer));
 	}
 
 	/**
@@ -453,18 +460,19 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 		if(newFragmentContainer != fragmentContainer) {
 			NotificationChain msgs = null;
 			if(fragmentContainer != null)
-				msgs = ((InternalEObject) fragmentContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) fragmentContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, null, msgs);
 			if(newFragmentContainer != null)
-				msgs = ((InternalEObject) newFragmentContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) newFragmentContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, null, msgs);
 			msgs = basicSetFragmentContainer(newFragmentContainer, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.PRODUCT__FRAGMENT_CONTAINER,
-					newFragmentContainer, newFragmentContainer));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, newFragmentContainer,
+				newFragmentContainer));
 	}
 
 	/**

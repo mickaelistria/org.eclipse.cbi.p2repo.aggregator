@@ -58,8 +58,8 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.FEATURE__CATEGORIES:
-			return getCategories();
+			case AggregatorPackage.FEATURE__CATEGORIES:
+				return getCategories();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -73,8 +73,8 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case AggregatorPackage.FEATURE__CATEGORIES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getCategories()).basicAdd(otherEnd, msgs);
+			case AggregatorPackage.FEATURE__CATEGORIES:
+				return ((InternalEList<InternalEObject>) (InternalEList<?>) getCategories()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -87,8 +87,8 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case AggregatorPackage.FEATURE__CATEGORIES:
-			return ((InternalEList<?>) getCategories()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.FEATURE__CATEGORIES:
+				return ((InternalEList<?>) getCategories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -101,8 +101,8 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.FEATURE__CATEGORIES:
-			return categories != null && !categories.isEmpty();
+			case AggregatorPackage.FEATURE__CATEGORIES:
+				return categories != null && !categories.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -116,10 +116,10 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case AggregatorPackage.FEATURE__CATEGORIES:
-			getCategories().clear();
-			getCategories().addAll((Collection<? extends CustomCategory>) newValue);
-			return;
+			case AggregatorPackage.FEATURE__CATEGORIES:
+				getCategories().clear();
+				getCategories().addAll((Collection<? extends CustomCategory>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -132,9 +132,9 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.FEATURE__CATEGORIES:
-			getCategories().clear();
-			return;
+			case AggregatorPackage.FEATURE__CATEGORIES:
+				getCategories().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -146,8 +146,9 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	 */
 	public EList<CustomCategory> getCategories() {
 		if(categories == null) {
-			categories = new EObjectWithInverseResolvingEList.ManyInverse<CustomCategory>(CustomCategory.class, this,
-					AggregatorPackage.FEATURE__CATEGORIES, AggregatorPackage.CUSTOM_CATEGORY__FEATURES);
+			categories = new EObjectWithInverseResolvingEList.ManyInverse<CustomCategory>(
+				CustomCategory.class, this, AggregatorPackage.FEATURE__CATEGORIES,
+				AggregatorPackage.CUSTOM_CATEGORY__FEATURES);
 		}
 		return categories;
 	}

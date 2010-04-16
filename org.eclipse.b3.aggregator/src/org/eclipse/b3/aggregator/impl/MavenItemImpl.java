@@ -102,10 +102,10 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
-			return getGroupId();
-		case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
-			return getArtifactId();
+			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
+				return getGroupId();
+			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
+				return getArtifactId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -118,14 +118,14 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
-			return GROUP_ID_EDEFAULT == null
-					? groupId != null
-					: !GROUP_ID_EDEFAULT.equals(groupId);
-		case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
-			return ARTIFACT_ID_EDEFAULT == null
-					? artifactId != null
-					: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
+				return GROUP_ID_EDEFAULT == null
+						? groupId != null
+						: !GROUP_ID_EDEFAULT.equals(groupId);
+			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -138,12 +138,12 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
-			setGroupId((String) newValue);
-			return;
-		case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
-			setArtifactId((String) newValue);
-			return;
+			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
+				setGroupId((String) newValue);
+				return;
+			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
+				setArtifactId((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -156,12 +156,12 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
-			setGroupId(GROUP_ID_EDEFAULT);
-			return;
-		case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
-			setArtifactId(ARTIFACT_ID_EDEFAULT);
-			return;
+			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
+				setGroupId(GROUP_ID_EDEFAULT);
+				return;
+			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
+				setArtifactId(ARTIFACT_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,8 +193,8 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID,
-					oldArtifactId, artifactId));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
@@ -206,8 +206,8 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 		String oldGroupId = groupId;
 		groupId = newGroupId;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAVEN_ITEM__GROUP_ID, oldGroupId,
-					groupId));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.MAVEN_ITEM__GROUP_ID, oldGroupId, groupId));
 	}
 
 	/**

@@ -73,10 +73,10 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.MISCELLANEOUS__CHILDREN:
-			return getChildren();
-		case P2viewPackage.MISCELLANEOUS__OTHERS:
-			return getOthers();
+			case P2viewPackage.MISCELLANEOUS__CHILDREN:
+				return getChildren();
+			case P2viewPackage.MISCELLANEOUS__OTHERS:
+				return getOthers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -90,8 +90,8 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case P2viewPackage.MISCELLANEOUS__OTHERS:
-			return ((InternalEList<?>) getOthers()).basicRemove(otherEnd, msgs);
+			case P2viewPackage.MISCELLANEOUS__OTHERS:
+				return ((InternalEList<?>) getOthers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -104,10 +104,10 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.MISCELLANEOUS__CHILDREN:
-			return !getChildren().isEmpty();
-		case P2viewPackage.MISCELLANEOUS__OTHERS:
-			return others != null && !others.isEmpty();
+			case P2viewPackage.MISCELLANEOUS__CHILDREN:
+				return !getChildren().isEmpty();
+			case P2viewPackage.MISCELLANEOUS__OTHERS:
+				return others != null && !others.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -121,10 +121,10 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.MISCELLANEOUS__OTHERS:
-			getOthers().clear();
-			getOthers().addAll((Collection<? extends OtherIU>) newValue);
-			return;
+			case P2viewPackage.MISCELLANEOUS__OTHERS:
+				getOthers().clear();
+				getOthers().addAll((Collection<? extends OtherIU>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -137,9 +137,9 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.MISCELLANEOUS__OTHERS:
-			getOthers().clear();
-			return;
+			case P2viewPackage.MISCELLANEOUS__OTHERS:
+				getOthers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -160,8 +160,8 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	 */
 	public EList<OtherIU> getOthers() {
 		if(others == null) {
-			others = new EObjectContainmentEList.Resolving<OtherIU>(OtherIU.class, this,
-					P2viewPackage.MISCELLANEOUS__OTHERS);
+			others = new EObjectContainmentEList.Resolving<OtherIU>(
+				OtherIU.class, this, P2viewPackage.MISCELLANEOUS__OTHERS);
 		}
 		return others;
 	}

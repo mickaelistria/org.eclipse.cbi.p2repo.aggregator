@@ -559,238 +559,238 @@ public class P2viewSwitch<T1> {
 	 */
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch(classifierID) {
-		case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW: {
-			MetadataRepositoryStructuredView metadataRepositoryStructuredView = (MetadataRepositoryStructuredView) theEObject;
-			T1 result = caseMetadataRepositoryStructuredView(metadataRepositoryStructuredView);
-			if(result == null)
-				result = caseChildrenProvider(metadataRepositoryStructuredView);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.INSTALLABLE_UNITS: {
-			InstallableUnits installableUnits = (InstallableUnits) theEObject;
-			T1 result = caseInstallableUnits(installableUnits);
-			if(result == null)
-				result = caseChildrenProvider(installableUnits);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.CATEGORIES: {
-			Categories categories = (Categories) theEObject;
-			T1 result = caseCategories(categories);
-			if(result == null)
-				result = caseChildrenProvider(categories);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.FEATURES: {
-			Features features = (Features) theEObject;
-			T1 result = caseFeatures(features);
-			if(result == null)
-				result = caseChildrenProvider(features);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.PRODUCTS: {
-			Products products = (Products) theEObject;
-			T1 result = caseProducts(products);
-			if(result == null)
-				result = caseChildrenProvider(products);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.BUNDLES: {
-			Bundles bundles = (Bundles) theEObject;
-			T1 result = caseBundles(bundles);
-			if(result == null)
-				result = caseChildrenProvider(bundles);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.FRAGMENTS: {
-			Fragments fragments = (Fragments) theEObject;
-			T1 result = caseFragments(fragments);
-			if(result == null)
-				result = caseChildrenProvider(fragments);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.MISCELLANEOUS: {
-			Miscellaneous miscellaneous = (Miscellaneous) theEObject;
-			T1 result = caseMiscellaneous(miscellaneous);
-			if(result == null)
-				result = caseChildrenProvider(miscellaneous);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.IU_PRESENTATION: {
-			IUPresentation iuPresentation = (IUPresentation) theEObject;
-			T1 result = caseIUPresentation(iuPresentation);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS: {
-			IUPresentationWithDetails iuPresentationWithDetails = (IUPresentationWithDetails) theEObject;
-			T1 result = caseIUPresentationWithDetails(iuPresentationWithDetails);
-			if(result == null)
-				result = caseIUPresentation(iuPresentationWithDetails);
-			if(result == null)
-				result = caseIUDetails(iuPresentationWithDetails);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.CATEGORY: {
-			Category category = (Category) theEObject;
-			T1 result = caseCategory(category);
-			if(result == null)
-				result = caseIUPresentation(category);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.FEATURE: {
-			Feature feature = (Feature) theEObject;
-			T1 result = caseFeature(feature);
-			if(result == null)
-				result = caseIUPresentationWithDetails(feature);
-			if(result == null)
-				result = caseIUPresentation(feature);
-			if(result == null)
-				result = caseIUDetails(feature);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.PRODUCT: {
-			Product product = (Product) theEObject;
-			T1 result = caseProduct(product);
-			if(result == null)
-				result = caseIUPresentationWithDetails(product);
-			if(result == null)
-				result = caseIUPresentation(product);
-			if(result == null)
-				result = caseIUDetails(product);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.BUNDLE: {
-			Bundle bundle = (Bundle) theEObject;
-			T1 result = caseBundle(bundle);
-			if(result == null)
-				result = caseIUPresentationWithDetails(bundle);
-			if(result == null)
-				result = caseIUPresentation(bundle);
-			if(result == null)
-				result = caseIUDetails(bundle);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.FRAGMENT: {
-			Fragment fragment = (Fragment) theEObject;
-			T1 result = caseFragment(fragment);
-			if(result == null)
-				result = caseBundle(fragment);
-			if(result == null)
-				result = caseIUPresentationWithDetails(fragment);
-			if(result == null)
-				result = caseIUPresentation(fragment);
-			if(result == null)
-				result = caseIUDetails(fragment);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.OTHER_IU: {
-			OtherIU otherIU = (OtherIU) theEObject;
-			T1 result = caseOtherIU(otherIU);
-			if(result == null)
-				result = caseIUPresentationWithDetails(otherIU);
-			if(result == null)
-				result = caseIUPresentation(otherIU);
-			if(result == null)
-				result = caseIUDetails(otherIU);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.PROPERTIES: {
-			Properties properties = (Properties) theEObject;
-			T1 result = caseProperties(properties);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.REQUIREMENTS: {
-			Requirements requirements = (Requirements) theEObject;
-			T1 result = caseRequirements(requirements);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.PROVIDED_CAPABILITIES: {
-			ProvidedCapabilities providedCapabilities = (ProvidedCapabilities) theEObject;
-			T1 result = caseProvidedCapabilities(providedCapabilities);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.TOUCHPOINTS: {
-			Touchpoints touchpoints = (Touchpoints) theEObject;
-			T1 result = caseTouchpoints(touchpoints);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.LICENSES: {
-			Licenses licenses = (Licenses) theEObject;
-			T1 result = caseLicenses(licenses);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.IU_DETAILS: {
-			IUDetails iuDetails = (IUDetails) theEObject;
-			T1 result = caseIUDetails(iuDetails);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.REQUIREMENT_WRAPPER: {
-			RequirementWrapper requirementWrapper = (RequirementWrapper) theEObject;
-			T1 result = caseRequirementWrapper(requirementWrapper);
-			if(result == null)
-				result = caseIRequirement(requirementWrapper);
-			if(result == null)
-				result = caseLabelProvider(requirementWrapper);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER: {
-			ProvidedCapabilityWrapper providedCapabilityWrapper = (ProvidedCapabilityWrapper) theEObject;
-			T1 result = caseProvidedCapabilityWrapper(providedCapabilityWrapper);
-			if(result == null)
-				result = caseIProvidedCapability(providedCapabilityWrapper);
-			if(result == null)
-				result = caseLabelProvider(providedCapabilityWrapper);
-			if(result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW: {
+				MetadataRepositoryStructuredView metadataRepositoryStructuredView = (MetadataRepositoryStructuredView) theEObject;
+				T1 result = caseMetadataRepositoryStructuredView(metadataRepositoryStructuredView);
+				if(result == null)
+					result = caseChildrenProvider(metadataRepositoryStructuredView);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.INSTALLABLE_UNITS: {
+				InstallableUnits installableUnits = (InstallableUnits) theEObject;
+				T1 result = caseInstallableUnits(installableUnits);
+				if(result == null)
+					result = caseChildrenProvider(installableUnits);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.CATEGORIES: {
+				Categories categories = (Categories) theEObject;
+				T1 result = caseCategories(categories);
+				if(result == null)
+					result = caseChildrenProvider(categories);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.FEATURES: {
+				Features features = (Features) theEObject;
+				T1 result = caseFeatures(features);
+				if(result == null)
+					result = caseChildrenProvider(features);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.PRODUCTS: {
+				Products products = (Products) theEObject;
+				T1 result = caseProducts(products);
+				if(result == null)
+					result = caseChildrenProvider(products);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.BUNDLES: {
+				Bundles bundles = (Bundles) theEObject;
+				T1 result = caseBundles(bundles);
+				if(result == null)
+					result = caseChildrenProvider(bundles);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.FRAGMENTS: {
+				Fragments fragments = (Fragments) theEObject;
+				T1 result = caseFragments(fragments);
+				if(result == null)
+					result = caseChildrenProvider(fragments);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.MISCELLANEOUS: {
+				Miscellaneous miscellaneous = (Miscellaneous) theEObject;
+				T1 result = caseMiscellaneous(miscellaneous);
+				if(result == null)
+					result = caseChildrenProvider(miscellaneous);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.IU_PRESENTATION: {
+				IUPresentation iuPresentation = (IUPresentation) theEObject;
+				T1 result = caseIUPresentation(iuPresentation);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS: {
+				IUPresentationWithDetails iuPresentationWithDetails = (IUPresentationWithDetails) theEObject;
+				T1 result = caseIUPresentationWithDetails(iuPresentationWithDetails);
+				if(result == null)
+					result = caseIUPresentation(iuPresentationWithDetails);
+				if(result == null)
+					result = caseIUDetails(iuPresentationWithDetails);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.CATEGORY: {
+				Category category = (Category) theEObject;
+				T1 result = caseCategory(category);
+				if(result == null)
+					result = caseIUPresentation(category);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.FEATURE: {
+				Feature feature = (Feature) theEObject;
+				T1 result = caseFeature(feature);
+				if(result == null)
+					result = caseIUPresentationWithDetails(feature);
+				if(result == null)
+					result = caseIUPresentation(feature);
+				if(result == null)
+					result = caseIUDetails(feature);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.PRODUCT: {
+				Product product = (Product) theEObject;
+				T1 result = caseProduct(product);
+				if(result == null)
+					result = caseIUPresentationWithDetails(product);
+				if(result == null)
+					result = caseIUPresentation(product);
+				if(result == null)
+					result = caseIUDetails(product);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.BUNDLE: {
+				Bundle bundle = (Bundle) theEObject;
+				T1 result = caseBundle(bundle);
+				if(result == null)
+					result = caseIUPresentationWithDetails(bundle);
+				if(result == null)
+					result = caseIUPresentation(bundle);
+				if(result == null)
+					result = caseIUDetails(bundle);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.FRAGMENT: {
+				Fragment fragment = (Fragment) theEObject;
+				T1 result = caseFragment(fragment);
+				if(result == null)
+					result = caseBundle(fragment);
+				if(result == null)
+					result = caseIUPresentationWithDetails(fragment);
+				if(result == null)
+					result = caseIUPresentation(fragment);
+				if(result == null)
+					result = caseIUDetails(fragment);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.OTHER_IU: {
+				OtherIU otherIU = (OtherIU) theEObject;
+				T1 result = caseOtherIU(otherIU);
+				if(result == null)
+					result = caseIUPresentationWithDetails(otherIU);
+				if(result == null)
+					result = caseIUPresentation(otherIU);
+				if(result == null)
+					result = caseIUDetails(otherIU);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.PROPERTIES: {
+				Properties properties = (Properties) theEObject;
+				T1 result = caseProperties(properties);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.REQUIREMENTS: {
+				Requirements requirements = (Requirements) theEObject;
+				T1 result = caseRequirements(requirements);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.PROVIDED_CAPABILITIES: {
+				ProvidedCapabilities providedCapabilities = (ProvidedCapabilities) theEObject;
+				T1 result = caseProvidedCapabilities(providedCapabilities);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.TOUCHPOINTS: {
+				Touchpoints touchpoints = (Touchpoints) theEObject;
+				T1 result = caseTouchpoints(touchpoints);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.LICENSES: {
+				Licenses licenses = (Licenses) theEObject;
+				T1 result = caseLicenses(licenses);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.IU_DETAILS: {
+				IUDetails iuDetails = (IUDetails) theEObject;
+				T1 result = caseIUDetails(iuDetails);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.REQUIREMENT_WRAPPER: {
+				RequirementWrapper requirementWrapper = (RequirementWrapper) theEObject;
+				T1 result = caseRequirementWrapper(requirementWrapper);
+				if(result == null)
+					result = caseIRequirement(requirementWrapper);
+				if(result == null)
+					result = caseLabelProvider(requirementWrapper);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER: {
+				ProvidedCapabilityWrapper providedCapabilityWrapper = (ProvidedCapabilityWrapper) theEObject;
+				T1 result = caseProvidedCapabilityWrapper(providedCapabilityWrapper);
+				if(result == null)
+					result = caseIProvidedCapability(providedCapabilityWrapper);
+				if(result == null)
+					result = caseLabelProvider(providedCapabilityWrapper);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			default:
+				return defaultCase(theEObject);
 		}
 	}
 

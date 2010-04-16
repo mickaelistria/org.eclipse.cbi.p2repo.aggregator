@@ -69,8 +69,8 @@ public class TransformationManager {
 					return newTransformerSequence;
 				}
 				else {
-					List<IConfigurationElement> result = resolveTransformationSequence(transformations, trgtNS,
-							requiredTargetNS, newTransformerSequence);
+					List<IConfigurationElement> result = resolveTransformationSequence(
+						transformations, trgtNS, requiredTargetNS, newTransformerSequence);
 					if(result != null)
 						return result;
 				}
@@ -106,7 +106,7 @@ public class TransformationManager {
 		Set<String> nsPaths = new HashSet<String>();
 
 		IConfigurationElement[] transformations = Platform.getExtensionRegistry().getConfigurationElementsFor(
-				LEGACY_TRANSFORMATION_ID);
+			LEGACY_TRANSFORMATION_ID);
 
 		String xmlns = null;
 		String topElement = null;
@@ -118,8 +118,8 @@ public class TransformationManager {
 			nsAttribute = transformations[i].getAttribute(LEGACY_TRANSFORMATION_ATTR_SOURCE_NS_ATTRIBUTE);
 			i++;
 
-			if(StringUtils.trimmedOrNull(topElement) != null && StringUtils.trimmedOrNull(nsAttribute) != null
-					&& !nsPaths.contains(topElement + "/" + nsAttribute)) {
+			if(StringUtils.trimmedOrNull(topElement) != null && StringUtils.trimmedOrNull(nsAttribute) != null &&
+					!nsPaths.contains(topElement + "/" + nsAttribute)) {
 				xmlns = ResourceUtils.getResourceXMLNS(srcResourceURI, topElement, nsAttribute);
 				nsPaths.add(topElement + "/" + nsAttribute);
 			}
@@ -132,8 +132,8 @@ public class TransformationManager {
 
 			String requiredTargetNS = AggregatorPackage.eNS_URI;
 
-			transformationSequence = TransformationManager.resolveTransformationSequence(transformations,
-					requiredSourceNS, requiredTargetNS, new ArrayList<IConfigurationElement>());
+			transformationSequence = TransformationManager.resolveTransformationSequence(
+				transformations, requiredSourceNS, requiredTargetNS, new ArrayList<IConfigurationElement>());
 
 			for(IConfigurationElement transformation : transformationSequence) {
 				TransformerContextContributor contextContributor = null;
@@ -147,7 +147,7 @@ public class TransformationManager {
 				}
 				catch(CoreException e) {
 					throw new RuntimeException(
-							"Depricated resource was not transformed - transformation wizard cannot be started", e);
+						"Depricated resource was not transformed - transformation wizard cannot be started", e);
 				}
 				if(contextContributor != null)
 					contextContributors.add(contextContributor);
@@ -200,10 +200,10 @@ public class TransformationManager {
 
 			if(idx == 0) {
 				ecoreRs01 = new ResourceSetImpl();
-				ecoreRs01.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore",
-						new EcoreResourceFactoryImpl());
+				ecoreRs01.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+					"ecore", new EcoreResourceFactoryImpl());
 				ecoreRes01 = ecoreRs01.getResource(
-						URI.createURI(transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_SOURCE_ECORE)), true);
+					URI.createURI(transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_SOURCE_ECORE)), true);
 				package01 = (EPackage) ecoreRes01.getContents().get(0);
 
 				rs01 = new ResourceSetImpl();
@@ -237,10 +237,10 @@ public class TransformationManager {
 			}
 			else {
 				ecoreRs02 = new ResourceSetImpl();
-				ecoreRs02.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore",
-						new EcoreResourceFactoryImpl());
+				ecoreRs02.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+					"ecore", new EcoreResourceFactoryImpl());
 				ecoreRes02 = ecoreRs02.getResource(
-						URI.createURI(transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_TARGET_ECORE)), true);
+					URI.createURI(transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_TARGET_ECORE)), true);
 				package02 = (EPackage) ecoreRes02.getContents().get(0);
 
 				res02 = rs02.createResource(URI.createURI(tempFile.toURI().toString()));

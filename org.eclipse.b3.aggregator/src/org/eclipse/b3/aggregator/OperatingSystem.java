@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum OperatingSystem implements Enumerator{
+public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>Win32</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -125,12 +125,12 @@ public enum OperatingSystem implements Enumerator{
 	 */
 	public static OperatingSystem get(int value) {
 		switch(value) {
-		case WIN32_VALUE:
-			return WIN32;
-		case LINUX_VALUE:
-			return LINUX;
-		case MAC_OSX_VALUE:
-			return MAC_OSX;
+			case WIN32_VALUE:
+				return WIN32;
+			case LINUX_VALUE:
+				return LINUX;
+			case MAC_OSX_VALUE:
+				return MAC_OSX;
 		}
 		return null;
 	}

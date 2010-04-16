@@ -124,9 +124,9 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch(eContainerFeatureID()) {
-		case AggregatorPackage.CONTACT__AGGREGATOR:
-			return eInternalContainer().eInverseRemove(this, AggregatorPackage.AGGREGATOR__CONTACTS, Aggregator.class,
-					msgs);
+			case AggregatorPackage.CONTACT__AGGREGATOR:
+				return eInternalContainer().eInverseRemove(
+					this, AggregatorPackage.AGGREGATOR__CONTACTS, Aggregator.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -139,14 +139,14 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.CONTACT__NAME:
-			return getName();
-		case AggregatorPackage.CONTACT__EMAIL:
-			return getEmail();
-		case AggregatorPackage.CONTACT__AGGREGATOR:
-			if(resolve)
-				return getAggregator();
-			return basicGetAggregator();
+			case AggregatorPackage.CONTACT__NAME:
+				return getName();
+			case AggregatorPackage.CONTACT__EMAIL:
+				return getEmail();
+			case AggregatorPackage.CONTACT__AGGREGATOR:
+				if(resolve)
+					return getAggregator();
+				return basicGetAggregator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -159,10 +159,10 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case AggregatorPackage.CONTACT__AGGREGATOR:
-			if(eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetAggregator((Aggregator) otherEnd, msgs);
+			case AggregatorPackage.CONTACT__AGGREGATOR:
+				if(eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetAggregator((Aggregator) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -175,8 +175,8 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case AggregatorPackage.CONTACT__AGGREGATOR:
-			return basicSetAggregator(null, msgs);
+			case AggregatorPackage.CONTACT__AGGREGATOR:
+				return basicSetAggregator(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -189,16 +189,16 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.CONTACT__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case AggregatorPackage.CONTACT__EMAIL:
-			return EMAIL_EDEFAULT == null
-					? email != null
-					: !EMAIL_EDEFAULT.equals(email);
-		case AggregatorPackage.CONTACT__AGGREGATOR:
-			return basicGetAggregator() != null;
+			case AggregatorPackage.CONTACT__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case AggregatorPackage.CONTACT__EMAIL:
+				return EMAIL_EDEFAULT == null
+						? email != null
+						: !EMAIL_EDEFAULT.equals(email);
+			case AggregatorPackage.CONTACT__AGGREGATOR:
+				return basicGetAggregator() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -211,15 +211,15 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case AggregatorPackage.CONTACT__NAME:
-			setName((String) newValue);
-			return;
-		case AggregatorPackage.CONTACT__EMAIL:
-			setEmail((String) newValue);
-			return;
-		case AggregatorPackage.CONTACT__AGGREGATOR:
-			setAggregator((Aggregator) newValue);
-			return;
+			case AggregatorPackage.CONTACT__NAME:
+				setName((String) newValue);
+				return;
+			case AggregatorPackage.CONTACT__EMAIL:
+				setEmail((String) newValue);
+				return;
+			case AggregatorPackage.CONTACT__AGGREGATOR:
+				setAggregator((Aggregator) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -232,15 +232,15 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.CONTACT__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case AggregatorPackage.CONTACT__EMAIL:
-			setEmail(EMAIL_EDEFAULT);
-			return;
-		case AggregatorPackage.CONTACT__AGGREGATOR:
-			setAggregator((Aggregator) null);
-			return;
+			case AggregatorPackage.CONTACT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case AggregatorPackage.CONTACT__EMAIL:
+				setEmail(EMAIL_EDEFAULT);
+				return;
+			case AggregatorPackage.CONTACT__AGGREGATOR:
+				setAggregator((Aggregator) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -280,23 +280,23 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * @generated
 	 */
 	public void setAggregator(Aggregator newAggregator) {
-		if(newAggregator != eInternalContainer()
-				|| (eContainerFeatureID() != AggregatorPackage.CONTACT__AGGREGATOR && newAggregator != null)) {
+		if(newAggregator != eInternalContainer() ||
+				(eContainerFeatureID() != AggregatorPackage.CONTACT__AGGREGATOR && newAggregator != null)) {
 			if(EcoreUtil.isAncestor(this, (EObject) newAggregator))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if(eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if(newAggregator != null)
-				msgs = ((InternalEObject) newAggregator).eInverseAdd(this, AggregatorPackage.AGGREGATOR__CONTACTS,
-						Aggregator.class, msgs);
+				msgs = ((InternalEObject) newAggregator).eInverseAdd(
+					this, AggregatorPackage.AGGREGATOR__CONTACTS, Aggregator.class, msgs);
 			msgs = basicSetAggregator(newAggregator, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONTACT__AGGREGATOR, newAggregator,
-					newAggregator));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.CONTACT__AGGREGATOR, newAggregator, newAggregator));
 	}
 
 	/**

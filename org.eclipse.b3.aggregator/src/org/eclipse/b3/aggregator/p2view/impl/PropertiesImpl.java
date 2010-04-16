@@ -71,8 +71,8 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.PROPERTIES__PROPERTY_LIST:
-			return getPropertyList();
+			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
+				return getPropertyList();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -86,8 +86,8 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case P2viewPackage.PROPERTIES__PROPERTY_LIST:
-			return ((InternalEList<?>) getPropertyList()).basicRemove(otherEnd, msgs);
+			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
+				return ((InternalEList<?>) getPropertyList()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -100,8 +100,8 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.PROPERTIES__PROPERTY_LIST:
-			return propertyList != null && !propertyList.isEmpty();
+			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
+				return propertyList != null && !propertyList.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -115,10 +115,10 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.PROPERTIES__PROPERTY_LIST:
-			getPropertyList().clear();
-			getPropertyList().addAll((Collection<? extends Property>) newValue);
-			return;
+			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
+				getPropertyList().clear();
+				getPropertyList().addAll((Collection<? extends Property>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -131,9 +131,9 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.PROPERTIES__PROPERTY_LIST:
-			getPropertyList().clear();
-			return;
+			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
+				getPropertyList().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -145,8 +145,8 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	 */
 	public EList<Property> getPropertyList() {
 		if(propertyList == null) {
-			propertyList = new EObjectContainmentEList.Resolving<Property>(Property.class, this,
-					P2viewPackage.PROPERTIES__PROPERTY_LIST);
+			propertyList = new EObjectContainmentEList.Resolving<Property>(
+				Property.class, this, P2viewPackage.PROPERTIES__PROPERTY_LIST);
 		}
 		return propertyList;
 	}

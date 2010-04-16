@@ -230,14 +230,14 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.CONFIGURATION__ENABLED:
-			return isEnabled();
-		case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
-			return getOperatingSystem();
-		case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
-			return getWindowSystem();
-		case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
-			return getArchitecture();
+			case AggregatorPackage.CONFIGURATION__ENABLED:
+				return isEnabled();
+			case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
+				return getOperatingSystem();
+			case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
+				return getWindowSystem();
+			case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
+				return getArchitecture();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,14 +250,14 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.CONFIGURATION__ENABLED:
-			return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
-		case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
-			return (eFlags & OPERATING_SYSTEM_EFLAG) != OPERATING_SYSTEM_EFLAG_DEFAULT;
-		case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
-			return (eFlags & WINDOW_SYSTEM_EFLAG) != WINDOW_SYSTEM_EFLAG_DEFAULT;
-		case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
-			return (eFlags & ARCHITECTURE_EFLAG) != ARCHITECTURE_EFLAG_DEFAULT;
+			case AggregatorPackage.CONFIGURATION__ENABLED:
+				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
+			case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
+				return (eFlags & OPERATING_SYSTEM_EFLAG) != OPERATING_SYSTEM_EFLAG_DEFAULT;
+			case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
+				return (eFlags & WINDOW_SYSTEM_EFLAG) != WINDOW_SYSTEM_EFLAG_DEFAULT;
+			case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
+				return (eFlags & ARCHITECTURE_EFLAG) != ARCHITECTURE_EFLAG_DEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -270,18 +270,18 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case AggregatorPackage.CONFIGURATION__ENABLED:
-			setEnabled((Boolean) newValue);
-			return;
-		case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
-			setOperatingSystem((OperatingSystem) newValue);
-			return;
-		case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
-			setWindowSystem((WindowSystem) newValue);
-			return;
-		case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
-			setArchitecture((Architecture) newValue);
-			return;
+			case AggregatorPackage.CONFIGURATION__ENABLED:
+				setEnabled((Boolean) newValue);
+				return;
+			case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
+				setOperatingSystem((OperatingSystem) newValue);
+				return;
+			case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
+				setWindowSystem((WindowSystem) newValue);
+				return;
+			case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
+				setArchitecture((Architecture) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -294,18 +294,18 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.CONFIGURATION__ENABLED:
-			setEnabled(ENABLED_EDEFAULT);
-			return;
-		case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
-			setOperatingSystem(OPERATING_SYSTEM_EDEFAULT);
-			return;
-		case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
-			setWindowSystem(WINDOW_SYSTEM_EDEFAULT);
-			return;
-		case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
-			setArchitecture(ARCHITECTURE_EDEFAULT);
-			return;
+			case AggregatorPackage.CONFIGURATION__ENABLED:
+				setEnabled(ENABLED_EDEFAULT);
+				return;
+			case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
+				setOperatingSystem(OPERATING_SYSTEM_EDEFAULT);
+				return;
+			case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
+				setWindowSystem(WINDOW_SYSTEM_EDEFAULT);
+				return;
+			case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
+				setArchitecture(ARCHITECTURE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -388,8 +388,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 			newArchitecture = ARCHITECTURE_EDEFAULT;
 		eFlags = eFlags & ~ARCHITECTURE_EFLAG | newArchitecture.ordinal() << ARCHITECTURE_EFLAG_OFFSET;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONFIGURATION__ARCHITECTURE,
-					oldArchitecture, newArchitecture));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.CONFIGURATION__ARCHITECTURE, oldArchitecture, newArchitecture));
 	}
 
 	/**
@@ -404,8 +404,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 		else
 			eFlags &= ~ENABLED_EFLAG;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONFIGURATION__ENABLED, oldEnabled,
-					newEnabled));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.CONFIGURATION__ENABLED, oldEnabled, newEnabled));
 	}
 
 	/**
@@ -419,8 +419,9 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 			newOperatingSystem = OPERATING_SYSTEM_EDEFAULT;
 		eFlags = eFlags & ~OPERATING_SYSTEM_EFLAG | newOperatingSystem.ordinal() << OPERATING_SYSTEM_EFLAG_OFFSET;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM,
-					oldOperatingSystem, newOperatingSystem));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM, oldOperatingSystem,
+				newOperatingSystem));
 	}
 
 	/**
@@ -434,8 +435,9 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 			newWindowSystem = WINDOW_SYSTEM_EDEFAULT;
 		eFlags = eFlags & ~WINDOW_SYSTEM_EFLAG | newWindowSystem.ordinal() << WINDOW_SYSTEM_EFLAG_OFFSET;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM,
-					oldWindowSystem, newWindowSystem));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM, oldWindowSystem,
+				newWindowSystem));
 	}
 
 	/**

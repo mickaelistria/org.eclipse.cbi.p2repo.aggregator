@@ -76,10 +76,10 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.FRAGMENTS__CHILDREN:
-			return getChildren();
-		case P2viewPackage.FRAGMENTS__FRAGMENTS:
-			return getFragments();
+			case P2viewPackage.FRAGMENTS__CHILDREN:
+				return getChildren();
+			case P2viewPackage.FRAGMENTS__FRAGMENTS:
+				return getFragments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -93,8 +93,8 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case P2viewPackage.FRAGMENTS__FRAGMENTS:
-			return ((InternalEList<?>) getFragments()).basicRemove(otherEnd, msgs);
+			case P2viewPackage.FRAGMENTS__FRAGMENTS:
+				return ((InternalEList<?>) getFragments()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -107,10 +107,10 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.FRAGMENTS__CHILDREN:
-			return !getChildren().isEmpty();
-		case P2viewPackage.FRAGMENTS__FRAGMENTS:
-			return fragments != null && !fragments.isEmpty();
+			case P2viewPackage.FRAGMENTS__CHILDREN:
+				return !getChildren().isEmpty();
+			case P2viewPackage.FRAGMENTS__FRAGMENTS:
+				return fragments != null && !fragments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -124,10 +124,10 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.FRAGMENTS__FRAGMENTS:
-			getFragments().clear();
-			getFragments().addAll((Collection<? extends Fragment>) newValue);
-			return;
+			case P2viewPackage.FRAGMENTS__FRAGMENTS:
+				getFragments().clear();
+				getFragments().addAll((Collection<? extends Fragment>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -140,9 +140,9 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.FRAGMENTS__FRAGMENTS:
-			getFragments().clear();
-			return;
+			case P2viewPackage.FRAGMENTS__FRAGMENTS:
+				getFragments().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -163,8 +163,8 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 	 */
 	public EList<Fragment> getFragments() {
 		if(fragments == null) {
-			fragments = new EObjectContainmentEList.Resolving<Fragment>(Fragment.class, this,
-					P2viewPackage.FRAGMENTS__FRAGMENTS);
+			fragments = new EObjectContainmentEList.Resolving<Fragment>(
+				Fragment.class, this, P2viewPackage.FRAGMENTS__FRAGMENTS);
 		}
 		return fragments;
 	}

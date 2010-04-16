@@ -70,7 +70,7 @@ public class ResourceUtils {
 					if(mappedRepository.isBranchEnabled()) {
 						if(mappedRepository.getResolvedLocation() != null) {
 							org.eclipse.emf.common.util.URI repoURI = MetadataRepositoryResourceImpl.getResourceUriForNatureAndLocation(
-									mappedRepository.getNature(), mappedRepository.getResolvedLocation());
+								mappedRepository.getNature(), mappedRepository.getResolvedLocation());
 							referencedResources.add(topSet.getResource(repoURI, false));
 						}
 					}
@@ -85,7 +85,7 @@ public class ResourceUtils {
 				if(repoRef.isBranchEnabled()) {
 					if(repoRef.getResolvedLocation() != null) {
 						org.eclipse.emf.common.util.URI repoURI = MetadataRepositoryResourceImpl.getResourceUriForNatureAndLocation(
-								repoRef.getNature(), repoRef.getResolvedLocation());
+							repoRef.getNature(), repoRef.getResolvedLocation());
 						referencedResources.add(topSet.getResource(repoURI, false));
 					}
 				}
@@ -145,8 +145,8 @@ public class ResourceUtils {
 
 		if(mdr == null) {
 			Resource resource = ((EObject) repoRef).eResource();
-			if(resource != null && resource instanceof MetadataRepositoryResourceImpl
-					&& ((MetadataRepositoryResourceImpl) resource).getLastException() != null)
+			if(resource != null && resource instanceof MetadataRepositoryResourceImpl &&
+					((MetadataRepositoryResourceImpl) resource).getLastException() != null)
 				throw ExceptionUtils.wrap(((MetadataRepositoryResourceImpl) resource).getLastException());
 
 			throw ExceptionUtils.fromMessage("Error loading repository " + repoRef.getResolvedLocation());

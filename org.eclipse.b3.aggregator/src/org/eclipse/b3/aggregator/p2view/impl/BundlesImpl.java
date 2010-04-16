@@ -76,10 +76,10 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.BUNDLES__CHILDREN:
-			return getChildren();
-		case P2viewPackage.BUNDLES__BUNDLES:
-			return getBundles();
+			case P2viewPackage.BUNDLES__CHILDREN:
+				return getChildren();
+			case P2viewPackage.BUNDLES__BUNDLES:
+				return getBundles();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -93,8 +93,8 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case P2viewPackage.BUNDLES__BUNDLES:
-			return ((InternalEList<?>) getBundles()).basicRemove(otherEnd, msgs);
+			case P2viewPackage.BUNDLES__BUNDLES:
+				return ((InternalEList<?>) getBundles()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -107,10 +107,10 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.BUNDLES__CHILDREN:
-			return !getChildren().isEmpty();
-		case P2viewPackage.BUNDLES__BUNDLES:
-			return bundles != null && !bundles.isEmpty();
+			case P2viewPackage.BUNDLES__CHILDREN:
+				return !getChildren().isEmpty();
+			case P2viewPackage.BUNDLES__BUNDLES:
+				return bundles != null && !bundles.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -124,10 +124,10 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.BUNDLES__BUNDLES:
-			getBundles().clear();
-			getBundles().addAll((Collection<? extends Bundle>) newValue);
-			return;
+			case P2viewPackage.BUNDLES__BUNDLES:
+				getBundles().clear();
+				getBundles().addAll((Collection<? extends Bundle>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -140,9 +140,9 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.BUNDLES__BUNDLES:
-			getBundles().clear();
-			return;
+			case P2viewPackage.BUNDLES__BUNDLES:
+				getBundles().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

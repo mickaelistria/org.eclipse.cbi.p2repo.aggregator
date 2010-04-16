@@ -80,8 +80,8 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-			return getDescription();
+			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -94,10 +94,10 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null
-					? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
+			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null
+						? description != null
+						: !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -110,9 +110,9 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
+			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
+				setDescription((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -125,9 +125,9 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
+			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -150,8 +150,9 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 		String oldDescription = description;
 		description = newDescription;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION,
-					oldDescription, description));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION, oldDescription,
+				description));
 	}
 
 	/**

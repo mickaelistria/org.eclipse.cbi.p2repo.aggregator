@@ -1590,149 +1590,182 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		mavenMappingEClass.getESuperTypes().add(this.getInfosProvider());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(aggregatorEClass, Aggregator.class, "Aggregator", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAggregator_Configurations(), this.getConfiguration(), null, "configurations", null, 1, -1,
-				Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAggregator_Contributions(), this.getContribution(), null, "contributions", null, 0, -1,
-				Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			aggregatorEClass, Aggregator.class, "Aggregator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getAggregator_Configurations(), this.getConfiguration(), null, "configurations", null, 1, -1,
+			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getAggregator_Contributions(), this.getContribution(), null, "contributions", null, 0, -1,
+			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getAggregator_Contributions().getEKeys().add(this.getContribution_Label());
-		initEReference(getAggregator_Buildmaster(), this.getContact(), null, "buildmaster", null, 0, 1,
-				Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getAggregator_Buildmaster(), this.getContact(), null, "buildmaster", null, 0, 1, Aggregator.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 		getAggregator_Buildmaster().getEKeys().add(this.getContact_Email());
-		initEReference(getAggregator_Contacts(), this.getContact(), this.getContact_Aggregator(), "contacts", null, 0,
-				-1, Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getAggregator_Contacts(), this.getContact(), this.getContact_Aggregator(), "contacts", null, 0, -1,
+			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getAggregator_Contacts().getEKeys().add(this.getContact_Email());
-		initEReference(getAggregator_CustomCategories(), this.getCustomCategory(), null, "customCategories", null, 0,
-				-1, Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getAggregator_CustomCategories(), this.getCustomCategory(), null, "customCategories", null, 0, -1,
+			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getAggregator_CustomCategories().getEKeys().add(this.getCustomCategory_Identifier());
-		initEAttribute(getAggregator_Label(), ecorePackage.getEString(), "label", null, 1, 1, Aggregator.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAggregator_BuildRoot(), ecorePackage.getEString(), "buildRoot", "${user.home}/build", 0, 1,
-				Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAggregator_PackedStrategy(), this.getPackedStrategy(), "packedStrategy", null, 0, 1,
-				Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAggregator_Sendmail(), ecorePackage.getEBoolean(), "sendmail", null, 0, 1, Aggregator.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAggregator_Type(), this.getAggregateType(), "type", null, 1, 1, Aggregator.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAggregator_MavenResult(), ecorePackage.getEBoolean(), "mavenResult", null, 0, 1,
-				Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getAggregator_ValidationRepositories(), this.getMetadataRepositoryReference(), null,
-				"validationRepositories", null, 0, -1, Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAggregator_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
-				Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAggregator_Label(), ecorePackage.getEString(), "label", null, 1, 1, Aggregator.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAggregator_BuildRoot(), ecorePackage.getEString(), "buildRoot", "${user.home}/build", 0, 1,
+			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAggregator_PackedStrategy(), this.getPackedStrategy(), "packedStrategy", null, 0, 1, Aggregator.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAggregator_Sendmail(), ecorePackage.getEBoolean(), "sendmail", null, 0, 1, Aggregator.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAggregator_Type(), this.getAggregateType(), "type", null, 1, 1, Aggregator.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAggregator_MavenResult(), ecorePackage.getEBoolean(), "mavenResult", null, 0, 1, Aggregator.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getAggregator_ValidationRepositories(), this.getMetadataRepositoryReference(), null,
+			"validationRepositories", null, 0, -1, Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+			IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getAggregator_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
+			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = addEOperation(aggregatorEClass, this.getContribution(), "getContributions", 0, -1, IS_UNIQUE,
-				IS_ORDERED);
+		EOperation op = addEOperation(
+			aggregatorEClass, this.getContribution(), "getContributions", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(aggregatorEClass, this.getMetadataRepositoryReference(), "getValidationRepositories", 0, -1,
-				IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(
+			aggregatorEClass, this.getMetadataRepositoryReference(), "getValidationRepositories", 0, -1, IS_UNIQUE,
+			IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(aggregatorEClass, this.getMetadataRepositoryReference(),
-				"getAllMetadataRepositoryReferences", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(
+			aggregatorEClass, this.getMetadataRepositoryReference(), "getAllMetadataRepositoryReferences", 0, -1,
+			IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(mappedRepositoryEClass, MappedRepository.class, "MappedRepository", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMappedRepository_Products(), this.getProduct(), null, "products", null, 0, -1,
-				MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMappedRepository_Bundles(), this.getBundle(), null, "bundles", null, 0, -1,
-				MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMappedRepository_Features(), this.getFeature(), null, "features", null, 0, -1,
-				MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMappedRepository_Categories(), this.getCategory(), null, "categories", null, 0, -1,
-				MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMappedRepository_MirrorArtifacts(), ecorePackage.getEBoolean(), "mirrorArtifacts", "true", 0,
-				1, MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMappedRepository_CategoryPrefix(), ecorePackage.getEString(), "categoryPrefix", null, 0, 1,
-				MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getMappedRepository_MapRules(), this.getMapRule(), null, "mapRules", null, 0, -1,
-				MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			mappedRepositoryEClass, MappedRepository.class, "MappedRepository", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getMappedRepository_Products(), this.getProduct(), null, "products", null, 0, -1, MappedRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMappedRepository_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, MappedRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMappedRepository_Features(), this.getFeature(), null, "features", null, 0, -1, MappedRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMappedRepository_Categories(), this.getCategory(), null, "categories", null, 0, -1,
+			MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMappedRepository_MirrorArtifacts(), ecorePackage.getEBoolean(), "mirrorArtifacts", "true", 0, 1,
+			MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMappedRepository_CategoryPrefix(), ecorePackage.getEString(), "categoryPrefix", null, 0, 1,
+			MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMappedRepository_MapRules(), this.getMapRule(), null, "mapRules", null, 0, -1, MappedRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(mappedRepositoryEClass, this.getMappedUnit(), "getUnits", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(mappedRepositoryEClass, ecorePackage.getEBoolean(), "isMapExclusive", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConfiguration_OperatingSystem(), this.getOperatingSystem(), "operatingSystem", null, 1, 1,
-				Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConfiguration_WindowSystem(), this.getWindowSystem(), "windowSystem", null, 1, 1,
-				Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConfiguration_Architecture(), this.getArchitecture(), "architecture", null, 1, 1,
-				Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(
+			configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getConfiguration_OperatingSystem(), this.getOperatingSystem(), "operatingSystem", null, 1, 1,
+			Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getConfiguration_WindowSystem(), this.getWindowSystem(), "windowSystem", null, 1, 1, Configuration.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getConfiguration_Architecture(), this.getArchitecture(), "architecture", null, 1, 1, Configuration.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(configurationEClass, ecorePackage.getEString(), "getName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(configurationEClass, ecorePackage.getEString(), "getOSGiEnvironmentString", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		addEOperation(
+			configurationEClass, ecorePackage.getEString(), "getOSGiEnvironmentString", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(contributionEClass, Contribution.class, "Contribution", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getContribution_Label(), ecorePackage.getEString(), "label", null, 1, 1, Contribution.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContribution_Repositories(), this.getMappedRepository(), null, "repositories", null, 0, -1,
-				Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContribution_Contacts(), this.getContact(), null, "contacts", null, 0, -1,
-				Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			contributionEClass, Contribution.class, "Contribution", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getContribution_Label(), ecorePackage.getEString(), "label", null, 1, 1, Contribution.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getContribution_Repositories(), this.getMappedRepository(), null, "repositories", null, 0, -1,
+			Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getContribution_Contacts(), this.getContact(), null, "contacts", null, 0, -1, Contribution.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 		getContribution_Contacts().getEKeys().add(this.getContact_Email());
-		initEReference(getContribution_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
-				Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getContribution_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
+			Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(contributionEClass, this.getMappedRepository(), "getRepositories", 0, -1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(
+			contributionEClass, this.getMappedRepository(), "getRepositories", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(contributionEClass, this.getMavenMapping(), "getAllMavenMappings", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(contactEClass, Contact.class, "Contact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getContact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Contact.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContact_Email(), ecorePackage.getEString(), "email", null, 1, 1, Contact.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContact_Aggregator(), this.getAggregator(), this.getAggregator_Contacts(), "aggregator",
-				null, 1, 1, Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getContact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Contact.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getContact_Email(), ecorePackage.getEString(), "email", null, 1, 1, Contact.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getContact_Aggregator(), this.getAggregator(), this.getAggregator_Contacts(), "aggregator", null, 1, 1,
+			Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFeature_Categories(), this.getCustomCategory(), this.getCustomCategory_Features(),
-				"categories", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getFeature_Categories(), this.getCustomCategory(), this.getCustomCategory_Features(), "categories", null,
+			0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bundleEClass, Bundle.class, "Bundle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(mappedUnitEClass, MappedUnit.class, "MappedUnit", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMappedUnit_ValidConfigurations(), this.getConfiguration(), null, "validConfigurations", null,
-				0, -1, MappedUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			mappedUnitEClass, MappedUnit.class, "MappedUnit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getMappedUnit_ValidConfigurations(), this.getConfiguration(), null, "validConfigurations", null, 0, -1,
+			MappedUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_OperatingSystem());
 		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_WindowSystem());
 		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_Architecture());
@@ -1748,99 +1781,124 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEClass(productEClass, Product.class, "Product", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProperty_Key(), ecorePackage.getEString(), "key", null, 1, 1, Property.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Property.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getProperty_Key(), ecorePackage.getEString(), "key", null, 1, 1, Property.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Property.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCategory_LabelOverride(), ecorePackage.getEString(), "labelOverride", null, 0, 1,
-				Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getCategory_LabelOverride(), ecorePackage.getEString(), "labelOverride", null, 0, 1, Category.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(customCategoryEClass, CustomCategory.class, "CustomCategory", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCustomCategory_Identifier(), ecorePackage.getEString(), "identifier", null, 1, 1,
-				CustomCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCustomCategory_Label(), ecorePackage.getEString(), "label", null, 0, 1, CustomCategory.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCustomCategory_Description(), ecorePackage.getEString(), "description", null, 0, 1,
-				CustomCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getCustomCategory_Features(), this.getFeature(), this.getFeature_Categories(), "features", null,
-				0, -1, CustomCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			customCategoryEClass, CustomCategory.class, "CustomCategory", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getCustomCategory_Identifier(), ecorePackage.getEString(), "identifier", null, 1, 1, CustomCategory.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getCustomCategory_Label(), ecorePackage.getEString(), "label", null, 0, 1, CustomCategory.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getCustomCategory_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+			CustomCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getCustomCategory_Features(), this.getFeature(), this.getFeature_Categories(), "features", null, 0, -1,
+			CustomCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(enabledStatusProviderEClass, EnabledStatusProvider.class, "EnabledStatusProvider", IS_ABSTRACT,
-				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEnabledStatusProvider_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 0, 1,
-				EnabledStatusProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			enabledStatusProviderEClass, EnabledStatusProvider.class, "EnabledStatusProvider", IS_ABSTRACT,
+			IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getEnabledStatusProvider_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 0, 1,
+			EnabledStatusProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		initEClass(mapRuleEClass, MapRule.class, "MapRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(installableUnitRequestEClass, InstallableUnitRequest.class, "InstallableUnitRequest", IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInstallableUnitRequest_Name(), ecorePackage.getEString(), "name", null, 0, 1,
-				InstallableUnitRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInstallableUnitRequest_VersionRange(), theP2Package.getVersionRange(), "versionRange",
-				"0.0.0", 0, 1, InstallableUnitRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstallableUnitRequest_AvailableVersionsHeader(), this.getAvailableVersionsHeader(),
-				this.getAvailableVersionsHeader_InstallableUnitRequest(), "availableVersionsHeader", null, 0, 1,
-				InstallableUnitRequest.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstallableUnitRequest_AvailableVersions(), this.getAvailableVersion(), null,
-				"availableVersions", null, 0, -1, InstallableUnitRequest.class, IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			installableUnitRequestEClass, InstallableUnitRequest.class, "InstallableUnitRequest", IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getInstallableUnitRequest_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+			InstallableUnitRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getInstallableUnitRequest_VersionRange(), theP2Package.getVersionRange(), "versionRange", "0.0.0", 0, 1,
+			InstallableUnitRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getInstallableUnitRequest_AvailableVersionsHeader(), this.getAvailableVersionsHeader(),
+			this.getAvailableVersionsHeader_InstallableUnitRequest(), "availableVersionsHeader", null, 0, 1,
+			InstallableUnitRequest.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getInstallableUnitRequest_AvailableVersions(), this.getAvailableVersion(), null, "availableVersions", null,
+			0, -1, InstallableUnitRequest.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(installableUnitRequestEClass, ecorePackage.getEBoolean(), "isMappedRepositoryBroken", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		addEOperation(
+			installableUnitRequestEClass, ecorePackage.getEBoolean(), "isMappedRepositoryBroken", 0, 1, IS_UNIQUE,
+			IS_ORDERED);
 
-		addEOperation(installableUnitRequestEClass, ecorePackage.getEBoolean(), "isBranchEnabled", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		addEOperation(
+			installableUnitRequestEClass, ecorePackage.getEBoolean(), "isBranchEnabled", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(installableUnitRequestEClass, theP2Package.getIInstallableUnit(), "resolveAsSingleton", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		addEOperation(
+			installableUnitRequestEClass, theP2Package.getIInstallableUnit(), "resolveAsSingleton", 0, 1, IS_UNIQUE,
+			IS_ORDERED);
 
-		op = addEOperation(installableUnitRequestEClass, theP2Package.getIInstallableUnit(), "resolveAsSingleton", 0,
-				1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(
+			installableUnitRequestEClass, theP2Package.getIInstallableUnit(), "resolveAsSingleton", 0, 1, IS_UNIQUE,
+			IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "forceResolve", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(installableUnitRequestEClass, null, "resolveAvailableVersions", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theXMLTypePackage.getBoolean(), "updateOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(exclusionRuleEClass, ExclusionRule.class, "ExclusionRule", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			exclusionRuleEClass, ExclusionRule.class, "ExclusionRule", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(validConfigurationsRuleEClass, ValidConfigurationsRule.class, "ValidConfigurationsRule",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getValidConfigurationsRule_ValidConfigurations(), this.getConfiguration(), null,
-				"validConfigurations", null, 0, -1, ValidConfigurationsRule.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			validConfigurationsRuleEClass, ValidConfigurationsRule.class, "ValidConfigurationsRule", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getValidConfigurationsRule_ValidConfigurations(), this.getConfiguration(), null, "validConfigurations",
+			null, 0, -1, ValidConfigurationsRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(metadataRepositoryReferenceEClass, MetadataRepositoryReference.class, "MetadataRepositoryReference",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMetadataRepositoryReference_MetadataRepository(), theP2Package.getMetadataRepository(), null,
-				"metadataRepository", null, 0, 1, MetadataRepositoryReference.class, IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMetadataRepositoryReference_Location(), ecorePackage.getEString(), "location", null, 1, 1,
-				MetadataRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMetadataRepositoryReference_Nature(), ecorePackage.getEString(), "nature", "p2", 1, 1,
-				MetadataRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			metadataRepositoryReferenceEClass, MetadataRepositoryReference.class, "MetadataRepositoryReference",
+			!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getMetadataRepositoryReference_MetadataRepository(), theP2Package.getMetadataRepository(), null,
+			"metadataRepository", null, 0, 1, MetadataRepositoryReference.class, IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMetadataRepositoryReference_Location(), ecorePackage.getEString(), "location", null, 1, 1,
+			MetadataRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMetadataRepositoryReference_Nature(), ecorePackage.getEString(), "nature", "p2", 1, 1,
+			MetadataRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(metadataRepositoryReferenceEClass, this.getAggregator(), "getAggregator", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		addEOperation(
+			metadataRepositoryReferenceEClass, this.getAggregator(), "getAggregator", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(metadataRepositoryReferenceEClass, ecorePackage.getEBoolean(), "isBranchEnabled", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		addEOperation(
+			metadataRepositoryReferenceEClass, ecorePackage.getEBoolean(), "isBranchEnabled", 0, 1, IS_UNIQUE,
+			IS_ORDERED);
 
-		addEOperation(metadataRepositoryReferenceEClass, ecorePackage.getEString(), "getResolvedLocation", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		addEOperation(
+			metadataRepositoryReferenceEClass, ecorePackage.getEString(), "getResolvedLocation", 0, 1, IS_UNIQUE,
+			IS_ORDERED);
 
 		op = addEOperation(metadataRepositoryReferenceEClass, null, "startRepositoryLoad", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "forceReload", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1849,96 +1907,116 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		addEOperation(metadataRepositoryReferenceEClass, null, "onRepositoryLoad", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(labelProviderEClass, LabelProvider.class, "LabelProvider", IS_ABSTRACT, IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLabelProvider_Label(), theXMLTypePackage.getString(), "label", null, 0, 1,
-				LabelProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(
+			labelProviderEClass, LabelProvider.class, "LabelProvider", IS_ABSTRACT, IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getLabelProvider_Label(), theXMLTypePackage.getString(), "label", null, 0, 1, LabelProvider.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(descriptionProviderEClass, DescriptionProvider.class, "DescriptionProvider", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDescriptionProvider_Description(), theXMLTypePackage.getString(), "description", "", 0, 1,
-				DescriptionProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			descriptionProviderEClass, DescriptionProvider.class, "DescriptionProvider", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getDescriptionProvider_Description(), theXMLTypePackage.getString(), "description", "", 0, 1,
+			DescriptionProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
-		initEClass(mavenMappingEClass, MavenMapping.class, "MavenMapping", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMavenMapping_NamePattern(), ecorePackage.getEString(), "namePattern", null, 0, 1,
-				MavenMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMavenMapping_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, MavenMapping.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMavenMapping_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1,
-				MavenMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(
+			mavenMappingEClass, MavenMapping.class, "MavenMapping", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getMavenMapping_NamePattern(), ecorePackage.getEString(), "namePattern", null, 0, 1, MavenMapping.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMavenMapping_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, MavenMapping.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMavenMapping_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, MavenMapping.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(mavenMappingEClass, this.getMavenItem(), "map", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "installableUnitID", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(mavenItemEClass, MavenItem.class, "MavenItem", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMavenItem_GroupId(), theXMLTypePackage.getString(), "groupId", null, 0, 1, MavenItem.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMavenItem_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, MavenItem.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			mavenItemEClass, MavenItem.class, "MavenItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getMavenItem_GroupId(), theXMLTypePackage.getString(), "groupId", null, 0, 1, MavenItem.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMavenItem_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, MavenItem.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(childrenProviderEClass, ChildrenProvider.class, "ChildrenProvider", IS_ABSTRACT, IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			childrenProviderEClass, ChildrenProvider.class, "ChildrenProvider", IS_ABSTRACT, IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(childrenProviderEClass_T);
-		initEReference(getChildrenProvider_Children(), g1, null, "children", null, 0, -1, ChildrenProvider.class,
-				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getChildrenProvider_Children(), g1, null, "children", null, 0, -1, ChildrenProvider.class, IS_TRANSIENT,
+			IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			IS_ORDERED);
 
 		initEClass(statusEClass, Status.class, "Status", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStatus_Code(), this.getStatusCode(), "code", "", 1, 1, Status.class, !IS_TRANSIENT,
-				!IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStatus_Message(), theXMLTypePackage.getString(), "message", "", 0, 1, Status.class,
-				!IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getStatus_Code(), this.getStatusCode(), "code", "", 1, 1, Status.class, !IS_TRANSIENT, !IS_VOLATILE,
+			!IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getStatus_Message(), theXMLTypePackage.getString(), "message", "", 0, 1, Status.class, !IS_TRANSIENT,
+			!IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(statusProviderEClass, StatusProvider.class, "StatusProvider", IS_ABSTRACT, IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStatusProvider_Status(), this.getStatus(), null, "status", null, 1, 1, StatusProvider.class,
-				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			statusProviderEClass, StatusProvider.class, "StatusProvider", IS_ABSTRACT, IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getStatusProvider_Status(), this.getStatus(), null, "status", null, 1, 1, StatusProvider.class,
+			IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
-		initEClass(infosProviderEClass, InfosProvider.class, "InfosProvider", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInfosProvider_Errors(), theXMLTypePackage.getString(), "errors", null, 0, -1,
-				InfosProvider.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInfosProvider_Warnings(), theXMLTypePackage.getString(), "warnings", null, 0, -1,
-				InfosProvider.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInfosProvider_Infos(), theXMLTypePackage.getString(), "infos", null, 0, -1,
-				InfosProvider.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(
+			infosProviderEClass, InfosProvider.class, "InfosProvider", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getInfosProvider_Errors(), theXMLTypePackage.getString(), "errors", null, 0, -1, InfosProvider.class,
+			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getInfosProvider_Warnings(), theXMLTypePackage.getString(), "warnings", null, 0, -1, InfosProvider.class,
+			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getInfosProvider_Infos(), theXMLTypePackage.getString(), "infos", null, 0, -1, InfosProvider.class,
+			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(availableVersionsHeaderEClass, AvailableVersionsHeader.class, "AvailableVersionsHeader",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAvailableVersionsHeader_AvailableVersions(), this.getAvailableVersion(), null,
-				"availableVersions", null, 0, -1, AvailableVersionsHeader.class, IS_TRANSIENT, IS_VOLATILE,
-				!IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAvailableVersionsHeader_InstallableUnitRequest(), this.getInstallableUnitRequest(),
-				this.getInstallableUnitRequest_AvailableVersionsHeader(), "installableUnitRequest", null, 1, 1,
-				AvailableVersionsHeader.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			availableVersionsHeaderEClass, AvailableVersionsHeader.class, "AvailableVersionsHeader", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getAvailableVersionsHeader_AvailableVersions(), this.getAvailableVersion(), null, "availableVersions",
+			null, 0, -1, AvailableVersionsHeader.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getAvailableVersionsHeader_InstallableUnitRequest(), this.getInstallableUnitRequest(),
+			this.getInstallableUnitRequest_AvailableVersionsHeader(), "installableUnitRequest", null, 1, 1,
+			AvailableVersionsHeader.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(availableVersionEClass, AvailableVersion.class, "AvailableVersion", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAvailableVersion_VersionMatch(), this.getVersionMatch(), "versionMatch", "", 1, 1,
-				AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAvailableVersion_Version(), theP2Package.getVersion(), "version", null, 0, 1,
-				AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(
+			availableVersionEClass, AvailableVersion.class, "AvailableVersion", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getAvailableVersion_VersionMatch(), this.getVersionMatch(), "versionMatch", "", 1, 1,
+			AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAvailableVersion_Version(), theP2Package.getVersion(), "version", null, 0, 1, AvailableVersion.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theP2Package.getIMatchExpression());
 		g2 = createEGenericType(theP2Package.getIInstallableUnit());
 		g1.getETypeArguments().add(g2);
-		initEAttribute(getAvailableVersion_Filter(), g1, "filter", null, 0, 1, AvailableVersion.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAvailableVersion_Filter(), g1, "filter", null, 0, 1, AvailableVersion.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(aggregateTypeEEnum, AggregateType.class, "AggregateType");

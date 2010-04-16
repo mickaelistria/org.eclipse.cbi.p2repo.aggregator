@@ -76,8 +76,8 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.LICENSES__LICENSES:
-			return getLicenses();
+			case P2viewPackage.LICENSES__LICENSES:
+				return getLicenses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -91,8 +91,8 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.LICENSES__LICENSES:
-			return licenses != null && !licenses.isEmpty();
+			case P2viewPackage.LICENSES__LICENSES:
+				return licenses != null && !licenses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,10 +107,10 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.LICENSES__LICENSES:
-			getLicenses().clear();
-			getLicenses().addAll((Collection<? extends ILicense>) newValue);
-			return;
+			case P2viewPackage.LICENSES__LICENSES:
+				getLicenses().clear();
+				getLicenses().addAll((Collection<? extends ILicense>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -124,9 +124,9 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.LICENSES__LICENSES:
-			getLicenses().clear();
-			return;
+			case P2viewPackage.LICENSES__LICENSES:
+				getLicenses().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}

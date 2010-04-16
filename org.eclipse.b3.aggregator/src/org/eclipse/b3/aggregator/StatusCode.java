@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum StatusCode implements Enumerator{
+public enum StatusCode implements Enumerator {
 	/**
 	 * The '<em><b>OK</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -128,12 +128,12 @@ public enum StatusCode implements Enumerator{
 	 */
 	public static StatusCode get(int value) {
 		switch(value) {
-		case OK_VALUE:
-			return OK;
-		case BROKEN_VALUE:
-			return BROKEN;
-		case WAITING_VALUE:
-			return WAITING;
+			case OK_VALUE:
+				return OK;
+			case BROKEN_VALUE:
+				return BROKEN;
+			case WAITING_VALUE:
+				return WAITING;
 		}
 		return null;
 	}

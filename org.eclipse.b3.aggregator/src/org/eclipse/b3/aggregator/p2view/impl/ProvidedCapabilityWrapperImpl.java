@@ -171,10 +171,10 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if(baseClass == LabelProvider.class) {
 			switch(derivedFeatureID) {
-			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-				return AggregatorPackage.LABEL_PROVIDER__LABEL;
-			default:
-				return -1;
+				case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
+					return AggregatorPackage.LABEL_PROVIDER__LABEL;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -189,10 +189,10 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if(baseClass == LabelProvider.class) {
 			switch(baseFeatureID) {
-			case AggregatorPackage.LABEL_PROVIDER__LABEL:
-				return P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL;
-			default:
-				return -1;
+				case AggregatorPackage.LABEL_PROVIDER__LABEL:
+					return P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -206,16 +206,16 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
-			return getName();
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
-			return getNamespace();
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
-			return getVersion();
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-			return getLabel();
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__GENUINE:
-			return getGenuine();
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
+				return getName();
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
+				return getNamespace();
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
+				return getVersion();
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
+				return getLabel();
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__GENUINE:
+				return getGenuine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,14 +228,14 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-			return LABEL_EDEFAULT == null
-					? label != null
-					: !LABEL_EDEFAULT.equals(label);
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__GENUINE:
-			return genuine != null;
-		default:
-			return ((InternalEObject) genuine).eIsSet(featureID);
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
+				return LABEL_EDEFAULT == null
+						? label != null
+						: !LABEL_EDEFAULT.equals(label);
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__GENUINE:
+				return genuine != null;
+			default:
+				return ((InternalEObject) genuine).eIsSet(featureID);
 		}
 	}
 
@@ -247,18 +247,18 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
-			setName((String) newValue);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
-			setNamespace((String) newValue);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
-			setVersion((Version) newValue);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-			setLabel((String) newValue);
-			return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
+				setName((String) newValue);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
+				setNamespace((String) newValue);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
+				setVersion((Version) newValue);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
+				setLabel((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -271,18 +271,18 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
-			setNamespace(NAMESPACE_EDEFAULT);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-			setLabel(LABEL_EDEFAULT);
-			return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
+				setNamespace(NAMESPACE_EDEFAULT);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
+				setLabel(LABEL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -341,8 +341,8 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 		String oldLabel = label;
 		label = newLabel;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL,
-					oldLabel, label));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL, oldLabel, label));
 	}
 
 	/**

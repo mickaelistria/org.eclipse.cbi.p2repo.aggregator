@@ -76,10 +76,10 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.CATEGORIES__CHILDREN:
-			return getChildren();
-		case P2viewPackage.CATEGORIES__CATEGORIES:
-			return getCategories();
+			case P2viewPackage.CATEGORIES__CHILDREN:
+				return getChildren();
+			case P2viewPackage.CATEGORIES__CATEGORIES:
+				return getCategories();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -93,8 +93,8 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case P2viewPackage.CATEGORIES__CATEGORIES:
-			return ((InternalEList<?>) getCategories()).basicRemove(otherEnd, msgs);
+			case P2viewPackage.CATEGORIES__CATEGORIES:
+				return ((InternalEList<?>) getCategories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -107,10 +107,10 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.CATEGORIES__CHILDREN:
-			return !getChildren().isEmpty();
-		case P2viewPackage.CATEGORIES__CATEGORIES:
-			return categories != null && !categories.isEmpty();
+			case P2viewPackage.CATEGORIES__CHILDREN:
+				return !getChildren().isEmpty();
+			case P2viewPackage.CATEGORIES__CATEGORIES:
+				return categories != null && !categories.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -124,10 +124,10 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.CATEGORIES__CATEGORIES:
-			getCategories().clear();
-			getCategories().addAll((Collection<? extends Category>) newValue);
-			return;
+			case P2viewPackage.CATEGORIES__CATEGORIES:
+				getCategories().clear();
+				getCategories().addAll((Collection<? extends Category>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -140,9 +140,9 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.CATEGORIES__CATEGORIES:
-			getCategories().clear();
-			return;
+			case P2viewPackage.CATEGORIES__CATEGORIES:
+				getCategories().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -154,8 +154,8 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	 */
 	public EList<Category> getCategories() {
 		if(categories == null) {
-			categories = new EObjectContainmentEList.Resolving<Category>(Category.class, this,
-					P2viewPackage.CATEGORIES__CATEGORIES);
+			categories = new EObjectContainmentEList.Resolving<Category>(
+				Category.class, this, P2viewPackage.CATEGORIES__CATEGORIES);
 		}
 		return categories;
 	}

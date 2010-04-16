@@ -151,12 +151,12 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
-			return getVersionMatch();
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
-			return getVersion();
-		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
-			return getFilter();
+			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
+				return getVersionMatch();
+			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
+				return getVersion();
+			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+				return getFilter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,14 +170,14 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
-			return (eFlags & VERSION_MATCH_EFLAG) != VERSION_MATCH_EFLAG_DEFAULT;
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
-		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
-			return filter != null;
+			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
+				return (eFlags & VERSION_MATCH_EFLAG) != VERSION_MATCH_EFLAG_DEFAULT;
+			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
+			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+				return filter != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -192,15 +192,15 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
-			setVersionMatch((VersionMatch) newValue);
-			return;
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
-			setVersion((Version) newValue);
-			return;
-		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
-			setFilter((IMatchExpression<IInstallableUnit>) newValue);
-			return;
+			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
+				setVersionMatch((VersionMatch) newValue);
+				return;
+			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
+				setVersion((Version) newValue);
+				return;
+			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+				setFilter((IMatchExpression<IInstallableUnit>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -214,15 +214,15 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
-			setVersionMatch(VERSION_MATCH_EDEFAULT);
-			return;
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
-			setFilter((IMatchExpression<IInstallableUnit>) null);
-			return;
+			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
+				setVersionMatch(VERSION_MATCH_EDEFAULT);
+				return;
+			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+				setFilter((IMatchExpression<IInstallableUnit>) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -267,8 +267,8 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 		IMatchExpression<IInstallableUnit> oldFilter = filter;
 		filter = newFilter;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__FILTER,
-					oldFilter, filter));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__FILTER, oldFilter, filter));
 	}
 
 	/**
@@ -281,8 +281,8 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 		Version oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION,
-					oldVersion, version));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION, oldVersion, version));
 	}
 
 	/**
@@ -297,8 +297,9 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 			newVersionMatch = VERSION_MATCH_EDEFAULT;
 		eFlags = eFlags & ~VERSION_MATCH_EFLAG | newVersionMatch.ordinal() << VERSION_MATCH_EFLAG_OFFSET;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH,
-					oldVersionMatch, newVersionMatch));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH, oldVersionMatch,
+				newVersionMatch));
 	}
 
 	/**

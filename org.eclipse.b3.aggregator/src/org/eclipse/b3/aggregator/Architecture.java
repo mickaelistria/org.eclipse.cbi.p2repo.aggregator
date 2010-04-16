@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum Architecture implements Enumerator{
+public enum Architecture implements Enumerator {
 	/**
 	 * The '<em><b>X86</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -150,14 +150,14 @@ public enum Architecture implements Enumerator{
 	 */
 	public static Architecture get(int value) {
 		switch(value) {
-		case X86_VALUE:
-			return X86;
-		case PPC_VALUE:
-			return PPC;
-		case X86_64_VALUE:
-			return X86_64;
-		case IA64_VALUE:
-			return IA64;
+			case X86_VALUE:
+				return X86;
+			case PPC_VALUE:
+				return PPC;
+			case X86_64_VALUE:
+				return X86_64;
+			case IA64_VALUE:
+				return IA64;
 		}
 		return null;
 	}

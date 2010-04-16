@@ -178,8 +178,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		ICopyright oldCopyright = copyright;
 		copyright = newCopyright;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT, oldCopyright, newCopyright);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT, oldCopyright,
+				newCopyright);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -198,9 +199,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		Licenses oldLicensesContainer = licensesContainer;
 		licensesContainer = newLicensesContainer;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER, oldLicensesContainer,
-					newLicensesContainer);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER,
+				oldLicensesContainer, newLicensesContainer);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -219,9 +220,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		Properties oldPropertiesContainer = propertiesContainer;
 		propertiesContainer = newPropertiesContainer;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER, oldPropertiesContainer,
-					newPropertiesContainer);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER,
+				oldPropertiesContainer, newPropertiesContainer);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -241,9 +242,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		ProvidedCapabilities oldProvidedCapabilitiesContainer = providedCapabilitiesContainer;
 		providedCapabilitiesContainer = newProvidedCapabilitiesContainer;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER,
-					oldProvidedCapabilitiesContainer, newProvidedCapabilitiesContainer);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER,
+				oldProvidedCapabilitiesContainer, newProvidedCapabilitiesContainer);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -262,9 +263,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		Requirements oldRequirementsContainer = requirementsContainer;
 		requirementsContainer = newRequirementsContainer;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER, oldRequirementsContainer,
-					newRequirementsContainer);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER,
+				oldRequirementsContainer, newRequirementsContainer);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -283,9 +284,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		Touchpoints oldTouchpointsContainer = touchpointsContainer;
 		touchpointsContainer = newTouchpointsContainer;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER, oldTouchpointsContainer,
-					newTouchpointsContainer);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER,
+				oldTouchpointsContainer, newTouchpointsContainer);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -304,9 +305,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		IUpdateDescriptor oldUpdateDescriptor = updateDescriptor;
 		updateDescriptor = newUpdateDescriptor;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR, oldUpdateDescriptor,
-					newUpdateDescriptor);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR,
+				oldUpdateDescriptor, newUpdateDescriptor);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -324,22 +325,22 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if(baseClass == IUDetails.class) {
 			switch(derivedFeatureID) {
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
-				return P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-				return P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
-				return P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
-				return P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
-				return P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
-				return P2viewPackage.IU_DETAILS__COPYRIGHT;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
-				return P2viewPackage.IU_DETAILS__LICENSES_CONTAINER;
-			default:
-				return -1;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+					return P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+					return P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
+					return P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
+					return P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
+					return P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
+					return P2viewPackage.IU_DETAILS__COPYRIGHT;
+				case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+					return P2viewPackage.IU_DETAILS__LICENSES_CONTAINER;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -354,22 +355,22 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if(baseClass == IUDetails.class) {
 			switch(baseFeatureID) {
-			case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
-			case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
-			case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER;
-			case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER;
-			case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR;
-			case P2viewPackage.IU_DETAILS__COPYRIGHT:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
-			case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
-			default:
-				return -1;
+				case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
+					return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
+				case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+					return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
+				case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
+					return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER;
+				case P2viewPackage.IU_DETAILS__TOUCHPOINTS_CONTAINER:
+					return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER;
+				case P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR:
+					return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR;
+				case P2viewPackage.IU_DETAILS__COPYRIGHT:
+					return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
+				case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
+					return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -383,22 +384,22 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
-			return getRequirementsContainer();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			return getProvidedCapabilitiesContainer();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
-			return getPropertiesContainer();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
-			return getTouchpointsContainer();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
-			return getUpdateDescriptor();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
-			return getCopyright();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
-			return getLicensesContainer();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
-			return isDetailsResolved();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+				return getRequirementsContainer();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				return getProvidedCapabilitiesContainer();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
+				return getPropertiesContainer();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
+				return getTouchpointsContainer();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
+				return getUpdateDescriptor();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
+				return getCopyright();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+				return getLicensesContainer();
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
+				return isDetailsResolved();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -412,20 +413,20 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
-			return basicSetRequirementsContainer(null, msgs);
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			return basicSetProvidedCapabilitiesContainer(null, msgs);
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
-			return basicSetPropertiesContainer(null, msgs);
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
-			return basicSetTouchpointsContainer(null, msgs);
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
-			return basicSetUpdateDescriptor(null, msgs);
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
-			return basicSetCopyright(null, msgs);
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
-			return basicSetLicensesContainer(null, msgs);
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+				return basicSetRequirementsContainer(null, msgs);
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				return basicSetProvidedCapabilitiesContainer(null, msgs);
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
+				return basicSetPropertiesContainer(null, msgs);
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
+				return basicSetTouchpointsContainer(null, msgs);
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
+				return basicSetUpdateDescriptor(null, msgs);
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
+				return basicSetCopyright(null, msgs);
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+				return basicSetLicensesContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -438,22 +439,22 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
-			return requirementsContainer != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			return providedCapabilitiesContainer != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
-			return propertiesContainer != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
-			return touchpointsContainer != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
-			return updateDescriptor != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
-			return copyright != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
-			return licensesContainer != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
-			return ((eFlags & DETAILS_RESOLVED_EFLAG) != 0) != DETAILS_RESOLVED_EDEFAULT;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+				return requirementsContainer != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				return providedCapabilitiesContainer != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
+				return propertiesContainer != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
+				return touchpointsContainer != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
+				return updateDescriptor != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
+				return copyright != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+				return licensesContainer != null;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
+				return ((eFlags & DETAILS_RESOLVED_EFLAG) != 0) != DETAILS_RESOLVED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -467,30 +468,30 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
-			setRequirementsContainer((Requirements) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			setProvidedCapabilitiesContainer((ProvidedCapabilities) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
-			setPropertiesContainer((Properties) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
-			setTouchpointsContainer((Touchpoints) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
-			setUpdateDescriptor((IUpdateDescriptor) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
-			setCopyright((ICopyright) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
-			setLicensesContainer((Licenses) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
-			setDetailsResolved((Boolean) newValue);
-			return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+				setRequirementsContainer((Requirements) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				setProvidedCapabilitiesContainer((ProvidedCapabilities) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
+				setPropertiesContainer((Properties) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
+				setTouchpointsContainer((Touchpoints) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
+				setUpdateDescriptor((IUpdateDescriptor) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
+				setCopyright((ICopyright) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+				setLicensesContainer((Licenses) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
+				setDetailsResolved((Boolean) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -503,30 +504,30 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
-			setRequirementsContainer((Requirements) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
-			setProvidedCapabilitiesContainer((ProvidedCapabilities) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
-			setPropertiesContainer((Properties) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
-			setTouchpointsContainer((Touchpoints) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
-			setUpdateDescriptor((IUpdateDescriptor) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
-			setCopyright((ICopyright) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
-			setLicensesContainer((Licenses) null);
-			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
-			setDetailsResolved(DETAILS_RESOLVED_EDEFAULT);
-			return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+				setRequirementsContainer((Requirements) null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
+				setProvidedCapabilitiesContainer((ProvidedCapabilities) null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
+				setPropertiesContainer((Properties) null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER:
+				setTouchpointsContainer((Touchpoints) null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR:
+				setUpdateDescriptor((IUpdateDescriptor) null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
+				setCopyright((ICopyright) null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+				setLicensesContainer((Licenses) null);
+				return;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
+				setDetailsResolved(DETAILS_RESOLVED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -632,18 +633,19 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		if(newCopyright != copyright) {
 			NotificationChain msgs = null;
 			if(copyright != null)
-				msgs = ((InternalEObject) copyright).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT, null, msgs);
+				msgs = ((InternalEObject) copyright).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT, null, msgs);
 			if(newCopyright != null)
-				msgs = ((InternalEObject) newCopyright).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT, null, msgs);
+				msgs = ((InternalEObject) newCopyright).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT, null, msgs);
 			msgs = basicSetCopyright(newCopyright, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT, newCopyright, newCopyright));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT, newCopyright,
+				newCopyright));
 	}
 
 	/**
@@ -658,9 +660,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		else
 			eFlags &= ~DETAILS_RESOLVED_EFLAG;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED, oldDetailsResolved,
-					newDetailsResolved));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED,
+				oldDetailsResolved, newDetailsResolved));
 	}
 
 	/**
@@ -673,19 +675,19 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		if(newLicensesContainer != licensesContainer) {
 			NotificationChain msgs = null;
 			if(licensesContainer != null)
-				msgs = ((InternalEObject) licensesContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) licensesContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER, null, msgs);
 			if(newLicensesContainer != null)
-				msgs = ((InternalEObject) newLicensesContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) newLicensesContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER, null, msgs);
 			msgs = basicSetLicensesContainer(newLicensesContainer, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER, newLicensesContainer,
-					newLicensesContainer));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER,
+				newLicensesContainer, newLicensesContainer));
 	}
 
 	/**
@@ -697,19 +699,19 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		if(newPropertiesContainer != propertiesContainer) {
 			NotificationChain msgs = null;
 			if(propertiesContainer != null)
-				msgs = ((InternalEObject) propertiesContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) propertiesContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER, null, msgs);
 			if(newPropertiesContainer != null)
-				msgs = ((InternalEObject) newPropertiesContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) newPropertiesContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER, null, msgs);
 			msgs = basicSetPropertiesContainer(newPropertiesContainer, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER, newPropertiesContainer,
-					newPropertiesContainer));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER,
+				newPropertiesContainer, newPropertiesContainer));
 	}
 
 	/**
@@ -721,19 +723,19 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		if(newProvidedCapabilitiesContainer != providedCapabilitiesContainer) {
 			NotificationChain msgs = null;
 			if(providedCapabilitiesContainer != null)
-				msgs = ((InternalEObject) providedCapabilitiesContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) providedCapabilitiesContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER, null, msgs);
 			if(newProvidedCapabilitiesContainer != null)
-				msgs = ((InternalEObject) newProvidedCapabilitiesContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) newProvidedCapabilitiesContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER, null, msgs);
 			msgs = basicSetProvidedCapabilitiesContainer(newProvidedCapabilitiesContainer, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER,
-					newProvidedCapabilitiesContainer, newProvidedCapabilitiesContainer));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER,
+				newProvidedCapabilitiesContainer, newProvidedCapabilitiesContainer));
 	}
 
 	/**
@@ -746,19 +748,19 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		if(newRequirementsContainer != requirementsContainer) {
 			NotificationChain msgs = null;
 			if(requirementsContainer != null)
-				msgs = ((InternalEObject) requirementsContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) requirementsContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER, null, msgs);
 			if(newRequirementsContainer != null)
-				msgs = ((InternalEObject) newRequirementsContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) newRequirementsContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER, null, msgs);
 			msgs = basicSetRequirementsContainer(newRequirementsContainer, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER, newRequirementsContainer,
-					newRequirementsContainer));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER,
+				newRequirementsContainer, newRequirementsContainer));
 	}
 
 	/**
@@ -770,19 +772,19 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		if(newTouchpointsContainer != touchpointsContainer) {
 			NotificationChain msgs = null;
 			if(touchpointsContainer != null)
-				msgs = ((InternalEObject) touchpointsContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) touchpointsContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER, null, msgs);
 			if(newTouchpointsContainer != null)
-				msgs = ((InternalEObject) newTouchpointsContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER, null, msgs);
+				msgs = ((InternalEObject) newTouchpointsContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER, null, msgs);
 			msgs = basicSetTouchpointsContainer(newTouchpointsContainer, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER, newTouchpointsContainer,
-					newTouchpointsContainer));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER,
+				newTouchpointsContainer, newTouchpointsContainer));
 	}
 
 	/**
@@ -794,19 +796,19 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		if(newUpdateDescriptor != updateDescriptor) {
 			NotificationChain msgs = null;
 			if(updateDescriptor != null)
-				msgs = ((InternalEObject) updateDescriptor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR, null, msgs);
+				msgs = ((InternalEObject) updateDescriptor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR, null, msgs);
 			if(newUpdateDescriptor != null)
-				msgs = ((InternalEObject) newUpdateDescriptor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR, null, msgs);
+				msgs = ((InternalEObject) newUpdateDescriptor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR, null, msgs);
 			msgs = basicSetUpdateDescriptor(newUpdateDescriptor, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR, newUpdateDescriptor,
-					newUpdateDescriptor));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR,
+				newUpdateDescriptor, newUpdateDescriptor));
 	}
 
 	/**

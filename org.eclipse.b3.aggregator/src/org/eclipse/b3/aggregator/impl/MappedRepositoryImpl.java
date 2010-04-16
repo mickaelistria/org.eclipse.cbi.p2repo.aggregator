@@ -200,10 +200,10 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if(baseClass == DescriptionProvider.class) {
 			switch(derivedFeatureID) {
-			case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
-				return AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION;
-			default:
-				return -1;
+				case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
+					return AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -218,10 +218,10 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if(baseClass == DescriptionProvider.class) {
 			switch(baseFeatureID) {
-			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-				return AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION;
-			default:
-				return -1;
+				case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
+					return AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -235,22 +235,22 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
-			return getDescription();
-		case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
-			return getProducts();
-		case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
-			return getBundles();
-		case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
-			return getFeatures();
-		case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
-			return getCategories();
-		case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
-			return isMirrorArtifacts();
-		case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:
-			return getCategoryPrefix();
-		case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
-			return getMapRules();
+			case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
+				return getDescription();
+			case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
+				return getProducts();
+			case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
+				return getBundles();
+			case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
+				return getFeatures();
+			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
+				return getCategories();
+			case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
+				return isMirrorArtifacts();
+			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:
+				return getCategoryPrefix();
+			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
+				return getMapRules();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -263,16 +263,16 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
-			return ((InternalEList<?>) getProducts()).basicRemove(otherEnd, msgs);
-		case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
-			return ((InternalEList<?>) getBundles()).basicRemove(otherEnd, msgs);
-		case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
-			return ((InternalEList<?>) getFeatures()).basicRemove(otherEnd, msgs);
-		case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
-			return ((InternalEList<?>) getCategories()).basicRemove(otherEnd, msgs);
-		case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
-			return ((InternalEList<?>) getMapRules()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
+				return ((InternalEList<?>) getProducts()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
+				return ((InternalEList<?>) getBundles()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
+				return ((InternalEList<?>) getFeatures()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
+				return ((InternalEList<?>) getCategories()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
+				return ((InternalEList<?>) getMapRules()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -285,26 +285,26 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null
-					? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
-			return products != null && !products.isEmpty();
-		case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
-			return bundles != null && !bundles.isEmpty();
-		case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
-			return features != null && !features.isEmpty();
-		case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
-			return categories != null && !categories.isEmpty();
-		case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
-			return ((eFlags & MIRROR_ARTIFACTS_EFLAG) != 0) != MIRROR_ARTIFACTS_EDEFAULT;
-		case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:
-			return CATEGORY_PREFIX_EDEFAULT == null
-					? categoryPrefix != null
-					: !CATEGORY_PREFIX_EDEFAULT.equals(categoryPrefix);
-		case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
-			return mapRules != null && !mapRules.isEmpty();
+			case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null
+						? description != null
+						: !DESCRIPTION_EDEFAULT.equals(description);
+			case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
+				return products != null && !products.isEmpty();
+			case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
+				return bundles != null && !bundles.isEmpty();
+			case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
+				return features != null && !features.isEmpty();
+			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
+				return categories != null && !categories.isEmpty();
+			case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
+				return ((eFlags & MIRROR_ARTIFACTS_EFLAG) != 0) != MIRROR_ARTIFACTS_EDEFAULT;
+			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:
+				return CATEGORY_PREFIX_EDEFAULT == null
+						? categoryPrefix != null
+						: !CATEGORY_PREFIX_EDEFAULT.equals(categoryPrefix);
+			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
+				return mapRules != null && !mapRules.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -318,35 +318,35 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
-			getProducts().clear();
-			getProducts().addAll((Collection<? extends Product>) newValue);
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
-			getBundles().clear();
-			getBundles().addAll((Collection<? extends Bundle>) newValue);
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
-			getFeatures().clear();
-			getFeatures().addAll((Collection<? extends Feature>) newValue);
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
-			getCategories().clear();
-			getCategories().addAll((Collection<? extends Category>) newValue);
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
-			setMirrorArtifacts((Boolean) newValue);
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:
-			setCategoryPrefix((String) newValue);
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
-			getMapRules().clear();
-			getMapRules().addAll((Collection<? extends MapRule>) newValue);
-			return;
+			case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
+				setDescription((String) newValue);
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
+				getProducts().clear();
+				getProducts().addAll((Collection<? extends Product>) newValue);
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
+				getBundles().clear();
+				getBundles().addAll((Collection<? extends Bundle>) newValue);
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
+				getFeatures().clear();
+				getFeatures().addAll((Collection<? extends Feature>) newValue);
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
+				getCategories().clear();
+				getCategories().addAll((Collection<? extends Category>) newValue);
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
+				setMirrorArtifacts((Boolean) newValue);
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:
+				setCategoryPrefix((String) newValue);
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
+				getMapRules().clear();
+				getMapRules().addAll((Collection<? extends MapRule>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -359,30 +359,30 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
-			getProducts().clear();
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
-			getBundles().clear();
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
-			getFeatures().clear();
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
-			getCategories().clear();
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
-			setMirrorArtifacts(MIRROR_ARTIFACTS_EDEFAULT);
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:
-			setCategoryPrefix(CATEGORY_PREFIX_EDEFAULT);
-			return;
-		case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
-			getMapRules().clear();
-			return;
+			case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
+				getProducts().clear();
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
+				getBundles().clear();
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
+				getFeatures().clear();
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
+				getCategories().clear();
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
+				setMirrorArtifacts(MIRROR_ARTIFACTS_EDEFAULT);
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:
+				setCategoryPrefix(CATEGORY_PREFIX_EDEFAULT);
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
+				getMapRules().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -403,8 +403,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public EList<Bundle> getBundles() {
 		if(bundles == null) {
-			bundles = new EObjectContainmentEList.Resolving<Bundle>(Bundle.class, this,
-					AggregatorPackage.MAPPED_REPOSITORY__BUNDLES);
+			bundles = new EObjectContainmentEList.Resolving<Bundle>(
+				Bundle.class, this, AggregatorPackage.MAPPED_REPOSITORY__BUNDLES);
 		}
 		return bundles;
 	}
@@ -416,8 +416,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public EList<Category> getCategories() {
 		if(categories == null) {
-			categories = new EObjectContainmentEList.Resolving<Category>(Category.class, this,
-					AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES);
+			categories = new EObjectContainmentEList.Resolving<Category>(
+				Category.class, this, AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES);
 		}
 		return categories;
 	}
@@ -450,8 +450,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 		EList<Product> products = getProducts();
 		EList<Feature> features = getFeatures();
 		EList<Bundle> bundles = getBundles();
-		EList<MappedUnit> units = new BasicEList<MappedUnit>(categories.size() + products.size() + features.size()
-				+ bundles.size());
+		EList<MappedUnit> units = new BasicEList<MappedUnit>(categories.size() + products.size() + features.size() +
+				bundles.size());
 		for(Category category : categories)
 			if(category.isEnabled())
 				units.add(category);
@@ -474,8 +474,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public EList<Feature> getFeatures() {
 		if(features == null) {
-			features = new EObjectContainmentEList.Resolving<Feature>(Feature.class, this,
-					AggregatorPackage.MAPPED_REPOSITORY__FEATURES);
+			features = new EObjectContainmentEList.Resolving<Feature>(
+				Feature.class, this, AggregatorPackage.MAPPED_REPOSITORY__FEATURES);
 		}
 		return features;
 	}
@@ -487,8 +487,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public EList<MapRule> getMapRules() {
 		if(mapRules == null) {
-			mapRules = new EObjectContainmentEList.Resolving<MapRule>(MapRule.class, this,
-					AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES);
+			mapRules = new EObjectContainmentEList.Resolving<MapRule>(
+				MapRule.class, this, AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES);
 		}
 		return mapRules;
 	}
@@ -500,8 +500,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public EList<Product> getProducts() {
 		if(products == null) {
-			products = new EObjectContainmentEList.Resolving<Product>(Product.class, this,
-					AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS);
+			products = new EObjectContainmentEList.Resolving<Product>(
+				Product.class, this, AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS);
 		}
 		return products;
 	}
@@ -541,8 +541,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 		EList<Product> products = getProducts();
 		EList<Feature> features = getFeatures();
 		EList<Bundle> bundles = getBundles();
-		EList<MappedUnit> units = new BasicEList<MappedUnit>(categories.size() + products.size() + features.size()
-				+ bundles.size());
+		EList<MappedUnit> units = new BasicEList<MappedUnit>(categories.size() + products.size() + features.size() +
+				bundles.size());
 
 		if(enabledOnly) {
 			for(Category category : categories)
@@ -572,6 +572,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isBranchEnabled() {
 		return super.isBranchEnabled() && (eContainer() == null || ((Contribution) eContainer()).isEnabled());
 	}
@@ -582,8 +583,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * @generated NOT
 	 */
 	public boolean isMapExclusive() {
-		return getFeatures().size() > 0 || getCategories().size() > 0 || getProducts().size() > 0
-				|| getBundles().size() > 0;
+		return getFeatures().size() > 0 || getCategories().size() > 0 || getProducts().size() > 0 ||
+				getBundles().size() > 0;
 	}
 
 	/**
@@ -617,8 +618,9 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 		String oldCategoryPrefix = categoryPrefix;
 		categoryPrefix = newCategoryPrefix;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX,
-					oldCategoryPrefix, categoryPrefix));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX, oldCategoryPrefix,
+				categoryPrefix));
 	}
 
 	/**
@@ -630,8 +632,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 		String oldDescription = description;
 		description = newDescription;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION,
-					oldDescription, description));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -646,8 +648,9 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 		else
 			eFlags &= ~MIRROR_ARTIFACTS_EFLAG;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS, oldMirrorArtifacts, newMirrorArtifacts));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS, oldMirrorArtifacts,
+				newMirrorArtifacts));
 	}
 
 	/**

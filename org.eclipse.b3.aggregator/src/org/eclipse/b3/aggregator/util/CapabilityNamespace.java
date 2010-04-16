@@ -21,7 +21,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * @author Karel Brezina
  * 
  */
-public enum CapabilityNamespace{
+public enum CapabilityNamespace {
 	IU("_UI_Capability_IU_type"), TYPE("_UI_Capability_Type_type"), LOCALIZATION("_UI_Capability_Localization_type"), FLAVOR(
 			"_UI_Capability_Flavor_type"), FEATURE("_UI_Capability_Feature_type"), BUNDLE("_UI_Capability_Bundle_type"), FRAGMENT(
 			"_UI_Capability_Fragment_type"), JAVA_PACKAGE("_UI_Capability_JavaPackage_type"), TOOLING(

@@ -219,22 +219,22 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION__ID:
-			return getId();
-		case P2viewPackage.IU_PRESENTATION__VERSION:
-			return getVersion();
-		case P2viewPackage.IU_PRESENTATION__NAME:
-			return getName();
-		case P2viewPackage.IU_PRESENTATION__LABEL:
-			return getLabel();
-		case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
-			return getDescription();
-		case P2viewPackage.IU_PRESENTATION__TYPE:
-			return getType();
-		case P2viewPackage.IU_PRESENTATION__FILTER:
-			return getFilter();
-		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
-			return getInstallableUnit();
+			case P2viewPackage.IU_PRESENTATION__ID:
+				return getId();
+			case P2viewPackage.IU_PRESENTATION__VERSION:
+				return getVersion();
+			case P2viewPackage.IU_PRESENTATION__NAME:
+				return getName();
+			case P2viewPackage.IU_PRESENTATION__LABEL:
+				return getLabel();
+			case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
+				return getDescription();
+			case P2viewPackage.IU_PRESENTATION__TYPE:
+				return getType();
+			case P2viewPackage.IU_PRESENTATION__FILTER:
+				return getFilter();
+			case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
+				return getInstallableUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -247,34 +247,34 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION__ID:
-			return ID_EDEFAULT == null
-					? id != null
-					: !ID_EDEFAULT.equals(id);
-		case P2viewPackage.IU_PRESENTATION__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
-		case P2viewPackage.IU_PRESENTATION__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case P2viewPackage.IU_PRESENTATION__LABEL:
-			return LABEL_EDEFAULT == null
-					? label != null
-					: !LABEL_EDEFAULT.equals(label);
-		case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null
-					? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case P2viewPackage.IU_PRESENTATION__TYPE:
-			return getType() != TYPE_EDEFAULT;
-		case P2viewPackage.IU_PRESENTATION__FILTER:
-			return FILTER_EDEFAULT == null
-					? filter != null
-					: !FILTER_EDEFAULT.equals(filter);
-		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
-			return installableUnit != null;
+			case P2viewPackage.IU_PRESENTATION__ID:
+				return ID_EDEFAULT == null
+						? id != null
+						: !ID_EDEFAULT.equals(id);
+			case P2viewPackage.IU_PRESENTATION__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
+			case P2viewPackage.IU_PRESENTATION__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case P2viewPackage.IU_PRESENTATION__LABEL:
+				return LABEL_EDEFAULT == null
+						? label != null
+						: !LABEL_EDEFAULT.equals(label);
+			case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null
+						? description != null
+						: !DESCRIPTION_EDEFAULT.equals(description);
+			case P2viewPackage.IU_PRESENTATION__TYPE:
+				return getType() != TYPE_EDEFAULT;
+			case P2viewPackage.IU_PRESENTATION__FILTER:
+				return FILTER_EDEFAULT == null
+						? filter != null
+						: !FILTER_EDEFAULT.equals(filter);
+			case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
+				return installableUnit != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -287,27 +287,27 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION__ID:
-			setId((String) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION__VERSION:
-			setVersion((Version) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION__NAME:
-			setName((String) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION__LABEL:
-			setLabel((String) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION__FILTER:
-			setFilter((String) newValue);
-			return;
-		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
-			setInstallableUnit((IInstallableUnit) newValue);
-			return;
+			case P2viewPackage.IU_PRESENTATION__ID:
+				setId((String) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION__VERSION:
+				setVersion((Version) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION__NAME:
+				setName((String) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION__LABEL:
+				setLabel((String) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
+				setDescription((String) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION__FILTER:
+				setFilter((String) newValue);
+				return;
+			case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
+				setInstallableUnit((IInstallableUnit) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -320,27 +320,27 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case P2viewPackage.IU_PRESENTATION__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case P2viewPackage.IU_PRESENTATION__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case P2viewPackage.IU_PRESENTATION__LABEL:
-			setLabel(LABEL_EDEFAULT);
-			return;
-		case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case P2viewPackage.IU_PRESENTATION__FILTER:
-			setFilter(FILTER_EDEFAULT);
-			return;
-		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
-			setInstallableUnit((IInstallableUnit) null);
-			return;
+			case P2viewPackage.IU_PRESENTATION__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case P2viewPackage.IU_PRESENTATION__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case P2viewPackage.IU_PRESENTATION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case P2viewPackage.IU_PRESENTATION__LABEL:
+				setLabel(LABEL_EDEFAULT);
+				return;
+			case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case P2viewPackage.IU_PRESENTATION__FILTER:
+				setFilter(FILTER_EDEFAULT);
+				return;
+			case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
+				setInstallableUnit((IInstallableUnit) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -425,8 +425,8 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 		String oldDescription = description;
 		description = newDescription;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__DESCRIPTION,
-					oldDescription, description));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -439,8 +439,8 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 		String oldFilter = filter;
 		filter = newFilter;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__FILTER, oldFilter,
-					filter));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION__FILTER, oldFilter, filter));
 	}
 
 	/**
@@ -465,8 +465,9 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 		IInstallableUnit oldInstallableUnit = installableUnit;
 		installableUnit = newInstallableUnit;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT,
-					oldInstallableUnit, installableUnit));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT, oldInstallableUnit,
+				installableUnit));
 	}
 
 	/**
@@ -502,8 +503,8 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 		Version oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__VERSION, oldVersion,
-					version));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.IU_PRESENTATION__VERSION, oldVersion, version));
 	}
 
 	/**

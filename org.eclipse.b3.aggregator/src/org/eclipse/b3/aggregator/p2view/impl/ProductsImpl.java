@@ -76,10 +76,10 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.PRODUCTS__CHILDREN:
-			return getChildren();
-		case P2viewPackage.PRODUCTS__PRODUCTS:
-			return getProducts();
+			case P2viewPackage.PRODUCTS__CHILDREN:
+				return getChildren();
+			case P2viewPackage.PRODUCTS__PRODUCTS:
+				return getProducts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -93,8 +93,8 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case P2viewPackage.PRODUCTS__PRODUCTS:
-			return ((InternalEList<?>) getProducts()).basicRemove(otherEnd, msgs);
+			case P2viewPackage.PRODUCTS__PRODUCTS:
+				return ((InternalEList<?>) getProducts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -107,10 +107,10 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.PRODUCTS__CHILDREN:
-			return !getChildren().isEmpty();
-		case P2viewPackage.PRODUCTS__PRODUCTS:
-			return products != null && !products.isEmpty();
+			case P2viewPackage.PRODUCTS__CHILDREN:
+				return !getChildren().isEmpty();
+			case P2viewPackage.PRODUCTS__PRODUCTS:
+				return products != null && !products.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -124,10 +124,10 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.PRODUCTS__PRODUCTS:
-			getProducts().clear();
-			getProducts().addAll((Collection<? extends Product>) newValue);
-			return;
+			case P2viewPackage.PRODUCTS__PRODUCTS:
+				getProducts().clear();
+				getProducts().addAll((Collection<? extends Product>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -140,9 +140,9 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.PRODUCTS__PRODUCTS:
-			getProducts().clear();
-			return;
+			case P2viewPackage.PRODUCTS__PRODUCTS:
+				getProducts().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -163,8 +163,8 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	 */
 	public EList<Product> getProducts() {
 		if(products == null) {
-			products = new EObjectContainmentEList.Resolving<Product>(Product.class, this,
-					P2viewPackage.PRODUCTS__PRODUCTS);
+			products = new EObjectContainmentEList.Resolving<Product>(
+				Product.class, this, P2viewPackage.PRODUCTS__PRODUCTS);
 		}
 		return products;
 	}

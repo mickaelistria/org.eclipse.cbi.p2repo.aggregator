@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum VersionMatch implements Enumerator{
+public enum VersionMatch implements Enumerator {
 	/**
 	 * The '<em><b>BELOW</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -134,12 +134,12 @@ public enum VersionMatch implements Enumerator{
 	 */
 	public static VersionMatch get(int value) {
 		switch(value) {
-		case BELOW_VALUE:
-			return BELOW;
-		case MATCHES_VALUE:
-			return MATCHES;
-		case ABOVE_VALUE:
-			return ABOVE;
+			case BELOW_VALUE:
+				return BELOW;
+			case MATCHES_VALUE:
+				return MATCHES;
+			case ABOVE_VALUE:
+				return ABOVE;
 		}
 		return null;
 	}

@@ -62,8 +62,8 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
-			return getValidConfigurations();
+			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
+				return getValidConfigurations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -76,8 +76,8 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
-			return validConfigurations != null && !validConfigurations.isEmpty();
+			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
+				return validConfigurations != null && !validConfigurations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -91,10 +91,10 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
-			getValidConfigurations().clear();
-			getValidConfigurations().addAll((Collection<? extends Configuration>) newValue);
-			return;
+			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
+				getValidConfigurations().clear();
+				getValidConfigurations().addAll((Collection<? extends Configuration>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -107,9 +107,9 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
-			getValidConfigurations().clear();
-			return;
+			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
+				getValidConfigurations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -121,8 +121,8 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 	 */
 	public EList<Configuration> getValidConfigurations() {
 		if(validConfigurations == null) {
-			validConfigurations = new EObjectResolvingEList<Configuration>(Configuration.class, this,
-					AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS);
+			validConfigurations = new EObjectResolvingEList<Configuration>(
+				Configuration.class, this, AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS);
 		}
 		return validConfigurations;
 	}

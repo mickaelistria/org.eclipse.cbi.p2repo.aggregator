@@ -223,10 +223,10 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if(baseClass == LabelProvider.class) {
 			switch(derivedFeatureID) {
-			case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
-				return AggregatorPackage.LABEL_PROVIDER__LABEL;
-			default:
-				return -1;
+				case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
+					return AggregatorPackage.LABEL_PROVIDER__LABEL;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -241,10 +241,10 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if(baseClass == LabelProvider.class) {
 			switch(baseFeatureID) {
-			case AggregatorPackage.LABEL_PROVIDER__LABEL:
-				return P2viewPackage.REQUIREMENT_WRAPPER__LABEL;
-			default:
-				return -1;
+				case AggregatorPackage.LABEL_PROVIDER__LABEL:
+					return P2viewPackage.REQUIREMENT_WRAPPER__LABEL;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -258,22 +258,22 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
-			return getFilter();
-		case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
-			return getMax();
-		case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
-			return getMin();
-		case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
-			return getMatches();
-		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
-			return isGreedy();
-		case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
-			return getDescription();
-		case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
-			return getLabel();
-		case P2viewPackage.REQUIREMENT_WRAPPER__GENUINE:
-			return getGenuine();
+			case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
+				return getFilter();
+			case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
+				return getMax();
+			case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
+				return getMin();
+			case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
+				return getMatches();
+			case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
+				return isGreedy();
+			case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
+				return getDescription();
+			case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
+				return getLabel();
+			case P2viewPackage.REQUIREMENT_WRAPPER__GENUINE:
+				return getGenuine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -286,14 +286,14 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
-			return LABEL_EDEFAULT == null
-					? label != null
-					: !LABEL_EDEFAULT.equals(label);
-		case P2viewPackage.REQUIREMENT_WRAPPER__GENUINE:
-			return genuine != null;
-		default:
-			return ((InternalEObject) genuine).eIsSet(featureID);
+			case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
+				return LABEL_EDEFAULT == null
+						? label != null
+						: !LABEL_EDEFAULT.equals(label);
+			case P2viewPackage.REQUIREMENT_WRAPPER__GENUINE:
+				return genuine != null;
+			default:
+				return ((InternalEObject) genuine).eIsSet(featureID);
 		}
 	}
 
@@ -306,27 +306,27 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
-			setFilter((IMatchExpression<IInstallableUnit>) newValue);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
-			setMax((Integer) newValue);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
-			setMin((Integer) newValue);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
-			setMatches((IMatchExpression<IInstallableUnit>) newValue);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
-			setGreedy((Boolean) newValue);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
-			setLabel((String) newValue);
-			return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
+				setFilter((IMatchExpression<IInstallableUnit>) newValue);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
+				setMax((Integer) newValue);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
+				setMin((Integer) newValue);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
+				setMatches((IMatchExpression<IInstallableUnit>) newValue);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
+				setGreedy((Boolean) newValue);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
+				setDescription((String) newValue);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
+				setLabel((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -339,27 +339,27 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
-			setFilter((IMatchExpression<IInstallableUnit>) null);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
-			setMax(MAX_EDEFAULT);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
-			setMin(MIN_EDEFAULT);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
-			setMatches((IMatchExpression<IInstallableUnit>) null);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
-			setGreedy(GREEDY_EDEFAULT);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
-			setLabel(LABEL_EDEFAULT);
-			return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
+				setFilter((IMatchExpression<IInstallableUnit>) null);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
+				setMax(MAX_EDEFAULT);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
+				setMin(MIN_EDEFAULT);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
+				setMatches((IMatchExpression<IInstallableUnit>) null);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
+				setGreedy(GREEDY_EDEFAULT);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
+				setLabel(LABEL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -460,8 +460,8 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 		String oldDescription = description;
 		description = newDescription;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION,
-					oldDescription, description));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -483,8 +483,8 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 		IMatchExpression<IInstallableUnit> oldFilter = filter;
 		filter = newFilter;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__FILTER, oldFilter,
-					filter));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__FILTER, oldFilter, filter));
 	}
 
 	/**
@@ -505,8 +505,8 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 		String oldLabel = label;
 		label = newLabel;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__LABEL, oldLabel,
-					label));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -519,8 +519,8 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 		IMatchExpression<IInstallableUnit> oldMatches = matches;
 		matches = newMatches;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__MATCHES,
-					oldMatches, matches));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__MATCHES, oldMatches, matches));
 	}
 
 	/**

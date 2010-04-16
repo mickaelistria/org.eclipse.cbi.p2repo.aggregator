@@ -76,10 +76,10 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.FEATURES__CHILDREN:
-			return getChildren();
-		case P2viewPackage.FEATURES__FEATURES:
-			return getFeatures();
+			case P2viewPackage.FEATURES__CHILDREN:
+				return getChildren();
+			case P2viewPackage.FEATURES__FEATURES:
+				return getFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -93,8 +93,8 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case P2viewPackage.FEATURES__FEATURES:
-			return ((InternalEList<?>) getFeatures()).basicRemove(otherEnd, msgs);
+			case P2viewPackage.FEATURES__FEATURES:
+				return ((InternalEList<?>) getFeatures()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -107,10 +107,10 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.FEATURES__CHILDREN:
-			return !getChildren().isEmpty();
-		case P2viewPackage.FEATURES__FEATURES:
-			return features != null && !features.isEmpty();
+			case P2viewPackage.FEATURES__CHILDREN:
+				return !getChildren().isEmpty();
+			case P2viewPackage.FEATURES__FEATURES:
+				return features != null && !features.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -124,10 +124,10 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.FEATURES__FEATURES:
-			getFeatures().clear();
-			getFeatures().addAll((Collection<? extends Feature>) newValue);
-			return;
+			case P2viewPackage.FEATURES__FEATURES:
+				getFeatures().clear();
+				getFeatures().addAll((Collection<? extends Feature>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -140,9 +140,9 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.FEATURES__FEATURES:
-			getFeatures().clear();
-			return;
+			case P2viewPackage.FEATURES__FEATURES:
+				getFeatures().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -163,8 +163,8 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	 */
 	public EList<Feature> getFeatures() {
 		if(features == null) {
-			features = new EObjectContainmentEList.Resolving<Feature>(Feature.class, this,
-					P2viewPackage.FEATURES__FEATURES);
+			features = new EObjectContainmentEList.Resolving<Feature>(
+				Feature.class, this, P2viewPackage.FEATURES__FEATURES);
 		}
 		return features;
 	}

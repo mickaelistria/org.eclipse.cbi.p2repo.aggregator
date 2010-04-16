@@ -48,8 +48,8 @@ public class InstallableUnitUtils {
 
 	private static boolean isOSGiBundle(IInstallableUnit iu) {
 		for(IProvidedCapability rc : iu.getProvidedCapabilities())
-			if(IAggregatorConstants.NAMESPACE_TYPE.equals(rc.getNamespace())
-					&& (IAggregatorConstants.CAPABILITY_TYPE_BUNDLE.equals(rc.getName()) || IAggregatorConstants.CAPABILITY_TYPE_SOURCE.equals(rc.getName())))
+			if(IAggregatorConstants.NAMESPACE_TYPE.equals(rc.getNamespace()) &&
+					(IAggregatorConstants.CAPABILITY_TYPE_BUNDLE.equals(rc.getName()) || IAggregatorConstants.CAPABILITY_TYPE_SOURCE.equals(rc.getName())))
 				return true;
 		return false;
 	}

@@ -171,24 +171,25 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch(eDataType.getClassifierID()) {
-		case AggregatorPackage.AGGREGATE_TYPE:
-			return convertAggregateTypeToString(eDataType, instanceValue);
-		case AggregatorPackage.OPERATING_SYSTEM:
-			return convertOperatingSystemToString(eDataType, instanceValue);
-		case AggregatorPackage.WINDOW_SYSTEM:
-			return convertWindowSystemToString(eDataType, instanceValue);
-		case AggregatorPackage.ARCHITECTURE:
-			return convertArchitectureToString(eDataType, instanceValue);
-		case AggregatorPackage.PACKED_STRATEGY:
-			return convertPackedStrategyToString(eDataType, instanceValue);
-		case AggregatorPackage.INSTALLABLE_UNIT_TYPE:
-			return convertInstallableUnitTypeToString(eDataType, instanceValue);
-		case AggregatorPackage.STATUS_CODE:
-			return convertStatusCodeToString(eDataType, instanceValue);
-		case AggregatorPackage.VERSION_MATCH:
-			return convertVersionMatchToString(eDataType, instanceValue);
-		default:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+			case AggregatorPackage.AGGREGATE_TYPE:
+				return convertAggregateTypeToString(eDataType, instanceValue);
+			case AggregatorPackage.OPERATING_SYSTEM:
+				return convertOperatingSystemToString(eDataType, instanceValue);
+			case AggregatorPackage.WINDOW_SYSTEM:
+				return convertWindowSystemToString(eDataType, instanceValue);
+			case AggregatorPackage.ARCHITECTURE:
+				return convertArchitectureToString(eDataType, instanceValue);
+			case AggregatorPackage.PACKED_STRATEGY:
+				return convertPackedStrategyToString(eDataType, instanceValue);
+			case AggregatorPackage.INSTALLABLE_UNIT_TYPE:
+				return convertInstallableUnitTypeToString(eDataType, instanceValue);
+			case AggregatorPackage.STATUS_CODE:
+				return convertStatusCodeToString(eDataType, instanceValue);
+			case AggregatorPackage.VERSION_MATCH:
+				return convertVersionMatchToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
+						"' is not a valid classifier");
 		}
 	}
 
@@ -223,50 +224,50 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch(eClass.getClassifierID()) {
-		case AggregatorPackage.AGGREGATOR:
-			return (EObject) createAggregator();
-		case AggregatorPackage.MAPPED_REPOSITORY:
-			return (EObject) createMappedRepository();
-		case AggregatorPackage.CONFIGURATION:
-			return (EObject) createConfiguration();
-		case AggregatorPackage.CONTRIBUTION:
-			return (EObject) createContribution();
-		case AggregatorPackage.CONTACT:
-			return (EObject) createContact();
-		case AggregatorPackage.FEATURE:
-			return (EObject) createFeature();
-		case AggregatorPackage.BUNDLE:
-			return (EObject) createBundle();
-		case AggregatorPackage.PRODUCT:
-			return (EObject) createProduct();
-		case AggregatorPackage.PROPERTY:
-			return (EObject) createProperty();
-		case AggregatorPackage.CATEGORY:
-			return (EObject) createCategory();
-		case AggregatorPackage.CUSTOM_CATEGORY:
-			return (EObject) createCustomCategory();
-		case AggregatorPackage.EXCLUSION_RULE:
-			return (EObject) createExclusionRule();
-		case AggregatorPackage.VALID_CONFIGURATIONS_RULE:
-			return (EObject) createValidConfigurationsRule();
-		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE:
-			return (EObject) createMetadataRepositoryReference();
-		case AggregatorPackage.DESCRIPTION_PROVIDER:
-			return (EObject) createDescriptionProvider();
-		case AggregatorPackage.MAVEN_MAPPING:
-			return (EObject) createMavenMapping();
-		case AggregatorPackage.MAVEN_ITEM:
-			return (EObject) createMavenItem();
-		case AggregatorPackage.STATUS:
-			return (EObject) createStatus();
-		case AggregatorPackage.INFOS_PROVIDER:
-			return (EObject) createInfosProvider();
-		case AggregatorPackage.AVAILABLE_VERSIONS_HEADER:
-			return (EObject) createAvailableVersionsHeader();
-		case AggregatorPackage.AVAILABLE_VERSION:
-			return (EObject) createAvailableVersion();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case AggregatorPackage.AGGREGATOR:
+				return (EObject) createAggregator();
+			case AggregatorPackage.MAPPED_REPOSITORY:
+				return (EObject) createMappedRepository();
+			case AggregatorPackage.CONFIGURATION:
+				return (EObject) createConfiguration();
+			case AggregatorPackage.CONTRIBUTION:
+				return (EObject) createContribution();
+			case AggregatorPackage.CONTACT:
+				return (EObject) createContact();
+			case AggregatorPackage.FEATURE:
+				return (EObject) createFeature();
+			case AggregatorPackage.BUNDLE:
+				return (EObject) createBundle();
+			case AggregatorPackage.PRODUCT:
+				return (EObject) createProduct();
+			case AggregatorPackage.PROPERTY:
+				return (EObject) createProperty();
+			case AggregatorPackage.CATEGORY:
+				return (EObject) createCategory();
+			case AggregatorPackage.CUSTOM_CATEGORY:
+				return (EObject) createCustomCategory();
+			case AggregatorPackage.EXCLUSION_RULE:
+				return (EObject) createExclusionRule();
+			case AggregatorPackage.VALID_CONFIGURATIONS_RULE:
+				return (EObject) createValidConfigurationsRule();
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE:
+				return (EObject) createMetadataRepositoryReference();
+			case AggregatorPackage.DESCRIPTION_PROVIDER:
+				return (EObject) createDescriptionProvider();
+			case AggregatorPackage.MAVEN_MAPPING:
+				return (EObject) createMavenMapping();
+			case AggregatorPackage.MAVEN_ITEM:
+				return (EObject) createMavenItem();
+			case AggregatorPackage.STATUS:
+				return (EObject) createStatus();
+			case AggregatorPackage.INFOS_PROVIDER:
+				return (EObject) createInfosProvider();
+			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER:
+				return (EObject) createAvailableVersionsHeader();
+			case AggregatorPackage.AVAILABLE_VERSION:
+				return (EObject) createAvailableVersion();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -278,8 +279,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public AggregateType createAggregateTypeFromString(EDataType eDataType, String initialValue) {
 		AggregateType result = AggregateType.get(initialValue);
 		if(result == null)
-			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
-					+ eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
 		return result;
 	}
 
@@ -301,8 +302,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public Architecture createArchitectureFromString(EDataType eDataType, String initialValue) {
 		Architecture result = Architecture.get(initialValue);
 		if(result == null)
-			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
-					+ eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
 		return result;
 	}
 
@@ -426,24 +427,25 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch(eDataType.getClassifierID()) {
-		case AggregatorPackage.AGGREGATE_TYPE:
-			return createAggregateTypeFromString(eDataType, initialValue);
-		case AggregatorPackage.OPERATING_SYSTEM:
-			return createOperatingSystemFromString(eDataType, initialValue);
-		case AggregatorPackage.WINDOW_SYSTEM:
-			return createWindowSystemFromString(eDataType, initialValue);
-		case AggregatorPackage.ARCHITECTURE:
-			return createArchitectureFromString(eDataType, initialValue);
-		case AggregatorPackage.PACKED_STRATEGY:
-			return createPackedStrategyFromString(eDataType, initialValue);
-		case AggregatorPackage.INSTALLABLE_UNIT_TYPE:
-			return createInstallableUnitTypeFromString(eDataType, initialValue);
-		case AggregatorPackage.STATUS_CODE:
-			return createStatusCodeFromString(eDataType, initialValue);
-		case AggregatorPackage.VERSION_MATCH:
-			return createVersionMatchFromString(eDataType, initialValue);
-		default:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+			case AggregatorPackage.AGGREGATE_TYPE:
+				return createAggregateTypeFromString(eDataType, initialValue);
+			case AggregatorPackage.OPERATING_SYSTEM:
+				return createOperatingSystemFromString(eDataType, initialValue);
+			case AggregatorPackage.WINDOW_SYSTEM:
+				return createWindowSystemFromString(eDataType, initialValue);
+			case AggregatorPackage.ARCHITECTURE:
+				return createArchitectureFromString(eDataType, initialValue);
+			case AggregatorPackage.PACKED_STRATEGY:
+				return createPackedStrategyFromString(eDataType, initialValue);
+			case AggregatorPackage.INSTALLABLE_UNIT_TYPE:
+				return createInstallableUnitTypeFromString(eDataType, initialValue);
+			case AggregatorPackage.STATUS_CODE:
+				return createStatusCodeFromString(eDataType, initialValue);
+			case AggregatorPackage.VERSION_MATCH:
+				return createVersionMatchFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
+						"' is not a valid classifier");
 		}
 	}
 
@@ -465,8 +467,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public InstallableUnitType createInstallableUnitTypeFromString(EDataType eDataType, String initialValue) {
 		InstallableUnitType result = InstallableUnitType.get(initialValue);
 		if(result == null)
-			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
-					+ eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
 		return result;
 	}
 
@@ -502,21 +504,21 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 		MappedUnit mu = null;
 
 		switch(InstallableUnitUtils.getType(iu)) {
-		case FEATURE:
-			mu = createFeature();
-			break;
-		case CATEGORY:
-			mu = createCategory();
-			break;
-		case BUNDLE:
-		case FRAGMENT:
-			mu = createBundle();
-			break;
-		case PRODUCT:
-			mu = createProduct();
-			break;
-		default:
-			throw new IllegalArgumentException("Unknown IU type");
+			case FEATURE:
+				mu = createFeature();
+				break;
+			case CATEGORY:
+				mu = createCategory();
+				break;
+			case BUNDLE:
+			case FRAGMENT:
+				mu = createBundle();
+				break;
+			case PRODUCT:
+				mu = createProduct();
+				break;
+			default:
+				throw new IllegalArgumentException("Unknown IU type");
 		}
 
 		mu.setName(iu.getId());
@@ -584,8 +586,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public OperatingSystem createOperatingSystemFromString(EDataType eDataType, String initialValue) {
 		OperatingSystem result = OperatingSystem.get(initialValue);
 		if(result == null)
-			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
-					+ eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
 		return result;
 	}
 
@@ -597,8 +599,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public PackedStrategy createPackedStrategyFromString(EDataType eDataType, String initialValue) {
 		PackedStrategy result = PackedStrategy.get(initialValue);
 		if(result == null)
-			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
-					+ eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
 		return result;
 	}
 
@@ -658,8 +660,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public StatusCode createStatusCodeFromString(EDataType eDataType, String initialValue) {
 		StatusCode result = StatusCode.get(initialValue);
 		if(result == null)
-			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
-					+ eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
 		return result;
 	}
 
@@ -682,8 +684,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public VersionMatch createVersionMatchFromString(EDataType eDataType, String initialValue) {
 		VersionMatch result = VersionMatch.get(initialValue);
 		if(result == null)
-			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
-					+ eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
 		return result;
 	}
 
@@ -695,8 +697,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public WindowSystem createWindowSystemFromString(EDataType eDataType, String initialValue) {
 		WindowSystem result = WindowSystem.get(initialValue);
 		if(result == null)
-			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
-					+ eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
 		return result;
 	}
 
