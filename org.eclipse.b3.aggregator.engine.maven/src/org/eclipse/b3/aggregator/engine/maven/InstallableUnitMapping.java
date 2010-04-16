@@ -55,7 +55,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 // However, repo optimization is not implemented yet, so it does not make much sense to do it now
 
 public class InstallableUnitMapping implements IInstallableUnit {
-	public enum Type{
+	public enum Type {
 		TOP, GROUP, IU, PROXY;
 	}
 
@@ -78,8 +78,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			mappingDescriptor.append(mapping.toString());
 		}
 
-		throw ExceptionUtils.fromMessage("Unable to map IU to maven artifact: id=%s, mappings=%s", id,
-				mappingDescriptor.toString());
+		throw ExceptionUtils.fromMessage(
+			"Unable to map IU to maven artifact: id=%s, mappings=%s", id, mappingDescriptor.toString());
 	}
 
 	private Type type;
@@ -118,32 +118,32 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				throw new RuntimeException("Invalid maven mapping: " + mapping.toString());
 
 		switch(iu.getArtifacts().size()) {
-		case 1:
-			mainArtifact = iu.getArtifacts().iterator().next();
-			// no break here, we really want to continue initialization
-		case 0:
-			type = Type.IU;
-			installableUnit = iu;
-			break;
-		default:
-			// We have more than one artifact - we need to make a proxy depending on the artifacts
-			InstallableUnitOverrider proxy = new InstallableUnitOverrider(iu);
-			List<IRequirement> dependencies = new ArrayList<IRequirement>(iu.getArtifacts().size());
-			int idx = 0;
-			for(IArtifactKey artifact : iu.getArtifacts()) {
-				String genId = artifact.getId() + ".artifact-" + (idx + 1);
-				dependencies.add(new RequiredCapability(NAMESPACE_IU_ID, genId, new VersionRange(iu.getVersion(), true,
-						iu.getVersion(), true), null, false, false));
-				InstallableUnitOverrider sibling = new InstallableUnitOverrider(iu);
-				sibling.overrideId(genId);
-				sibling.overrideArtifacts(Collections.singletonList(artifact));
+			case 1:
+				mainArtifact = iu.getArtifacts().iterator().next();
+				// no break here, we really want to continue initialization
+			case 0:
+				type = Type.IU;
+				installableUnit = iu;
+				break;
+			default:
+				// We have more than one artifact - we need to make a proxy depending on the artifacts
+				InstallableUnitOverrider proxy = new InstallableUnitOverrider(iu);
+				List<IRequirement> dependencies = new ArrayList<IRequirement>(iu.getArtifacts().size());
+				int idx = 0;
+				for(IArtifactKey artifact : iu.getArtifacts()) {
+					String genId = artifact.getId() + ".artifact-" + (idx + 1);
+					dependencies.add(new RequiredCapability(NAMESPACE_IU_ID, genId, new VersionRange(
+						iu.getVersion(), true, iu.getVersion(), true), null, false, false));
+					InstallableUnitOverrider sibling = new InstallableUnitOverrider(iu);
+					sibling.overrideId(genId);
+					sibling.overrideArtifacts(Collections.singletonList(artifact));
 
-				siblings.add(new InstallableUnitMapping(sibling));
-			}
+					siblings.add(new InstallableUnitMapping(sibling));
+				}
 
-			proxy.overrideRequirements(dependencies);
-			proxy.overrideArtifacts(Collections.<IArtifactKey> emptyList());
-			installableUnit = proxy;
+				proxy.overrideRequirements(dependencies);
+				proxy.overrideArtifacts(Collections.<IArtifactKey> emptyList());
+				installableUnit = proxy;
 		}
 	}
 
@@ -197,8 +197,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 				IRequiredCapability cap = (IRequiredCapability) req;
 				// Only dependencies on IUs and OSGi bundles are considered in maven
-				if(IInstallableUnit.NAMESPACE_IU_ID.equals(cap.getNamespace())
-						|| "osgi.bundle".equals(cap.getNamespace())) {
+				if(IInstallableUnit.NAMESPACE_IU_ID.equals(cap.getNamespace()) ||
+						"osgi.bundle".equals(cap.getNamespace())) {
 					Dependency dependency = PomFactory.eINSTANCE.createDependency();
 					dependencies.getDependency().add(dependency);
 

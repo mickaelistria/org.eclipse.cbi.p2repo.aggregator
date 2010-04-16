@@ -112,9 +112,11 @@ public class MavenManager {
 		List<String[]> mappingRulesList = new ArrayList<String[]>();
 
 		// Initialize with standard rules for packed artifacts (which are not usable for maven anyway)
-		mappingRulesList.add(new String[] { "(& (classifier=osgi.bundle) (format=packed))",
+		mappingRulesList.add(new String[] {
+				"(& (classifier=osgi.bundle) (format=packed))",
 				"${repoUrl}/p2.packed/plugins/${id}_${version}.jar.pack.gz" });
-		mappingRulesList.add(new String[] { "(& (classifier=org.eclipse.update.feature) (format=packed))",
+		mappingRulesList.add(new String[] {
+				"(& (classifier=org.eclipse.update.feature) (format=packed))",
 				"${repoUrl}/p2.packed/features/${id}_${version}.jar.pack.gz" });
 
 		Map<String, List<InstallableUnitMapping>> groupMap = new HashMap<String, List<InstallableUnitMapping>>();
@@ -171,9 +173,9 @@ public class MavenManager {
 		if(iu.getMainArtifact() != null) {
 			IArtifactKey artifact = iu.getMainArtifact();
 			mappingRulesList.add(new String[] {
-					"(& (classifier=" + IUUtils.encodeFilterValue(artifact.getClassifier()) + ")(id="
-							+ IUUtils.encodeFilterValue(artifact.getId()) + ")(version="
-							+ IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))",
+					"(& (classifier=" + IUUtils.encodeFilterValue(artifact.getClassifier()) + ")(id=" +
+							IUUtils.encodeFilterValue(artifact.getId()) + ")(version=" +
+							IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))",
 					"${repoUrl}/" + iu.getRelativeFullPath() });
 		}
 	}
@@ -249,8 +251,8 @@ public class MavenManager {
 			String key = iu.map().getGroupId() + "/" + iu.map().getArtifactId();
 			MavenMetadataHelper md = metadataCollector.get(key);
 			if(md == null)
-				metadataCollector.put(key,
-						md = new MavenMetadataHelper(iu.map().getGroupId(), iu.map().getArtifactId()));
+				metadataCollector.put(
+					key, md = new MavenMetadataHelper(iu.map().getGroupId(), iu.map().getArtifactId()));
 			md.addVersion(iu.getVersion());
 		}
 
