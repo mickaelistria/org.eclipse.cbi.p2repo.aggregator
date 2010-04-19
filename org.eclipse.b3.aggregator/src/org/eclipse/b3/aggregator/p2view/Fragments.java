@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Fragments extends ChildrenProvider<Fragment> {
 	/**
-	 * Returns the value of the '<em><b>Fragments</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Fragments</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.Fragment}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -37,9 +37,9 @@ public interface Fragments extends ChildrenProvider<Fragment> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Fragments</em>' containment reference list.
+	 * @return the value of the '<em>Fragments</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFragments_Fragments()
-	 * @model containment="true" resolveProxies="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Fragment> getFragments();

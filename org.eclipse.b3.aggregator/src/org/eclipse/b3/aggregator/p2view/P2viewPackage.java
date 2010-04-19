@@ -110,6 +110,15 @@ public interface P2viewPackage extends EPackage {
 		EClass INSTALLABLE_UNITS = eINSTANCE.getInstallableUnits();
 
 		/**
+		 * The meta object literal for the '<em><b>All IUs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference INSTALLABLE_UNITS__ALL_IUS = eINSTANCE.getInstallableUnits_AllIUs();
+
+		/**
 		 * The meta object literal for the '<em><b>Category Container</b></em>' containment reference feature.
 		 * <!-- begin-user-doc
 		 * --> <!-- end-user-doc -->
@@ -174,7 +183,7 @@ public interface P2viewPackage extends EPackage {
 		EClass CATEGORIES = eINSTANCE.getCategories();
 
 		/**
-		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Categories</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -194,7 +203,7 @@ public interface P2viewPackage extends EPackage {
 		EClass FEATURES = eINSTANCE.getFeatures();
 
 		/**
-		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Features</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -214,7 +223,7 @@ public interface P2viewPackage extends EPackage {
 		EClass PRODUCTS = eINSTANCE.getProducts();
 
 		/**
-		 * The meta object literal for the '<em><b>Products</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Products</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -234,7 +243,7 @@ public interface P2viewPackage extends EPackage {
 		EClass BUNDLES = eINSTANCE.getBundles();
 
 		/**
-		 * The meta object literal for the '<em><b>Bundles</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Bundles</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -254,7 +263,7 @@ public interface P2viewPackage extends EPackage {
 		EClass FRAGMENTS = eINSTANCE.getFragments();
 
 		/**
-		 * The meta object literal for the '<em><b>Fragments</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Fragments</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -274,7 +283,7 @@ public interface P2viewPackage extends EPackage {
 		EClass MISCELLANEOUS = eINSTANCE.getMiscellaneous();
 
 		/**
-		 * The meta object literal for the '<em><b>Others</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Others</b></em>' reference list feature.
 		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
 		 * 
@@ -913,13 +922,23 @@ public interface P2viewPackage extends EPackage {
 	int INSTALLABLE_UNITS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>All IUs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNITS__ALL_IUS = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Category Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNITS__CATEGORY_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
+	int INSTALLABLE_UNITS__CATEGORY_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Feature Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -928,7 +947,7 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNITS__FEATURE_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+	int INSTALLABLE_UNITS__FEATURE_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Product Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -937,7 +956,7 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNITS__PRODUCT_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 2;
+	int INSTALLABLE_UNITS__PRODUCT_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Bundle Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -946,7 +965,7 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNITS__BUNDLE_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 3;
+	int INSTALLABLE_UNITS__BUNDLE_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Fragment Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -955,7 +974,7 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNITS__FRAGMENT_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 4;
+	int INSTALLABLE_UNITS__FRAGMENT_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Miscellaneous Container</b></em>' containment reference.
@@ -965,7 +984,7 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 5;
+	int INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Installable Units</em>' class.
@@ -975,7 +994,7 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNITS_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 6;
+	int INSTALLABLE_UNITS_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.CategoriesImpl <em>Categories</em>}'
@@ -998,7 +1017,7 @@ public interface P2viewPackage extends EPackage {
 	int CATEGORIES__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Categories</b></em>' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1035,7 +1054,7 @@ public interface P2viewPackage extends EPackage {
 	int FEATURES__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Features</b></em>' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1072,7 +1091,7 @@ public interface P2viewPackage extends EPackage {
 	int PRODUCTS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Products</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Products</b></em>' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1109,7 +1128,7 @@ public interface P2viewPackage extends EPackage {
 	int BUNDLES__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Bundles</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Bundles</b></em>' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1147,7 +1166,7 @@ public interface P2viewPackage extends EPackage {
 	int FRAGMENTS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Fragments</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Fragments</b></em>' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1185,7 +1204,7 @@ public interface P2viewPackage extends EPackage {
 	int MISCELLANEOUS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Others</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Others</b></em>' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -2953,12 +2972,12 @@ public interface P2viewPackage extends EPackage {
 	EClass getBundles();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.p2view.Bundles#getBundles <em>Bundles</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.p2view.Bundles#getBundles
+	 * <em>Bundles</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Bundles</em>'.
+	 * @return the meta object for the reference list '<em>Bundles</em>'.
 	 * @see org.eclipse.b3.aggregator.p2view.Bundles#getBundles()
 	 * @see #getBundles()
 	 * @generated
@@ -3127,12 +3146,12 @@ public interface P2viewPackage extends EPackage {
 	EClass getFeatures();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.p2view.Features#getFeatures <em>Features</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.p2view.Features#getFeatures
+	 * <em>Features</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Features</em>'.
+	 * @return the meta object for the reference list '<em>Features</em>'.
 	 * @see org.eclipse.b3.aggregator.p2view.Features#getFeatures()
 	 * @see #getFeatures()
 	 * @generated
@@ -3160,12 +3179,12 @@ public interface P2viewPackage extends EPackage {
 	EClass getFragments();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.p2view.Fragments#getFragments <em>Fragments</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.p2view.Fragments#getFragments
+	 * <em>Fragments</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Fragments</em>'.
+	 * @return the meta object for the reference list '<em>Fragments</em>'.
 	 * @see org.eclipse.b3.aggregator.p2view.Fragments#getFragments()
 	 * @see #getFragments()
 	 * @generated
@@ -3182,6 +3201,19 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getInstallableUnits();
+
+	/**
+	 * Returns the meta object for the containment reference list '
+	 * {@link org.eclipse.b3.aggregator.p2view.InstallableUnits#getAllIUs <em>All IUs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>All IUs</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.InstallableUnits#getAllIUs()
+	 * @see #getInstallableUnits()
+	 * @generated
+	 */
+	EReference getInstallableUnits_AllIUs();
 
 	/**
 	 * Returns the meta object for the containment reference '
@@ -3599,12 +3631,12 @@ public interface P2viewPackage extends EPackage {
 	EClass getMiscellaneous();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.p2view.Miscellaneous#getOthers <em>Others</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.p2view.Miscellaneous#getOthers
+	 * <em>Others</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Others</em>'.
+	 * @return the meta object for the reference list '<em>Others</em>'.
 	 * @see org.eclipse.b3.aggregator.p2view.Miscellaneous#getOthers()
 	 * @see #getMiscellaneous()
 	 * @generated
@@ -3687,12 +3719,12 @@ public interface P2viewPackage extends EPackage {
 	EClass getProducts();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.p2view.Products#getProducts <em>Products</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.p2view.Products#getProducts
+	 * <em>Products</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Products</em>'.
+	 * @return the meta object for the reference list '<em>Products</em>'.
 	 * @see org.eclipse.b3.aggregator.p2view.Products#getProducts()
 	 * @see #getProducts()
 	 * @generated

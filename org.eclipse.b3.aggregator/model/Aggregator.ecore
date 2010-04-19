@@ -310,6 +310,8 @@
       <eOperations name="getNotNullBundleContainer" eType="#//p2view/Bundles"/>
       <eOperations name="getNotNullFragmentContainer" eType="#//p2view/Fragments"/>
       <eOperations name="getNotNullMiscellaneousContainer" eType="#//p2view/Miscellaneous"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allIUs" upperBound="-1"
+          eType="#//p2view/IUPresentation" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="categoryContainer" eType="#//p2view/Categories"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="featureContainer" eType="#//p2view/Features"
@@ -328,42 +330,42 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Categories">
       <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
-          eType="#//p2view/Category" containment="true"/>
+          eType="#//p2view/Category"/>
       <eGenericSuperTypes eClassifier="#//ChildrenProvider">
         <eTypeArguments eClassifier="#//p2view/Category"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Features">
       <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
-          eType="#//p2view/Feature" containment="true"/>
+          eType="#//p2view/Feature"/>
       <eGenericSuperTypes eClassifier="#//ChildrenProvider">
         <eTypeArguments eClassifier="#//p2view/Feature"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Products">
       <eStructuralFeatures xsi:type="ecore:EReference" name="products" upperBound="-1"
-          eType="#//p2view/Product" containment="true"/>
+          eType="#//p2view/Product"/>
       <eGenericSuperTypes eClassifier="#//ChildrenProvider">
         <eTypeArguments eClassifier="#//p2view/Product"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Bundles">
       <eStructuralFeatures xsi:type="ecore:EReference" name="bundles" upperBound="-1"
-          eType="#//p2view/Bundle" containment="true"/>
+          eType="#//p2view/Bundle"/>
       <eGenericSuperTypes eClassifier="#//ChildrenProvider">
         <eTypeArguments eClassifier="#//p2view/Bundle"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Fragments">
       <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
-          eType="#//p2view/Fragment" containment="true"/>
+          eType="#//p2view/Fragment"/>
       <eGenericSuperTypes eClassifier="#//ChildrenProvider">
         <eTypeArguments eClassifier="#//p2view/Fragment"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Miscellaneous">
       <eStructuralFeatures xsi:type="ecore:EReference" name="others" upperBound="-1"
-          eType="#//p2view/OtherIU" containment="true"/>
+          eType="#//p2view/OtherIU"/>
       <eGenericSuperTypes eClassifier="#//ChildrenProvider">
         <eTypeArguments eClassifier="#//p2view/OtherIU"/>
       </eGenericSuperTypes>

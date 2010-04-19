@@ -15,16 +15,13 @@ import org.eclipse.b3.aggregator.p2view.Feature;
 import org.eclipse.b3.aggregator.p2view.Features;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Features</b></em>'. <!-- end-user-doc -->
@@ -49,7 +46,7 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	protected int eFlags = 0;
 
 	/**
-	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
+	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -82,21 +79,6 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 				return getFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-			case P2viewPackage.FEATURES__FEATURES:
-				return ((InternalEList<?>) getFeatures()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -163,8 +145,7 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	 */
 	public EList<Feature> getFeatures() {
 		if(features == null) {
-			features = new EObjectContainmentEList.Resolving<Feature>(
-				Feature.class, this, P2viewPackage.FEATURES__FEATURES);
+			features = new EObjectResolvingEList<Feature>(Feature.class, this, P2viewPackage.FEATURES__FEATURES);
 		}
 		return features;
 	}

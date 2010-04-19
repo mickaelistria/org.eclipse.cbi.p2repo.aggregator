@@ -249,6 +249,7 @@
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2view/MetadataRepositoryStructuredView/loaded"/>
       </genClasses>
       <genClasses ecoreClass="Aggregator.ecore#//p2view/InstallableUnits">
+        <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//p2view/InstallableUnits/allIUs"/>
         <genFeatures property="None" notify="false" children="true" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//p2view/InstallableUnits/categoryContainer"/>
         <genFeatures property="None" notify="false" children="true" createChild="false"

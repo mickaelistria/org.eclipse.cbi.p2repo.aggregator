@@ -15,13 +15,10 @@ import org.eclipse.b3.aggregator.p2view.Miscellaneous;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Miscellaneous</b></em>'. <!-- end-user-doc -->
@@ -46,7 +43,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	protected int eFlags = 0;
 
 	/**
-	 * The cached value of the '{@link #getOthers() <em>Others</em>}' containment reference list.
+	 * The cached value of the '{@link #getOthers() <em>Others</em>}' reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -79,21 +76,6 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 				return getOthers();
 		}
 		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-			case P2viewPackage.MISCELLANEOUS__OTHERS:
-				return ((InternalEList<?>) getOthers()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -160,8 +142,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	 */
 	public EList<OtherIU> getOthers() {
 		if(others == null) {
-			others = new EObjectContainmentEList.Resolving<OtherIU>(
-				OtherIU.class, this, P2viewPackage.MISCELLANEOUS__OTHERS);
+			others = new EObjectResolvingEList<OtherIU>(OtherIU.class, this, P2viewPackage.MISCELLANEOUS__OTHERS);
 		}
 		return others;
 	}

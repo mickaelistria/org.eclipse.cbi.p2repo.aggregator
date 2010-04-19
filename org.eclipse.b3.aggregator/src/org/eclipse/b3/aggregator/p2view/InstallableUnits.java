@@ -10,6 +10,7 @@
 package org.eclipse.b3.aggregator.p2view;
 
 import org.eclipse.b3.aggregator.ChildrenProvider;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -33,6 +34,23 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface InstallableUnits extends ChildrenProvider<EObject> {
+	/**
+	 * Returns the value of the '<em><b>All IUs</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.IUPresentation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>All IUs</em>' containment reference list isn't clear, there really should be more of a
+	 * description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>All IUs</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getInstallableUnits_AllIUs()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<IUPresentation> getAllIUs();
+
 	/**
 	 * Returns the value of the '<em><b>Bundle Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

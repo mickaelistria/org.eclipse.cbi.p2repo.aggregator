@@ -9,10 +9,12 @@
  */
 package org.eclipse.b3.aggregator.p2view.impl;
 
+import java.util.Collection;
 import org.eclipse.b3.aggregator.p2view.Bundles;
 import org.eclipse.b3.aggregator.p2view.Categories;
 import org.eclipse.b3.aggregator.p2view.Features;
 import org.eclipse.b3.aggregator.p2view.Fragments;
+import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.InstallableUnits;
 import org.eclipse.b3.aggregator.p2view.Miscellaneous;
 import org.eclipse.b3.aggregator.p2view.P2viewFactory;
@@ -27,6 +29,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Installable Units</b></em>'. <!-- end-user-doc
@@ -57,6 +61,17 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected int eFlags = 0;
+
+	/**
+	 * The cached value of the '{@link #getAllIUs() <em>All IUs</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getAllIUs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<IUPresentation> allIUs;
 
 	/**
 	 * The cached value of the '{@link #getCategoryContainer() <em>Category Container</em>}' reference. <!--
@@ -319,6 +334,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 		switch(featureID) {
 			case P2viewPackage.INSTALLABLE_UNITS__CHILDREN:
 				return getChildren();
+			case P2viewPackage.INSTALLABLE_UNITS__ALL_IUS:
+				return getAllIUs();
 			case P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER:
 				if(resolve)
 					return getCategoryContainer();
@@ -356,6 +373,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
+			case P2viewPackage.INSTALLABLE_UNITS__ALL_IUS:
+				return ((InternalEList<?>) getAllIUs()).basicRemove(otherEnd, msgs);
 			case P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER:
 				return basicSetCategoryContainer(null, msgs);
 			case P2viewPackage.INSTALLABLE_UNITS__FEATURE_CONTAINER:
@@ -382,6 +401,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 		switch(featureID) {
 			case P2viewPackage.INSTALLABLE_UNITS__CHILDREN:
 				return !getChildren().isEmpty();
+			case P2viewPackage.INSTALLABLE_UNITS__ALL_IUS:
+				return allIUs != null && !allIUs.isEmpty();
 			case P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER:
 				return categoryContainer != null;
 			case P2viewPackage.INSTALLABLE_UNITS__FEATURE_CONTAINER:
@@ -403,9 +424,14 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
+			case P2viewPackage.INSTALLABLE_UNITS__ALL_IUS:
+				getAllIUs().clear();
+				getAllIUs().addAll((Collection<? extends IUPresentation>) newValue);
+				return;
 			case P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER:
 				setCategoryContainer((Categories) newValue);
 				return;
@@ -436,6 +462,9 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
+			case P2viewPackage.INSTALLABLE_UNITS__ALL_IUS:
+				getAllIUs().clear();
+				return;
 			case P2viewPackage.INSTALLABLE_UNITS__CATEGORY_CONTAINER:
 				setCategoryContainer((Categories) null);
 				return;
@@ -456,6 +485,20 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<IUPresentation> getAllIUs() {
+		if(allIUs == null) {
+			allIUs = new EObjectContainmentEList.Resolving<IUPresentation>(
+				IUPresentation.class, this, P2viewPackage.INSTALLABLE_UNITS__ALL_IUS);
+		}
+		return allIUs;
 	}
 
 	/**

@@ -274,6 +274,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			List<Bundle> bundles = new ArrayList<Bundle>();
 			List<Fragment> fragments = new ArrayList<Fragment>();
 			List<OtherIU> miscellaneous = new ArrayList<OtherIU>();
+			List<IUPresentation> allIUs = repoView.getInstallableUnitList().getAllIUs();
 
 			for(IInstallableUnit iu : repository.getInstallableUnits()) {
 				IUPresentation iuPresentation;
@@ -339,6 +340,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				if(versionMap == null)
 					iuMap.put(iu.getId(), versionMap = new HashMap<Version, IUPresentation>());
 				versionMap.put(iu.getVersion(), iuPresentation);
+
+				allIUs.add(iuPresentation);
 			}
 
 			if(categories.size() > 0) {
