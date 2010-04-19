@@ -63,13 +63,15 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
 /**
- * This is a simple wizard for creating a new model file. <!-- begin-user-doc --> <!-- end-user-doc -->
+ * This is a simple wizard for creating a new model file.
+ * <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
  * @generated
  */
 public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
-	 * This is the page where the type of object to create is selected. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is the page where the type of object to create is selected.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -105,7 +107,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		};
 
 		/**
-		 * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * Pass in the selection.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -248,7 +251,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * Returns the label for the specified type name.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -273,13 +277,15 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * This is the one page of the wizard. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is the one page of the wizard.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public class AggregatorModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
-		 * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * Pass in the selection.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -297,7 +303,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * The framework calls this to see if the file is correct. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The framework calls this to see if the file is correct.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -320,7 +327,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * The supported extensions for created files. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The supported extensions for created files.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -337,35 +345,40 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		"_UI_AggregatorEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
-	 * This caches an instance of the model package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This caches an instance of the model package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected AggregatorPackage aggregatorPackage = AggregatorPackage.eINSTANCE;
 
 	/**
-	 * This caches an instance of the model factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This caches an instance of the model factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected AggregatorFactory aggregatorFactory = aggregatorPackage.getAggregatorFactory();
 
 	/**
-	 * This is the file creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is the file creation page.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected AggregatorModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
-	 * This is the initial object creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is the initial object creation page.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected AggregatorModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
-	 * Remember the selection during initialization for populating the default container. <!-- begin-user-doc --> <!--
+	 * Remember the selection during initialization for populating the default container.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
@@ -373,7 +386,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	protected IStructuredSelection selection;
 
 	/**
-	 * Remember the workbench during initialization. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Remember the workbench during initialization.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -439,7 +453,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * Get the file from the page. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Get the file from the page.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

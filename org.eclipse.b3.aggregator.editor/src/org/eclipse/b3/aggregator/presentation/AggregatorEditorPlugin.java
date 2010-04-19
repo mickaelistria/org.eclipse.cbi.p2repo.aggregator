@@ -14,14 +14,16 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 
 /**
- * This is the central singleton for the Aggregator editor plugin. <!-- begin-user-doc --> <!-- end-user-doc -->
+ * This is the central singleton for the Aggregator editor plugin.
+ * <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
  * @generated
  */
 @SuppressWarnings("deprecation")
 public final class AggregatorEditorPlugin extends EMFPlugin {
 	/**
-	 * The actual implementation of the Eclipse <b>Plugin</b>. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The actual implementation of the Eclipse <b>Plugin</b>.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -45,21 +47,24 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 	}
 
 	/**
-	 * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Keep track of the singleton.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final AggregatorEditorPlugin INSTANCE = new AggregatorEditorPlugin();
 
 	/**
-	 * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Keep track of the singleton.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	private static Implementation plugin;
 
 	/**
-	 * Returns the singleton instance of the Eclipse plugin. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the singleton instance of the Eclipse plugin.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the singleton instance.
 	 * @generated
@@ -71,7 +76,8 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 	private AdapterFactoryEditingDomain editingDomain;
 
 	/**
-	 * Create the instance. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Create the instance.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -84,7 +90,8 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 	}
 
 	/**
-	 * Returns the singleton instance of the Eclipse plugin. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the singleton instance of the Eclipse plugin.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the singleton instance.
 	 * @generated
