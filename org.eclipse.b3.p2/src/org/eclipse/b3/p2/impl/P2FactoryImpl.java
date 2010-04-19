@@ -57,7 +57,7 @@ import org.eclipse.equinox.p2.repository.IRunnableWithProgress;
  * @generated
  */
 public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
-	private static final String MDR_PROXY_URI_FORMATTER = "%s:%s#//@metadataRepository";
+	private static final String MDR_PROXY_URI_FORMATTER = "b3:%s:%s#/";
 
 	/**
 	 * <!-- begin-user-doc -->

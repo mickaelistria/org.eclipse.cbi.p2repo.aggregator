@@ -7,6 +7,8 @@
  */
 package org.eclipse.b3.p2.util;
 
+import static java.lang.String.format;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Map;
@@ -14,14 +16,19 @@ import java.util.Map;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.b3.p2.loader.IRepositoryLoader;
+import org.eclipse.b3.util.LogUtils;
+import org.eclipse.b3.util.TimeUtils;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,24 +39,108 @@ import org.eclipse.emf.ecore.resource.Resource;
  * @generated
  */
 public class P2ResourceImpl extends XMLResourceImpl {
+	class AsynchronousLoader extends Job {
+		private Job replaceJob;
+
+		public AsynchronousLoader(String name, Job replaceJob) {
+			super(name);
+			this.replaceJob = replaceJob;
+		}
+
+		@Override
+		protected IStatus run(final IProgressMonitor monitor) {
+			class MonitorWatchDog extends Thread {
+				private boolean done;
+
+				@Override
+				public void run() {
+					while(!done) {
+						if(monitor.isCanceled()) {
+							cancelLoadingJob();
+							break;
+						}
+
+						try {
+							Thread.sleep(100);
+						}
+						catch(InterruptedException e) {
+							// ignore
+						}
+					}
+				}
+
+				public void setDone() {
+					done = true;
+				}
+			}
+
+			MonitorWatchDog watchDog = new MonitorWatchDog();
+
+			try {
+				if(replaceJob != null) {
+					replaceJob.cancel();
+					replaceJob.join();
+				}
+
+				watchDog.start();
+
+				IStatus status = org.eclipse.core.runtime.Status.OK_STATUS;
+
+				try {
+					load(null);
+				}
+				catch(IOException e) {
+					status = new Status(Status.ERROR, "org.eclipse.b3.p2", "Unable to load repository " +
+							getURI().opaquePart(), e);
+				}
+
+				if(monitor.isCanceled()) {
+					// cancelled by user
+					status = org.eclipse.core.runtime.Status.CANCEL_STATUS;
+				}
+
+				return status;
+			}
+			catch(InterruptedException e) {
+				throw new RuntimeException("Repository load was interrupted");
+			}
+			finally {
+				monitor.done();
+				watchDog.setDone();
+
+				synchronized(P2ResourceImpl.this) {
+					if(asynchronousLoader == this)
+						asynchronousLoader = null;
+				}
+			}
+		}
+	}
+
 	private class LoaderJob extends Job {
+
+		private IProvisioningAgent agent;
 
 		private java.net.URI location = null;
 
-		public LoaderJob(String name, java.net.URI location) {
+		public LoaderJob(IProvisioningAgent agent, String name, java.net.URI location) {
 			super(name);
+			this.agent = agent;
 			this.location = location;
 		}
 
 		@Override
 		protected IStatus run(IProgressMonitor monitor) {
 
+			String msg = format("Loading repository %s", location);
+
 			try {
 				MetadataRepositoryImpl repository = (MetadataRepositoryImpl) P2Factory.eINSTANCE.createMetadataRepository();
-				loader.open(location, null, repository);
+				loader.open(location, agent, repository);
+				LogUtils.debug(msg);
+				long start = TimeUtils.getNow();
 				loader.load(monitor);
-				loader.close();
 				getContents().add(repository);
+				LogUtils.debug("Repository %s loaded (Took %s)", location, TimeUtils.getFormattedDuration(start));
 			}
 			catch(final Exception e) {
 				errors.add(new Resource.Diagnostic() {
@@ -76,12 +167,21 @@ public class P2ResourceImpl extends XMLResourceImpl {
 					setLoaded(true);
 					isLoading = false;
 				}
+
+				try {
+					loader.close();
+				}
+				catch(CoreException e) {
+					LogUtils.error(e, "Unable to close repository loader for %s", location);
+				}
 			}
 
 			return Status.OK_STATUS;
 		}
 
 	}
+
+	private AsynchronousLoader asynchronousLoader;
 
 	private IRepositoryLoader loader;
 
@@ -111,6 +211,11 @@ public class P2ResourceImpl extends XMLResourceImpl {
 		this.loader = loader;
 	}
 
+	public synchronized void cancelLoadingJob() {
+		if(loaderJob != null)
+			loaderJob.cancel();
+	}
+
 	@Override
 	public void load(Map<?, ?> options) throws IOException {
 		synchronized(lock) {
@@ -129,12 +234,20 @@ public class P2ResourceImpl extends XMLResourceImpl {
 				warnings.clear();
 
 				try {
+					ResourceSet resourceSet = getResourceSet();
+					IProvisioningAgent agent = null;
+
+					if(resourceSet instanceof ResourceSetWithAgent)
+						agent = ((ResourceSetWithAgent) resourceSet).getProvisioningAgent();
+
 					loaderJob = new LoaderJob(
-						"Loading repository " + getURI().toFileString(), getLocationFromURI(getURI()));
+						agent, "Loading repository " + getURI().opaquePart(), getLocationFromURI(getURI()));
 					loaderJob.setUser(false);
 					loaderJob.schedule();
 				}
 				catch(URISyntaxException e) {
+					isLoading = false;
+					isLoaded = false;
 					IOException ex = new IOException();
 					ex.initCause(e);
 					throw ex;
@@ -154,6 +267,19 @@ public class P2ResourceImpl extends XMLResourceImpl {
 	public void save(Map<?, ?> options) {
 		// do nothing by default
 		return;
+	}
+
+	synchronized public void startAsynchronousLoad() {
+		if(isLoaded() && !isLoading())
+			return;
+
+		AsynchronousLoader lastLoader = asynchronousLoader;
+
+		if(lastLoader == null) {
+			asynchronousLoader = new AsynchronousLoader("Loading " + getURI().opaquePart(), lastLoader);
+			asynchronousLoader.setUser(false);
+			asynchronousLoader.schedule();
+		}
 	}
 
 	private java.net.URI getLocationFromURI(URI uri) throws URISyntaxException {
