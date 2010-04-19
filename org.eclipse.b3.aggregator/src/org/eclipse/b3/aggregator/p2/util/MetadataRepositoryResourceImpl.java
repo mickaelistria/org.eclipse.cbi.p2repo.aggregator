@@ -47,7 +47,6 @@ import org.eclipse.b3.aggregator.p2view.Product;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.b3.aggregator.util.ResourceDiagnosticImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
-import org.eclipse.b3.aggregator.util.TimeUtils;
 import org.eclipse.b3.aggregator.util.TwoColumnMatrix;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
@@ -56,9 +55,11 @@ import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.b3.p2.loader.IRepositoryLoader;
 import org.eclipse.b3.p2.util.IUUtils;
 import org.eclipse.b3.p2.util.RepositoryTranslationSupport;
+import org.eclipse.b3.p2.util.ResourceSetWithAgent;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.b3.util.StringUtils;
+import org.eclipse.b3.util.TimeUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -144,7 +145,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				}
 
 				synchronized(MetadataRepositoryResourceImpl.this) {
-					String myLocation = getURI().toString();
+					String myLocation = getURI().opaquePart();
 					Aggregator aggregator = getAggregator();
 					for(MetadataRepositoryReference repoRef : aggregator.getAllMetadataRepositoryReferences(true)) {
 						synchronized(repoRef) {
@@ -692,34 +693,33 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 				return;
 			}
-			else {
-				isLoading = true;
 
-				java.net.URI location;
-				try {
-					location = getLocationFromURI(getURI());
-				}
-				catch(URISyntaxException e) {
-					lastException = new Resource.IOWrappedException(e);
-					finishLoading(options);
-					return;
-				}
+			isLoading = true;
 
-				MetadataRepositoryImpl repository = (MetadataRepositoryImpl) P2Factory.eINSTANCE.createMetadataRepository();
-
-				repoView = P2viewFactory.eINSTANCE.createMetadataRepositoryStructuredView(repository);
-				allIUPresentationMatrix.clear();
-
-				ResourceSet resourceSet = getResourceSet();
-				IProvisioningAgent agent = null;
-
-				if(resourceSet instanceof ResourceSetWithAgent)
-					agent = ((ResourceSetWithAgent) resourceSet).getProvisioningAgent();
-
-				loadingJob = new RepositoryLoaderJob(
-					agent, repository, location, forceReload, repoView, allIUPresentationMatrix);
-				loadingJob.schedule();
+			java.net.URI location;
+			try {
+				location = getLocationFromURI(getURI());
 			}
+			catch(URISyntaxException e) {
+				lastException = new Resource.IOWrappedException(e);
+				finishLoading(options);
+				return;
+			}
+
+			MetadataRepositoryImpl repository = (MetadataRepositoryImpl) P2Factory.eINSTANCE.createMetadataRepository();
+
+			repoView = P2viewFactory.eINSTANCE.createMetadataRepositoryStructuredView(repository);
+			allIUPresentationMatrix.clear();
+
+			ResourceSet resourceSet = getResourceSet();
+			IProvisioningAgent agent = null;
+
+			if(resourceSet instanceof ResourceSetWithAgent)
+				agent = ((ResourceSetWithAgent) resourceSet).getProvisioningAgent();
+
+			loadingJob = new RepositoryLoaderJob(
+				agent, repository, location, forceReload, repoView, allIUPresentationMatrix);
+			loadingJob.schedule();
 		}
 
 		try {
@@ -808,12 +808,10 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 		boolean wasLoaded = false;
 		// force listeners to update status
-		synchronized(this) {
-			eNotify(setLoaded(isLoaded));
-			wasLoaded = isLoaded() && !isLoading();
-		}
+		eNotify(setLoaded(isLoaded));
+		wasLoaded = isLoaded() && !isLoading();
 
-		String myLocation = getURI().toString();
+		String myLocation = getURI().opaquePart();
 		MetadataRepository myMDR;
 		boolean mdrFinal = false;
 		if(!forceReload && wasLoaded) {
@@ -1006,26 +1004,25 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 					? getNextNode(parentPath, forward)
 					: null;
 		}
-		else {
-			if(parent instanceof ChildrenProvider<?>) {
-				EList<?> children = ((ChildrenProvider<?>) parent).getChildren();
-				int nodeIndex = children.indexOf(nodePath.get(nodePath.size() - 1));
-				if(nodeIndex > 0) {
-					List<Object> nextNodePath = new ArrayList<Object>(nodePath);
-					nextNodePath.remove(nodePath.size() - 1);
-					nextNodePath.add(children.get(nodeIndex - 1));
 
-					return getLastChild(nextNodePath);
-				}
+		if(parent instanceof ChildrenProvider<?>) {
+			EList<?> children = ((ChildrenProvider<?>) parent).getChildren();
+			int nodeIndex = children.indexOf(nodePath.get(nodePath.size() - 1));
+			if(nodeIndex > 0) {
+				List<Object> nextNodePath = new ArrayList<Object>(nodePath);
+				nextNodePath.remove(nodePath.size() - 1);
+				nextNodePath.add(children.get(nodeIndex - 1));
+
+				return getLastChild(nextNodePath);
 			}
-
-			List<Object> parentPath = new ArrayList<Object>(nodePath);
-			parentPath.remove(nodePath.size() - 1);
-
-			return parentPath.size() > 2
-					? parentPath
-					: null;
 		}
+
+		List<Object> parentPath = new ArrayList<Object>(nodePath);
+		parentPath.remove(nodePath.size() - 1);
+
+		return parentPath.size() > 2
+				? parentPath
+				: null;
 	}
 
 	private void setStatus(Status status) {

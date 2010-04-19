@@ -581,27 +581,26 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 			// status is ok only if MDR is not null and is resolvable
 			if(getMetadataRepository(false) != null && !((EObject) getMetadataRepository(false)).eIsProxy())
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
-			else {
-				String nature = getNature();
-				String location = getResolvedLocation();
-				if(nature == null || location == null)
-					// Node is incomplete and doesn't appoint a repository just yet.
-					return AggregatorFactory.eINSTANCE.createStatus(
-						StatusCode.BROKEN, getString("_UI_ErrorMessage_RepositoryIsNotSet"));
 
-				MetadataRepositoryResourceImpl res;
-				try {
-					res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-						nature, location, getAggregator(), false);
-				}
-				catch(Exception e) {
-					// cannot get Aggregator top node
-					res = null;
-				}
+			String nature = getNature();
+			String location = getResolvedLocation();
+			if(nature == null || location == null)
+				// Node is incomplete and doesn't appoint a repository just yet.
+				return AggregatorFactory.eINSTANCE.createStatus(
+					StatusCode.BROKEN, getString("_UI_ErrorMessage_RepositoryIsNotSet"));
 
-				if(res != null)
-					return res.getStatus();
+			MetadataRepositoryResourceImpl res;
+			try {
+				res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
+					nature, location, getAggregator(), false);
 			}
+			catch(Exception e) {
+				// cannot get Aggregator top node
+				res = null;
+			}
+
+			if(res != null)
+				return res.getStatus();
 		}
 
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
