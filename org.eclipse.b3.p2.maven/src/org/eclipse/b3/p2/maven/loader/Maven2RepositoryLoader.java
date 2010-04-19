@@ -40,7 +40,6 @@ import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.HeadMethod;
 import org.eclipse.b3.p2.InstallableUnit;
-import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.impl.ArtifactKeyImpl;
 import org.eclipse.b3.p2.impl.CopyrightImpl;
