@@ -35,6 +35,7 @@ import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
+import org.eclipse.b3.p2.util.P2ResourceImpl;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
@@ -681,8 +682,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 			InstallableUnit iu = (InstallableUnit) ius.toArray(IInstallableUnit.class)[0];
 			return iu;
 		}
-		else
-			return null;
+		return null;
 	}
 
 	synchronized public void resolveAvailableVersions(boolean updateOnly) {
@@ -705,10 +705,14 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 				versionMap.clear();
 				for(Resource resource : GeneralUtils.getAggregatorResource(this).getResourceSet().getResources()) {
 
-					if(!(resource instanceof MetadataRepositoryResourceImpl))
-						continue;
+					MetadataRepository mdr = null;
+					if(resource instanceof MetadataRepositoryResourceImpl)
+						mdr = ((MetadataRepositoryResourceImpl) resource).getMetadataRepository();
+					else if(resource instanceof P2ResourceImpl && resource.getContents().size() == 1)
+						mdr = (MetadataRepository) resource.getContents().get(0);
 
-					MetadataRepository mdr = ((MetadataRepositoryResourceImpl) resource).getMetadataRepository();
+					if(mdr == null)
+						continue;
 
 					if(StringUtils.trimmedOrNull(name) != null && mdr != null && !((EObject) mdr).eIsProxy()) {
 						IQueryResult<IInstallableUnit> ius = mdr.query(query, null);
@@ -727,6 +731,11 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 				catch(InterruptedException e1) {
 					// ignore
 				}
+			}
+			catch(IllegalArgumentException e) {
+				// the aggregator resource is probably temporarily unavailable (e.g. during drag&drop)
+				availableVersions = null;
+				return;
 			}
 		}
 
