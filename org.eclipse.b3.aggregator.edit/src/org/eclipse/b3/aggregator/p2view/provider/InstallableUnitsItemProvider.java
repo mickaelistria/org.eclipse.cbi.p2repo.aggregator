@@ -12,6 +12,7 @@ package org.eclipse.b3.aggregator.p2view.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.b3.aggregator.p2view.InstallableUnits;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
@@ -30,6 +31,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.InstallableUnits} object.
@@ -131,6 +133,12 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch(notification.getFeatureID(InstallableUnits.class)) {
+			case P2viewPackage.INSTALLABLE_UNITS__ALL_IUS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
