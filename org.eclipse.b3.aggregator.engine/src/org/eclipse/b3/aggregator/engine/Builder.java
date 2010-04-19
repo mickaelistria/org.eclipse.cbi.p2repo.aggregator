@@ -29,13 +29,13 @@ import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
-import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
-import org.eclipse.b3.aggregator.p2.util.ResourceSetWithAgent;
 import org.eclipse.b3.aggregator.transformer.TransformationManager;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.cli.AbstractCommand;
 import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.p2.util.P2ResourceImpl;
 import org.eclipse.b3.p2.util.P2Utils;
+import org.eclipse.b3.p2.util.ResourceSetWithAgent;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
@@ -789,9 +789,13 @@ public class Builder extends AbstractCommand {
 
 		// first, set up asynchronous loading jobs so that the repos are loaded in parallel
 		for(MetadataRepositoryReference repo : getAggregator().getAllMetadataRepositoryReferences(true)) {
-			MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-				repo.getNature(), repo.getResolvedLocation(), repo.getAggregator());
-			res.startAsynchronousLoad(false);
+			org.eclipse.emf.common.util.URI repoURI = org.eclipse.emf.common.util.URI.createGenericURI(
+				"b3", repo.getNature() + ":" + repo.getResolvedLocation(), null);
+			ResourceSet topSet = ((EObject) aggregator).eResource().getResourceSet();
+			P2ResourceImpl res = (P2ResourceImpl) topSet.getResource(repoURI, false);
+			if(res == null)
+				res = (P2ResourceImpl) topSet.createResource(repoURI);
+			res.startAsynchronousLoad();
 			repositoriesToLoad.add(repo);
 		}
 

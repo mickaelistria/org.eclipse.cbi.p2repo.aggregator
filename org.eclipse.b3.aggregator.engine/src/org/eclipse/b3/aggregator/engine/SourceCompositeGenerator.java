@@ -14,12 +14,12 @@ import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
-import org.eclipse.b3.aggregator.util.TimeUtils;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
+import org.eclipse.b3.util.TimeUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
@@ -63,6 +63,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 
 			CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
 				locationURI, name, Builder.COMPOSITE_METADATA_TYPE, properties);
+			getBuilder().setSourceComposite(compositeMdr);
 
 			MonitorUtils.worked(subMon, 100);
 			for(Contribution contrib : contribs) {
@@ -93,7 +94,6 @@ public class SourceCompositeGenerator extends BuilderPhase {
 					getBuilder().sendEmail(contrib, errors);
 					errorsFound = true;
 				}
-				getBuilder().setSourceComposite(compositeMdr);
 			}
 		}
 		finally {
