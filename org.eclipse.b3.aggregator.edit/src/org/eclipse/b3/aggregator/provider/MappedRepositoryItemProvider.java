@@ -18,7 +18,7 @@ import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.util.AddIUsToMappedRepositoryCommand;
-import org.eclipse.b3.aggregator.util.AggregatorResource;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.aggregator.util.ItemSorter;
 import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
 import org.eclipse.b3.aggregator.util.ItemUtils;
@@ -163,7 +163,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
 			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				((AggregatorResource) ((EObject) notification.getNotifier()).eResource()).analyzeResource();
+				GeneralUtils.getAggregatorResource((EObject) notification.getNotifier()).analyzeResource();
 				return;
 		}
 		super.notifyChanged(notification);

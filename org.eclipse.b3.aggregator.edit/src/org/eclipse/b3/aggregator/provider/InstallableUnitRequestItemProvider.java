@@ -20,7 +20,7 @@ import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.IAggregatorConstants;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.MappedRepository;
-import org.eclipse.b3.aggregator.util.AggregatorResource;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.p2.util.RepositoryTranslationSupport;
@@ -167,7 +167,7 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 				InstallableUnitRequest iuRequest = (InstallableUnitRequest) notification.getNotifier();
 				iuRequest.resolveAvailableVersions(true);
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				((AggregatorResource) ((EObject) iuRequest).eResource()).analyzeResource();
+				GeneralUtils.getAggregatorResource((EObject) iuRequest).analyzeResource();
 				return;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
