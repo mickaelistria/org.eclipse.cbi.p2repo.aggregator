@@ -29,24 +29,19 @@ import org.osgi.framework.Bundle;
  * @author Thomas Hallgren
  */
 @SuppressWarnings("synthetic-access")
-public class Logger
-{
-	private static class EclipseLogListener implements ILogListener
-	{
-		public void logging(IStatus status, String plugin)
-		{
+public class Logger {
+	private static class EclipseLogListener implements ILogListener {
+		public void logging(IStatus status, String plugin) {
 			int severity = status.getSeverity();
-			if(severity >= s_consoleThreshold)
-			{
+			if(severity >= s_consoleThreshold) {
 				PrintStream out;
-				switch(severity)
-				{
-				case IStatus.ERROR:
-				case IStatus.WARNING:
-					out = System.err;
-					break;
-				default:
-					out = System.out;
+				switch(severity) {
+					case IStatus.ERROR:
+					case IStatus.WARNING:
+						out = System.err;
+						break;
+					default:
+						out = System.out;
 				}
 				Logger.printStatus(status, out);
 			}
@@ -73,11 +68,11 @@ public class Logger
 
 	private static int s_consoleThreshold = 0x1;
 
-	//	private static int s_consoleThreshold = IBuckminsterPreferenceConstants.LOG_LEVEL_CONSOLE_DEFAULT;
+	// private static int s_consoleThreshold = IBuckminsterPreferenceConstants.LOG_LEVEL_CONSOLE_DEFAULT;
 
 	private static int s_eclipseLoggerThreshold = 0x2;
 
-	//	private static int s_eclipseLoggerThreshold = IBuckminsterPreferenceConstants.LOG_LEVEL_ECLIPSE_LOGGER_DEFAULT;
+	// private static int s_eclipseLoggerThreshold = IBuckminsterPreferenceConstants.LOG_LEVEL_ECLIPSE_LOGGER_DEFAULT;
 
 	private static ILogListener s_eclipseLogListener;
 
@@ -85,91 +80,74 @@ public class Logger
 
 	private static PrintStream s_outStream;
 
-	static
-	{
+	static {
 		setOutStream(getLoggerStream(false));
 		setErrStream(getLoggerStream(true));
 	}
 
-	public static Logger getDefault()
-	{
+	public static Logger getDefault() {
 		return s_defaultLogger;
 	}
 
-	public static PrintStream getErrStream()
-	{
+	public static PrintStream getErrStream() {
 		return s_errStream;
 	}
 
-	public static PrintStream getOutStream()
-	{
+	public static PrintStream getOutStream() {
 		return s_outStream;
 	}
 
-	public static void printStatus(IStatus status, PrintStream out)
-	{
-		synchronized(out)
-		{
+	public static void printStatus(IStatus status, PrintStream out) {
+		synchronized(out) {
 			printStatus(status, out, 0);
 			out.flush();
 		}
 	}
 
-	public static void setConsoleLevelThreshold(int threshold)
-	{
+	public static void setConsoleLevelThreshold(int threshold) {
 		s_consoleThreshold = threshold;
 	}
 
-	public static void setEclipseLoggerLevelThreshold(int threshold)
-	{
+	public static void setEclipseLoggerLevelThreshold(int threshold) {
 		s_eclipseLoggerThreshold = threshold;
 	}
 
-	public static synchronized void setEclipseLoggerToConsole(boolean flag)
-	{
-		if(flag)
-		{
-			if(s_eclipseLogListener == null)
-			{
+	public static synchronized void setEclipseLoggerToConsole(boolean flag) {
+		if(flag) {
+			if(s_eclipseLogListener == null) {
 				s_eclipseLogListener = new EclipseLogListener();
 				Platform.addLogListener(s_eclipseLogListener);
 			}
 		}
-		else
-		{
-			if(s_eclipseLogListener != null)
-			{
+		else {
+			if(s_eclipseLogListener != null) {
 				Platform.removeLogListener(s_eclipseLogListener);
 				s_eclipseLogListener = null;
 			}
 		}
 	}
 
-	public static void setErrStream(PrintStream err)
-	{
+	public static void setErrStream(PrintStream err) {
 		s_errStream = err;
 	}
 
-	public static void setOutStream(PrintStream out)
-	{
+	public static void setOutStream(PrintStream out) {
 		s_outStream = out;
 	}
 
-	static void setDefaultLogger(Bundle bundle)
-	{
+	static void setDefaultLogger(Bundle bundle) {
 		s_defaultLogger = new Logger(bundle);
 	}
 
-	private static PrintStream getLoggerStream(boolean errorStream)
-	{
+	private static PrintStream getLoggerStream(boolean errorStream) {
 		// collect all implementors of a builder log receiver and hook them all
 		// up in a tee
 		//
 		PrintStream sysStream = errorStream
 				? System.err
 				: System.out;
-//		if(Buckminster.isHeadless())
-//			return sysStream;
+		// if(Buckminster.isHeadless())
+		// return sysStream;
 
 		IExtensionRegistry ier = Platform.getExtensionRegistry();
 		IConfigurationElement[] elems = ier.getConfigurationElementsFor(BUILDER_LOG_RECEIVER_POINT);
@@ -177,26 +155,22 @@ public class Logger
 		if(idx == 0)
 			return sysStream;
 
-		try
-		{
+		try {
 			OutputStream[] streams = new OutputStream[idx + 1];
 			streams[idx] = sysStream;
-			while(--idx >= 0)
-			{
-				ILogReceiver receiver = (ILogReceiver)elems[idx].createExecutableExtension("class"); //$NON-NLS-1$
+			while(--idx >= 0) {
+				ILogReceiver receiver = (ILogReceiver) elems[idx].createExecutableExtension("class"); //$NON-NLS-1$
 				streams[idx] = receiver.start("B3 log", "org.eclipse.ui.MessageConsole", true, errorStream); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 			return new PrintStream(new MultiTeeOutputStream(streams), true);
 		}
-		catch(Throwable t)
-		{
+		catch(Throwable t) {
 			t.printStackTrace(System.err);
 			return sysStream;
 		}
 	}
 
-	private static void printStatus(IStatus status, PrintStream out, int indent)
-	{
+	private static void printStatus(IStatus status, PrintStream out, int indent) {
 		boolean hasSeverityPrefix = false;
 		String msg = status.getMessage();
 		if(msg != null)
@@ -205,20 +179,18 @@ public class Logger
 		for(int idx = 0; idx < indent; ++idx)
 			out.print(' ');
 
-		if(!hasSeverityPrefix)
-		{
-			switch(status.getSeverity())
-			{
-			case IStatus.CANCEL:
-				return;
-			case IStatus.ERROR:
-				out.print("ERROR: "); //$NON-NLS-1$
-				break;
-			case IStatus.INFO:
-				out.print("INFO:  "); //$NON-NLS-1$
-				break;
-			case IStatus.WARNING:
-				out.print("WARN:  "); //$NON-NLS-1$
+		if(!hasSeverityPrefix) {
+			switch(status.getSeverity()) {
+				case IStatus.CANCEL:
+					return;
+				case IStatus.ERROR:
+					out.print("ERROR: "); //$NON-NLS-1$
+					break;
+				case IStatus.INFO:
+					out.print("INFO:  "); //$NON-NLS-1$
+					break;
+				case IStatus.WARNING:
+					out.print("WARN:  "); //$NON-NLS-1$
 			}
 		}
 
@@ -236,87 +208,70 @@ public class Logger
 
 	public static final String BUILDER_LOG_RECEIVER_POINT = BuildBundle.PLUGIN_ID + ".logReceivers"; //$NON-NLS-1$
 
-	public Logger(Bundle bundle)
-	{
+	public Logger(Bundle bundle) {
 		if(bundle == null)
 			throw new IllegalArgumentException("The bundle for a logger cannot be null"); //$NON-NLS-1$
 		m_log = Platform.getLog(bundle);
 	}
 
-	public Logger(ILog log)
-	{
+	public Logger(ILog log) {
 		m_log = log;
 	}
 
-	public Logger(String bundleId)
-	{
+	public Logger(String bundleId) {
 		this(Platform.getBundle(bundleId));
 	}
 
-	public void debug(String msg, Object... args)
-	{
+	public void debug(String msg, Object... args) {
 		log(DEBUG, msg, args);
 	}
 
-	public void debug(Throwable t, String msg, Object... args)
-	{
+	public void debug(Throwable t, String msg, Object... args) {
 		log(DEBUG, t, msg, args);
 	}
 
-	public void error(String msg, Object... args)
-	{
+	public void error(String msg, Object... args) {
 		log(ERROR, msg, args);
 	}
 
-	public void error(Throwable t, String msg, Object... args)
-	{
+	public void error(Throwable t, String msg, Object... args) {
 		log(ERROR, t, msg, args);
 	}
 
-	public void info(String msg, Object... args)
-	{
+	public void info(String msg, Object... args) {
 		log(INFO, msg, args);
 	}
 
-	public void info(Throwable t, String msg, Object... args)
-	{
+	public void info(Throwable t, String msg, Object... args) {
 		log(INFO, t, msg, args);
 	}
 
-	public boolean isDebugEnabled()
-	{
+	public boolean isDebugEnabled() {
 		return s_consoleThreshold <= DEBUG || s_eclipseLoggerThreshold <= DEBUG;
 	}
 
-	public boolean isErrorEnabled()
-	{
+	public boolean isErrorEnabled() {
 		return s_consoleThreshold <= ERROR || s_eclipseLoggerThreshold <= ERROR;
 	}
 
-	public boolean isInfoEnabled()
-	{
+	public boolean isInfoEnabled() {
 		return s_consoleThreshold <= INFO || s_eclipseLoggerThreshold <= INFO;
 	}
 
-	public boolean isWarningEnabled()
-	{
+	public boolean isWarningEnabled() {
 		return s_consoleThreshold <= WARNING || s_eclipseLoggerThreshold <= WARNING;
 	}
 
-	public void log(int level, String msg, Object... args)
-	{
+	public void log(int level, String msg, Object... args) {
 		log(level, null, msg, args);
 	}
 
-	public void log(int level, Throwable t, String msg, Object... args)
-	{
-		if(level >= s_consoleThreshold && (s_eclipseLogListener == null || level < s_eclipseLoggerThreshold))
-		{
+	public void log(int level, Throwable t, String msg, Object... args) {
+		if(level >= s_consoleThreshold && (s_eclipseLogListener == null || level < s_eclipseLoggerThreshold)) {
 			PrintStream logStream = (level == WARNING || level == ERROR)
 					? s_errStream
 					: s_outStream;
-			synchronized(logStream)
-			{
+			synchronized(logStream) {
 				if(args == null || args.length == 0)
 					logStream.print(msg);
 				else
@@ -334,13 +289,11 @@ public class Logger
 					: String.format(msg, args), t));
 	}
 
-	public void warning(String msg, Object... args)
-	{
+	public void warning(String msg, Object... args) {
 		log(WARNING, msg, args);
 	}
 
-	public void warning(Throwable t, String msg, Object... args)
-	{
+	public void warning(Throwable t, String msg, Object... args) {
 		log(WARNING, t, msg, args);
 	}
 }

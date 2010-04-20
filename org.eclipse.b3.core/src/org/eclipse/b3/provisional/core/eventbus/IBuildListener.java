@@ -15,6 +15,7 @@ import java.util.EventObject;
 
 /**
  * A listener that is notified about events related to b3.
+ * 
  * @see IBuildEventBus
  */
 public interface IBuildListener extends EventListener {

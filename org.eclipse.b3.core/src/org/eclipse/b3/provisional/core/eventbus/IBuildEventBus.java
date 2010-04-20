@@ -26,15 +26,15 @@ public interface IBuildEventBus extends EventDispatcher {
 
 	public abstract void addListener(IBuildListener toAdd);
 
-	public abstract void removeListener(IBuildListener toRemove);
-
-	public abstract void publishEvent(EventObject event);
-
 	/**
-	 * Closes the event bus.  This will stop dispatching of any events currently
+	 * Closes the event bus. This will stop dispatching of any events currently
 	 * being processed by the bus. Events published after the bus is closed
 	 * are ignored.
 	 */
 	public abstract void close();
+
+	public abstract void publishEvent(EventObject event);
+
+	public abstract void removeListener(IBuildListener toRemove);
 
 }

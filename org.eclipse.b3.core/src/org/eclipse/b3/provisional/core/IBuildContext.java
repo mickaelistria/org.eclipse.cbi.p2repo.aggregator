@@ -11,19 +11,18 @@
 
 package org.eclipse.b3.provisional.core;
 
-
 public interface IBuildContext {
-	
+
 	public static final String SERVICE_NAME = IBuildContext.class.getName();
 
-	/**
-	 * @return The unique name of this build context.
-	 */
-	public String getId();
-	
 	/**
 	 * Do stuff for testing
 	 * TODO: THIS IS A TEMPORARY TEST METHOD - TO BE REMOVED
 	 */
 	public void dummyRun();
+
+	/**
+	 * @return The unique name of this build context.
+	 */
+	public String getId();
 }

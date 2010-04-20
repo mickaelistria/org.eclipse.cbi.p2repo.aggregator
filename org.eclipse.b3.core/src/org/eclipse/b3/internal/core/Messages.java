@@ -15,6 +15,7 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS {
 	private static final String BUNDLE_NAME = "org.eclipse.b3.internal.core.messages"; //$NON-NLS-1$
+
 	public static String missing_osgi_service_0;
 	static {
 		// initialize resource bundle

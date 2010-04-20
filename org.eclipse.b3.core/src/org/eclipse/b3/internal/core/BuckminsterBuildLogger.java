@@ -10,6 +10,7 @@
  *******************************************************************************/
 
 package org.eclipse.b3.internal.core;
+
 import org.eclipse.b3.provisional.core.ILogger;
 import org.eclipse.osgi.util.NLS;
 import org.osgi.framework.Bundle;
@@ -18,9 +19,9 @@ import org.osgi.framework.Bundle;
  * Temporary class that adapts the ILogger interface to a Buckminster Logger.
  * The intent is to provide ILogger as an OSGi service. This class makes it possible to
  * write code using the wanted logger interface.
- *
+ * 
  */
-public class BuckminsterBuildLogger extends Logger implements ILogger{
+public class BuckminsterBuildLogger extends Logger implements ILogger {
 
 	public BuckminsterBuildLogger(Bundle bundle) {
 		super(bundle);
@@ -35,13 +36,13 @@ public class BuckminsterBuildLogger extends Logger implements ILogger{
 	@Override
 	public void debug(Throwable t, String msg, Object... args) {
 		if(isDebugEnabled())
-			super.log(ILogger.DEBUG, t, NLS.bind(msg, args));	
+			super.log(ILogger.DEBUG, t, NLS.bind(msg, args));
 	}
 
 	@Override
 	public void error(String msg, Object... args) {
 		if(isErrorEnabled())
-			super.log(ILogger.ERROR, NLS.bind(msg, args));		
+			super.log(ILogger.ERROR, NLS.bind(msg, args));
 	}
 
 	@Override
@@ -63,13 +64,13 @@ public class BuckminsterBuildLogger extends Logger implements ILogger{
 	}
 
 	@Override
-	public void log(int level, String msg, Object... args) { 
-			super.log(level, NLS.bind(msg, args));
+	public void log(int level, String msg, Object... args) {
+		super.log(level, NLS.bind(msg, args));
 	}
 
 	@Override
 	public void log(int level, Throwable t, String msg, Object... args) {
-		super.log(level,t, NLS.bind(msg, args));		
+		super.log(level, t, NLS.bind(msg, args));
 	}
 
 	@Override

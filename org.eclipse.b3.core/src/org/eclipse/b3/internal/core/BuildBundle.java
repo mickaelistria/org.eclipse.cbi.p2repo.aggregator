@@ -22,7 +22,7 @@ import org.osgi.util.tracker.ServiceTracker;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class BuildBundle extends Plugin  {
+public class BuildBundle extends Plugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.eclipse.b3.core"; //$NON-NLS-1$
@@ -30,10 +30,39 @@ public class BuildBundle extends Plugin  {
 	// The shared instance
 	private static BuildBundle plugin;
 
+	/**
+	 * Returns the shared instance
+	 * 
+	 * @return the shared instance
+	 */
+	public static BuildBundle getDefault() {
+		return plugin;
+	}
+
+	public static ILogger getLogger() {
+		return getDefault().getBundleLogger();
+	}
+
 	private ServiceTracker defaultContextTracker;
-	
+
+	// TODO: Cheating by using Buckminster's Logger
+	//
+	private ILogger logger;
+
+	public synchronized ILogger getBundleLogger() {
+		if(logger == null)
+			logger = new BuckminsterBuildLogger(this.getBundle());
+		return logger;
+	}
+
+	public IBuildContext getDefaultBuildContext() {
+		defaultContextTracker.open();
+		return (IBuildContext) defaultContextTracker.getService();
+	}
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.core.runtime.Plugins#start(org.osgi.framework.BundleContext)
 	 */
 	@Override
@@ -41,13 +70,14 @@ public class BuildBundle extends Plugin  {
 		super.start(context);
 		plugin = this;
 		// create trackers
-		defaultContextTracker = new ServiceTracker(getBundle().getBundleContext(), 
-				ServicesHelper.getTrackerFilter(IBuildConstants.DEFAULT_BUILD_CONTEXT,
-						IBuildContext.class), 
-						null); // no customizer (yet?) - the tracker returns available service
+		defaultContextTracker = new ServiceTracker(getBundle().getBundleContext(), ServicesHelper.getTrackerFilter(
+			IBuildConstants.DEFAULT_BUILD_CONTEXT, IBuildContext.class), null); // no customizer (yet?) - the tracker
+																				// returns available service
 	}
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
 	 */
 	@Override
@@ -57,36 +87,6 @@ public class BuildBundle extends Plugin  {
 
 		plugin = null;
 		super.stop(context);
-	}
-
-	/**
-	 * Returns the shared instance
-	 *
-	 * @return the shared instance
-	 */
-	public static BuildBundle getDefault() {
-		return plugin;
-	}
-	public IBuildContext getDefaultBuildContext()
-	{
-		defaultContextTracker.open();
-		return (IBuildContext) defaultContextTracker.getService();
-	}
-	
-	
-	// TODO: Cheating by using Buckminster's Logger
-	//
-	private ILogger logger;
-
-	public synchronized ILogger getBundleLogger()
-	{
-		if(logger == null)
-			logger = new BuckminsterBuildLogger(this.getBundle());
-		return logger;
-	}
-	public static ILogger getLogger()
-	{
-		return getDefault().getBundleLogger();
 	}
 
 }
