@@ -39,8 +39,7 @@ public interface MetadataRepository extends IMetadataRepository {
 	 * The list contents are of type {@link org.eclipse.equinox.p2.metadata.IInstallableUnit}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Installable Units</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Installable Units</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -57,8 +56,7 @@ public interface MetadataRepository extends IMetadataRepository {
 	 * and the value is of type {@link java.lang.String},
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Property Map</em>' map isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Property Map</em>' map isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -74,8 +72,7 @@ public interface MetadataRepository extends IMetadataRepository {
 	 * The list contents are of type {@link org.eclipse.equinox.p2.repository.IRepositoryReference}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>References</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>References</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

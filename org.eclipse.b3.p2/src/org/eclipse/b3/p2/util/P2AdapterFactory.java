@@ -428,8 +428,7 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.ILicense <em>ILicense</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.ILicense <em>ILicense</em>} '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -444,8 +443,8 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository <em>IMetadata Repository</em>}'.
+	 * Creates a new adapter for an object of class ' {@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository
+	 * <em>IMetadata Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -460,8 +459,7 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.InstallableUnit <em>Installable Unit</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.InstallableUnit <em>Installable Unit</em>} '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -523,8 +521,7 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.query.IQueryable <em>IQueryable</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.query.IQueryable <em>IQueryable</em>} '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -571,8 +568,8 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability <em>IRequired Capability</em>}'.
+	 * Creates a new adapter for an object of class ' {@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability
+	 * <em>IRequired Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.

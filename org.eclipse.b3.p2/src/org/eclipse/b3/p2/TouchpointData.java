@@ -34,15 +34,14 @@ public interface TouchpointData extends ITouchpointData {
 	 * and the value is of type {@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction},
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Instruction Map</em>' map isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Instruction Map</em>' map isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Instruction Map</em>' map.
 	 * @see org.eclipse.b3.p2.P2Package#getTouchpointData_InstructionMap()
 	 * @model mapType=
-	 *        
+	 * 
 	 *        "org.eclipse.b3.p2.InstructionMap<org.eclipse.emf.ecore.EString, org.eclipse.b3.p2.ITouchpointInstruction>"
 	 * @generated
 	 */

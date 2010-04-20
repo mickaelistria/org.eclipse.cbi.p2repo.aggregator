@@ -90,7 +90,7 @@ public class P2ResourceImpl extends XMLResourceImpl {
 					load(null);
 				}
 				catch(IOException e) {
-					status = new Status(Status.ERROR, "org.eclipse.b3.p2", "Unable to load repository " +
+					status = new Status(IStatus.ERROR, "org.eclipse.b3.p2", "Unable to load repository " +
 							getURI().opaquePart(), e);
 				}
 
