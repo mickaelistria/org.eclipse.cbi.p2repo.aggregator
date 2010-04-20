@@ -159,8 +159,8 @@ class JUnitB3FileRunnerFactory {
 
 		protected void initializeFunctionTests() throws Exception {
 			URI b3FileURI = URI.createPlatformPluginURI(containingBundleName + b3FilePath, true);
-			XtextResource resource = (XtextResource) beeLangResourceSet.createResource(b3FileURI,
-					ContentHandler.UNSPECIFIED_CONTENT_TYPE);
+			XtextResource resource = (XtextResource) beeLangResourceSet.createResource(
+				b3FileURI, ContentHandler.UNSPECIFIED_CONTENT_TYPE);
 
 			resource.load(null);
 
@@ -209,26 +209,13 @@ class JUnitB3FileRunnerFactory {
 
 				String functionName = function.getName();
 
-				if(functionName.length() > TEST_FUNCTION_PREFIX.length()
-						&& functionName.startsWith(TEST_FUNCTION_PREFIX) && function.getParameterTypes().length == 0)
+				if(functionName.length() > TEST_FUNCTION_PREFIX.length() &&
+						functionName.startsWith(TEST_FUNCTION_PREFIX) && function.getParameterTypes().length == 0)
 					testFunctionDescriptors.add(new TestFunctionDescriptor(functionName));
 			}
 
 			if(testFunctionDescriptors.isEmpty())
 				throw new Exception("No test functions");
-		}
-
-		private void performResolution() throws Exception {
-			// If resolving, run a resolution
-			SimpleResolver resolver = new SimpleResolver();
-			// bind the resolver, it is later looked up by build jobs to get the
-			// current resolutions of requirements
-			engine.getContext().defineValue(B3BuildConstants.B3ENGINE_VAR_RESOLUTION_SCOPE, resolver,
-					SimpleResolver.class);
-			IStatus status = resolver.resolveAll(engine.getBuildContext());
-			if(!status.isOK()) {
-				throw new Exception(status.toString());
-			}
 		}
 
 		@Override
@@ -244,6 +231,19 @@ class JUnitB3FileRunnerFactory {
 			}
 			finally {
 				notifier.fireTestFinished(testDescription);
+			}
+		}
+
+		private void performResolution() throws Exception {
+			// If resolving, run a resolution
+			SimpleResolver resolver = new SimpleResolver();
+			// bind the resolver, it is later looked up by build jobs to get the
+			// current resolutions of requirements
+			engine.getContext().defineValue(
+				B3BuildConstants.B3ENGINE_VAR_RESOLUTION_SCOPE, resolver, SimpleResolver.class);
+			IStatus status = resolver.resolveAll(engine.getBuildContext());
+			if(!status.isOK()) {
+				throw new Exception(status.toString());
 			}
 		}
 
@@ -281,8 +281,12 @@ class JUnitB3FileRunnerFactory {
 			}
 		}
 
-		throw new InitializationError("No @" + B3TestFiles.class.getSimpleName() + " annotation specified for class: "
-				+ klass.getName());
+		throw new InitializationError("No @" + B3TestFiles.class.getSimpleName() + " annotation specified for class: " +
+				klass.getName());
+	}
+
+	public List<Runner> getB3FileRunners() {
+		return b3FileRunners;
 	}
 
 	protected Runner createB3FileRunner(String b3File) throws Exception {
@@ -307,18 +311,14 @@ class JUnitB3FileRunnerFactory {
 	}
 
 	protected Runner createErrorReportingRunner(String b3File, Throwable t) {
-		return new ErrorReportingRunner(Description.createSuiteDescription(b3File), t,
-				"Test initialization failed for: " + b3File);
+		return new ErrorReportingRunner(
+			Description.createSuiteDescription(b3File), t, "Test initialization failed for: " + b3File);
 	}
 
 	protected void createResourceSet() {
 		Injector beeLangInjector = new BeeLangStandaloneSetup().createInjectorAndDoEMFRegistration();
 
 		beeLangResourceSet = beeLangInjector.getProvider(XtextResourceSet.class).get();
-	}
-
-	public List<Runner> getB3FileRunners() {
-		return b3FileRunners;
 	}
 
 }
