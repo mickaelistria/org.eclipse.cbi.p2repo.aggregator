@@ -23,27 +23,18 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuildResultContextImpl extends BInnerContextImpl implements BuildResultContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuildResultContextImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_RESULT_CONTEXT;
 	}
 
 	/**
@@ -70,4 +61,15 @@ public class BuildResultContextImpl extends BInnerContextImpl implements BuildRe
 	public boolean isPropertyScope() {
 		return true;
 	}
-} //BuildResultContextImpl
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_RESULT_CONTEXT;
+	}
+} // BuildResultContextImpl

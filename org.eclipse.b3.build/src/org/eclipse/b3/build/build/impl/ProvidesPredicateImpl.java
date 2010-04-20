@@ -37,10 +37,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl#getCapabilityPredicate <em>Capability Predicate
+ * </em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPredicate {
@@ -48,6 +49,7 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 * The cached value of the '{@link #getCapabilityPredicate() <em>Capability Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCapabilityPredicate()
 	 * @generated
 	 * @ordered
@@ -57,6 +59,7 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ProvidesPredicateImpl() {
@@ -66,25 +69,7 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.PROVIDES_PREDICATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CapabilityPredicate getCapabilityPredicate() {
-		return capabilityPredicate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCapabilityPredicate(CapabilityPredicate newCapabilityPredicate,
@@ -92,9 +77,9 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 		CapabilityPredicate oldCapabilityPredicate = capabilityPredicate;
 		capabilityPredicate = newCapabilityPredicate;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, oldCapabilityPredicate,
-					newCapabilityPredicate);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE,
+				oldCapabilityPredicate, newCapabilityPredicate);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -106,100 +91,14 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCapabilityPredicate(CapabilityPredicate newCapabilityPredicate) {
-		if(newCapabilityPredicate != capabilityPredicate) {
-			NotificationChain msgs = null;
-			if(capabilityPredicate != null)
-				msgs = ((InternalEObject) capabilityPredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
-			if(newCapabilityPredicate != null)
-				msgs = ((InternalEObject) newCapabilityPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
-			msgs = basicSetCapabilityPredicate(newCapabilityPredicate, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, newCapabilityPredicate,
-					newCapabilityPredicate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean matches(Capability candidate) {
-		return capabilityPredicate.matches(candidate);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean matches(VersionedCapability candidate) {
-		return capabilityPredicate.matches(candidate);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean removeMatching(EList<Capability> input) {
-		ListIterator<Capability> cItor = input.listIterator();
-		boolean result = false;
-		while(cItor.hasNext()) {
-			Capability c = cItor.next();
-			if((c instanceof VersionedCapability)
-					? matches((VersionedCapability) c)
-					: matches(c)) {
-				result = true;
-				cItor.remove();
-			}
-		}
-		return result;
-	}
-
-	//	/**
-	//	 * Removes the capability from its container if it matches
-	//	 * (watch out for concurrent modification if iterating over the collection and calling this method.
-	//	 */
-	//	public boolean removeMatching(Capability input) {
-	//		boolean result = false;
-	//		if(result = (input instanceof VersionedCapability) ? matches((VersionedCapability)input) : matches(input))
-	//			((EList<?>)input.eContainer().eGet(input.eContainingFeature())).remove(input);
-	//		return result;
-	//	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-		case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
-			return basicSetCapabilityPredicate(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
-			return getCapabilityPredicate();
+			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
+				return getCapabilityPredicate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -207,14 +106,45 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
+				return basicSetCapabilityPredicate(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
+				return capabilityPredicate != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
-			setCapabilityPredicate((CapabilityPredicate) newValue);
-			return;
+			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
+				setCapabilityPredicate((CapabilityPredicate) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -222,30 +152,17 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
-			setCapabilityPredicate((CapabilityPredicate) null);
-			return;
+			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
+				setCapabilityPredicate((CapabilityPredicate) null);
+				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
-			return capabilityPredicate != null;
-		}
-		return super.eIsSet(featureID);
 	}
 
 	@Override
@@ -266,6 +183,27 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 		return Boolean.FALSE;
 	}
 
+	// /**
+	// * Removes the capability from its container if it matches
+	// * (watch out for concurrent modification if iterating over the collection and calling this method.
+	// */
+	// public boolean removeMatching(Capability input) {
+	// boolean result = false;
+	// if(result = (input instanceof VersionedCapability) ? matches((VersionedCapability)input) : matches(input))
+	// ((EList<?>)input.eContainer().eGet(input.eContainingFeature())).remove(input);
+	// return result;
+	// }
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public CapabilityPredicate getCapabilityPredicate() {
+		return capabilityPredicate;
+	}
+
 	/**
 	 * Always returns Boolean.
 	 */
@@ -274,4 +212,81 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 		return Boolean.class;
 	}
 
-} //ProvidesPredicateImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean matches(Capability candidate) {
+		return capabilityPredicate.matches(candidate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean matches(VersionedCapability candidate) {
+		return capabilityPredicate.matches(candidate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean removeMatching(EList<Capability> input) {
+		ListIterator<Capability> cItor = input.listIterator();
+		boolean result = false;
+		while(cItor.hasNext()) {
+			Capability c = cItor.next();
+			if((c instanceof VersionedCapability)
+					? matches((VersionedCapability) c)
+					: matches(c)) {
+				result = true;
+				cItor.remove();
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setCapabilityPredicate(CapabilityPredicate newCapabilityPredicate) {
+		if(newCapabilityPredicate != capabilityPredicate) {
+			NotificationChain msgs = null;
+			if(capabilityPredicate != null)
+				msgs = ((InternalEObject) capabilityPredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
+			if(newCapabilityPredicate != null)
+				msgs = ((InternalEObject) newCapabilityPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
+			msgs = basicSetCapabilityPredicate(newCapabilityPredicate, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE,
+				newCapabilityPredicate, newCapabilityPredicate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.PROVIDES_PREDICATE;
+	}
+
+} // ProvidesPredicateImpl

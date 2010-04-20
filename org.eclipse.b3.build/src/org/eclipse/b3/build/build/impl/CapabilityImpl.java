@@ -25,12 +25,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.CapabilityImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.CapabilityImpl#getNameSpace <em>Name Space</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.CapabilityImpl#getCondExpr <em>Cond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.CapabilityImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.CapabilityImpl#getNameSpace <em>Name Space</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.CapabilityImpl#getCondExpr <em>Cond Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class CapabilityImpl extends EObjectImpl implements Capability {
@@ -38,6 +38,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -48,6 +49,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -69,6 +71,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 * The cached value of the '{@link #getNameSpace() <em>Name Space</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getNameSpace()
 	 * @generated
 	 * @ordered
@@ -79,6 +82,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 * The cached value of the '{@link #getCondExpr() <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCondExpr()
 	 * @generated
 	 * @ordered
@@ -88,6 +92,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CapabilityImpl() {
@@ -97,14 +102,15 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCondExpr(BExpression newCondExpr, NotificationChain msgs) {
 		BExpression oldCondExpr = condExpr;
 		condExpr = newCondExpr;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					B3BuildPackage.CAPABILITY__COND_EXPR, oldCondExpr, newCondExpr);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.CAPABILITY__COND_EXPR, oldCondExpr, newCondExpr);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -116,17 +122,18 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.CAPABILITY__NAME:
-			return getName();
-		case B3BuildPackage.CAPABILITY__NAME_SPACE:
-			return getNameSpace();
-		case B3BuildPackage.CAPABILITY__COND_EXPR:
-			return getCondExpr();
+			case B3BuildPackage.CAPABILITY__NAME:
+				return getName();
+			case B3BuildPackage.CAPABILITY__NAME_SPACE:
+				return getNameSpace();
+			case B3BuildPackage.CAPABILITY__COND_EXPR:
+				return getCondExpr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -134,13 +141,14 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case B3BuildPackage.CAPABILITY__COND_EXPR:
-			return basicSetCondExpr(null, msgs);
+			case B3BuildPackage.CAPABILITY__COND_EXPR:
+				return basicSetCondExpr(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -148,21 +156,22 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.CAPABILITY__NAME:
-			return NAME_EDEFAULT == null
-					? name != null
-					: !NAME_EDEFAULT.equals(name);
-		case B3BuildPackage.CAPABILITY__NAME_SPACE:
-			return NAME_SPACE_EDEFAULT == null
-					? nameSpace != null
-					: !NAME_SPACE_EDEFAULT.equals(nameSpace);
-		case B3BuildPackage.CAPABILITY__COND_EXPR:
-			return condExpr != null;
+			case B3BuildPackage.CAPABILITY__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case B3BuildPackage.CAPABILITY__NAME_SPACE:
+				return NAME_SPACE_EDEFAULT == null
+						? nameSpace != null
+						: !NAME_SPACE_EDEFAULT.equals(nameSpace);
+			case B3BuildPackage.CAPABILITY__COND_EXPR:
+				return condExpr != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -170,20 +179,21 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.CAPABILITY__NAME:
-			setName((String) newValue);
-			return;
-		case B3BuildPackage.CAPABILITY__NAME_SPACE:
-			setNameSpace((String) newValue);
-			return;
-		case B3BuildPackage.CAPABILITY__COND_EXPR:
-			setCondExpr((BExpression) newValue);
-			return;
+			case B3BuildPackage.CAPABILITY__NAME:
+				setName((String) newValue);
+				return;
+			case B3BuildPackage.CAPABILITY__NAME_SPACE:
+				setNameSpace((String) newValue);
+				return;
+			case B3BuildPackage.CAPABILITY__COND_EXPR:
+				setCondExpr((BExpression) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -191,30 +201,21 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.CAPABILITY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.CAPABILITY__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case B3BuildPackage.CAPABILITY__NAME_SPACE:
-			setNameSpace(NAME_SPACE_EDEFAULT);
-			return;
-		case B3BuildPackage.CAPABILITY__COND_EXPR:
-			setCondExpr((BExpression) null);
-			return;
+			case B3BuildPackage.CAPABILITY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case B3BuildPackage.CAPABILITY__NAME_SPACE:
+				setNameSpace(NAME_SPACE_EDEFAULT);
+				return;
+			case B3BuildPackage.CAPABILITY__COND_EXPR:
+				setCondExpr((BExpression) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -222,6 +223,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getCondExpr() {
@@ -231,6 +233,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -240,6 +243,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getNameSpace() {
@@ -263,29 +267,31 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCondExpr(BExpression newCondExpr) {
 		if(newCondExpr != condExpr) {
 			NotificationChain msgs = null;
 			if(condExpr != null)
-				msgs = ((InternalEObject) condExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.CAPABILITY__COND_EXPR, null, msgs);
+				msgs = ((InternalEObject) condExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.CAPABILITY__COND_EXPR, null, msgs);
 			if(newCondExpr != null)
-				msgs = ((InternalEObject) newCondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.CAPABILITY__COND_EXPR, null, msgs);
+				msgs = ((InternalEObject) newCondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.CAPABILITY__COND_EXPR, null, msgs);
 			msgs = basicSetCondExpr(newCondExpr, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY__COND_EXPR, newCondExpr,
-					newCondExpr));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.CAPABILITY__COND_EXPR, newCondExpr, newCondExpr));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -298,19 +304,21 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setNameSpace(String newNameSpace) {
 		String oldNameSpace = nameSpace;
 		nameSpace = newNameSpace;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY__NAME_SPACE, oldNameSpace,
-					nameSpace));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.CAPABILITY__NAME_SPACE, oldNameSpace, nameSpace));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -325,6 +333,17 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 		result.append(nameSpace);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.CAPABILITY;
 	}
 
 } // CapabilityImpl

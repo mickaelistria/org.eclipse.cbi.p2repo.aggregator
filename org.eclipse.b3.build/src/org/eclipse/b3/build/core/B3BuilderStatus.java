@@ -7,12 +7,12 @@ import org.eclipse.core.runtime.Status;
 
 public class B3BuilderStatus extends Status {
 
-	public final static B3BuilderStatus CANCEL_STATUS = new B3BuilderStatus(IStatus.CANCEL,
-			B3BuildActivator.instance.getBundle().getSymbolicName(), IStatus.CANCEL, "", null);
+	public final static B3BuilderStatus CANCEL_STATUS = new B3BuilderStatus(
+		IStatus.CANCEL, B3BuildActivator.instance.getBundle().getSymbolicName(), IStatus.CANCEL, "", null);
 
 	public static B3BuilderStatus error(String message, Throwable t) {
-		return new B3BuilderStatus(IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
-				IStatus.ERROR, message, t);
+		return new B3BuilderStatus(
+			IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(), IStatus.ERROR, message, t);
 	}
 
 	private BuildSet buildResult;

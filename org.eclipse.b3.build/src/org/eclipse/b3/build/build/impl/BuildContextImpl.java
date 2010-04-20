@@ -48,7 +48,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuildContextImpl extends BExecutionContextImpl implements BuildContext {
@@ -60,6 +60,7 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuildContextImpl() {
@@ -114,8 +115,8 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 			if(this.containsValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES))
 				this.getLValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES).set(firstFound);
 			else
-				this.defineValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, firstFound,
-						CompoundFirstFoundRepository.class);
+				this.defineValue(
+					B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, firstFound, CompoundFirstFoundRepository.class);
 		}
 		// Define all BUILD UNITS (currently only one - could easily have more than one)
 		for(BuildUnit u : beeModel.getBuildUnits())
@@ -168,16 +169,6 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 			defineFunction(b);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_CONTEXT;
-	}
-
 	public Map<Class<? extends BuildUnit>, BuildUnit> getBuildUnitStore() {
 		return Collections.unmodifiableMap(unitStore);
 	}
@@ -197,5 +188,16 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 				return u;
 		}
 		return null; // TODO: Should probably throw "NoSuchUnit" instead
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_CONTEXT;
 	}
 } // BuildContextImpl

@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.ResolutionInfoImpl#getStatus <em>Status</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.ResolutionInfoImpl#getStatus <em>Status</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
@@ -34,6 +34,7 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getStatus()
 	 * @generated
 	 * @ordered
@@ -44,6 +45,7 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getStatus()
 	 * @generated
 	 * @ordered
@@ -53,6 +55,7 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ResolutionInfoImpl() {
@@ -62,16 +65,71 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.RESOLUTION_INFO;
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case B3BuildPackage.RESOLUTION_INFO__STATUS:
+				return getStatus();
+		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.RESOLUTION_INFO__STATUS:
+				return STATUS_EDEFAULT == null
+						? status != null
+						: !STATUS_EDEFAULT.equals(status);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case B3BuildPackage.RESOLUTION_INFO__STATUS:
+				setStatus((IStatus) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.RESOLUTION_INFO__STATUS:
+				setStatus(STATUS_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IStatus getStatus() {
@@ -81,79 +139,21 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setStatus(IStatus newStatus) {
 		IStatus oldStatus = status;
 		status = newStatus;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.RESOLUTION_INFO__STATUS, oldStatus,
-					status));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.RESOLUTION_INFO__STATUS, oldStatus, status));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case B3BuildPackage.RESOLUTION_INFO__STATUS:
-			return getStatus();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case B3BuildPackage.RESOLUTION_INFO__STATUS:
-			setStatus((IStatus) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.RESOLUTION_INFO__STATUS:
-			setStatus(STATUS_EDEFAULT);
-			return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.RESOLUTION_INFO__STATUS:
-			return STATUS_EDEFAULT == null
-					? status != null
-					: !STATUS_EDEFAULT.equals(status);
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -168,4 +168,15 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 		return result.toString();
 	}
 
-} //ResolutionInfoImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.RESOLUTION_INFO;
+	}
+
+} // ResolutionInfoImpl

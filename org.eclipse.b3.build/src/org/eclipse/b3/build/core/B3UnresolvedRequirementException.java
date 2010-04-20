@@ -12,9 +12,10 @@ public class B3UnresolvedRequirementException extends B3EngineException {
 
 	public B3UnresolvedRequirementException(BuildUnit unit, IBuilder builder, RequiredCapability requiredCapability) {
 		super(NLS.bind(
-				"Unresolved requirement in {0}::{1}. Requirement on namespace={2}, name={3}, range={4} not resolved.",
-				new Object[] { unit.getName(), builder.getName(), requiredCapability.getNameSpace(),
-						requiredCapability.getName(), requiredCapability.getVersionRange() }));
+			"Unresolved requirement in {0}::{1}. Requirement on namespace={2}, name={3}, range={4} not resolved.",
+			new Object[] {
+					unit.getName(), builder.getName(), requiredCapability.getNameSpace(), requiredCapability.getName(),
+					requiredCapability.getVersionRange() }));
 	}
 
 }

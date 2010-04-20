@@ -29,6 +29,18 @@ public class B3BuildEngine extends B3Engine {
 		defineDefaultRepositories();
 	}
 
+	public BuildContext getBuildContext() {
+		return buildContext;
+	}
+
+	/**
+	 * Returns the build context parented by the invocation context.
+	 */
+	@Override
+	public BExecutionContext getContext() {
+		return buildContext;
+	}
+
 	/**
 	 * Define the value '@repositories' to refer to the default repositories configuration to use
 	 * when resolving requirements.
@@ -38,8 +50,8 @@ public class B3BuildEngine extends B3Engine {
 		EList<IBuildUnitRepository> repos = firstFound.getRepositories();
 		repos.add(B3BuildFactory.eINSTANCE.createExecutionStackRepository());
 		try {
-			buildContext.defineVariableValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, firstFound,
-					CompoundFirstFoundRepository.class);
+			buildContext.defineVariableValue(
+				B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, firstFound, CompoundFirstFoundRepository.class);
 		}
 		catch(B3EngineException e) {
 			throw new B3InternalError("Could not create default repositories configuration due to exception.", e);
@@ -53,7 +65,7 @@ public class B3BuildEngine extends B3Engine {
 	 */
 	private void defineRepositoryTypes() {
 		IConfigurationElement[] ceDecl = Platform.getExtensionRegistry().getConfigurationElementsFor(
-				B3BuildConstants.REPOSITORIES_EXT_ID);
+			B3BuildConstants.REPOSITORIES_EXT_ID);
 		for(int i = 0; i < ceDecl.length; i++) {
 			IConfigurationElement ce = ceDecl[i];
 			String repoClass = ce.getAttribute(B3BuildConstants.REPOSITORIES_EXTATTR_REPOCLASS);
@@ -72,17 +84,5 @@ public class B3BuildEngine extends B3Engine {
 				throw new B3InternalError("Defining repository schemes failed", e);
 			}
 		}
-	}
-
-	public BuildContext getBuildContext() {
-		return buildContext;
-	}
-
-	/**
-	 * Returns the build context parented by the invocation context.
-	 */
-	@Override
-	public BExecutionContext getContext() {
-		return buildContext;
 	}
 }

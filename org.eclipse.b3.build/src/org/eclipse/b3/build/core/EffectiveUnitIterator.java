@@ -12,28 +12,27 @@ import org.eclipse.b3.build.build.impl.BuildContextImpl;
 
 /**
  * Iterates over the effective "horizon" of build units (advised units have been supplanted).
- *
+ * 
  */
-public class EffectiveUnitIterator implements Iterator<BuildUnit>, Iterable<BuildUnit>{
+public class EffectiveUnitIterator implements Iterator<BuildUnit>, Iterable<BuildUnit> {
 
 	private Map<Class<? extends BuildUnit>, BuildUnit> unitStore = new HashMap<Class<? extends BuildUnit>, BuildUnit>();
+
 	private Iterator<BuildUnit> itor;
-	
+
 	public EffectiveUnitIterator(BExecutionContext ctx) {
 		ParentContextIterator pitor = new ParentContextIterator(ctx, BuildContext.class);
 		if(pitor.hasNext())
-			collectUnits((BuildContext)pitor.next(), pitor);
+			collectUnits((BuildContext) pitor.next(), pitor);
 		itor = unitStore.values().iterator();
 	}
-	
-	private void collectUnits(BuildContext ctx, Iterator<BExecutionContext> pitor) {
-		if(pitor.hasNext())
-			collectUnits((BuildContext)pitor.next(), pitor);
-		unitStore.putAll( ((BuildContextImpl)ctx).getBuildUnitStore());
-	}
-	
+
 	public boolean hasNext() {
 		return itor.hasNext();
+	}
+
+	public Iterator<BuildUnit> iterator() {
+		return itor;
 	}
 
 	public BuildUnit next() {
@@ -43,8 +42,11 @@ public class EffectiveUnitIterator implements Iterator<BuildUnit>, Iterable<Buil
 	public void remove() {
 		throw new UnsupportedOperationException();
 	}
-	public Iterator<BuildUnit> iterator() {
-		return itor;
+
+	private void collectUnits(BuildContext ctx, Iterator<BExecutionContext> pitor) {
+		if(pitor.hasNext())
+			collectUnits((BuildContext) pitor.next(), pitor);
+		unitStore.putAll(((BuildContextImpl) ctx).getBuildUnitStore());
 	}
 
 }

@@ -38,10 +38,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuilderInputImpl#getPrerequisites <em>Prerequisites</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderInputImpl#getPrerequisites <em>Prerequisites</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
@@ -49,6 +49,7 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	 * The cached value of the '{@link #getPrerequisites() <em>Prerequisites</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPrerequisites()
 	 * @generated
 	 * @ordered
@@ -58,6 +59,7 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuilderInputImpl() {
@@ -67,41 +69,86 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_INPUT;
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT__PREREQUISITES:
+				return getPrerequisites();
+		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public EList<Prerequisite> getPrerequisites() {
-		if(prerequisites == null) {
-			prerequisites = new EObjectContainmentEList<Prerequisite>(Prerequisite.class, this,
-					B3BuildPackage.BUILDER_INPUT__PREREQUISITES);
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT__PREREQUISITES:
+				return ((InternalEList<?>) getPrerequisites()).basicRemove(otherEnd, msgs);
 		}
-		return prerequisites;
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * 
+	 * @generated
 	 */
-	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
-		SerialIterator<EffectiveRequirementFacade> itor = new SerialIterator<EffectiveRequirementFacade>();
-		for(Prerequisite p : getPrerequisites())
-			itor.addIterator(p.getEffectiveRequirements(ctx));
-		return itor;
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT__PREREQUISITES:
+				return prerequisites != null && !prerequisites.isEmpty();
+		}
+		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT__PREREQUISITES:
+				getPrerequisites().clear();
+				getPrerequisites().addAll((Collection<? extends Prerequisite>) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT__PREREQUISITES:
+				getPrerequisites().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public EList<BuilderReference> getBuilderReferences() throws Throwable {
@@ -110,13 +157,14 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 			result.addAll(p.getBuilderReferences());
 
 		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<BuilderReference>(this,
-				B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
+		return new EcoreEList.UnmodifiableEList<BuilderReference>(
+			this, B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx)
@@ -130,75 +178,39 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
+	 * @generated NOT
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-		case B3BuildPackage.BUILDER_INPUT__PREREQUISITES:
-			return ((InternalEList<?>) getPrerequisites()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		SerialIterator<EffectiveRequirementFacade> itor = new SerialIterator<EffectiveRequirementFacade>();
+		for(Prerequisite p : getPrerequisites())
+			itor.addIterator(p.getEffectiveRequirements(ctx));
+		return itor;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case B3BuildPackage.BUILDER_INPUT__PREREQUISITES:
-			return getPrerequisites();
+	public EList<Prerequisite> getPrerequisites() {
+		if(prerequisites == null) {
+			prerequisites = new EObjectContainmentEList<Prerequisite>(
+				Prerequisite.class, this, B3BuildPackage.BUILDER_INPUT__PREREQUISITES);
 		}
-		return super.eGet(featureID, resolve, coreType);
+		return prerequisites;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case B3BuildPackage.BUILDER_INPUT__PREREQUISITES:
-			getPrerequisites().clear();
-			getPrerequisites().addAll((Collection<? extends Prerequisite>) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.BUILDER_INPUT__PREREQUISITES:
-			getPrerequisites().clear();
-			return;
-		}
-		super.eUnset(featureID);
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_INPUT;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.BUILDER_INPUT__PREREQUISITES:
-			return prerequisites != null && !prerequisites.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
-
-} //BuilderInputImpl
+} // BuilderInputImpl

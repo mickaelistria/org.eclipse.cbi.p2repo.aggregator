@@ -64,8 +64,9 @@ public class SimpleResolver {
 			}
 			catch(B3EngineException e) {
 				ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
-				ri.setStatus(new Status(Status.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
-						"Resolution failed with exception when defining a candidate unit", e));
+				ri.setStatus(new Status(
+					IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
+					"Resolution failed with exception when defining a candidate unit", e));
 				return ri.getStatus(); // give up on unit
 			}
 		}
@@ -77,8 +78,9 @@ public class SimpleResolver {
 		}
 		catch(Throwable e1) {
 			ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
-			ri.setStatus(new Status(Status.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
-					"Resolution failed with exception when getting effective unit", e1));
+			ri.setStatus(new Status(
+				IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
+				"Resolution failed with exception when getting effective unit", e1));
 			return ri.getStatus(); // give up on unit
 		}
 
@@ -106,13 +108,13 @@ public class SimpleResolver {
 			// get the effective repositories to use for resolution
 			try {
 				IBuildUnitRepository repos = IBuildUnitRepository.class.cast(ereq.getContext().getValue(
-						B3BuildConstants.B3ENGINE_VAR_REPOSITORIES));
+					B3BuildConstants.B3ENGINE_VAR_REPOSITORIES));
 				// note effective requirement has reference to the context to use
 				BuildUnit result = repos.resolve(ereq);
 				if(result == null) {
 					ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
-					ri.setStatus(new Status(Status.WARNING, B3BuildActivator.instance.getBundle().getSymbolicName(),
-							"Unresolved."));
+					ri.setStatus(new Status(
+						IStatus.WARNING, B3BuildActivator.instance.getBundle().getSymbolicName(), "Unresolved."));
 					reqAdapter.setAssociatedInfo(this, ri);
 				}
 				else {
@@ -127,8 +129,9 @@ public class SimpleResolver {
 			catch(Throwable e) {
 				// associate the error information with the requirement
 				ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
-				ri.setStatus(new Status(Status.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
-						"Resolution failed with exception", e));
+				ri.setStatus(new Status(
+					IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
+					"Resolution failed with exception", e));
 				reqAdapter.setAssociatedInfo(this, ri);
 				ms.add(ri.getStatus());
 			}

@@ -29,27 +29,18 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implements ExecutionStackRepository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ExecutionStackRepositoryImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.EXECUTION_STACK_REPOSITORY;
 	}
 
 	/*
@@ -72,5 +63,16 @@ public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implem
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.EXECUTION_STACK_REPOSITORY;
 	}
 } // ExecutionStackRepositoryImpl

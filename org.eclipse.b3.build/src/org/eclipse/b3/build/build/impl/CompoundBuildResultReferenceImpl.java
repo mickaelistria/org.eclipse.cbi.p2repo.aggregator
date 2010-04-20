@@ -38,10 +38,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.CompoundBuildResultReferenceImpl#getPrerequisites <em>Prerequisites</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.CompoundBuildResultReferenceImpl#getPrerequisites <em>Prerequisites</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl implements CompoundBuildResultReference {
@@ -49,6 +49,7 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	 * The cached value of the '{@link #getPrerequisites() <em>Prerequisites</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPrerequisites()
 	 * @generated
 	 * @ordered
@@ -58,6 +59,7 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CompoundBuildResultReferenceImpl() {
@@ -67,50 +69,14 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.COMPOUND_BUILD_RESULT_REFERENCE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Prerequisite> getPrerequisites() {
-		if(prerequisites == null) {
-			prerequisites = new EObjectContainmentEList<Prerequisite>(Prerequisite.class, this,
-					B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES);
-		}
-		return prerequisites;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-		case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES:
-			return ((InternalEList<?>) getPrerequisites()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES:
-			return getPrerequisites();
+			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES:
+				return getPrerequisites();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -118,16 +84,47 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES:
+				return ((InternalEList<?>) getPrerequisites()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES:
+				return prerequisites != null && !prerequisites.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES:
-			getPrerequisites().clear();
-			getPrerequisites().addAll((Collection<? extends Prerequisite>) newValue);
-			return;
+			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES:
+				getPrerequisites().clear();
+				getPrerequisites().addAll((Collection<? extends Prerequisite>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -135,14 +132,15 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES:
-			getPrerequisites().clear();
-			return;
+			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES:
+				getPrerequisites().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -150,15 +148,33 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
+	 * @generated NOT
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES:
-			return prerequisites != null && !prerequisites.isEmpty();
-		}
-		return super.eIsSet(featureID);
+	public EList<BuilderReference> getBuilderReferences() throws Throwable {
+		List<BuilderReference> result = new ArrayList<BuilderReference>();
+		for(Prerequisite p : getPrerequisites())
+			result.addAll(p.getBuilderReferences());
+
+		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+		return new EcoreEList.UnmodifiableEList<BuilderReference>(
+			this, B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx)
+			throws Throwable {
+		SerialIterator<EffectiveBuilderReferenceFacade> result = new SerialIterator<EffectiveBuilderReferenceFacade>();
+		for(Prerequisite p : getPrerequisites())
+			result.addIterator(p.getEffectiveBuilderReferences(ctx));
+		return result;
 	}
 
 	@Override
@@ -173,31 +189,26 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * 
+	 * @generated
 	 */
-	@Override
-	public EList<BuilderReference> getBuilderReferences() throws Throwable {
-		List<BuilderReference> result = new ArrayList<BuilderReference>();
-		for(Prerequisite p : getPrerequisites())
-			result.addAll(p.getBuilderReferences());
-
-		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<BuilderReference>(this,
-				B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
+	public EList<Prerequisite> getPrerequisites() {
+		if(prerequisites == null) {
+			prerequisites = new EObjectContainmentEList<Prerequisite>(
+				Prerequisite.class, this, B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES);
+		}
+		return prerequisites;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * 
+	 * @generated
 	 */
 	@Override
-	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx)
-			throws Throwable {
-		SerialIterator<EffectiveBuilderReferenceFacade> result = new SerialIterator<EffectiveBuilderReferenceFacade>();
-		for(Prerequisite p : getPrerequisites())
-			result.addIterator(p.getEffectiveBuilderReferences(ctx));
-		return result;
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.COMPOUND_BUILD_RESULT_REFERENCE;
 	}
 
-} //CompoundBuildResultReferenceImpl
+} // CompoundBuildResultReferenceImpl

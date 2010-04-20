@@ -30,11 +30,11 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getPaths <em>Paths</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getBasePath <em>Base Path</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getPaths <em>Paths</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getBasePath <em>Base Path</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class PathVectorImpl extends EObjectImpl implements PathVector {
@@ -42,6 +42,7 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * The cached value of the '{@link #getPaths() <em>Paths</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPaths()
 	 * @generated
 	 * @ordered
@@ -52,6 +53,7 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * The default value of the '{@link #getBasePath() <em>Base Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBasePath()
 	 * @generated
 	 * @ordered
@@ -62,6 +64,7 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * The cached value of the '{@link #getBasePath() <em>Base Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBasePath()
 	 * @generated
 	 * @ordered
@@ -71,6 +74,7 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected PathVectorImpl() {
@@ -80,15 +84,16 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.PATH_VECTOR__PATHS:
-			return getPaths();
-		case B3BuildPackage.PATH_VECTOR__BASE_PATH:
-			return getBasePath();
+			case B3BuildPackage.PATH_VECTOR__PATHS:
+				return getPaths();
+			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
+				return getBasePath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -96,17 +101,18 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.PATH_VECTOR__PATHS:
-			return paths != null && !paths.isEmpty();
-		case B3BuildPackage.PATH_VECTOR__BASE_PATH:
-			return BASE_PATH_EDEFAULT == null
-					? basePath != null
-					: !BASE_PATH_EDEFAULT.equals(basePath);
+			case B3BuildPackage.PATH_VECTOR__PATHS:
+				return paths != null && !paths.isEmpty();
+			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
+				return BASE_PATH_EDEFAULT == null
+						? basePath != null
+						: !BASE_PATH_EDEFAULT.equals(basePath);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -114,19 +120,20 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.PATH_VECTOR__PATHS:
-			getPaths().clear();
-			getPaths().addAll((Collection<? extends URI>) newValue);
-			return;
-		case B3BuildPackage.PATH_VECTOR__BASE_PATH:
-			setBasePath((URI) newValue);
-			return;
+			case B3BuildPackage.PATH_VECTOR__PATHS:
+				getPaths().clear();
+				getPaths().addAll((Collection<? extends URI>) newValue);
+				return;
+			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
+				setBasePath((URI) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -134,27 +141,18 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.PATH_VECTOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.PATH_VECTOR__PATHS:
-			getPaths().clear();
-			return;
-		case B3BuildPackage.PATH_VECTOR__BASE_PATH:
-			setBasePath(BASE_PATH_EDEFAULT);
-			return;
+			case B3BuildPackage.PATH_VECTOR__PATHS:
+				getPaths().clear();
+				return;
+			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
+				setBasePath(BASE_PATH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -162,6 +160,7 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public URI getBasePath() {
@@ -171,6 +170,7 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<URI> getPaths() {
@@ -210,19 +210,21 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setBasePath(URI newBasePath) {
 		URI oldBasePath = basePath;
 		basePath = newBasePath;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_VECTOR__BASE_PATH, oldBasePath,
-					basePath));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.PATH_VECTOR__BASE_PATH, oldBasePath, basePath));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -237,6 +239,17 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 		result.append(basePath);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.PATH_VECTOR;
 	}
 
 } // PathVectorImpl

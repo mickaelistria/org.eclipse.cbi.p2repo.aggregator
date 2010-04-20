@@ -22,10 +22,10 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class VersionedCapabilityImpl extends CapabilityImpl implements VersionedCapability {
@@ -33,6 +33,7 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -43,6 +44,7 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -52,6 +54,7 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected VersionedCapabilityImpl() {
@@ -61,13 +64,14 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
-			return getVersion();
+			case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -75,15 +79,16 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
-			return VERSION_EDEFAULT == null
-					? version != null
-					: !VERSION_EDEFAULT.equals(version);
+			case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -91,14 +96,15 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
-			setVersion((Version) newValue);
-			return;
+			case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
+				setVersion((Version) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -106,24 +112,15 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.VERSIONED_CAPABILITY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
+			case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -131,6 +128,7 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Version getVersion() {
@@ -155,19 +153,21 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setVersion(Version newVersion) {
 		Version oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.VERSIONED_CAPABILITY__VERSION,
-					oldVersion, version));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.VERSIONED_CAPABILITY__VERSION, oldVersion, version));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -180,5 +180,16 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 		result.append(version);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.VERSIONED_CAPABILITY;
 	}
 } // VersionedCapabilityImpl

@@ -11,7 +11,14 @@ import org.eclipse.b3.build.build.PathVector;
 
 public class EffectivePathVectorIterator implements Iterator<PathVector> {
 	private Iterator<PathVector> itor;
-	
+
+	public EffectivePathVectorIterator(BExecutionContext ctx, ConditionalPathVector cpv) throws Throwable {
+		if(cpv != null && (cpv.getCondExpr() == null || cpv.getCondExpr().evaluate(ctx) != Boolean.FALSE))
+			itor = cpv.getPathVectors().iterator();
+		else
+			itor = SingletonIterator.nullIterator(); // skip if condition is false
+	}
+
 	public EffectivePathVectorIterator(BExecutionContext ctx, PathGroup pathGroup) throws Throwable {
 		if(pathGroup == null) {
 			itor = SingletonIterator.nullIterator();
@@ -22,12 +29,7 @@ public class EffectivePathVectorIterator implements Iterator<PathVector> {
 			sitor.addIterator(new EffectivePathVectorIterator(ctx, cpv));
 		itor = sitor;
 	}
-	public EffectivePathVectorIterator(BExecutionContext ctx, ConditionalPathVector cpv) throws  Throwable {
-		if(cpv != null && (cpv.getCondExpr() == null || cpv.getCondExpr().evaluate(ctx) != Boolean.FALSE))
-			itor = cpv.getPathVectors().iterator();
-		else
-			itor = SingletonIterator.nullIterator(); // skip if condition is false
-	}
+
 	public boolean hasNext() {
 		return itor.hasNext();
 	}

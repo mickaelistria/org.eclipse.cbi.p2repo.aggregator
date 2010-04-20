@@ -28,10 +28,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl#getProvidedCapability <em>Provided Capability</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl#getProvidedCapability <em>Provided
+ * Capability</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implements EffectiveCapabilityFacade {
@@ -39,6 +40,7 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	 * The cached value of the '{@link #getProvidedCapability() <em>Provided Capability</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProvidedCapability()
 	 * @generated
 	 * @ordered
@@ -48,6 +50,7 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EffectiveCapabilityFacadeImpl() {
@@ -57,35 +60,7 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.EFFECTIVE_CAPABILITY_FACADE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Capability getProvidedCapability() {
-		if(providedCapability != null && providedCapability.eIsProxy()) {
-			InternalEObject oldProvidedCapability = (InternalEObject) providedCapability;
-			providedCapability = (Capability) eResolveProxy(oldProvidedCapability);
-			if(providedCapability != oldProvidedCapability) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY, oldProvidedCapability,
-							providedCapability));
-			}
-		}
-		return providedCapability;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Capability basicGetProvidedCapability() {
@@ -95,29 +70,16 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProvidedCapability(Capability newProvidedCapability) {
-		Capability oldProvidedCapability = providedCapability;
-		providedCapability = newProvidedCapability;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY, oldProvidedCapability,
-					providedCapability));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY:
-			if(resolve)
-				return getProvidedCapability();
-			return basicGetProvidedCapability();
+			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY:
+				if(resolve)
+					return getProvidedCapability();
+				return basicGetProvidedCapability();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -125,14 +87,30 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY:
+				return providedCapability != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY:
-			setProvidedCapability((Capability) newValue);
-			return;
+			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY:
+				setProvidedCapability((Capability) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -140,14 +118,15 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY:
-			setProvidedCapability((Capability) null);
-			return;
+			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY:
+				setProvidedCapability((Capability) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -155,15 +134,47 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Capability getProvidedCapability() {
+		if(providedCapability != null && providedCapability.eIsProxy()) {
+			InternalEObject oldProvidedCapability = (InternalEObject) providedCapability;
+			providedCapability = (Capability) eResolveProxy(oldProvidedCapability);
+			if(providedCapability != oldProvidedCapability) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY,
+						oldProvidedCapability, providedCapability));
+			}
+		}
+		return providedCapability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setProvidedCapability(Capability newProvidedCapability) {
+		Capability oldProvidedCapability = providedCapability;
+		providedCapability = newProvidedCapability;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY,
+				oldProvidedCapability, providedCapability));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY:
-			return providedCapability != null;
-		}
-		return super.eIsSet(featureID);
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.EFFECTIVE_CAPABILITY_FACADE;
 	}
 
-} //EffectiveCapabilityFacadeImpl
+} // EffectiveCapabilityFacadeImpl

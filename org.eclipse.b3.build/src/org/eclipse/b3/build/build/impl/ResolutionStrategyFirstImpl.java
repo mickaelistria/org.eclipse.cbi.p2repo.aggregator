@@ -23,27 +23,18 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class ResolutionStrategyFirstImpl extends ResolutionStrategyImpl implements ResolutionStrategyFirst {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ResolutionStrategyFirstImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.RESOLUTION_STRATEGY_FIRST;
 	}
 
 	/*
@@ -65,5 +56,16 @@ public class ResolutionStrategyFirstImpl extends ResolutionStrategyImpl implemen
 			repo.getRepositories().add((BuildUnitRepository) r);
 		}
 		return repo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.RESOLUTION_STRATEGY_FIRST;
 	}
 } // ResolutionStrategyFirstImpl

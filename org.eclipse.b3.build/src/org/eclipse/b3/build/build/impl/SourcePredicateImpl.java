@@ -24,27 +24,18 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class SourcePredicateImpl extends PathGroupPredicateImpl implements SourcePredicate {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SourcePredicateImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.SOURCE_PREDICATE;
 	}
 
 	/**
@@ -65,6 +56,17 @@ public class SourcePredicateImpl extends PathGroupPredicateImpl implements Sourc
 		PathGroup pg = b.getSource();
 		ctx.defineVariableValue("@test.pathgroup", pg, PathGroup.class);
 		return super.evaluate(ctx);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.SOURCE_PREDICATE;
 	}
 
 } // SourcePredicateImpl

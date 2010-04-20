@@ -179,6 +179,429 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetQuery(BExpression newQuery, NotificationChain msgs) {
+		BExpression oldQuery = query;
+		query = newQuery;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY, oldQuery, newQuery);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if(baseClass == IRequiredCapabilityContainer.class) {
+			switch(derivedFeatureID) {
+				case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
+					return B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES;
+				default:
+					return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if(baseClass == IRequiredCapabilityContainer.class) {
+			switch(baseFeatureID) {
+				case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES:
+					return B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES;
+				default:
+					return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
+				return getRequiredCapabilities();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
+				return getBuilderContexts();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
+				return getQuery();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS:
+				return getRequiresRemovals();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+				return getProvidesRemovals();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
+				return getSourceLocation();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
+				return getOutputLocation();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
+				return ((InternalEList<?>) getRequiredCapabilities()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
+				return ((InternalEList<?>) getBuilderContexts()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
+				return basicSetQuery(null, msgs);
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS:
+				return ((InternalEList<?>) getRequiresRemovals()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+				return ((InternalEList<?>) getProvidesRemovals()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
+				return requiredCapabilities != null && !requiredCapabilities.isEmpty();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
+				return builderContexts != null && !builderContexts.isEmpty();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
+				return query != null;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS:
+				return requiresRemovals != null && !requiresRemovals.isEmpty();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+				return providesRemovals != null && !providesRemovals.isEmpty();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
+				return SOURCE_LOCATION_EDEFAULT == null
+						? sourceLocation != null
+						: !SOURCE_LOCATION_EDEFAULT.equals(sourceLocation);
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
+				return OUTPUT_LOCATION_EDEFAULT == null
+						? outputLocation != null
+						: !OUTPUT_LOCATION_EDEFAULT.equals(outputLocation);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
+				getRequiredCapabilities().clear();
+				getRequiredCapabilities().addAll((Collection<? extends RequiredCapability>) newValue);
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
+				getBuilderContexts().clear();
+				getBuilderContexts().addAll((Collection<? extends BuilderConcernContext>) newValue);
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
+				setQuery((BExpression) newValue);
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS:
+				getRequiresRemovals().clear();
+				getRequiresRemovals().addAll((Collection<? extends RequiresPredicate>) newValue);
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+				getProvidesRemovals().clear();
+				getProvidesRemovals().addAll((Collection<? extends ProvidesPredicate>) newValue);
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
+				setSourceLocation((URI) newValue);
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
+				setOutputLocation((URI) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
+				getRequiredCapabilities().clear();
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
+				getBuilderContexts().clear();
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
+				setQuery((BExpression) null);
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS:
+				getRequiresRemovals().clear();
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+				getProvidesRemovals().clear();
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
+				setSourceLocation(SOURCE_LOCATION_EDEFAULT);
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
+				setOutputLocation(OUTPUT_LOCATION_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * Iterates over all BuildUnits visible in the current context, evaluates the predicates, and if matching,
+	 * the unit is woven.
+	 */
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		BExecutionContext ictx = ctx.createInnerContext();
+		ictx.defineVariableValue("@test", null, BuildUnit.class);
+		LValue lval = ictx.getLValue("@test");
+		for(BuildUnit u : new EffectiveUnitIterator(ctx)) {
+			lval.set(u);
+			weaveIfMatching(u, ictx);
+		}
+		return this;
+	}
+
+	/**
+	 * Weaves the build united passed as candidate if it matches the predicates.
+	 */
+	@Override
+	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
+		if(!(candidate instanceof BuildUnit))
+			return false;
+		BExecutionContext ictx = ctx.createInnerContext();
+		ictx.defineVariableValue("@test", null, BuildUnit.class);
+		return weaveIfMatching((BuildUnit) candidate, ictx);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<BuilderConcernContext> getBuilderContexts() {
+		if(builderContexts == null) {
+			builderContexts = new EObjectContainmentEList<BuilderConcernContext>(
+				BuilderConcernContext.class, this, B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS);
+		}
+		return builderContexts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Throws {@link UnsupportedOperationException} - call this method on advised units instead.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		// should throw unsupported - not meaningful to call.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public URI getOutputLocation() {
+		return outputLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<ProvidesPredicate> getProvidesRemovals() {
+		if(providesRemovals == null) {
+			providesRemovals = new EObjectContainmentEList<ProvidesPredicate>(
+				ProvidesPredicate.class, this, B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS);
+		}
+		return providesRemovals;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BExpression getQuery() {
+		return query;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<RequiredCapability> getRequiredCapabilities() {
+		if(requiredCapabilities == null) {
+			requiredCapabilities = new EObjectContainmentEList<RequiredCapability>(
+				RequiredCapability.class, this, B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES);
+		}
+		return requiredCapabilities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<RequiresPredicate> getRequiresRemovals() {
+		if(requiresRemovals == null) {
+			requiresRemovals = new EObjectContainmentEList<RequiresPredicate>(
+				RequiresPredicate.class, this, B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS);
+		}
+		return requiresRemovals;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public URI getSourceLocation() {
+		return sourceLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setOutputLocation(URI newOutputLocation) {
+		URI oldOutputLocation = outputLocation;
+		outputLocation = newOutputLocation;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION, oldOutputLocation,
+				outputLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setQuery(BExpression newQuery) {
+		if(newQuery != query) {
+			NotificationChain msgs = null;
+			if(query != null)
+				msgs = ((InternalEObject) query).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY, null, msgs);
+			if(newQuery != null)
+				msgs = ((InternalEObject) newQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY, null, msgs);
+			msgs = basicSetQuery(newQuery, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY, newQuery, newQuery));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setSourceLocation(URI newSourceLocation) {
+		URI oldSourceLocation = sourceLocation;
+		sourceLocation = newSourceLocation;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION, oldSourceLocation,
+				sourceLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if(eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (sourceLocation: ");
+		result.append(sourceLocation);
+		result.append(", outputLocation: ");
+		result.append(outputLocation);
+		result.append(')');
+		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.UNIT_CONCERN_CONTEXT;
+	}
+
+	/**
 	 * Surgically performs the modification of a unit (it should be passed a clone).
 	 * 
 	 * @param u
@@ -264,9 +687,9 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		if(getDefaultPropertiesRemovals().size() > 0 || getDefaultPropertiesAdditions() != null) {
 			BPropertySet ps = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
 			u.setDefaultProperties(ps);
-			modified = processProperties(ps, getDefaultPropertiesRemovals(), u.getDefaultProperties(),
-					getDefaultPropertiesAdditions())
-					|| modified;
+			modified = processProperties(
+				ps, getDefaultPropertiesRemovals(), u.getDefaultProperties(), getDefaultPropertiesAdditions()) ||
+					modified;
 		}
 		// TODO: Support advised source and output locations
 
@@ -295,427 +718,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			}
 		}
 		return modified;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NotificationChain basicSetQuery(BExpression newQuery, NotificationChain msgs) {
-		BExpression oldQuery = query;
-		query = newQuery;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY, oldQuery, newQuery);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == IRequiredCapabilityContainer.class) {
-			switch(derivedFeatureID) {
-			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
-				return B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES;
-			default:
-				return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == IRequiredCapabilityContainer.class) {
-			switch(baseFeatureID) {
-			case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES:
-				return B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES;
-			default:
-				return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
-			return getRequiredCapabilities();
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
-			return getBuilderContexts();
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
-			return getQuery();
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS:
-			return getRequiresRemovals();
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
-			return getProvidesRemovals();
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
-			return getSourceLocation();
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
-			return getOutputLocation();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
-			return ((InternalEList<?>) getRequiredCapabilities()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
-			return ((InternalEList<?>) getBuilderContexts()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
-			return basicSetQuery(null, msgs);
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS:
-			return ((InternalEList<?>) getRequiresRemovals()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
-			return ((InternalEList<?>) getProvidesRemovals()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
-			return requiredCapabilities != null && !requiredCapabilities.isEmpty();
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
-			return builderContexts != null && !builderContexts.isEmpty();
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
-			return query != null;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS:
-			return requiresRemovals != null && !requiresRemovals.isEmpty();
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
-			return providesRemovals != null && !providesRemovals.isEmpty();
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
-			return SOURCE_LOCATION_EDEFAULT == null
-					? sourceLocation != null
-					: !SOURCE_LOCATION_EDEFAULT.equals(sourceLocation);
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
-			return OUTPUT_LOCATION_EDEFAULT == null
-					? outputLocation != null
-					: !OUTPUT_LOCATION_EDEFAULT.equals(outputLocation);
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
-			getRequiredCapabilities().clear();
-			getRequiredCapabilities().addAll((Collection<? extends RequiredCapability>) newValue);
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
-			getBuilderContexts().clear();
-			getBuilderContexts().addAll((Collection<? extends BuilderConcernContext>) newValue);
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
-			setQuery((BExpression) newValue);
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS:
-			getRequiresRemovals().clear();
-			getRequiresRemovals().addAll((Collection<? extends RequiresPredicate>) newValue);
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
-			getProvidesRemovals().clear();
-			getProvidesRemovals().addAll((Collection<? extends ProvidesPredicate>) newValue);
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
-			setSourceLocation((URI) newValue);
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
-			setOutputLocation((URI) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.UNIT_CONCERN_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
-			getRequiredCapabilities().clear();
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
-			getBuilderContexts().clear();
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
-			setQuery((BExpression) null);
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS:
-			getRequiresRemovals().clear();
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
-			getProvidesRemovals().clear();
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION:
-			setSourceLocation(SOURCE_LOCATION_EDEFAULT);
-			return;
-		case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
-			setOutputLocation(OUTPUT_LOCATION_EDEFAULT);
-			return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * Iterates over all BuildUnits visible in the current context, evaluates the predicates, and if matching,
-	 * the unit is woven.
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		BExecutionContext ictx = ctx.createInnerContext();
-		ictx.defineVariableValue("@test", null, BuildUnit.class);
-		LValue lval = ictx.getLValue("@test");
-		for(BuildUnit u : new EffectiveUnitIterator(ctx)) {
-			lval.set(u);
-			weaveIfMatching(u, ictx);
-		}
-		return this;
-	}
-
-	/**
-	 * Weaves the build united passed as candidate if it matches the predicates.
-	 */
-	@Override
-	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
-		if(!(candidate instanceof BuildUnit))
-			return false;
-		BExecutionContext ictx = ctx.createInnerContext();
-		ictx.defineVariableValue("@test", null, BuildUnit.class);
-		return weaveIfMatching((BuildUnit) candidate, ictx);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<BuilderConcernContext> getBuilderContexts() {
-		if(builderContexts == null) {
-			builderContexts = new EObjectContainmentEList<BuilderConcernContext>(BuilderConcernContext.class, this,
-					B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS);
-		}
-		return builderContexts;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Throws {@link UnsupportedOperationException} - call this method on advised units instead.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
-		// should throw unsupported - not meaningful to call.
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public URI getOutputLocation() {
-		return outputLocation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<ProvidesPredicate> getProvidesRemovals() {
-		if(providesRemovals == null) {
-			providesRemovals = new EObjectContainmentEList<ProvidesPredicate>(ProvidesPredicate.class, this,
-					B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS);
-		}
-		return providesRemovals;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public BExpression getQuery() {
-		return query;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<RequiredCapability> getRequiredCapabilities() {
-		if(requiredCapabilities == null) {
-			requiredCapabilities = new EObjectContainmentEList<RequiredCapability>(RequiredCapability.class, this,
-					B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES);
-		}
-		return requiredCapabilities;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<RequiresPredicate> getRequiresRemovals() {
-		if(requiresRemovals == null) {
-			requiresRemovals = new EObjectContainmentEList<RequiresPredicate>(RequiresPredicate.class, this,
-					B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS);
-		}
-		return requiresRemovals;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public URI getSourceLocation() {
-		return sourceLocation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setOutputLocation(URI newOutputLocation) {
-		URI oldOutputLocation = outputLocation;
-		outputLocation = newOutputLocation;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION,
-					oldOutputLocation, outputLocation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setQuery(BExpression newQuery) {
-		if(newQuery != query) {
-			NotificationChain msgs = null;
-			if(query != null)
-				msgs = ((InternalEObject) query).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY, null, msgs);
-			if(newQuery != null)
-				msgs = ((InternalEObject) newQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY, null, msgs);
-			msgs = basicSetQuery(newQuery, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY, newQuery,
-					newQuery));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setSourceLocation(URI newSourceLocation) {
-		URI oldSourceLocation = sourceLocation;
-		sourceLocation = newSourceLocation;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.UNIT_CONCERN_CONTEXT__SOURCE_LOCATION,
-					oldSourceLocation, sourceLocation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if(eIsProxy())
-			return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (sourceLocation: ");
-		result.append(sourceLocation);
-		result.append(", outputLocation: ");
-		result.append(outputLocation);
-		result.append(')');
-		return result.toString();
 	}
 
 	private boolean weaveIfMatching(BuildUnit u, BExecutionContext ctx) throws Throwable {

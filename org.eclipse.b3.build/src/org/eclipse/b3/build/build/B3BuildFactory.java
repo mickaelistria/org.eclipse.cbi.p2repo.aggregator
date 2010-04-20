@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
+ * 
  * @see org.eclipse.b3.build.build.B3BuildPackage
  * @generated
  */
@@ -21,494 +22,549 @@ public interface B3BuildFactory extends EFactory {
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	B3BuildFactory eINSTANCE = org.eclipse.b3.build.build.impl.B3BuildFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Build Unit</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Build Unit</em>'.
-	 * @generated
-	 */
-	BuildUnit createBuildUnit();
-
-	/**
-	 * Returns a new object of class '<em>Builder</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Builder</em>'.
-	 * @generated
-	 */
-	Builder createBuilder();
-
-	/**
-	 * Returns a new object of class '<em>Builder Java</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Builder Java</em>'.
-	 * @generated
-	 */
-	BuilderJava createBuilderJava();
-
-	/**
-	 * Returns a new object of class '<em>Builder Wrapper</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Builder Wrapper</em>'.
-	 * @generated
-	 */
-	BuilderWrapper createBuilderWrapper();
-
-	/**
-	 * Returns a new object of class '<em>Bee Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bee Model</em>'.
-	 * @generated
-	 */
-	BeeModel createBeeModel();
-
-	/**
-	 * Returns a new object of class '<em>Bee Hive</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bee Hive</em>'.
-	 * @generated
-	 */
-	BeeHive createBeeHive();
-
-	/**
-	 * Returns a new object of class '<em>Resolution Info</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resolution Info</em>'.
-	 * @generated
-	 */
-	ResolutionInfo createResolutionInfo();
-
-	/**
-	 * Returns a new object of class '<em>Effective Facade</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Effective Facade</em>'.
-	 * @generated
-	 */
-	EffectiveFacade createEffectiveFacade();
-
-	/**
-	 * Returns a new object of class '<em>Effective Unit Facade</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Effective Unit Facade</em>'.
-	 * @generated
-	 */
-	EffectiveUnitFacade createEffectiveUnitFacade();
-
-	/**
-	 * Returns a new object of class '<em>Effective Requirement Facade</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Effective Requirement Facade</em>'.
-	 * @generated
-	 */
-	EffectiveRequirementFacade createEffectiveRequirementFacade();
-
-	/**
-	 * Returns a new object of class '<em>Effective Capability Facade</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Effective Capability Facade</em>'.
-	 * @generated
-	 */
-	EffectiveCapabilityFacade createEffectiveCapabilityFacade();
-
-	/**
-	 * Returns a new object of class '<em>Effective Builder Reference Facade</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Effective Builder Reference Facade</em>'.
-	 * @generated
-	 */
-	EffectiveBuilderReferenceFacade createEffectiveBuilderReferenceFacade();
-
-	/**
-	 * Returns a new object of class '<em>Build Set</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Build Set</em>'.
-	 * @generated
-	 */
-	BuildSet createBuildSet();
-
-	/**
-	 * Returns a new object of class '<em>Build Result Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Build Result Context</em>'.
-	 * @generated
-	 */
-	BuildResultContext createBuildResultContext();
-
-	/**
-	 * Returns a new object of class '<em>Output Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Output Predicate</em>'.
-	 * @generated
-	 */
-	OutputPredicate createOutputPredicate();
-
-	/**
-	 * Returns a new object of class '<em>Source Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Source Predicate</em>'.
-	 * @generated
-	 */
-	SourcePredicate createSourcePredicate();
-
-	/**
-	 * Returns a new object of class '<em>Compound First Found Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Compound First Found Repository</em>'.
-	 * @generated
-	 */
-	CompoundFirstFoundRepository createCompoundFirstFoundRepository();
-
-	/**
-	 * Returns a new object of class '<em>Compound Best Found Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Compound Best Found Repository</em>'.
-	 * @generated
-	 */
-	CompoundBestFoundRepository createCompoundBestFoundRepository();
-
-	/**
-	 * Returns a new object of class '<em>Execution Stack Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Execution Stack Repository</em>'.
-	 * @generated
-	 */
-	ExecutionStackRepository createExecutionStackRepository();
-
-	/**
-	 * Returns a new object of class '<em>Simple Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Simple Repository</em>'.
-	 * @generated
-	 */
-	SimpleRepository createSimpleRepository();
-
-	/**
-	 * Returns a new object of class '<em>Unit Resolution Info</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unit Resolution Info</em>'.
-	 * @generated
-	 */
-	UnitResolutionInfo createUnitResolutionInfo();
-
-	/**
-	 * Returns a new object of class '<em>Resolution Strategy Switch</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resolution Strategy Switch</em>'.
-	 * @generated
-	 */
-	ResolutionStrategySwitch createResolutionStrategySwitch();
-
-	/**
-	 * Returns a new object of class '<em>Switch Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Switch Repository</em>'.
-	 * @generated
-	 */
-	SwitchRepository createSwitchRepository();
-
-	/**
-	 * Returns a new object of class '<em>Versioned Capability</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Versioned Capability</em>'.
-	 * @generated
-	 */
-	VersionedCapability createVersionedCapability();
-
-	/**
-	 * Returns a new object of class '<em>Capability</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Capability</em>'.
-	 * @generated
-	 */
-	Capability createCapability();
-
-	/**
-	 * Returns a new object of class '<em>Required Capability</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Required Capability</em>'.
-	 * @generated
-	 */
-	RequiredCapability createRequiredCapability();
-
-	/**
-	 * Returns a new object of class '<em>Conditional Path Vector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Conditional Path Vector</em>'.
-	 * @generated
-	 */
-	ConditionalPathVector createConditionalPathVector();
-
-	/**
-	 * Returns a new object of class '<em>Path Vector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Path Vector</em>'.
-	 * @generated
-	 */
-	PathVector createPathVector();
-
-	/**
-	 * Returns a new object of class '<em>Synchronization</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Synchronization</em>'.
-	 * @generated
-	 */
-	Synchronization createSynchronization();
-
-	/**
-	 * Returns a new object of class '<em>Repository Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Repository Declaration</em>'.
-	 * @generated
-	 */
-	RepositoryDeclaration createRepositoryDeclaration();
-
-	/**
-	 * Returns a new object of class '<em>Resolution Strategy First</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resolution Strategy First</em>'.
-	 * @generated
-	 */
-	ResolutionStrategyFirst createResolutionStrategyFirst();
-
-	/**
-	 * Returns a new object of class '<em>Resolution Strategy Best</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resolution Strategy Best</em>'.
-	 * @generated
-	 */
-	ResolutionStrategyBest createResolutionStrategyBest();
-
-	/**
-	 * Returns a new object of class '<em>Container Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Container Configuration</em>'.
-	 * @generated
-	 */
-	ContainerConfiguration createContainerConfiguration();
-
-	/**
-	 * Returns a new object of class '<em>Build Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Build Context</em>'.
-	 * @generated
-	 */
-	BuildContext createBuildContext();
-
-	/**
-	 * Returns a new object of class '<em>Build Concern Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Build Concern Context</em>'.
-	 * @generated
-	 */
-	BuildConcernContext createBuildConcernContext();
-
-	/**
-	 * Returns a new object of class '<em>Requires Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Requires Predicate</em>'.
-	 * @generated
-	 */
-	RequiresPredicate createRequiresPredicate();
-
-	/**
-	 * Returns a new object of class '<em>Capability Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Capability Predicate</em>'.
-	 * @generated
-	 */
-	CapabilityPredicate createCapabilityPredicate();
-
-	/**
-	 * Returns a new object of class '<em>Implements Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Implements Predicate</em>'.
-	 * @generated
-	 */
-	ImplementsPredicate createImplementsPredicate();
-
-	/**
-	 * Returns a new object of class '<em>Provides Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provides Predicate</em>'.
-	 * @generated
-	 */
-	ProvidesPredicate createProvidesPredicate();
-
-	/**
-	 * Returns a new object of class '<em>Name Space Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Name Space Predicate</em>'.
-	 * @generated
-	 */
-	NameSpacePredicate createNameSpacePredicate();
-
-	/**
-	 * Returns a new object of class '<em>Unit Name Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unit Name Predicate</em>'.
-	 * @generated
-	 */
-	UnitNamePredicate createUnitNamePredicate();
-
-	/**
-	 * Returns a new object of class '<em>Builder Name Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Builder Name Predicate</em>'.
-	 * @generated
-	 */
-	BuilderNamePredicate createBuilderNamePredicate();
-
-	/**
-	 * Returns a new object of class '<em>Input Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Input Predicate</em>'.
-	 * @generated
-	 */
-	InputPredicate createInputPredicate();
-
-	/**
-	 * Returns a new object of class '<em>Unit Concern Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unit Concern Context</em>'.
-	 * @generated
-	 */
-	UnitConcernContext createUnitConcernContext();
-
-	/**
-	 * Returns a new object of class '<em>Builder Concern Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Builder Concern Context</em>'.
-	 * @generated
-	 */
-	BuilderConcernContext createBuilderConcernContext();
-
-	/**
-	 * Returns a new object of class '<em>Path Group Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Path Group Predicate</em>'.
-	 * @generated
-	 */
-	PathGroupPredicate createPathGroupPredicate();
-
-	/**
 	 * Returns a new object of class '<em>Aliased Required Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Aliased Required Capability</em>'.
 	 * @generated
 	 */
 	AliasedRequiredCapability createAliasedRequiredCapability();
 
 	/**
-	 * Returns a new object of class '<em>Builder Query</em>'.
+	 * Returns a new object of class '<em>Bee Hive</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Builder Query</em>'.
+	 * 
+	 * @return a new object of class '<em>Bee Hive</em>'.
 	 * @generated
 	 */
-	BuilderQuery createBuilderQuery();
+	BeeHive createBeeHive();
+
+	/**
+	 * Returns a new object of class '<em>Bee Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Bee Model</em>'.
+	 * @generated
+	 */
+	BeeModel createBeeModel();
+
+	/**
+	 * Returns a new object of class '<em>Build Concern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Build Concern Context</em>'.
+	 * @generated
+	 */
+	BuildConcernContext createBuildConcernContext();
+
+	/**
+	 * Returns a new object of class '<em>Build Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Build Context</em>'.
+	 * @generated
+	 */
+	BuildContext createBuildContext();
+
+	/**
+	 * Returns a new object of class '<em>Builder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Builder</em>'.
+	 * @generated
+	 */
+	Builder createBuilder();
+
+	/**
+	 * Returns a new object of class '<em>Builder Concern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Builder Concern Context</em>'.
+	 * @generated
+	 */
+	BuilderConcernContext createBuilderConcernContext();
 
 	/**
 	 * Returns a new object of class '<em>Builder Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Builder Input</em>'.
 	 * @generated
 	 */
 	BuilderInput createBuilderInput();
 
 	/**
-	 * Returns a new object of class '<em>Path Group</em>'.
+	 * Returns a new object of class '<em>Builder Java</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Path Group</em>'.
+	 * 
+	 * @return a new object of class '<em>Builder Java</em>'.
 	 * @generated
 	 */
-	PathGroup createPathGroup();
+	BuilderJava createBuilderJava();
 
 	/**
-	 * Returns a new object of class '<em>Prerequisite</em>'.
+	 * Returns a new object of class '<em>Builder Name Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Prerequisite</em>'.
+	 * 
+	 * @return a new object of class '<em>Builder Name Predicate</em>'.
 	 * @generated
 	 */
-	Prerequisite createPrerequisite();
+	BuilderNamePredicate createBuilderNamePredicate();
 
 	/**
-	 * Returns a new object of class '<em>Compound Build Result Reference</em>'.
+	 * Returns a new object of class '<em>Builder Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Compound Build Result Reference</em>'.
+	 * 
+	 * @return a new object of class '<em>Builder Query</em>'.
 	 * @generated
 	 */
-	CompoundBuildResultReference createCompoundBuildResultReference();
+	BuilderQuery createBuilderQuery();
 
 	/**
 	 * Returns a new object of class '<em>Builder Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Builder Reference</em>'.
 	 * @generated
 	 */
 	BuilderReference createBuilderReference();
 
 	/**
+	 * Returns a new object of class '<em>Builder Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Builder Wrapper</em>'.
+	 * @generated
+	 */
+	BuilderWrapper createBuilderWrapper();
+
+	/**
+	 * Returns a new object of class '<em>Build Result Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Build Result Context</em>'.
+	 * @generated
+	 */
+	BuildResultContext createBuildResultContext();
+
+	/**
+	 * Returns a new object of class '<em>Build Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Build Set</em>'.
+	 * @generated
+	 */
+	BuildSet createBuildSet();
+
+	/**
+	 * Returns a new object of class '<em>Build Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Build Unit</em>'.
+	 * @generated
+	 */
+	BuildUnit createBuildUnit();
+
+	/**
+	 * Returns a new object of class '<em>Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Capability</em>'.
+	 * @generated
+	 */
+	Capability createCapability();
+
+	/**
+	 * Returns a new object of class '<em>Capability Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Capability Predicate</em>'.
+	 * @generated
+	 */
+	CapabilityPredicate createCapabilityPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Compound Best Found Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Compound Best Found Repository</em>'.
+	 * @generated
+	 */
+	CompoundBestFoundRepository createCompoundBestFoundRepository();
+
+	/**
+	 * Returns a new object of class '<em>Compound Build Result Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Compound Build Result Reference</em>'.
+	 * @generated
+	 */
+	CompoundBuildResultReference createCompoundBuildResultReference();
+
+	/**
+	 * Returns a new object of class '<em>Compound First Found Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Compound First Found Repository</em>'.
+	 * @generated
+	 */
+	CompoundFirstFoundRepository createCompoundFirstFoundRepository();
+
+	/**
+	 * Returns a new object of class '<em>Conditional Path Vector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Conditional Path Vector</em>'.
+	 * @generated
+	 */
+	ConditionalPathVector createConditionalPathVector();
+
+	/**
+	 * Returns a new object of class '<em>Container Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Container Configuration</em>'.
+	 * @generated
+	 */
+	ContainerConfiguration createContainerConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Effective Builder Reference Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Effective Builder Reference Facade</em>'.
+	 * @generated
+	 */
+	EffectiveBuilderReferenceFacade createEffectiveBuilderReferenceFacade();
+
+	/**
+	 * Returns a new object of class '<em>Effective Capability Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Effective Capability Facade</em>'.
+	 * @generated
+	 */
+	EffectiveCapabilityFacade createEffectiveCapabilityFacade();
+
+	/**
+	 * Returns a new object of class '<em>Effective Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Effective Facade</em>'.
+	 * @generated
+	 */
+	EffectiveFacade createEffectiveFacade();
+
+	/**
+	 * Returns a new object of class '<em>Effective Requirement Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Effective Requirement Facade</em>'.
+	 * @generated
+	 */
+	EffectiveRequirementFacade createEffectiveRequirementFacade();
+
+	/**
+	 * Returns a new object of class '<em>Effective Unit Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Effective Unit Facade</em>'.
+	 * @generated
+	 */
+	EffectiveUnitFacade createEffectiveUnitFacade();
+
+	/**
+	 * Returns a new object of class '<em>Execution Stack Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Execution Stack Repository</em>'.
+	 * @generated
+	 */
+	ExecutionStackRepository createExecutionStackRepository();
+
+	/**
+	 * Returns a new object of class '<em>Implements Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Implements Predicate</em>'.
+	 * @generated
+	 */
+	ImplementsPredicate createImplementsPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Input Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Input Predicate</em>'.
+	 * @generated
+	 */
+	InputPredicate createInputPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Name Space Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Name Space Predicate</em>'.
+	 * @generated
+	 */
+	NameSpacePredicate createNameSpacePredicate();
+
+	/**
+	 * Returns a new object of class '<em>Output Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Output Predicate</em>'.
+	 * @generated
+	 */
+	OutputPredicate createOutputPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Path Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Path Group</em>'.
+	 * @generated
+	 */
+	PathGroup createPathGroup();
+
+	/**
+	 * Returns a new object of class '<em>Path Group Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Path Group Predicate</em>'.
+	 * @generated
+	 */
+	PathGroupPredicate createPathGroupPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Path Vector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Path Vector</em>'.
+	 * @generated
+	 */
+	PathVector createPathVector();
+
+	/**
+	 * Returns a new object of class '<em>Prerequisite</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Prerequisite</em>'.
+	 * @generated
+	 */
+	Prerequisite createPrerequisite();
+
+	/**
+	 * Returns a new object of class '<em>Provides Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Provides Predicate</em>'.
+	 * @generated
+	 */
+	ProvidesPredicate createProvidesPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Repository Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Repository Declaration</em>'.
+	 * @generated
+	 */
+	RepositoryDeclaration createRepositoryDeclaration();
+
+	/**
+	 * Returns a new object of class '<em>Required Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Required Capability</em>'.
+	 * @generated
+	 */
+	RequiredCapability createRequiredCapability();
+
+	/**
+	 * Returns a new object of class '<em>Requires Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Requires Predicate</em>'.
+	 * @generated
+	 */
+	RequiresPredicate createRequiresPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Resolution Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Resolution Info</em>'.
+	 * @generated
+	 */
+	ResolutionInfo createResolutionInfo();
+
+	/**
+	 * Returns a new object of class '<em>Resolution Strategy Best</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Resolution Strategy Best</em>'.
+	 * @generated
+	 */
+	ResolutionStrategyBest createResolutionStrategyBest();
+
+	/**
+	 * Returns a new object of class '<em>Resolution Strategy First</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Resolution Strategy First</em>'.
+	 * @generated
+	 */
+	ResolutionStrategyFirst createResolutionStrategyFirst();
+
+	/**
+	 * Returns a new object of class '<em>Resolution Strategy Switch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Resolution Strategy Switch</em>'.
+	 * @generated
+	 */
+	ResolutionStrategySwitch createResolutionStrategySwitch();
+
+	/**
+	 * Returns a new object of class '<em>Simple Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Simple Repository</em>'.
+	 * @generated
+	 */
+	SimpleRepository createSimpleRepository();
+
+	/**
+	 * Returns a new object of class '<em>Source Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Source Predicate</em>'.
+	 * @generated
+	 */
+	SourcePredicate createSourcePredicate();
+
+	/**
+	 * Returns a new object of class '<em>Switch Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Switch Repository</em>'.
+	 * @generated
+	 */
+	SwitchRepository createSwitchRepository();
+
+	/**
+	 * Returns a new object of class '<em>Synchronization</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Synchronization</em>'.
+	 * @generated
+	 */
+	Synchronization createSynchronization();
+
+	/**
+	 * Returns a new object of class '<em>Unit Concern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Unit Concern Context</em>'.
+	 * @generated
+	 */
+	UnitConcernContext createUnitConcernContext();
+
+	/**
+	 * Returns a new object of class '<em>Unit Name Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Unit Name Predicate</em>'.
+	 * @generated
+	 */
+	UnitNamePredicate createUnitNamePredicate();
+
+	/**
+	 * Returns a new object of class '<em>Unit Resolution Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Unit Resolution Info</em>'.
+	 * @generated
+	 */
+	UnitResolutionInfo createUnitResolutionInfo();
+
+	/**
+	 * Returns a new object of class '<em>Versioned Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Versioned Capability</em>'.
+	 * @generated
+	 */
+	VersionedCapability createVersionedCapability();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
 	B3BuildPackage getB3BuildPackage();
 
-} //B3BuildFactory
+} // B3BuildFactory

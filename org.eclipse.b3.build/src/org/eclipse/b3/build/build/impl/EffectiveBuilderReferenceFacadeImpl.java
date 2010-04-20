@@ -31,11 +31,12 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl#getBuilderReference <em>Builder Reference</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl#getAliases <em>Aliases</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl#getBuilderReference <em>Builder
+ * Reference</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl#getAliases <em>Aliases</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl implements EffectiveBuilderReferenceFacade {
@@ -43,6 +44,7 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	 * The cached value of the '{@link #getBuilderReference() <em>Builder Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBuilderReference()
 	 * @generated
 	 * @ordered
@@ -53,6 +55,7 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	 * The cached value of the '{@link #getAliases() <em>Aliases</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAliases()
 	 * @generated
 	 * @ordered
@@ -62,6 +65,7 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EffectiveBuilderReferenceFacadeImpl() {
@@ -71,35 +75,7 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.EFFECTIVE_BUILDER_REFERENCE_FACADE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BuilderReference getBuilderReference() {
-		if(builderReference != null && builderReference.eIsProxy()) {
-			InternalEObject oldBuilderReference = (InternalEObject) builderReference;
-			builderReference = (BuilderReference) eResolveProxy(oldBuilderReference);
-			if(builderReference != oldBuilderReference) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE, oldBuilderReference,
-							builderReference));
-			}
-		}
-		return builderReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BuilderReference basicGetBuilderReference() {
@@ -109,44 +85,18 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBuilderReference(BuilderReference newBuilderReference) {
-		BuilderReference oldBuilderReference = builderReference;
-		builderReference = newBuilderReference;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE, oldBuilderReference,
-					builderReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<String> getAliases() {
-		if(aliases == null) {
-			aliases = new EDataTypeUniqueEList<String>(String.class, this,
-					B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES);
-		}
-		return aliases;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE:
-			if(resolve)
-				return getBuilderReference();
-			return basicGetBuilderReference();
-		case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES:
-			return getAliases();
+			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE:
+				if(resolve)
+					return getBuilderReference();
+				return basicGetBuilderReference();
+			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES:
+				return getAliases();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -154,53 +104,16 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE:
-			setBuilderReference((BuilderReference) newValue);
-			return;
-		case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES:
-			getAliases().clear();
-			getAliases().addAll((Collection<? extends String>) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE:
-			setBuilderReference((BuilderReference) null);
-			return;
-		case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES:
-			getAliases().clear();
-			return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE:
-			return builderReference != null;
-		case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES:
-			return aliases != null && !aliases.isEmpty();
+			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE:
+				return builderReference != null;
+			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES:
+				return aliases != null && !aliases.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -208,6 +121,97 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE:
+				setBuilderReference((BuilderReference) newValue);
+				return;
+			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES:
+				getAliases().clear();
+				getAliases().addAll((Collection<? extends String>) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE:
+				setBuilderReference((BuilderReference) null);
+				return;
+			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES:
+				getAliases().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<String> getAliases() {
+		if(aliases == null) {
+			aliases = new EDataTypeUniqueEList<String>(
+				String.class, this, B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES);
+		}
+		return aliases;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BuilderReference getBuilderReference() {
+		if(builderReference != null && builderReference.eIsProxy()) {
+			InternalEObject oldBuilderReference = (InternalEObject) builderReference;
+			builderReference = (BuilderReference) eResolveProxy(oldBuilderReference);
+			if(builderReference != oldBuilderReference) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE,
+						B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE, oldBuilderReference,
+						builderReference));
+			}
+		}
+		return builderReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setBuilderReference(BuilderReference newBuilderReference) {
+		BuilderReference oldBuilderReference = builderReference;
+		builderReference = newBuilderReference;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE,
+				oldBuilderReference, builderReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -222,4 +226,15 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 		return result.toString();
 	}
 
-} //EffectiveBuilderReferenceFacadeImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.EFFECTIVE_BUILDER_REFERENCE_FACADE;
+	}
+
+} // EffectiveBuilderReferenceFacadeImpl

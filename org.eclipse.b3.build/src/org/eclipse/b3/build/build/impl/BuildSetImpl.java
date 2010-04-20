@@ -18,7 +18,6 @@ import org.eclipse.b3.backend.core.B3FinalVariableRedefinitionException;
 import org.eclipse.b3.backend.core.B3NoSuchVariableException;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.core.ValueMap;
-import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildSet;
 import org.eclipse.b3.build.build.PathVector;
@@ -37,12 +36,12 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildSetImpl#getPathVectors <em>Path Vectors</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildSetImpl#getValueMap <em>Value Map</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildSetImpl#getPathIterator <em>Path Iterator</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildSetImpl#getPathVectors <em>Path Vectors</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildSetImpl#getValueMap <em>Value Map</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildSetImpl#getPathIterator <em>Path Iterator</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuildSetImpl extends EObjectImpl implements BuildSet {
@@ -82,6 +81,7 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	 * The cached value of the '{@link #getPathVectors() <em>Path Vectors</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPathVectors()
 	 * @generated
 	 * @ordered
@@ -92,6 +92,7 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	 * The default value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValueMap()
 	 * @generated
 	 * @ordered
@@ -102,6 +103,7 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	 * The cached value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValueMap()
 	 * @generated
 	 * @ordered
@@ -122,6 +124,7 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuildSetImpl() {
@@ -203,17 +206,18 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_SET__PATH_VECTORS:
-			return getPathVectors();
-		case B3BuildPackage.BUILD_SET__VALUE_MAP:
-			return getValueMap();
-		case B3BuildPackage.BUILD_SET__PATH_ITERATOR:
-			return getPathIterator();
+			case B3BuildPackage.BUILD_SET__PATH_VECTORS:
+				return getPathVectors();
+			case B3BuildPackage.BUILD_SET__VALUE_MAP:
+				return getValueMap();
+			case B3BuildPackage.BUILD_SET__PATH_ITERATOR:
+				return getPathIterator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -221,21 +225,22 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_SET__PATH_VECTORS:
-			return pathVectors != null && !pathVectors.isEmpty();
-		case B3BuildPackage.BUILD_SET__VALUE_MAP:
-			return VALUE_MAP_EDEFAULT == null
-					? valueMap != null
-					: !VALUE_MAP_EDEFAULT.equals(valueMap);
-		case B3BuildPackage.BUILD_SET__PATH_ITERATOR:
-			return PATH_ITERATOR_EDEFAULT == null
-					? getPathIterator() != null
-					: !PATH_ITERATOR_EDEFAULT.equals(getPathIterator());
+			case B3BuildPackage.BUILD_SET__PATH_VECTORS:
+				return pathVectors != null && !pathVectors.isEmpty();
+			case B3BuildPackage.BUILD_SET__VALUE_MAP:
+				return VALUE_MAP_EDEFAULT == null
+						? valueMap != null
+						: !VALUE_MAP_EDEFAULT.equals(valueMap);
+			case B3BuildPackage.BUILD_SET__PATH_ITERATOR:
+				return PATH_ITERATOR_EDEFAULT == null
+						? getPathIterator() != null
+						: !PATH_ITERATOR_EDEFAULT.equals(getPathIterator());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -243,19 +248,20 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_SET__PATH_VECTORS:
-			getPathVectors().clear();
-			getPathVectors().addAll((Collection<? extends PathVector>) newValue);
-			return;
-		case B3BuildPackage.BUILD_SET__VALUE_MAP:
-			setValueMap((ValueMap) newValue);
-			return;
+			case B3BuildPackage.BUILD_SET__PATH_VECTORS:
+				getPathVectors().clear();
+				getPathVectors().addAll((Collection<? extends PathVector>) newValue);
+				return;
+			case B3BuildPackage.BUILD_SET__VALUE_MAP:
+				setValueMap((ValueMap) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -263,27 +269,18 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_SET;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_SET__PATH_VECTORS:
-			getPathVectors().clear();
-			return;
-		case B3BuildPackage.BUILD_SET__VALUE_MAP:
-			setValueMap(VALUE_MAP_EDEFAULT);
-			return;
+			case B3BuildPackage.BUILD_SET__PATH_VECTORS:
+				getPathVectors().clear();
+				return;
+			case B3BuildPackage.BUILD_SET__VALUE_MAP:
+				setValueMap(VALUE_MAP_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -324,12 +321,13 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<PathVector> getPathVectors() {
 		if(pathVectors == null) {
-			pathVectors = new EObjectResolvingEList<PathVector>(PathVector.class, this,
-					B3BuildPackage.BUILD_SET__PATH_VECTORS);
+			pathVectors = new EObjectResolvingEList<PathVector>(
+				PathVector.class, this, B3BuildPackage.BUILD_SET__PATH_VECTORS);
 		}
 		return pathVectors;
 	}
@@ -400,14 +398,15 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setValueMap(ValueMap newValueMap) {
 		ValueMap oldValueMap = valueMap;
 		valueMap = newValueMap;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_SET__VALUE_MAP, oldValueMap,
-					valueMap));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILD_SET__VALUE_MAP, oldValueMap, valueMap));
 	}
 
 	/**
@@ -430,5 +429,16 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 		result.append(getPathVectors());
 		result.append(")");
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_SET;
 	}
 } // BuildResultImpl

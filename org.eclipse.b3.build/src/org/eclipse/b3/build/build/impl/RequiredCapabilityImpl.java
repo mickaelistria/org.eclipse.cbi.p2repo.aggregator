@@ -24,13 +24,13 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getVersionRange <em>Version Range</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#isGreedy <em>Greedy</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getMax <em>Max</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getMin <em>Min</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getVersionRange <em>Version Range</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#isGreedy <em>Greedy</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getMax <em>Max</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getMin <em>Min</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCapability {
@@ -38,6 +38,7 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The default value of the '{@link #getVersionRange() <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVersionRange()
 	 * @generated
 	 * @ordered
@@ -48,6 +49,7 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The cached value of the '{@link #getVersionRange() <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVersionRange()
 	 * @generated
 	 * @ordered
@@ -58,6 +60,7 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The default value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -68,6 +71,7 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The cached value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -78,6 +82,7 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -88,6 +93,7 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -98,6 +104,7 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -108,6 +115,7 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -117,6 +125,7 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RequiredCapabilityImpl() {
@@ -126,60 +135,101 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.REQUIRED_CAPABILITY;
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
+				return getVersionRange();
+			case B3BuildPackage.REQUIRED_CAPABILITY__GREEDY:
+				return isGreedy();
+			case B3BuildPackage.REQUIRED_CAPABILITY__MAX:
+				return getMax();
+			case B3BuildPackage.REQUIRED_CAPABILITY__MIN:
+				return getMin();
+		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public VersionRange getVersionRange() {
-		return versionRange;
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
+				return VERSION_RANGE_EDEFAULT == null
+						? versionRange != null
+						: !VERSION_RANGE_EDEFAULT.equals(versionRange);
+			case B3BuildPackage.REQUIRED_CAPABILITY__GREEDY:
+				return greedy != GREEDY_EDEFAULT;
+			case B3BuildPackage.REQUIRED_CAPABILITY__MAX:
+				return max != MAX_EDEFAULT;
+			case B3BuildPackage.REQUIRED_CAPABILITY__MIN:
+				return min != MIN_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setVersionRange(VersionRange newVersionRange) {
-		VersionRange oldVersionRange = versionRange;
-		versionRange = newVersionRange;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE,
-					oldVersionRange, versionRange));
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
+				setVersionRange((VersionRange) newValue);
+				return;
+			case B3BuildPackage.REQUIRED_CAPABILITY__GREEDY:
+				setGreedy((Boolean) newValue);
+				return;
+			case B3BuildPackage.REQUIRED_CAPABILITY__MAX:
+				setMax((Integer) newValue);
+				return;
+			case B3BuildPackage.REQUIRED_CAPABILITY__MIN:
+				setMin((Integer) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public boolean isGreedy() {
-		return greedy;
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
+				setVersionRange(VERSION_RANGE_EDEFAULT);
+				return;
+			case B3BuildPackage.REQUIRED_CAPABILITY__GREEDY:
+				setGreedy(GREEDY_EDEFAULT);
+				return;
+			case B3BuildPackage.REQUIRED_CAPABILITY__MAX:
+				setMax(MAX_EDEFAULT);
+				return;
+			case B3BuildPackage.REQUIRED_CAPABILITY__MIN:
+				setMin(MIN_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGreedy(boolean newGreedy) {
-		boolean oldGreedy = greedy;
-		greedy = newGreedy;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REQUIRED_CAPABILITY__GREEDY,
-					oldGreedy, greedy));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public int getMax() {
@@ -189,6 +239,51 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public int getMin() {
+		return min;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public VersionRange getVersionRange() {
+		return versionRange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean isGreedy() {
+		return greedy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setGreedy(boolean newGreedy) {
+		boolean oldGreedy = greedy;
+		greedy = newGreedy;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REQUIRED_CAPABILITY__GREEDY, oldGreedy, greedy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMax(int newMax) {
@@ -201,15 +296,7 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getMin() {
-		return min;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMin(int newMin) {
@@ -222,96 +309,22 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
-			return getVersionRange();
-		case B3BuildPackage.REQUIRED_CAPABILITY__GREEDY:
-			return isGreedy();
-		case B3BuildPackage.REQUIRED_CAPABILITY__MAX:
-			return getMax();
-		case B3BuildPackage.REQUIRED_CAPABILITY__MIN:
-			return getMin();
-		}
-		return super.eGet(featureID, resolve, coreType);
+	public void setVersionRange(VersionRange newVersionRange) {
+		VersionRange oldVersionRange = versionRange;
+		versionRange = newVersionRange;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE, oldVersionRange,
+				versionRange));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
-			setVersionRange((VersionRange) newValue);
-			return;
-		case B3BuildPackage.REQUIRED_CAPABILITY__GREEDY:
-			setGreedy((Boolean) newValue);
-			return;
-		case B3BuildPackage.REQUIRED_CAPABILITY__MAX:
-			setMax((Integer) newValue);
-			return;
-		case B3BuildPackage.REQUIRED_CAPABILITY__MIN:
-			setMin((Integer) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
-			setVersionRange(VERSION_RANGE_EDEFAULT);
-			return;
-		case B3BuildPackage.REQUIRED_CAPABILITY__GREEDY:
-			setGreedy(GREEDY_EDEFAULT);
-			return;
-		case B3BuildPackage.REQUIRED_CAPABILITY__MAX:
-			setMax(MAX_EDEFAULT);
-			return;
-		case B3BuildPackage.REQUIRED_CAPABILITY__MIN:
-			setMin(MIN_EDEFAULT);
-			return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
-			return VERSION_RANGE_EDEFAULT == null
-					? versionRange != null
-					: !VERSION_RANGE_EDEFAULT.equals(versionRange);
-		case B3BuildPackage.REQUIRED_CAPABILITY__GREEDY:
-			return greedy != GREEDY_EDEFAULT;
-		case B3BuildPackage.REQUIRED_CAPABILITY__MAX:
-			return max != MAX_EDEFAULT;
-		case B3BuildPackage.REQUIRED_CAPABILITY__MIN:
-			return min != MIN_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -332,4 +345,15 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 		return result.toString();
 	}
 
-} //RequiredCapabilityImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.REQUIRED_CAPABILITY;
+	}
+
+} // RequiredCapabilityImpl

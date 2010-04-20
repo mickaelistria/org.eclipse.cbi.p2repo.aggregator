@@ -23,27 +23,18 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class ResolutionStrategyBestImpl extends ResolutionStrategyImpl implements ResolutionStrategyBest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ResolutionStrategyBestImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.RESOLUTION_STRATEGY_BEST;
 	}
 
 	/*
@@ -65,6 +56,17 @@ public class ResolutionStrategyBestImpl extends ResolutionStrategyImpl implement
 			repo.getRepositories().add((BuildUnitRepository) r);
 		}
 		return repo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.RESOLUTION_STRATEGY_BEST;
 	}
 
 } // ResolutionStrategyBestImpl

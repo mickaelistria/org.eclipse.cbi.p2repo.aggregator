@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Build Unit Repository</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnitRepository()
  * @model abstract="true" superTypes="org.eclipse.b3.build.build.IBuildUnitRepository"
  * @generated
@@ -29,6 +29,7 @@ public interface BuildUnitRepository extends EObject, IBuildUnitRepository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -38,10 +39,12 @@ public interface BuildUnitRepository extends EObject, IBuildUnitRepository {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that matches the requirement, or null if no such unit can be found.
+	 * Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that
+	 * matches the requirement, or null if no such unit can be found.
 	 * This method is the same as calling resolve(effective.getContext(), effective.getRequirement().
 	 * 
 	 * <!-- end-model-doc -->
+	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */

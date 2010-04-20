@@ -22,10 +22,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl#getAlias <em>Alias</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl#getAlias <em>Alias</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implements AliasedRequiredCapability {
@@ -33,6 +33,7 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	 * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAlias()
 	 * @generated
 	 * @ordered
@@ -43,6 +44,7 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAlias()
 	 * @generated
 	 * @ordered
@@ -52,6 +54,7 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AliasedRequiredCapabilityImpl() {
@@ -61,16 +64,71 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.ALIASED_REQUIRED_CAPABILITY;
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
+				return getAlias();
+		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
+				return ALIAS_EDEFAULT == null
+						? alias != null
+						: !ALIAS_EDEFAULT.equals(alias);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
+				setAlias((String) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
+				setAlias(ALIAS_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getAlias() {
@@ -80,79 +138,21 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setAlias(String newAlias) {
 		String oldAlias = alias;
 		alias = newAlias;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS,
-					oldAlias, alias));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS, oldAlias, alias));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
-			return getAlias();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
-			setAlias((String) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
-			setAlias(ALIAS_EDEFAULT);
-			return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
-			return ALIAS_EDEFAULT == null
-					? alias != null
-					: !ALIAS_EDEFAULT.equals(alias);
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -167,4 +167,15 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 		return result.toString();
 	}
 
-} //AliasedRequiredCapabilityImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.ALIASED_REQUIRED_CAPABILITY;
+	}
+
+} // AliasedRequiredCapabilityImpl

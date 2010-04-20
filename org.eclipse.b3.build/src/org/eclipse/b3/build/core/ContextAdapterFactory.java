@@ -6,25 +6,30 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 public class ContextAdapterFactory extends AdapterFactoryImpl {
 	public static ContextAdapterFactory eINSTANCE = new ContextAdapterFactory();
-	@Override
-	protected Adapter createAdapter(Notifier target, Object type) {
-		return new ContextAdapter();
+
+	public ContextAdapter adapt(Notifier target) {
+		return adapt(target, ContextAdapter.class);
 	}
-	@Override
-	public boolean isFactoryForType(Object type) {
-		return type == ContextAdapter.class;
-	}
+
 	/**
 	 * Type safe variant of adapt
+	 * 
 	 * @param <T>
 	 * @param target
 	 * @param type
 	 * @return
 	 */
-	public <T> T adapt(Notifier target,  Class<T> type) {
+	public <T> T adapt(Notifier target, Class<T> type) {
 		return type.cast(super.adapt(target, type));
 	}
-	public ContextAdapter adapt(Notifier target) {
-		return adapt(target, ContextAdapter.class);
+
+	@Override
+	public boolean isFactoryForType(Object type) {
+		return type == ContextAdapter.class;
+	}
+
+	@Override
+	protected Adapter createAdapter(Notifier target, Object type) {
+		return new ContextAdapter();
 	}
 }

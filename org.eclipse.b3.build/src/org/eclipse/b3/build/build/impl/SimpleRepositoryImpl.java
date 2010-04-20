@@ -34,10 +34,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.SimpleRepositoryImpl#getBeeModels <em>Bee Models</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.SimpleRepositoryImpl#getBeeModels <em>Bee Models</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements SimpleRepository {
@@ -45,6 +45,7 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	 * The cached value of the '{@link #getBeeModels() <em>Bee Models</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBeeModels()
 	 * @generated
 	 * @ordered
@@ -54,6 +55,7 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SimpleRepositoryImpl() {
@@ -63,13 +65,14 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
-			return getBeeModels();
+			case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
+				return getBeeModels();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -77,13 +80,14 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
-			return beeModels != null && !beeModels.isEmpty();
+			case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
+				return beeModels != null && !beeModels.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -91,16 +95,17 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
-			getBeeModels().clear();
-			getBeeModels().addAll((Collection<? extends BeeModel>) newValue);
-			return;
+			case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
+				getBeeModels().clear();
+				getBeeModels().addAll((Collection<? extends BeeModel>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -108,24 +113,15 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.SIMPLE_REPOSITORY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
-			getBeeModels().clear();
-			return;
+			case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
+				getBeeModels().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -133,12 +129,13 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BeeModel> getBeeModels() {
 		if(beeModels == null) {
-			beeModels = new EObjectResolvingEList<BeeModel>(BeeModel.class, this,
-					B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS);
+			beeModels = new EObjectResolvingEList<BeeModel>(
+				BeeModel.class, this, B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS);
 		}
 		return beeModels;
 	}
@@ -176,6 +173,17 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.SIMPLE_REPOSITORY;
 	}
 
 } // SimpleRepositoryImpl

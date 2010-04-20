@@ -10,8 +10,9 @@ public class B3WrongBuilderReturnType extends B3EngineException {
 	private static final long serialVersionUID = 1L;
 
 	public B3WrongBuilderReturnType(String builder, Type used) {
-			super(NLS.bind("A Builder must evaluate to an instance of BuilderResult. Result of {0} has type {1}",
-					new Object[]{builder, used}));
-		}
+		super(NLS.bind(
+			"A Builder must evaluate to an instance of BuilderResult. Result of {0} has type {1}", new Object[] {
+					builder, used }));
+	}
 
 }

@@ -8,8 +8,7 @@ public class B3NoResolutionScopeException extends B3EngineException {
 	private static final long serialVersionUID = 1L;
 
 	public B3NoResolutionScopeException() {
-			super(NLS.bind("No resolution scope found",
-					new Object[]{}));
-		}
+		super(NLS.bind("No resolution scope found", new Object[] {}));
+	}
 
 }

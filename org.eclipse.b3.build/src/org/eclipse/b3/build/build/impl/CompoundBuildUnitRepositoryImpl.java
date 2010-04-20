@@ -13,7 +13,6 @@ package org.eclipse.b3.build.build.impl;
 import java.util.Collection;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
-import org.eclipse.b3.build.build.BuildUnitRepository;
 import org.eclipse.b3.build.build.CompoundBuildUnitRepository;
 
 import org.eclipse.b3.build.core.IBuildUnitRepository;
@@ -30,10 +29,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.CompoundBuildUnitRepositoryImpl#getRepositories <em>Repositories</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.CompoundBuildUnitRepositoryImpl#getRepositories <em>Repositories</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositoryImpl implements
@@ -42,6 +41,7 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRepositories()
 	 * @generated
 	 * @ordered
@@ -51,6 +51,7 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CompoundBuildUnitRepositoryImpl() {
@@ -60,36 +61,14 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.COMPOUND_BUILD_UNIT_REPOSITORY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<IBuildUnitRepository> getRepositories() {
-		if(repositories == null) {
-			repositories = new EObjectResolvingEList<IBuildUnitRepository>(IBuildUnitRepository.class, this,
-					B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES);
-		}
-		return repositories;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES:
-			return getRepositories();
+			case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES:
+				return getRepositories();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -97,16 +76,32 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES:
+				return repositories != null && !repositories.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES:
-			getRepositories().clear();
-			getRepositories().addAll((Collection<? extends IBuildUnitRepository>) newValue);
-			return;
+			case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES:
+				getRepositories().clear();
+				getRepositories().addAll((Collection<? extends IBuildUnitRepository>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -114,14 +109,15 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES:
-			getRepositories().clear();
-			return;
+			case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES:
+				getRepositories().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -129,15 +125,26 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<IBuildUnitRepository> getRepositories() {
+		if(repositories == null) {
+			repositories = new EObjectResolvingEList<IBuildUnitRepository>(
+				IBuildUnitRepository.class, this, B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES);
+		}
+		return repositories;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES:
-			return repositories != null && !repositories.isEmpty();
-		}
-		return super.eIsSet(featureID);
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.COMPOUND_BUILD_UNIT_REPOSITORY;
 	}
 
-} //CompoundBuildUnitRepositoryImpl
+} // CompoundBuildUnitRepositoryImpl

@@ -34,11 +34,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl#isMeta <em>Meta</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl#getCapabilityPredicate <em>Capability Predicate
+ * </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl#isMeta <em>Meta</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPredicate {
@@ -46,6 +47,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	 * The cached value of the '{@link #getCapabilityPredicate() <em>Capability Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCapabilityPredicate()
 	 * @generated
 	 * @ordered
@@ -56,6 +58,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	 * The default value of the '{@link #isMeta() <em>Meta</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isMeta()
 	 * @generated
 	 * @ordered
@@ -66,6 +69,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	 * The cached value of the '{@link #isMeta() <em>Meta</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isMeta()
 	 * @generated
 	 * @ordered
@@ -75,6 +79,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RequiresPredicateImpl() {
@@ -84,25 +89,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.REQUIRES_PREDICATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CapabilityPredicate getCapabilityPredicate() {
-		return capabilityPredicate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCapabilityPredicate(CapabilityPredicate newCapabilityPredicate,
@@ -110,9 +97,9 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 		CapabilityPredicate oldCapabilityPredicate = capabilityPredicate;
 		capabilityPredicate = newCapabilityPredicate;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE, oldCapabilityPredicate,
-					newCapabilityPredicate);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE,
+				oldCapabilityPredicate, newCapabilityPredicate);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -124,86 +111,16 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCapabilityPredicate(CapabilityPredicate newCapabilityPredicate) {
-		if(newCapabilityPredicate != capabilityPredicate) {
-			NotificationChain msgs = null;
-			if(capabilityPredicate != null)
-				msgs = ((InternalEObject) capabilityPredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
-			if(newCapabilityPredicate != null)
-				msgs = ((InternalEObject) newCapabilityPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
-			msgs = basicSetCapabilityPredicate(newCapabilityPredicate, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE, newCapabilityPredicate,
-					newCapabilityPredicate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isMeta() {
-		return meta;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMeta(boolean newMeta) {
-		boolean oldMeta = meta;
-		meta = newMeta;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REQUIRES_PREDICATE__META, oldMeta,
-					meta));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Matches the required capability - note that it is the caller's responsibility to check if the predicate
-	 * is for a meta requirement or not.
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean matches(RequiredCapability candidate) {
-		return capabilityPredicate.matches(candidate);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-		case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
-			return basicSetCapabilityPredicate(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
-			return getCapabilityPredicate();
-		case B3BuildPackage.REQUIRES_PREDICATE__META:
-			return isMeta();
+			case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
+				return getCapabilityPredicate();
+			case B3BuildPackage.REQUIRES_PREDICATE__META:
+				return isMeta();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,51 +128,31 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
-			setCapabilityPredicate((CapabilityPredicate) newValue);
-			return;
-		case B3BuildPackage.REQUIRES_PREDICATE__META:
-			setMeta((Boolean) newValue);
-			return;
+			case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
+				return basicSetCapabilityPredicate(null, msgs);
 		}
-		super.eSet(featureID, newValue);
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
-			setCapabilityPredicate((CapabilityPredicate) null);
-			return;
-		case B3BuildPackage.REQUIRES_PREDICATE__META:
-			setMeta(META_EDEFAULT);
-			return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
-			return capabilityPredicate != null;
-		case B3BuildPackage.REQUIRES_PREDICATE__META:
-			return meta != META_EDEFAULT;
+			case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
+				return capabilityPredicate != null;
+			case B3BuildPackage.REQUIRES_PREDICATE__META:
+				return meta != META_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -263,18 +160,39 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
+				setCapabilityPredicate((CapabilityPredicate) newValue);
+				return;
+			case B3BuildPackage.REQUIRES_PREDICATE__META:
+				setMeta((Boolean) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (meta: ");
-		result.append(meta);
-		result.append(')');
-		return result.toString();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
+				setCapabilityPredicate((CapabilityPredicate) null);
+				return;
+			case B3BuildPackage.REQUIRES_PREDICATE__META:
+				setMeta(META_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -299,10 +217,110 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public CapabilityPredicate getCapabilityPredicate() {
+		return capabilityPredicate;
+	}
+
+	/**
 	 * Always returns Boolean.
 	 */
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		return Boolean.class;
 	}
-} //RequiresPredicateImpl
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean isMeta() {
+		return meta;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Matches the required capability - note that it is the caller's responsibility to check if the predicate
+	 * is for a meta requirement or not.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean matches(RequiredCapability candidate) {
+		return capabilityPredicate.matches(candidate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setCapabilityPredicate(CapabilityPredicate newCapabilityPredicate) {
+		if(newCapabilityPredicate != capabilityPredicate) {
+			NotificationChain msgs = null;
+			if(capabilityPredicate != null)
+				msgs = ((InternalEObject) capabilityPredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
+			if(newCapabilityPredicate != null)
+				msgs = ((InternalEObject) newCapabilityPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
+			msgs = basicSetCapabilityPredicate(newCapabilityPredicate, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE,
+				newCapabilityPredicate, newCapabilityPredicate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setMeta(boolean newMeta) {
+		boolean oldMeta = meta;
+		meta = newMeta;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REQUIRES_PREDICATE__META, oldMeta, meta));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if(eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (meta: ");
+		result.append(meta);
+		result.append(')');
+		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.REQUIRES_PREDICATE;
+	}
+} // RequiresPredicateImpl

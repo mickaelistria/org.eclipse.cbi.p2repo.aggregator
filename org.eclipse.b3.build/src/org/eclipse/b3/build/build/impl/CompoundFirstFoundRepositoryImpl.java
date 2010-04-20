@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositoryImpl implements
@@ -32,20 +32,11 @@ public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CompoundFirstFoundRepositoryImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.COMPOUND_FIRST_FOUND_REPOSITORY;
 	}
 
 	/*
@@ -61,6 +52,17 @@ public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositor
 			if((result = repo.resolve(ctx, requiredCapability)) != null)
 				return result;
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.COMPOUND_FIRST_FOUND_REPOSITORY;
 	}
 
 } // CompoundFirstFoundRepositoryImpl

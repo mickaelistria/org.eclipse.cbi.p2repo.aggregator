@@ -30,11 +30,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl#getUnit <em>Unit</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl#getContext <em>Context</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl#getUnit <em>Unit</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitResolutionInfo {
@@ -42,6 +42,7 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUnit()
 	 * @generated
 	 * @ordered
@@ -52,6 +53,7 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getContext()
 	 * @generated
 	 * @ordered
@@ -61,6 +63,7 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected UnitResolutionInfoImpl() {
@@ -70,74 +73,7 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.UNIT_RESOLUTION_INFO;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BuildUnit getUnit() {
-		if(unit != null && unit.eIsProxy()) {
-			InternalEObject oldUnit = (InternalEObject) unit;
-			unit = (BuildUnit) eResolveProxy(oldUnit);
-			if(unit != oldUnit) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT, oldUnit, unit));
-			}
-		}
-		return unit;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BuildUnit basicGetUnit() {
-		return unit;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUnit(BuildUnit newUnit) {
-		BuildUnit oldUnit = unit;
-		unit = newUnit;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT, oldUnit,
-					unit));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BExecutionContext getContext() {
-		if(context != null && context.eIsProxy()) {
-			InternalEObject oldContext = (InternalEObject) context;
-			context = (BExecutionContext) eResolveProxy(oldContext);
-			if(context != oldContext) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT, oldContext, context));
-			}
-		}
-		return context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExecutionContext basicGetContext() {
@@ -147,32 +83,30 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setContext(BExecutionContext newContext) {
-		BExecutionContext oldContext = context;
-		context = newContext;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT,
-					oldContext, context));
+	public BuildUnit basicGetUnit() {
+		return unit;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT:
-			if(resolve)
-				return getUnit();
-			return basicGetUnit();
-		case B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT:
-			if(resolve)
-				return getContext();
-			return basicGetContext();
+			case B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT:
+				if(resolve)
+					return getUnit();
+				return basicGetUnit();
+			case B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT:
+				if(resolve)
+					return getContext();
+				return basicGetContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,17 +114,35 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT:
+				return unit != null;
+			case B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT:
+				return context != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT:
-			setUnit((BuildUnit) newValue);
-			return;
-		case B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT:
-			setContext((BExecutionContext) newValue);
-			return;
+			case B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT:
+				setUnit((BuildUnit) newValue);
+				return;
+			case B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT:
+				setContext((BExecutionContext) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -198,17 +150,18 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT:
-			setUnit((BuildUnit) null);
-			return;
-		case B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT:
-			setContext((BExecutionContext) null);
-			return;
+			case B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT:
+				setUnit((BuildUnit) null);
+				return;
+			case B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT:
+				setContext((BExecutionContext) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -216,17 +169,78 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BExecutionContext getContext() {
+		if(context != null && context.eIsProxy()) {
+			InternalEObject oldContext = (InternalEObject) context;
+			context = (BExecutionContext) eResolveProxy(oldContext);
+			if(context != oldContext) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT, oldContext, context));
+			}
+		}
+		return context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BuildUnit getUnit() {
+		if(unit != null && unit.eIsProxy()) {
+			InternalEObject oldUnit = (InternalEObject) unit;
+			unit = (BuildUnit) eResolveProxy(oldUnit);
+			if(unit != oldUnit) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT, oldUnit, unit));
+			}
+		}
+		return unit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setContext(BExecutionContext newContext) {
+		BExecutionContext oldContext = context;
+		context = newContext;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT, oldContext, context));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setUnit(BuildUnit newUnit) {
+		BuildUnit oldUnit = unit;
+		unit = newUnit;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT, oldUnit, unit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT:
-			return unit != null;
-		case B3BuildPackage.UNIT_RESOLUTION_INFO__CONTEXT:
-			return context != null;
-		}
-		return super.eIsSet(featureID);
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.UNIT_RESOLUTION_INFO;
 	}
 
-} //UnitResolutionInfoImpl
+} // UnitResolutionInfoImpl

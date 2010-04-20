@@ -27,11 +27,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl#getCondExpr <em>Cond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl#getCondExpr <em>Cond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class RepositoryConfigurationImpl extends BExpressionImpl implements RepositoryConfiguration {
@@ -39,6 +39,7 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	 * The cached value of the '{@link #getCondExpr() <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCondExpr()
 	 * @generated
 	 * @ordered
@@ -49,6 +50,7 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -59,6 +61,7 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -68,6 +71,7 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RepositoryConfigurationImpl() {
@@ -77,14 +81,15 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCondExpr(BExpression newCondExpr, NotificationChain msgs) {
 		BExpression oldCondExpr = condExpr;
 		condExpr = newCondExpr;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR, oldCondExpr, newCondExpr);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR, oldCondExpr, newCondExpr);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -96,15 +101,16 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
-			return getCondExpr();
-		case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
-			return getDocumentation();
+			case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
+				return getCondExpr();
+			case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
+				return getDocumentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,13 +118,14 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
-			return basicSetCondExpr(null, msgs);
+			case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
+				return basicSetCondExpr(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -126,17 +133,18 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
-			return condExpr != null;
-		case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
-			return DOCUMENTATION_EDEFAULT == null
-					? documentation != null
-					: !DOCUMENTATION_EDEFAULT.equals(documentation);
+			case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
+				return condExpr != null;
+			case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
+				return DOCUMENTATION_EDEFAULT == null
+						? documentation != null
+						: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -144,34 +152,18 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if(eIsProxy())
-			return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (documentation: ");
-		result.append(documentation);
-		result.append(')');
-		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
-			setCondExpr((BExpression) newValue);
-			return;
-		case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
-			setDocumentation((String) newValue);
-			return;
+			case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
+				setCondExpr((BExpression) newValue);
+				return;
+			case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
+				setDocumentation((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -179,27 +171,18 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.REPOSITORY_CONFIGURATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
-			setCondExpr((BExpression) null);
-			return;
-		case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
-			setDocumentation(DOCUMENTATION_EDEFAULT);
-			return;
+			case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
+				setCondExpr((BExpression) null);
+				return;
+			case B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION:
+				setDocumentation(DOCUMENTATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -218,6 +201,7 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getCondExpr() {
@@ -239,29 +223,7 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCondExpr(BExpression newCondExpr) {
-		if(newCondExpr != condExpr) {
-			NotificationChain msgs = null;
-			if(condExpr != null)
-				msgs = ((InternalEObject) condExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR, null, msgs);
-			if(newCondExpr != null)
-				msgs = ((InternalEObject) newCondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR, null, msgs);
-			msgs = basicSetCondExpr(newCondExpr, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR,
-					newCondExpr, newCondExpr));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getDocumentation() {
@@ -271,13 +233,68 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setCondExpr(BExpression newCondExpr) {
+		if(newCondExpr != condExpr) {
+			NotificationChain msgs = null;
+			if(condExpr != null)
+				msgs = ((InternalEObject) condExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR, null, msgs);
+			if(newCondExpr != null)
+				msgs = ((InternalEObject) newCondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR, null, msgs);
+			msgs = basicSetCondExpr(newCondExpr, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR, newCondExpr, newCondExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDocumentation(String newDocumentation) {
 		String oldDocumentation = documentation;
 		documentation = newDocumentation;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION, oldDocumentation, documentation));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REPOSITORY_CONFIGURATION__DOCUMENTATION, oldDocumentation,
+				documentation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if(eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (documentation: ");
+		result.append(documentation);
+		result.append(')');
+		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.REPOSITORY_CONFIGURATION;
 	}
 } // RepositoryConfigurationImpl

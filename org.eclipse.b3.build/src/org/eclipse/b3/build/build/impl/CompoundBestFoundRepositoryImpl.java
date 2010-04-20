@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class CompoundBestFoundRepositoryImpl extends CompoundBuildUnitRepositoryImpl implements
@@ -32,20 +32,11 @@ public class CompoundBestFoundRepositoryImpl extends CompoundBuildUnitRepository
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CompoundBestFoundRepositoryImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.COMPOUND_BEST_FOUND_REPOSITORY;
 	}
 
 	/**
@@ -60,6 +51,17 @@ public class CompoundBestFoundRepositoryImpl extends CompoundBuildUnitRepository
 			if((result = repo.resolve(ctx, requiredCapability)) != null)
 				return result;
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.COMPOUND_BEST_FOUND_REPOSITORY;
 	}
 
 } // CompoundBestFoundRepositoryImpl

@@ -25,27 +25,18 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class BuildUnitRepositoryImpl extends EObjectImpl implements BuildUnitRepository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuildUnitRepositoryImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_UNIT_REPOSITORY;
 	}
 
 	/**
@@ -66,6 +57,17 @@ public abstract class BuildUnitRepositoryImpl extends EObjectImpl implements Bui
 	 */
 	public BuildUnit resolve(EffectiveRequirementFacade effectiveRequirement) throws Throwable {
 		return resolve(effectiveRequirement.getContext(), effectiveRequirement.getRequirement());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_UNIT_REPOSITORY;
 	}
 
 } // BuildUnitRepositoryImpl

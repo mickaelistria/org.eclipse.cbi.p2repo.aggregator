@@ -30,10 +30,10 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.EffectiveFacadeImpl#getContext <em>Context</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.EffectiveFacadeImpl#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade {
@@ -41,6 +41,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getContext()
 	 * @generated
 	 * @ordered
@@ -50,6 +51,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EffectiveFacadeImpl() {
@@ -59,34 +61,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.EFFECTIVE_FACADE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BExecutionContext getContext() {
-		if(context != null && context.eIsProxy()) {
-			InternalEObject oldContext = (InternalEObject) context;
-			context = (BExecutionContext) eResolveProxy(oldContext);
-			if(context != oldContext) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3BuildPackage.EFFECTIVE_FACADE__CONTEXT,
-							oldContext, context));
-			}
-		}
-		return context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExecutionContext basicGetContext() {
@@ -96,28 +71,16 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setContext(BExecutionContext newContext) {
-		BExecutionContext oldContext = context;
-		context = newContext;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.EFFECTIVE_FACADE__CONTEXT, oldContext,
-					context));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
-			if(resolve)
-				return getContext();
-			return basicGetContext();
+			case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
+				if(resolve)
+					return getContext();
+				return basicGetContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -125,14 +88,30 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
+				return context != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
-			setContext((BExecutionContext) newValue);
-			return;
+			case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
+				setContext((BExecutionContext) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -140,14 +119,15 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
-			setContext((BExecutionContext) null);
-			return;
+			case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
+				setContext((BExecutionContext) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -155,15 +135,45 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BExecutionContext getContext() {
+		if(context != null && context.eIsProxy()) {
+			InternalEObject oldContext = (InternalEObject) context;
+			context = (BExecutionContext) eResolveProxy(oldContext);
+			if(context != oldContext) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3BuildPackage.EFFECTIVE_FACADE__CONTEXT, oldContext, context));
+			}
+		}
+		return context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setContext(BExecutionContext newContext) {
+		BExecutionContext oldContext = context;
+		context = newContext;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.EFFECTIVE_FACADE__CONTEXT, oldContext, context));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
-			return context != null;
-		}
-		return super.eIsSet(featureID);
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.EFFECTIVE_FACADE;
 	}
 
-} //EffectiveFacadeImpl
+} // EffectiveFacadeImpl

@@ -59,25 +59,26 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getFunctions <em>Functions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getBuilders <em>Builders</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getDocumentation <em>Documentation</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getExecutionMode <em>Execution Mode</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getImplements <em>Implements</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getConcerns <em>Concerns</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getDefaultProperties <em>Default Properties</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getSynchronizations <em>Synchronizations</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getRepositories <em>Repositories</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getContainers <em>Containers</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getSourceLocation <em>Source Location</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getOutputLocation <em>Output Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getFunctions <em>Functions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getBuilders <em>Builders</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getExecutionMode <em>Execution Mode</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getMetaRequiredCapabilities <em>Meta Required Capabilities
+ * </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getImplements <em>Implements</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getConcerns <em>Concerns</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getDefaultProperties <em>Default Properties</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getSynchronizations <em>Synchronizations</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getRepositories <em>Repositories</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getContainers <em>Containers</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getSourceLocation <em>Source Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getOutputLocation <em>Output Location</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit {
@@ -85,6 +86,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFunctions()
 	 * @generated
 	 * @ordered
@@ -92,9 +94,11 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	protected EList<IFunction> functions;
 
 	/**
-	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference list.
+	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference
+	 * list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiredCapabilities()
 	 * @generated
 	 * @ordered
@@ -102,9 +106,11 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	protected EList<RequiredCapability> requiredCapabilities;
 
 	/**
-	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
+	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference
+	 * list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProvidedCapabilities()
 	 * @generated
 	 * @ordered
@@ -115,6 +121,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -125,6 +132,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -135,6 +143,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The default value of the '{@link #getExecutionMode() <em>Execution Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getExecutionMode()
 	 * @generated
 	 * @ordered
@@ -145,6 +154,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getExecutionMode() <em>Execution Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getExecutionMode()
 	 * @generated
 	 * @ordered
@@ -152,9 +162,11 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	protected ExecutionMode executionMode = EXECUTION_MODE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMetaRequiredCapabilities() <em>Meta Required Capabilities</em>}' containment reference list.
+	 * The cached value of the '{@link #getMetaRequiredCapabilities() <em>Meta Required Capabilities</em>}' containment
+	 * reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMetaRequiredCapabilities()
 	 * @generated
 	 * @ordered
@@ -165,6 +177,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getImplements() <em>Implements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getImplements()
 	 * @generated
 	 * @ordered
@@ -175,6 +188,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getConcerns() <em>Concerns</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getConcerns()
 	 * @generated
 	 * @ordered
@@ -185,6 +199,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getDefaultProperties() <em>Default Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDefaultProperties()
 	 * @generated
 	 * @ordered
@@ -195,6 +210,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getSynchronizations() <em>Synchronizations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSynchronizations()
 	 * @generated
 	 * @ordered
@@ -205,6 +221,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRepositories()
 	 * @generated
 	 * @ordered
@@ -215,6 +232,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getContainers() <em>Containers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getContainers()
 	 * @generated
 	 * @ordered
@@ -225,6 +243,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getPropertySets() <em>Property Sets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPropertySets()
 	 * @generated
 	 * @ordered
@@ -235,17 +254,19 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The default value of the '{@link #getSourceLocation() <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceLocation()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final URI SOURCE_LOCATION_EDEFAULT = (URI) B3backendFactory.eINSTANCE.createFromString(
-			B3backendPackage.eINSTANCE.getURI(), "resource:/");
+		B3backendPackage.eINSTANCE.getURI(), "resource:/");
 
 	/**
 	 * The cached value of the '{@link #getSourceLocation() <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceLocation()
 	 * @generated
 	 * @ordered
@@ -256,6 +277,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The default value of the '{@link #getOutputLocation() <em>Output Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOutputLocation()
 	 * @generated
 	 * @ordered
@@ -266,6 +288,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getOutputLocation() <em>Output Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOutputLocation()
 	 * @generated
 	 * @ordered
@@ -288,14 +311,16 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetDefaultProperties(BPropertySet newDefaultProperties, NotificationChain msgs) {
 		BPropertySet oldDefaultProperties = defaultProperties;
 		defaultProperties = newDefaultProperties;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES, oldDefaultProperties, newDefaultProperties);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES, oldDefaultProperties,
+				newDefaultProperties);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -307,32 +332,33 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if(baseClass == BFunctionContainer.class) {
 			switch(derivedFeatureID) {
-			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-				return B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS;
-			default:
-				return -1;
+				case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+					return B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS;
+				default:
+					return -1;
 			}
 		}
 		if(baseClass == IRequiredCapabilityContainer.class) {
 			switch(derivedFeatureID) {
-			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
-				return B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES;
-			default:
-				return -1;
+				case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
+					return B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES;
+				default:
+					return -1;
 			}
 		}
 		if(baseClass == IProvidedCapabilityContainer.class) {
 			switch(derivedFeatureID) {
-			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
-				return B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES;
-			default:
-				return -1;
+				case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
+					return B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -341,32 +367,33 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if(baseClass == BFunctionContainer.class) {
 			switch(baseFeatureID) {
-			case B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS:
-				return B3BuildPackage.BUILD_UNIT__FUNCTIONS;
-			default:
-				return -1;
+				case B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS:
+					return B3BuildPackage.BUILD_UNIT__FUNCTIONS;
+				default:
+					return -1;
 			}
 		}
 		if(baseClass == IRequiredCapabilityContainer.class) {
 			switch(baseFeatureID) {
-			case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES:
-				return B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES;
-			default:
-				return -1;
+				case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES:
+					return B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES;
+				default:
+					return -1;
 			}
 		}
 		if(baseClass == IProvidedCapabilityContainer.class) {
 			switch(baseFeatureID) {
-			case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES:
-				return B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES;
-			default:
-				return -1;
+				case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES:
+					return B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -375,43 +402,44 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-			return getFunctions();
-		case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
-			return getRequiredCapabilities();
-		case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
-			return getProvidedCapabilities();
-		case B3BuildPackage.BUILD_UNIT__BUILDERS:
-			return getBuilders();
-		case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
-			return getDocumentation();
-		case B3BuildPackage.BUILD_UNIT__EXECUTION_MODE:
-			return getExecutionMode();
-		case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
-			return getMetaRequiredCapabilities();
-		case B3BuildPackage.BUILD_UNIT__IMPLEMENTS:
-			return getImplements();
-		case B3BuildPackage.BUILD_UNIT__CONCERNS:
-			return getConcerns();
-		case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
-			return getDefaultProperties();
-		case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
-			return getSynchronizations();
-		case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
-			return getRepositories();
-		case B3BuildPackage.BUILD_UNIT__CONTAINERS:
-			return getContainers();
-		case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
-			return getPropertySets();
-		case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
-			return getSourceLocation();
-		case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
-			return getOutputLocation();
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				return getFunctions();
+			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
+				return getRequiredCapabilities();
+			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
+				return getProvidedCapabilities();
+			case B3BuildPackage.BUILD_UNIT__BUILDERS:
+				return getBuilders();
+			case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
+				return getDocumentation();
+			case B3BuildPackage.BUILD_UNIT__EXECUTION_MODE:
+				return getExecutionMode();
+			case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
+				return getMetaRequiredCapabilities();
+			case B3BuildPackage.BUILD_UNIT__IMPLEMENTS:
+				return getImplements();
+			case B3BuildPackage.BUILD_UNIT__CONCERNS:
+				return getConcerns();
+			case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
+				return getDefaultProperties();
+			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
+				return getSynchronizations();
+			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
+				return getRepositories();
+			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
+				return getContainers();
+			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
+				return getPropertySets();
+			case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
+				return getSourceLocation();
+			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
+				return getOutputLocation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -419,14 +447,15 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getFunctions()).basicAdd(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				return ((InternalEList<InternalEObject>) (InternalEList<?>) getFunctions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -434,33 +463,34 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-			return ((InternalEList<?>) getFunctions()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
-			return ((InternalEList<?>) getRequiredCapabilities()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
-			return ((InternalEList<?>) getProvidedCapabilities()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
-			return ((InternalEList<?>) getMetaRequiredCapabilities()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.BUILD_UNIT__IMPLEMENTS:
-			return ((InternalEList<?>) getImplements()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.BUILD_UNIT__CONCERNS:
-			return ((InternalEList<?>) getConcerns()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
-			return basicSetDefaultProperties(null, msgs);
-		case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
-			return ((InternalEList<?>) getSynchronizations()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
-			return ((InternalEList<?>) getRepositories()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.BUILD_UNIT__CONTAINERS:
-			return ((InternalEList<?>) getContainers()).basicRemove(otherEnd, msgs);
-		case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
-			return ((InternalEList<?>) getPropertySets()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				return ((InternalEList<?>) getFunctions()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
+				return ((InternalEList<?>) getRequiredCapabilities()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
+				return ((InternalEList<?>) getProvidedCapabilities()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
+				return ((InternalEList<?>) getMetaRequiredCapabilities()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__IMPLEMENTS:
+				return ((InternalEList<?>) getImplements()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__CONCERNS:
+				return ((InternalEList<?>) getConcerns()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
+				return basicSetDefaultProperties(null, msgs);
+			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
+				return ((InternalEList<?>) getSynchronizations()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
+				return ((InternalEList<?>) getRepositories()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
+				return ((InternalEList<?>) getContainers()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
+				return ((InternalEList<?>) getPropertySets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -468,49 +498,50 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-			return functions != null && !functions.isEmpty();
-		case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
-			return requiredCapabilities != null && !requiredCapabilities.isEmpty();
-		case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
-			return providedCapabilities != null && !providedCapabilities.isEmpty();
-		case B3BuildPackage.BUILD_UNIT__BUILDERS:
-			return !getBuilders().isEmpty();
-		case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
-			return DOCUMENTATION_EDEFAULT == null
-					? documentation != null
-					: !DOCUMENTATION_EDEFAULT.equals(documentation);
-		case B3BuildPackage.BUILD_UNIT__EXECUTION_MODE:
-			return executionMode != EXECUTION_MODE_EDEFAULT;
-		case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
-			return metaRequiredCapabilities != null && !metaRequiredCapabilities.isEmpty();
-		case B3BuildPackage.BUILD_UNIT__IMPLEMENTS:
-			return implements_ != null && !implements_.isEmpty();
-		case B3BuildPackage.BUILD_UNIT__CONCERNS:
-			return concerns != null && !concerns.isEmpty();
-		case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
-			return defaultProperties != null;
-		case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
-			return synchronizations != null && !synchronizations.isEmpty();
-		case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
-			return repositories != null && !repositories.isEmpty();
-		case B3BuildPackage.BUILD_UNIT__CONTAINERS:
-			return containers != null && !containers.isEmpty();
-		case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
-			return propertySets != null && !propertySets.isEmpty();
-		case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
-			return SOURCE_LOCATION_EDEFAULT == null
-					? sourceLocation != null
-					: !SOURCE_LOCATION_EDEFAULT.equals(sourceLocation);
-		case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
-			return OUTPUT_LOCATION_EDEFAULT == null
-					? outputLocation != null
-					: !OUTPUT_LOCATION_EDEFAULT.equals(outputLocation);
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				return functions != null && !functions.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
+				return requiredCapabilities != null && !requiredCapabilities.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
+				return providedCapabilities != null && !providedCapabilities.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__BUILDERS:
+				return !getBuilders().isEmpty();
+			case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
+				return DOCUMENTATION_EDEFAULT == null
+						? documentation != null
+						: !DOCUMENTATION_EDEFAULT.equals(documentation);
+			case B3BuildPackage.BUILD_UNIT__EXECUTION_MODE:
+				return executionMode != EXECUTION_MODE_EDEFAULT;
+			case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
+				return metaRequiredCapabilities != null && !metaRequiredCapabilities.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__IMPLEMENTS:
+				return implements_ != null && !implements_.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__CONCERNS:
+				return concerns != null && !concerns.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
+				return defaultProperties != null;
+			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
+				return synchronizations != null && !synchronizations.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
+				return repositories != null && !repositories.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
+				return containers != null && !containers.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
+				return propertySets != null && !propertySets.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
+				return SOURCE_LOCATION_EDEFAULT == null
+						? sourceLocation != null
+						: !SOURCE_LOCATION_EDEFAULT.equals(sourceLocation);
+			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
+				return OUTPUT_LOCATION_EDEFAULT == null
+						? outputLocation != null
+						: !OUTPUT_LOCATION_EDEFAULT.equals(outputLocation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -518,67 +549,68 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-			getFunctions().clear();
-			getFunctions().addAll((Collection<? extends IFunction>) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
-			getRequiredCapabilities().clear();
-			getRequiredCapabilities().addAll((Collection<? extends RequiredCapability>) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
-			getProvidedCapabilities().clear();
-			getProvidedCapabilities().addAll((Collection<? extends Capability>) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
-			setDocumentation((String) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__EXECUTION_MODE:
-			setExecutionMode((ExecutionMode) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
-			getMetaRequiredCapabilities().clear();
-			getMetaRequiredCapabilities().addAll((Collection<? extends RequiredCapability>) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__IMPLEMENTS:
-			getImplements().clear();
-			getImplements().addAll((Collection<? extends Type>) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__CONCERNS:
-			getConcerns().clear();
-			getConcerns().addAll((Collection<? extends BConcern>) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
-			setDefaultProperties((BPropertySet) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
-			getSynchronizations().clear();
-			getSynchronizations().addAll((Collection<? extends Synchronization>) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
-			getRepositories().clear();
-			getRepositories().addAll((Collection<? extends RepositoryConfiguration>) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__CONTAINERS:
-			getContainers().clear();
-			getContainers().addAll((Collection<? extends ContainerConfiguration>) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
-			getPropertySets().clear();
-			getPropertySets().addAll((Collection<? extends BPropertySet>) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
-			setSourceLocation((URI) newValue);
-			return;
-		case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
-			setOutputLocation((URI) newValue);
-			return;
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				getFunctions().clear();
+				getFunctions().addAll((Collection<? extends IFunction>) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
+				getRequiredCapabilities().clear();
+				getRequiredCapabilities().addAll((Collection<? extends RequiredCapability>) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
+				getProvidedCapabilities().clear();
+				getProvidedCapabilities().addAll((Collection<? extends Capability>) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
+				setDocumentation((String) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__EXECUTION_MODE:
+				setExecutionMode((ExecutionMode) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
+				getMetaRequiredCapabilities().clear();
+				getMetaRequiredCapabilities().addAll((Collection<? extends RequiredCapability>) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__IMPLEMENTS:
+				getImplements().clear();
+				getImplements().addAll((Collection<? extends Type>) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__CONCERNS:
+				getConcerns().clear();
+				getConcerns().addAll((Collection<? extends BConcern>) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
+				setDefaultProperties((BPropertySet) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
+				getSynchronizations().clear();
+				getSynchronizations().addAll((Collection<? extends Synchronization>) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
+				getRepositories().clear();
+				getRepositories().addAll((Collection<? extends RepositoryConfiguration>) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
+				getContainers().clear();
+				getContainers().addAll((Collection<? extends ContainerConfiguration>) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
+				getPropertySets().clear();
+				getPropertySets().addAll((Collection<? extends BPropertySet>) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
+				setSourceLocation((URI) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
+				setOutputLocation((URI) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -586,66 +618,57 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_UNIT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-			getFunctions().clear();
-			return;
-		case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
-			getRequiredCapabilities().clear();
-			return;
-		case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
-			getProvidedCapabilities().clear();
-			return;
-		case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
-			setDocumentation(DOCUMENTATION_EDEFAULT);
-			return;
-		case B3BuildPackage.BUILD_UNIT__EXECUTION_MODE:
-			setExecutionMode(EXECUTION_MODE_EDEFAULT);
-			return;
-		case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
-			getMetaRequiredCapabilities().clear();
-			return;
-		case B3BuildPackage.BUILD_UNIT__IMPLEMENTS:
-			getImplements().clear();
-			return;
-		case B3BuildPackage.BUILD_UNIT__CONCERNS:
-			getConcerns().clear();
-			return;
-		case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
-			setDefaultProperties((BPropertySet) null);
-			return;
-		case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
-			getSynchronizations().clear();
-			return;
-		case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
-			getRepositories().clear();
-			return;
-		case B3BuildPackage.BUILD_UNIT__CONTAINERS:
-			getContainers().clear();
-			return;
-		case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
-			getPropertySets().clear();
-			return;
-		case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
-			setSourceLocation(SOURCE_LOCATION_EDEFAULT);
-			return;
-		case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
-			setOutputLocation(OUTPUT_LOCATION_EDEFAULT);
-			return;
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				getFunctions().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
+				getRequiredCapabilities().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
+				getProvidedCapabilities().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
+				setDocumentation(DOCUMENTATION_EDEFAULT);
+				return;
+			case B3BuildPackage.BUILD_UNIT__EXECUTION_MODE:
+				setExecutionMode(EXECUTION_MODE_EDEFAULT);
+				return;
+			case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
+				getMetaRequiredCapabilities().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__IMPLEMENTS:
+				getImplements().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__CONCERNS:
+				getConcerns().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
+				setDefaultProperties((BPropertySet) null);
+				return;
+			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
+				getSynchronizations().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
+				getRepositories().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
+				getContainers().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
+				getPropertySets().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
+				setSourceLocation(SOURCE_LOCATION_EDEFAULT);
+				return;
+			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
+				setOutputLocation(OUTPUT_LOCATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -671,6 +694,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BConcern> getConcerns() {
@@ -683,12 +707,13 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ContainerConfiguration> getContainers() {
 		if(containers == null) {
-			containers = new EObjectContainmentEList<ContainerConfiguration>(ContainerConfiguration.class, this,
-					B3BuildPackage.BUILD_UNIT__CONTAINERS);
+			containers = new EObjectContainmentEList<ContainerConfiguration>(
+				ContainerConfiguration.class, this, B3BuildPackage.BUILD_UNIT__CONTAINERS);
 		}
 		return containers;
 	}
@@ -696,6 +721,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BPropertySet getDefaultProperties() {
@@ -705,6 +731,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getDocumentation() {
@@ -728,7 +755,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		BuildUnit u = buildContext.getEffectiveBuildUnit(this);
 		if(u == null)
 			throw new IllegalArgumentException(
-					"The unit must have been defined in a context prior to calling getEffectiveFacade(...)");
+				"The unit must have been defined in a context prior to calling getEffectiveFacade(...)");
 
 		EffectiveUnitFacade facade = B3BuildFactory.eINSTANCE.createEffectiveUnitFacade();
 		facade.setUnit(u);
@@ -752,8 +779,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			for(RepositoryConfiguration config : reposDecls) {
 				repos.add((IBuildUnitRepository) config.evaluate(outer));
 			}
-			outer.defineValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, firstFound,
-					CompoundFirstFoundRepository.class);
+			outer.defineValue(
+				B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, firstFound, CompoundFirstFoundRepository.class);
 		}
 
 		// remember the context use as parent for builder contexts
@@ -835,6 +862,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ExecutionMode getExecutionMode() {
@@ -844,12 +872,13 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<IFunction> getFunctions() {
 		if(functions == null) {
-			functions = new EObjectContainmentWithInverseEList<IFunction>(IFunction.class, this,
-					B3BuildPackage.BUILD_UNIT__FUNCTIONS, B3backendPackage.IFUNCTION__CONTAINER);
+			functions = new EObjectContainmentWithInverseEList<IFunction>(
+				IFunction.class, this, B3BuildPackage.BUILD_UNIT__FUNCTIONS, B3backendPackage.IFUNCTION__CONTAINER);
 		}
 		return functions;
 	}
@@ -857,6 +886,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Type> getImplements() {
@@ -869,12 +899,13 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<RequiredCapability> getMetaRequiredCapabilities() {
 		if(metaRequiredCapabilities == null) {
-			metaRequiredCapabilities = new EObjectContainmentEList<RequiredCapability>(RequiredCapability.class, this,
-					B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES);
+			metaRequiredCapabilities = new EObjectContainmentEList<RequiredCapability>(
+				RequiredCapability.class, this, B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES);
 		}
 		return metaRequiredCapabilities;
 	}
@@ -910,12 +941,13 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BPropertySet> getPropertySets() {
 		if(propertySets == null) {
-			propertySets = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this,
-					B3BuildPackage.BUILD_UNIT__PROPERTY_SETS);
+			propertySets = new EObjectContainmentEList<BPropertySet>(
+				BPropertySet.class, this, B3BuildPackage.BUILD_UNIT__PROPERTY_SETS);
 		}
 		return propertySets;
 	}
@@ -923,12 +955,13 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Capability> getProvidedCapabilities() {
 		if(providedCapabilities == null) {
-			providedCapabilities = new EObjectContainmentEList<Capability>(Capability.class, this,
-					B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES);
+			providedCapabilities = new EObjectContainmentEList<Capability>(
+				Capability.class, this, B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES);
 		}
 		return providedCapabilities;
 	}
@@ -936,12 +969,13 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<RepositoryConfiguration> getRepositories() {
 		if(repositories == null) {
-			repositories = new EObjectContainmentEList<RepositoryConfiguration>(RepositoryConfiguration.class, this,
-					B3BuildPackage.BUILD_UNIT__REPOSITORIES);
+			repositories = new EObjectContainmentEList<RepositoryConfiguration>(
+				RepositoryConfiguration.class, this, B3BuildPackage.BUILD_UNIT__REPOSITORIES);
 		}
 		return repositories;
 	}
@@ -949,12 +983,13 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<RequiredCapability> getRequiredCapabilities() {
 		if(requiredCapabilities == null) {
-			requiredCapabilities = new EObjectContainmentEList<RequiredCapability>(RequiredCapability.class, this,
-					B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES);
+			requiredCapabilities = new EObjectContainmentEList<RequiredCapability>(
+				RequiredCapability.class, this, B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES);
 		}
 		return requiredCapabilities;
 	}
@@ -992,12 +1027,13 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Synchronization> getSynchronizations() {
 		if(synchronizations == null) {
-			synchronizations = new EObjectContainmentEList<Synchronization>(Synchronization.class, this,
-					B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS);
+			synchronizations = new EObjectContainmentEList<Synchronization>(
+				Synchronization.class, this, B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS);
 		}
 		return synchronizations;
 	}
@@ -1005,42 +1041,46 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDefaultProperties(BPropertySet newDefaultProperties) {
 		if(newDefaultProperties != defaultProperties) {
 			NotificationChain msgs = null;
 			if(defaultProperties != null)
-				msgs = ((InternalEObject) defaultProperties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES, null, msgs);
+				msgs = ((InternalEObject) defaultProperties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES, null, msgs);
 			if(newDefaultProperties != null)
-				msgs = ((InternalEObject) newDefaultProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES, null, msgs);
+				msgs = ((InternalEObject) newDefaultProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES, null, msgs);
 			msgs = basicSetDefaultProperties(newDefaultProperties, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES,
-					newDefaultProperties, newDefaultProperties));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES, newDefaultProperties,
+				newDefaultProperties));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDocumentation(String newDocumentation) {
 		String oldDocumentation = documentation;
 		documentation = newDocumentation;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__DOCUMENTATION,
-					oldDocumentation, documentation));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILD_UNIT__DOCUMENTATION, oldDocumentation, documentation));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setExecutionMode(ExecutionMode newExecutionMode) {
@@ -1049,39 +1089,42 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				? EXECUTION_MODE_EDEFAULT
 				: newExecutionMode;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__EXECUTION_MODE,
-					oldExecutionMode, executionMode));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILD_UNIT__EXECUTION_MODE, oldExecutionMode, executionMode));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setOutputLocation(URI newOutputLocation) {
 		URI oldOutputLocation = outputLocation;
 		outputLocation = newOutputLocation;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION,
-					oldOutputLocation, outputLocation));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION, oldOutputLocation, outputLocation));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSourceLocation(URI newSourceLocation) {
 		URI oldSourceLocation = sourceLocation;
 		sourceLocation = newSourceLocation;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION,
-					oldSourceLocation, sourceLocation));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION, oldSourceLocation, sourceLocation));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1100,6 +1143,17 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		result.append(outputLocation);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_UNIT;
 	}
 
 } // BuildUnitImpl
