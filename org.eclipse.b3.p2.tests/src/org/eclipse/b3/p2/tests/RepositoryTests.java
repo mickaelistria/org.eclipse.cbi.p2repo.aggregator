@@ -11,7 +11,6 @@ package org.eclipse.b3.p2.tests;
 import java.io.File;
 import java.util.Iterator;
 
-import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
