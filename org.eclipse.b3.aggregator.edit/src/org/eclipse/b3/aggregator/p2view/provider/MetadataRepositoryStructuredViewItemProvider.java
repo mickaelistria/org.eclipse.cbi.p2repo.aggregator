@@ -39,8 +39,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView}
- * object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 

@@ -69,8 +69,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView} instances.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -79,8 +78,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	protected MetadataRepositoryStructuredViewItemProvider metadataRepositoryStructuredViewItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.InstallableUnits}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.InstallableUnits} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -121,8 +119,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	protected BundlesItemProvider bundlesItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Miscellaneous}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Miscellaneous} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -194,8 +191,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	protected FragmentsItemProvider fragmentsItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilities}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilities} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -220,8 +216,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	protected IUDetailsItemProvider iuDetailsItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -230,8 +225,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	protected ProvidedCapabilityWrapperItemProvider providedCapabilityWrapperItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

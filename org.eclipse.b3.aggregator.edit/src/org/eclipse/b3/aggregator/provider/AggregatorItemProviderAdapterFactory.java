@@ -160,8 +160,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected ExclusionRuleItemProvider exclusionRuleItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.ValidConfigurationsRule}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.ValidConfigurationsRule} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -170,8 +169,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected ValidConfigurationsRuleItemProvider validConfigurationsRuleItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.MetadataRepositoryReference}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.MetadataRepositoryReference} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -221,8 +219,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected AvailableVersionItemProvider availableVersionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AvailableVersionsHeader}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AvailableVersionsHeader} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
