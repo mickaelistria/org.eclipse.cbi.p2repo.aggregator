@@ -76,8 +76,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BLineReference} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLineReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -86,8 +85,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BLineReferenceItemProvider bLineReferenceItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -96,8 +94,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BIfExpressionItemProvider bIfExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -106,8 +103,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BSwitchExpressionItemProvider bSwitchExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCase}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCase} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -116,8 +112,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BCaseItemProvider bCaseItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BTryExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BTryExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -126,8 +121,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BTryExpressionItemProvider bTryExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -136,8 +130,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BCatchItemProvider bCatchItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BOrExpression}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BOrExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -146,8 +139,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BOrExpressionItemProvider bOrExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BAndExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BAndExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -156,8 +148,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BAndExpressionItemProvider bAndExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -166,8 +157,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BChainedExpressionItemProvider bChainedExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -176,8 +166,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BThrowExpressionItemProvider bThrowExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -186,8 +175,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BUnaryOpExpressionItemProvider bUnaryOpExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -196,8 +184,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BUnaryPostOpExpressionItemProvider bUnaryPostOpExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -206,8 +193,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BBinaryOpExpressionItemProvider bBinaryOpExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -216,8 +202,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BCachedExpressionItemProvider bCachedExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -226,8 +211,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BLiteralExpressionItemProvider bLiteralExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -236,8 +220,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BLiteralListExpressionItemProvider bLiteralListExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -246,8 +229,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BLiteralMapExpressionItemProvider bLiteralMapExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BMapEntry}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BMapEntry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -256,8 +238,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BMapEntryItemProvider bMapEntryItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -266,8 +247,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BFeatureExpressionItemProvider bFeatureExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -276,8 +256,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BAtExpressionItemProvider bAtExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -286,8 +265,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BVariableExpressionItemProvider bVariableExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -296,8 +274,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BLiteralAnyItemProvider bLiteralAnyItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -306,8 +283,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BCreateExpressionItemProvider bCreateExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -316,8 +292,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BGuardExpressionItemProvider bGuardExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BSystemContext} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BSystemContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -326,8 +301,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BSystemContextItemProvider bSystemContextItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BContext}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -336,8 +310,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BContextItemProvider bContextItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BInnerContext}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BInnerContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -346,8 +319,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BInnerContextItemProvider bInnerContextItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -356,8 +328,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BInvocationContextItemProvider bInvocationContextItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -366,8 +337,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BUnaryPreOpExpressionItemProvider bUnaryPreOpExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -376,8 +346,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BAssignmentExpressionItemProvider bAssignmentExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3Function}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3Function} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -386,8 +355,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected B3FunctionItemProvider b3FunctionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -396,8 +364,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BJavaFunctionItemProvider bJavaFunctionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -406,8 +373,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BDefValueItemProvider bDefValueItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -416,8 +382,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BRegularExpressionItemProvider bRegularExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterList} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterList} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -426,8 +391,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BParameterListItemProvider bParameterListItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameter}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -436,8 +400,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BParameterItemProvider bParameterItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -446,8 +409,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BParameterDeclarationItemProvider bParameterDeclarationItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -456,8 +418,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected B3FunctionTypeItemProvider b3FunctionTypeItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -466,8 +427,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected B3ParameterizedTypeItemProvider b3ParameterizedTypeItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -476,8 +436,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected B3WildcardTypeItemProvider b3WildcardTypeItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -486,8 +445,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected B3FuncTypeVariableItemProvider b3FuncTypeVariableItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -496,8 +454,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected B3JavaImportItemProvider b3JavaImportItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralType}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -506,8 +463,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BLiteralTypeItemProvider bLiteralTypeItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -516,8 +472,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BGuardFunctionItemProvider bGuardFunctionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -526,8 +481,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BTypeCalculatorItemProvider bTypeCalculatorItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -536,8 +490,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BTypeCalculatorFunctionItemProvider bTypeCalculatorFunctionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -546,8 +499,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BInstanceContextItemProvider bInstanceContextItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDefProperty}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDefProperty} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -556,8 +508,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BDefPropertyItemProvider bDefPropertyItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -566,8 +517,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BPropertySetItemProvider bPropertySetItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -576,8 +526,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BDefaultPropertySetItemProvider bDefaultPropertySetItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -586,8 +535,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BPropertyDefinitionOperationItemProvider bPropertyDefinitionOperationItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -596,8 +544,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BConditionalPropertyOperationItemProvider bConditionalPropertyOperationItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -606,8 +553,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BPropertySetOperationItemProvider bPropertySetOperationItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -616,8 +562,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BAdviceItemProvider bAdviceItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -626,8 +571,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BConcernItemProvider bConcernItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -636,8 +580,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BWithExpressionItemProvider bWithExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunction}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -646,8 +589,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BFunctionItemProvider bFunctionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -656,8 +598,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BFunctionWrapperItemProvider bFunctionWrapperItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -666,8 +607,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BNamePredicateItemProvider bNamePredicateItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -676,8 +616,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BFunctionNamePredicateItemProvider bFunctionNamePredicateItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -686,8 +625,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BFunctionConcernContextItemProvider bFunctionConcernContextItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -696,8 +634,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BParameterPredicateItemProvider bParameterPredicateItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -706,8 +643,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BProceedExpressionItemProvider bProceedExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -716,8 +652,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BDelegatingContextItemProvider bDelegatingContextItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -726,8 +661,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BWrappingContextItemProvider bWrappingContextItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -736,8 +670,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected B3MetaClassItemProvider b3MetaClassItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -746,8 +679,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BExpressionWrapperItemProvider bExpressionWrapperItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -756,8 +688,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BWithContextExpressionItemProvider bWithContextExpressionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFeature}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFeature} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -766,8 +697,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BCallFeatureItemProvider bCallFeatureItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -776,8 +706,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	protected BCallNamedFunctionItemProvider bCallNamedFunctionItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFunction}
-	 * instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

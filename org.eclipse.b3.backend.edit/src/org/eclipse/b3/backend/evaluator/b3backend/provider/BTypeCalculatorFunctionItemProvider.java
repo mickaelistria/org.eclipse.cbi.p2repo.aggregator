@@ -29,8 +29,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction}
- * object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 

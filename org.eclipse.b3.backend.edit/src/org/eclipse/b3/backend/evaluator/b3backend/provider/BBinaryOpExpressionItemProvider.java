@@ -26,8 +26,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression}
- * object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 
