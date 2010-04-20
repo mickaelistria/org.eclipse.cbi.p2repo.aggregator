@@ -5893,8 +5893,7 @@ public interface PomPackage extends EPackage {
 	int REPORT_SET_REPORTS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetsTypeImpl <em>Report Sets Type</em>}
-	 * ' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetsTypeImpl <em>Report Sets Type</em>} ' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ReportSetsTypeImpl
@@ -6424,8 +6423,7 @@ public interface PomPackage extends EPackage {
 	EReference getActivation_Os();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Activation#getProperty <em>Property</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Activation#getProperty <em>Property</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Property</em>'.
@@ -6645,8 +6643,8 @@ public interface PomPackage extends EPackage {
 	EAttribute getBuild_OutputDirectory();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Build#getPluginManagement <em>Plugin Management</em>} '. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Build#getPluginManagement
+	 * <em>Plugin Management</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Plugin Management</em>'.
@@ -6717,8 +6715,8 @@ public interface PomPackage extends EPackage {
 	EAttribute getBuild_TestOutputDirectory();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Build#getTestResources <em>Test Resources</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Build#getTestResources <em>Test Resources</em>}'.
+	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Test Resources</em>'.
@@ -6799,8 +6797,8 @@ public interface PomPackage extends EPackage {
 	EAttribute getBuildBase_FinalName();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.BuildBase#getPluginManagement <em>Plugin Management</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.BuildBase#getPluginManagement
+	 * <em>Plugin Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Plugin Management</em>'.
@@ -6823,8 +6821,7 @@ public interface PomPackage extends EPackage {
 	EReference getBuildBase_Plugins();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.BuildBase#getResources <em>Resources</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.BuildBase#getResources <em>Resources</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Resources</em>'.
@@ -6835,8 +6832,8 @@ public interface PomPackage extends EPackage {
 	EReference getBuildBase_Resources();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.BuildBase#getTestResources <em>Test Resources</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.BuildBase#getTestResources <em>Test Resources</em>}
+	 * '.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Test Resources</em>'.
@@ -6857,8 +6854,7 @@ public interface PomPackage extends EPackage {
 	EClass getCiManagement();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.CiManagement#getNotifiers <em>Notifiers</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.CiManagement#getNotifiers <em>Notifiers</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Notifiers</em>'.
@@ -6881,8 +6877,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getCiManagement_System();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.CiManagement#getUrl <em>Url</em>}
-	 * '. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.CiManagement#getUrl <em>Url</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Url</em>'.
@@ -6938,8 +6933,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getContributor_Email();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.Contributor#getName <em>Name</em>}
-	 * '. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.Contributor#getName <em>Name</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
@@ -6974,8 +6968,8 @@ public interface PomPackage extends EPackage {
 	EAttribute getContributor_OrganizationUrl();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Contributor#getProperties <em>Properties</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Contributor#getProperties <em>Properties</em>}'.
+	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Properties</em>'.
@@ -7033,8 +7027,8 @@ public interface PomPackage extends EPackage {
 	EClass getContributorsType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.ContributorsType#getContributor <em>Contributor</em>} '. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.ContributorsType#getContributor
+	 * <em>Contributor</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Contributor</em>'.
@@ -7056,8 +7050,8 @@ public interface PomPackage extends EPackage {
 	EClass getDependenciesType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.DependenciesType#getDependency <em>Dependency</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.DependenciesType#getDependency
+	 * <em>Dependency</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Dependency</em>'.
@@ -7102,8 +7096,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getDependency_Classifier();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Dependency#getExclusions <em>Exclusions</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Dependency#getExclusions <em>Exclusions</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Exclusions</em>'.
@@ -7197,8 +7190,8 @@ public interface PomPackage extends EPackage {
 	EClass getDependencyManagement();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.DependencyManagement#getDependencies <em>Dependencies</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.DependencyManagement#getDependencies
+	 * <em>Dependencies</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Dependencies</em>'.
@@ -7256,8 +7249,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getDeploymentRepository_Name();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}'.
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Unique Version</em>'.
@@ -7350,8 +7342,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getDeveloper_OrganizationUrl();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Developer#getProperties <em>Properties</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Developer#getProperties <em>Properties</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Properties</em>'.
@@ -7408,8 +7399,8 @@ public interface PomPackage extends EPackage {
 	EClass getDevelopersType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.DevelopersType#getDeveloper <em>Developer</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.DevelopersType#getDeveloper <em>Developer</em>}
+	 * '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Developer</em>'.
@@ -7431,8 +7422,7 @@ public interface PomPackage extends EPackage {
 	EClass getDistributionManagement();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getDownloadUrl <em>Download Url</em>}'.
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getDownloadUrl <em>Download Url</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Download Url</em>'.
@@ -7443,8 +7433,8 @@ public interface PomPackage extends EPackage {
 	EAttribute getDistributionManagement_DownloadUrl();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRelocation <em>Relocation</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRelocation
+	 * <em>Relocation</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Relocation</em>'.
@@ -7455,8 +7445,8 @@ public interface PomPackage extends EPackage {
 	EReference getDistributionManagement_Relocation();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRepository <em>Repository</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRepository
+	 * <em>Repository</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Repository</em>'.
@@ -7467,8 +7457,7 @@ public interface PomPackage extends EPackage {
 	EReference getDistributionManagement_Repository();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getSite <em>Site</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getSite <em>Site</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Site</em>'.
@@ -7479,8 +7468,8 @@ public interface PomPackage extends EPackage {
 	EReference getDistributionManagement_Site();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getSnapshotRepository <em>Snapshot Repository</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getSnapshotRepository
+	 * <em>Snapshot Repository</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Snapshot Repository</em>'.
@@ -7525,8 +7514,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getDocumentRoot_Mixed();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.DocumentRoot#getProject <em>Project</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.DocumentRoot#getProject <em>Project</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Project</em>'.
@@ -7627,8 +7615,8 @@ public interface PomPackage extends EPackage {
 	EClass getExclusionsType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.ExclusionsType#getExclusion <em>Exclusion</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.ExclusionsType#getExclusion <em>Exclusion</em>}
+	 * '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Exclusion</em>'.
@@ -7672,8 +7660,8 @@ public interface PomPackage extends EPackage {
 	EClass getExecutionsType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.ExecutionsType#getExecution <em>Execution</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.ExecutionsType#getExecution <em>Execution</em>}
+	 * '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Execution</em>'.
@@ -7740,8 +7728,8 @@ public interface PomPackage extends EPackage {
 	EClass getExtensionsType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.ExtensionsType#getExtension <em>Extension</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.ExtensionsType#getExtension <em>Extension</em>}
+	 * '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Extension</em>'.
@@ -7784,8 +7772,7 @@ public interface PomPackage extends EPackage {
 	EClass getGoalsType();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.p2.maven.pom.GoalsType#getAny <em>Any</em>}
-	 * '.
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.p2.maven.pom.GoalsType#getAny <em>Any</em>} '.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -7819,8 +7806,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getIncludesType_Include();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.IssueManagement <em>Issue Management</em>}
-	 * '.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.IssueManagement <em>Issue Management</em>} '.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Issue Management</em>'.
@@ -7922,8 +7908,8 @@ public interface PomPackage extends EPackage {
 	EClass getLicensesType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.LicensesType#getLicense <em>License</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.LicensesType#getLicense <em>License</em>}'.
+	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>License</em>'.
@@ -7956,8 +7942,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getMailingList_Archive();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.MailingList#getName <em>Name</em>}
-	 * '. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.MailingList#getName <em>Name</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
@@ -7968,8 +7953,8 @@ public interface PomPackage extends EPackage {
 	EAttribute getMailingList_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.MailingList#getOtherArchives <em>Other Archives</em>} '. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.MailingList#getOtherArchives
+	 * <em>Other Archives</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Other Archives</em>'.
@@ -7980,8 +7965,7 @@ public interface PomPackage extends EPackage {
 	EReference getMailingList_OtherArchives();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.MailingList#getPost <em>Post</em>}
-	 * '. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.MailingList#getPost <em>Post</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Post</em>'.
@@ -8027,8 +8011,8 @@ public interface PomPackage extends EPackage {
 	EClass getMailingListsType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.MailingListsType#getMailingList <em>Mailing List</em>} '. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.MailingListsType#getMailingList
+	 * <em>Mailing List</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Mailing List</em>'.
@@ -8110,8 +8094,8 @@ public interface PomPackage extends EPackage {
 	EReference getModel_Dependencies();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Model#getDependencyManagement <em>Dependency Management</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Model#getDependencyManagement
+	 * <em>Dependency Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Dependency Management</em>'.
@@ -8146,8 +8130,8 @@ public interface PomPackage extends EPackage {
 	EReference getModel_Developers();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Model#getDistributionManagement <em>Distribution Management</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Model#getDistributionManagement
+	 * <em>Distribution Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Distribution Management</em>'.
@@ -8182,8 +8166,8 @@ public interface PomPackage extends EPackage {
 	EAttribute getModel_InceptionYear();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Model#getIssueManagement <em>Issue Management</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Model#getIssueManagement <em>Issue Management</em>}
+	 * '.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Issue Management</em>'.
@@ -8291,8 +8275,8 @@ public interface PomPackage extends EPackage {
 	EReference getModel_Parent();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Model#getPluginRepositories <em>Plugin Repositories</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Model#getPluginRepositories
+	 * <em>Plugin Repositories</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Plugin Repositories</em>'.
@@ -8303,8 +8287,8 @@ public interface PomPackage extends EPackage {
 	EReference getModel_PluginRepositories();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Model#getPrerequisites <em>Prerequisites</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Model#getPrerequisites <em>Prerequisites</em>}'.
+	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Prerequisites</em>'.
@@ -8456,8 +8440,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getNotifier_Address();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Notifier#getConfiguration <em>Configuration</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Notifier#getConfiguration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Configuration</em>'.
@@ -8538,8 +8521,8 @@ public interface PomPackage extends EPackage {
 	EClass getNotifiersType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.NotifiersType#getNotifier <em>Notifier</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.NotifiersType#getNotifier <em>Notifier</em>}'.
+	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Notifier</em>'.
@@ -8572,8 +8555,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getOrganization_Name();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.Organization#getUrl <em>Url</em>}
-	 * '. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.Organization#getUrl <em>Url</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Url</em>'.
@@ -8595,8 +8577,7 @@ public interface PomPackage extends EPackage {
 	EClass getOtherArchivesType();
 
 	/**
-	 * Returns the meta object for the attribute list '
-	 * {@link org.eclipse.b3.p2.maven.pom.OtherArchivesType#getOtherArchive <em>Other Archive</em>}'.
+	 * Returns the meta object for the attribute list ' {@link org.eclipse.b3.p2.maven.pom.OtherArchivesType#getOtherArchive <em>Other Archive</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute list '<em>Other Archive</em>'.
@@ -8687,8 +8668,8 @@ public interface PomPackage extends EPackage {
 	EAttribute getPlugin_ArtifactId();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Plugin#getConfiguration <em>Configuration</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Plugin#getConfiguration <em>Configuration</em>}'.
+	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Configuration</em>'.
@@ -8699,8 +8680,7 @@ public interface PomPackage extends EPackage {
 	EReference getPlugin_Configuration();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Plugin#getDependencies <em>Dependencies</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Plugin#getDependencies <em>Dependencies</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Dependencies</em>'.
@@ -8784,8 +8764,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getPlugin_Version();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.PluginExecution <em>Plugin Execution</em>}
-	 * '.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.PluginExecution <em>Plugin Execution</em>} '.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Plugin Execution</em>'.
@@ -8795,8 +8774,8 @@ public interface PomPackage extends EPackage {
 	EClass getPluginExecution();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.PluginExecution#getConfiguration <em>Configuration</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.PluginExecution#getConfiguration
+	 * <em>Configuration</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Configuration</em>'.
@@ -8807,8 +8786,7 @@ public interface PomPackage extends EPackage {
 	EReference getPluginExecution_Configuration();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.PluginExecution#getGoals <em>Goals</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.PluginExecution#getGoals <em>Goals</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Goals</em>'.
@@ -8819,8 +8797,7 @@ public interface PomPackage extends EPackage {
 	EReference getPluginExecution_Goals();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.PluginExecution#getId <em>Id</em>}
-	 * '. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.PluginExecution#getId <em>Id</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Id</em>'.
@@ -8866,8 +8843,7 @@ public interface PomPackage extends EPackage {
 	EClass getPluginManagement();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.PluginManagement#getPlugins <em>Plugins</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.PluginManagement#getPlugins <em>Plugins</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Plugins</em>'.
@@ -8889,8 +8865,8 @@ public interface PomPackage extends EPackage {
 	EClass getPluginRepositoriesType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.PluginRepositoriesType#getPluginRepository <em>Plugin Repository</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.PluginRepositoriesType#getPluginRepository
+	 * <em>Plugin Repository</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Plugin Repository</em>'.
@@ -8911,8 +8887,7 @@ public interface PomPackage extends EPackage {
 	EClass getPluginsType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.PluginsType#getPlugin <em>Plugin</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.PluginsType#getPlugin <em>Plugin</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Plugin</em>'.
@@ -8989,8 +8964,8 @@ public interface PomPackage extends EPackage {
 	EReference getProfile_Build();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Profile#getDependencies <em>Dependencies</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Profile#getDependencies <em>Dependencies</em>}'.
+	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Dependencies</em>'.
@@ -9001,8 +8976,8 @@ public interface PomPackage extends EPackage {
 	EReference getProfile_Dependencies();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Profile#getDependencyManagement <em>Dependency Management</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Profile#getDependencyManagement
+	 * <em>Dependency Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Dependency Management</em>'.
@@ -9013,8 +8988,8 @@ public interface PomPackage extends EPackage {
 	EReference getProfile_DependencyManagement();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Profile#getDistributionManagement <em>Distribution Management</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Profile#getDistributionManagement
+	 * <em>Distribution Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Distribution Management</em>'.
@@ -9049,8 +9024,8 @@ public interface PomPackage extends EPackage {
 	EReference getProfile_Modules();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Profile#getPluginRepositories <em>Plugin Repositories</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Profile#getPluginRepositories
+	 * <em>Plugin Repositories</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Plugin Repositories</em>'.
@@ -9097,8 +9072,8 @@ public interface PomPackage extends EPackage {
 	EReference getProfile_Reports();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Profile#getRepositories <em>Repositories</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Profile#getRepositories <em>Repositories</em>}'.
+	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Repositories</em>'.
@@ -9119,8 +9094,8 @@ public interface PomPackage extends EPackage {
 	EClass getProfilesType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.ProfilesType#getProfile <em>Profile</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.ProfilesType#getProfile <em>Profile</em>}'.
+	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Profile</em>'.
@@ -9268,8 +9243,8 @@ public interface PomPackage extends EPackage {
 	EClass getReportingPluginsType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.ReportingPluginsType#getPlugin <em>Plugin</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.ReportingPluginsType#getPlugin <em>Plugin</em>}
+	 * '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Plugin</em>'.
@@ -9302,8 +9277,8 @@ public interface PomPackage extends EPackage {
 	EAttribute getReportPlugin_ArtifactId();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getConfiguration <em>Configuration</em>} '. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getConfiguration
+	 * <em>Configuration</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Configuration</em>'.
@@ -9338,8 +9313,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getReportPlugin_Inherited();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getReportSets <em>Report Sets</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getReportSets <em>Report Sets</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Report Sets</em>'.
@@ -9372,8 +9346,7 @@ public interface PomPackage extends EPackage {
 	EClass getReportSet();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.ReportSet#getConfiguration <em>Configuration</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.ReportSet#getConfiguration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Configuration</em>'.
@@ -9431,8 +9404,7 @@ public interface PomPackage extends EPackage {
 	EClass getReportSetReportsType();
 
 	/**
-	 * Returns the meta object for the attribute list '
-	 * {@link org.eclipse.b3.p2.maven.pom.ReportSetReportsType#getReport <em>Report</em>}'. <!--
+	 * Returns the meta object for the attribute list ' {@link org.eclipse.b3.p2.maven.pom.ReportSetReportsType#getReport <em>Report</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute list '<em>Report</em>'.
@@ -9453,8 +9425,8 @@ public interface PomPackage extends EPackage {
 	EClass getReportSetsType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.ReportSetsType#getReportSet <em>Report Set</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.ReportSetsType#getReportSet
+	 * <em>Report Set</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Report Set</em>'.
@@ -9499,8 +9471,8 @@ public interface PomPackage extends EPackage {
 	EClass getRepositoriesType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.RepositoriesType#getRepository <em>Repository</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.RepositoriesType#getRepository
+	 * <em>Repository</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Repository</em>'.
@@ -9557,8 +9529,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getRepository_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Repository#getReleases <em>Releases</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Repository#getReleases <em>Releases</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Releases</em>'.
@@ -9569,8 +9540,7 @@ public interface PomPackage extends EPackage {
 	EReference getRepository_Releases();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.pom.Repository#getSnapshots <em>Snapshots</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Repository#getSnapshots <em>Snapshots</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Snapshots</em>'.
@@ -9720,8 +9690,8 @@ public interface PomPackage extends EPackage {
 	EClass getResourcesType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.ResourcesType#getResource <em>Resource</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.ResourcesType#getResource <em>Resource</em>}'.
+	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Resource</em>'.
@@ -9867,8 +9837,8 @@ public interface PomPackage extends EPackage {
 	EClass getTestResourcesType();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.p2.maven.pom.TestResourcesType#getTestResource <em>Test Resource</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.TestResourcesType#getTestResource
+	 * <em>Test Resource</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Test Resource</em>'.

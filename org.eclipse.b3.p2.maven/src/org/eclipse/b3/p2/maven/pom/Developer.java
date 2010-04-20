@@ -216,8 +216,7 @@ public interface Developer extends EObject {
 	void setOrganization(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganizationUrl <em>Organization Url</em>}
-	 * ' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganizationUrl <em>Organization Url</em>} ' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

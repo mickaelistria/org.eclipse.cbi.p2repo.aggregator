@@ -33,8 +33,8 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Versions extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Version</b></em>' attribute list. The list contents are of type
-	 * {@link java.lang.String}. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
+	 * Returns the value of the '<em><b>Version</b></em>' attribute list. The list contents are of type {@link java.lang.String}. <!-- begin-user-doc
+	 * --> <!-- end-user-doc --> <!-- begin-model-doc -->
 	 * 
 	 * 1.0.0
 	 * 

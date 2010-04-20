@@ -103,8 +103,8 @@ public interface Activation extends EObject {
 	ActivationProperty getProperty();
 
 	/**
-	 * Returns the value of the '<em><b>Active By Default</b></em>' attribute. The default value is <code>"false"</code>
-	 * . <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Flag specifying whether this
+	 * Returns the value of the '<em><b>Active By Default</b></em>' attribute. The default value is <code>"false"</code> . <!-- begin-user-doc -->
+	 * <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Flag specifying whether this
 	 * profile is active by default. <!-- end-model-doc -->
 	 * 
 	 * @return the value of the '<em>Active By Default</em>' attribute.

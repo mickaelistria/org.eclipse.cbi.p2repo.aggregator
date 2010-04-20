@@ -62,8 +62,8 @@ public interface ReportPlugin extends EObject {
 	ConfigurationType getConfiguration();
 
 	/**
-	 * Returns the value of the '<em><b>Group Id</b></em>' attribute. The default value is
-	 * <code>"org.apache.maven.plugins"</code>. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
+	 * Returns the value of the '<em><b>Group Id</b></em>' attribute. The default value is <code>"org.apache.maven.plugins"</code>. <!--
+	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
 	 * 4.0.0 The group ID of the reporting plugin in the repository. <!-- end-model-doc -->
 	 * 
 	 * @return the value of the '<em>Group Id</em>' attribute.

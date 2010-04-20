@@ -16,8 +16,8 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code>
- * method for each class of the model. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code> method for each class of the model.
+ * <!-- end-user-doc -->
  * 
  * @see org.eclipse.b3.p2.maven.pom.PomPackage
  * @generated
@@ -387,8 +387,7 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.maven.pom.Activation <em>Activation</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.maven.pom.Activation <em>Activation</em>} '.
 	 * <!-- begin-user-doc
 	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
@@ -555,8 +554,7 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.maven.pom.Dependency <em>Dependency</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.maven.pom.Dependency <em>Dependency</em>} '.
 	 * <!-- begin-user-doc
 	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
@@ -1097,8 +1095,7 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.maven.pom.Relocation <em>Relocation</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.maven.pom.Relocation <em>Relocation</em>} '.
 	 * <!-- begin-user-doc
 	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
@@ -1224,8 +1221,7 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.maven.pom.Repository <em>Repository</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.maven.pom.Repository <em>Repository</em>} '.
 	 * <!-- begin-user-doc
 	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->

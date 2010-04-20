@@ -89,8 +89,7 @@ public interface RepositoryPolicy extends EObject {
 	boolean isEnabled();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>}
-	 * ' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>} ' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Enabled</em>' attribute is set.

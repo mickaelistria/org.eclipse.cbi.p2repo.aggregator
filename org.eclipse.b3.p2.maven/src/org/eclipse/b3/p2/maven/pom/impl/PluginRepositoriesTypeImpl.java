@@ -30,8 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.p2.maven.pom.impl.PluginRepositoriesTypeImpl#getPluginRepository <em>Plugin Repository
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.p2.maven.pom.impl.PluginRepositoriesTypeImpl#getPluginRepository <em>Plugin Repository </em>}</li>
  * </ul>
  * </p>
  * 

@@ -171,8 +171,7 @@ public interface MetadataPackage extends EPackage {
 		EAttribute VERSIONING__LAST_UPDATED = eINSTANCE.getVersioning_LastUpdated();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.metadata.impl.VersionsImpl <em>Versions</em>}
-		 * ' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.metadata.impl.VersionsImpl <em>Versions</em>} ' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.metadata.impl.VersionsImpl
@@ -225,8 +224,7 @@ public interface MetadataPackage extends EPackage {
 	MetadataPackage eINSTANCE = org.eclipse.b3.p2.maven.metadata.impl.MetadataPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.metadata.impl.DocumentRootImpl <em>Document Root</em>}
-	 * ' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.metadata.impl.DocumentRootImpl <em>Document Root</em>} ' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.metadata.impl.DocumentRootImpl
@@ -425,8 +423,7 @@ public interface MetadataPackage extends EPackage {
 	EClass getDocumentRoot();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.metadata.DocumentRoot#getMetadata <em>Metadata</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.metadata.DocumentRoot#getMetadata <em>Metadata</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Metadata</em>'.
@@ -519,8 +516,7 @@ public interface MetadataPackage extends EPackage {
 	EAttribute getMetaData_Version();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}'.
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Versioning</em>'.
@@ -574,8 +570,8 @@ public interface MetadataPackage extends EPackage {
 	EAttribute getVersioning_Release();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}'. <!--
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}'.
+	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Versions</em>'.

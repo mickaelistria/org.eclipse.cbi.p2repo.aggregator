@@ -106,8 +106,7 @@ public interface Reporting extends EObject {
 	void setExcludeDefaults(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#getOutputDirectory <em>Output Directory</em>}
-	 * ' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#getOutputDirectory <em>Output Directory</em>} ' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

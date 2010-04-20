@@ -28,8 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl#getRepository <em>Repository</em>}</li>
- * <li>{@link org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl#getSnapshotRepository <em>Snapshot Repository
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl#getSnapshotRepository <em>Snapshot Repository </em>}</li>
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl#getSite <em>Site</em>}</li>
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl#getDownloadUrl <em>Download Url</em>}</li>
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl#getRelocation <em>Relocation</em>}</li>

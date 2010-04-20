@@ -61,8 +61,8 @@ public interface Parent extends EObject {
 	String getGroupId();
 
 	/**
-	 * Returns the value of the '<em><b>Relative Path</b></em>' attribute. The default value is
-	 * <code>"../pom.xml"</code>. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
+	 * Returns the value of the '<em><b>Relative Path</b></em>' attribute. The default value is <code>"../pom.xml"</code>. <!-- begin-user-doc -->
+	 * <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
 	 * 
 	 * The relative path of the parent &lt;code&gt;pom.xml&lt;/code&gt; file within the check out. The default value is
 	 * &lt;code&gt;../pom.xml&lt;/code&gt;. Maven looks for the parent pom first in the reactor of currently building
