@@ -730,7 +730,7 @@ public class MirrorGenerator extends BuilderPhase {
 					"artifacts.jar" }) {
 			// @fmtOn
 				File file = new File(destination, fileName);
-				if(!file.delete())
+				if(file.exists() && !file.delete())
 					throw ExceptionUtils.fromMessage("Unable to remove %s", file.getAbsolutePath());
 			}
 			MonitorUtils.worked(childMonitor, 10);
@@ -817,8 +817,6 @@ public class MirrorGenerator extends BuilderPhase {
 					if(!oldLocation.renameTo(newLocation))
 						throw ExceptionUtils.fromMessage(
 							"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
-					if(!aggregateDestination.delete())
-						throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
 				}
 				arMgr.removeRepository(aggregateURI);
 			}
