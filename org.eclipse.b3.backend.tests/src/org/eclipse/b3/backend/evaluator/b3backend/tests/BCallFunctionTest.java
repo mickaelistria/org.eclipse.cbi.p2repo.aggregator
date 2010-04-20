@@ -29,6 +29,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BCall Function</b></em>'.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BCallFunctionTest extends BCallExpressionTest {
@@ -36,6 +37,7 @@ public class BCallFunctionTest extends BCallExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -43,6 +45,7 @@ public class BCallFunctionTest extends BCallExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -53,6 +56,7 @@ public class BCallFunctionTest extends BCallExpressionTest {
 	 * Constructs a new BCall Function test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BCallFunctionTest(String name) {
@@ -60,19 +64,64 @@ public class BCallFunctionTest extends BCallExpressionTest {
 	}
 
 	/**
+	 * Tests an expression call - other test methods test a feature call, and a function call
+	 * test: a = {| 1 + 2}; (a)();
+	 */
+	@Override
+	public void testEvaluate__BExecutionContext() {
+		try {
+			B3Engine engine = new B3Engine();
+			BExecutionContext ctx = engine.getContext();
+
+			BCallExpression ce = createExpressionCall(ctx);
+			Object result = ce.evaluate(ctx);
+			assertEquals(3, result);
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
+	}
+
+	@Override
+	public void testGetDeclaredType__BExecutionContext() {
+		try {
+			B3Engine engine = new B3Engine();
+			BExecutionContext ctx = engine.getContext();
+
+			BCallExpression ce = createExpressionCall(ctx);
+			assertEquals(Integer.class, ce.getDeclaredType(ctx));
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
+	}
+
+	/**
 	 * Returns the fixture for this BCall Function test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected BCallFunction getFixture() {
-		return (BCallFunction)fixture;
+		return (BCallFunction) fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -84,6 +133,7 @@ public class BCallFunctionTest extends BCallExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -91,53 +141,17 @@ public class BCallFunctionTest extends BCallExpressionTest {
 	protected void tearDown() throws Exception {
 		setFixture(null);
 	}
-	/**
-	 * Tests an expression call - other test methods test a feature call, and a function call
-	 * test: a = {| 1 + 2}; (a)();
-	 */
-	@Override
-	public void testEvaluate__BExecutionContext() {
-		try{
-			B3Engine engine = new B3Engine();
-			BExecutionContext ctx = engine.getContext();
 
-			BCallExpression ce = createExpressionCall(ctx);
-			Object result = ce.evaluate(ctx);
-			assertEquals(3, result);
-			
-		} catch(AssertionFailedError e) {
-			throw e;
-		} catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-	}
-
-	@Override
-	public void testGetDeclaredType__BExecutionContext() {
-		try {
-			B3Engine engine = new B3Engine();
-			BExecutionContext ctx = engine.getContext();
-			
-			BCallExpression ce = createExpressionCall(ctx);
-			assertEquals(Integer.class, ce.getDeclaredType(ctx));
-			
-		}catch(AssertionFailedError e) {
-			throw e;
-		} catch (Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-	}
 	private BCallExpression createExpressionCall(BExecutionContext ctx) throws Throwable {
 		B3backendFactory b3 = B3backendFactory.eINSTANCE;
 
 		// this is really a lambda function call test, but it also verifies that the function was loaded
 		// as there is really no other way of querying if functions where loaded ok.
 		//
-		
+
 		// func = 2 + 1
-		B3Function func = b3.createB3Function(); {
+		B3Function func = b3.createB3Function();
+		{
 			func.setReturnType(Integer.class);
 			// func.setParameterTypes(new Type[] { Integer.class });
 			BLiteralExpression valx = b3.createBLiteralExpression();
@@ -160,8 +174,8 @@ public class BCallFunctionTest extends BCallExpressionTest {
 		BVariableExpression vara = b3.createBVariableExpression();
 		vara.setName("a");
 		ce.setFuncExpr(vara);
-		
+
 		return ce;
 	}
 
-} //BCallFunctionTest
+} // BCallFunctionTest

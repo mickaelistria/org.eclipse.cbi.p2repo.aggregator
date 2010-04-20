@@ -12,11 +12,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.tests;
 
-import junit.framework.TestCase;
-
-import junit.textui.TestRunner;
-
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 
 /**
@@ -26,9 +21,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, boolean) <em>Evaluate Defaults</em>}</li>
+ * <li>
+ * {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, boolean)
+ * <em>Evaluate Defaults</em>}</li>
  * </ul>
  * </p>
+ * 
  * @generated
  */
 public abstract class BPropertyOperationTest extends BExpressionTest {
@@ -36,6 +34,7 @@ public abstract class BPropertyOperationTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -44,6 +43,7 @@ public abstract class BPropertyOperationTest extends BExpressionTest {
 	 * Constructs a new BProperty Operation test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BPropertyOperationTest(String name) {
@@ -51,21 +51,14 @@ public abstract class BPropertyOperationTest extends BExpressionTest {
 	}
 
 	/**
-	 * Returns the fixture for this BProperty Operation test case.
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, boolean)
+	 * <em>Evaluate Defaults</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected BPropertyOperation getFixture() {
-		return (BPropertyOperation)fixture;
-	}
-
-	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, boolean) <em>Evaluate Defaults</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, boolean)
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 *      boolean)
 	 * @generated
 	 */
 	public void testEvaluateDefaults__BExecutionContext_boolean() {
@@ -74,4 +67,16 @@ public abstract class BPropertyOperationTest extends BExpressionTest {
 		fail();
 	}
 
-} //BPropertyOperationTest
+	/**
+	 * Returns the fixture for this BProperty Operation test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BPropertyOperation getFixture() {
+		return (BPropertyOperation) fixture;
+	}
+
+} // BPropertyOperationTest

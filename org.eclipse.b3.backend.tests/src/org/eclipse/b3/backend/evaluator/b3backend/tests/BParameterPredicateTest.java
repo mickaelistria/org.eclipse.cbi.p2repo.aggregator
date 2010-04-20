@@ -23,6 +23,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BParameter Predicate</b></em>'.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BParameterPredicateTest extends TestCase {
@@ -30,21 +31,15 @@ public class BParameterPredicateTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * The fixture for this BParameter Predicate test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BParameterPredicate fixture = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -52,9 +47,19 @@ public class BParameterPredicateTest extends TestCase {
 	}
 
 	/**
+	 * The fixture for this BParameter Predicate test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected BParameterPredicate fixture = null;
+
+	/**
 	 * Constructs a new BParameter Predicate test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BParameterPredicateTest(String name) {
@@ -62,19 +67,10 @@ public class BParameterPredicateTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this BParameter Predicate test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(BParameterPredicate fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this BParameter Predicate test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BParameterPredicate getFixture() {
@@ -82,8 +78,20 @@ public class BParameterPredicateTest extends TestCase {
 	}
 
 	/**
+	 * Sets the fixture for this BParameter Predicate test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void setFixture(BParameterPredicate fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -95,6 +103,7 @@ public class BParameterPredicateTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -103,4 +112,4 @@ public class BParameterPredicateTest extends TestCase {
 		setFixture(null);
 	}
 
-} //BParameterPredicateTest
+} // BParameterPredicateTest

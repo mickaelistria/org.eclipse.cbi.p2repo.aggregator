@@ -21,6 +21,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BFunction Concern Context</b></em>'.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BFunctionConcernContextTest extends BConcernContextTest {
@@ -28,6 +29,7 @@ public class BFunctionConcernContextTest extends BConcernContextTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -35,6 +37,7 @@ public class BFunctionConcernContextTest extends BConcernContextTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -45,6 +48,7 @@ public class BFunctionConcernContextTest extends BConcernContextTest {
 	 * Constructs a new BFunction Concern Context test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BFunctionConcernContextTest(String name) {
@@ -55,16 +59,18 @@ public class BFunctionConcernContextTest extends BConcernContextTest {
 	 * Returns the fixture for this BFunction Concern Context test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected BFunctionConcernContext getFixture() {
-		return (BFunctionConcernContext)fixture;
+		return (BFunctionConcernContext) fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -76,6 +82,7 @@ public class BFunctionConcernContextTest extends BConcernContextTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -84,4 +91,4 @@ public class BFunctionConcernContextTest extends BConcernContextTest {
 		setFixture(null);
 	}
 
-} //BFunctionConcernContextTest
+} // BFunctionConcernContextTest

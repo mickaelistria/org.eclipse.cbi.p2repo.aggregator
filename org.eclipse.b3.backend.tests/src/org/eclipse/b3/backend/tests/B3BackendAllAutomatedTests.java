@@ -19,6 +19,7 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test suite for the '<em><b>B3Backend</b></em>' model.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class B3BackendAllAutomatedTests extends TestSuite {
@@ -26,6 +27,7 @@ public class B3BackendAllAutomatedTests extends TestSuite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -35,6 +37,7 @@ public class B3BackendAllAutomatedTests extends TestSuite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static Test suite() {
@@ -48,10 +51,11 @@ public class B3BackendAllAutomatedTests extends TestSuite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public B3BackendAllAutomatedTests(String name) {
 		super(name);
 	}
 
-} //B3BackendAllTests
+} // B3BackendAllTests

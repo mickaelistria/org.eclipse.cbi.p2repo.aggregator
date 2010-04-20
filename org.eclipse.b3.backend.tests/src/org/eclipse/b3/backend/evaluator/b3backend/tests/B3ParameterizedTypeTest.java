@@ -26,9 +26,11 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualTypeArguments() <em>Get Actual Type Arguments</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualTypeArguments() <em>Get Actual
+ * Type Arguments</em>}</li>
  * </ul>
  * </p>
+ * 
  * @generated
  */
 public class B3ParameterizedTypeTest extends TestCase {
@@ -36,21 +38,15 @@ public class B3ParameterizedTypeTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * The fixture for this B3 Parameterized Type test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected B3ParameterizedType fixture = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -58,9 +54,19 @@ public class B3ParameterizedTypeTest extends TestCase {
 	}
 
 	/**
+	 * The fixture for this B3 Parameterized Type test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected B3ParameterizedType fixture = null;
+
+	/**
 	 * Constructs a new B3 Parameterized Type test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public B3ParameterizedTypeTest(String name) {
@@ -68,19 +74,25 @@ public class B3ParameterizedTypeTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this B3 Parameterized Type test case.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualTypeArguments()
+	 * <em>Get Actual Type Arguments</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualTypeArguments()
 	 * @generated
 	 */
-	protected void setFixture(B3ParameterizedType fixture) {
-		this.fixture = fixture;
+	public void testGetActualTypeArguments() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**
 	 * Returns the fixture for this B3 Parameterized Type test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3ParameterizedType getFixture() {
@@ -88,8 +100,20 @@ public class B3ParameterizedTypeTest extends TestCase {
 	}
 
 	/**
+	 * Sets the fixture for this B3 Parameterized Type test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void setFixture(B3ParameterizedType fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -101,6 +125,7 @@ public class B3ParameterizedTypeTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -109,17 +134,4 @@ public class B3ParameterizedTypeTest extends TestCase {
 		setFixture(null);
 	}
 
-	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualTypeArguments() <em>Get Actual Type Arguments</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualTypeArguments()
-	 * @generated
-	 */
-	public void testGetActualTypeArguments() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-} //B3ParameterizedTypeTest
+} // B3ParameterizedTypeTest
