@@ -13,6 +13,7 @@
 package org.eclipse.b3.backend.evaluator.b3backend;
 
 import java.util.Iterator;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -57,9 +58,6 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model kind="operation" dataType=
-	 * 
-	 * 
-	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
 	 * @generated
 	 */
@@ -70,8 +68,7 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BConcernContext}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Contexts</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Contexts</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -86,8 +83,7 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	 * Returns the value of the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -104,8 +100,7 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -121,8 +116,7 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Super Concerns</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Super Concerns</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

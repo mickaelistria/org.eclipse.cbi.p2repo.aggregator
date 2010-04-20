@@ -49,9 +49,6 @@ import org.eclipse.emf.common.util.EList;
  * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction()
  * @model interface="true" abstract="true" superTypes=
- * 
- * 
- *        
  *        "org.eclipse.b3.backend.evaluator.b3backend.IGenericDeclaration org.eclipse.b3.backend.evaluator.b3backend.BExpression"
  * @generated
  */
@@ -84,8 +81,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Closure</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Closure</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Closure</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -99,12 +95,11 @@ public interface IFunction extends GenericDeclaration, BExpression {
 
 	/**
 	 * Returns the value of the '<em><b>Container</b></em>' container reference.
-	 * It is bidirectional and its opposite is '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getFunctions <em>Functions</em>}'.
+	 * It is bidirectional and its opposite is ' {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getFunctions <em>Functions</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Container</em>' container reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Container</em>' container reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -121,8 +116,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -138,8 +132,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Exception Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Exception Types</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Exception Types</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -156,8 +149,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * The literals are from the enumeration {@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Execution Mode</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Execution Mode</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -174,8 +166,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Guard</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Guard</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Guard</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -207,8 +198,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Parameter Names</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameter Names</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Parameter Names</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -226,8 +216,8 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The parameters are the declared parameters. Some parameters may be implicit. Use {@link #getEffetiveParameters}
-	 * to get all of the parameter declarations.
+	 * The parameters are the declared parameters. Some parameters may be implicit. Use {@link #getEffetiveParameters} to get all of the parameter
+	 * declarations.
 	 * <!-- end-model-doc -->
 	 * 
 	 * @return the value of the '<em>Parameters</em>' containment reference list.
@@ -241,8 +231,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Parameter Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameter Types</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Parameter Types</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -258,8 +247,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Return Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Return Type</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Return Type</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -294,8 +282,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Type Calculator</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type Calculator</em>' containment reference isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Type Calculator</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -311,8 +298,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type Parameters</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Type Parameters</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -328,8 +314,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Vararg Array Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Vararg Array Type</em>' containment reference isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Vararg Array Type</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -346,8 +331,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * The literals are from the enumeration {@link org.eclipse.b3.backend.evaluator.b3backend.Visibility}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Visibility</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Visibility</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -375,8 +359,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Class Function</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Class Function</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Class Function</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -392,8 +375,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Final</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Final</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Final</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -409,8 +391,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Returns the value of the '<em><b>Var Args</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

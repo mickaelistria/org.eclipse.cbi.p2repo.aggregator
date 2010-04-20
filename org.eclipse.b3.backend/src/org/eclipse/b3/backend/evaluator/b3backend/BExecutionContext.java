@@ -27,10 +27,8 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext <em>Parent Context</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValueMap <em>Value Map</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFuncStore <em>Func Store</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getEffectiveConcerns <em>Effective Concerns
- * </em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getProgressMonitor <em>Progress Monitor</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getEffectiveConcerns <em>Effective Concerns </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getProgressMonitor <em>Progress Monitor</em>}</li>
  * </ul>
  * </p>
  * 
@@ -111,9 +109,6 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType=
-	 * 
-	 * 
-	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
 	 * @generated
 	 */
@@ -147,8 +142,7 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Effective Concerns</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Effective Concerns</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -163,8 +157,7 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * Returns the value of the '<em><b>Func Store</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Func Store</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Func Store</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -181,9 +174,6 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model kind="operation" dataType=
-	 * 
-	 * 
-	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
 	 * @generated
 	 */
@@ -194,9 +184,6 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType=
-	 * 
-	 * 
-	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
 	 * @generated
 	 */
@@ -207,9 +194,6 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType=
-	 * 
-	 * 
-	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
 	 *        typeDataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
 	 * @generated
@@ -229,8 +213,7 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * Returns the value of the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parent Context</em>' container reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Parent Context</em>' container reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -246,8 +229,7 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * Returns the value of the '<em><b>Progress Monitor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Progress Monitor</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Progress Monitor</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -264,8 +246,7 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value Map</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Value Map</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

@@ -26,17 +26,13 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getBounds <em>Bounds</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration <em>Generic
- * Declaration</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration <em>Generic Declaration</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3FuncTypeVariable()
  * @model superTypes=
- * 
- * 
- *        
  *        "org.eclipse.b3.backend.evaluator.b3backend.ITypeVariable<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
  * @generated
  */
@@ -53,8 +49,7 @@ public interface B3FuncTypeVariable extends EObject, TypeVariable<IFunction> {
 	 * Returns the value of the '<em><b>Bounds</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bounds</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Bounds</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -70,8 +65,7 @@ public interface B3FuncTypeVariable extends EObject, TypeVariable<IFunction> {
 	 * Returns the value of the '<em><b>Generic Declaration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Generic Declaration</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Generic Declaration</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -113,8 +107,7 @@ public interface B3FuncTypeVariable extends EObject, TypeVariable<IFunction> {
 	void setBounds(Type[] value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration
+	 * Sets the value of the ' {@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration
 	 * <em>Generic Declaration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
