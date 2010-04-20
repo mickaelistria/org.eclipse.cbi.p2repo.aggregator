@@ -33,8 +33,7 @@ public interface AggregatorResource extends XMIResource {
 	void analyzeResource();
 
 	/**
-	 * Returns a list of the infos in the resource; each error will be of type
-	 * {@link org.eclipse.emf.ecore.resource.Resource.Diagnostic}.
+	 * Returns a list of the infos in the resource; each error will be of type {@link org.eclipse.emf.ecore.resource.Resource.Diagnostic}.
 	 * 
 	 * @return a list of the infos in the resource.
 	 * @see #load(Map)

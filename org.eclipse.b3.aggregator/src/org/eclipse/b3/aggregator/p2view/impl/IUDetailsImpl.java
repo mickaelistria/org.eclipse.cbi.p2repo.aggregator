@@ -30,13 +30,10 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getRequirementsContainer <em>Requirements Container
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getProvidedCapabilitiesContainer <em>Provided
- * Capabilities Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getRequirementsContainer <em>Requirements Container </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getProvidedCapabilitiesContainer <em>Provided Capabilities Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getPropertiesContainer <em>Properties Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getTouchpointsContainer <em>Touchpoints Container
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getTouchpointsContainer <em>Touchpoints Container </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getUpdateDescriptor <em>Update Descriptor</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getCopyright <em>Copyright</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getLicensesContainer <em>Licenses Container</em>}</li>

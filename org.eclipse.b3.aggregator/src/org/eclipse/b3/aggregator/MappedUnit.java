@@ -51,8 +51,7 @@ public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvide
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Configuration}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Valid Configurations</em>' reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Valid Configurations</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

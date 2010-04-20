@@ -60,8 +60,7 @@ public enum WindowSystem implements Enumerator {
 	 * The '<em><b>Win32</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Win32</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Win32</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -76,8 +75,7 @@ public enum WindowSystem implements Enumerator {
 	 * The '<em><b>GTK</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>GTK</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>GTK</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -92,8 +90,7 @@ public enum WindowSystem implements Enumerator {
 	 * The '<em><b>Carbon</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Carbon</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Carbon</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -108,8 +105,7 @@ public enum WindowSystem implements Enumerator {
 	 * The '<em><b>Cocoa</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Cocoa</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Cocoa</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

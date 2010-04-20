@@ -28,8 +28,7 @@ public interface Configuration extends EnabledStatusProvider {
 	 * The literals are from the enumeration {@link org.eclipse.b3.aggregator.Architecture}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Architecture</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Architecture</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -55,8 +54,7 @@ public interface Configuration extends EnabledStatusProvider {
 	 * The literals are from the enumeration {@link org.eclipse.b3.aggregator.OperatingSystem}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Operating System</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Operating System</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -82,8 +80,7 @@ public interface Configuration extends EnabledStatusProvider {
 	 * The literals are from the enumeration {@link org.eclipse.b3.aggregator.WindowSystem}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Window System</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Window System</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

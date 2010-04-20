@@ -22,8 +22,7 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange <em>Version Range</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader <em>Available Versions Header
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader <em>Available Versions Header </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersions <em>Available Versions</em>}</li>
  * </ul>
  * </p>
@@ -38,8 +37,7 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.AvailableVersion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Available Versions</em>' attribute list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Available Versions</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -52,13 +50,12 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 
 	/**
 	 * Returns the value of the '<em><b>Available Versions Header</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '
-	 * {@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest
+	 * It is bidirectional and its opposite is ' {@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest
 	 * <em>Installable Unit Request</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Available Versions Header</em>' containment reference isn't clear, there really should
-	 * be more of a description here...
+	 * If the meaning of the '<em>Available Versions Header</em>' containment reference isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -92,8 +89,7 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * The default value is <code>"0.0.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Version Range</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Version Range</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

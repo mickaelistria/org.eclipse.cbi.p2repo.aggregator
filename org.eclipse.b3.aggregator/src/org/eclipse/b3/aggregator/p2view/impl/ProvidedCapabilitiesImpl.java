@@ -32,8 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilitiesImpl#getProvidedCapabilities <em>Provided
- * Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilitiesImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  * </ul>
  * </p>
  * 

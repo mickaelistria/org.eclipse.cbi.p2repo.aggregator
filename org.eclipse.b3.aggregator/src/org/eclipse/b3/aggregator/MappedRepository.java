@@ -43,8 +43,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Bundle}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bundles</em>' containment reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Bundles</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -60,8 +59,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Category}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Categories</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Categories</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -76,8 +74,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * Returns the value of the '<em><b>Category Prefix</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Category Prefix</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Category Prefix</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -94,8 +91,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Feature}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Features</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Features</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -111,8 +107,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.MapRule}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Map Rules</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Map Rules</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -128,8 +123,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Product}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Products</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Products</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -142,8 +136,8 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> Returns the MappedUnits referenced by this
-	 * instance. Units that have their <code>enabled</code> flag set to false will be excluded if the parameter
-	 * <code>enabledOnly</code> is set to <code>true</code>. <!-- end-model-doc -->
+	 * instance. Units that have their <code>enabled</code> flag set to false will be excluded if the parameter <code>enabledOnly</code> is set to
+	 * <code>true</code>. <!-- end-model-doc -->
 	 * 
 	 * @model
 	 * @generated
@@ -164,8 +158,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Mirror Artifacts</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Mirror Artifacts</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

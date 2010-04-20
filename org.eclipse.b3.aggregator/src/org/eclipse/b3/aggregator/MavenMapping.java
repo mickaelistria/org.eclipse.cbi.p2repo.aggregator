@@ -34,8 +34,7 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Artifact Id</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Artifact Id</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -51,8 +50,7 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	 * Returns the value of the '<em><b>Group Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Group Id</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Group Id</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -68,8 +66,7 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	 * Returns the value of the '<em><b>Name Pattern</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name Pattern</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Name Pattern</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

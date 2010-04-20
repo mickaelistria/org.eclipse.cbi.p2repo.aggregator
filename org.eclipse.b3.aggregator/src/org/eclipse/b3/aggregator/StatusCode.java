@@ -58,8 +58,7 @@ public enum StatusCode implements Enumerator {
 	 * The '<em><b>OK</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>OK</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>OK</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -74,8 +73,7 @@ public enum StatusCode implements Enumerator {
 	 * The '<em><b>BROKEN</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>BROKEN</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>BROKEN</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -90,8 +88,7 @@ public enum StatusCode implements Enumerator {
 	 * The '<em><b>WAITING</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>WAITING</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>WAITING</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

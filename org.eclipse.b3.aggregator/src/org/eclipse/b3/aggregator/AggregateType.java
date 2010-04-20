@@ -85,8 +85,7 @@ public enum AggregateType implements Enumerator {
 	 * The '<em><b>Stable</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Stable</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Stable</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -101,8 +100,7 @@ public enum AggregateType implements Enumerator {
 	 * The '<em><b>Integration</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Integration</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Integration</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -117,8 +115,7 @@ public enum AggregateType implements Enumerator {
 	 * The '<em><b>Nightly</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Nightly</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Nightly</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -133,8 +130,7 @@ public enum AggregateType implements Enumerator {
 	 * The '<em><b>Maintenance</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Maintenance</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Maintenance</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -149,8 +145,7 @@ public enum AggregateType implements Enumerator {
 	 * The '<em><b>Continuous</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Continuous</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Continuous</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -165,8 +160,7 @@ public enum AggregateType implements Enumerator {
 	 * The '<em><b>Release</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Release</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Release</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

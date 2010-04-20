@@ -63,8 +63,7 @@ public enum VersionMatch implements Enumerator {
 	 * The '<em><b>BELOW</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>BELOW</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>BELOW</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -79,8 +78,7 @@ public enum VersionMatch implements Enumerator {
 	 * The '<em><b>MATCHES</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>MATCHES</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>MATCHES</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -95,8 +93,7 @@ public enum VersionMatch implements Enumerator {
 	 * The '<em><b>ABOVE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>ABOVE</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>ABOVE</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

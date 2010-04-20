@@ -55,8 +55,7 @@ public enum OperatingSystem implements Enumerator {
 	 * The '<em><b>Win32</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Win32</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Win32</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -71,8 +70,7 @@ public enum OperatingSystem implements Enumerator {
 	 * The '<em><b>Linux</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Linux</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Linux</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -87,8 +85,7 @@ public enum OperatingSystem implements Enumerator {
 	 * The '<em><b>Mac OSX</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Mac OSX</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Mac OSX</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

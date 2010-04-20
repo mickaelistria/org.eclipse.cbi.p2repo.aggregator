@@ -20,11 +20,9 @@ import org.eclipse.b3.p2.MetadataRepository;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList <em>Installable
- * Unit List</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList <em>Installable Unit List</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties <em>Properties</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata
- * Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata Repository</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded <em>Loaded</em>}</li>
  * </ul>
  * </p>
@@ -38,8 +36,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * Returns the value of the '<em><b>Installable Unit List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Installable Unit List</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Installable Unit List</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -55,8 +52,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * Returns the value of the '<em><b>Metadata Repository</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Metadata Repository</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Metadata Repository</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -89,8 +85,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * Returns the value of the '<em><b>Properties</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Properties</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Properties</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -106,8 +101,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * Returns the value of the '<em><b>Loaded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Loaded</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Loaded</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -120,8 +114,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	boolean isLoaded();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList
 	 * <em>Installable Unit List</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -145,8 +138,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	void setLoaded(boolean value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository
 	 * <em>Metadata Repository</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

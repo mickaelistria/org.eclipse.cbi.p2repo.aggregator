@@ -47,8 +47,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * Returns the value of the '<em><b>Buildmaster</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Buildmaster</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Buildmaster</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -65,8 +64,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * The default value is <code>"${user.home}/build"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Build Root</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Build Root</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -83,8 +81,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Configuration}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Configurations</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Configurations</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -102,8 +99,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * <em>Aggregator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Contacts</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Contacts</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -120,8 +116,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Contribution}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Contributions</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Contributions</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -145,8 +140,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.CustomCategory}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Custom Categories</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Custom Categories</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -161,8 +155,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -179,8 +172,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.MavenMapping}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Maven Mappings</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Maven Mappings</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -196,8 +188,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * The literals are from the enumeration {@link org.eclipse.b3.aggregator.PackedStrategy}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Packed Strategy</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Packed Strategy</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -233,8 +224,8 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.MetadataRepositoryReference}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Validation Repositories</em>' containment reference list isn't clear, there really
-	 * should be more of a description here...
+	 * If the meaning of the '<em>Validation Repositories</em>' containment reference list isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -257,8 +248,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * Returns the value of the '<em><b>Maven Result</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Maven Result</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Maven Result</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -274,8 +264,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * Returns the value of the '<em><b>Sendmail</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sendmail</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Sendmail</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

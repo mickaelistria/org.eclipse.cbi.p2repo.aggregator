@@ -29,8 +29,7 @@ public interface Contact {
 	 * <em>Contacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Aggregator</em>' container reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Aggregator</em>' container reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -47,8 +46,7 @@ public interface Contact {
 	 * Returns the value of the '<em><b>Email</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Email</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Email</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

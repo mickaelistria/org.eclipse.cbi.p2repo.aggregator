@@ -44,8 +44,8 @@ import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 
 /**
- * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code>
- * method for each class of the model. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code> method for each class of the model.
+ * <!-- end-user-doc -->
  * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage
  * @generated
@@ -477,8 +477,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Licenses <em>Licenses</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Licenses <em>Licenses</em>} '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -493,8 +492,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView
+	 * Creates a new adapter for an object of class ' {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView
 	 * <em>Metadata Repository Structured View</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null
 	 * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases

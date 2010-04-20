@@ -72,10 +72,8 @@ import org.eclipse.equinox.p2.query.QueryUtil;
  * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getDescription <em>Description</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getVersionRange <em>Version Range</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getAvailableVersionsHeader <em>Available
- * Versions Header</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getAvailableVersions <em>Available Versions
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getAvailableVersionsHeader <em>Available Versions Header</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getAvailableVersions <em>Available Versions </em>}</li>
  * </ul>
  * </p>
  * 

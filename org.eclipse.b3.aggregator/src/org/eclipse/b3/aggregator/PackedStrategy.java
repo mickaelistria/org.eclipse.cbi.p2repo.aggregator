@@ -78,8 +78,7 @@ public enum PackedStrategy implements Enumerator {
 	 * The '<em><b>Copy</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Copy</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>Copy</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -94,8 +93,7 @@ public enum PackedStrategy implements Enumerator {
 	 * The '<em><b>Verify</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Verify</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Verify</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -110,8 +108,7 @@ public enum PackedStrategy implements Enumerator {
 	 * The '<em><b>Unpack As Sibling</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Unpack  As  Sibling</b></em>' literal object isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of '<em><b>Unpack  As  Sibling</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -126,8 +123,7 @@ public enum PackedStrategy implements Enumerator {
 	 * The '<em><b>Unpack</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Unpack</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Unpack</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -142,8 +138,7 @@ public enum PackedStrategy implements Enumerator {
 	 * The '<em><b>Skip</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Skip</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>Skip</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

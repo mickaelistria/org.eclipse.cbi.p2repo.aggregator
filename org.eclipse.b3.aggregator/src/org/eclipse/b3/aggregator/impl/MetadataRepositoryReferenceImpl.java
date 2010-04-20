@@ -51,8 +51,7 @@ import org.eclipse.equinox.internal.p2.core.helpers.StringHelper;
  * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#getErrors <em>Errors</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#getWarnings <em>Warnings</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#getInfos <em>Infos</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#getMetadataRepository <em>Metadata
- * Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#getMetadataRepository <em>Metadata Repository</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#getLocation <em>Location</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#getNature <em>Nature</em>}</li>
  * </ul>

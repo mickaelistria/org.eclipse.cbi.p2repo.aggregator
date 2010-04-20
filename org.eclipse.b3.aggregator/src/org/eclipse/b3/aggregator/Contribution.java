@@ -40,8 +40,7 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Contact}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Contacts</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Contacts</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -56,8 +55,7 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -74,8 +72,7 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.MavenMapping}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Maven Mappings</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Maven Mappings</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -91,8 +88,7 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.MappedRepository}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

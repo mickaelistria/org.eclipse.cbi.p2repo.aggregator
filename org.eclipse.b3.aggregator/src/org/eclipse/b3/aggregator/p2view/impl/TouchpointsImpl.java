@@ -30,8 +30,7 @@ import org.eclipse.equinox.p2.metadata.ITouchpointType;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.TouchpointsImpl#getTouchpointType <em>Touchpoint Type</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.TouchpointsImpl#getTouchpointDataList <em>Touchpoint Data List</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.TouchpointsImpl#getTouchpointDataList <em>Touchpoint Data List</em>}</li>
  * </ul>
  * </p>
  * 

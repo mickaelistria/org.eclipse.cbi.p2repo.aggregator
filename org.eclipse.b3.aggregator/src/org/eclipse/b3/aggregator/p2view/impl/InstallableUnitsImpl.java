@@ -38,15 +38,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl#getCategoryContainer <em>Category Container
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl#getFeatureContainer <em>Feature Container</em>}
- * </li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl#getProductContainer <em>Product Container</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl#getCategoryContainer <em>Category Container </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl#getFeatureContainer <em>Feature Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl#getProductContainer <em>Product Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl#getBundleContainer <em>Bundle Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl#getMiscellaneousContainer <em> Miscellaneous
- * Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl#getMiscellaneousContainer <em> Miscellaneous Container</em>}</li>
  * </ul>
  * </p>
  * 

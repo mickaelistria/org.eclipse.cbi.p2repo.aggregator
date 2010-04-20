@@ -33,8 +33,7 @@ public interface Category extends IUPresentation {
 	 * Returns the value of the '<em><b>Bundle Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bundle Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Bundle Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -50,8 +49,7 @@ public interface Category extends IUPresentation {
 	 * Returns the value of the '<em><b>Category Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Category Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Category Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -67,8 +65,7 @@ public interface Category extends IUPresentation {
 	 * Returns the value of the '<em><b>Feature Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Feature Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -84,8 +81,7 @@ public interface Category extends IUPresentation {
 	 * Returns the value of the '<em><b>Fragment Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Fragment Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Fragment Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -101,8 +97,7 @@ public interface Category extends IUPresentation {
 	 * Returns the value of the '<em><b>Iu Details</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Iu Details</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Iu Details</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -157,8 +152,7 @@ public interface Category extends IUPresentation {
 	 * Returns the value of the '<em><b>Product Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Product Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Product Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

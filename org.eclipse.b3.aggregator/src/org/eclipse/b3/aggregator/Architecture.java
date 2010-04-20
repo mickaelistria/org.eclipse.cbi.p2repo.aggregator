@@ -64,8 +64,7 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>X86</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>X86</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>X86</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -80,8 +79,7 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>PPC</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>PPC</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>PPC</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -96,8 +94,7 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>X86 64</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>X86 64</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>X86 64</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -112,8 +109,7 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>IA64</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>IA64</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>IA64</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

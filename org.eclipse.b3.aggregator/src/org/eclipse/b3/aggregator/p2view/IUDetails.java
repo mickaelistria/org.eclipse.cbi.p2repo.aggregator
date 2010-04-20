@@ -19,8 +19,7 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequirementsContainer <em>Requirements Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getProvidedCapabilitiesContainer <em>Provided Capabilities
- * Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getProvidedCapabilitiesContainer <em>Provided Capabilities Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getPropertiesContainer <em>Properties Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getTouchpointsContainer <em>Touchpoints Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getUpdateDescriptor <em>Update Descriptor</em>}</li>
@@ -38,8 +37,7 @@ public interface IUDetails {
 	 * Returns the value of the '<em><b>Copyright</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Copyright</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Copyright</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -55,8 +53,7 @@ public interface IUDetails {
 	 * Returns the value of the '<em><b>Licenses Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Licenses Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Licenses Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -72,8 +69,7 @@ public interface IUDetails {
 	 * Returns the value of the '<em><b>Properties Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Properties Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Properties Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -89,8 +85,7 @@ public interface IUDetails {
 	 * Returns the value of the '<em><b>Provided Capabilities Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provided Capabilities Container</em>' reference isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Provided Capabilities Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -106,8 +101,7 @@ public interface IUDetails {
 	 * Returns the value of the '<em><b>Requirements Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Requirements Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Requirements Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -123,8 +117,7 @@ public interface IUDetails {
 	 * Returns the value of the '<em><b>Touchpoints Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Touchpoints Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Touchpoints Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -140,8 +133,7 @@ public interface IUDetails {
 	 * Returns the value of the '<em><b>Update Descriptor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Update Descriptor</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Update Descriptor</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

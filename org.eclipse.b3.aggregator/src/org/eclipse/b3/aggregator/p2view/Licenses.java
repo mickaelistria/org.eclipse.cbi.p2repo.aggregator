@@ -33,8 +33,7 @@ public interface Licenses {
 	 * The list contents are of type {@link org.eclipse.equinox.p2.metadata.ILicense}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Licenses</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Licenses</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

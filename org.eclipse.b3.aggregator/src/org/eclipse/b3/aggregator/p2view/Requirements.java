@@ -31,8 +31,7 @@ public interface Requirements {
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Requirements</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Requirements</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

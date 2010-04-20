@@ -56,9 +56,8 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
 	 * <p>
-	 * This method is used to initialize {@link P2viewPackage#eINSTANCE} when that field is accessed. Clients should not
-	 * invoke it directly. Instead, they should simply access that field to obtain the package. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This method is used to initialize {@link P2viewPackage#eINSTANCE} when that field is accessed. Clients should not invoke it directly. Instead,
+	 * they should simply access that field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
@@ -297,9 +296,8 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
 	 * EPackage.Registry} by the package package URI value.
 	 * <p>
-	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also
-	 * performs initialization of the package, or returns the registered package, if one already exists. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
+	 * package, or returns the registered package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#eNS_URI

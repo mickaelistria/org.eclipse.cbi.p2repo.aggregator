@@ -33,8 +33,7 @@ public interface InfosProvider {
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Errors</em>' attribute list isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Errors</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -50,8 +49,7 @@ public interface InfosProvider {
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Infos</em>' attribute list isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Infos</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -67,8 +65,7 @@ public interface InfosProvider {
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Warnings</em>' attribute list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Warnings</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

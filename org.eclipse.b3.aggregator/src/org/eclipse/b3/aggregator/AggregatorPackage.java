@@ -3525,8 +3525,8 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getAggregator_BuildRoot();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.Aggregator#getConfigurations <em>Configurations</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.Aggregator#getConfigurations
+	 * <em>Configurations</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Configurations</em>'.
@@ -3537,8 +3537,7 @@ public interface AggregatorPackage extends EPackage {
 	EReference getAggregator_Configurations();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.Aggregator#getContacts <em>Contacts</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.Aggregator#getContacts <em>Contacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3550,8 +3549,8 @@ public interface AggregatorPackage extends EPackage {
 	EReference getAggregator_Contacts();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.Aggregator#getContributions <em>Contributions</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.Aggregator#getContributions
+	 * <em>Contributions</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Contributions</em>'.
@@ -3562,8 +3561,8 @@ public interface AggregatorPackage extends EPackage {
 	EReference getAggregator_Contributions();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.Aggregator#getCustomCategories <em>Custom Categories</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.Aggregator#getCustomCategories
+	 * <em>Custom Categories</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Custom Categories</em>'.
@@ -3644,8 +3643,8 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getAggregator_Type();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.Aggregator#getValidationRepositories <em>Validation Repositories</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.Aggregator#getValidationRepositories
+	 * <em>Validation Repositories</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Validation Repositories</em>'.
@@ -3675,8 +3674,7 @@ public interface AggregatorPackage extends EPackage {
 	EEnum getArchitecture();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.AvailableVersion <em>Available Version</em>}
-	 * '.
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.AvailableVersion <em>Available Version</em>} '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3738,8 +3736,8 @@ public interface AggregatorPackage extends EPackage {
 	EClass getAvailableVersionsHeader();
 
 	/**
-	 * Returns the meta object for the reference list '
-	 * {@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getAvailableVersions <em>Available Versions</em>}'.
+	 * Returns the meta object for the reference list ' {@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getAvailableVersions
+	 * <em>Available Versions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3751,8 +3749,7 @@ public interface AggregatorPackage extends EPackage {
 	EReference getAvailableVersionsHeader_AvailableVersions();
 
 	/**
-	 * Returns the meta object for the container reference '
-	 * {@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest
+	 * Returns the meta object for the container reference ' {@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest
 	 * <em>Installable Unit Request</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3797,8 +3794,7 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getCategory_LabelOverride();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.ChildrenProvider <em>Children Provider</em>}
-	 * '.
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.ChildrenProvider <em>Children Provider</em>} '.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Children Provider</em>'.
@@ -3947,8 +3943,7 @@ public interface AggregatorPackage extends EPackage {
 	EReference getContribution_Contacts();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Contribution#getLabel <em>Label</em>}
-	 * '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Contribution#getLabel <em>Label</em>} '.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Label</em>'.
@@ -3971,8 +3966,8 @@ public interface AggregatorPackage extends EPackage {
 	EReference getContribution_MavenMappings();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.Contribution#getRepositories <em>Repositories</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.Contribution#getRepositories
+	 * <em>Repositories</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Repositories</em>'.
@@ -4182,8 +4177,8 @@ public interface AggregatorPackage extends EPackage {
 	EClass getInstallableUnitRequest();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersions <em>Available Versions</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersions
+	 * <em>Available Versions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4195,8 +4190,7 @@ public interface AggregatorPackage extends EPackage {
 	EReference getInstallableUnitRequest_AvailableVersions();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader
+	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader
 	 * <em>Available Versions Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4222,8 +4216,7 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getInstallableUnitRequest_Name();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange <em>Version Range</em>}'.
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange <em>Version Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4268,8 +4261,7 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getLabelProvider_Label();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.MappedRepository <em>Mapped Repository</em>}
-	 * '.
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.MappedRepository <em>Mapped Repository</em>} '.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Mapped Repository</em>'.
@@ -4279,8 +4271,7 @@ public interface AggregatorPackage extends EPackage {
 	EClass getMappedRepository();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.MappedRepository#getBundles <em>Bundles</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.MappedRepository#getBundles <em>Bundles</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4292,8 +4283,8 @@ public interface AggregatorPackage extends EPackage {
 	EReference getMappedRepository_Bundles();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.MappedRepository#getCategories <em>Categories</em>}'. <!--
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.MappedRepository#getCategories
+	 * <em>Categories</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Categories</em>'.
@@ -4316,8 +4307,7 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getMappedRepository_CategoryPrefix();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.MappedRepository#getFeatures <em>Features</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.MappedRepository#getFeatures <em>Features</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -4329,8 +4319,8 @@ public interface AggregatorPackage extends EPackage {
 	EReference getMappedRepository_Features();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.MappedRepository#getMapRules <em>Map Rules</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.MappedRepository#getMapRules <em>Map Rules</em>}
+	 * '.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -4354,8 +4344,7 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getMappedRepository_MirrorArtifacts();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.MappedRepository#getProducts <em>Products</em>}'.
+	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.MappedRepository#getProducts <em>Products</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -4377,8 +4366,8 @@ public interface AggregatorPackage extends EPackage {
 	EClass getMappedUnit();
 
 	/**
-	 * Returns the meta object for the reference list '
-	 * {@link org.eclipse.b3.aggregator.MappedUnit#getValidConfigurations <em>Valid Configurations</em>}'. <!--
+	 * Returns the meta object for the reference list ' {@link org.eclipse.b3.aggregator.MappedUnit#getValidConfigurations
+	 * <em>Valid Configurations</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference list '<em>Valid Configurations</em>'.
@@ -4490,8 +4479,7 @@ public interface AggregatorPackage extends EPackage {
 	EClass getMetadataRepositoryReference();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getLocation <em>Location</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getLocation <em>Location</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Location</em>'.
@@ -4502,9 +4490,8 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getMetadataRepositoryReference_Location();
 
 	/**
-	 * Returns the meta object for the reference '
-	 * {@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getMetadataRepository <em>Metadata Repository</em>}
-	 * '.
+	 * Returns the meta object for the reference ' {@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getMetadataRepository
+	 * <em>Metadata Repository</em>} '.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Metadata Repository</em>'.
@@ -4515,8 +4502,7 @@ public interface AggregatorPackage extends EPackage {
 	EReference getMetadataRepositoryReference_MetadataRepository();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getNature <em>Nature</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getNature <em>Nature</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Nature</em>'.
@@ -4664,8 +4650,8 @@ public interface AggregatorPackage extends EPackage {
 	EClass getValidConfigurationsRule();
 
 	/**
-	 * Returns the meta object for the reference list '
-	 * {@link org.eclipse.b3.aggregator.ValidConfigurationsRule#getValidConfigurations <em>Valid Configurations</em>}'.
+	 * Returns the meta object for the reference list ' {@link org.eclipse.b3.aggregator.ValidConfigurationsRule#getValidConfigurations
+	 * <em>Valid Configurations</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference list '<em>Valid Configurations</em>'.

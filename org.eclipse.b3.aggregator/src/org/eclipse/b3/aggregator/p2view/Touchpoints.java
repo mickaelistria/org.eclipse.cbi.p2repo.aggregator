@@ -34,8 +34,7 @@ public interface Touchpoints {
 	 * The list contents are of type {@link org.eclipse.equinox.p2.metadata.ITouchpointData}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Touchpoint Data List</em>' reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Touchpoint Data List</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -50,8 +49,7 @@ public interface Touchpoints {
 	 * Returns the value of the '<em><b>Touchpoint Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Touchpoint Type</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Touchpoint Type</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

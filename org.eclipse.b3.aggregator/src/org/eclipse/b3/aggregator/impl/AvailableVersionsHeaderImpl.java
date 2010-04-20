@@ -26,10 +26,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl#getAvailableVersions <em>Available Versions
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl#getInstallableUnitRequest <em>Installable Unit
- * Request</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl#getAvailableVersions <em>Available Versions </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl#getInstallableUnitRequest <em>Installable Unit Request</em>}</li>
  * </ul>
  * </p>
  * 

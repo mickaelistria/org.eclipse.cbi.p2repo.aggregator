@@ -32,8 +32,7 @@ public interface Miscellaneous extends ChildrenProvider<OtherIU> {
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.OtherIU}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Others</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Others</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

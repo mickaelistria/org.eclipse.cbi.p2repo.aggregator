@@ -30,8 +30,7 @@ public interface Feature extends IUPresentationWithDetails {
 	 * Returns the value of the '<em><b>Bundle Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bundle Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Bundle Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -47,8 +46,7 @@ public interface Feature extends IUPresentationWithDetails {
 	 * Returns the value of the '<em><b>Feature Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Feature Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -64,8 +62,7 @@ public interface Feature extends IUPresentationWithDetails {
 	 * Returns the value of the '<em><b>Fragment Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Fragment Container</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Fragment Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

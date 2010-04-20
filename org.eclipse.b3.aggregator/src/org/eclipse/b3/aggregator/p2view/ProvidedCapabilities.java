@@ -18,8 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilities#getProvidedCapabilities <em>Provided Capabilities
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilities#getProvidedCapabilities <em>Provided Capabilities </em>}</li>
  * </ul>
  * </p>
  * 
@@ -33,8 +32,7 @@ public interface ProvidedCapabilities {
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provided Capabilities</em>' reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Provided Capabilities</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

@@ -49,8 +49,7 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Location</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Location</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -66,8 +65,7 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	 * Returns the value of the '<em><b>Metadata Repository</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Metadata Repository</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Metadata Repository</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -83,8 +81,7 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	 * Returns the value of the '<em><b>Metadata Repository</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Metadata Repository</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Metadata Repository</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -100,8 +97,7 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	 * Returns the value of the '<em><b>Nature</b></em>' attribute. The default value is <code>"p2"</code>. <!--
 	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Nature</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Nature</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

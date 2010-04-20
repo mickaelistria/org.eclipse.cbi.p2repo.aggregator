@@ -30,8 +30,7 @@ public interface IUPresentationWithDetails extends IUPresentation, IUDetails {
 	 * Returns the value of the '<em><b>Details Resolved</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Details Resolved</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Details Resolved</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

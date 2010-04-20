@@ -32,8 +32,7 @@ public interface Bundles extends ChildrenProvider<Bundle> {
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.Bundle}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bundles</em>' reference list isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Bundles</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
