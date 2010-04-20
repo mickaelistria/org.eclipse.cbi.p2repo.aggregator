@@ -13,24 +13,22 @@ import org.eclipse.xtext.ui.common.editor.syntaxcoloring.antlr.AbstractAntlrToke
  * Use this class to register components to be used within the IDE.
  */
 public class BeeLangUiModule extends org.eclipse.b3.AbstractBeeLangUiModule {
-	
-	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> 
-		bindTokenToAttributeIdMapper() {
-		return BeeLangTokenToAttributeIdMapper.class;
-	}
-	
-	public Class<? extends IHighlightingConfiguration> 
-		bindILexicalHighlightingConfiguration() {
-		return BeeLangHighlightConfiguration.class;
-	}	
 
-	public Class<? extends ISemanticHighlightingCalculator> 
-		bindISemanticHighlightingCalculator() {
+	// To get nodes in outline view adapted for the purpose of attaching menus
+	@Override
+	public Class<? extends IContentOutlineNodeAdapterFactory> bindIContentOutlineNodeAdapterFactory() {
+		return BeeLangOutlineNodeAdapterFactory.class;
+	}
+
+	public Class<? extends IHighlightingConfiguration> bindILexicalHighlightingConfiguration() {
+		return BeeLangHighlightConfiguration.class;
+	}
+
+	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
 		return BeeLangSemanticHighlightingCalculator.class;
 	}
-	// To get nodes in outline view adapted for the purpose of attaching menus
-	public Class<? extends IContentOutlineNodeAdapterFactory>
-		bindIContentOutlineNodeAdapterFactory() {
-		return BeeLangOutlineNodeAdapterFactory.class;
+
+	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {
+		return BeeLangTokenToAttributeIdMapper.class;
 	}
 }

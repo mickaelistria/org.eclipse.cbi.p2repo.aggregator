@@ -31,14 +31,6 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
 public class ExecuteHandler extends AbstractHandler {
 	private boolean performResolve;
-	
-	public boolean isPerformResolve() {
-		return performResolve;
-	}
-
-	public void setPerformResolve(boolean performResolve) {
-		this.performResolve = performResolve;
-	}
 
 	@SuppressWarnings("unchecked")
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -49,22 +41,25 @@ public class ExecuteHandler extends AbstractHandler {
 			EvaluationContext ctx = (EvaluationContext) event.getApplicationContext();
 			List<ContentOutlineNode> nodes = (List<ContentOutlineNode>) ctx.getDefaultVariable();
 			ContentOutlineNode node = nodes.get(0);
-			Object result = node.getEObjectHandle().readOnly(new IUnitOfWork<Object, EObject>(){
+			Object result = node.getEObjectHandle().readOnly(new IUnitOfWork<Object, EObject>() {
 				public Object exec(EObject state) throws Exception {
 					B3BuildEngine engine = new B3BuildEngine();
 					try {
 						engine.getBuildContext().defineBeeModel((BeeModel) state);
-					} catch (Throwable e) {
+					}
+					catch(Throwable e) {
 						PrintStream b3ConsoleErrorStream = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);
 						try {
 							e.printStackTrace();
-							b3ConsoleErrorStream.println("Loading failed with error: " + e.getClass().getName().toString() + " : " + e.getMessage());
+							b3ConsoleErrorStream.println("Loading failed with error: " +
+									e.getClass().getName().toString() + " : " + e.getMessage());
 							if(e.getCause() != null) {
 								b3ConsoleErrorStream.println("Caused by: " + e.getCause().getMessage());
-							return null;
+								return null;
 							}
-							
-						} finally {
+
+						}
+						finally {
 							b3ConsoleErrorStream.close();
 						}
 
@@ -75,20 +70,21 @@ public class ExecuteHandler extends AbstractHandler {
 						SimpleResolver resolver = new SimpleResolver();
 						// bind the resolver, it is later looked up by build jobs to get the
 						// current resolutions of requirements
-						engine.getContext().defineValue(B3BuildConstants.B3ENGINE_VAR_RESOLUTION_SCOPE,
-								resolver, SimpleResolver.class);
+						engine.getContext().defineValue(
+							B3BuildConstants.B3ENGINE_VAR_RESOLUTION_SCOPE, resolver, SimpleResolver.class);
 						IStatus status = resolver.resolveAll(engine.getBuildContext());
-						if(! status.isOK()) {
+						if(!status.isOK()) {
 							PrintStream b3ConsoleErrorStream = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);
 							try {
 								// TODO: Better error reporting on failed resolution
 								b3ConsoleErrorStream.println("Resolution Failed with non OK status :");
 								b3ConsoleErrorStream.println(status.toString());
-								
-							} finally {
+
+							}
+							finally {
 								b3ConsoleErrorStream.close();
 							}
-							
+
 						}
 					}
 					// find a function called main (use the first found) and call it with a List<Object> argv
@@ -98,7 +94,7 @@ public class ExecuteHandler extends AbstractHandler {
 							main = f;
 						}
 					}
-					
+
 					if(main == null)
 						return null;
 					final List<Object> argv = new ArrayList<Object>();
@@ -110,12 +106,14 @@ public class ExecuteHandler extends AbstractHandler {
 						BuildUnit unit = uItor.next();
 						BuildUnit unitProxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
 						argv.add(unitProxy);
-						engine.getContext().defineFinalValue("$test." + unitProxy.getName(), unitProxy, unitProxy.getClass());
+						engine.getContext().defineFinalValue(
+							"$test." + unitProxy.getName(), unitProxy, unitProxy.getClass());
 					}
 					try {
-						return engine.getContext().callFunction("main", new Object[] { argv },
-								new Type[] { List.class });
-					} catch(B3BackendException exprException) {
+						return engine.getContext().callFunction(
+							"main", new Object[] { argv }, new Type[] { List.class });
+					}
+					catch(B3BackendException exprException) {
 						exprException.printStackTrace();
 						int lineNumber = 0;
 						BExpression expr = exprException.getExpression();
@@ -128,33 +126,33 @@ public class ExecuteHandler extends AbstractHandler {
 								}
 							}
 						}
-					
+
 						PrintStream b3ConsoleErrorStream = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);
 						try {
 							b3ConsoleErrorStream.println(exprException.getMessage());
-							b3ConsoleErrorStream.println("        at <function name TBD>("
-									+exprException.getLocationString()
-									+":"
-									+ lineNumber
-									+").");
+							b3ConsoleErrorStream.println("        at <function name TBD>(" +
+									exprException.getLocationString() + ":" + lineNumber + ").");
 							if(exprException.getCause() != null) {
 								b3ConsoleErrorStream.println("Caused by: " +
-										((exprException.getCause().getMessage() == null) ?
-												exprException.getCause().getClass().getName() :
-													exprException.getCause().getMessage()));
+										((exprException.getCause().getMessage() == null)
+												? exprException.getCause().getClass().getName()
+												: exprException.getCause().getMessage()));
 							}
-							
-						} finally {
+
+						}
+						finally {
 							b3ConsoleErrorStream.close();
 						}
-						
-					} catch(Throwable e) {
+
+					}
+					catch(Throwable e) {
 						// Just print some errors
 						e.printStackTrace();
 						PrintStream b3ConsoleErrorStream = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);
 						try {
 							b3ConsoleErrorStream.println(e.getMessage());
-						} finally {
+						}
+						finally {
 							b3ConsoleErrorStream.close();
 						}
 					}
@@ -162,10 +160,21 @@ public class ExecuteHandler extends AbstractHandler {
 					return null;
 				}
 			});
-			b3ConsoleOutputStream.println("Result = " + (result == null ? "null" : result.toString()));
+			b3ConsoleOutputStream.println("Result = " + (result == null
+					? "null"
+					: result.toString()));
 			return null;
-		}  finally {
+		}
+		finally {
 			b3ConsoleOutputStream.close();
 		}
+	}
+
+	public boolean isPerformResolve() {
+		return performResolve;
+	}
+
+	public void setPerformResolve(boolean performResolve) {
+		this.performResolve = performResolve;
 	}
 }

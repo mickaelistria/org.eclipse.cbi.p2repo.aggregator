@@ -13,7 +13,7 @@ import org.eclipse.ui.console.MessageConsoleStream;
 
 public class BeeLangConsoleUtils {
 
-	public static final String BEE_LANG_CONSOLE = "B3 Console"; 
+	public static final String BEE_LANG_CONSOLE = "B3 Console";
 
 	public static MessageConsole getBeeLangConsole() {
 		IConsoleManager consoleManager = ConsolePlugin.getDefault().getConsoleManager();
@@ -31,18 +31,18 @@ public class BeeLangConsoleUtils {
 		return beeLangConsole;
 	}
 
-	public static PrintStream getConsoleOutputStream(MessageConsole console) {
-		MessageConsoleStream stream = console.newMessageStream();
-		// TODO: preference page defining the console colors
-		// stream.setColor(???);
-		return new PrintStream(stream);
-	}
-
 	public static PrintStream getConsoleErrorStream(MessageConsole console) {
 		MessageConsoleStream stream = console.newMessageStream();
 		// TODO: preference page defining the console colors
 		Display display = PlatformUI.getWorkbench().getDisplay();
 		stream.setColor(display.getSystemColor(SWT.COLOR_RED));
+		return new PrintStream(stream);
+	}
+
+	public static PrintStream getConsoleOutputStream(MessageConsole console) {
+		MessageConsoleStream stream = console.newMessageStream();
+		// TODO: preference page defining the console colors
+		// stream.setColor(???);
 		return new PrintStream(stream);
 	}
 
