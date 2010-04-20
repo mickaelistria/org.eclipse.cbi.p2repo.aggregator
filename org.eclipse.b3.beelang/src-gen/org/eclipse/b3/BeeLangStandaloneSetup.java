@@ -16,35 +16,34 @@ public class BeeLangStandaloneSetup implements ISetup {
 		new BeeLangStandaloneSetup().createInjectorAndDoEMFRegistration();
 	}
 
+	public Injector createInjector() {
+		return Guice.createInjector(new org.eclipse.b3.BeeLangRuntimeModule());
+	}
+
 	public Injector createInjectorAndDoEMFRegistration() {
 		// register default ePackages
-		if (!Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().containsKey("ecore"))
+		if(!Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().containsKey("ecore"))
 			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				"ecore", new org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl());
-		if (!Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().containsKey("xmi"))
+		if(!Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().containsKey("xmi"))
 			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				"xmi", new org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl());
-		if (!EPackage.Registry.INSTANCE.containsKey(org.eclipse.xtext.XtextPackage.eNS_URI))
-			EPackage.Registry.INSTANCE.put(org.eclipse.xtext.XtextPackage.eNS_URI, org.eclipse.xtext.XtextPackage.eINSTANCE);
+		if(!EPackage.Registry.INSTANCE.containsKey(org.eclipse.xtext.XtextPackage.eNS_URI))
+			EPackage.Registry.INSTANCE.put(
+				org.eclipse.xtext.XtextPackage.eNS_URI, org.eclipse.xtext.XtextPackage.eINSTANCE);
 
 		Injector injector = createInjector();
 		register(injector);
 		return injector;
 	}
-	
-	public Injector createInjector() {
-		return Guice.createInjector(new org.eclipse.b3.BeeLangRuntimeModule());
-	}
-	
+
 	public void register(Injector injector) {
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);
 		org.eclipse.xtext.resource.IResourceServiceProvider serviceProvider = injector.getInstance(org.eclipse.xtext.resource.IResourceServiceProvider.class);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("b3", resourceFactory);
-		org.eclipse.xtext.resource.IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put("b3", serviceProvider);
-		
-
-
+		org.eclipse.xtext.resource.IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put(
+			"b3", serviceProvider);
 
 	}
 }

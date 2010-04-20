@@ -14,7 +14,7 @@ public class BeeLangGrammarSerialization implements ITransientValueService {
 
 	public boolean isTransient(EObject owner, EStructuralFeature feature, int index) {
 		if(!(owner instanceof BuildUnit))
-				return false;
+			return false;
 		if(feature.getFeatureID() == B3BuildPackage.BUILD_UNIT__NAME_SPACE)
 			return true;
 		return false;

@@ -27,42 +27,15 @@ import org.eclipse.xtext.scoping.impl.SimpleScope;
  * This class contains custom scoping description.
  * 
  * see : http://www.eclipse.org/Xtext/documentation/latest/xtext.html#scoping
- * on how and when to use it 
- *
+ * on how and when to use it
+ * 
  */
 public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
-//	IScope scope_B3ParameterizedType_rawType(B3ParameterizedType ctx, EReference ref) {
-	
-	IScope scope_IType(B3ParameterizedType ctx, EReference ref) {
-		EList<EObject> x = ctx.eResource().getContents();
-		// create an Iterable of IEObjectDescription - instances of EObjectDescription
-		//
-		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		for(EObject y: x) {
-			if(y instanceof BeeModel) {
-				for(Type t : ((BeeModel)y).getImports())
-				if(t instanceof B3JavaImport)
-					result.add(new EObjectDescription(((B3JavaImport)t).getName(),(B3JavaImport)t, null));
-			}
-		}
-		return new SimpleScope(result);
-	}
-	IScope scope_IType(B3FunctionType ctx, EReference ref) {
-		EList<EObject> x = ctx.eResource().getContents();
-		// create an Iterable of IEObjectDescription - instances of EObjectDescription
-		//
-		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		for(EObject y: x) {
-			if(y instanceof BeeModel) {
-				for(Type t : ((BeeModel)y).getImports())
-				if(t instanceof B3JavaImport)
-					result.add(new EObjectDescription(((B3JavaImport)t).getName(),(B3JavaImport)t, null));
-			}
-		}
-		return new SimpleScope(result);
-	}
+	// IScope scope_B3ParameterizedType_rawType(B3ParameterizedType ctx, EReference ref) {
+
 	/**
 	 * Finds aliased required capabilities in a containing element.
+	 * 
 	 * @param ctx
 	 * @param ref
 	 * @return
@@ -72,9 +45,9 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 		EObject container = ctx.eContainer();
 		while(container != null) {
 			if(container instanceof IRequiredCapabilityContainer) {
-				for(RequiredCapability rc : ((IRequiredCapabilityContainer)container).getRequiredCapabilities())
+				for(RequiredCapability rc : ((IRequiredCapabilityContainer) container).getRequiredCapabilities())
 					if(rc instanceof AliasedRequiredCapability) {
-						String name = ((AliasedRequiredCapability)rc).getAlias();
+						String name = ((AliasedRequiredCapability) rc).getAlias();
 						if(name != null)
 							result.add(new EObjectDescription(name, rc, null));
 					}
@@ -85,9 +58,10 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 			return IScope.NULLSCOPE;
 		return new SimpleScope(result);
 	}
-	
+
 	/**
 	 * Find reference to advice in containing BuildUnit, or in the BeeModel.
+	 * 
 	 * @param ctx
 	 * @param ref
 	 * @return
@@ -95,23 +69,53 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 	IScope scope_BAdvice(BWithExpression ctx, EReference ref) {
 		EList<EObject> x = ctx.eResource().getContents();
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		for(EObject y: x) {
+		for(EObject y : x) {
 			if(y instanceof BeeModel) {
-				BeeModel model = ((BeeModel)y);
+				BeeModel model = ((BeeModel) y);
 				for(BConcern concern : model.getConcerns())
-					result.add(new EObjectDescription(concern.getName(),concern, null));
-//				BuildUnit bu = model.getBody();
-//				if(bu != null)
-//					for(BConcern concern : bu.getConcerns())
-//						result.add(new EObjectDescription(concern.getName(),concern, null));
+					result.add(new EObjectDescription(concern.getName(), concern, null));
+				// BuildUnit bu = model.getBody();
+				// if(bu != null)
+				// for(BConcern concern : bu.getConcerns())
+				// result.add(new EObjectDescription(concern.getName(),concern, null));
 			}
 		}
 		for(EObject c = ctx.eContainer(); c != null; c = c.eContainer())
 			if(c instanceof BuildUnit) {
-				for(BConcern concern : ((BuildUnit)c).getConcerns())
-					result.add(new EObjectDescription(concern.getName(),concern, null));				
+				for(BConcern concern : ((BuildUnit) c).getConcerns())
+					result.add(new EObjectDescription(concern.getName(), concern, null));
 			}
-		
+
+		return new SimpleScope(result);
+	}
+
+	IScope scope_IType(B3FunctionType ctx, EReference ref) {
+		EList<EObject> x = ctx.eResource().getContents();
+		// create an Iterable of IEObjectDescription - instances of EObjectDescription
+		//
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		for(EObject y : x) {
+			if(y instanceof BeeModel) {
+				for(Type t : ((BeeModel) y).getImports())
+					if(t instanceof B3JavaImport)
+						result.add(new EObjectDescription(((B3JavaImport) t).getName(), (B3JavaImport) t, null));
+			}
+		}
+		return new SimpleScope(result);
+	}
+
+	IScope scope_IType(B3ParameterizedType ctx, EReference ref) {
+		EList<EObject> x = ctx.eResource().getContents();
+		// create an Iterable of IEObjectDescription - instances of EObjectDescription
+		//
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		for(EObject y : x) {
+			if(y instanceof BeeModel) {
+				for(Type t : ((BeeModel) y).getImports())
+					if(t instanceof B3JavaImport)
+						result.add(new EObjectDescription(((B3JavaImport) t).getName(), (B3JavaImport) t, null));
+			}
+		}
 		return new SimpleScope(result);
 	}
 }

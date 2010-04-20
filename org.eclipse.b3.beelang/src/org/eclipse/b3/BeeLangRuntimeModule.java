@@ -19,14 +19,16 @@ import org.eclipse.xtext.conversion.IValueConverterService;
  */
 public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeModule {
 
-@Override
-public Class<? extends IValueConverterService> bindIValueConverterService() {
-		return BeeLangTerminalConverters.class;
-	}
-	// add transient value serialization service to enable skipping values that are transient from 
+	// add transient value serialization service to enable skipping values that are transient from
 	// a grammar perspective
+	@Override
 	public Class<? extends org.eclipse.xtext.parsetree.reconstr.ITransientValueService> bindITransientValueService() {
 		return BeeLangGrammarSerialization.class;
+	}
+
+	@Override
+	public Class<? extends IValueConverterService> bindIValueConverterService() {
+		return BeeLangTerminalConverters.class;
 	}
 
 }
