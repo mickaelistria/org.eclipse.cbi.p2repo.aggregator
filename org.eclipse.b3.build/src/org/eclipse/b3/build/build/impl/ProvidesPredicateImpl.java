@@ -37,8 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl#getCapabilityPredicate <em>Capability Predicate
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl#getCapabilityPredicate <em>Capability Predicate </em>}</li>
  * </ul>
  * </p>
  * 

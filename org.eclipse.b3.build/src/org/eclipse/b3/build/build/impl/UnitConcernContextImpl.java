@@ -54,8 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiredCapabilities <em>Required Capabilities
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiredCapabilities <em>Required Capabilities </em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getBuilderContexts <em>Builder Contexts</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getQuery <em>Query</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiresRemovals <em>Requires Removals</em>}</li>
@@ -697,8 +696,8 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	}
 
 	/**
-	 * The builders applicable to the unit are matched using
-	 * {@link BuilderConcernContext#evaluateIfMatching(Object, BExecutionContext, BuildUnit)} which weaves these
+	 * The builders applicable to the unit are matched using {@link BuilderConcernContext#evaluateIfMatching(Object, BExecutionContext, BuildUnit)}
+	 * which weaves these
 	 * builders as copies specific to the matching build units.
 	 * 
 	 * @param u

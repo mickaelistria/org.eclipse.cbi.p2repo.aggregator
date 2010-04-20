@@ -32,22 +32,17 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isMatchParameters <em>Match Parameters</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePreCondition <em>Remove Pre Condition</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostCondition <em>Remove Post Condition</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input
- * Condition</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input Condition</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getPrecondExpr <em>Precond Expr</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostcondExpr <em>Postcond Expr</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getProvidesRemovals <em>Provides Removals</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationsRemovals <em>Output Annotations
- * Removals</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationAdditions <em>Output Annotation
- * Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationsRemovals <em>Output Annotations Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceRemovals <em>Source Removals</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAdditions <em>Source Additions</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationsRemovals <em>Source Annotations
- * Removals</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationAdditions <em>Source Annotation
- * Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationsRemovals <em>Source Annotations Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}</li>
  * </ul>
  * </p>
  * 
@@ -69,8 +64,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Func Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Func Expr</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Func Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -87,8 +81,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.Prerequisite}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Input Additions</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Input Additions</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -104,8 +97,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.InputPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Input Removals</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Input Removals</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -121,8 +113,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.ConditionalPathVector}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Additions</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Output Additions</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -137,8 +128,8 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Output Annotation Additions</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Annotation Additions</em>' containment reference isn't clear, there really
-	 * should be more of a description here...
+	 * If the meaning of the '<em>Output Annotation Additions</em>' containment reference isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -155,8 +146,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Annotations Removals</em>' attribute list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Output Annotations Removals</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -172,8 +162,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.OutputPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Removals</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Output Removals</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -189,8 +178,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -205,8 +193,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Postcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Postcond Expr</em>' containment reference isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Postcond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -222,8 +209,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Postinputcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Postinputcond Expr</em>' containment reference isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Postinputcond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -239,8 +225,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Precond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Precond Expr</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Precond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -257,8 +242,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.ProvidesPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provides Removals</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Provides Removals</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -273,8 +257,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Query</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Query</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Query</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -291,8 +274,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.ConditionalPathVector}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Additions</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Source Additions</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -307,8 +289,8 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Source Annotation Additions</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Annotation Additions</em>' containment reference isn't clear, there really
-	 * should be more of a description here...
+	 * If the meaning of the '<em>Source Annotation Additions</em>' containment reference isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -325,8 +307,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Annotations Removals</em>' attribute list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Source Annotations Removals</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -342,8 +323,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.SourcePredicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Removals</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Source Removals</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -358,8 +338,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Match Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Match Parameters</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Match Parameters</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -375,8 +354,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Remove Post Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Remove Post Condition</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Remove Post Condition</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -392,8 +370,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Remove Post Input Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Remove Post Input Condition</em>' attribute isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Remove Post Input Condition</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -409,8 +386,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Remove Pre Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Remove Pre Condition</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Remove Pre Condition</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -426,8 +402,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Returns the value of the '<em><b>Var Args</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

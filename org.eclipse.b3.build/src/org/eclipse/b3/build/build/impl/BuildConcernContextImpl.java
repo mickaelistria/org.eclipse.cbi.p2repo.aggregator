@@ -38,12 +38,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl#getProvidedCapabilities <em>Provided Capabilities
- * </em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl#getDefaultPropertiesRemovals <em>Default
- * Properties Removals</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl#getDefaultPropertiesAdditions <em>Default
- * Properties Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl#getProvidedCapabilities <em>Provided Capabilities </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl#getDefaultPropertiesRemovals <em>Default Properties Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl#getDefaultPropertiesAdditions <em>Default Properties Additions</em>}</li>
  * </ul>
  * </p>
  * 

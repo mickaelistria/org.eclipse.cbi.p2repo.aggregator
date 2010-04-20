@@ -34,8 +34,7 @@ public interface SimpleRepository extends BuildUnitRepository {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.BeeModel}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bee Models</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Bee Models</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

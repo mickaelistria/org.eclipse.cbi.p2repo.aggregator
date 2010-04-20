@@ -28,8 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl#getProvidedCapability <em>Provided
- * Capability</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl#getProvidedCapability <em>Provided Capability</em>}</li>
  * </ul>
  * </p>
  * 

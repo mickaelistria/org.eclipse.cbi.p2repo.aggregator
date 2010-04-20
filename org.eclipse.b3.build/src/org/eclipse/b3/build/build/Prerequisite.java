@@ -38,8 +38,7 @@ public interface Prerequisite extends EObject {
 	 * Returns the value of the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Alias</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Alias</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -67,8 +66,7 @@ public interface Prerequisite extends EObject {
 	 * Returns the value of the '<em><b>Build Result</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Build Result</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Build Result</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -84,8 +82,7 @@ public interface Prerequisite extends EObject {
 	 * Returns the value of the '<em><b>Cond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Cond Expr</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Cond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -105,7 +102,7 @@ public interface Prerequisite extends EObject {
 	 * <!-- end-model-doc -->
 	 * 
 	 * @model dataType=
-	 *        
+	 * 
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
@@ -117,7 +114,7 @@ public interface Prerequisite extends EObject {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType=
-	 *        
+	 * 
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
@@ -128,8 +125,7 @@ public interface Prerequisite extends EObject {
 	 * Returns the value of the '<em><b>With Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>With Expr</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>With Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

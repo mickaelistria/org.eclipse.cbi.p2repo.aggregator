@@ -31,8 +31,7 @@ public interface EffectiveRequirementFacade extends EffectiveFacade {
 	 * Returns the value of the '<em><b>Requirement</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Requirement</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Requirement</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

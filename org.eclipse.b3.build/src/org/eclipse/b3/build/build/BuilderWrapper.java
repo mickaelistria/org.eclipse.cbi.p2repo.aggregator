@@ -35,8 +35,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Returns the value of the '<em><b>Default Properties Advised</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Default Properties Advised</em>' attribute isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Default Properties Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -52,8 +51,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Returns the value of the '<em><b>Input Advised</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Input Advised</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Input Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -69,8 +67,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Returns the value of the '<em><b>Output Advised</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Advised</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Output Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -86,8 +83,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Returns the value of the '<em><b>Provides Advised</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provides Advised</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Provides Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -103,8 +99,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Returns the value of the '<em><b>Source Advised</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Advised</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Source Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -120,8 +115,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Returns the value of the '<em><b>Unit Type Advised</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Unit Type Advised</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Unit Type Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

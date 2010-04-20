@@ -55,22 +55,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *                                <p>
  *                                The following features are implemented:
  *                                <ul>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getProvidedCapabilities <em>
- *                                Provided Capabilities</em>}</li>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostcondExpr <em>Postcond
- *                                Expr</em>}</li>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPrecondExpr <em>Precond Expr
- *                                </em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getProvidedCapabilities <em> Provided Capabilities</em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPrecondExpr <em>Precond Expr </em>}</li>
  *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getInput <em>Input</em>}</li>
  *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getOutput <em>Output</em>}</li>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getDefaultProperties <em>
- *                                Default Properties</em>}</li>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostinputcondExpr <em>
- *                                Postinputcond Expr</em>}</li>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getUnitType <em>Unit Type</em>}
- *                                </li>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getExplicitUnitType <em>
- *                                Explicit Unit Type</em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getDefaultProperties <em> Default Properties</em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostinputcondExpr <em> Postinputcond Expr</em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getUnitType <em>Unit Type</em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getExplicitUnitType <em> Explicit Unit Type</em>}</li>
  *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getSource <em>Source</em>}</li>
  *                                </ul>
  *                                </p>

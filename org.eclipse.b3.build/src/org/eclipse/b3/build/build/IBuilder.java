@@ -42,8 +42,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Returns the value of the '<em><b>Default Properties</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Default Properties</em>' containment reference isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Default Properties</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -63,7 +62,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * <!-- end-model-doc -->
 	 * 
 	 * @model dataType=
-	 *        
+	 * 
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
@@ -75,7 +74,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType=
-	 *        
+	 * 
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveCapabilityFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
@@ -87,7 +86,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType=
-	 *        
+	 * 
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
@@ -98,8 +97,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Returns the value of the '<em><b>Explicit Unit Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Explicit Unit Type</em>' containment reference isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Explicit Unit Type</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -115,8 +113,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Returns the value of the '<em><b>Input</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Input</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Input</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -132,8 +129,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Returns the value of the '<em><b>Output</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Output</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -149,8 +145,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Returns the value of the '<em><b>Postcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Postcond Expr</em>' containment reference isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Postcond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -166,8 +161,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Returns the value of the '<em><b>Postinputcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Postinputcond Expr</em>' containment reference isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Postinputcond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -183,8 +177,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Returns the value of the '<em><b>Precond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Precond Expr</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Precond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -200,8 +193,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Source</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -217,8 +209,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Returns the value of the '<em><b>Unit Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Unit Type</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Unit Type</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

@@ -49,7 +49,7 @@ public interface BuilderInput extends EObject {
 	 * <!-- end-model-doc -->
 	 * 
 	 * @model dataType=
-	 *        
+	 * 
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
@@ -61,7 +61,7 @@ public interface BuilderInput extends EObject {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType=
-	 *        
+	 * 
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
@@ -73,8 +73,7 @@ public interface BuilderInput extends EObject {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.Prerequisite}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Prerequisites</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Prerequisites</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

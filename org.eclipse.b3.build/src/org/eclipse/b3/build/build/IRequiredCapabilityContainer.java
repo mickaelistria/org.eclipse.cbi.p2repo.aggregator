@@ -18,8 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer#getRequiredCapabilities <em>Required Capabilities
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer#getRequiredCapabilities <em>Required Capabilities </em>}</li>
  * </ul>
  * </p>
  * 
@@ -33,8 +32,8 @@ public interface IRequiredCapabilityContainer extends EObject {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.RequiredCapability}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Required Capabilities</em>' containment reference list isn't clear, there really
-	 * should be more of a description here...
+	 * If the meaning of the '<em>Required Capabilities</em>' containment reference list isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

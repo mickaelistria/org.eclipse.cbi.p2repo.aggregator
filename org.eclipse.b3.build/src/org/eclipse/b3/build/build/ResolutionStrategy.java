@@ -30,8 +30,7 @@ public interface ResolutionStrategy extends RepositoryConfiguration {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.RepositoryConfiguration}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

@@ -19,8 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
  * <li>{@link org.eclipse.b3.build.build.BuilderReference#getParameters <em>Parameters</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuilderReference#getBuilderName <em>Builder Name</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapability <em>Required Capability</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapabilityReference <em>Required Capability
- * Reference</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapabilityReference <em>Required Capability Reference</em>}</li>
  * </ul>
  * </p>
  * 
@@ -33,8 +32,7 @@ public interface BuilderReference extends BuildResultReference {
 	 * Returns the value of the '<em><b>Builder Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Builder Name</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Builder Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -50,8 +48,7 @@ public interface BuilderReference extends BuildResultReference {
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Parameters</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -67,8 +64,7 @@ public interface BuilderReference extends BuildResultReference {
 	 * Returns the value of the '<em><b>Required Capability</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Required Capability</em>' containment reference isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Required Capability</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -84,8 +80,7 @@ public interface BuilderReference extends BuildResultReference {
 	 * Returns the value of the '<em><b>Required Capability Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Required Capability Reference</em>' reference isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Required Capability Reference</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

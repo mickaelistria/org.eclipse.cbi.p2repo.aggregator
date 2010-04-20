@@ -30,8 +30,7 @@ public interface RequiresPredicate extends BExpression {
 	 * Returns the value of the '<em><b>Capability Predicate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Capability Predicate</em>' containment reference isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Capability Predicate</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

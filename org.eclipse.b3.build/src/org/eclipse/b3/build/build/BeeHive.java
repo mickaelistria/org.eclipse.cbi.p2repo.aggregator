@@ -36,8 +36,7 @@ public interface BeeHive extends EObject {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.BeeModel}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bee Models</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Bee Models</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -52,8 +51,7 @@ public interface BeeHive extends EObject {
 	 * Returns the value of the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parent</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Parent</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -69,8 +67,7 @@ public interface BeeHive extends EObject {
 	 * Returns the value of the '<em><b>Resolutions</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Resolutions</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Resolutions</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -86,8 +83,7 @@ public interface BeeHive extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Returns the {@link IProvidedCapabilityContainer} that was the result of resolving the {@link RequiredCapability}
-	 * referenced by the
+	 * Returns the {@link IProvidedCapabilityContainer} that was the result of resolving the {@link RequiredCapability} referenced by the
 	 * requiredCapability parameter. The returned capability container is one of {@link BuildUnit} or {@link Builder}.
 	 * Naturally, to get the actual capability from a builder, the result must first be built.
 	 * 

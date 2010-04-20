@@ -35,8 +35,7 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <ul>
  * <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getVersionRange <em>Version Range</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getNameSpacePredicate <em>Name Space Predicate
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getNameSpacePredicate <em>Name Space Predicate </em>}</li>
  * </ul>
  * </p>
  * 

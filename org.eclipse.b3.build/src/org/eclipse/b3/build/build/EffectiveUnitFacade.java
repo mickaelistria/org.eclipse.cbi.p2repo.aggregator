@@ -23,8 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getUnit <em>Unit</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getRequiredCapabilities <em>Required Capabilities</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getMetaRequiredCapabilities <em>Meta Required Capabilities
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getMetaRequiredCapabilities <em>Meta Required Capabilities </em>}</li>
  * </ul>
  * </p>
  * 
@@ -38,8 +37,8 @@ public interface EffectiveUnitFacade extends EffectiveFacade {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.EffectiveRequirementFacade}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Meta Required Capabilities</em>' containment reference list isn't clear, there really
-	 * should be more of a description here...
+	 * If the meaning of the '<em>Meta Required Capabilities</em>' containment reference list isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -55,8 +54,7 @@ public interface EffectiveUnitFacade extends EffectiveFacade {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.EffectiveCapabilityFacade}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provided Capabilities</em>' reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Provided Capabilities</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -72,8 +70,8 @@ public interface EffectiveUnitFacade extends EffectiveFacade {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.EffectiveRequirementFacade}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Required Capabilities</em>' containment reference list isn't clear, there really
-	 * should be more of a description here...
+	 * If the meaning of the '<em>Required Capabilities</em>' containment reference list isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

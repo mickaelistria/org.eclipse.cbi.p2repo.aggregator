@@ -34,8 +34,7 @@ public interface PathGroupPredicate extends BExpression {
 	 * Returns the value of the '<em><b>Path Pattern</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Path Pattern</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Path Pattern</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -51,8 +50,7 @@ public interface PathGroupPredicate extends BExpression {
 	 * Returns the value of the '<em><b>Path Vector</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Path Vector</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Path Vector</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -77,8 +75,7 @@ public interface PathGroupPredicate extends BExpression {
 	boolean removeMatching(PathGroup input);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.PathGroupPredicate#getPathPattern <em>Path Pattern</em>}
-	 * ' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.PathGroupPredicate#getPathPattern <em>Path Pattern</em>} ' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

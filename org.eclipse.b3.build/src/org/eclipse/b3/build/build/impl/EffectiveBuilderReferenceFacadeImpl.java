@@ -31,8 +31,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl#getBuilderReference <em>Builder
- * Reference</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl#getBuilderReference <em>Builder Reference</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl#getAliases <em>Aliases</em>}</li>
  * </ul>
  * </p>

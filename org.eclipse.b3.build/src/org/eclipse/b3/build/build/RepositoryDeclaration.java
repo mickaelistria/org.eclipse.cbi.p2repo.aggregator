@@ -35,8 +35,7 @@ public interface RepositoryDeclaration extends RepositoryConfiguration {
 	 * Returns the value of the '<em><b>Context Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Context Block</em>' containment reference isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Context Block</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -52,8 +51,7 @@ public interface RepositoryDeclaration extends RepositoryConfiguration {
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Location</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Location</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -69,8 +67,7 @@ public interface RepositoryDeclaration extends RepositoryConfiguration {
 	 * Returns the value of the '<em><b>Resolver Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Resolver Type</em>' containment reference isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Resolver Type</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

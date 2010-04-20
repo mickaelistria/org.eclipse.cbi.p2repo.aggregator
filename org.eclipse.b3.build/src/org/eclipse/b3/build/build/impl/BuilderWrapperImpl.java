@@ -49,8 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getProvidedCapabilities <em>Provided Capabilities</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getPrecondExpr <em>Precond Expr</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getInput <em>Input</em>}</li>
@@ -64,8 +63,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#isOutputAdvised <em>Output Advised</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#isUnitTypeAdvised <em>Unit Type Advised</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#isProvidesAdvised <em>Provides Advised</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#isDefaultPropertiesAdvised <em>Default Properties
- * Advised</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#isDefaultPropertiesAdvised <em>Default Properties Advised</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#isSourceAdvised <em>Source Advised</em>}</li>
  * </ul>
  * </p>
@@ -1421,8 +1419,8 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Sets the unit type, and copies and processes parameters. (Do not forget to also call
-	 * {@link #setUnitTypeAdvised(boolean)} if the wrapper should use the wrapper's unit type instead of the original's.
+	 * Sets the unit type, and copies and processes parameters. (Do not forget to also call {@link #setUnitTypeAdvised(boolean)} if the wrapper should
+	 * use the wrapper's unit type instead of the original's.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT

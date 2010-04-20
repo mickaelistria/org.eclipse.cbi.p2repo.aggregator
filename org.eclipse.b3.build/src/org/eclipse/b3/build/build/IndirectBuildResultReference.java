@@ -29,8 +29,7 @@ public interface IndirectBuildResultReference extends UnitBuildResultReference {
 	 * Returns the value of the '<em><b>Version Range</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Version Range</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Version Range</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

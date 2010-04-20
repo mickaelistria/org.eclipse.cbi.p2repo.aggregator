@@ -45,8 +45,7 @@ import org.eclipse.emf.ecore.util.EcoreEList;
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getParameters <em>Parameters</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getBuilderName <em>Builder Name</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getRequiredCapability <em>Required Capability</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getRequiredCapabilityReference <em>Required
- * Capability Reference</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getRequiredCapabilityReference <em>Required Capability Reference</em>}</li>
  * </ul>
  * </p>
  * 

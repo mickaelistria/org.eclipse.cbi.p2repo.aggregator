@@ -51,8 +51,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * The list contents are of type {@link org.eclipse.b3.build.build.IBuilder}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Builders</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Builders</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -68,8 +67,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Concerns</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Concerns</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -85,8 +83,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * The list contents are of type {@link org.eclipse.b3.build.build.ContainerConfiguration}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Containers</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Containers</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -101,8 +98,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * Returns the value of the '<em><b>Default Properties</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Default Properties</em>' containment reference isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Default Properties</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -118,8 +114,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * Returns the value of the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -145,8 +140,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * The literals are from the enumeration {@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Execution Mode</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Execution Mode</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -164,8 +158,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * The list contents are of type {@link java.lang.reflect.Type}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Implements</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Implements</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -181,8 +174,8 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * The list contents are of type {@link org.eclipse.b3.build.build.RequiredCapability}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Meta Required Capabilities</em>' containment reference list isn't clear, there really
-	 * should be more of a description here...
+	 * If the meaning of the '<em>Meta Required Capabilities</em>' containment reference list isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -197,8 +190,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * Returns the value of the '<em><b>Output Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Location</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Output Location</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -215,8 +207,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -232,8 +223,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * The list contents are of type {@link org.eclipse.b3.build.build.RepositoryConfiguration}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -249,8 +239,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * The default value is <code>"resource:/"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Location</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Source Location</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -267,8 +256,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * The list contents are of type {@link org.eclipse.b3.build.build.Synchronization}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Synchronizations</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Synchronizations</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

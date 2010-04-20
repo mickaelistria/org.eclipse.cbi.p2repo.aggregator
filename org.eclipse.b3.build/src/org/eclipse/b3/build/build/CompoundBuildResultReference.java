@@ -30,8 +30,7 @@ public interface CompoundBuildResultReference extends BuildResultReference {
 	 * The list contents are of type {@link org.eclipse.b3.build.build.Prerequisite}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Prerequisites</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Prerequisites</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

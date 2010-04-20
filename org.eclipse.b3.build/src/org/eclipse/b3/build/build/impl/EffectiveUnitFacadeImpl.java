@@ -39,12 +39,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getUnit <em>Unit</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getProvidedCapabilities <em>Provided Capabilities
- * </em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getRequiredCapabilities <em>Required Capabilities
- * </em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getMetaRequiredCapabilities <em>Meta Required
- * Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getProvidedCapabilities <em>Provided Capabilities </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getRequiredCapabilities <em>Required Capabilities </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
  * </ul>
  * </p>
  * 

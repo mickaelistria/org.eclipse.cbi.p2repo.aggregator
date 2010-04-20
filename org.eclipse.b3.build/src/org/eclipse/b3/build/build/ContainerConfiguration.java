@@ -36,8 +36,7 @@ public interface ContainerConfiguration extends EObject {
 	 * Returns the value of the '<em><b>Agent Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Agent Type</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Agent Type</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -53,8 +52,7 @@ public interface ContainerConfiguration extends EObject {
 	 * Returns the value of the '<em><b>Context Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Context Block</em>' containment reference isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Context Block</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -70,8 +68,7 @@ public interface ContainerConfiguration extends EObject {
 	 * Returns the value of the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -100,8 +97,7 @@ public interface ContainerConfiguration extends EObject {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.ContainerConfiguration#getAgentType <em>Agent Type</em>}
-	 * ' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.ContainerConfiguration#getAgentType <em>Agent Type</em>} ' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

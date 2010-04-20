@@ -73,27 +73,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isVarArgs <em>Var Args</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getParameters <em>Parameters</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isMatchParameters <em>Match Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePreCondition <em>Remove Pre Condition
- * </em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePostCondition <em>Remove Post Condition
- * </em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePostInputCondition <em>Remove Post Input
- * Condition</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePreCondition <em>Remove Pre Condition </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePostCondition <em>Remove Post Condition </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePostInputCondition <em>Remove Post Input Condition</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPrecondExpr <em>Precond Expr</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostinputcondExpr <em>Postinputcond Expr
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostinputcondExpr <em>Postinputcond Expr </em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getProvidesRemovals <em>Provides Removals</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getOutputAnnotationsRemovals <em>Output
- * Annotations Removals</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getOutputAnnotationAdditions <em>Output
- * Annotation Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getOutputAnnotationsRemovals <em>Output Annotations Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getSourceRemovals <em>Source Removals</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getSourceAdditions <em>Source Additions</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getSourceAnnotationsRemovals <em>Source
- * Annotations Removals</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getSourceAnnotationAdditions <em>Source
- * Annotation Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getSourceAnnotationsRemovals <em>Source Annotations Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}</li>
  * </ul>
  * </p>
  * 

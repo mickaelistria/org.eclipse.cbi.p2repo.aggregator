@@ -38,8 +38,7 @@ public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabi
 	 * The list contents are of type {@link org.eclipse.b3.build.build.BuilderConcernContext}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Builder Contexts</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Builder Contexts</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -54,8 +53,7 @@ public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabi
 	 * Returns the value of the '<em><b>Output Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Location</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Output Location</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -72,8 +70,7 @@ public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabi
 	 * The list contents are of type {@link org.eclipse.b3.build.build.ProvidesPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provides Removals</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Provides Removals</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -88,8 +85,7 @@ public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabi
 	 * Returns the value of the '<em><b>Query</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Query</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Query</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -106,8 +102,7 @@ public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabi
 	 * The list contents are of type {@link org.eclipse.b3.build.build.RequiresPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Requires Removals</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Requires Removals</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -122,8 +117,7 @@ public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabi
 	 * Returns the value of the '<em><b>Source Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Location</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Source Location</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
