@@ -26,8 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#getTypePredicateOp <em>Type Predicate Op
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#getTypePredicateOp <em>Type Predicate Op </em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#isVarArgs <em>Var Args</em>}</li>
  * </ul>
  * </p>
@@ -97,8 +96,7 @@ public interface ParameterPredicate extends EObject {
 	 * Returns the value of the '<em><b>Var Args</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

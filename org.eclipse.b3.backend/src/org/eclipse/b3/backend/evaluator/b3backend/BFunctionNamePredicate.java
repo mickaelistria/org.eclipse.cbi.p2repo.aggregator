@@ -20,8 +20,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate#getNamePredicate <em>Name Predicate
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate#getNamePredicate <em>Name Predicate </em>}</li>
  * </ul>
  * </p>
  * 
@@ -42,8 +41,7 @@ public interface BFunctionNamePredicate extends BExpression {
 	 * Returns the value of the '<em><b>Name Predicate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name Predicate</em>' containment reference isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Name Predicate</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

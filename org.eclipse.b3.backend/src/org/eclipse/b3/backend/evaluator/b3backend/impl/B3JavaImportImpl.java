@@ -33,8 +33,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl#getQualifiedName <em>Qualified Name</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl#getQualifiedName <em>Qualified Name</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl#getType <em>Type</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl#isReexport <em>Reexport</em>}</li>
  * </ul>

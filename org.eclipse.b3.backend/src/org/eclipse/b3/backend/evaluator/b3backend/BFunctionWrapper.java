@@ -46,8 +46,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * Returns the value of the '<em><b>Around Expr</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Around Expr</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Around Expr</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -63,8 +62,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * Returns the value of the '<em><b>Original</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Original</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Original</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -80,8 +78,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * Returns the value of the '<em><b>Parameter Map</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameter Map</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Parameter Map</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -97,8 +94,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * Returns the value of the '<em><b>Varargs Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Varargs Name</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Varargs Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

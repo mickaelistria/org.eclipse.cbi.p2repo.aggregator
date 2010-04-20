@@ -32,8 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getAlias <em>Alias</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getExpr <em>Expr</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getContextBlock <em>Context
- * Block</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getContextBlock <em>Context Block</em>}</li>
  * </ul>
  * </p>
  * 

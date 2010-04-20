@@ -32,8 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFeatureExpressionImpl#getObjExpr <em>Obj Expr</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFeatureExpressionImpl#getFeatureName <em>Feature Name
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFeatureExpressionImpl#getFeatureName <em>Feature Name </em>}</li>
  * </ul>
  * </p>
  * 

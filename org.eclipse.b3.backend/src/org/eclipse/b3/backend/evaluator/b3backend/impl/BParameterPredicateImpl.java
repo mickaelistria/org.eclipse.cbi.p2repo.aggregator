@@ -34,8 +34,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getTypePredicateOp <em>Type
- * Predicate Op</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getTypePredicateOp <em>Type Predicate Op</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>

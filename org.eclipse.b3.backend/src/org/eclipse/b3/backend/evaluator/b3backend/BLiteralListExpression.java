@@ -40,8 +40,7 @@ public interface BLiteralListExpression extends BExpression {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Entries</em>' containment reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Entries</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -56,8 +55,7 @@ public interface BLiteralListExpression extends BExpression {
 	 * Returns the value of the '<em><b>Entry Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Entry Type</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Entry Type</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

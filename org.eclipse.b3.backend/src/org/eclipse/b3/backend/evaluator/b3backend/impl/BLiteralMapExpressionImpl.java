@@ -38,8 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralMapExpressionImpl#getEntries <em>Entries</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralMapExpressionImpl#getKeyType <em>Key Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralMapExpressionImpl#getValueType <em>Value Type
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralMapExpressionImpl#getValueType <em>Value Type </em>}</li>
  * </ul>
  * </p>
  * 

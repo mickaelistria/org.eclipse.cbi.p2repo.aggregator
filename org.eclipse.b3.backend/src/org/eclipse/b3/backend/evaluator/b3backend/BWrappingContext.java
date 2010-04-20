@@ -48,8 +48,7 @@ public interface BWrappingContext extends BDelegatingContext {
 	 * Returns the value of the '<em><b>Function Wrapper</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Function Wrapper</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Function Wrapper</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -91,8 +90,7 @@ public interface BWrappingContext extends BDelegatingContext {
 	 * Returns the value of the '<em><b>Varargs Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Varargs Name</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Varargs Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -108,8 +106,7 @@ public interface BWrappingContext extends BDelegatingContext {
 	 * Returns the value of the '<em><b>Wrapped Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Wrapped Context</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Wrapped Context</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

@@ -22,8 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getReferencedAdvice <em>Referenced Advice</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getReferencedAdvice <em>Referenced Advice</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getConcerns <em>Concerns</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getFuncExpr <em>Func Expr</em>}</li>
@@ -57,8 +56,7 @@ public interface BWithExpression extends BExpression {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Concerns</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Concerns</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -82,8 +80,7 @@ public interface BWithExpression extends BExpression {
 	 * Returns the value of the '<em><b>Func Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Func Expr</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Func Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -100,8 +97,7 @@ public interface BWithExpression extends BExpression {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -117,8 +113,7 @@ public interface BWithExpression extends BExpression {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Referenced Advice</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Referenced Advice</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

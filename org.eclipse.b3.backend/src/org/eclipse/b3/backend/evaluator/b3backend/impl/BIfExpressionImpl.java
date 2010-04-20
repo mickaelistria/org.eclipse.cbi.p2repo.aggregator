@@ -30,8 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl#getConditionExpr <em>Condition Expr
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl#getConditionExpr <em>Condition Expr </em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl#getThenExpr <em>Then Expr</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl#getElseExpr <em>Else Expr</em>}</li>
  * </ul>

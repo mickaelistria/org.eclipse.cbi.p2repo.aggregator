@@ -55,8 +55,7 @@ public interface BPropertySet extends BAdvice {
 	 * Returns the value of the '<em><b>Extends</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Extends</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Extends</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -73,8 +72,7 @@ public interface BPropertySet extends BAdvice {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Operations</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Operations</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -89,8 +87,7 @@ public interface BPropertySet extends BAdvice {
 	 * Returns the value of the '<em><b>Properties File</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Properties File</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Properties File</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

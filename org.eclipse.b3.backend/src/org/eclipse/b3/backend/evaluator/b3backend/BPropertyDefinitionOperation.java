@@ -20,8 +20,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation#getDefinition <em>Definition</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation#getDefinition <em>Definition</em>}</li>
  * </ul>
  * </p>
  * 
@@ -42,8 +41,7 @@ public interface BPropertyDefinitionOperation extends BPropertyOperation {
 	 * Returns the value of the '<em><b>Definition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Definition</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Definition</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -56,9 +54,8 @@ public interface BPropertyDefinitionOperation extends BPropertyOperation {
 	BDefProperty getDefinition();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation#getDefinition <em>Definition</em>}
-	 * ' containment reference.
+	 * Sets the value of the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation#getDefinition <em>Definition</em>} '
+	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

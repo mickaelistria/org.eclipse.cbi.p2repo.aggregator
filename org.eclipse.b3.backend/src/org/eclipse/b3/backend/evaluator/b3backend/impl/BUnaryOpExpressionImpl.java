@@ -25,8 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BUnaryOpExpressionImpl#getFunctionName <em>Function Name
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BUnaryOpExpressionImpl#getFunctionName <em>Function Name </em>}</li>
  * </ul>
  * </p>
  * 

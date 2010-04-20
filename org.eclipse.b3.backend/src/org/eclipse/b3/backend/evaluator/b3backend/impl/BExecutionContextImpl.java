@@ -70,14 +70,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getParentContext <em>Parent Context
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getParentContext <em>Parent Context </em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getValueMap <em>Value Map</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getFuncStore <em>Func Store</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getEffectiveConcerns <em>Effective
- * Concerns</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getProgressMonitor <em>Progress
- * Monitor</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getEffectiveConcerns <em>Effective Concerns</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getProgressMonitor <em>Progress Monitor</em>}</li>
  * </ul>
  * </p>
  * 

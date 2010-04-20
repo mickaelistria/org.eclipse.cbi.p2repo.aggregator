@@ -35,8 +35,7 @@ public interface BGuardExpression extends BGuard {
 	 * Returns the value of the '<em><b>Guard Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Guard Expr</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Guard Expr</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

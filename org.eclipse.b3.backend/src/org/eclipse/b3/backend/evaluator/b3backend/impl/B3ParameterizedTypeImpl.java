@@ -39,8 +39,7 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3ParameterizedTypeImpl#getOwnerType <em>Owner Type</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3ParameterizedTypeImpl#getRawType <em>Raw Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3ParameterizedTypeImpl#getActualArgumentsList <em>Actual
- * Arguments List</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3ParameterizedTypeImpl#getActualArgumentsList <em>Actual Arguments List</em>}</li>
  * </ul>
  * </p>
  * 

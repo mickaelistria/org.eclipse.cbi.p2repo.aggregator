@@ -38,8 +38,7 @@ public interface BSourceLink extends EObject {
 	 * Returns the value of the '<em><b>File Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>File Reference</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>File Reference</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -55,8 +54,7 @@ public interface BSourceLink extends EObject {
 	 * Returns the value of the '<em><b>Line Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Line Number</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Line Number</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

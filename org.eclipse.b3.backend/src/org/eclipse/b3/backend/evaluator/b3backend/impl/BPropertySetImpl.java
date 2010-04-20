@@ -56,8 +56,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getExtends <em>Extends</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getOperations <em>Operations</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getPropertiesFile <em>Properties File
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getPropertiesFile <em>Properties File </em>}</li>
  * </ul>
  * </p>
  * 

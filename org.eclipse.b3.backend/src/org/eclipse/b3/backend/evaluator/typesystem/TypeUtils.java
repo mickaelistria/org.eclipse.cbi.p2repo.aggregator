@@ -147,8 +147,8 @@ public class TypeUtils {
 		 *            the type of the value of the argument passed to the method
 		 * @param questionedType
 		 *            the type of the value the method expects in the corresponding parameter
-		 * @return <code>null</code> if not applicable at all, {@link Boolean#TRUE} if applicable by subtyping only,
-		 *         {@link Boolean#FALSE} if method invocation conversion of some sort is needed
+		 * @return <code>null</code> if not applicable at all, {@link Boolean#TRUE} if applicable by subtyping only, {@link Boolean#FALSE} if method
+		 *         invocation conversion of some sort is needed
 		 */
 		protected static Boolean isApplicableBySubtyping(Type referenceType, Type questionedType) {
 			Boolean specialCase = isAssignableFromSpecialCase(referenceType, questionedType);

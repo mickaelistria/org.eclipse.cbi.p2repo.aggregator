@@ -50,8 +50,7 @@ public interface BDefProperty extends BDefValue {
 	 * Returns the value of the '<em><b>Mutable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Mutable</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Mutable</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -64,8 +63,7 @@ public interface BDefProperty extends BDefValue {
 	boolean isMutable();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefProperty#isMutable <em>Mutable</em>}
-	 * ' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefProperty#isMutable <em>Mutable</em>} ' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

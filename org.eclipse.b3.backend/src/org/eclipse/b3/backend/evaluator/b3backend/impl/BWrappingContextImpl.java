@@ -39,15 +39,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getFunctionWrapper <em>Function
- * Wrapper</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getWrappedContext <em>Wrapped Context
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getFunctionWrapper <em>Function Wrapper</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getWrappedContext <em>Wrapped Context </em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameters <em>Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameterTypes <em>Parameter Types
- * </em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getVarargsName <em>Varargs Name</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameterTypes <em>Parameter Types </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getVarargsName <em>Varargs Name</em>}</li>
  * </ul>
  * </p>
  * 
@@ -336,8 +332,8 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	}
 
 	/**
-	 * This implementation returns the facaded/mapped value map resulting from the call to
-	 * {@link #mapContext(BExecutionContext, Map)}. Note that if no such call has been made.
+	 * This implementation returns the facaded/mapped value map resulting from the call to {@link #mapContext(BExecutionContext, Map)}. Note that if
+	 * no such call has been made.
 	 * 
 	 * @returns null if {@link #mapContext(BExecutionContext, Map)} has not been called as part of the setup of this
 	 *          context

@@ -31,8 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BChainedExpressionImpl#getExpressions <em>Expressions
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BChainedExpressionImpl#getExpressions <em>Expressions </em>}</li>
  * </ul>
  * </p>
  * 

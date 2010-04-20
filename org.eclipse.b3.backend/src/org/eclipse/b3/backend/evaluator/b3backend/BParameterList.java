@@ -46,8 +46,7 @@ public interface BParameterList extends EObject {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BParameter}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

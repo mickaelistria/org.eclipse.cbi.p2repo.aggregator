@@ -37,10 +37,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl#getLowerBoundsList <em>Lower Bounds
- * List</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl#getUpperBoundsList <em>Upper Bounds
- * List</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl#getLowerBoundsList <em>Lower Bounds List</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl#getUpperBoundsList <em>Upper Bounds List</em>}</li>
  * </ul>
  * </p>
  * 

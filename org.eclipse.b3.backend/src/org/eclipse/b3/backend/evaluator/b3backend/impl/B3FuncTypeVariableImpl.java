@@ -33,8 +33,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FuncTypeVariableImpl#getBounds <em>Bounds</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FuncTypeVariableImpl#getGenericDeclaration <em>Generic
- * Declaration</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FuncTypeVariableImpl#getGenericDeclaration <em>Generic Declaration</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FuncTypeVariableImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>

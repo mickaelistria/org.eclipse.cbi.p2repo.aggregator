@@ -40,8 +40,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionNamePredicateImpl#getNamePredicate <em>Name
- * Predicate</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionNamePredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
  * </ul>
  * </p>
  * 

@@ -22,13 +22,11 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getNamePredicate <em>Name Predicate
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getNamePredicate <em>Name Predicate </em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getParameters <em>Parameters</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getFuncExpr <em>Func Expr</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#isVarArgs <em>Var Args</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#isMatchParameters <em>Match Parameters
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#isMatchParameters <em>Match Parameters </em>}</li>
  * </ul>
  * </p>
  * 
@@ -49,8 +47,7 @@ public interface BFunctionConcernContext extends BConcernContext {
 	 * Returns the value of the '<em><b>Func Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Func Expr</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Func Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -66,8 +63,7 @@ public interface BFunctionConcernContext extends BConcernContext {
 	 * Returns the value of the '<em><b>Name Predicate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name Predicate</em>' containment reference isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Name Predicate</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -84,8 +80,7 @@ public interface BFunctionConcernContext extends BConcernContext {
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -100,8 +95,7 @@ public interface BFunctionConcernContext extends BConcernContext {
 	 * Returns the value of the '<em><b>Match Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Match Parameters</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Match Parameters</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -117,8 +111,7 @@ public interface BFunctionConcernContext extends BConcernContext {
 	 * Returns the value of the '<em><b>Var Args</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -144,8 +137,7 @@ public interface BFunctionConcernContext extends BConcernContext {
 	void setFuncExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#isMatchParameters
+	 * Sets the value of the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#isMatchParameters
 	 * <em>Match Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,8 +150,7 @@ public interface BFunctionConcernContext extends BConcernContext {
 	void setMatchParameters(boolean value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getNamePredicate
+	 * Sets the value of the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getNamePredicate
 	 * <em>Name Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

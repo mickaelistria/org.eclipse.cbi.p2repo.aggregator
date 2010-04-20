@@ -59,8 +59,7 @@ public interface B3WildcardType extends EObject, WildcardType {
 	 * The list contents are of type {@link java.lang.reflect.Type}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Lower Bounds List</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Lower Bounds List</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -85,8 +84,7 @@ public interface B3WildcardType extends EObject, WildcardType {
 	 * The list contents are of type {@link java.lang.reflect.Type}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Upper Bounds List</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Upper Bounds List</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

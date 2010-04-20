@@ -28,8 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getOwnerType <em>Owner Type</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType <em>Raw Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualArgumentsList <em>Actual Arguments
- * List</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualArgumentsList <em>Actual Arguments List</em>}</li>
  * </ul>
  * </p>
  * 
@@ -51,8 +50,7 @@ public interface B3ParameterizedType extends EObject, ParameterizedType {
 	 * The list contents are of type {@link java.lang.reflect.Type}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Actual Arguments List</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Actual Arguments List</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -76,8 +74,7 @@ public interface B3ParameterizedType extends EObject, ParameterizedType {
 	 * Returns the value of the '<em><b>Owner Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Owner Type</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Owner Type</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -93,8 +90,7 @@ public interface B3ParameterizedType extends EObject, ParameterizedType {
 	 * Returns the value of the '<em><b>Raw Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Raw Type</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Raw Type</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

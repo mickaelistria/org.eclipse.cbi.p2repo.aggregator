@@ -51,8 +51,7 @@ public interface B3FunctionType extends EObject, Type {
 	 * Returns the value of the '<em><b>Function Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Function Type</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Function Type</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -69,8 +68,7 @@ public interface B3FunctionType extends EObject, Type {
 	 * The list contents are of type {@link java.lang.reflect.Type}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameter Types</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Parameter Types</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -94,8 +92,7 @@ public interface B3FunctionType extends EObject, Type {
 	 * Returns the value of the '<em><b>Return Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Return Type</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Return Type</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -121,8 +118,7 @@ public interface B3FunctionType extends EObject, Type {
 	 * Returns the value of the '<em><b>Type Calculator</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type Calculator</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Type Calculator</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -147,8 +143,7 @@ public interface B3FunctionType extends EObject, Type {
 	 * Returns the value of the '<em><b>Var Args</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
