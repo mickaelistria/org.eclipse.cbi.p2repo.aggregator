@@ -27,10 +27,55 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation;
  * hasNext) to remove the just returned instance.
  */
 public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionOperation> {
+	/**
+	 * Variant of the iterator that returns a filtered sequence of operations.
+	 */
+	public static class Effective extends PropertyDefinitionIterator {
+
+		BExecutionContext evalCtx;
+
+		Throwable lastError;
+
+		public Effective(BPropertySet propertySet, BExecutionContext ctx) {
+			super(propertySet);
+			evalCtx = ctx;
+			lastError = null;
+		}
+
+		/**
+		 * Returns the last error (or null if hasNext() returned successfully).
+		 * 
+		 * @return
+		 */
+		public Throwable getLastError() {
+			return lastError;
+		}
+
+		@Override
+		protected void conditionalOp(BConditionalPropertyOperation op) {
+			try {
+				BExpression condExpr = op.getCondExpr();
+				Object result = null;
+				if(condExpr != null) {
+					result = condExpr.evaluate(evalCtx);
+					if(result != null && result instanceof Boolean && !((Boolean) result).booleanValue())
+						return;
+					opSwitch(op.getBody());
+				}
+			}
+			catch(Throwable e) {
+				lastError = e;
+				itorStack = null; // signal that iteration stops immediately
+			}
+		}
+	}
+
 	protected BPropertyDefinitionOperation theNext;
+
 	protected List<PropertyOperationIterator> itorStack;
+
 	private Set<BPropertySet> visitedSets;
-	
+
 	public PropertyDefinitionIterator(BPropertySet set) {
 		itorStack = new ArrayList<PropertyOperationIterator>();
 		visitedSets = new HashSet<BPropertySet>();
@@ -51,9 +96,28 @@ public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionO
 	}
 
 	public void remove() {
-		peek().remove();		
+		peek().remove();
 	}
-	
+
+	protected void conditionalOp(BConditionalPropertyOperation op) {
+		opSwitch(op.getBody());
+	}
+
+	/**
+	 * recurse on conditional, and push iterator if op is a property set, else set theNext
+	 */
+	protected void opSwitch(BPropertyOperation op) {
+		if(op instanceof BConditionalPropertyOperation)
+			conditionalOp((BConditionalPropertyOperation) op);
+		else if(op instanceof BPropertySetOperation)
+			push(new PropertyOperationIterator(((BPropertySetOperation) op).getPropertySet(), visitedSets));
+		else if(op instanceof BPropertyDefinitionOperation)
+			theNext = (BPropertyDefinitionOperation) op;
+		else
+			throw new IllegalArgumentException("Unknown BPropertyOperation subclass: " +
+					op.getClass().getName().toString());
+	}
+
 	private void findNext() {
 		theNext = null;
 		while(itorStack != null && !itorStack.isEmpty() && theNext == null) {
@@ -63,71 +127,23 @@ public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionO
 				pop();
 		}
 	}
-	/**
-	 * recurse on conditional, and push iterator if op is a property set, else set theNext
-	 */
-	protected void opSwitch(BPropertyOperation op) {
-		if(op instanceof BConditionalPropertyOperation)
-			conditionalOp((BConditionalPropertyOperation)op);
-		else if(op instanceof BPropertySetOperation)
-			push( new PropertyOperationIterator(((BPropertySetOperation)op).getPropertySet(), visitedSets));
-		else if(op instanceof BPropertyDefinitionOperation)
-			theNext = (BPropertyDefinitionOperation)op;
-		else
-			throw new IllegalArgumentException("Unknown BPropertyOperation subclass: "+ op.getClass().getName().toString());
+
+	private PropertyOperationIterator peek() {
+		return itorStack.get(itorStack.size() - 1);
 	}
-	protected void conditionalOp(BConditionalPropertyOperation op) {
-		opSwitch(op.getBody());
-	}
-	private void push(PropertyOperationIterator itor) {
-		itorStack.add(itor);
-	}
+
 	private void pop() {
 		if(itorStack == null)
 			return; // special "error case"
 		int size = itorStack.size();
 		if(size == 0)
 			throw new IllegalStateException("Stack underflow");
-		
-		itorStack.remove(itorStack.size()-1);
+
+		itorStack.remove(itorStack.size() - 1);
 		return;
 	}
-	private PropertyOperationIterator peek() {
-		return itorStack.get(itorStack.size()-1);
-	}
-	/**
-	 * Variant of the iterator that returns a filtered sequence of operations.
-	 */
-	public static class Effective extends PropertyDefinitionIterator {
-		
-		BExecutionContext evalCtx;
-		Throwable lastError;
-		public Effective(BPropertySet propertySet, BExecutionContext ctx) {
-			super(propertySet);
-			evalCtx = ctx;
-			lastError = null;
-		}
-		protected void conditionalOp(BConditionalPropertyOperation op) {
-			try {
-				BExpression condExpr = op.getCondExpr();
-				Object result = null;
-				if(condExpr != null) {
-					result = condExpr.evaluate(evalCtx);
-				if(result != null && result instanceof Boolean && !((Boolean)result).booleanValue())
-					return;
-				opSwitch(op.getBody());
-				}
-			} catch (Throwable e) {
-				lastError = e;
-				itorStack = null; // signal that iteration stops immediately
-			}
-		}
-		/**
-		 * Returns the last error (or null if hasNext() returned successfully).
-		 * @return
-		 */
-		public Throwable getLastError() {
-			return lastError;
-		}
+
+	private void push(PropertyOperationIterator itor) {
+		itorStack.add(itor);
 	}
 }

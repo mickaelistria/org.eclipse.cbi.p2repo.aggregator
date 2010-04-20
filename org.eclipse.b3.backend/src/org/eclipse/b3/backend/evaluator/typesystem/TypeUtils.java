@@ -58,7 +58,7 @@ public class TypeUtils {
 
 	public static abstract class Candidate implements ICandidate {
 
-		protected enum CandidateLevel{
+		protected enum CandidateLevel {
 
 			NONE, VARIABLE_ARITY_BY_CONVERSION, VARIABLE_ARITY_BY_SUBTYPING, FIXED_ARITY_BY_CONVERSION, FIXED_ARITY_BY_SUBTYPING;
 
@@ -71,18 +71,18 @@ public class TypeUtils {
 			//
 			// NONE
 			// no applicable candidate found
-			// 
+			//
 			// VARIABLE_ARITY_BY_CONVERSION
 			// variable arity candidate(s) (§15.12.2.4 in Java Language Specification) applicable by method invocation
 			// conversion found
-			// 
+			//
 			// VARIABLE_ARITY_BY_SUBTYPING
 			// variable arity candidate(s) (§15.12.2.4 in Java Language Specification) applicable by subtyping found
-			// 
+			//
 			// FIXED_ARITY_BY_CONVERSION
 			// fixed arity candidate(s) applicable by method invocation conversion (§15.12.2.3 in Java Language
 			// Specification) found
-			// 
+			//
 			// FIXED_ARITY_BY_SUBTYPING
 			// fixed arity candidate(s) applicable by subtyping (§15.12.2.2 in Java Language Specification) found
 			CandidateLevel level = CandidateLevel.NONE;
@@ -198,9 +198,9 @@ public class TypeUtils {
 						// check for fixed arity match if the counts of parameters and arguments match
 						if(candidateParameterTypes.length == parameterTypes.length) {
 							Type varargParameterArrayType = candidate.getVarargArrayType();
-							if(varargParameterArrayType != null
-									&& isAssignableFrom(varargParameterArrayType,
-											parameterTypes[lastCandidateParameterIndex]))
+							if(varargParameterArrayType != null &&
+									isAssignableFrom(
+										varargParameterArrayType, parameterTypes[lastCandidateParameterIndex]))
 								// the candidate is applicable as a fixed arity candidate
 								break VARIABLE_ARITY;
 						}
@@ -414,15 +414,16 @@ public class TypeUtils {
 
 			if(varargParameterArrayType != null // this is a vararg candidate which possibly needs to have the variable
 												// arity arguments turned into an array
-					&& !(actualParameterTypes.length == declaredParameterTypes.length && isAssignableFrom(
-							varargParameterArrayType, actualParameterTypes[lastDeclaredParameterIndex]))) {
+					&&
+					!(actualParameterTypes.length == declaredParameterTypes.length && isAssignableFrom(
+						varargParameterArrayType, actualParameterTypes[lastDeclaredParameterIndex]))) {
 				Object[] callParameters = new Object[declaredParameterTypes.length - offset];
 
 				System.arraycopy(actualParameters, offset, callParameters, 0, lastDeclaredParameterIndex - offset);
 
 				Class<?> varargComponentType = getRaw(declaredParameterTypes[lastDeclaredParameterIndex]);
-				Object varargArray = Array.newInstance(varargComponentType, actualParameterTypes.length
-						- lastDeclaredParameterIndex);
+				Object varargArray = Array.newInstance(varargComponentType, actualParameterTypes.length -
+						lastDeclaredParameterIndex);
 
 				for(int i = 0; i < actualParameterTypes.length - lastDeclaredParameterIndex; ++i)
 					Array.set(varargArray, i, actualParameters[lastDeclaredParameterIndex + i]);
@@ -453,8 +454,8 @@ public class TypeUtils {
 				Type[] newParameterTypes = new Type[instanceParameterTypesCount + parameterTypes.length];
 
 				System.arraycopy(instanceParameterTypes, 0, newParameterTypes, 0, instanceParameterTypesCount);
-				System.arraycopy(parameterTypes, 0, newParameterTypes, instanceParameterTypesCount,
-						parameterTypes.length);
+				System.arraycopy(
+					parameterTypes, 0, newParameterTypes, instanceParameterTypesCount, parameterTypes.length);
 
 				parameterTypes = newParameterTypes;
 			}
@@ -527,8 +528,9 @@ public class TypeUtils {
 	private static final Map<Type, Set<Type>> coerceMap = new HashMap<Type, Set<Type>>();
 
 	static {
-		Class<?> objectTypeClasses[][] = { { Void.class, Boolean.class, Double.class }, { Float.class },
-				{ Long.class }, { Integer.class }, { Character.class, Short.class }, { Byte.class } };
+		Class<?> objectTypeClasses[][] = {
+				{ Void.class, Boolean.class, Double.class }, { Float.class }, { Long.class }, { Integer.class },
+				{ Character.class, Short.class }, { Byte.class } };
 
 		Set<Type> coerceTypeSet = Collections.emptySet();
 		Set<Type> previousCoerceTypeSet = coerceTypeSet;
@@ -571,8 +573,8 @@ public class TypeUtils {
 
 	public static Type getArrayComponentType(Type type) {
 		Type arrayType = type;
-		if(arrayType instanceof Class<?> || arrayType instanceof B3ParameterizedType
-				&& (arrayType = ((B3ParameterizedType) arrayType).getRawType()) instanceof Class<?>) {
+		if(arrayType instanceof Class<?> || arrayType instanceof B3ParameterizedType &&
+				(arrayType = ((B3ParameterizedType) arrayType).getRawType()) instanceof Class<?>) {
 			Class<?> componentType = ((Class<?>) arrayType).getComponentType();
 
 			if(componentType != null)
@@ -622,7 +624,7 @@ public class TypeUtils {
 		// Class<?>[] classes = new Class[types.length];
 		// for(int i = 0; i < types.length; i++)
 		// classes[i] = getRaw(types[i]);
-		//		
+		//
 		// int limit = classes.length;
 		// nexti: for(int i = 0; i < limit; i++) {
 		// nextj: for(int j = 0; j < limit; j++) {
@@ -712,8 +714,8 @@ public class TypeUtils {
 		if(baseType instanceof B3ParameterizedType)
 			baseType = ((B3ParameterizedType) baseType).getRawType();
 
-		return (baseType instanceof Class<?>) && ((Class<?>) baseType).isArray()
-				|| (baseType instanceof GenericArrayType);
+		return (baseType instanceof Class<?>) && ((Class<?>) baseType).isArray() ||
+				(baseType instanceof GenericArrayType);
 	}
 
 	/**

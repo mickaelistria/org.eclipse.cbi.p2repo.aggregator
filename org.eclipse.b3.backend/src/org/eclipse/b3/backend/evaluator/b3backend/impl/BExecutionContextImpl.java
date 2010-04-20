@@ -70,14 +70,17 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getParentContext <em>Parent Context</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getValueMap <em>Value Map</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getFuncStore <em>Func Store</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getEffectiveConcerns <em>Effective Concerns</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getProgressMonitor <em>Progress Monitor</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getParentContext <em>Parent Context
+ * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getValueMap <em>Value Map</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getFuncStore <em>Func Store</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getEffectiveConcerns <em>Effective
+ * Concerns</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getProgressMonitor <em>Progress
+ * Monitor</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class BExecutionContextImpl extends EObjectImpl implements BExecutionContext {
@@ -116,6 +119,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -176,8 +180,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			instanceParameterNames = null;
 		}
 
-		TypeUtils.JavaCandidate javaFunctionCandidate = FunctionCandidateAdapterFactory.eINSTANCE.adapt(f,
-				TypeUtils.JavaCandidate.class);
+		TypeUtils.JavaCandidate javaFunctionCandidate = FunctionCandidateAdapterFactory.eINSTANCE.adapt(
+			f, TypeUtils.JavaCandidate.class);
 		// this eventually calls f.setParameterTypes()
 		javaFunctionCandidate.processJavaParameterTypes(instanceParameterTypes);
 
@@ -274,6 +278,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The cached value of the '{@link #getParentContext() <em>Parent Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParentContext()
 	 * @generated
 	 * @ordered
@@ -299,6 +304,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The cached value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValueMap()
 	 * @generated
 	 * @ordered
@@ -309,6 +315,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The default value of the '{@link #getFuncStore() <em>Func Store</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFuncStore()
 	 * @generated
 	 * @ordered
@@ -319,6 +326,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The cached value of the '{@link #getFuncStore() <em>Func Store</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFuncStore()
 	 * @generated
 	 * @ordered
@@ -329,6 +337,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The cached value of the '{@link #getEffectiveConcerns() <em>Effective Concerns</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getEffectiveConcerns()
 	 * @generated
 	 * @ordered
@@ -339,6 +348,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The default value of the '{@link #getProgressMonitor() <em>Progress Monitor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProgressMonitor()
 	 * @generated
 	 * @ordered
@@ -349,6 +359,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * The cached value of the '{@link #getProgressMonitor() <em>Progress Monitor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProgressMonitor()
 	 * @generated
 	 * @ordered
@@ -371,6 +382,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExecutionContext basicGetParentContext() {
@@ -394,58 +406,58 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		Throwable lastStaticError = null;
 		ATTEMPTS: for(int attempts = 0; attempts < 5; attempts++) {
 			switch(attempts) {
-			case 0: // fall through
-			case 3: // try a call with the parameters as stated
-				try {
-					return fStore.callFunction(functionName, parameters, types, this);
-				}
-				catch(B3NoSuchFunctionException e) {
-					attempts++; // skip second attempt
-					lastError = e;
-					continue;
-				}
-				catch(B3NoSuchFunctionSignatureException e2) {
-					lastError = e2;
-					continue;
-				}
-			case 1: // fall through
-			case 4: // try a static call
-				try {
-					if(parameters.length > 0) {
-						Object[] newParameters = new Object[parameters.length + 1];
-						System.arraycopy(parameters, 0, newParameters, 1, parameters.length);
-						B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-						metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
-						newParameters[0] = types[0];
-						Type[] newTypes = new Type[types.length + 1];
-						System.arraycopy(types, 0, newTypes, 1, types.length);
-						newTypes[0] = metaClass;
-						return fStore.callFunction(functionName, newParameters, newTypes, this);
+				case 0: // fall through
+				case 3: // try a call with the parameters as stated
+					try {
+						return fStore.callFunction(functionName, parameters, types, this);
 					}
-				}
-				catch(B3NoSuchFunctionException e3) {
-					lastStaticError = e3;
-					continue;
-				}
-				catch(B3NoSuchFunctionSignatureException e4) {
-					lastStaticError = e4;
-					continue;
-				}
-				break;
-			case 2: // try loading the method in the java context
-				BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
-				if(!(systemCtx instanceof BSystemContext))
-					throw new B3InternalError(
+					catch(B3NoSuchFunctionException e) {
+						attempts++; // skip second attempt
+						lastError = e;
+						continue;
+					}
+					catch(B3NoSuchFunctionSignatureException e2) {
+						lastError = e2;
+						continue;
+					}
+				case 1: // fall through
+				case 4: // try a static call
+					try {
+						if(parameters.length > 0) {
+							Object[] newParameters = new Object[parameters.length + 1];
+							System.arraycopy(parameters, 0, newParameters, 1, parameters.length);
+							B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+							metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+							newParameters[0] = types[0];
+							Type[] newTypes = new Type[types.length + 1];
+							System.arraycopy(types, 0, newTypes, 1, types.length);
+							newTypes[0] = metaClass;
+							return fStore.callFunction(functionName, newParameters, newTypes, this);
+						}
+					}
+					catch(B3NoSuchFunctionException e3) {
+						lastStaticError = e3;
+						continue;
+					}
+					catch(B3NoSuchFunctionSignatureException e4) {
+						lastStaticError = e4;
+						continue;
+					}
+					break;
+				case 2: // try loading the method in the java context
+					BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
+					if(!(systemCtx instanceof BSystemContext))
+						throw new B3InternalError(
 							"The parent of the invocation context must be an instance of BSystemContext");
-				IFunction loaded = null;
-				if((loaded = ((BSystemContext) systemCtx).loadMethod(functionName, types)) != null) {
-					weaveLoaded(loaded, this);
-					continue; // attempt calling the (possibly advised) function
-				}
-				break ATTEMPTS;
-			default:
-				throw new B3InternalError("BExecutionContextImpl#callFunction() - broken call strategy loop :"
-						+ String.valueOf(attempts));
+					IFunction loaded = null;
+					if((loaded = ((BSystemContext) systemCtx).loadMethod(functionName, types)) != null) {
+						weaveLoaded(loaded, this);
+						continue; // attempt calling the (possibly advised) function
+					}
+					break ATTEMPTS;
+				default:
+					throw new B3InternalError("BExecutionContextImpl#callFunction() - broken call strategy loop :" +
+							String.valueOf(attempts));
 			}
 		}
 		// Successful call should have returned result already - only error conditions remain
@@ -482,18 +494,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			return getParentContext().containsValue(name, true);
 		return false;
 
-	}
-
-	/**
-	 * Creates a func store if not already created and links it to the first found parent context
-	 * with a func store.
-	 * (Note: It is not possible for this thread to create new functions in outer context while this
-	 * context is in effect.)
-	 */
-	protected void createFuncStore() {
-		if(funcStore != null)
-			return;
-		setFuncStore(new B3FuncStore(getEffectiveFuncStore()));
 	}
 
 	/**
@@ -629,13 +629,15 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-				if (resolve) return getParentContext();
+				if(resolve)
+					return getParentContext();
 				return basicGetParentContext();
 			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
 				return getValueMap();
@@ -652,21 +654,28 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
 				return parentContext != null;
 			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
-				return VALUE_MAP_EDEFAULT == null ? valueMap != null : !VALUE_MAP_EDEFAULT.equals(valueMap);
+				return VALUE_MAP_EDEFAULT == null
+						? valueMap != null
+						: !VALUE_MAP_EDEFAULT.equals(valueMap);
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
-				return FUNC_STORE_EDEFAULT == null ? funcStore != null : !FUNC_STORE_EDEFAULT.equals(funcStore);
+				return FUNC_STORE_EDEFAULT == null
+						? funcStore != null
+						: !FUNC_STORE_EDEFAULT.equals(funcStore);
 			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
 				return effectiveConcerns != null && !effectiveConcerns.isEmpty();
 			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
-				return PROGRESS_MONITOR_EDEFAULT == null ? progressMonitor != null : !PROGRESS_MONITOR_EDEFAULT.equals(progressMonitor);
+				return PROGRESS_MONITOR_EDEFAULT == null
+						? progressMonitor != null
+						: !PROGRESS_MONITOR_EDEFAULT.equals(progressMonitor);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -674,27 +683,28 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-				setParentContext((BExecutionContext)newValue);
+				setParentContext((BExecutionContext) newValue);
 				return;
 			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
-				setValueMap((ValueMap)newValue);
+				setValueMap((ValueMap) newValue);
 				return;
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
-				setFuncStore((B3FuncStore)newValue);
+				setFuncStore((B3FuncStore) newValue);
 				return;
 			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
 				getEffectiveConcerns().clear();
-				getEffectiveConcerns().addAll((Collection<? extends BConcern>)newValue);
+				getEffectiveConcerns().addAll((Collection<? extends BConcern>) newValue);
 				return;
 			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
-				setProgressMonitor((IProgressMonitor)newValue);
+				setProgressMonitor((IProgressMonitor) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -703,23 +713,14 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BEXECUTION_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-				setParentContext((BExecutionContext)null);
+				setParentContext((BExecutionContext) null);
 				return;
 			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
 				setValueMap(VALUE_MAP_EDEFAULT);
@@ -740,6 +741,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Iterator<BConcernContext> getConcernIterator(Object candidate) {
@@ -777,62 +779,62 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		Throwable lastStaticError = null;
 		ATTEMPTS: for(int attempts = 0; attempts < 5; attempts++) {
 			switch(attempts) {
-			case 0: // fall through
-			case 3: // try a call with the parameters as stated
-				try {
-					return fStore.getDeclaredFunctionType(functionName, types, this);
-				}
-				catch(B3NoSuchFunctionException e) {
-					attempts++; // skip second attempt
-					lastError = e;
-					continue;
-				}
-				catch(B3NoSuchFunctionSignatureException e2) {
-					lastError = e2;
-					continue;
-				}
-			case 1: // fall through
-			case 4: // try a static call
-				try {
-					if(types.length > 0) {
-						B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-						metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
-						Type[] newTypes = new Type[types.length + 1];
-						System.arraycopy(types, 0, newTypes, 1, types.length);
-						newTypes[0] = metaClass;
-						return fStore.getDeclaredFunctionType(functionName, newTypes, this);
+				case 0: // fall through
+				case 3: // try a call with the parameters as stated
+					try {
+						return fStore.getDeclaredFunctionType(functionName, types, this);
 					}
-				}
-				catch(B3NoSuchFunctionException e3) {
-					lastStaticError = e3;
-					continue;
-				}
-				catch(B3NoSuchFunctionSignatureException e4) {
-					lastStaticError = e4;
-					continue;
-				}
-				break;
-			case 2: // try loading the method in the java context
-				BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
-				if(!(systemCtx instanceof BSystemContext))
-					throw new B3InternalError(
+					catch(B3NoSuchFunctionException e) {
+						attempts++; // skip second attempt
+						lastError = e;
+						continue;
+					}
+					catch(B3NoSuchFunctionSignatureException e2) {
+						lastError = e2;
+						continue;
+					}
+				case 1: // fall through
+				case 4: // try a static call
+					try {
+						if(types.length > 0) {
+							B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+							metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+							Type[] newTypes = new Type[types.length + 1];
+							System.arraycopy(types, 0, newTypes, 1, types.length);
+							newTypes[0] = metaClass;
+							return fStore.getDeclaredFunctionType(functionName, newTypes, this);
+						}
+					}
+					catch(B3NoSuchFunctionException e3) {
+						lastStaticError = e3;
+						continue;
+					}
+					catch(B3NoSuchFunctionSignatureException e4) {
+						lastStaticError = e4;
+						continue;
+					}
+					break;
+				case 2: // try loading the method in the java context
+					BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
+					if(!(systemCtx instanceof BSystemContext))
+						throw new B3InternalError(
 							"The parent of the invocation context must be an instance of BSystemContext");
-				IFunction loaded = null;
-				if((loaded = ((BSystemContext) systemCtx).loadMethod(functionName, types)) != null) {
-					weaveLoaded(loaded, this);
-					continue; // attempt calling the (possibly advised) function
-				}
-				break ATTEMPTS;
-			default:
-				throw new B3InternalError(
-						"BExecutionContextImpl#getDeclaredFunctionType() - broken call strategy loop :"
-								+ String.valueOf(attempts));
+					IFunction loaded = null;
+					if((loaded = ((BSystemContext) systemCtx).loadMethod(functionName, types)) != null) {
+						weaveLoaded(loaded, this);
+						continue; // attempt calling the (possibly advised) function
+					}
+					break ATTEMPTS;
+				default:
+					throw new B3InternalError(
+						"BExecutionContextImpl#getDeclaredFunctionType() - broken call strategy loop :" +
+								String.valueOf(attempts));
 			}
 		}
 		// Successful call should have returned result already - only error conditions remain
 		if(lastError == null && lastStaticError == null)
 			throw new B3InternalError(
-					"BExecutionContextImpl#getDeclaredFunctionType() did not return ok, and had no last error");
+				"BExecutionContextImpl#getDeclaredFunctionType() did not return ok, and had no last error");
 
 		throw lastError != null
 				? lastError
@@ -853,36 +855,21 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BConcern> getEffectiveConcerns() {
-		if (effectiveConcerns == null) {
-			effectiveConcerns = new EObjectResolvingEList<BConcern>(BConcern.class, this, B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS);
+		if(effectiveConcerns == null) {
+			effectiveConcerns = new EObjectResolvingEList<BConcern>(
+				BConcern.class, this, B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS);
 		}
 		return effectiveConcerns;
 	}
 
 	/**
-	 * Returns the first found func store (or null, if none is found). The func store to return is
-	 * obtained via {@link #getFuncStore()} thus giving derived classes a chance to override.
-	 * 
-	 * @return
-	 */
-	protected B3FuncStore getEffectiveFuncStore() {
-		BExecutionContext p = this;
-		B3FuncStore fs;
-
-		do {
-			if((fs = p.getFuncStore()) != null)
-				return fs;
-		} while((p = p.getParentContext()) != null);
-
-		return null;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public B3FuncStore getFuncStore() {
@@ -958,15 +945,18 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExecutionContext getParentContext() {
-		if (parentContext != null && parentContext.eIsProxy()) {
-			InternalEObject oldParentContext = (InternalEObject)parentContext;
-			parentContext = (BExecutionContext)eResolveProxy(oldParentContext);
-			if (parentContext != oldParentContext) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, oldParentContext, parentContext));
+		if(parentContext != null && parentContext.eIsProxy()) {
+			InternalEObject oldParentContext = (InternalEObject) parentContext;
+			parentContext = (BExecutionContext) eResolveProxy(oldParentContext);
+			if(parentContext != oldParentContext) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT,
+						oldParentContext, parentContext));
 			}
 		}
 		return parentContext;
@@ -1012,6 +1002,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ValueMap getValueMap() {
@@ -1117,8 +1108,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 
 			if(annotation.hideOriginal()) {
 				if(names == null || names.length == 0)
-					throw new B3FunctionLoadException("hideOriginal annotation specified but not funcNames annotation",
-							m);
+					throw new B3FunctionLoadException(
+						"hideOriginal annotation specified but not funcNames annotation", m);
 				f.setName(names[0]);
 			}
 
@@ -1196,8 +1187,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			for(BJavaFunction s : e.getValue()) {
 				BJavaFunction sys = systemFunctions.get(e.getKey());
 				if(sys == null)
-					throw new B3FunctionLoadException("reference to system function: " + e.getKey()
-							+ " can not be satisfied - no such method found.", s.getMethod());
+					throw new B3FunctionLoadException("reference to system function: " + e.getKey() +
+							" can not be satisfied - no such method found.", s.getMethod());
 				// patch the method in the func store with values from the system function
 				s.setCallType(BJavaCallType.SYSTEM);
 				s.setMethod(sys.getMethod());
@@ -1207,13 +1198,13 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		// link guards
 		// ---
 		// revisit all functions that reference a guardFunction and set that function as a guard
-		// 
+		//
 		for(Entry<String, List<BJavaFunction>> e : guardedFunctions.entrySet()) {
 			for(BJavaFunction guarded : e.getValue()) {
 				BJavaFunction g = guards.get(e.getKey());
 				if(g == null)
-					throw new B3FunctionLoadException("reference to guard function: " + e.getKey()
-							+ " can not be satisfied - no such guard found.", guarded.getMethod());
+					throw new B3FunctionLoadException("reference to guard function: " + e.getKey() +
+							" can not be satisfied - no such guard found.", guarded.getMethod());
 				// set the guard function, wrapped in a guard
 				BGuardFunction gf = B3backendFactory.eINSTANCE.createBGuardFunction();
 				gf.setFunc(g);
@@ -1224,13 +1215,13 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		// link type calculators
 		// ---
 		// revisit all functions that reference a typeFunction and set that function as a typeCalculator
-		// 
+		//
 		for(Entry<String, List<BJavaFunction>> e : typeCalculatedFunctions.entrySet()) {
 			for(BJavaFunction typed : e.getValue()) {
 				BJavaFunction tc = typeCalculators.get(e.getKey());
 				if(tc == null)
-					throw new B3FunctionLoadException("reference to type calculator function: " + e.getKey()
-							+ " can not be satisfied - no such function found.", typed.getMethod());
+					throw new B3FunctionLoadException("reference to type calculator function: " + e.getKey() +
+							" can not be satisfied - no such function found.", typed.getMethod());
 				// set the guard function, wrapped in a guard
 				BTypeCalculatorFunction tcf = B3backendFactory.eINSTANCE.createBTypeCalculatorFunction();
 				tcf.setFunc(tc);
@@ -1242,59 +1233,71 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFuncStore(B3FuncStore newFuncStore) {
 		B3FuncStore oldFuncStore = funcStore;
 		funcStore = newFuncStore;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE, oldFuncStore, funcStore));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE, oldFuncStore, funcStore));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setParentContext(BExecutionContext newParentContext) {
 		BExecutionContext oldParentContext = parentContext;
 		parentContext = newParentContext;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, oldParentContext, parentContext));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, oldParentContext,
+				parentContext));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setProgressMonitor(IProgressMonitor newProgressMonitor) {
 		IProgressMonitor oldProgressMonitor = progressMonitor;
 		progressMonitor = newProgressMonitor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR, oldProgressMonitor, progressMonitor));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR, oldProgressMonitor,
+				progressMonitor));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setValueMap(ValueMap newValueMap) {
 		ValueMap oldValueMap = valueMap;
 		valueMap = newValueMap;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP, oldValueMap, valueMap));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP, oldValueMap, valueMap));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (valueMap: ");
@@ -1305,6 +1308,47 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		result.append(progressMonitor);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Creates a func store if not already created and links it to the first found parent context
+	 * with a func store.
+	 * (Note: It is not possible for this thread to create new functions in outer context while this
+	 * context is in effect.)
+	 */
+	protected void createFuncStore() {
+		if(funcStore != null)
+			return;
+		setFuncStore(new B3FuncStore(getEffectiveFuncStore()));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BEXECUTION_CONTEXT;
+	}
+
+	/**
+	 * Returns the first found func store (or null, if none is found). The func store to return is
+	 * obtained via {@link #getFuncStore()} thus giving derived classes a chance to override.
+	 * 
+	 * @return
+	 */
+	protected B3FuncStore getEffectiveFuncStore() {
+		BExecutionContext p = this;
+		B3FuncStore fs;
+
+		do {
+			if((fs = p.getFuncStore()) != null)
+				return fs;
+		} while((p = p.getParentContext()) != null);
+
+		return null;
 	}
 
 	private void weaveLoaded(IFunction f, BExecutionContext ctx) throws B3WeavingFailedException {

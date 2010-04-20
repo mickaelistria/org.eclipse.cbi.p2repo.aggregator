@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>BJava Call Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBJavaCallType()
  * @model
  * @generated
@@ -32,6 +33,7 @@ public enum BJavaCallType implements Enumerator {
 	 * The '<em><b>FUNCTION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #FUNCTION_VALUE
 	 * @generated
 	 * @ordered
@@ -42,6 +44,7 @@ public enum BJavaCallType implements Enumerator {
 	 * The '<em><b>SYSTEM</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #SYSTEM_VALUE
 	 * @generated
 	 * @ordered
@@ -52,6 +55,7 @@ public enum BJavaCallType implements Enumerator {
 	 * The '<em><b>METHOD</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #METHOD_VALUE
 	 * @generated
 	 * @ordered
@@ -61,6 +65,7 @@ public enum BJavaCallType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -69,10 +74,11 @@ public enum BJavaCallType implements Enumerator {
 	 * The '<em><b>FUNCTION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>FUNCTION</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>FUNCTION</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #FUNCTION
 	 * @model
 	 * @generated
@@ -84,10 +90,11 @@ public enum BJavaCallType implements Enumerator {
 	 * The '<em><b>SYSTEM</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>SYSTEM</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>SYSTEM</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #SYSTEM
 	 * @model
 	 * @generated
@@ -99,10 +106,11 @@ public enum BJavaCallType implements Enumerator {
 	 * The '<em><b>METHOD</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>METHOD</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>METHOD</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #METHOD
 	 * @model
 	 * @generated
@@ -114,33 +122,50 @@ public enum BJavaCallType implements Enumerator {
 	 * An array of all the '<em><b>BJava Call Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	private static final BJavaCallType[] VALUES_ARRAY =
-		new BJavaCallType[] {
-			FUNCTION,
-			SYSTEM,
-			METHOD,
-		};
+	private static final BJavaCallType[] VALUES_ARRAY = new BJavaCallType[] { FUNCTION, SYSTEM, METHOD, };
 
 	/**
 	 * A public read-only list of all the '<em><b>BJava Call Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final List<BJavaCallType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
+	 * Returns the '<em><b>BJava Call Type</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public static BJavaCallType get(int value) {
+		switch(value) {
+			case FUNCTION_VALUE:
+				return FUNCTION;
+			case SYSTEM_VALUE:
+				return SYSTEM;
+			case METHOD_VALUE:
+				return METHOD;
+		}
+		return null;
+	}
+
+	/**
 	 * Returns the '<em><b>BJava Call Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static BJavaCallType get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			BJavaCallType result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
+			if(result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -151,12 +176,13 @@ public enum BJavaCallType implements Enumerator {
 	 * Returns the '<em><b>BJava Call Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static BJavaCallType getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			BJavaCallType result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if(result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -164,23 +190,9 @@ public enum BJavaCallType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>BJava Call Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static BJavaCallType get(int value) {
-		switch (value) {
-			case FUNCTION_VALUE: return FUNCTION;
-			case SYSTEM_VALUE: return SYSTEM;
-			case METHOD_VALUE: return METHOD;
-		}
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final int value;
@@ -188,6 +200,7 @@ public enum BJavaCallType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final String name;
@@ -195,6 +208,7 @@ public enum BJavaCallType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final String literal;
@@ -203,6 +217,7 @@ public enum BJavaCallType implements Enumerator {
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private BJavaCallType(int value, String name, String literal) {
@@ -214,39 +229,43 @@ public enum BJavaCallType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getValue() {
-	  return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-	  return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getLiteral() {
-	  return literal;
+		return literal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public int getValue() {
+		return value;
 	}
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		return literal;
 	}
-	
-} //BJavaCallType
+
+} // BJavaCallType

@@ -21,34 +21,28 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BThrowExpressionImpl extends BUnaryExpressionImpl implements BThrowExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BThrowExpressionImpl() {
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BTHROW_EXPRESSION;
-	}
 	/**
 	 * Throws an exception that is the result of evaluating the expression, or a B3UserException
 	 * if the result of the expression is something other than a Throwable.
@@ -60,9 +54,21 @@ public class BThrowExpressionImpl extends BUnaryExpressionImpl implements BThrow
 			throw new B3UserException(this, e);
 		throw (Throwable) e;
 	}
+
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		// TODO: this is lying - evaluation of a throw is really void
 		return Object.class;
 	}
-} //BThrowExpressionImpl
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BTHROW_EXPRESSION;
+	}
+} // BThrowExpressionImpl

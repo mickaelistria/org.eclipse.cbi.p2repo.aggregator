@@ -59,11 +59,6 @@ public class ValueMap {
 		// argument ignored - is there just to allow default initialization by EMF.
 	}
 
-	private void checkMapExists() {
-		if(values == null)
-			values = new LinkedHashMap<String, ValueEntry>();
-	}
-
 	public boolean containsKey(String key) {
 		if(values == null)
 			return false;
@@ -250,6 +245,7 @@ public class ValueMap {
 		throw new B3NoSuchVariableException(key);
 	}
 
+	@Override
 	public String toString() {
 		StringBuffer buf = new StringBuffer();
 		toString(buf);
@@ -279,5 +275,10 @@ public class ValueMap {
 			first = false;
 		}
 		buf.append(")");
+	}
+
+	private void checkMapExists() {
+		if(values == null)
+			values = new LinkedHashMap<String, ValueEntry>();
 	}
 }

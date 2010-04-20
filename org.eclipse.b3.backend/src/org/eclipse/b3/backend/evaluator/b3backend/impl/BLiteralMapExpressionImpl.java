@@ -107,8 +107,8 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 		Type oldKeyType = keyType;
 		keyType = newKeyType;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE, oldKeyType, newKeyType);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE, oldKeyType, newKeyType);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -127,8 +127,9 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 		Type oldValueType = valueType;
 		valueType = newValueType;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, oldValueType, newValueType);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, oldValueType,
+				newValueType);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -146,12 +147,12 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
-			return getEntries();
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
-			return getKeyType();
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
-			return getValueType();
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
+				return getEntries();
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
+				return getKeyType();
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
+				return getValueType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,12 +166,12 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
-			return ((InternalEList<?>) getEntries()).basicRemove(otherEnd, msgs);
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
-			return basicSetKeyType(null, msgs);
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
-			return basicSetValueType(null, msgs);
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
+				return ((InternalEList<?>) getEntries()).basicRemove(otherEnd, msgs);
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
+				return basicSetKeyType(null, msgs);
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
+				return basicSetValueType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -184,12 +185,12 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
-			return entries != null && !entries.isEmpty();
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
-			return keyType != null;
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
-			return valueType != null;
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
+				return entries != null && !entries.isEmpty();
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
+				return keyType != null;
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
+				return valueType != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -204,16 +205,16 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
-			getEntries().clear();
-			getEntries().addAll((Collection<? extends BMapEntry>) newValue);
-			return;
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
-			setKeyType((Type) newValue);
-			return;
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
-			setValueType((Type) newValue);
-			return;
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
+				getEntries().clear();
+				getEntries().addAll((Collection<? extends BMapEntry>) newValue);
+				return;
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
+				setKeyType((Type) newValue);
+				return;
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
+				setValueType((Type) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -225,28 +226,17 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
-			getEntries().clear();
-			return;
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
-			setKeyType((Type) null);
-			return;
-		case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
-			setValueType((Type) null);
-			return;
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
+				getEntries().clear();
+				return;
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
+				setKeyType((Type) null);
+				return;
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
+				setValueType((Type) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -266,12 +256,12 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 			Object value = mapentry.getValue().evaluate(ctx);
 			if(!TypeUtils.isAssignableFrom(kt, mapentry.getKey().getDeclaredType(ctx))) // key.getClass()))
 				throw BackendHelper.createException(mapentry.getKey(), "Map creation error for entry {0}. "
-						+ "A Map<{0},{0}>, does not accept a key of type {0}.", new Object[] { new Integer(counter),
-						kt, vt, mapentry.getKey().getDeclaredType(ctx) });
+						+ "A Map<{0},{0}>, does not accept a key of type {0}.", new Object[] {
+						new Integer(counter), kt, vt, mapentry.getKey().getDeclaredType(ctx) });
 			if(!TypeUtils.isAssignableFrom(vt, mapentry.getValue().getDeclaredType(ctx))) // value.getClass()))
 				throw BackendHelper.createException(mapentry.getKey(), "Map creation error for entry {0}. "
-						+ "A Map<{0},{0}>, does not accept a value of type {0}.", new Object[] { new Integer(counter),
-						kt, vt, mapentry.getValue().getDeclaredType(ctx) });
+						+ "A Map<{0},{0}>, does not accept a value of type {0}.", new Object[] {
+						new Integer(counter), kt, vt, mapentry.getValue().getDeclaredType(ctx) });
 			map.put(key, value);
 			counter++;
 		}
@@ -305,8 +295,8 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	 */
 	public EList<BMapEntry> getEntries() {
 		if(entries == null) {
-			entries = new EObjectContainmentEList<BMapEntry>(BMapEntry.class, this,
-					B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES);
+			entries = new EObjectContainmentEList<BMapEntry>(
+				BMapEntry.class, this, B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES);
 		}
 		return entries;
 	}
@@ -380,18 +370,18 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 		if(newKeyType != keyType) {
 			NotificationChain msgs = null;
 			if(keyType != null && keyType instanceof EObject)
-				msgs = ((InternalEObject) keyType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE, null, msgs);
+				msgs = ((InternalEObject) keyType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE, null, msgs);
 			if(newKeyType != null && newKeyType instanceof EObject)
-				msgs = ((InternalEObject) newKeyType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE, null, msgs);
+				msgs = ((InternalEObject) newKeyType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE, null, msgs);
 			msgs = basicSetKeyType(newKeyType, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE,
-					newKeyType, newKeyType));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE, newKeyType, newKeyType));
 	}
 
 	/**
@@ -405,17 +395,29 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 		if(newValueType != valueType) {
 			NotificationChain msgs = null;
 			if(valueType != null && valueType instanceof EObject)
-				msgs = ((InternalEObject) valueType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, null, msgs);
+				msgs = ((InternalEObject) valueType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, null, msgs);
 			if(newValueType != null && newValueType instanceof EObject)
-				msgs = ((InternalEObject) newValueType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, null, msgs);
+				msgs = ((InternalEObject) newValueType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, null, msgs);
 			msgs = basicSetValueType(newValueType, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE,
-					newValueType, newValueType));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, newValueType,
+				newValueType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION;
 	}
 } // BLiteralMapExpressionImpl

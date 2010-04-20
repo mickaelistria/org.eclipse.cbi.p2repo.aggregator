@@ -9,55 +9,63 @@ import org.eclipse.core.runtime.CoreException;
 
 public class BackendHelper {
 
-	public static int intValue(Object exprValue, BExpression expr) throws CoreException
-	{
-		if(exprValue instanceof Number)
-			return ((Number)exprValue).intValue();
-		throw B3BackendException.fromMessage(expr, "Expression is not an number");
-	}
 	public static CoreException createException(BExpression expr, String message) {
-		return createException(expr, message, (Object[])null);
+		return createException(expr, message, (Object[]) null);
 	}
-	public static CoreException createException(BExpression expr, String message, Object[] args)
-	{
+
+	public static CoreException createException(BExpression expr, String message, Object[] args) {
 		return createException(expr, null, message, args);
 	}
-	public static CoreException createException(BExpression expr, Throwable t, String message)
-	{
+
+	public static CoreException createException(BExpression expr, Throwable t, String message) {
 		return createException(expr, t, message, null);
 	}
-	public static CoreException createException(BExpression expr, Throwable t, String message, Object[] args)
-	{
+
+	public static CoreException createException(BExpression expr, Throwable t, String message, Object[] args) {
 		return B3BackendException.fromMessage(expr, t, message, args);
-		
+
 	}
+
+	public static ExecutionMode getExecutionMode(B3Backend annotation) {
+		return annotation.sequential()
+				? ExecutionMode.SEQUENTIAL
+				: ExecutionMode.PARALLEL;
+	}
+
 	/**
 	 * TODO - could benefit from caching
+	 * 
 	 * @param featureName
 	 * @return
 	 */
 	public static String getGetter(String featureName) {
-		return "get"+featureName.substring(0,1).toUpperCase() + featureName.substring(1);
+		return "get" + featureName.substring(0, 1).toUpperCase() + featureName.substring(1);
 	}
-	public static String getSetter(String featureName) {
-		return "set"+featureName.substring(0,1).toUpperCase() + featureName.substring(1);
-	}
+
 	/**
 	 * TODO: could benefit from caching
+	 * 
 	 * @param featureName
 	 * @return
 	 */
 	public static String getIsGetter(String featureName) {
-		return "is"+featureName.substring(0,1).toUpperCase() + featureName.substring(1);
+		return "is" + featureName.substring(0, 1).toUpperCase() + featureName.substring(1);
 	}
-	
+
+	public static String getSetter(String featureName) {
+		return "set" + featureName.substring(0, 1).toUpperCase() + featureName.substring(1);
+	}
+
 	public static Visibility getVisibility(B3Backend annotation) {
-		return annotation.isPrivate() ?
-			Visibility.PRIVATE : Visibility.PUBLIC ;
+		return annotation.isPrivate()
+				? Visibility.PRIVATE
+				: Visibility.PUBLIC;
 	}
-	public static ExecutionMode getExecutionMode(B3Backend annotation) {
-		return annotation.sequential() ? ExecutionMode.SEQUENTIAL : ExecutionMode.PARALLEL;
-	}	
+
+	public static int intValue(Object exprValue, BExpression expr) throws CoreException {
+		if(exprValue instanceof Number)
+			return ((Number) exprValue).intValue();
+		throw B3BackendException.fromMessage(expr, "Expression is not an number");
+	}
 
 }
- 

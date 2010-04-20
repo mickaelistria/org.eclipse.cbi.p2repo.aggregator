@@ -5,12 +5,7 @@ import java.lang.reflect.Type;
 public class B3NotAcceptedByGuardException extends B3EngineException {
 
 	private static final long serialVersionUID = 1L;
-	public B3NotAcceptedByGuardException() {
-		this("unknown", new Type[] {});
-	}
-	public B3NotAcceptedByGuardException(String functionName, Type[] types) {
-		super("Available function(s) with suitable signature rejected by guard. Function: '" + functionName + "', for types: " + typestring(types));
-	}
+
 	public static String typestring(Type[] types) {
 		StringBuilder buffer = new StringBuilder();
 		buffer.append('[');
@@ -21,5 +16,14 @@ public class B3NotAcceptedByGuardException extends B3EngineException {
 		}
 		buffer.append(']');
 		return buffer.toString();
+	}
+
+	public B3NotAcceptedByGuardException() {
+		this("unknown", new Type[] {});
+	}
+
+	public B3NotAcceptedByGuardException(String functionName, Type[] types) {
+		super("Available function(s) with suitable signature rejected by guard. Function: '" + functionName +
+				"', for types: " + typestring(types));
 	}
 }

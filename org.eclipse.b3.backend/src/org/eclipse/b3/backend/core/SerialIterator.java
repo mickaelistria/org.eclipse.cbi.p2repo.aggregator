@@ -7,16 +7,21 @@ import java.util.List;
 public class SerialIterator<E> implements Iterator<E> {
 
 	List<Iterator<E>> iterators = new ArrayList<Iterator<E>>();
+
 	int index = 0;
+
 	public SerialIterator() {
-		
+
 	}
-	public SerialIterator (Iterator<E> itor) {
+
+	public SerialIterator(Iterator<E> itor) {
 		iterators.add(itor);
 	}
+
 	public void addIterator(Iterator<E> itor) {
 		iterators.add(itor);
 	}
+
 	public boolean hasNext() {
 		while(index < iterators.size() && !iterators.get(index).hasNext())
 			index++;

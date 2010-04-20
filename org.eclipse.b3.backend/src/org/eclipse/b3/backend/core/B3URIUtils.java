@@ -187,8 +187,9 @@ public abstract class B3URIUtils {
 
 		uriPath = uriPath.removeLastSegments(1).addTrailingSeparator();
 		try {
-			return new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(),
-					uriPath.toPortableString(), uri.getQuery(), uri.getFragment());
+			return new URI(
+				uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(), uriPath.toPortableString(),
+				uri.getQuery(), uri.getFragment());
 		}
 		catch(URISyntaxException e) {
 			// Shouldn't happen since we started with a valid URI

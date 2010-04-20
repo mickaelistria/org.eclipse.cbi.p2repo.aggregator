@@ -60,8 +60,8 @@ public class B3NoSuchFunctionSignatureException extends B3EngineException {
 	}
 
 	public B3NoSuchFunctionSignatureException(String functionName, Type[] types) {
-		super("Function with suitable signature not found: '" + functionName + "', for parameters of types :"
-				+ typeString(types));
+		super("Function with suitable signature not found: '" + functionName + "', for parameters of types :" +
+				typeString(types));
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class B3NoSuchFunctionSignatureException extends B3EngineException {
 	 * @param list
 	 */
 	public B3NoSuchFunctionSignatureException(String name, Type[] types, List<IFunction> list) {
-		super("Function with suitable signature not found: '" + name + "', for parameters of types :"
-				+ typeString(types) + " " + available(list));
+		super("Function with suitable signature not found: '" + name + "', for parameters of types :" +
+				typeString(types) + " " + available(list));
 	}
 }

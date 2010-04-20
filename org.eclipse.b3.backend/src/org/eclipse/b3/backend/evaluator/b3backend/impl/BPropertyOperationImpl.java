@@ -18,20 +18,20 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 
 import org.eclipse.emf.ecore.EClass;
 
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>BProperty Operation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class BPropertyOperationImpl extends BExpressionImpl implements BPropertyOperation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -39,6 +39,7 @@ public abstract class BPropertyOperationImpl extends BExpressionImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BPropertyOperationImpl() {
@@ -48,16 +49,7 @@ public abstract class BPropertyOperationImpl extends BExpressionImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPROPERTY_OPERATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
@@ -66,4 +58,15 @@ public abstract class BPropertyOperationImpl extends BExpressionImpl implements 
 		throw new UnsupportedOperationException();
 	}
 
-} //BPropertyOperationImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPROPERTY_OPERATION;
+	}
+
+} // BPropertyOperationImpl

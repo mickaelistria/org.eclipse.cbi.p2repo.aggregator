@@ -95,8 +95,9 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 		Type oldEntryType = entryType;
 		entryType = newEntryType;
 		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, oldEntryType, newEntryType);
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, oldEntryType,
+				newEntryType);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -114,10 +115,10 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
-			return getEntries();
-		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-			return getEntryType();
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
+				return getEntries();
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
+				return getEntryType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -131,10 +132,10 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
-			return ((InternalEList<?>) getEntries()).basicRemove(otherEnd, msgs);
-		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-			return basicSetEntryType(null, msgs);
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
+				return ((InternalEList<?>) getEntries()).basicRemove(otherEnd, msgs);
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
+				return basicSetEntryType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -148,10 +149,10 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
-			return entries != null && !entries.isEmpty();
-		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-			return entryType != null;
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
+				return entries != null && !entries.isEmpty();
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
+				return entryType != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -166,13 +167,13 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
-			getEntries().clear();
-			getEntries().addAll((Collection<? extends BExpression>) newValue);
-			return;
-		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-			setEntryType((Type) newValue);
-			return;
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
+				getEntries().clear();
+				getEntries().addAll((Collection<? extends BExpression>) newValue);
+				return;
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
+				setEntryType((Type) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -184,25 +185,14 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
-			getEntries().clear();
-			return;
-		case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-			setEntryType((Type) null);
-			return;
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
+				getEntries().clear();
+				return;
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
+				setEntryType((Type) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -218,8 +208,8 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 			Object result = expr.evaluate(ctx);
 			if(!TypeUtils.isAssignableFrom(t, expr.getDeclaredType(ctx))) // result.getClass()))
 				throw BackendHelper.createException(expr, "List creation error for index {0}. "
-						+ "A List<{1}>, does not accept an instance of type {2}.", new Object[] { counter, t,
-						result.getClass() });
+						+ "A List<{1}>, does not accept an instance of type {2}.", new Object[] {
+						counter, t, result.getClass() });
 			list.add(result);
 			counter++;
 		}
@@ -249,8 +239,8 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 */
 	public EList<BExpression> getEntries() {
 		if(entries == null) {
-			entries = new EObjectContainmentEList<BExpression>(BExpression.class, this,
-					B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES);
+			entries = new EObjectContainmentEList<BExpression>(
+				BExpression.class, this, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES);
 		}
 		return entries;
 	}
@@ -302,17 +292,29 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 		if(newEntryType != entryType) {
 			NotificationChain msgs = null;
 			if(entryType != null && entryType instanceof EObject)
-				msgs = ((InternalEObject) entryType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
+				msgs = ((InternalEObject) entryType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
 			if(newEntryType != null && newEntryType instanceof EObject)
-				msgs = ((InternalEObject) newEntryType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
+				msgs = ((InternalEObject) newEntryType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
 			msgs = basicSetEntryType(newEntryType, msgs);
 			if(msgs != null)
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, newEntryType, newEntryType));
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, newEntryType,
+				newEntryType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION;
 	}
 } // BLiteralListExpressionImpl

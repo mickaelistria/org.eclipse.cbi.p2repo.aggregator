@@ -15,17 +15,19 @@ public class B3Job extends Job {
 	}
 
 	@Override
-	protected IStatus run(IProgressMonitor monitor) {
+	public boolean belongsTo(Object family) {
 		// TODO Auto-generated method stub
-		return null;
+		return super.belongsTo(family);
 	}
+
 	@Override
 	public String toString() {
 		return "B3Job(" + getName() + ") @" + Integer.toHexString(this.hashCode());
 	}
+
 	@Override
-	public boolean belongsTo(Object family) {
+	protected IStatus run(IProgressMonitor monitor) {
 		// TODO Auto-generated method stub
-		return super.belongsTo(family);
+		return null;
 	}
 }

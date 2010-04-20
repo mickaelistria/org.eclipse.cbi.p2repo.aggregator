@@ -6,6 +6,7 @@ public class B3WeavingFailedException extends B3EngineException {
 	public B3WeavingFailedException() {
 		super("Weaving failed");
 	}
+
 	public B3WeavingFailedException(Throwable cause) {
 		super("Weaving failed", cause);
 	}

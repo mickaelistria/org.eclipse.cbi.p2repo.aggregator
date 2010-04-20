@@ -34,13 +34,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BCallFunctionImpl extends BCallExpressionImpl implements BCallFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -48,20 +49,11 @@ public class BCallFunctionImpl extends BCallExpressionImpl implements BCallFunct
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCallFunctionImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCALL_FUNCTION;
 	}
 
 	/**
@@ -95,8 +87,8 @@ public class BCallFunctionImpl extends BCallExpressionImpl implements BCallFunct
 			}
 			if(target instanceof Class<?>) {
 				if(parameters.length != 1)
-					throw B3BackendException.fromMessage(this,
-							"Attempt to cast to {0} using more than one pbject to cast", new Object[] { target });
+					throw B3BackendException.fromMessage(
+						this, "Attempt to cast to {0} using more than one pbject to cast", new Object[] { target });
 				try {
 					return ((Class<?>) target).cast(parameters[0]);
 				}
@@ -105,8 +97,8 @@ public class BCallFunctionImpl extends BCallExpressionImpl implements BCallFunct
 				}
 			}
 			if(!(target instanceof BFunction))
-				throw B3BackendException.fromMessage(this, "Attempt to call non Function - was type : {0}",
-						new Object[] { target.getClass() });
+				throw B3BackendException.fromMessage(
+					this, "Attempt to call non Function - was type : {0}", new Object[] { target.getClass() });
 
 			// if the function comes with a closure, call it in an inner context, else a fresh outer context.
 			// TODO: Don't know if this treatment is needed elsewhere as well...
@@ -148,6 +140,17 @@ public class BCallFunctionImpl extends BCallExpressionImpl implements BCallFunct
 		}
 		throw B3BackendException.fromMessage(this, lastError, "Determening return type of Call failed - see details.");
 
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCALL_FUNCTION;
 	}
 
 } // BCallFunctionImpl

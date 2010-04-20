@@ -9,24 +9,24 @@ import org.eclipse.b3.backend.core.B3Backend;
  */
 public class StringFunctions {
 
-	@B3Backend (funcNames={"+"})
+	@B3Backend(funcNames = { "+" })
 	public static String add(Number aNumber, String aString) {
 		return add(aNumber.toString(), aString);
 	}
 
-	@B3Backend (funcNames={"+"})
+	@B3Backend(funcNames = { "+" })
 	public static String add(String aString, Number aNumber) {
 		return add(aString, aNumber.toString());
 	}
 
-	@B3Backend (funcNames={"+"})
+	@B3Backend(funcNames = { "+" })
 	public static String add(String aString, String concatenatedString) {
 		return aString + concatenatedString;
 	}
-	
-	@B3Backend (funcNames={"[]"})
-	public static String at(String aString, Number charIndex){
+
+	@B3Backend(funcNames = { "[]" })
+	public static String at(String aString, Number charIndex) {
 		int index = charIndex.intValue();
-		return aString.substring(index, index+1);
+		return aString.substring(index, index + 1);
 	}
 }

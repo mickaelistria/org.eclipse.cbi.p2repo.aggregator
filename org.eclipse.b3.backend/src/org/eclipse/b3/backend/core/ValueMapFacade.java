@@ -14,126 +14,21 @@ import java.util.Map;
  * 
  */
 public class ValueMapFacade extends ValueMap {
-	private Map<String, String> mappings = null;
-	private ValueMap facaded;
-	private boolean dirty;
-	public ValueMapFacade(Map<String, String> mappings, ValueMap facaded) {
-		this.mappings = mappings;
-		this.facaded = facaded;
-		this.dirty = false;
-	}
-	@Override
-	public void defineVariable(String name, Object value) throws B3VariableRedefinitionException {
-		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
-	}
-	@Override
-	public void defineVariable(String name, Object value, Type type) throws B3VariableRedefinitionException {
-		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
-	}
-	@Override
-	public void defineFinalVariable(String name, Object value) throws B3VariableRedefinitionException {
-		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
-	}
-	@Override
-	public void defineFinalVariable(String name, Object value, Type type) throws B3VariableRedefinitionException {
-		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
-	}
-	@Override
-	public void defineValue(String name, Object value) throws B3VariableRedefinitionException{
-		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
-	}
-	@Override
-	public void defineValue(String name, Object value, Type t) throws B3VariableRedefinitionException{
-		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
-	}
-	@Override
-	public void defineFinalValue(String name, Object value) throws B3VariableRedefinitionException {
-		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
-	}
-	@Override
-	public void defineFinalValue(String name, Object value, Type type) throws B3VariableRedefinitionException {
-		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
-	}
-	@Override
-	public Object[] getParameterArray() {
-		return facaded.getParameterArray();
-	}
-	@Override
-	public boolean isFinal(String key) {
-		String xkey = mappings.get(key);
-		if(xkey == null)
-			return false;
-		return facaded.isFinal(xkey);
-	}
-
-	@Override
-	public boolean isImmutable(String key) {
-		String xkey = mappings.get(key);
-		if(xkey == null)
-			return false;
-		return facaded.isImmutable(xkey);
-	}
-
-	@Override
-	public Object get(String key) throws B3NoSuchVariableException
-	{
-		String xkey = mappings.get(key);
-		if(xkey == null)
-			throw new B3NoSuchVariableException(key);
-		return facaded.get(xkey);
-	}
-	@Override
-	public Type getType(String key) throws B3NoSuchVariableException {
-		String xkey = mappings.get(key);
-		if(xkey == null)
-			throw new B3NoSuchVariableException(key);
-		return facaded.getType(xkey);
-	}
-
-	public void setType(String key, Type t) throws B3NoSuchVariableException {
-		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
-	}
-
-	@Override
-	public Object set(String key, Object value) throws B3EngineException {
-		String xkey = mappings.get(key);
-		if(xkey == null)
-			throw new B3NoSuchVariableException(key);
-		dirty = true;
-		return facaded.set(xkey, value);
-	}
-	/**
-	 * Returns true if any of the mapped values were changed.
-	 * @return
-	 */
-	public boolean isDirty() {
-		return dirty;
-	}
-	@SuppressWarnings("unchecked")
-	public void monitorVarargs(String key) throws B3EngineException {
-		boolean d = dirty; // maintain the dirty state
-		List<Object> varargs = (List<Object>)get(key);
-		set(key, new ListWrapper(varargs));
-		dirty = d;
-	}
-	@Override
-	public boolean containsKey(String key) {
-		return mappings.containsKey(key);
-	}
 	private class ListWrapper implements List<Object> {
 		private List<Object> wrapped;
 
 		ListWrapper(List<Object> wrapped) {
 			this.wrapped = wrapped;
 		}
-		public boolean add(Object o) {
-			dirty = true;
-			return wrapped.add(o);
-		}
 
 		public void add(int index, Object element) {
 			dirty = true;
 			wrapped.add(index, element);
+		}
+
+		public boolean add(Object o) {
+			dirty = true;
+			return wrapped.add(o);
 		}
 
 		public boolean addAll(Collection<? extends Object> c) {
@@ -187,14 +82,14 @@ public class ValueMapFacade extends ValueMap {
 			return wrapped.listIterator(index);
 		}
 
-		public boolean remove(Object o) {
-			dirty = true;
-			return wrapped.remove(o);
-		}
-
 		public Object remove(int index) {
 			dirty = true;
 			return wrapped.remove(index);
+		}
+
+		public boolean remove(Object o) {
+			dirty = true;
+			return wrapped.remove(o);
 		}
 
 		public boolean removeAll(Collection<?> c) {
@@ -227,6 +122,131 @@ public class ValueMapFacade extends ValueMap {
 		public <T> T[] toArray(T[] a) {
 			return wrapped.toArray(a);
 		}
-		
+
+	}
+
+	private Map<String, String> mappings = null;
+
+	private ValueMap facaded;
+
+	private boolean dirty;
+
+	public ValueMapFacade(Map<String, String> mappings, ValueMap facaded) {
+		this.mappings = mappings;
+		this.facaded = facaded;
+		this.dirty = false;
+	}
+
+	@Override
+	public boolean containsKey(String key) {
+		return mappings.containsKey(key);
+	}
+
+	@Override
+	public void defineFinalValue(String name, Object value) throws B3VariableRedefinitionException {
+		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
+	}
+
+	@Override
+	public void defineFinalValue(String name, Object value, Type type) throws B3VariableRedefinitionException {
+		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
+	}
+
+	@Override
+	public void defineFinalVariable(String name, Object value) throws B3VariableRedefinitionException {
+		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
+	}
+
+	@Override
+	public void defineFinalVariable(String name, Object value, Type type) throws B3VariableRedefinitionException {
+		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
+	}
+
+	@Override
+	public void defineValue(String name, Object value) throws B3VariableRedefinitionException {
+		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
+	}
+
+	@Override
+	public void defineValue(String name, Object value, Type t) throws B3VariableRedefinitionException {
+		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
+	}
+
+	@Override
+	public void defineVariable(String name, Object value) throws B3VariableRedefinitionException {
+		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
+	}
+
+	@Override
+	public void defineVariable(String name, Object value, Type type) throws B3VariableRedefinitionException {
+		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
+	}
+
+	@Override
+	public Object get(String key) throws B3NoSuchVariableException {
+		String xkey = mappings.get(key);
+		if(xkey == null)
+			throw new B3NoSuchVariableException(key);
+		return facaded.get(xkey);
+	}
+
+	@Override
+	public Object[] getParameterArray() {
+		return facaded.getParameterArray();
+	}
+
+	@Override
+	public Type getType(String key) throws B3NoSuchVariableException {
+		String xkey = mappings.get(key);
+		if(xkey == null)
+			throw new B3NoSuchVariableException(key);
+		return facaded.getType(xkey);
+	}
+
+	/**
+	 * Returns true if any of the mapped values were changed.
+	 * 
+	 * @return
+	 */
+	public boolean isDirty() {
+		return dirty;
+	}
+
+	@Override
+	public boolean isFinal(String key) {
+		String xkey = mappings.get(key);
+		if(xkey == null)
+			return false;
+		return facaded.isFinal(xkey);
+	}
+
+	@Override
+	public boolean isImmutable(String key) {
+		String xkey = mappings.get(key);
+		if(xkey == null)
+			return false;
+		return facaded.isImmutable(xkey);
+	}
+
+	@SuppressWarnings("unchecked")
+	public void monitorVarargs(String key) throws B3EngineException {
+		boolean d = dirty; // maintain the dirty state
+		List<Object> varargs = (List<Object>) get(key);
+		set(key, new ListWrapper(varargs));
+		dirty = d;
+	}
+
+	@Override
+	public Object set(String key, Object value) throws B3EngineException {
+		String xkey = mappings.get(key);
+		if(xkey == null)
+			throw new B3NoSuchVariableException(key);
+		dirty = true;
+		return facaded.set(xkey, value);
+	}
+
+	@Override
+	public void setType(String key, Type t) throws B3NoSuchVariableException {
+		throw new UnsupportedOperationException("The ValueMapFacade is immutable");
 	}
 }

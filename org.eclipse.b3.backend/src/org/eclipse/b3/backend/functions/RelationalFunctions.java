@@ -241,21 +241,6 @@ public class RelationalFunctions {
 				: Boolean.FALSE;
 	}
 
-	private static Boolean isGreaterThanN(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return Boolean.valueOf(a.doubleValue() > b.doubleValue());
-		if(a instanceof Float || b instanceof Float)
-			return Boolean.valueOf(a.floatValue() > b.floatValue());
-		if(a instanceof Long || b instanceof Long)
-			return Boolean.valueOf(a.longValue() > b.longValue());
-		if(a instanceof Integer || b instanceof Integer)
-			return Boolean.valueOf(a.intValue() > b.intValue());
-		if(a instanceof Short || b instanceof Short)
-			return Boolean.valueOf(a.shortValue() > b.shortValue());
-
-		return Boolean.FALSE;
-	}
-
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@B3Backend(funcNames = { ">=" })
 	public static Boolean isGreaterThanOrEqualTo(Comparable left, Comparable right) {
@@ -265,21 +250,6 @@ public class RelationalFunctions {
 		return left.compareTo(right) >= 0
 				? Boolean.TRUE
 				: Boolean.FALSE;
-	}
-
-	private static Boolean isGreaterThanOrEqualToN(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return Boolean.valueOf(a.doubleValue() >= b.doubleValue());
-		if(a instanceof Float || b instanceof Float)
-			return Boolean.valueOf(a.floatValue() >= b.floatValue());
-		if(a instanceof Long || b instanceof Long)
-			return Boolean.valueOf(a.longValue() >= b.longValue());
-		if(a instanceof Integer || b instanceof Integer)
-			return Boolean.valueOf(a.intValue() >= b.intValue());
-		if(a instanceof Short || b instanceof Short)
-			return Boolean.valueOf(a.shortValue() >= b.shortValue());
-
-		return Boolean.FALSE;
 	}
 
 	@B3Backend(funcNames = { "===", "eq" }, hideOriginal = true)
@@ -299,21 +269,6 @@ public class RelationalFunctions {
 				: Boolean.FALSE;
 	}
 
-	private static Boolean isLessThanN(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return Boolean.valueOf(a.doubleValue() < b.doubleValue());
-		if(a instanceof Float || b instanceof Float)
-			return Boolean.valueOf(a.floatValue() < b.floatValue());
-		if(a instanceof Long || b instanceof Long)
-			return Boolean.valueOf(a.longValue() < b.longValue());
-		if(a instanceof Integer || b instanceof Integer)
-			return Boolean.valueOf(a.intValue() < b.intValue());
-		if(a instanceof Short || b instanceof Short)
-			return Boolean.valueOf(a.shortValue() < b.shortValue());
-
-		return Boolean.FALSE;
-	}
-
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@B3Backend(funcNames = { "<=" })
 	public static Boolean isLessThanOrEqualTo(Comparable left, Comparable right) {
@@ -322,21 +277,6 @@ public class RelationalFunctions {
 		return left.compareTo(right) <= 0
 				? Boolean.TRUE
 				: Boolean.FALSE;
-	}
-
-	private static Boolean isLessThanOrEqualToN(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return Boolean.valueOf(a.doubleValue() <= b.doubleValue());
-		if(a instanceof Float || b instanceof Float)
-			return Boolean.valueOf(a.floatValue() <= b.floatValue());
-		if(a instanceof Long || b instanceof Long)
-			return Boolean.valueOf(a.longValue() <= b.longValue());
-		if(a instanceof Integer || b instanceof Integer)
-			return Boolean.valueOf(a.intValue() <= b.intValue());
-		if(a instanceof Short || b instanceof Short)
-			return Boolean.valueOf(a.shortValue() <= b.shortValue());
-
-		return Boolean.FALSE;
 	}
 
 	@B3Backend(funcNames = { "!==", "neq" }, hideOriginal = true)
@@ -397,6 +337,66 @@ public class RelationalFunctions {
 	@B3Backend(funcNames = { "!=" }, systemFunction = "_notEquals")
 	public static Boolean notEquals(Object left, Object right) {
 		return null;
+	}
+
+	private static Boolean isGreaterThanN(Number a, Number b) {
+		if(a instanceof Double || b instanceof Double)
+			return Boolean.valueOf(a.doubleValue() > b.doubleValue());
+		if(a instanceof Float || b instanceof Float)
+			return Boolean.valueOf(a.floatValue() > b.floatValue());
+		if(a instanceof Long || b instanceof Long)
+			return Boolean.valueOf(a.longValue() > b.longValue());
+		if(a instanceof Integer || b instanceof Integer)
+			return Boolean.valueOf(a.intValue() > b.intValue());
+		if(a instanceof Short || b instanceof Short)
+			return Boolean.valueOf(a.shortValue() > b.shortValue());
+
+		return Boolean.FALSE;
+	}
+
+	private static Boolean isGreaterThanOrEqualToN(Number a, Number b) {
+		if(a instanceof Double || b instanceof Double)
+			return Boolean.valueOf(a.doubleValue() >= b.doubleValue());
+		if(a instanceof Float || b instanceof Float)
+			return Boolean.valueOf(a.floatValue() >= b.floatValue());
+		if(a instanceof Long || b instanceof Long)
+			return Boolean.valueOf(a.longValue() >= b.longValue());
+		if(a instanceof Integer || b instanceof Integer)
+			return Boolean.valueOf(a.intValue() >= b.intValue());
+		if(a instanceof Short || b instanceof Short)
+			return Boolean.valueOf(a.shortValue() >= b.shortValue());
+
+		return Boolean.FALSE;
+	}
+
+	private static Boolean isLessThanN(Number a, Number b) {
+		if(a instanceof Double || b instanceof Double)
+			return Boolean.valueOf(a.doubleValue() < b.doubleValue());
+		if(a instanceof Float || b instanceof Float)
+			return Boolean.valueOf(a.floatValue() < b.floatValue());
+		if(a instanceof Long || b instanceof Long)
+			return Boolean.valueOf(a.longValue() < b.longValue());
+		if(a instanceof Integer || b instanceof Integer)
+			return Boolean.valueOf(a.intValue() < b.intValue());
+		if(a instanceof Short || b instanceof Short)
+			return Boolean.valueOf(a.shortValue() < b.shortValue());
+
+		return Boolean.FALSE;
+	}
+
+	private static Boolean isLessThanOrEqualToN(Number a, Number b) {
+		if(a instanceof Double || b instanceof Double)
+			return Boolean.valueOf(a.doubleValue() <= b.doubleValue());
+		if(a instanceof Float || b instanceof Float)
+			return Boolean.valueOf(a.floatValue() <= b.floatValue());
+		if(a instanceof Long || b instanceof Long)
+			return Boolean.valueOf(a.longValue() <= b.longValue());
+		if(a instanceof Integer || b instanceof Integer)
+			return Boolean.valueOf(a.intValue() <= b.intValue());
+		if(a instanceof Short || b instanceof Short)
+			return Boolean.valueOf(a.shortValue() <= b.shortValue());
+
+		return Boolean.FALSE;
 	}
 
 }

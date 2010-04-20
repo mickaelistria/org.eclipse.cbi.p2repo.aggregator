@@ -13,15 +13,27 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 public class EcoreFeatureLValue implements LValue {
 	EStructuralFeature name;
+
 	EObject lhs;
-	public EcoreFeatureLValue(EObject lhs, EStructuralFeature featureName)
-	{ this.lhs = lhs; this.name = featureName; }
-	
+
+	public EcoreFeatureLValue(EObject lhs, EStructuralFeature featureName) {
+		this.lhs = lhs;
+		this.name = featureName;
+	}
+
 	public Object get() throws B3EngineException {
 		return lhs.eGet(name);
 	}
 
-	public boolean isSettable() /*throws B3EngineException*/ {
+	public Type getDeclaredType() throws B3EngineException {
+		return name.getEType().getInstanceClass();
+	}
+
+	public boolean isGetable() /* throws B3EngineException */{
+		return true;
+	}
+
+	public boolean isSettable() /* throws B3EngineException */{
 		return true;
 	}
 
@@ -30,15 +42,8 @@ public class EcoreFeatureLValue implements LValue {
 		return value;
 	}
 
-	public Type getDeclaredType() throws B3EngineException {
-		return name.getEType().getInstanceClass();
-	}
 	public void setDeclaredType(Type t) throws B3EngineException {
 		throw new B3ImmutableTypeException(lhs, name.getEType().getInstanceClass(), t);
-	}
-
-	public boolean isGetable() /*throws B3EngineException */{
-		return true;
 	}
 
 }

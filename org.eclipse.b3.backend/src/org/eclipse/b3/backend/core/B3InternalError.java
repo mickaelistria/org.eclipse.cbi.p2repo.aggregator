@@ -6,9 +6,11 @@ package org.eclipse.b3.backend.core;
  */
 public class B3InternalError extends Error {
 	private static final long serialVersionUID = -3202502776389912375L;
+
 	public B3InternalError(String message) {
 		super(message);
 	}
+
 	public B3InternalError(String message, Throwable cause) {
 		super(message, cause);
 	}

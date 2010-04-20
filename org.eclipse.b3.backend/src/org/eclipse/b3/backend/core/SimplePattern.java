@@ -11,32 +11,17 @@
 package org.eclipse.b3.backend.core;
 
 public class SimplePattern {
-	private static class RubberBandNode extends Node {
-		RubberBandNode(Node next) {
-			super(next);
-		}
-
-		boolean match(CharSequence value, int pos) {
-			if (next == null)
-				return true;
-
-			int top = value.length();
-			while (pos < top) {
-				if (next.match(value, pos++))
-					return true;
-			}
-			return false;
-		}
-	}
-
 	private static class AnyCharacterNode extends Node {
 		AnyCharacterNode(Node next) {
 			super(next);
 		}
 
+		@Override
 		boolean match(CharSequence value, int pos) {
 			int top = value.length();
-			return next == null ? pos + 1 == top : next.match(value, pos + 1);
+			return next == null
+					? pos + 1 == top
+					: next.match(value, pos + 1);
 		}
 	}
 
@@ -48,17 +33,20 @@ public class SimplePattern {
 			this.constant = constant;
 		}
 
+		@Override
 		boolean match(CharSequence value, int pos) {
 			int vtop = value.length();
 			int ctop = constant.length();
-			if (ctop + pos > vtop)
+			if(ctop + pos > vtop)
 				return false;
 
-			for (int idx = 0; idx < ctop; ++idx, ++pos)
-				if (constant.charAt(idx) != value.charAt(pos))
+			for(int idx = 0; idx < ctop; ++idx, ++pos)
+				if(constant.charAt(idx) != value.charAt(pos))
 					return false;
 
-			return next == null ? true : next.match(value, pos);
+			return next == null
+					? true
+					: next.match(value, pos);
 		}
 	}
 
@@ -72,8 +60,27 @@ public class SimplePattern {
 		abstract boolean match(CharSequence value, int pos);
 	}
 
+	private static class RubberBandNode extends Node {
+		RubberBandNode(Node next) {
+			super(next);
+		}
+
+		@Override
+		boolean match(CharSequence value, int pos) {
+			if(next == null)
+				return true;
+
+			int top = value.length();
+			while(pos < top) {
+				if(next.match(value, pos++))
+					return true;
+			}
+			return false;
+		}
+	}
+
 	public static SimplePattern compile(CharSequence pattern) {
-		if (pattern == null)
+		if(pattern == null)
 			throw new IllegalArgumentException("Pattern can not be null"); //$NON-NLS-1$
 
 		return new SimplePattern(parse(pattern, 0));
@@ -83,22 +90,22 @@ public class SimplePattern {
 		int top = pattern.length();
 		StringBuffer bld = null;
 		Node parsedNode = null;
-		while (pos < top) {
+		while(pos < top) {
 			char c = pattern.charAt(pos);
-			switch (c) {
-				case '*' :
+			switch(c) {
+				case '*':
 					parsedNode = new RubberBandNode(parse(pattern, pos + 1));
 					break;
-				case '?' :
+				case '?':
 					parsedNode = new AnyCharacterNode(parse(pattern, pos + 1));
 					break;
-				case '\\' :
-					if (++pos == top)
+				case '\\':
+					if(++pos == top)
 						throw new IllegalArgumentException("Pattern ends with escape"); //$NON-NLS-1$
 					c = pattern.charAt(pos);
 					// fall through
-				default :
-					if (bld == null)
+				default:
+					if(bld == null)
 						bld = new StringBuffer();
 					bld.append(c);
 					++pos;
@@ -107,7 +114,7 @@ public class SimplePattern {
 			break;
 		}
 
-		if (bld != null)
+		if(bld != null)
 			parsedNode = new ConstantNode(parsedNode, bld.toString());
 		return parsedNode;
 	}

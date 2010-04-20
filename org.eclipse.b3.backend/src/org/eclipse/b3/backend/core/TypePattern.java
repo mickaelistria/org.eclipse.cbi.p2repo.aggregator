@@ -18,16 +18,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class TypePattern {
-	private static class EmptyVectorNode extends Node {
-		EmptyVectorNode() {
-			super(0, null);
-		}
-
-		boolean match(Type[] value, int pos, Matcher matcher) {
-			return value == null || value.length == 0;
-		}
-	}
-
 	public static class Matcher {
 		private int[] matchStarts;
 
@@ -37,10 +27,6 @@ public class TypePattern {
 			matchStarts = new int[numRules];
 			Arrays.fill(matchStarts, -1);
 			matched = false;
-		}
-
-		private void addMatchStart(int rulePos, int paramPos) {
-			matchStarts[rulePos] = paramPos;
 		}
 
 		/**
@@ -58,12 +44,27 @@ public class TypePattern {
 			return matched;
 		}
 
+		public int size() {
+			return matchStarts.length;
+		}
+
+		private void addMatchStart(int rulePos, int paramPos) {
+			matchStarts[rulePos] = paramPos;
+		}
+
 		private void setMatched(boolean flag) {
 			matched = flag;
 		}
+	}
 
-		public int size() {
-			return matchStarts.length;
+	private static class EmptyVectorNode extends Node {
+		EmptyVectorNode() {
+			super(0, null);
+		}
+
+		@Override
+		boolean match(Type[] value, int pos, Matcher matcher) {
+			return value == null || value.length == 0;
 		}
 	}
 
@@ -112,6 +113,7 @@ public class TypePattern {
 				throw new IllegalArgumentException("min must be >= max"); //$NON-NLS-1$
 		}
 
+		@Override
 		boolean match(Type[] value, int pos, Matcher matcher) {
 			int origPos = pos;
 			int top = value.length;
@@ -160,17 +162,17 @@ public class TypePattern {
 			else {
 				char opc = op.charAt(0);
 				switch(opc) {
-				case '?':
-					parsedNode = new TypeNode(pos, parse(pattern, pos + 1), p.getType(), 0, 1);
-					break;
-				case '+':
-					parsedNode = new TypeNode(pos, parse(pattern, pos + 1), p.getType(), 1);
-					break;
-				case '*':
-					parsedNode = new TypeNode(pos, parse(pattern, pos + 1), p.getType(), 0);
-					break;
-				default:
-					throw new IllegalArgumentException(
+					case '?':
+						parsedNode = new TypeNode(pos, parse(pattern, pos + 1), p.getType(), 0, 1);
+						break;
+					case '+':
+						parsedNode = new TypeNode(pos, parse(pattern, pos + 1), p.getType(), 1);
+						break;
+					case '*':
+						parsedNode = new TypeNode(pos, parse(pattern, pos + 1), p.getType(), 0);
+						break;
+					default:
+						throw new IllegalArgumentException(
 							"Invalid Parameter predicate, expected (none) or '?', '*', or '+' got: " + op);
 				}
 			}

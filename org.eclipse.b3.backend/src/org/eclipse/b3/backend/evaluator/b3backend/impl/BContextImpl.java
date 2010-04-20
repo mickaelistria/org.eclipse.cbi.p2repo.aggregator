@@ -20,13 +20,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BContextImpl extends BExecutionContextImpl implements BContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -34,25 +35,18 @@ public class BContextImpl extends BExecutionContextImpl implements BContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BContextImpl() {
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCONTEXT;
-	}
 	@Override
 	public boolean isPropertyScope() {
 		return true;
 	}
+
 	@Override
 	public void setParentContext(BExecutionContext newParentContext) {
 		super.setParentContext(newParentContext);
@@ -60,4 +54,15 @@ public class BContextImpl extends BExecutionContextImpl implements BContext {
 		// and current implementation will fail to link the func stores if BContext is missing one.
 		createFuncStore();
 	}
-} //BContextImpl
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCONTEXT;
+	}
+} // BContextImpl
