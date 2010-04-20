@@ -155,8 +155,7 @@ public class Builder extends AbstractCommand {
 	}
 
 	/**
-	 * Creates a repository location without the trailing slash that will be added if the standard
-	 * {@link java.io.File#toURI()} is used.
+	 * Creates a repository location without the trailing slash that will be added if the standard {@link java.io.File#toURI()} is used.
 	 * 
 	 * @param repoLocation
 	 *            The location. Must be an absolute path.
@@ -336,8 +335,7 @@ public class Builder extends AbstractCommand {
 	private IProvisioningAgent provisioningAgent;
 
 	/**
-	 * Prevent that the {@link IInstallableUnit} identified by <code>versionedName</code> is mapped from
-	 * <code>repository</code>.
+	 * Prevent that the {@link IInstallableUnit} identified by <code>versionedName</code> is mapped from <code>repository</code>.
 	 * 
 	 * @param repository
 	 *            The repository for which to exclude a mapping
