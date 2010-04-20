@@ -57,6 +57,9 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model kind="operation" dataType=
+	 * 
+	 * 
+	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
 	 * @generated
 	 */

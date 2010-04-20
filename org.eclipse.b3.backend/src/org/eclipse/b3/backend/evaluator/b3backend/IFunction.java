@@ -49,6 +49,9 @@ import org.eclipse.emf.common.util.EList;
  * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction()
  * @model interface="true" abstract="true" superTypes=
+ * 
+ * 
+ *        
  *        "org.eclipse.b3.backend.evaluator.b3backend.IGenericDeclaration org.eclipse.b3.backend.evaluator.b3backend.BExpression"
  * @generated
  */

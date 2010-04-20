@@ -34,6 +34,9 @@ import org.eclipse.emf.ecore.EObject;
  * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3FuncTypeVariable()
  * @model superTypes=
+ * 
+ * 
+ *        
  *        "org.eclipse.b3.backend.evaluator.b3backend.ITypeVariable<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
  * @generated
  */

@@ -111,6 +111,9 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType=
+	 * 
+	 * 
+	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
 	 * @generated
 	 */
@@ -178,6 +181,9 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model kind="operation" dataType=
+	 * 
+	 * 
+	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
 	 * @generated
 	 */
@@ -188,6 +194,9 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType=
+	 * 
+	 * 
+	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
 	 * @generated
 	 */
@@ -198,6 +207,9 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType=
+	 * 
+	 * 
+	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
 	 *        typeDataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
 	 * @generated
