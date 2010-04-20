@@ -105,6 +105,7 @@ public interface Prerequisite extends EObject {
 	 * <!-- end-model-doc -->
 	 * 
 	 * @model dataType=
+	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
@@ -116,6 +117,7 @@ public interface Prerequisite extends EObject {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType=
+	 *        
 	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
