@@ -87,8 +87,7 @@ public class MonitorUtils {
 	 *            the parent progress monitor. Can be <code>null</code>
 	 * @param ticks
 	 *            the number of work ticks allocated from the parent monitor
-	 * @return The sub monitor or <code>null</code> if the provided <code>monitor</code> parameter was <code>null</code>
-	 *         .
+	 * @return The sub monitor or <code>null</code> if the provided <code>monitor</code> parameter was <code>null</code> .
 	 * @throws OperationCanceledException
 	 *             if the monitor was canceled
 	 */
