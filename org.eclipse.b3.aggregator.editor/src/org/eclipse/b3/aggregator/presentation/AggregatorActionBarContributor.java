@@ -1055,8 +1055,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	/**
-	 * This implements {@link org.eclipse.jface.viewers.ISelectionChangedListener}, handling
-	 * {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and siblings that can be
+	 * This implements {@link org.eclipse.jface.viewers.ISelectionChangedListener}, handling {@link org.eclipse.jface.viewers.SelectionChangedEvent}s
+	 * by querying for the children and siblings that can be
 	 * added to the selected object and updating the menus accordingly. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -1332,8 +1332,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	/**
-	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction} for each object in
-	 * <code>descriptors</code>, and returns the collection of these actions. <!-- begin-user-doc --> <!-- end-user-doc
+	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction} for each object in <code>descriptors</code>, and returns the
+	 * collection of these actions. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
 	 * @generated
@@ -1349,8 +1349,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	/**
-	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each object in
-	 * <code>descriptors</code>, and returns the collection of these actions. <!-- begin-user-doc --> <!-- end-user-doc
+	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each object in <code>descriptors</code>, and returns the
+	 * collection of these actions. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
 	 * @generated
