@@ -32,7 +32,7 @@ public class SpecialQueries {
 	 * match every {@link IInstallableUnit} that describes a feature.
 	 */
 	private static final IMatchExpression<IInstallableUnit> features = ExpressionUtil.getFactory().matchExpression(
-		ExpressionUtil.parse("name == '*.feature.group'")); //$NON-NLS-1$
+		ExpressionUtil.parse("id ~= /*.feature.group/")); //$NON-NLS-1$
 
 	public static IQuery<IInstallableUnit> createBundleQuery() {
 		return QueryUtil.createMatchQuery(bundles);
