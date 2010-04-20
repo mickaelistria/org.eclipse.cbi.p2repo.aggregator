@@ -26,8 +26,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualTypeArguments() <em>Get Actual
- * Type Arguments</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualTypeArguments() <em>Get Actual Type Arguments</em>}</li>
  * </ul>
  * </p>
  * 

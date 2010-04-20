@@ -27,8 +27,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
  * <em>Evaluate If Matching</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator() <em>Get Concern Context
- * Iterator</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator() <em>Get Concern Context Iterator</em>}</li>
  * </ul>
  * </p>
  * 

@@ -37,44 +37,31 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunctions(java.lang.Class) <em>Load
- * Functions</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunction(java.lang.reflect.Method) <em>
- * Load Function</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunctions(java.lang.Class) <em>Load Functions</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunction(java.lang.reflect.Method) <em> Load Function</em>}</li>
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFunction(org.eclipse.b3.backend.evaluator.b3backend.IFunction)
  * <em>Define Function</em>}</li>
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#callFunction(java.lang.String, java.lang.Object[], java.lang.reflect.Type[])
  * <em>Call Function</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getInvocationContext() <em>Get Invocation
- * Context</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#createInnerContext() <em>Create Inner Context
- * </em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#createWrappedInnerContext() <em>Create
- * Wrapped Inner Context</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#createOuterContext() <em>Create Outer Context
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getInvocationContext() <em>Get Invocation Context</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#createInnerContext() <em>Create Inner Context </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#createWrappedInnerContext() <em>Create Wrapped Inner Context</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#createOuterContext() <em>Create Outer Context </em>}</li>
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getDeclaredFunctionType(java.lang.String, java.lang.reflect.Type[])
  * <em>Get Declared Function Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#isPropertyScope() <em>Is Property Scope</em>}
- * </li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getContext(java.lang.Class) <em>Get Context
- * </em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator() <em>Get Function
- * Iterator</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.String) <em>Get
- * Function Iterator</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#isPropertyScope() <em>Is Property Scope</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getContext(java.lang.Class) <em>Get Context </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator() <em>Get Function Iterator</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.String) <em>Get Function Iterator</em>}</li>
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.reflect.Type, java.lang.Class)
  * <em>Get Function Iterator</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getConcernIterator(java.lang.Object) <em>Get
- * Concern Iterator</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getValue(java.lang.String) <em>Get Value
- * </em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getLValue(java.lang.String) <em>Get LValue
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getConcernIterator(java.lang.Object) <em>Get Concern Iterator</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getValue(java.lang.String) <em>Get Value </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getLValue(java.lang.String) <em>Get LValue </em>}</li>
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#defineValue(java.lang.String, java.lang.Object, java.lang.reflect.Type)
  * <em>Define Value</em>}</li>
@@ -87,14 +74,11 @@ import org.eclipse.emf.common.util.EList;
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#defineFinalVariableValue(java.lang.String, java.lang.Object, java.lang.reflect.Type)
  * <em>Define Final Variable Value</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isFinal(java.lang.String) <em>Is Final
- * </em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isImmutable(java.lang.String) <em>Is
- * Immutable</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isFinal(java.lang.String) <em>Is Final </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isImmutable(java.lang.String) <em>Is Immutable</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getDeclaredValueType(java.lang.String)
  * <em>Get Declared Value Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String) <em>
- * Contains Value</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String) <em> Contains Value</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String, boolean)
  * <em>Contains Value</em>}</li>
  * </ul>
@@ -133,14 +117,12 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#callFunction(java.lang.String, java.lang.Object[])
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#callFunction(java.lang.String, java.lang.Object[])
 	 * <em>Call Function</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#callFunction(java.lang.String,
-	 *      java.lang.Object[])
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#callFunction(java.lang.String, java.lang.Object[])
 	 * @generated NOT
 	 */
 	public void testCallFunction__String_Object() {
@@ -187,8 +169,7 @@ public abstract class BExecutionContextTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#callFunction(java.lang.String,
-	 *      java.lang.Object[], java.lang.reflect.Type[])
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#callFunction(java.lang.String, java.lang.Object[], java.lang.reflect.Type[])
 	 * @generated NOT
 	 */
 	public void testCallFunction__String_Object_Type() {
@@ -198,8 +179,7 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String)
 	 * <em>Contains Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -214,8 +194,7 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String, boolean)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String, boolean)
 	 * <em>Contains Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -315,14 +294,12 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFinalValue(java.lang.String, java.lang.Object)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFinalValue(java.lang.String, java.lang.Object)
 	 * <em>Define Final Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFinalValue(java.lang.String,
-	 *      java.lang.Object)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFinalValue(java.lang.String, java.lang.Object)
 	 * @generated NOT
 	 */
 	public void testDefineFinalValue__String_Object_Type() {
@@ -377,14 +354,12 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFinalVariableValue(java.lang.String, java.lang.Object)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFinalVariableValue(java.lang.String, java.lang.Object)
 	 * <em>Define Final Variable Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFinalVariableValue(java.lang.String,
-	 *      java.lang.Object)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFinalVariableValue(java.lang.String, java.lang.Object)
 	 * @generated NOT
 	 */
 	public void testDefineFinalVariableValue__String_Object_Type() {
@@ -480,8 +455,7 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineValue(java.lang.String, java.lang.Object)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineValue(java.lang.String, java.lang.Object)
 	 * <em>Define Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -525,14 +499,12 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineVariableValue(java.lang.String, java.lang.Object)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineVariableValue(java.lang.String, java.lang.Object)
 	 * <em>Define Variable Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineVariableValue(java.lang.String,
-	 *      java.lang.Object)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineVariableValue(java.lang.String, java.lang.Object)
 	 * @generated NOT
 	 */
 	public void testDefineVariableValue__String_Object_Type() {
@@ -557,8 +529,7 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getConcernIterator(java.lang.Object)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getConcernIterator(java.lang.Object)
 	 * <em>Get Concern Iterator</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -594,8 +565,7 @@ public abstract class BExecutionContextTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getDeclaredFunctionType(java.lang.String,
-	 *      java.lang.reflect.Type[])
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getDeclaredFunctionType(java.lang.String, java.lang.reflect.Type[])
 	 * @generated NOT
 	 */
 	public void testGetDeclaredFunctionType__String_Type() {
@@ -618,8 +588,7 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getDeclaredValueType(java.lang.String)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getDeclaredValueType(java.lang.String)
 	 * <em>Get Declared Value Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -660,8 +629,7 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.String)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.String)
 	 * <em>Get Function Iterator</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -676,14 +644,12 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.reflect.Type, java.lang.Class)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.reflect.Type, java.lang.Class)
 	 * <em>Get Function Iterator</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.reflect.Type,
-	 *      java.lang.Class)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.reflect.Type, java.lang.Class)
 	 * @generated
 	 */
 	public void testGetFunctionIterator__Type_Class() {
@@ -829,8 +795,7 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunction(java.lang.reflect.Method)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunction(java.lang.reflect.Method)
 	 * <em>Load Function</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

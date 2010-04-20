@@ -26,10 +26,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypesArray() <em>Get Parameter Types
- * Array</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type) <em>Is
- * Assignable From</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypesArray() <em>Get Parameter Types Array</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type) <em>Is Assignable From</em>}</li>
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
  * <em>Get Return Type For Parameter Types</em>}</li>
@@ -111,8 +109,7 @@ public class B3FunctionTypeTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type)
 	 * <em>Is Assignable From</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

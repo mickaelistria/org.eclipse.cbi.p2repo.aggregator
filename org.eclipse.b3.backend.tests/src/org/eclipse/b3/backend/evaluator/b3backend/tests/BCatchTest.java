@@ -72,8 +72,7 @@ public class BCatchTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
 	 * <em>Evaluate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

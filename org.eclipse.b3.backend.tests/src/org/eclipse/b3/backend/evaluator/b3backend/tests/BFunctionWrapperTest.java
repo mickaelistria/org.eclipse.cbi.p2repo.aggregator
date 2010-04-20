@@ -225,8 +225,7 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterTypes(java.lang.reflect.Type[])
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterTypes(java.lang.reflect.Type[])
 	 * <em>Parameter Types</em>}' feature setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -241,8 +240,7 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setVarargArrayType(java.lang.reflect.Type)
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setVarargArrayType(java.lang.reflect.Type)
 	 * <em>Vararg Array Type</em>}' feature setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

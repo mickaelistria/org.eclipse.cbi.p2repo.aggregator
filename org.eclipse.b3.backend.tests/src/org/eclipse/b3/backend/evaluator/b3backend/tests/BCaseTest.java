@@ -78,8 +78,7 @@ public class BCaseTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCase#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
-	 *      java.lang.Object)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCase#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object)
 	 * @generated NOT
 	 */
 	public void testEvaluate__BExecutionContext_Object() {

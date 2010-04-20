@@ -40,8 +40,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
  * <em>Get Return Type For Parameter Types</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getEffectiveParameters() <em>Get Effective Parameters
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getEffectiveParameters() <em>Get Effective Parameters </em>}</li>
  * </ul>
  * </p>
  * 
@@ -216,8 +215,7 @@ public class BFunctionTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterTypes(java.lang.reflect.Type[])
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterTypes(java.lang.reflect.Type[])
 	 * <em>Parameter Types</em>}' feature setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

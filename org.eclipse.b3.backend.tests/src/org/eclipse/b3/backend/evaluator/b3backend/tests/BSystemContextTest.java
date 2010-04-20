@@ -64,8 +64,8 @@ public class BSystemContextTest extends BExecutionContextTest {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSystemContext#callFunction(java.lang.String, java.lang.Object[],
-	 *      java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSystemContext#callFunction(java.lang.String, java.lang.Object[], java.lang.reflect.Type[],
+	 *      org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
 	 * @generated NOT
 	 */
 	public void testCallFunction__String_Object_Type_BExecutionContext() {
@@ -75,14 +75,12 @@ public class BSystemContextTest extends BExecutionContextTest {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BSystemContext#loadMethod(java.lang.String, java.lang.reflect.Type[])
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BSystemContext#loadMethod(java.lang.String, java.lang.reflect.Type[])
 	 * <em>Load Method</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSystemContext#loadMethod(java.lang.String,
-	 *      java.lang.reflect.Type[])
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSystemContext#loadMethod(java.lang.String, java.lang.reflect.Type[])
 	 * @generated
 	 */
 	public void testLoadMethod__String_Type() {

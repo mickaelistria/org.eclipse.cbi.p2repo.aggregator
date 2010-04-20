@@ -24,8 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate#matches(java.lang.String) <em>Matches
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate#matches(java.lang.String) <em>Matches </em>}</li>
  * </ul>
  * </p>
  * 
