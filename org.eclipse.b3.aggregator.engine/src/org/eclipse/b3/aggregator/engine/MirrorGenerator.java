@@ -432,10 +432,15 @@ public class MirrorGenerator extends BuilderPhase {
 					if(oldLocation.equals(aggregateDestination))
 						continue;
 					if(oldLocation.equals(new File(destination, "compositeArtifacts.jar"))) {
-						oldLocation.delete();
+						if(!oldLocation.delete())
+							throw ExceptionUtils.fromMessage("Unable to remove %s", oldLocation.getAbsolutePath());
 						continue;
 					}
-					oldLocation.renameTo(new File(aggregateDestination, oldLocation.getName()));
+
+					File newLocation = new File(aggregateDestination, oldLocation.getName());
+					oldLocation.renameTo(newLocation);
+					throw ExceptionUtils.fromMessage(
+						"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
 				}
 				try {
 					aggregateAr = arMgr.loadRepository(aggregateURI, subMon.newChild(5));
@@ -717,10 +722,17 @@ public class MirrorGenerator extends BuilderPhase {
 				aggregatedMdrIsEmpty = false;
 			}
 
-			new File(destination, "compositeArtifacts.jar").delete();
-			new File(destination, "compositeContent.jar").delete();
-			new File(destination, "content.jar").delete();
-			new File(destination, "artifacts.jar").delete();
+			// @fmtOff
+			for(String fileName : new String[] {
+					"compositeArtifacts.jar",
+					"compositeContent.jar",
+					"content.jar",
+					"artifacts.jar" }) {
+			// @fmtOn
+				File file = new File(destination, fileName);
+				if(!file.delete())
+					throw ExceptionUtils.fromMessage("Unable to remove %s", file.getAbsolutePath());
+			}
 			MonitorUtils.worked(childMonitor, 10);
 
 			List<MappedRepository> reposWithReferencedArtifacts = new ArrayList<MappedRepository>();
@@ -760,7 +772,9 @@ public class MirrorGenerator extends BuilderPhase {
 				LogUtils.info("Making the aggregated metadata repository final at %s", finalURI);
 				File oldLocation = new File(aggregateDestination, "content.jar");
 				File newLocation = new File(destination, oldLocation.getName());
-				oldLocation.renameTo(newLocation);
+				if(!oldLocation.renameTo(newLocation))
+					throw ExceptionUtils.fromMessage(
+						"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
 				mdrMgr.removeRepository(aggregateURI);
 			}
 			else {
@@ -780,7 +794,8 @@ public class MirrorGenerator extends BuilderPhase {
 				if(aggregatedMdrIsEmpty) {
 					mdrMgr.removeRepository(aggregateURI);
 					File mdrFile = new File(aggregateDestination, "content.jar");
-					mdrFile.delete();
+					if(!mdrFile.delete())
+						throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
 				}
 				else
 					compositeMdr.addChild(finalURI.relativize(aggregateURI));
@@ -799,8 +814,11 @@ public class MirrorGenerator extends BuilderPhase {
 
 					File oldLocation = new File(aggregateDestination, name);
 					File newLocation = new File(destination, name);
-					oldLocation.renameTo(newLocation);
-					aggregateDestination.delete();
+					if(!oldLocation.renameTo(newLocation))
+						throw ExceptionUtils.fromMessage(
+							"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
+					if(!aggregateDestination.delete())
+						throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
 				}
 				arMgr.removeRepository(aggregateURI);
 			}
@@ -821,7 +839,8 @@ public class MirrorGenerator extends BuilderPhase {
 				if(aggregatedArIsEmpty) {
 					arMgr.removeRepository(aggregateURI);
 					File arFile = new File(aggregateDestination, "artifacts.jar");
-					arFile.delete();
+					if(!arFile.delete())
+						throw ExceptionUtils.fromMessage("Unable to remove %s", arFile.getAbsolutePath());
 				}
 				else
 					compositeAr.addChild(finalURI.relativize(aggregateURI));
@@ -833,7 +852,8 @@ public class MirrorGenerator extends BuilderPhase {
 			//
 			String[] content = aggregateDestination.list();
 			if(content != null && content.length == 0)
-				aggregateDestination.delete();
+				if(!aggregateDestination.delete())
+					throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
 
 			MonitorUtils.done(childMonitor);
 		}
