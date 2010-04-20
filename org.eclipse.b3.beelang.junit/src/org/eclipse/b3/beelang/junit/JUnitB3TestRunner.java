@@ -13,8 +13,8 @@ import org.junit.runners.model.InitializationError;
 
 /**
  * <p>
- * The custom JUnit 4 runner <code>JUnitB3TestRunner</code> is a wrapper around the functionality of
- * <code>{@link JUnitB3FileRunnerFactory}</code> which makes it possible to run B3 language functions as JUnit tests.
+ * The custom JUnit 4 runner <code>JUnitB3TestRunner</code> is a wrapper around the functionality of <code>{@link JUnitB3FileRunnerFactory}</code>
+ * which makes it possible to run B3 language functions as JUnit tests.
  * </p>
  * 
  * The runner is used as follows:

@@ -48,9 +48,8 @@ import com.google.inject.Injector;
  * constructor. Each runner built by this factory executes all B3 functions from the B3 file it was built for which
  * names start with the prefix of "test" as separate JUnit tests.
  * <p>
- * When test are executed, the property <code>$test.argv</code> is bound to a {@link List} containing an instance of
- * {@link B3BuildEngine} in the first position, and subsequent positions containing references to any {@link BuildUnit}
- * instances defined in the executed b3 file.
+ * When test are executed, the property <code>$test.argv</code> is bound to a {@link List} containing an instance of {@link B3BuildEngine} in the
+ * first position, and subsequent positions containing references to any {@link BuildUnit} instances defined in the executed b3 file.
  * </p>
  * 
  * @see B3TestFiles
