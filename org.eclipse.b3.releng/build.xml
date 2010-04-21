@@ -191,7 +191,7 @@
 		</buckminster>
 	</target>
 
-	<target name="promote.sites" depends="clean.workspace,provision">
+	<target name="promote.sites" depends="clean.workspace,clean.output,provision">
 		<echo message="Building all projects in workspace ${workspace}" />
 		<buckminster command="build">
 			<cmdargs>
@@ -208,6 +208,7 @@
 	</target>
 
 	<target name="clean.all" depends="clean.tools,clean.workspace,clean.tp,clean.output" />
+
 	<target name="clean.tools">
 		<delete dir="${tools}/director" failonerror="true" quiet="true" />
 		<delete dir="${tools}/buckminster" failonerror="true" quiet="true" />
