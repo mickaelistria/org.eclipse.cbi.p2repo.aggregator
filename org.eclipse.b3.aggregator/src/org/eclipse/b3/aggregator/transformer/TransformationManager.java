@@ -147,7 +147,7 @@ public class TransformationManager {
 				}
 				catch(CoreException e) {
 					throw new RuntimeException(
-						"Depricated resource was not transformed - transformation wizard cannot be started", e);
+						"Deprecated resource was not transformed - transformation wizard cannot be started", e);
 				}
 				if(contextContributor != null)
 					contextContributors.add(contextContributor);
