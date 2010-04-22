@@ -847,7 +847,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				setInput(new FileEditorInput(modelFile));
 			}
 			else {
-				throw new RuntimeException("Depricated resource was not transformed");
+				throw new RuntimeException("Deprecated resource was not transformed");
 			}
 		}
 

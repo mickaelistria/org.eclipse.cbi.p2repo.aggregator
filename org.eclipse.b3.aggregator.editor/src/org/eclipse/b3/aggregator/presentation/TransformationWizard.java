@@ -220,7 +220,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		infoPage = new InfoPage(
 			"InfoPage", manager.isSrcNamespaceFound(), manager.getTransformationSequence() != null &&
 					!manager.getTransformationSequence().isEmpty());
-		infoPage.setTitle("Depricated Resource");
+		infoPage.setTitle("Deprecated Resource");
 		infoPage.setDescription("Selected resource needs to be transformed to the up-to-date structure");
 		addPage(infoPage);
 
