@@ -18,13 +18,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -191,6 +188,17 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BNAME_PREDICATE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BNAME_PREDICATE__NAME_PATTERN:
@@ -225,7 +233,7 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Mathces name parameter against a literal, ANY, or Regexp. If literal is specified, this match is used,
+	 * Matches name parameter against a literal, ANY, or Regexp. If literal is specified, this match is used,
 	 * if pattern expression is ANY, or Regexp, the name is matches against this expression. Throws B3InteralError
 	 * if expression is something else, or if all are null.
 	 * TODO: Add model validation
@@ -304,17 +312,6 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 		result.append(name);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BNAME_PREDICATE;
 	}
 
 } // BNamePredicateImpl
