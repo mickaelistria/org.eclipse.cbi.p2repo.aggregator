@@ -65,12 +65,12 @@ public interface BNamePredicate extends EObject {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Name Pattern</em>' containment reference.
-	 * @see #setNamePattern(BExpression)
+	 * @see #setNamePattern(BPatternLiteralExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBNamePredicate_NamePattern()
 	 * @model containment="true"
 	 * @generated
 	 */
-	BExpression getNamePattern();
+	BPatternLiteralExpression getNamePattern();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,6 +104,6 @@ public interface BNamePredicate extends EObject {
 	 * @see #getNamePattern()
 	 * @generated
 	 */
-	void setNamePattern(BExpression value);
+	void setNamePattern(BPatternLiteralExpression value);
 
 } // BNamePredicate

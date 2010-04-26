@@ -160,6 +160,10 @@ public class BWithExpressionItemProvider extends BExpressionItemProvider impleme
 			B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -184,10 +188,6 @@ public class BWithExpressionItemProvider extends BExpressionItemProvider impleme
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,

@@ -144,6 +144,9 @@ public class BParameterItemProvider extends ItemProviderAdapter implements IEdit
 			B3backendPackage.Literals.BPARAMETER__EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BPARAMETER__EXPR, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BPARAMETER__EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -166,9 +169,6 @@ public class BParameterItemProvider extends ItemProviderAdapter implements IEdit
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BPARAMETER__EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER__EXPR, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BPARAMETER__EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));

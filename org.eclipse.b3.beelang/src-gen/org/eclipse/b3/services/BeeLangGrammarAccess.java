@@ -6406,7 +6406,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBLiteralAnyAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword c_Keyword_1 = (Keyword)cGroup.eContents().get(1);
 		
-		//WildcardExpression returns be::BExpression:
+		//WildcardExpression returns be::BLiteralAny:
 		//  {be::BLiteralAny} "_";
 		public ParserRule getRule() { return rule; }
 
@@ -10457,7 +10457,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPatternAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cPatternREGULAR_EXPRTerminalRuleCall_1_0 = (RuleCall)cPatternAssignment_1.eContents().get(0);
 		
-		//RegexpLiteral returns be::BExpression:
+		//RegexpLiteral returns be::BRegularExpression:
 		//  {be::BRegularExpression} pattern=REGULAR_EXPR; 
 		//	
 		//        
@@ -12726,7 +12726,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getProceedExpressionAccess().getRule();
 	}
 
-	//WildcardExpression returns be::BExpression:
+	//WildcardExpression returns be::BLiteralAny:
 	//  {be::BLiteralAny} "_";
 	public WildcardExpressionElements getWildcardExpressionAccess() {
 		return (pWildcardExpression != null) ? pWildcardExpression : (pWildcardExpression = new WildcardExpressionElements());
@@ -13550,7 +13550,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getRealLiteralAccess().getRule();
 	}
 
-	//RegexpLiteral returns be::BExpression:
+	//RegexpLiteral returns be::BRegularExpression:
 	//  {be::BRegularExpression} pattern=REGULAR_EXPR; 
 	//	
 	//        

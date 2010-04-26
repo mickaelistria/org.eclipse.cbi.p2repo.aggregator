@@ -148,6 +148,10 @@ public class BCreateExpressionItemProvider extends BParameterizedExpressionItemP
 			B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -173,10 +177,6 @@ public class BCreateExpressionItemProvider extends BParameterizedExpressionItemP
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
@@ -323,6 +323,10 @@ public class BCreateExpressionItemProvider extends BParameterizedExpressionItemP
 			B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -349,10 +353,6 @@ public class BCreateExpressionItemProvider extends BParameterizedExpressionItemP
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,

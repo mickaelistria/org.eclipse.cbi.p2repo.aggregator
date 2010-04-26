@@ -152,6 +152,10 @@ public class BLiteralListExpressionItemProvider extends BExpressionItemProvider 
 			B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -178,10 +182,6 @@ public class BLiteralListExpressionItemProvider extends BExpressionItemProvider 
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,

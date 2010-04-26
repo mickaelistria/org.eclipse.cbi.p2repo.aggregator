@@ -16,7 +16,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * @model
  * @generated
  */
-public interface BLiteralAny extends BExpression {
+public interface BLiteralAny extends BPatternLiteralExpression {
 
 	/**
 	 * <!-- begin-user-doc -->

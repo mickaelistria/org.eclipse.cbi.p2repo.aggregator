@@ -121,6 +121,10 @@ public class BTryExpressionItemProvider extends BExpressionItemProvider implemen
 			B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -145,10 +149,6 @@ public class BTryExpressionItemProvider extends BExpressionItemProvider implemen
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
@@ -287,6 +287,10 @@ public class BTryExpressionItemProvider extends BExpressionItemProvider implemen
 			B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -312,10 +316,6 @@ public class BTryExpressionItemProvider extends BExpressionItemProvider implemen
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,

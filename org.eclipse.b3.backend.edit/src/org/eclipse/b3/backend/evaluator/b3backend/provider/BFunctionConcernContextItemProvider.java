@@ -186,6 +186,10 @@ public class BFunctionConcernContextItemProvider extends BConcernContextItemProv
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR,
 			B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -215,10 +219,6 @@ public class BFunctionConcernContextItemProvider extends BConcernContextItemProv
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR,
 			B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR,

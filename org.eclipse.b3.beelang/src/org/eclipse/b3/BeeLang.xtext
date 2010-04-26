@@ -599,7 +599,7 @@ ProceedExpression returns be::BExpression : {be::BProceedExpression}
 	"proceed"
 	;
 	
-WildcardExpression returns be::BExpression : {be::BLiteralAny} 
+WildcardExpression returns be::BLiteralAny : {be::BLiteralAny} 
 	'_' 
 	;
 
@@ -975,7 +975,7 @@ RealLiteral	returns  be::BExpression : {be::BLiteralExpression}
 	value = RealValue
 	;
 	
-RegexpLiteral returns be::BExpression : {be::BRegularExpression}
+RegexpLiteral returns be::BRegularExpression : {be::BRegularExpression}
 	pattern = REGULAR_EXPR
 	;
 

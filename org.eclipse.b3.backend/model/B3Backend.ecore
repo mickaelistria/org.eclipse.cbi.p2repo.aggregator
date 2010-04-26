@@ -237,7 +237,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" eType="#//BParameterList"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BLiteralAny" eSuperTypes="#//BExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BLiteralAny" eSuperTypes="#//BPatternLiteralExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="BCreateExpression" eSuperTypes="#//BParameterizedExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeExpr" eType="#//BExpression"
@@ -608,7 +608,7 @@
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="namePattern" eType="#//BExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namePattern" eType="#//BPatternLiteralExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BFunctionNamePredicate" eSuperTypes="#//BExpression">

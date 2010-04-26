@@ -130,6 +130,10 @@ public class BBinaryExpressionItemProvider extends BExpressionItemProvider imple
 			B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -155,10 +159,6 @@ public class BBinaryExpressionItemProvider extends BExpressionItemProvider imple
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
@@ -300,6 +300,10 @@ public class BBinaryExpressionItemProvider extends BExpressionItemProvider imple
 			B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -325,10 +329,6 @@ public class BBinaryExpressionItemProvider extends BExpressionItemProvider imple
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,

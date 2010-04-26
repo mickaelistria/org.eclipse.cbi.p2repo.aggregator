@@ -173,6 +173,10 @@ public class BDefValueItemProvider extends BExpressionItemProvider implements IE
 			B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -195,10 +199,6 @@ public class BDefValueItemProvider extends BExpressionItemProvider implements IE
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));

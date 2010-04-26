@@ -4143,7 +4143,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bVariableExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bCallExpressionEClass.getESuperTypes().add(this.getBParameterizedExpression());
 		bParameterizedExpressionEClass.getESuperTypes().add(this.getBExpression());
-		bLiteralAnyEClass.getESuperTypes().add(this.getBExpression());
+		bLiteralAnyEClass.getESuperTypes().add(this.getBPatternLiteralExpression());
 		bCreateExpressionEClass.getESuperTypes().add(this.getBParameterizedExpression());
 		iFunctionEClass.getESuperTypes().add(this.getIGenericDeclaration());
 		iFunctionEClass.getESuperTypes().add(this.getBExpression());
@@ -5198,7 +5198,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			getBNamePredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, BNamePredicate.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getBNamePredicate_NamePattern(), this.getBExpression(), null, "namePattern", null, 0, 1,
+			getBNamePredicate_NamePattern(), this.getBPatternLiteralExpression(), null, "namePattern", null, 0, 1,
 			BNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

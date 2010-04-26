@@ -3828,16 +3828,6 @@ public interface B3backendPackage extends EPackage {
 	int BLITERAL_ANY = 27;
 
 	/**
-	 * The number of structural features of the '<em>BLiteral Any</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BLITERAL_ANY_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCreateExpressionImpl <em>BCreate Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3847,56 +3837,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	int BCREATE_EXPRESSION = 28;
-
-	/**
-	 * The feature id for the '<em><b>Parameter List</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BCREATE_EXPRESSION__PARAMETER_LIST = BPARAMETERIZED_EXPRESSION__PARAMETER_LIST;
-
-	/**
-	 * The feature id for the '<em><b>Alias</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BCREATE_EXPRESSION__ALIAS = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Type Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BCREATE_EXPRESSION__TYPE_EXPR = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Context Block</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BCREATE_EXPRESSION__CONTEXT_BLOCK = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>BCreate Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BCREATE_EXPRESSION_FEATURE_COUNT = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl <em>BFunction</em>}' class.
@@ -4133,16 +4073,6 @@ public interface B3backendPackage extends EPackage {
 	int IGENERIC_DECLARATION = 49;
 
 	/**
-	 * The number of structural features of the '<em>IGeneric Declaration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IGENERIC_DECLARATION_FEATURE_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction <em>IFunction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4152,6 +4082,98 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	int IFUNCTION = 29;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPatternLiteralExpressionImpl
+	 * <em>BPattern Literal Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPatternLiteralExpressionImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBPatternLiteralExpression()
+	 * @generated
+	 */
+	int BPATTERN_LITERAL_EXPRESSION = 88;
+
+	/**
+	 * The number of structural features of the '<em>BPattern Literal Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BPATTERN_LITERAL_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BLiteral Any</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BLITERAL_ANY_FEATURE_COUNT = BPATTERN_LITERAL_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameter List</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BCREATE_EXPRESSION__PARAMETER_LIST = BPARAMETERIZED_EXPRESSION__PARAMETER_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BCREATE_EXPRESSION__ALIAS = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BCREATE_EXPRESSION__TYPE_EXPR = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Context Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BCREATE_EXPRESSION__CONTEXT_BLOCK = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>BCreate Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BCREATE_EXPRESSION_FEATURE_COUNT = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>IGeneric Declaration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IGENERIC_DECLARATION_FEATURE_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -5382,28 +5404,6 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BDEF_VALUE_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPatternLiteralExpressionImpl
-	 * <em>BPattern Literal Expression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPatternLiteralExpressionImpl
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBPatternLiteralExpression()
-	 * @generated
-	 */
-	int BPATTERN_LITERAL_EXPRESSION = 88;
-
-	/**
-	 * The number of structural features of the '<em>BPattern Literal Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BPATTERN_LITERAL_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' attribute.

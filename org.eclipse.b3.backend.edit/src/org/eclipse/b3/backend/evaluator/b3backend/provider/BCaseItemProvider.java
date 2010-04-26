@@ -121,6 +121,10 @@ public class BCaseItemProvider extends ItemProviderAdapter implements IEditingDo
 			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -143,10 +147,6 @@ public class BCaseItemProvider extends ItemProviderAdapter implements IEditingDo
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
@@ -266,6 +266,9 @@ public class BCaseItemProvider extends ItemProviderAdapter implements IEditingDo
 			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -288,9 +291,6 @@ public class BCaseItemProvider extends ItemProviderAdapter implements IEditingDo
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));

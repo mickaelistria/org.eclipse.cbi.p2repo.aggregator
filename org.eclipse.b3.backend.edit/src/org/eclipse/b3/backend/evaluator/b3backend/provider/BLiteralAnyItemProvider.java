@@ -26,8 +26,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * 
  * @generated
  */
-public class BLiteralAnyItemProvider extends BExpressionItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class BLiteralAnyItemProvider extends BPatternLiteralExpressionItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

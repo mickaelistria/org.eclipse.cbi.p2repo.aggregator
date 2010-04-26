@@ -28452,7 +28452,7 @@ protected class ProceedExpression_ProceedKeyword_1 extends KeywordToken  {
 
 /************ begin Rule WildcardExpression ****************
  *
- * WildcardExpression returns be::BExpression:
+ * WildcardExpression returns be::BLiteralAny:
  *   {be::BLiteralAny} "_";
  *
  **/
@@ -47949,7 +47949,7 @@ protected class RealLiteral_ValueAssignment_1 extends AssignmentToken  {
 
 /************ begin Rule RegexpLiteral ****************
  *
- * RegexpLiteral returns be::BExpression:
+ * RegexpLiteral returns be::BRegularExpression:
  *   {be::BRegularExpression} pattern=REGULAR_EXPR; 
  * 	
  *         

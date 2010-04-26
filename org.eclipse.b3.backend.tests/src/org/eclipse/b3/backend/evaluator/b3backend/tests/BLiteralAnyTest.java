@@ -22,7 +22,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
  * 
  * @generated
  */
-public class BLiteralAnyTest extends BExpressionTest {
+public class BLiteralAnyTest extends BPatternLiteralExpressionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

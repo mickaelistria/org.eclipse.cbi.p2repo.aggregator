@@ -121,6 +121,9 @@ public class BMapEntryItemProvider extends ItemProviderAdapter implements IEditi
 			B3backendPackage.Literals.BMAP_ENTRY__KEY, B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BMAP_ENTRY__KEY, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BMAP_ENTRY__KEY, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -143,9 +146,6 @@ public class BMapEntryItemProvider extends ItemProviderAdapter implements IEditi
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BMAP_ENTRY__KEY, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BMAP_ENTRY__KEY, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BMAP_ENTRY__KEY, B3backendFactory.eINSTANCE.createBRegularExpression()));
@@ -262,6 +262,9 @@ public class BMapEntryItemProvider extends ItemProviderAdapter implements IEditi
 			B3backendPackage.Literals.BMAP_ENTRY__VALUE, B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BMAP_ENTRY__VALUE, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BMAP_ENTRY__VALUE, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -284,9 +287,6 @@ public class BMapEntryItemProvider extends ItemProviderAdapter implements IEditi
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BMAP_ENTRY__VALUE, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BMAP_ENTRY__VALUE, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BMAP_ENTRY__VALUE, B3backendFactory.eINSTANCE.createBRegularExpression()));

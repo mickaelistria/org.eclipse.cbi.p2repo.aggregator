@@ -10,12 +10,11 @@ import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.core.B3NotLValueException;
 import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.evaluator.Any;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
-import org.eclipse.b3.backend.evaluator.Any;
 import org.eclipse.core.runtime.CoreException;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -27,7 +26,7 @@ import org.eclipse.emf.ecore.EClass;
  * 
  * @generated
  */
-public class BLiteralAnyImpl extends BExpressionImpl implements BLiteralAny {
+public class BLiteralAnyImpl extends BPatternLiteralExpressionImpl implements BLiteralAny {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,5 +71,15 @@ public class BLiteralAnyImpl extends BExpressionImpl implements BLiteralAny {
 	@Override
 	public LValue getLValue(BExecutionContext ctx) throws Throwable {
 		throw new B3NotLValueException();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPatternLiteralExpressionImpl#matches(java.lang.CharSequence)
+	 */
+	@Override
+	public boolean matches(CharSequence candidate) {
+		return true;
 	}
 } // BLiteralAnyImpl

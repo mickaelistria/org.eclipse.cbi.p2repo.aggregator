@@ -1907,6 +1907,8 @@ public class B3backendSwitch<T> {
 				BLiteralAny bLiteralAny = (BLiteralAny) theEObject;
 				T result = caseBLiteralAny(bLiteralAny);
 				if(result == null)
+					result = caseBPatternLiteralExpression(bLiteralAny);
+				if(result == null)
 					result = caseBExpression(bLiteralAny);
 				if(result == null)
 					result = defaultCase(theEObject);

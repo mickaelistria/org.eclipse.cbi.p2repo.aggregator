@@ -154,6 +154,9 @@ public class BCatchItemProvider extends ItemProviderAdapter implements IEditingD
 			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -176,9 +179,6 @@ public class BCatchItemProvider extends ItemProviderAdapter implements IEditingD
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));

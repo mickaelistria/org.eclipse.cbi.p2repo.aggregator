@@ -146,6 +146,10 @@ public class BCallExpressionItemProvider extends BParameterizedExpressionItemPro
 			B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCALL_EXPRESSION__FUNC_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCALL_EXPRESSION__FUNC_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -170,10 +174,6 @@ public class BCallExpressionItemProvider extends BParameterizedExpressionItemPro
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCALL_EXPRESSION__FUNC_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCALL_EXPRESSION__FUNC_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCALL_EXPRESSION__FUNC_EXPR,

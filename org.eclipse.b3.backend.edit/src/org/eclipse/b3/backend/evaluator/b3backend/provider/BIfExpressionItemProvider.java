@@ -130,6 +130,10 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 			B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -155,10 +159,6 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR,
@@ -292,6 +292,10 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -316,10 +320,6 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
@@ -446,6 +446,10 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -470,10 +474,6 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR,
-			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
