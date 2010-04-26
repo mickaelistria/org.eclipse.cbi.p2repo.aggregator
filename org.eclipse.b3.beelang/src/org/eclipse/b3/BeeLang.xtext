@@ -310,13 +310,37 @@ RepositoryHandler returns build::RepositoryHandler : {build::RepositoryHandler}
 	  handlerType = TypeRef
 	  name = ID
 	  '{'// TODO: need to use "one of each" rule after switch to 1.0 of Xtext
-	  	("local" '=' local = URI ';'
+	  	( "local" '=' local = URI ';'
 	  	| "remote" '=' remote = URI ';'
-	  	|"branches" (branches += Branch)* )*
+	  	| "branches" branches += Branch (',' branches += Branch)* ';'
+	  	)*
 	  '}'
 	;
-Branch returns build::Branch : {build::Branch}
-	;	
+enum BranchPointTypeLatest returns build::BranchPointType :  Latest="latest" ;
+enum BranchPointTypeNamed returns build::BranchPointType : Revision="revision" | Tag="tag" ;
+enum BranchPointTypeTs returns build::BranchPointType : Timestamp="timestamp" ;
+enum UpdateStrategy returns build::UpdateStrategy : 
+	  FailModified = "fail-modified"
+	| KeepModified = "keep-modified"
+	| Merge = "merge-modified"
+	| NoUpdate = "no-update"
+	| ReplaceModified = "replace-modified"
+	| BranchPointDefault = "default"
+;
+	
+Branch returns build::Branch : {build::Branch} 
+	name = EscapedQualifiedName
+	('{'
+		( (branchPointType = BranchPointTypeLatest ';') 
+		| (branchPointType = BranchPointTypeNamed '=' branchPoint = EscapedQualifiedName ';')
+		| (branchPointType = BranchPointTypeTs '=' branchPoint = STRING ';')
+		)?
+		("update-policy" updateStrategy = UpdateStrategy ';')?
+		("include" include += NamePredicate (',' include += NamePredicate)*) ?
+		("exclude" exclude += NamePredicate (',' exclude += NamePredicate)*) ?
+	'}')?
+;
+	
 RepositoryConfiguration returns build::RepositoryConfiguration 
 	: RepositoryDeclaration
 	| ResolutionStrategy 

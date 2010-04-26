@@ -72,7 +72,7 @@ protected class ThisRootNode extends RootToken {
 			case 34: return new ParameterDeclaration_Group(this, this, 34, inst);
 			case 35: return new BuilderInput_Group(this, this, 35, inst);
 			case 36: return new RepositoryHandler_Group(this, this, 36, inst);
-			case 37: return new Branch_BranchAction(this, this, 37, inst);
+			case 37: return new Branch_Group(this, this, 37, inst);
 			case 38: return new RepositoryConfiguration_Alternatives(this, this, 38, inst);
 			case 39: return new RepositoryDeclaration_Group(this, this, 39, inst);
 			case 40: return new ResolutionStrategy_Alternatives(this, this, 40, inst);
@@ -16402,8 +16402,8 @@ protected class BuilderInput_RightCurlyBracketKeyword_4 extends KeywordToken  {
  *
  * RepositoryHandler returns build::RepositoryHandler:
  *   {build::RepositoryHandler} documentation=DOCUMENTATION? handlerType=TypeRef name=ID
- *   "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)
- *   * "}"; 
+ *   "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch (
+ *   "," branches+=Branch)* ";")* "}"; 
  * 	
  *         
  * 	      
@@ -16414,8 +16414,8 @@ protected class BuilderInput_RightCurlyBracketKeyword_4 extends KeywordToken  {
  **/
 
 // {build::RepositoryHandler} documentation=DOCUMENTATION? handlerType=TypeRef name=ID
-// "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)
-// * "}"   
+// "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch (
+// "," branches+=Branch)* ";")* "}"   
 // 	      
 // 	      
 // 	      
@@ -16612,7 +16612,8 @@ protected class RepositoryHandler_LeftCurlyBracketKeyword_4 extends KeywordToken
 		
 }
 
-// ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)* // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+// ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch (","
+// branches+=Branch)* ";")* // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
 protected class RepositoryHandler_Alternatives_5 extends AlternativesToken {
 
 	public RepositoryHandler_Alternatives_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16884,7 +16885,7 @@ protected class RepositoryHandler_SemicolonKeyword_5_1_3 extends KeywordToken  {
 }
 
 
-// "branches" branches+=Branch*
+// "branches" branches+=Branch ("," branches+=Branch)* ";"
 protected class RepositoryHandler_Group_5_2 extends GroupToken {
 	
 	public RepositoryHandler_Group_5_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16899,7 +16900,7 @@ protected class RepositoryHandler_Group_5_2 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RepositoryHandler_BranchesAssignment_5_2_1(parent, this, 0, inst);
+			case 0: return new RepositoryHandler_SemicolonKeyword_5_2_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -16929,7 +16930,7 @@ protected class RepositoryHandler_BranchesKeyword_5_2_0 extends KeywordToken  {
 		
 }
 
-// branches+=Branch*
+// branches+=Branch
 protected class RepositoryHandler_BranchesAssignment_5_2_1 extends AssignmentToken  {
 	
 	public RepositoryHandler_BranchesAssignment_5_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16944,14 +16945,14 @@ protected class RepositoryHandler_BranchesAssignment_5_2_1 extends AssignmentTok
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Branch_BranchAction(this, this, 0, inst);
+			case 0: return new Branch_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("branches",false)) == null) return null;
+		if((value = current.getConsumable("branches",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("branches");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
@@ -16969,11 +16970,125 @@ protected class RepositoryHandler_BranchesAssignment_5_2_1 extends AssignmentTok
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new RepositoryHandler_BranchesAssignment_5_2_1(parent, next, actIndex, consumed);
-			case 1: return new RepositoryHandler_BranchesKeyword_5_2_0(parent, next, actIndex, consumed);
+			case 0: return new RepositoryHandler_BranchesKeyword_5_2_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
+}
+
+// ("," branches+=Branch)*
+protected class RepositoryHandler_Group_5_2_2 extends GroupToken {
+	
+	public RepositoryHandler_Group_5_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getGroup_5_2_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_BranchesAssignment_5_2_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ","
+protected class RepositoryHandler_CommaKeyword_5_2_2_0 extends KeywordToken  {
+	
+	public RepositoryHandler_CommaKeyword_5_2_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getCommaKeyword_5_2_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_Group_5_2_2(parent, this, 0, inst);
+			case 1: return new RepositoryHandler_BranchesAssignment_5_2_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// branches+=Branch
+protected class RepositoryHandler_BranchesAssignment_5_2_2_1 extends AssignmentToken  {
+	
+	public RepositoryHandler_BranchesAssignment_5_2_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getBranchesAssignment_5_2_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("branches",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("branches");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getBranchRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getRepositoryHandlerAccess().getBranchesBranchParserRuleCall_5_2_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new RepositoryHandler_CommaKeyword_5_2_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+// ";"
+protected class RepositoryHandler_SemicolonKeyword_5_2_3 extends KeywordToken  {
+	
+	public RepositoryHandler_SemicolonKeyword_5_2_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getSemicolonKeyword_5_2_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_Group_5_2_2(parent, this, 0, inst);
+			case 1: return new RepositoryHandler_BranchesAssignment_5_2_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
 }
 
 
@@ -17008,20 +17123,58 @@ protected class RepositoryHandler_RightCurlyBracketKeyword_6 extends KeywordToke
 /************ begin Rule Branch ****************
  *
  * Branch returns build::Branch:
- *   {build::Branch};
+ *   {build::Branch} name=EscapedQualifiedName ("{" (branchPointType=
+ *   BranchPointTypeLatest ";"|branchPointType=BranchPointTypeNamed "=" branchPoint=
+ *   EscapedQualifiedName ";"|branchPointType=BranchPointTypeTs "=" branchPoint=STRING
+ *   ";")? ("update-policy" updateStrategy=UpdateStrategy ";")? ("include" include+=
+ *   NamePredicate ("," include+=NamePredicate)*)? ("exclude" exclude+=NamePredicate (","
+ *   exclude+=NamePredicate)*)? "}")?;
  *
  **/
 
-// {build::Branch}
-protected class Branch_BranchAction extends ActionToken  {
+// {build::Branch} name=EscapedQualifiedName ("{" (branchPointType=
+// BranchPointTypeLatest ";"|branchPointType=BranchPointTypeNamed "=" branchPoint=
+// EscapedQualifiedName ";"|branchPointType=BranchPointTypeTs "=" branchPoint=STRING
+// ";")? ("update-policy" updateStrategy=UpdateStrategy ";")? ("include" include+=
+// NamePredicate ("," include+=NamePredicate)*)? ("exclude" exclude+=NamePredicate (","
+// exclude+=NamePredicate)*)? "}")?
+protected class Branch_Group extends GroupToken {
+	
+	public Branch_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBranchAccess().getGroup();
+	}
 
-	public Branch_BranchAction(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_Group_2(parent, this, 0, inst);
+			case 1: return new Branch_NameAssignment_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getBranchRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {build::Branch}
+protected class Branch_BranchAction_0 extends ActionToken  {
+
+	public Branch_BranchAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getBranchAccess().getBranchAction();
+		return grammarAccess.getBranchAccess().getBranchAction_0();
 	}
 
     @Override
@@ -17031,19 +17184,974 @@ protected class Branch_BranchAction extends ActionToken  {
 		}	
 	}	
 		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getBranchRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getBranchAccess().getBranchAction().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getBranchAccess().getBranchAction_0().getType().getClassifier())) return null;
 		if(!current.isConsumed()) return null;
 		return current;
 	}
 }
+
+// name=EscapedQualifiedName
+protected class Branch_NameAssignment_1 extends AssignmentToken  {
+	
+	public Branch_NameAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchAccess().getNameAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_BranchAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("name",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("name");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getBranchAccess().getNameEscapedQualifiedNameParserRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ("{" (branchPointType=BranchPointTypeLatest ";"|branchPointType=
+// BranchPointTypeNamed "=" branchPoint=EscapedQualifiedName ";"|branchPointType=
+// BranchPointTypeTs "=" branchPoint=STRING ";")? ("update-policy" updateStrategy=
+// UpdateStrategy ";")? ("include" include+=NamePredicate ("," include+=NamePredicate)*)
+// ? ("exclude" exclude+=NamePredicate ("," exclude+=NamePredicate)*)? "}")?
+protected class Branch_Group_2 extends GroupToken {
+	
+	public Branch_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBranchAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_RightCurlyBracketKeyword_2_5(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "{"
+protected class Branch_LeftCurlyBracketKeyword_2_0 extends KeywordToken  {
+	
+	public Branch_LeftCurlyBracketKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getLeftCurlyBracketKeyword_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_NameAssignment_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// (branchPointType=BranchPointTypeLatest ";"|branchPointType=BranchPointTypeNamed
+// "=" branchPoint=EscapedQualifiedName ";"|branchPointType=BranchPointTypeTs "="
+// branchPoint=STRING ";")?
+protected class Branch_Alternatives_2_1 extends AlternativesToken {
+
+	public Branch_Alternatives_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getBranchAccess().getAlternatives_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_Group_2_1_0(parent, this, 0, inst);
+			case 1: return new Branch_Group_2_1_1(parent, this, 1, inst);
+			case 2: return new Branch_Group_2_1_2(parent, this, 2, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// branchPointType=BranchPointTypeLatest ";"
+protected class Branch_Group_2_1_0 extends GroupToken {
+	
+	public Branch_Group_2_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBranchAccess().getGroup_2_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_SemicolonKeyword_2_1_0_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// branchPointType=BranchPointTypeLatest
+protected class Branch_BranchPointTypeAssignment_2_1_0_0 extends AssignmentToken  {
+	
+	public Branch_BranchPointTypeAssignment_2_1_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchAccess().getBranchPointTypeAssignment_2_1_0_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_LeftCurlyBracketKeyword_2_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("branchPointType",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("branchPointType");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.ERC;
+			element = grammarAccess.getBranchAccess().getBranchPointTypeBranchPointTypeLatestEnumRuleCall_2_1_0_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ";"
+protected class Branch_SemicolonKeyword_2_1_0_1 extends KeywordToken  {
+	
+	public Branch_SemicolonKeyword_2_1_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getSemicolonKeyword_2_1_0_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_BranchPointTypeAssignment_2_1_0_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// branchPointType=BranchPointTypeNamed "=" branchPoint=EscapedQualifiedName ";"
+protected class Branch_Group_2_1_1 extends GroupToken {
+	
+	public Branch_Group_2_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBranchAccess().getGroup_2_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_SemicolonKeyword_2_1_1_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// branchPointType=BranchPointTypeNamed
+protected class Branch_BranchPointTypeAssignment_2_1_1_0 extends AssignmentToken  {
+	
+	public Branch_BranchPointTypeAssignment_2_1_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchAccess().getBranchPointTypeAssignment_2_1_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_LeftCurlyBracketKeyword_2_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("branchPointType",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("branchPointType");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.ERC;
+			element = grammarAccess.getBranchAccess().getBranchPointTypeBranchPointTypeNamedEnumRuleCall_2_1_1_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "="
+protected class Branch_EqualsSignKeyword_2_1_1_1 extends KeywordToken  {
+	
+	public Branch_EqualsSignKeyword_2_1_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getEqualsSignKeyword_2_1_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_BranchPointTypeAssignment_2_1_1_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// branchPoint=EscapedQualifiedName
+protected class Branch_BranchPointAssignment_2_1_1_2 extends AssignmentToken  {
+	
+	public Branch_BranchPointAssignment_2_1_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchAccess().getBranchPointAssignment_2_1_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_EqualsSignKeyword_2_1_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("branchPoint",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("branchPoint");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getBranchAccess().getBranchPointEscapedQualifiedNameParserRuleCall_2_1_1_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ";"
+protected class Branch_SemicolonKeyword_2_1_1_3 extends KeywordToken  {
+	
+	public Branch_SemicolonKeyword_2_1_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getSemicolonKeyword_2_1_1_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_BranchPointAssignment_2_1_1_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// branchPointType=BranchPointTypeTs "=" branchPoint=STRING ";"
+protected class Branch_Group_2_1_2 extends GroupToken {
+	
+	public Branch_Group_2_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBranchAccess().getGroup_2_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_SemicolonKeyword_2_1_2_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// branchPointType=BranchPointTypeTs
+protected class Branch_BranchPointTypeAssignment_2_1_2_0 extends AssignmentToken  {
+	
+	public Branch_BranchPointTypeAssignment_2_1_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchAccess().getBranchPointTypeAssignment_2_1_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_LeftCurlyBracketKeyword_2_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("branchPointType",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("branchPointType");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.ERC;
+			element = grammarAccess.getBranchAccess().getBranchPointTypeBranchPointTypeTsEnumRuleCall_2_1_2_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "="
+protected class Branch_EqualsSignKeyword_2_1_2_1 extends KeywordToken  {
+	
+	public Branch_EqualsSignKeyword_2_1_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getEqualsSignKeyword_2_1_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_BranchPointTypeAssignment_2_1_2_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// branchPoint=STRING
+protected class Branch_BranchPointAssignment_2_1_2_2 extends AssignmentToken  {
+	
+	public Branch_BranchPointAssignment_2_1_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchAccess().getBranchPointAssignment_2_1_2_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_EqualsSignKeyword_2_1_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("branchPoint",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("branchPoint");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getBranchAccess().getBranchPointSTRINGTerminalRuleCall_2_1_2_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ";"
+protected class Branch_SemicolonKeyword_2_1_2_3 extends KeywordToken  {
+	
+	public Branch_SemicolonKeyword_2_1_2_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getSemicolonKeyword_2_1_2_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_BranchPointAssignment_2_1_2_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+
+// ("update-policy" updateStrategy=UpdateStrategy ";")?
+protected class Branch_Group_2_2 extends GroupToken {
+	
+	public Branch_Group_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBranchAccess().getGroup_2_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_SemicolonKeyword_2_2_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "update-policy"
+protected class Branch_UpdatePolicyKeyword_2_2_0 extends KeywordToken  {
+	
+	public Branch_UpdatePolicyKeyword_2_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getUpdatePolicyKeyword_2_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_Alternatives_2_1(parent, this, 0, inst);
+			case 1: return new Branch_LeftCurlyBracketKeyword_2_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// updateStrategy=UpdateStrategy
+protected class Branch_UpdateStrategyAssignment_2_2_1 extends AssignmentToken  {
+	
+	public Branch_UpdateStrategyAssignment_2_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchAccess().getUpdateStrategyAssignment_2_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_UpdatePolicyKeyword_2_2_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("updateStrategy",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("updateStrategy");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.ERC;
+			element = grammarAccess.getBranchAccess().getUpdateStrategyUpdateStrategyEnumRuleCall_2_2_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ";"
+protected class Branch_SemicolonKeyword_2_2_2 extends KeywordToken  {
+	
+	public Branch_SemicolonKeyword_2_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getSemicolonKeyword_2_2_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_UpdateStrategyAssignment_2_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// ("include" include+=NamePredicate ("," include+=NamePredicate)*)?
+protected class Branch_Group_2_3 extends GroupToken {
+	
+	public Branch_Group_2_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBranchAccess().getGroup_2_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_Group_2_3_2(parent, this, 0, inst);
+			case 1: return new Branch_IncludeAssignment_2_3_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "include"
+protected class Branch_IncludeKeyword_2_3_0 extends KeywordToken  {
+	
+	public Branch_IncludeKeyword_2_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getIncludeKeyword_2_3_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_Group_2_2(parent, this, 0, inst);
+			case 1: return new Branch_Alternatives_2_1(parent, this, 1, inst);
+			case 2: return new Branch_LeftCurlyBracketKeyword_2_0(parent, this, 2, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// include+=NamePredicate
+protected class Branch_IncludeAssignment_2_3_1 extends AssignmentToken  {
+	
+	public Branch_IncludeAssignment_2_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchAccess().getIncludeAssignment_2_3_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new NamePredicate_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("include",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("include");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getNamePredicateRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBranchAccess().getIncludeNamePredicateParserRuleCall_2_3_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Branch_IncludeKeyword_2_3_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ("," include+=NamePredicate)*
+protected class Branch_Group_2_3_2 extends GroupToken {
+	
+	public Branch_Group_2_3_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBranchAccess().getGroup_2_3_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_IncludeAssignment_2_3_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ","
+protected class Branch_CommaKeyword_2_3_2_0 extends KeywordToken  {
+	
+	public Branch_CommaKeyword_2_3_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getCommaKeyword_2_3_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_Group_2_3_2(parent, this, 0, inst);
+			case 1: return new Branch_IncludeAssignment_2_3_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// include+=NamePredicate
+protected class Branch_IncludeAssignment_2_3_2_1 extends AssignmentToken  {
+	
+	public Branch_IncludeAssignment_2_3_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchAccess().getIncludeAssignment_2_3_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new NamePredicate_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("include",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("include");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getNamePredicateRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBranchAccess().getIncludeNamePredicateParserRuleCall_2_3_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Branch_CommaKeyword_2_3_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+// ("exclude" exclude+=NamePredicate ("," exclude+=NamePredicate)*)?
+protected class Branch_Group_2_4 extends GroupToken {
+	
+	public Branch_Group_2_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBranchAccess().getGroup_2_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_Group_2_4_2(parent, this, 0, inst);
+			case 1: return new Branch_ExcludeAssignment_2_4_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "exclude"
+protected class Branch_ExcludeKeyword_2_4_0 extends KeywordToken  {
+	
+	public Branch_ExcludeKeyword_2_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getExcludeKeyword_2_4_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_Group_2_3(parent, this, 0, inst);
+			case 1: return new Branch_Group_2_2(parent, this, 1, inst);
+			case 2: return new Branch_Alternatives_2_1(parent, this, 2, inst);
+			case 3: return new Branch_LeftCurlyBracketKeyword_2_0(parent, this, 3, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// exclude+=NamePredicate
+protected class Branch_ExcludeAssignment_2_4_1 extends AssignmentToken  {
+	
+	public Branch_ExcludeAssignment_2_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchAccess().getExcludeAssignment_2_4_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new NamePredicate_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("exclude",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("exclude");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getNamePredicateRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBranchAccess().getExcludeNamePredicateParserRuleCall_2_4_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Branch_ExcludeKeyword_2_4_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ("," exclude+=NamePredicate)*
+protected class Branch_Group_2_4_2 extends GroupToken {
+	
+	public Branch_Group_2_4_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBranchAccess().getGroup_2_4_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_ExcludeAssignment_2_4_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ","
+protected class Branch_CommaKeyword_2_4_2_0 extends KeywordToken  {
+	
+	public Branch_CommaKeyword_2_4_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getCommaKeyword_2_4_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_Group_2_4_2(parent, this, 0, inst);
+			case 1: return new Branch_ExcludeAssignment_2_4_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// exclude+=NamePredicate
+protected class Branch_ExcludeAssignment_2_4_2_1 extends AssignmentToken  {
+	
+	public Branch_ExcludeAssignment_2_4_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchAccess().getExcludeAssignment_2_4_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new NamePredicate_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("exclude",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("exclude");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getNamePredicateRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBranchAccess().getExcludeNamePredicateParserRuleCall_2_4_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Branch_CommaKeyword_2_4_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+// "}"
+protected class Branch_RightCurlyBracketKeyword_2_5 extends KeywordToken  {
+	
+	public Branch_RightCurlyBracketKeyword_2_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchAccess().getRightCurlyBracketKeyword_2_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_Group_2_4(parent, this, 0, inst);
+			case 1: return new Branch_Group_2_3(parent, this, 1, inst);
+			case 2: return new Branch_Group_2_2(parent, this, 2, inst);
+			case 3: return new Branch_Alternatives_2_1(parent, this, 3, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
 
 /************ end Rule Branch ****************/
 

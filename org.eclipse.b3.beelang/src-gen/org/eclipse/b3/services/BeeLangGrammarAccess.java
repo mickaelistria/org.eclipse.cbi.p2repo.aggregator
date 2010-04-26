@@ -3639,12 +3639,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cBranchesKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
 		private final Assignment cBranchesAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
 		private final RuleCall cBranchesBranchParserRuleCall_5_2_1_0 = (RuleCall)cBranchesAssignment_5_2_1.eContents().get(0);
+		private final Group cGroup_5_2_2 = (Group)cGroup_5_2.eContents().get(2);
+		private final Keyword cCommaKeyword_5_2_2_0 = (Keyword)cGroup_5_2_2.eContents().get(0);
+		private final Assignment cBranchesAssignment_5_2_2_1 = (Assignment)cGroup_5_2_2.eContents().get(1);
+		private final RuleCall cBranchesBranchParserRuleCall_5_2_2_1_0 = (RuleCall)cBranchesAssignment_5_2_2_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5_2_3 = (Keyword)cGroup_5_2.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//RepositoryHandler returns build::RepositoryHandler:
 		//  {build::RepositoryHandler} documentation=DOCUMENTATION? handlerType=TypeRef name=ID
-		//  "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)
-		//  * "}"; 
+		//  "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch (
+		//  "," branches+=Branch)* ";")* "}"; 
 		//	
 		//        
 		//	      
@@ -3654,8 +3659,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public ParserRule getRule() { return rule; }
 
 		//{build::RepositoryHandler} documentation=DOCUMENTATION? handlerType=TypeRef name=ID
-		//"{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)
-		// * "}"   
+		//"{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch (
+		//"," branches+=Branch)* ";")* "}"   
 		//	      
 		//	      
 		//	      
@@ -3687,7 +3692,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	  // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 
-		//("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)* // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+		//("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch (","
+		//branches+=Branch)* ";")* // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
 		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 
 		//"local" "=" local=URI ";"
@@ -3726,17 +3732,32 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_5_1_3() { return cSemicolonKeyword_5_1_3; }
 
-		//"branches" branches+=Branch*
+		//"branches" branches+=Branch ("," branches+=Branch)* ";"
 		public Group getGroup_5_2() { return cGroup_5_2; }
 
 		//"branches"
 		public Keyword getBranchesKeyword_5_2_0() { return cBranchesKeyword_5_2_0; }
 
-		//branches+=Branch*
+		//branches+=Branch
 		public Assignment getBranchesAssignment_5_2_1() { return cBranchesAssignment_5_2_1; }
 
 		//Branch
 		public RuleCall getBranchesBranchParserRuleCall_5_2_1_0() { return cBranchesBranchParserRuleCall_5_2_1_0; }
+
+		//("," branches+=Branch)*
+		public Group getGroup_5_2_2() { return cGroup_5_2_2; }
+
+		//","
+		public Keyword getCommaKeyword_5_2_2_0() { return cCommaKeyword_5_2_2_0; }
+
+		//branches+=Branch
+		public Assignment getBranchesAssignment_5_2_2_1() { return cBranchesAssignment_5_2_2_1; }
+
+		//Branch
+		public RuleCall getBranchesBranchParserRuleCall_5_2_2_1_0() { return cBranchesBranchParserRuleCall_5_2_2_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5_2_3() { return cSemicolonKeyword_5_2_3; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
@@ -3744,14 +3765,214 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class BranchElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Branch");
-		private final Action cBranchAction = (Action)rule.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBranchAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEscapedQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Alternatives cAlternatives_2_1 = (Alternatives)cGroup_2.eContents().get(1);
+		private final Group cGroup_2_1_0 = (Group)cAlternatives_2_1.eContents().get(0);
+		private final Assignment cBranchPointTypeAssignment_2_1_0_0 = (Assignment)cGroup_2_1_0.eContents().get(0);
+		private final RuleCall cBranchPointTypeBranchPointTypeLatestEnumRuleCall_2_1_0_0_0 = (RuleCall)cBranchPointTypeAssignment_2_1_0_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2_1_0_1 = (Keyword)cGroup_2_1_0.eContents().get(1);
+		private final Group cGroup_2_1_1 = (Group)cAlternatives_2_1.eContents().get(1);
+		private final Assignment cBranchPointTypeAssignment_2_1_1_0 = (Assignment)cGroup_2_1_1.eContents().get(0);
+		private final RuleCall cBranchPointTypeBranchPointTypeNamedEnumRuleCall_2_1_1_0_0 = (RuleCall)cBranchPointTypeAssignment_2_1_1_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_1_1_1 = (Keyword)cGroup_2_1_1.eContents().get(1);
+		private final Assignment cBranchPointAssignment_2_1_1_2 = (Assignment)cGroup_2_1_1.eContents().get(2);
+		private final RuleCall cBranchPointEscapedQualifiedNameParserRuleCall_2_1_1_2_0 = (RuleCall)cBranchPointAssignment_2_1_1_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2_1_1_3 = (Keyword)cGroup_2_1_1.eContents().get(3);
+		private final Group cGroup_2_1_2 = (Group)cAlternatives_2_1.eContents().get(2);
+		private final Assignment cBranchPointTypeAssignment_2_1_2_0 = (Assignment)cGroup_2_1_2.eContents().get(0);
+		private final RuleCall cBranchPointTypeBranchPointTypeTsEnumRuleCall_2_1_2_0_0 = (RuleCall)cBranchPointTypeAssignment_2_1_2_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_1_2_1 = (Keyword)cGroup_2_1_2.eContents().get(1);
+		private final Assignment cBranchPointAssignment_2_1_2_2 = (Assignment)cGroup_2_1_2.eContents().get(2);
+		private final RuleCall cBranchPointSTRINGTerminalRuleCall_2_1_2_2_0 = (RuleCall)cBranchPointAssignment_2_1_2_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2_1_2_3 = (Keyword)cGroup_2_1_2.eContents().get(3);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cUpdatePolicyKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cUpdateStrategyAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cUpdateStrategyUpdateStrategyEnumRuleCall_2_2_1_0 = (RuleCall)cUpdateStrategyAssignment_2_2_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2_2_2 = (Keyword)cGroup_2_2.eContents().get(2);
+		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
+		private final Keyword cIncludeKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cIncludeAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cIncludeNamePredicateParserRuleCall_2_3_1_0 = (RuleCall)cIncludeAssignment_2_3_1.eContents().get(0);
+		private final Group cGroup_2_3_2 = (Group)cGroup_2_3.eContents().get(2);
+		private final Keyword cCommaKeyword_2_3_2_0 = (Keyword)cGroup_2_3_2.eContents().get(0);
+		private final Assignment cIncludeAssignment_2_3_2_1 = (Assignment)cGroup_2_3_2.eContents().get(1);
+		private final RuleCall cIncludeNamePredicateParserRuleCall_2_3_2_1_0 = (RuleCall)cIncludeAssignment_2_3_2_1.eContents().get(0);
+		private final Group cGroup_2_4 = (Group)cGroup_2.eContents().get(4);
+		private final Keyword cExcludeKeyword_2_4_0 = (Keyword)cGroup_2_4.eContents().get(0);
+		private final Assignment cExcludeAssignment_2_4_1 = (Assignment)cGroup_2_4.eContents().get(1);
+		private final RuleCall cExcludeNamePredicateParserRuleCall_2_4_1_0 = (RuleCall)cExcludeAssignment_2_4_1.eContents().get(0);
+		private final Group cGroup_2_4_2 = (Group)cGroup_2_4.eContents().get(2);
+		private final Keyword cCommaKeyword_2_4_2_0 = (Keyword)cGroup_2_4_2.eContents().get(0);
+		private final Assignment cExcludeAssignment_2_4_2_1 = (Assignment)cGroup_2_4_2.eContents().get(1);
+		private final RuleCall cExcludeNamePredicateParserRuleCall_2_4_2_1_0 = (RuleCall)cExcludeAssignment_2_4_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_5 = (Keyword)cGroup_2.eContents().get(5);
 		
 		//Branch returns build::Branch:
-		//  {build::Branch};
+		//  {build::Branch} name=EscapedQualifiedName ("{" (branchPointType=
+		//  BranchPointTypeLatest ";"|branchPointType=BranchPointTypeNamed "=" branchPoint=
+		//  EscapedQualifiedName ";"|branchPointType=BranchPointTypeTs "=" branchPoint=STRING
+		//  ";")? ("update-policy" updateStrategy=UpdateStrategy ";")? ("include" include+=
+		//  NamePredicate ("," include+=NamePredicate)*)? ("exclude" exclude+=NamePredicate (","
+		//  exclude+=NamePredicate)*)? "}")?;
 		public ParserRule getRule() { return rule; }
 
+		//{build::Branch} name=EscapedQualifiedName ("{" (branchPointType=
+		//BranchPointTypeLatest ";"|branchPointType=BranchPointTypeNamed "=" branchPoint=
+		//EscapedQualifiedName ";"|branchPointType=BranchPointTypeTs "=" branchPoint=STRING
+		//";")? ("update-policy" updateStrategy=UpdateStrategy ";")? ("include" include+=
+		//NamePredicate ("," include+=NamePredicate)*)? ("exclude" exclude+=NamePredicate (","
+		//exclude+=NamePredicate)*)? "}")?
+		public Group getGroup() { return cGroup; }
+
 		//{build::Branch}
-		public Action getBranchAction() { return cBranchAction; }
+		public Action getBranchAction_0() { return cBranchAction_0; }
+
+		//name=EscapedQualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//EscapedQualifiedName
+		public RuleCall getNameEscapedQualifiedNameParserRuleCall_1_0() { return cNameEscapedQualifiedNameParserRuleCall_1_0; }
+
+		//("{" (branchPointType=BranchPointTypeLatest ";"|branchPointType=
+		//BranchPointTypeNamed "=" branchPoint=EscapedQualifiedName ";"|branchPointType=
+		//BranchPointTypeTs "=" branchPoint=STRING ";")? ("update-policy" updateStrategy=
+		//UpdateStrategy ";")? ("include" include+=NamePredicate ("," include+=NamePredicate)*)
+		//? ("exclude" exclude+=NamePredicate ("," exclude+=NamePredicate)*)? "}")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+
+		//(branchPointType=BranchPointTypeLatest ";"|branchPointType=BranchPointTypeNamed
+		//"=" branchPoint=EscapedQualifiedName ";"|branchPointType=BranchPointTypeTs "="
+		//branchPoint=STRING ";")?
+		public Alternatives getAlternatives_2_1() { return cAlternatives_2_1; }
+
+		//branchPointType=BranchPointTypeLatest ";"
+		public Group getGroup_2_1_0() { return cGroup_2_1_0; }
+
+		//branchPointType=BranchPointTypeLatest
+		public Assignment getBranchPointTypeAssignment_2_1_0_0() { return cBranchPointTypeAssignment_2_1_0_0; }
+
+		//BranchPointTypeLatest
+		public RuleCall getBranchPointTypeBranchPointTypeLatestEnumRuleCall_2_1_0_0_0() { return cBranchPointTypeBranchPointTypeLatestEnumRuleCall_2_1_0_0_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_2_1_0_1() { return cSemicolonKeyword_2_1_0_1; }
+
+		//branchPointType=BranchPointTypeNamed "=" branchPoint=EscapedQualifiedName ";"
+		public Group getGroup_2_1_1() { return cGroup_2_1_1; }
+
+		//branchPointType=BranchPointTypeNamed
+		public Assignment getBranchPointTypeAssignment_2_1_1_0() { return cBranchPointTypeAssignment_2_1_1_0; }
+
+		//BranchPointTypeNamed
+		public RuleCall getBranchPointTypeBranchPointTypeNamedEnumRuleCall_2_1_1_0_0() { return cBranchPointTypeBranchPointTypeNamedEnumRuleCall_2_1_1_0_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2_1_1_1() { return cEqualsSignKeyword_2_1_1_1; }
+
+		//branchPoint=EscapedQualifiedName
+		public Assignment getBranchPointAssignment_2_1_1_2() { return cBranchPointAssignment_2_1_1_2; }
+
+		//EscapedQualifiedName
+		public RuleCall getBranchPointEscapedQualifiedNameParserRuleCall_2_1_1_2_0() { return cBranchPointEscapedQualifiedNameParserRuleCall_2_1_1_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_2_1_1_3() { return cSemicolonKeyword_2_1_1_3; }
+
+		//branchPointType=BranchPointTypeTs "=" branchPoint=STRING ";"
+		public Group getGroup_2_1_2() { return cGroup_2_1_2; }
+
+		//branchPointType=BranchPointTypeTs
+		public Assignment getBranchPointTypeAssignment_2_1_2_0() { return cBranchPointTypeAssignment_2_1_2_0; }
+
+		//BranchPointTypeTs
+		public RuleCall getBranchPointTypeBranchPointTypeTsEnumRuleCall_2_1_2_0_0() { return cBranchPointTypeBranchPointTypeTsEnumRuleCall_2_1_2_0_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2_1_2_1() { return cEqualsSignKeyword_2_1_2_1; }
+
+		//branchPoint=STRING
+		public Assignment getBranchPointAssignment_2_1_2_2() { return cBranchPointAssignment_2_1_2_2; }
+
+		//STRING
+		public RuleCall getBranchPointSTRINGTerminalRuleCall_2_1_2_2_0() { return cBranchPointSTRINGTerminalRuleCall_2_1_2_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_2_1_2_3() { return cSemicolonKeyword_2_1_2_3; }
+
+		//("update-policy" updateStrategy=UpdateStrategy ";")?
+		public Group getGroup_2_2() { return cGroup_2_2; }
+
+		//"update-policy"
+		public Keyword getUpdatePolicyKeyword_2_2_0() { return cUpdatePolicyKeyword_2_2_0; }
+
+		//updateStrategy=UpdateStrategy
+		public Assignment getUpdateStrategyAssignment_2_2_1() { return cUpdateStrategyAssignment_2_2_1; }
+
+		//UpdateStrategy
+		public RuleCall getUpdateStrategyUpdateStrategyEnumRuleCall_2_2_1_0() { return cUpdateStrategyUpdateStrategyEnumRuleCall_2_2_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_2_2_2() { return cSemicolonKeyword_2_2_2; }
+
+		//("include" include+=NamePredicate ("," include+=NamePredicate)*)?
+		public Group getGroup_2_3() { return cGroup_2_3; }
+
+		//"include"
+		public Keyword getIncludeKeyword_2_3_0() { return cIncludeKeyword_2_3_0; }
+
+		//include+=NamePredicate
+		public Assignment getIncludeAssignment_2_3_1() { return cIncludeAssignment_2_3_1; }
+
+		//NamePredicate
+		public RuleCall getIncludeNamePredicateParserRuleCall_2_3_1_0() { return cIncludeNamePredicateParserRuleCall_2_3_1_0; }
+
+		//("," include+=NamePredicate)*
+		public Group getGroup_2_3_2() { return cGroup_2_3_2; }
+
+		//","
+		public Keyword getCommaKeyword_2_3_2_0() { return cCommaKeyword_2_3_2_0; }
+
+		//include+=NamePredicate
+		public Assignment getIncludeAssignment_2_3_2_1() { return cIncludeAssignment_2_3_2_1; }
+
+		//NamePredicate
+		public RuleCall getIncludeNamePredicateParserRuleCall_2_3_2_1_0() { return cIncludeNamePredicateParserRuleCall_2_3_2_1_0; }
+
+		//("exclude" exclude+=NamePredicate ("," exclude+=NamePredicate)*)?
+		public Group getGroup_2_4() { return cGroup_2_4; }
+
+		//"exclude"
+		public Keyword getExcludeKeyword_2_4_0() { return cExcludeKeyword_2_4_0; }
+
+		//exclude+=NamePredicate
+		public Assignment getExcludeAssignment_2_4_1() { return cExcludeAssignment_2_4_1; }
+
+		//NamePredicate
+		public RuleCall getExcludeNamePredicateParserRuleCall_2_4_1_0() { return cExcludeNamePredicateParserRuleCall_2_4_1_0; }
+
+		//("," exclude+=NamePredicate)*
+		public Group getGroup_2_4_2() { return cGroup_2_4_2; }
+
+		//","
+		public Keyword getCommaKeyword_2_4_2_0() { return cCommaKeyword_2_4_2_0; }
+
+		//exclude+=NamePredicate
+		public Assignment getExcludeAssignment_2_4_2_1() { return cExcludeAssignment_2_4_2_1; }
+
+		//NamePredicate
+		public RuleCall getExcludeNamePredicateParserRuleCall_2_4_2_1_0() { return cExcludeNamePredicateParserRuleCall_2_4_2_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2_5() { return cRightCurlyBracketKeyword_2_5; }
 	}
 
 	public class RepositoryConfigurationElements extends AbstractParserRuleElementFinder {
@@ -11316,6 +11537,130 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
+	public class BranchPointTypeLatestElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BranchPointTypeLatest");
+		private final EnumLiteralDeclaration cLatestEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cLatestLatestKeyword_0 = (Keyword)cLatestEnumLiteralDeclaration.eContents().get(0);
+		
+		//enum BranchPointTypeLatest returns build::BranchPointType:
+		//  Latest="latest";
+		public EnumRule getRule() { return rule; }
+
+		//Latest="latest"
+		public EnumLiteralDeclaration getLatestEnumLiteralDeclaration() { return cLatestEnumLiteralDeclaration; }
+
+		//"latest"
+		public Keyword getLatestLatestKeyword_0() { return cLatestLatestKeyword_0; }
+	}
+
+	public class BranchPointTypeNamedElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BranchPointTypeNamed");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cRevisionEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cRevisionRevisionKeyword_0_0 = (Keyword)cRevisionEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cTagEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cTagTagKeyword_1_0 = (Keyword)cTagEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum BranchPointTypeNamed returns build::BranchPointType:
+		//  Revision="revision" | Tag="tag";
+		public EnumRule getRule() { return rule; }
+
+		//Revision="revision" | Tag="tag"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//Revision="revision"
+		public EnumLiteralDeclaration getRevisionEnumLiteralDeclaration_0() { return cRevisionEnumLiteralDeclaration_0; }
+
+		//"revision"
+		public Keyword getRevisionRevisionKeyword_0_0() { return cRevisionRevisionKeyword_0_0; }
+
+		//Tag="tag"
+		public EnumLiteralDeclaration getTagEnumLiteralDeclaration_1() { return cTagEnumLiteralDeclaration_1; }
+
+		//"tag"
+		public Keyword getTagTagKeyword_1_0() { return cTagTagKeyword_1_0; }
+	}
+
+	public class BranchPointTypeTsElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BranchPointTypeTs");
+		private final EnumLiteralDeclaration cTimestampEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cTimestampTimestampKeyword_0 = (Keyword)cTimestampEnumLiteralDeclaration.eContents().get(0);
+		
+		//enum BranchPointTypeTs returns build::BranchPointType:
+		//  Timestamp="timestamp";
+		public EnumRule getRule() { return rule; }
+
+		//Timestamp="timestamp"
+		public EnumLiteralDeclaration getTimestampEnumLiteralDeclaration() { return cTimestampEnumLiteralDeclaration; }
+
+		//"timestamp"
+		public Keyword getTimestampTimestampKeyword_0() { return cTimestampTimestampKeyword_0; }
+	}
+
+	public class UpdateStrategyElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "UpdateStrategy");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cFailModifiedEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cFailModifiedFailModifiedKeyword_0_0 = (Keyword)cFailModifiedEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cKeepModifiedEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cKeepModifiedKeepModifiedKeyword_1_0 = (Keyword)cKeepModifiedEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cMergeEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cMergeMergeModifiedKeyword_2_0 = (Keyword)cMergeEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cNoUpdateEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cNoUpdateNoUpdateKeyword_3_0 = (Keyword)cNoUpdateEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cReplaceModifiedEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cReplaceModifiedReplaceModifiedKeyword_4_0 = (Keyword)cReplaceModifiedEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cBranchPointDefaultEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cBranchPointDefaultDefaultKeyword_5_0 = (Keyword)cBranchPointDefaultEnumLiteralDeclaration_5.eContents().get(0);
+		
+		//enum UpdateStrategy returns build::UpdateStrategy:
+		//  FailModified="fail-modified" | KeepModified="keep-modified" | Merge="merge-modified"
+		//  | NoUpdate="no-update" | ReplaceModified="replace-modified" | BranchPointDefault=
+		//  "default";
+		public EnumRule getRule() { return rule; }
+
+		//FailModified="fail-modified" | KeepModified="keep-modified" | Merge="merge-modified"
+		//| NoUpdate="no-update" | ReplaceModified="replace-modified" | BranchPointDefault=
+		//"default"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//FailModified="fail-modified"
+		public EnumLiteralDeclaration getFailModifiedEnumLiteralDeclaration_0() { return cFailModifiedEnumLiteralDeclaration_0; }
+
+		//"fail-modified"
+		public Keyword getFailModifiedFailModifiedKeyword_0_0() { return cFailModifiedFailModifiedKeyword_0_0; }
+
+		//KeepModified="keep-modified"
+		public EnumLiteralDeclaration getKeepModifiedEnumLiteralDeclaration_1() { return cKeepModifiedEnumLiteralDeclaration_1; }
+
+		//"keep-modified"
+		public Keyword getKeepModifiedKeepModifiedKeyword_1_0() { return cKeepModifiedKeepModifiedKeyword_1_0; }
+
+		//Merge="merge-modified"
+		public EnumLiteralDeclaration getMergeEnumLiteralDeclaration_2() { return cMergeEnumLiteralDeclaration_2; }
+
+		//"merge-modified"
+		public Keyword getMergeMergeModifiedKeyword_2_0() { return cMergeMergeModifiedKeyword_2_0; }
+
+		//NoUpdate="no-update"
+		public EnumLiteralDeclaration getNoUpdateEnumLiteralDeclaration_3() { return cNoUpdateEnumLiteralDeclaration_3; }
+
+		//"no-update"
+		public Keyword getNoUpdateNoUpdateKeyword_3_0() { return cNoUpdateNoUpdateKeyword_3_0; }
+
+		//ReplaceModified="replace-modified"
+		public EnumLiteralDeclaration getReplaceModifiedEnumLiteralDeclaration_4() { return cReplaceModifiedEnumLiteralDeclaration_4; }
+
+		//"replace-modified"
+		public Keyword getReplaceModifiedReplaceModifiedKeyword_4_0() { return cReplaceModifiedReplaceModifiedKeyword_4_0; }
+
+		//BranchPointDefault="default"
+		public EnumLiteralDeclaration getBranchPointDefaultEnumLiteralDeclaration_5() { return cBranchPointDefaultEnumLiteralDeclaration_5; }
+
+		//"default"
+		public Keyword getBranchPointDefaultDefaultKeyword_5_0() { return cBranchPointDefaultDefaultKeyword_5_0; }
+	}
+
 	public class VisibilityElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "Visibility");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -11423,6 +11768,10 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private KeywordParameterNameElements pKeywordParameterName;
 	private BuilderInputElements pBuilderInput;
 	private RepositoryHandlerElements pRepositoryHandler;
+	private BranchPointTypeLatestElements unknownRuleBranchPointTypeLatest;
+	private BranchPointTypeNamedElements unknownRuleBranchPointTypeNamed;
+	private BranchPointTypeTsElements unknownRuleBranchPointTypeTs;
+	private UpdateStrategyElements unknownRuleUpdateStrategy;
 	private BranchElements pBranch;
 	private RepositoryConfigurationElements pRepositoryConfiguration;
 	private RepositoryDeclarationElements pRepositoryDeclaration;
@@ -12229,8 +12578,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//RepositoryHandler returns build::RepositoryHandler:
 	//  {build::RepositoryHandler} documentation=DOCUMENTATION? handlerType=TypeRef name=ID
-	//  "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)
-	//  * "}"; 
+	//  "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch (
+	//  "," branches+=Branch)* ";")* "}"; 
 	//	
 	//        
 	//	      
@@ -12245,8 +12594,55 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getRepositoryHandlerAccess().getRule();
 	}
 
+	//enum BranchPointTypeLatest returns build::BranchPointType:
+	//  Latest="latest";
+	public BranchPointTypeLatestElements getBranchPointTypeLatestAccess() {
+		return (unknownRuleBranchPointTypeLatest != null) ? unknownRuleBranchPointTypeLatest : (unknownRuleBranchPointTypeLatest = new BranchPointTypeLatestElements());
+	}
+	
+	public EnumRule getBranchPointTypeLatestRule() {
+		return getBranchPointTypeLatestAccess().getRule();
+	}
+
+	//enum BranchPointTypeNamed returns build::BranchPointType:
+	//  Revision="revision" | Tag="tag";
+	public BranchPointTypeNamedElements getBranchPointTypeNamedAccess() {
+		return (unknownRuleBranchPointTypeNamed != null) ? unknownRuleBranchPointTypeNamed : (unknownRuleBranchPointTypeNamed = new BranchPointTypeNamedElements());
+	}
+	
+	public EnumRule getBranchPointTypeNamedRule() {
+		return getBranchPointTypeNamedAccess().getRule();
+	}
+
+	//enum BranchPointTypeTs returns build::BranchPointType:
+	//  Timestamp="timestamp";
+	public BranchPointTypeTsElements getBranchPointTypeTsAccess() {
+		return (unknownRuleBranchPointTypeTs != null) ? unknownRuleBranchPointTypeTs : (unknownRuleBranchPointTypeTs = new BranchPointTypeTsElements());
+	}
+	
+	public EnumRule getBranchPointTypeTsRule() {
+		return getBranchPointTypeTsAccess().getRule();
+	}
+
+	//enum UpdateStrategy returns build::UpdateStrategy:
+	//  FailModified="fail-modified" | KeepModified="keep-modified" | Merge="merge-modified"
+	//  | NoUpdate="no-update" | ReplaceModified="replace-modified" | BranchPointDefault=
+	//  "default";
+	public UpdateStrategyElements getUpdateStrategyAccess() {
+		return (unknownRuleUpdateStrategy != null) ? unknownRuleUpdateStrategy : (unknownRuleUpdateStrategy = new UpdateStrategyElements());
+	}
+	
+	public EnumRule getUpdateStrategyRule() {
+		return getUpdateStrategyAccess().getRule();
+	}
+
 	//Branch returns build::Branch:
-	//  {build::Branch};
+	//  {build::Branch} name=EscapedQualifiedName ("{" (branchPointType=
+	//  BranchPointTypeLatest ";"|branchPointType=BranchPointTypeNamed "=" branchPoint=
+	//  EscapedQualifiedName ";"|branchPointType=BranchPointTypeTs "=" branchPoint=STRING
+	//  ";")? ("update-policy" updateStrategy=UpdateStrategy ";")? ("include" include+=
+	//  NamePredicate ("," include+=NamePredicate)*)? ("exclude" exclude+=NamePredicate (","
+	//  exclude+=NamePredicate)*)? "}")?;
 	public BranchElements getBranchAccess() {
 		return (pBranch != null) ? pBranch : (pBranch = new BranchElements());
 	}
