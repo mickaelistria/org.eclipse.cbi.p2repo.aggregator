@@ -128,6 +128,17 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.SYNCHRONIZATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
@@ -149,17 +160,6 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 				BuilderQuery.class, this, B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES);
 		}
 		return builderQueries;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.SYNCHRONIZATION;
 	}
 
 } // SynchronizationImpl

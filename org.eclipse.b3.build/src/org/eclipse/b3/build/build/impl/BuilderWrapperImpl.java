@@ -72,8 +72,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderWrapper {
 	/**
-	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference
-	 * list.
+	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -755,6 +754,17 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				return;
 		}
 		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_WRAPPER;
 	}
 
 	/**
@@ -1509,16 +1519,5 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 		result.append(sourceAdvised);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_WRAPPER;
 	}
 } // BuilderWrapperImpl

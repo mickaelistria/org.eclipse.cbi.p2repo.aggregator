@@ -39,8 +39,8 @@ public interface BuildUnitRepository extends EObject, IBuildUnitRepository {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that
-	 * matches the requirement, or null if no such unit can be found.
+	 * Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that matches the requirement, or null if
+	 * no such unit can be found.
 	 * This method is the same as calling resolve(effective.getContext(), effective.getRequirement().
 	 * 
 	 * <!-- end-model-doc -->

@@ -24,12 +24,12 @@ public class ContextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	@Override
-	public boolean isFactoryForType(Object type) {
-		return type == ContextAdapter.class;
+	protected Adapter createAdapter(Notifier target, Object type) {
+		return new ContextAdapter();
 	}
 
 	@Override
-	protected Adapter createAdapter(Notifier target, Object type) {
-		return new ContextAdapter();
+	public boolean isFactoryForType(Object type) {
+		return type == ContextAdapter.class;
 	}
 }

@@ -232,6 +232,17 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.REPOSITORY_DECLARATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
@@ -416,17 +427,6 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 		result.append(location);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.REPOSITORY_DECLARATION;
 	}
 
 } // RepositoryDeclarationImpl

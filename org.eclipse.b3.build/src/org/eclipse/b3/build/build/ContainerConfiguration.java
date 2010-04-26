@@ -97,7 +97,7 @@ public interface ContainerConfiguration extends EObject {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.ContainerConfiguration#getAgentType <em>Agent Type</em>} ' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.ContainerConfiguration#getAgentType <em>Agent Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -109,8 +109,7 @@ public interface ContainerConfiguration extends EObject {
 	void setAgentType(Type value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.ContainerConfiguration#getContextBlock
-	 * <em>Context Block</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.ContainerConfiguration#getContextBlock <em>Context Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -122,8 +121,7 @@ public interface ContainerConfiguration extends EObject {
 	void setContextBlock(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.ContainerConfiguration#getDocumentation
-	 * <em>Documentation</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.ContainerConfiguration#getDocumentation <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -135,8 +133,7 @@ public interface ContainerConfiguration extends EObject {
 	void setDocumentation(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.ContainerConfiguration#getName <em>Name</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.ContainerConfiguration#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

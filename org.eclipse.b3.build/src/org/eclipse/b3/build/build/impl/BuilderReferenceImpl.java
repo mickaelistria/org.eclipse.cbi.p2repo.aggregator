@@ -97,8 +97,7 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	protected RequiredCapability requiredCapability;
 
 	/**
-	 * The cached value of the '{@link #getRequiredCapabilityReference() <em>Required Capability Reference</em>}'
-	 * reference.
+	 * The cached value of the '{@link #getRequiredCapabilityReference() <em>Required Capability Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -255,6 +254,17 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 				return;
 		}
 		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_REFERENCE;
 	}
 
 	/**
@@ -501,16 +511,5 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 		result.append(builderName);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_REFERENCE;
 	}
 } // BuilderReferenceImpl

@@ -46,8 +46,7 @@ public interface ResolutionStrategySwitch extends RepositoryConfiguration {
 	BSwitchExpression getRepoSwitch();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.ResolutionStrategySwitch#getRepoSwitch
-	 * <em>Repo Switch</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.ResolutionStrategySwitch#getRepoSwitch <em>Repo Switch</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

@@ -169,6 +169,17 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 			defineFunction(b);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_CONTEXT;
+	}
+
 	public Map<Class<? extends BuildUnit>, BuildUnit> getBuildUnitStore() {
 		return Collections.unmodifiableMap(unitStore);
 	}
@@ -188,16 +199,5 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 				return u;
 		}
 		return null; // TODO: Should probably throw "NoSuchUnit" instead
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_CONTEXT;
 	}
 } // BuildContextImpl

@@ -78,6 +78,18 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
+	public String convertBranchPointTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null
+				? null
+				: instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public String convertIStatusToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
@@ -101,6 +113,10 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch(eDataType.getClassifierID()) {
+			case B3BuildPackage.UPDATE_STRATEGY:
+				return convertUpdateStrategyToString(eDataType, instanceValue);
+			case B3BuildPackage.BRANCH_POINT_TYPE:
+				return convertBranchPointTypeToString(eDataType, instanceValue);
 			case B3BuildPackage.VERSION_RANGE:
 				return convertVersionRangeToString(eDataType, instanceValue);
 			case B3BuildPackage.VERSION:
@@ -113,6 +129,18 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
 						"' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertUpdateStrategyToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null
+				? null
+				: instanceValue.toString();
 	}
 
 	/**
@@ -250,6 +278,10 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createResolutionStrategySwitch();
 			case B3BuildPackage.SWITCH_REPOSITORY:
 				return createSwitchRepository();
+			case B3BuildPackage.REPOSITORY_HANDLER:
+				return createRepositoryHandler();
+			case B3BuildPackage.BRANCH:
+				return createBranch();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -286,6 +318,31 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public BeeModel createBeeModel() {
 		BeeModelImpl beeModel = new BeeModelImpl();
 		return beeModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Branch createBranch() {
+		BranchImpl branch = new BranchImpl();
+		return branch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BranchPointType createBranchPointTypeFromString(EDataType eDataType, String initialValue) {
+		BranchPointType result = BranchPointType.get(initialValue);
+		if(result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
+		return result;
 	}
 
 	/**
@@ -583,6 +640,10 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch(eDataType.getClassifierID()) {
+			case B3BuildPackage.UPDATE_STRATEGY:
+				return createUpdateStrategyFromString(eDataType, initialValue);
+			case B3BuildPackage.BRANCH_POINT_TYPE:
+				return createBranchPointTypeFromString(eDataType, initialValue);
 			case B3BuildPackage.VERSION_RANGE:
 				return createVersionRangeFromString(eDataType, initialValue);
 			case B3BuildPackage.VERSION:
@@ -733,6 +794,17 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
+	public RepositoryHandler createRepositoryHandler() {
+		RepositoryHandlerImpl repositoryHandler = new RepositoryHandlerImpl();
+		return repositoryHandler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public RequiredCapability createRequiredCapability() {
 		RequiredCapabilityImpl requiredCapability = new RequiredCapabilityImpl();
 		return requiredCapability;
@@ -868,6 +940,20 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public UnitResolutionInfo createUnitResolutionInfo() {
 		UnitResolutionInfoImpl unitResolutionInfo = new UnitResolutionInfoImpl();
 		return unitResolutionInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public UpdateStrategy createUpdateStrategyFromString(EDataType eDataType, String initialValue) {
+		UpdateStrategy result = UpdateStrategy.get(initialValue);
+		if(result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
+		return result;
 	}
 
 	/**

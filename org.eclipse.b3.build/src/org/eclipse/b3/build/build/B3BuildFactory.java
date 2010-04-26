@@ -58,6 +58,16 @@ public interface B3BuildFactory extends EFactory {
 	BeeModel createBeeModel();
 
 	/**
+	 * Returns a new object of class '<em>Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Branch</em>'.
+	 * @generated
+	 */
+	Branch createBranch();
+
+	/**
 	 * Returns a new object of class '<em>Build Concern Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,6 +426,16 @@ public interface B3BuildFactory extends EFactory {
 	 * @generated
 	 */
 	RepositoryDeclaration createRepositoryDeclaration();
+
+	/**
+	 * Returns a new object of class '<em>Repository Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Repository Handler</em>'.
+	 * @generated
+	 */
+	RepositoryHandler createRepositoryHandler();
 
 	/**
 	 * Returns a new object of class '<em>Required Capability</em>'.

@@ -25,12 +25,12 @@ public class BuildUnitProxyAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	@Override
-	public boolean isFactoryForType(Object type) {
-		return type == BuildUnitProxyAdapter.class;
+	protected Adapter createAdapter(Notifier target, Object type) {
+		return new BuildUnitProxyAdapter((BuildUnit) target);
 	}
 
 	@Override
-	protected Adapter createAdapter(Notifier target, Object type) {
-		return new BuildUnitProxyAdapter((BuildUnit) target);
+	public boolean isFactoryForType(Object type) {
+		return type == BuildUnitProxyAdapter.class;
 	}
 }

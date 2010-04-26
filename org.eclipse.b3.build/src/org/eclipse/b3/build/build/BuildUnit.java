@@ -268,8 +268,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	EList<Synchronization> getSynchronizations();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getDefaultProperties
-	 * <em>Default Properties</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getDefaultProperties <em>Default Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -281,8 +280,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	void setDefaultProperties(BPropertySet value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getDocumentation <em>Documentation</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getDocumentation <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -294,8 +292,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	void setDocumentation(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getExecutionMode <em>Execution Mode</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getExecutionMode <em>Execution Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -308,8 +305,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	void setExecutionMode(ExecutionMode value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -321,8 +317,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	void setOutputLocation(URI value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

@@ -136,6 +136,17 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_INPUT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_INPUT__PREREQUISITES:
@@ -200,17 +211,6 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 				Prerequisite.class, this, B3BuildPackage.BUILDER_INPUT__PREREQUISITES);
 		}
 		return prerequisites;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_INPUT;
 	}
 
 } // BuilderInputImpl

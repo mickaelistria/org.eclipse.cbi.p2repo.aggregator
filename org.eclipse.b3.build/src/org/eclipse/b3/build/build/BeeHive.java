@@ -84,8 +84,8 @@ public interface BeeHive extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Returns the {@link IProvidedCapabilityContainer} that was the result of resolving the {@link RequiredCapability} referenced by the
-	 * requiredCapability parameter. The returned capability container is one of {@link BuildUnit} or {@link Builder}.
-	 * Naturally, to get the actual capability from a builder, the result must first be built.
+	 * requiredCapability parameter. The returned capability container is one of {@link BuildUnit} or {@link Builder}. Naturally, to get the actual
+	 * capability from a builder, the result must first be built.
 	 * 
 	 * <!-- end-model-doc -->
 	 * 

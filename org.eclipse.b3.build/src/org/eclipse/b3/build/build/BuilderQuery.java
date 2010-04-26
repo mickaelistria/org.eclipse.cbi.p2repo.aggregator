@@ -63,8 +63,7 @@ public interface BuilderQuery extends EObject {
 	BExpression getUnitQuery();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderQuery#getUnitQuery <em>Unit Query</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderQuery#getUnitQuery <em>Unit Query</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

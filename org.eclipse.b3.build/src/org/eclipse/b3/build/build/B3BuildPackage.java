@@ -11,6 +11,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -46,8 +47,7 @@ public interface B3BuildPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildUnitImpl <em>Build Unit</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildUnitImpl <em>Build Unit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -85,8 +85,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute BUILD_UNIT__EXECUTION_MODE = eINSTANCE.getBuildUnit_ExecutionMode();
 
 		/**
-		 * The meta object literal for the '<em><b>Meta Required Capabilities</b></em>' containment reference list
-		 * feature.
+		 * The meta object literal for the '<em><b>Meta Required Capabilities</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -279,8 +278,7 @@ public interface B3BuildPackage extends EPackage {
 		EClass BUILDER = eINSTANCE.getBuilder();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl
-		 * <em>Builder Java</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl <em>Builder Java</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -291,8 +289,7 @@ public interface B3BuildPackage extends EPackage {
 		EClass BUILDER_JAVA = eINSTANCE.getBuilderJava();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl
-		 * <em>Builder Wrapper</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl <em>Builder Wrapper</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -357,8 +354,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute BUILDER_WRAPPER__SOURCE_ADVISED = eINSTANCE.getBuilderWrapper_SourceAdvised();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeModelImpl <em>Bee Model</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeModelImpl <em>Bee Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -423,8 +419,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference BEE_MODEL__REPOSITORIES = eINSTANCE.getBeeModel_Repositories();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeHiveImpl <em>Bee Hive</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeHiveImpl <em>Bee Hive</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -462,8 +457,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute BEE_HIVE__RESOLUTIONS = eINSTANCE.getBeeHive_Resolutions();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionInfoImpl
-		 * <em>Resolution Info</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionInfoImpl <em>Resolution Info</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -483,8 +477,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute RESOLUTION_INFO__STATUS = eINSTANCE.getResolutionInfo_Status();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveFacadeImpl
-		 * <em>Effective Facade</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveFacadeImpl <em>Effective Facade</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -504,8 +497,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference EFFECTIVE_FACADE__CONTEXT = eINSTANCE.getEffectiveFacade_Context();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl
-		 * <em>Effective Unit Facade</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl <em>Effective Unit Facade</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -543,8 +535,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES = eINSTANCE.getEffectiveUnitFacade_RequiredCapabilities();
 
 		/**
-		 * The meta object literal for the '<em><b>Meta Required Capabilities</b></em>' containment reference list
-		 * feature.
+		 * The meta object literal for the '<em><b>Meta Required Capabilities</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -574,8 +565,8 @@ public interface B3BuildPackage extends EPackage {
 		EReference EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT = eINSTANCE.getEffectiveRequirementFacade_Requirement();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl
-		 * <em>Effective Capability Facade</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl <em>Effective Capability Facade</em>}
+		 * ' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -625,8 +616,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES = eINSTANCE.getEffectiveBuilderReferenceFacade_Aliases();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildSetImpl <em>Build Set</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildSetImpl <em>Build Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -664,8 +654,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute BUILD_SET__PATH_ITERATOR = eINSTANCE.getBuildSet_PathIterator();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildResultContextImpl
-		 * <em>Build Result Context</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildResultContextImpl <em>Build Result Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -676,8 +665,7 @@ public interface B3BuildPackage extends EPackage {
 		EClass BUILD_RESULT_CONTEXT = eINSTANCE.getBuildResultContext();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl
-		 * <em>Output Predicate</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -688,8 +676,7 @@ public interface B3BuildPackage extends EPackage {
 		EClass OUTPUT_PREDICATE = eINSTANCE.getOutputPredicate();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SourcePredicateImpl
-		 * <em>Source Predicate</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SourcePredicateImpl <em>Source Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -700,8 +687,7 @@ public interface B3BuildPackage extends EPackage {
 		EClass SOURCE_PREDICATE = eINSTANCE.getSourcePredicate();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl
-		 * <em>Build Unit Repository</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl <em>Build Unit Repository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -757,8 +743,8 @@ public interface B3BuildPackage extends EPackage {
 		EClass COMPOUND_BEST_FOUND_REPOSITORY = eINSTANCE.getCompoundBestFoundRepository();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl
-		 * <em>Execution Stack Repository</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl <em>Execution Stack Repository</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -769,8 +755,7 @@ public interface B3BuildPackage extends EPackage {
 		EClass EXECUTION_STACK_REPOSITORY = eINSTANCE.getExecutionStackRepository();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SimpleRepositoryImpl
-		 * <em>Simple Repository</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SimpleRepositoryImpl <em>Simple Repository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -790,8 +775,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference SIMPLE_REPOSITORY__BEE_MODELS = eINSTANCE.getSimpleRepository_BeeModels();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.core.IBuildUnitRepository
-		 * <em>IBuild Unit Repository</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.core.IBuildUnitRepository <em>IBuild Unit Repository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -802,8 +786,7 @@ public interface B3BuildPackage extends EPackage {
 		EClass IBUILD_UNIT_REPOSITORY = eINSTANCE.getIBuildUnitRepository();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl
-		 * <em>Unit Resolution Info</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl <em>Unit Resolution Info</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -832,8 +815,8 @@ public interface B3BuildPackage extends EPackage {
 		EReference UNIT_RESOLUTION_INFO__CONTEXT = eINSTANCE.getUnitResolutionInfo_Context();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl
-		 * <em>Resolution Strategy Switch</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl <em>Resolution Strategy Switch</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -853,8 +836,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference RESOLUTION_STRATEGY_SWITCH__REPO_SWITCH = eINSTANCE.getResolutionStrategySwitch_RepoSwitch();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SwitchRepositoryImpl
-		 * <em>Switch Repository</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SwitchRepositoryImpl <em>Switch Repository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -874,8 +856,150 @@ public interface B3BuildPackage extends EPackage {
 		EReference SWITCH_REPOSITORY__REPO_SWITCH = eINSTANCE.getSwitchRepository_RepoSwitch();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl
-		 * <em>Versioned Capability</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl <em>Repository Handler</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.build.impl.RepositoryHandlerImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryHandler()
+		 * @generated
+		 */
+		EClass REPOSITORY_HANDLER = eINSTANCE.getRepositoryHandler();
+
+		/**
+		 * The meta object literal for the '<em><b>Handler Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPOSITORY_HANDLER__HANDLER_TYPE = eINSTANCE.getRepositoryHandler_HandlerType();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute REPOSITORY_HANDLER__NAME = eINSTANCE.getRepositoryHandler_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Local</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute REPOSITORY_HANDLER__LOCAL = eINSTANCE.getRepositoryHandler_Local();
+
+		/**
+		 * The meta object literal for the '<em><b>Remote</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute REPOSITORY_HANDLER__REMOTE = eINSTANCE.getRepositoryHandler_Remote();
+
+		/**
+		 * The meta object literal for the '<em><b>Branches</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPOSITORY_HANDLER__BRANCHES = eINSTANCE.getRepositoryHandler_Branches();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BranchImpl <em>Branch</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.build.impl.BranchImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBranch()
+		 * @generated
+		 */
+		EClass BRANCH = eINSTANCE.getBranch();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BRANCH__NAME = eINSTANCE.getBranch_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Update Strategy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BRANCH__UPDATE_STRATEGY = eINSTANCE.getBranch_UpdateStrategy();
+
+		/**
+		 * The meta object literal for the '<em><b>Branch Point Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BRANCH__BRANCH_POINT_TYPE = eINSTANCE.getBranch_BranchPointType();
+
+		/**
+		 * The meta object literal for the '<em><b>Branch Point</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BRANCH__BRANCH_POINT = eINSTANCE.getBranch_BranchPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Include</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference BRANCH__INCLUDE = eINSTANCE.getBranch_Include();
+
+		/**
+		 * The meta object literal for the '<em><b>Exclude</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference BRANCH__EXCLUDE = eINSTANCE.getBranch_Exclude();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.build.UpdateStrategy
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUpdateStrategy()
+		 * @generated
+		 */
+		EEnum UPDATE_STRATEGY = eINSTANCE.getUpdateStrategy();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.BranchPointType <em>Branch Point Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.build.BranchPointType
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBranchPointType()
+		 * @generated
+		 */
+		EEnum BRANCH_POINT_TYPE = eINSTANCE.getBranchPointType();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -895,8 +1019,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute VERSIONED_CAPABILITY__VERSION = eINSTANCE.getVersionedCapability_Version();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CapabilityImpl <em>Capability</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CapabilityImpl <em>Capability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -934,8 +1057,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference CAPABILITY__COND_EXPR = eINSTANCE.getCapability_CondExpr();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl
-		 * <em>Required Capability</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl <em>Required Capability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -982,8 +1104,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute REQUIRED_CAPABILITY__MIN = eINSTANCE.getRequiredCapability_Min();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ConditionalPathVectorImpl
-		 * <em>Conditional Path Vector</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ConditionalPathVectorImpl <em>Conditional Path Vector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1012,8 +1133,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference CONDITIONAL_PATH_VECTOR__PATH_VECTORS = eINSTANCE.getConditionalPathVector_PathVectors();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.PathVectorImpl <em>Path Vector</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.PathVectorImpl <em>Path Vector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1042,8 +1162,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute PATH_VECTOR__PATHS = eINSTANCE.getPathVector_Paths();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SynchronizationImpl
-		 * <em>Synchronization</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SynchronizationImpl <em>Synchronization</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1063,8 +1182,8 @@ public interface B3BuildPackage extends EPackage {
 		EReference SYNCHRONIZATION__BUILDER_QUERIES = eINSTANCE.getSynchronization_BuilderQueries();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl
-		 * <em>Repository Configuration</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl <em>Repository Configuration</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1093,8 +1212,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute REPOSITORY_CONFIGURATION__DOCUMENTATION = eINSTANCE.getRepositoryConfiguration_Documentation();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl
-		 * <em>Repository Declaration</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl <em>Repository Declaration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1132,8 +1250,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference REPOSITORY_DECLARATION__CONTEXT_BLOCK = eINSTANCE.getRepositoryDeclaration_ContextBlock();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyImpl
-		 * <em>Resolution Strategy</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyImpl <em>Resolution Strategy</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1153,8 +1270,8 @@ public interface B3BuildPackage extends EPackage {
 		EReference RESOLUTION_STRATEGY__REPOSITORIES = eINSTANCE.getResolutionStrategy_Repositories();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl
-		 * <em>Resolution Strategy First</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl <em>Resolution Strategy First</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1165,8 +1282,8 @@ public interface B3BuildPackage extends EPackage {
 		EClass RESOLUTION_STRATEGY_FIRST = eINSTANCE.getResolutionStrategyFirst();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl
-		 * <em>Resolution Strategy Best</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl <em>Resolution Strategy Best</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1177,8 +1294,8 @@ public interface B3BuildPackage extends EPackage {
 		EClass RESOLUTION_STRATEGY_BEST = eINSTANCE.getResolutionStrategyBest();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ContainerConfigurationImpl
-		 * <em>Container Configuration</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ContainerConfigurationImpl <em>Container Configuration</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1225,8 +1342,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference CONTAINER_CONFIGURATION__CONTEXT_BLOCK = eINSTANCE.getContainerConfiguration_ContextBlock();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildContextImpl
-		 * <em>Build Context</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildContextImpl <em>Build Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1237,8 +1353,7 @@ public interface B3BuildPackage extends EPackage {
 		EClass BUILD_CONTEXT = eINSTANCE.getBuildContext();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl
-		 * <em>Build Concern Context</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl <em>Build Concern Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1267,8 +1382,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS = eINSTANCE.getBuildConcernContext_DefaultPropertiesAdditions();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl
-		 * <em>Requires Predicate</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl <em>Requires Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1297,8 +1411,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute REQUIRES_PREDICATE__META = eINSTANCE.getRequiresPredicate_Meta();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl
-		 * <em>Capability Predicate</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl <em>Capability Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1336,8 +1449,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE = eINSTANCE.getCapabilityPredicate_NameSpacePredicate();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ImplementsPredicateImpl
-		 * <em>Implements Predicate</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ImplementsPredicateImpl <em>Implements Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1357,8 +1469,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference IMPLEMENTS_PREDICATE__TYPE = eINSTANCE.getImplementsPredicate_Type();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl
-		 * <em>Provides Predicate</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl <em>Provides Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1378,8 +1489,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference PROVIDES_PREDICATE__CAPABILITY_PREDICATE = eINSTANCE.getProvidesPredicate_CapabilityPredicate();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.NameSpacePredicateImpl
-		 * <em>Name Space Predicate</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.NameSpacePredicateImpl <em>Name Space Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1399,8 +1509,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute NAME_SPACE_PREDICATE__NAME_SPACE = eINSTANCE.getNameSpacePredicate_NameSpace();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.UnitNamePredicateImpl
-		 * <em>Unit Name Predicate</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.UnitNamePredicateImpl <em>Unit Name Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1411,8 +1520,7 @@ public interface B3BuildPackage extends EPackage {
 		EClass UNIT_NAME_PREDICATE = eINSTANCE.getUnitNamePredicate();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl
-		 * <em>Builder Name Predicate</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl <em>Builder Name Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1432,8 +1540,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILDER_NAME_PREDICATE__NAME_PREDICATE = eINSTANCE.getBuilderNamePredicate_NamePredicate();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.InputPredicateImpl
-		 * <em>Input Predicate</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.InputPredicateImpl <em>Input Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1462,8 +1569,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference INPUT_PREDICATE__BUILDER_PREDICATE = eINSTANCE.getInputPredicate_BuilderPredicate();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl
-		 * <em>Unit Concern Context</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl <em>Unit Concern Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1528,8 +1634,7 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION = eINSTANCE.getUnitConcernContext_OutputLocation();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl
-		 * <em>Builder Concern Context</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1738,8 +1843,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS = eINSTANCE.getBuilderConcernContext_SourceAnnotationAdditions();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.PathGroupPredicateImpl
-		 * <em>Path Group Predicate</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.PathGroupPredicateImpl <em>Path Group Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1768,8 +1872,8 @@ public interface B3BuildPackage extends EPackage {
 		EReference PATH_GROUP_PREDICATE__PATH_PATTERN = eINSTANCE.getPathGroupPredicate_PathPattern();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl
-		 * <em>Aliased Required Capability</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl <em>Aliased Required Capability</em>}
+		 * ' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1789,8 +1893,8 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute ALIASED_REQUIRED_CAPABILITY__ALIAS = eINSTANCE.getAliasedRequiredCapability_Alias();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer
-		 * <em>IRequired Capability Container</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1810,8 +1914,8 @@ public interface B3BuildPackage extends EPackage {
 		EReference IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES = eINSTANCE.getIRequiredCapabilityContainer_RequiredCapabilities();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer
-		 * <em>IProvided Capability Container</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1831,8 +1935,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES = eINSTANCE.getIProvidedCapabilityContainer_ProvidedCapabilities();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderQueryImpl
-		 * <em>Builder Query</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderQueryImpl <em>Builder Query</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1861,8 +1964,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILDER_QUERY__UNIT_QUERY = eINSTANCE.getBuilderQuery_UnitQuery();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl
-		 * <em>Builder Input</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl <em>Builder Input</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1882,8 +1984,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILDER_INPUT__PREREQUISITES = eINSTANCE.getBuilderInput_Prerequisites();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.PathGroupImpl <em>Path Group</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.PathGroupImpl <em>Path Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1912,8 +2013,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference PATH_GROUP__PATH_VECTORS = eINSTANCE.getPathGroup_PathVectors();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl
-		 * <em>Prerequisite</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl <em>Prerequisite</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1960,8 +2060,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference PREREQUISITE__BUILD_RESULT = eINSTANCE.getPrerequisite_BuildResult();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildResultReferenceImpl
-		 * <em>Build Result Reference</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildResultReferenceImpl <em>Build Result Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1993,8 +2092,7 @@ public interface B3BuildPackage extends EPackage {
 		EReference COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES = eINSTANCE.getCompoundBuildResultReference_Prerequisites();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl
-		 * <em>Builder Reference</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl <em>Builder Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -2174,8 +2272,7 @@ public interface B3BuildPackage extends EPackage {
 	int CAPABILITY_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl
-	 * <em>Versioned Capability</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2479,8 +2576,7 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_JAVA = 38;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl <em>Builder Input</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl <em>Builder Input</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2502,8 +2598,7 @@ public interface B3BuildPackage extends EPackage {
 	int PATH_GROUP = 4;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl <em>Prerequisite</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl <em>Prerequisite</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2514,8 +2609,7 @@ public interface B3BuildPackage extends EPackage {
 	int PREREQUISITE = 5;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildResultReferenceImpl
-	 * <em>Build Result Reference</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildResultReferenceImpl <em>Build Result Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2526,8 +2620,8 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_RESULT_REFERENCE = 6;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBuildResultReferenceImpl
-	 * <em>Compound Build Result Reference</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBuildResultReferenceImpl <em>Compound Build Result Reference</em>}'
+	 * class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2538,8 +2632,7 @@ public interface B3BuildPackage extends EPackage {
 	int COMPOUND_BUILD_RESULT_REFERENCE = 7;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl
-	 * <em>Builder Reference</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl <em>Builder Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2550,8 +2643,7 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_REFERENCE = 8;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl
-	 * <em>Required Capability</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl <em>Required Capability</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2573,8 +2665,7 @@ public interface B3BuildPackage extends EPackage {
 	int PATH_VECTOR = 12;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SynchronizationImpl <em>Synchronization</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SynchronizationImpl <em>Synchronization</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2585,8 +2676,7 @@ public interface B3BuildPackage extends EPackage {
 	int SYNCHRONIZATION = 13;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl
-	 * <em>Repository Configuration</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl <em>Repository Configuration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2597,8 +2687,7 @@ public interface B3BuildPackage extends EPackage {
 	int REPOSITORY_CONFIGURATION = 14;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl
-	 * <em>Repository Declaration</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl <em>Repository Declaration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2609,8 +2698,7 @@ public interface B3BuildPackage extends EPackage {
 	int REPOSITORY_DECLARATION = 15;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyImpl
-	 * <em>Resolution Strategy</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyImpl <em>Resolution Strategy</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2621,8 +2709,7 @@ public interface B3BuildPackage extends EPackage {
 	int RESOLUTION_STRATEGY = 16;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl
-	 * <em>Resolution Strategy First</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl <em>Resolution Strategy First</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2633,8 +2720,7 @@ public interface B3BuildPackage extends EPackage {
 	int RESOLUTION_STRATEGY_FIRST = 17;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl
-	 * <em>Resolution Strategy Best</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl <em>Resolution Strategy Best</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2645,8 +2731,7 @@ public interface B3BuildPackage extends EPackage {
 	int RESOLUTION_STRATEGY_BEST = 18;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ContainerConfigurationImpl
-	 * <em>Container Configuration</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ContainerConfigurationImpl <em>Container Configuration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2657,8 +2742,7 @@ public interface B3BuildPackage extends EPackage {
 	int CONTAINER_CONFIGURATION = 19;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildContextImpl <em>Build Context</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildContextImpl <em>Build Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2669,8 +2753,7 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_CONTEXT = 20;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl
-	 * <em>Build Concern Context</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl <em>Build Concern Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2681,8 +2764,7 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_CONCERN_CONTEXT = 21;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl
-	 * <em>Requires Predicate</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl <em>Requires Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2693,8 +2775,7 @@ public interface B3BuildPackage extends EPackage {
 	int REQUIRES_PREDICATE = 22;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl
-	 * <em>Capability Predicate</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl <em>Capability Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2705,8 +2786,7 @@ public interface B3BuildPackage extends EPackage {
 	int CAPABILITY_PREDICATE = 23;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ImplementsPredicateImpl
-	 * <em>Implements Predicate</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ImplementsPredicateImpl <em>Implements Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2717,8 +2797,7 @@ public interface B3BuildPackage extends EPackage {
 	int IMPLEMENTS_PREDICATE = 24;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl
-	 * <em>Provides Predicate</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl <em>Provides Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2729,8 +2808,7 @@ public interface B3BuildPackage extends EPackage {
 	int PROVIDES_PREDICATE = 25;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.NameSpacePredicateImpl
-	 * <em>Name Space Predicate</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.NameSpacePredicateImpl <em>Name Space Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2741,8 +2819,7 @@ public interface B3BuildPackage extends EPackage {
 	int NAME_SPACE_PREDICATE = 26;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitNamePredicateImpl
-	 * <em>Unit Name Predicate</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitNamePredicateImpl <em>Unit Name Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2753,8 +2830,7 @@ public interface B3BuildPackage extends EPackage {
 	int UNIT_NAME_PREDICATE = 27;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl
-	 * <em>Builder Name Predicate</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl <em>Builder Name Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2765,8 +2841,7 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_NAME_PREDICATE = 28;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.InputPredicateImpl <em>Input Predicate</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.InputPredicateImpl <em>Input Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2777,8 +2852,7 @@ public interface B3BuildPackage extends EPackage {
 	int INPUT_PREDICATE = 29;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl
-	 * <em>Unit Concern Context</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl <em>Unit Concern Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2789,8 +2863,7 @@ public interface B3BuildPackage extends EPackage {
 	int UNIT_CONCERN_CONTEXT = 30;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl
-	 * <em>Builder Concern Context</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2801,8 +2874,7 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_CONCERN_CONTEXT = 31;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl
-	 * <em>Aliased Required Capability</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl <em>Aliased Required Capability</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2813,8 +2885,7 @@ public interface B3BuildPackage extends EPackage {
 	int ALIASED_REQUIRED_CAPABILITY = 33;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer
-	 * <em>IRequired Capability Container</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2825,8 +2896,7 @@ public interface B3BuildPackage extends EPackage {
 	int IREQUIRED_CAPABILITY_CONTAINER = 34;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer
-	 * <em>IProvided Capability Container</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3418,8 +3488,7 @@ public interface B3BuildPackage extends EPackage {
 	int REQUIRED_CAPABILITY_FEATURE_COUNT = CAPABILITY_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ConditionalPathVectorImpl
-	 * <em>Conditional Path Vector</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ConditionalPathVectorImpl <em>Conditional Path Vector</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4520,8 +4589,7 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 22;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PathGroupPredicateImpl
-	 * <em>Path Group Predicate</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PathGroupPredicateImpl <em>Path Group Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4672,8 +4740,7 @@ public interface B3BuildPackage extends EPackage {
 	int IREQUIRED_CAPABILITY_CONTAINER_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderQueryImpl <em>Builder Query</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderQueryImpl <em>Builder Query</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5324,8 +5391,7 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_JAVA_FEATURE_COUNT = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 10;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl <em>Builder Wrapper</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl <em>Builder Wrapper</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5868,8 +5934,7 @@ public interface B3BuildPackage extends EPackage {
 	int BEE_HIVE_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionInfoImpl <em>Resolution Info</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionInfoImpl <em>Resolution Info</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5900,7 +5965,7 @@ public interface B3BuildPackage extends EPackage {
 	int RESOLUTION_INFO_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveFacadeImpl <em>Effective Facade</em>} ' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveFacadeImpl <em>Effective Facade</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5931,8 +5996,7 @@ public interface B3BuildPackage extends EPackage {
 	int EFFECTIVE_FACADE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl
-	 * <em>Effective Unit Facade</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl <em>Effective Unit Facade</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6003,8 +6067,8 @@ public interface B3BuildPackage extends EPackage {
 	int EFFECTIVE_UNIT_FACADE_FEATURE_COUNT = EFFECTIVE_FACADE_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveRequirementFacadeImpl
-	 * <em>Effective Requirement Facade</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveRequirementFacadeImpl <em>Effective Requirement Facade</em>}'
+	 * class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6045,8 +6109,7 @@ public interface B3BuildPackage extends EPackage {
 	int EFFECTIVE_REQUIREMENT_FACADE_FEATURE_COUNT = EFFECTIVE_FACADE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl
-	 * <em>Effective Capability Facade</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl <em>Effective Capability Facade</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6190,8 +6253,7 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_SET_FEATURE_COUNT = B3backendPackage.ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildResultContextImpl
-	 * <em>Build Result Context</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildResultContextImpl <em>Build Result Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6272,7 +6334,7 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_RESULT_CONTEXT_FEATURE_COUNT = B3backendPackage.BINNER_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>} ' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6313,7 +6375,7 @@ public interface B3BuildPackage extends EPackage {
 	int OUTPUT_PREDICATE_FEATURE_COUNT = PATH_GROUP_PREDICATE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SourcePredicateImpl <em>Source Predicate</em>} ' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SourcePredicateImpl <em>Source Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6354,8 +6416,7 @@ public interface B3BuildPackage extends EPackage {
 	int SOURCE_PREDICATE_FEATURE_COUNT = PATH_GROUP_PREDICATE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.core.IBuildUnitRepository
-	 * <em>IBuild Unit Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.core.IBuildUnitRepository <em>IBuild Unit Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6376,8 +6437,7 @@ public interface B3BuildPackage extends EPackage {
 	int IBUILD_UNIT_REPOSITORY_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl
-	 * <em>Build Unit Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl <em>Build Unit Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6398,8 +6458,8 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_UNIT_REPOSITORY_FEATURE_COUNT = IBUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBuildUnitRepositoryImpl
-	 * <em>Compound Build Unit Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBuildUnitRepositoryImpl <em>Compound Build Unit Repository</em>}'
+	 * class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6430,8 +6490,8 @@ public interface B3BuildPackage extends EPackage {
 	int COMPOUND_BUILD_UNIT_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundFirstFoundRepositoryImpl
-	 * <em>Compound First Found Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundFirstFoundRepositoryImpl <em>Compound First Found Repository</em>}'
+	 * class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6462,8 +6522,8 @@ public interface B3BuildPackage extends EPackage {
 	int COMPOUND_FIRST_FOUND_REPOSITORY_FEATURE_COUNT = COMPOUND_BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBestFoundRepositoryImpl
-	 * <em>Compound Best Found Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBestFoundRepositoryImpl <em>Compound Best Found Repository</em>}'
+	 * class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6494,8 +6554,7 @@ public interface B3BuildPackage extends EPackage {
 	int COMPOUND_BEST_FOUND_REPOSITORY_FEATURE_COUNT = COMPOUND_BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl
-	 * <em>Execution Stack Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl <em>Execution Stack Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6516,8 +6575,7 @@ public interface B3BuildPackage extends EPackage {
 	int EXECUTION_STACK_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SimpleRepositoryImpl
-	 * <em>Simple Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SimpleRepositoryImpl <em>Simple Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6548,8 +6606,7 @@ public interface B3BuildPackage extends EPackage {
 	int SIMPLE_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl
-	 * <em>Unit Resolution Info</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl <em>Unit Resolution Info</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6600,8 +6657,7 @@ public interface B3BuildPackage extends EPackage {
 	int UNIT_RESOLUTION_INFO_FEATURE_COUNT = RESOLUTION_INFO_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl
-	 * <em>Resolution Strategy Switch</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl <em>Resolution Strategy Switch</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6652,8 +6708,7 @@ public interface B3BuildPackage extends EPackage {
 	int RESOLUTION_STRATEGY_SWITCH_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SwitchRepositoryImpl
-	 * <em>Switch Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SwitchRepositoryImpl <em>Switch Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6684,6 +6739,180 @@ public interface B3BuildPackage extends EPackage {
 	int SWITCH_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl <em>Repository Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.build.build.impl.RepositoryHandlerImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryHandler()
+	 * @generated
+	 */
+	int REPOSITORY_HANDLER = 62;
+
+	/**
+	 * The feature id for the '<em><b>Handler Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_HANDLER__HANDLER_TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_HANDLER__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Local</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_HANDLER__LOCAL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Remote</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_HANDLER__REMOTE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Branches</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_HANDLER__BRANCHES = 4;
+
+	/**
+	 * The number of structural features of the '<em>Repository Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_HANDLER_FEATURE_COUNT = 5;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BranchImpl <em>Branch</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.build.build.impl.BranchImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBranch()
+	 * @generated
+	 */
+	int BRANCH = 63;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Update Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__UPDATE_STRATEGY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Branch Point Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__BRANCH_POINT_TYPE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Branch Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__BRANCH_POINT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__INCLUDE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Exclude</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__EXCLUDE = 5;
+
+	/**
+	 * The number of structural features of the '<em>Branch</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH_FEATURE_COUNT = 6;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.build.build.UpdateStrategy
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUpdateStrategy()
+	 * @generated
+	 */
+	int UPDATE_STRATEGY = 64;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.BranchPointType <em>Branch Point Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.build.build.BranchPointType
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBranchPointType()
+	 * @generated
+	 */
+	int BRANCH_POINT_TYPE = 65;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6692,7 +6921,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 62;
+	int VERSION_RANGE = 66;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -6703,7 +6932,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 63;
+	int VERSION = 67;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -6714,7 +6943,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 64;
+	int ISTATUS = 68;
 
 	/**
 	 * The meta object id for the '<em>Path Iterator</em>' data type.
@@ -6725,11 +6954,10 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathIterator()
 	 * @generated
 	 */
-	int PATH_ITERATOR = 65;
+	int PATH_ITERATOR = 69;
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.AliasedRequiredCapability
-	 * <em>Aliased Required Capability</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6740,8 +6968,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getAliasedRequiredCapability();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.AliasedRequiredCapability#getAlias
-	 * <em>Alias</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.AliasedRequiredCapability#getAlias <em>Alias</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6774,8 +7001,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBeeHive();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BeeHive#getBeeModels
-	 * <em>Bee Models</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BeeHive#getBeeModels <em>Bee Models</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6799,8 +7025,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBeeHive_Parent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BeeHive#getResolutions
-	 * <em>Resolutions</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BeeHive#getResolutions <em>Resolutions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6823,7 +7048,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBeeModel();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BeeModel#getBuildUnits <em>Build Units</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getBuildUnits <em>Build Units</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6835,7 +7060,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBeeModel_BuildUnits();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BeeModel#getConcerns <em>Concerns</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getConcerns <em>Concerns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6847,7 +7072,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBeeModel_Concerns();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BeeModel#getFunctions <em>Functions</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getFunctions <em>Functions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6859,7 +7084,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBeeModel_Functions();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BeeModel#getImports <em>Imports</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getImports <em>Imports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6871,7 +7096,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBeeModel_Imports();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BeeModel#getPropertySets <em>Property Sets</em>}
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getPropertySets <em>Property Sets</em>}
 	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6884,8 +7109,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBeeModel_PropertySets();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BeeModel#getRepositories <em>Repositories</em>}
-	 * '.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getRepositories <em>Repositories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6897,8 +7121,101 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBeeModel_Repositories();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildConcernContext
-	 * <em>Build Concern Context</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.Branch <em>Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Branch</em>'.
+	 * @see org.eclipse.b3.build.build.Branch
+	 * @generated
+	 */
+	EClass getBranch();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getBranchPoint <em>Branch Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Branch Point</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getBranchPoint()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EAttribute getBranch_BranchPoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getBranchPointType <em>Branch Point Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Branch Point Type</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getBranchPointType()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EAttribute getBranch_BranchPointType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.Branch#getExclude <em>Exclude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Exclude</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getExclude()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EReference getBranch_Exclude();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.Branch#getInclude <em>Include</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Include</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getInclude()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EReference getBranch_Include();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getName()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EAttribute getBranch_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getUpdateStrategy <em>Update Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Update Strategy</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getUpdateStrategy()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EAttribute getBranch_UpdateStrategy();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.b3.build.build.BranchPointType <em>Branch Point Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for enum '<em>Branch Point Type</em>'.
+	 * @see org.eclipse.b3.build.build.BranchPointType
+	 * @generated
+	 */
+	EEnum getBranchPointType();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildConcernContext <em>Build Concern Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6909,7 +7226,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuildConcernContext();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuildConcernContext#getDefaultPropertiesAdditions
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuildConcernContext#getDefaultPropertiesAdditions
 	 * <em>Default Properties Additions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6922,7 +7239,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildConcernContext_DefaultPropertiesAdditions();
 
 	/**
-	 * Returns the meta object for the attribute list ' {@link org.eclipse.b3.build.build.BuildConcernContext#getDefaultPropertiesRemovals
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.BuildConcernContext#getDefaultPropertiesRemovals
 	 * <em>Default Properties Removals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6957,8 +7274,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuilder();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderConcernContext
-	 * <em>Builder Concern Context</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderConcernContext <em>Builder Concern Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6969,7 +7285,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuilderConcernContext();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getFuncExpr <em>Func Expr</em>}
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getFuncExpr <em>Func Expr</em>}
 	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6982,7 +7298,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_FuncExpr();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getInputAdditions
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getInputAdditions
 	 * <em>Input Additions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6995,7 +7311,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_InputAdditions();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getInputRemovals
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getInputRemovals
 	 * <em>Input Removals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7008,8 +7324,8 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_InputRemovals();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.build.build.BuilderConcernContext#isMatchParameters
-	 * <em>Match Parameters</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderConcernContext#isMatchParameters <em>Match Parameters</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7021,7 +7337,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderConcernContext_MatchParameters();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAdditions
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAdditions
 	 * <em>Output Additions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7034,7 +7350,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_OutputAdditions();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationAdditions
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationAdditions
 	 * <em>Output Annotation Additions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7047,7 +7363,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_OutputAnnotationAdditions();
 
 	/**
-	 * Returns the meta object for the attribute list ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationsRemovals
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationsRemovals
 	 * <em>Output Annotations Removals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7060,7 +7376,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderConcernContext_OutputAnnotationsRemovals();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputRemovals
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputRemovals
 	 * <em>Output Removals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7073,7 +7389,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_OutputRemovals();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getParameters
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getParameters
 	 * <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7086,7 +7402,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_Parameters();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getPostcondExpr
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostcondExpr
 	 * <em>Postcond Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7099,7 +7415,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_PostcondExpr();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getPostinputcondExpr
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostinputcondExpr
 	 * <em>Postinputcond Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7112,7 +7428,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_PostinputcondExpr();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getPrecondExpr
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPrecondExpr
 	 * <em>Precond Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7125,7 +7441,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_PrecondExpr();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getProvidesRemovals
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getProvidesRemovals
 	 * <em>Provides Removals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7138,7 +7454,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_ProvidesRemovals();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getQuery <em>Query</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getQuery <em>Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7150,7 +7466,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_Query();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostCondition
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostCondition
 	 * <em>Remove Post Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7163,7 +7479,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderConcernContext_RemovePostCondition();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostInputCondition
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostInputCondition
 	 * <em>Remove Post Input Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7176,7 +7492,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderConcernContext_RemovePostInputCondition();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePreCondition
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePreCondition
 	 * <em>Remove Pre Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7189,7 +7505,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderConcernContext_RemovePreCondition();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAdditions
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAdditions
 	 * <em>Source Additions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7202,7 +7518,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_SourceAdditions();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationAdditions
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationAdditions
 	 * <em>Source Annotation Additions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7215,7 +7531,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_SourceAnnotationAdditions();
 
 	/**
-	 * Returns the meta object for the attribute list ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationsRemovals
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationsRemovals
 	 * <em>Source Annotations Removals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7228,7 +7544,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderConcernContext_SourceAnnotationsRemovals();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceRemovals
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceRemovals
 	 * <em>Source Removals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7241,8 +7557,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_SourceRemovals();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderConcernContext#isVarArgs
-	 * <em>Var Args</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderConcernContext#isVarArgs <em>Var Args</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7265,7 +7580,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuilderInput();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuilderInput#getPrerequisites
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderInput#getPrerequisites
 	 * <em>Prerequisites</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7289,8 +7604,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuilderJava();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderNamePredicate
-	 * <em>Builder Name Predicate</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderNamePredicate <em>Builder Name Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7301,7 +7615,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuilderNamePredicate();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuilderNamePredicate#getNamePredicate
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderNamePredicate#getNamePredicate
 	 * <em>Name Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7325,7 +7639,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuilderQuery();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuilderQuery#getBuilderQueries
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderQuery#getBuilderQueries
 	 * <em>Builder Queries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7338,7 +7652,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderQuery_BuilderQueries();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuilderQuery#getUnitQuery <em>Unit Query</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderQuery#getUnitQuery <em>Unit Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7350,7 +7664,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderQuery_UnitQuery();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderReference <em>Builder Reference</em>} '.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderReference <em>Builder Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7361,8 +7675,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuilderReference();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderReference#getBuilderName
-	 * <em>Builder Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderReference#getBuilderName <em>Builder Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7374,7 +7687,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderReference_BuilderName();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuilderReference#getParameters <em>Parameters</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderReference#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7386,7 +7699,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderReference_Parameters();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapability
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapability
 	 * <em>Required Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7399,7 +7712,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderReference_RequiredCapability();
 
 	/**
-	 * Returns the meta object for the reference ' {@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapabilityReference
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapabilityReference
 	 * <em>Required Capability Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7423,8 +7736,8 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuilderWrapper();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.build.build.BuilderWrapper#isDefaultPropertiesAdvised
-	 * <em>Default Properties Advised</em>} '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isDefaultPropertiesAdvised
+	 * <em>Default Properties Advised</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7436,8 +7749,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderWrapper_DefaultPropertiesAdvised();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isInputAdvised
-	 * <em>Input Advised</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isInputAdvised <em>Input Advised</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7449,8 +7761,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderWrapper_InputAdvised();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isOutputAdvised
-	 * <em>Output Advised</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isOutputAdvised <em>Output Advised</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7462,8 +7773,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderWrapper_OutputAdvised();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isProvidesAdvised
-	 * <em>Provides Advised</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isProvidesAdvised <em>Provides Advised</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7475,8 +7785,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderWrapper_ProvidesAdvised();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isSourceAdvised
-	 * <em>Source Advised</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isSourceAdvised <em>Source Advised</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7488,8 +7797,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderWrapper_SourceAdvised();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isUnitTypeAdvised
-	 * <em>Unit Type Advised</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isUnitTypeAdvised <em>Unit Type Advised</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7501,8 +7809,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderWrapper_UnitTypeAdvised();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildResultContext
-	 * <em>Build Result Context</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildResultContext <em>Build Result Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7513,8 +7820,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuildResultContext();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildResultReference
-	 * <em>Build Result Reference</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildResultReference <em>Build Result Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7536,8 +7842,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuildSet();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildSet#getPathIterator
-	 * <em>Path Iterator</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildSet#getPathIterator <em>Path Iterator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7549,8 +7854,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuildSet_PathIterator();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BuildSet#getPathVectors
-	 * <em>Path Vectors</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BuildSet#getPathVectors <em>Path Vectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7562,8 +7866,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildSet_PathVectors();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildSet#getValueMap
-	 * <em>Value Map</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildSet#getValueMap <em>Value Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7586,8 +7889,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuildUnit();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BuildUnit#getBuilders
-	 * <em>Builders</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BuildUnit#getBuilders <em>Builders</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7599,7 +7901,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_Builders();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuildUnit#getConcerns <em>Concerns</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getConcerns <em>Concerns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7611,7 +7913,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_Concerns();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuildUnit#getContainers <em>Containers</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getContainers <em>Containers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7623,7 +7925,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_Containers();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.BuildUnit#getDefaultProperties
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuildUnit#getDefaultProperties
 	 * <em>Default Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7636,8 +7938,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_DefaultProperties();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getDocumentation
-	 * <em>Documentation</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getDocumentation <em>Documentation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7649,8 +7950,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuildUnit_Documentation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getExecutionMode
-	 * <em>Execution Mode</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getExecutionMode <em>Execution Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7662,7 +7962,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuildUnit_ExecutionMode();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuildUnit#getImplements <em>Implements</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getImplements <em>Implements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7674,7 +7974,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_Implements();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuildUnit#getMetaRequiredCapabilities
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getMetaRequiredCapabilities
 	 * <em>Meta Required Capabilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7687,8 +7987,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_MetaRequiredCapabilities();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation
-	 * <em>Output Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7700,8 +7999,8 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuildUnit_OutputLocation();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuildUnit#getPropertySets
-	 * <em>Property Sets</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7713,7 +8012,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_PropertySets();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuildUnit#getRepositories <em>Repositories</em>}
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getRepositories <em>Repositories</em>}
 	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7726,8 +8025,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_Repositories();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation
-	 * <em>Source Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7739,7 +8037,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuildUnit_SourceLocation();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.BuildUnit#getSynchronizations
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getSynchronizations
 	 * <em>Synchronizations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7752,8 +8050,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_Synchronizations();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnitRepository
-	 * <em>Build Unit Repository</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnitRepository <em>Build Unit Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7775,8 +8072,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getCapability();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Capability#getCondExpr
-	 * <em>Cond Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Capability#getCondExpr <em>Cond Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7800,8 +8096,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getCapability_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Capability#getNameSpace
-	 * <em>Name Space</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Capability#getNameSpace <em>Name Space</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7813,8 +8108,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getCapability_NameSpace();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CapabilityPredicate
-	 * <em>Capability Predicate</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CapabilityPredicate <em>Capability Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7825,7 +8119,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getCapabilityPredicate();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.CapabilityPredicate#getNamePredicate
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNamePredicate
 	 * <em>Name Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7838,7 +8132,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getCapabilityPredicate_NamePredicate();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePredicate
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePredicate
 	 * <em>Name Space Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7851,8 +8145,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getCapabilityPredicate_NameSpacePredicate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.CapabilityPredicate#getVersionRange
-	 * <em>Version Range</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.CapabilityPredicate#getVersionRange <em>Version Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7864,8 +8157,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getCapabilityPredicate_VersionRange();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundBestFoundRepository
-	 * <em>Compound Best Found Repository</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundBestFoundRepository <em>Compound Best Found Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7876,8 +8168,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getCompoundBestFoundRepository();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundBuildResultReference
-	 * <em>Compound Build Result Reference</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundBuildResultReference <em>Compound Build Result Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7888,7 +8179,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getCompoundBuildResultReference();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.CompoundBuildResultReference#getPrerequisites
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.CompoundBuildResultReference#getPrerequisites
 	 * <em>Prerequisites</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7901,8 +8192,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getCompoundBuildResultReference_Prerequisites();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundBuildUnitRepository
-	 * <em>Compound Build Unit Repository</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundBuildUnitRepository <em>Compound Build Unit Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7913,7 +8203,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getCompoundBuildUnitRepository();
 
 	/**
-	 * Returns the meta object for the reference list ' {@link org.eclipse.b3.build.build.CompoundBuildUnitRepository#getRepositories
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.CompoundBuildUnitRepository#getRepositories
 	 * <em>Repositories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7926,8 +8216,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getCompoundBuildUnitRepository_Repositories();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundFirstFoundRepository
-	 * <em>Compound First Found Repository</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundFirstFoundRepository <em>Compound First Found Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7938,8 +8227,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getCompoundFirstFoundRepository();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ConditionalPathVector
-	 * <em>Conditional Path Vector</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ConditionalPathVector <em>Conditional Path Vector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7950,7 +8238,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getConditionalPathVector();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.ConditionalPathVector#getCondExpr <em>Cond Expr</em>}
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.ConditionalPathVector#getCondExpr <em>Cond Expr</em>}
 	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7963,7 +8251,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getConditionalPathVector_CondExpr();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.ConditionalPathVector#getPathVectors
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.ConditionalPathVector#getPathVectors
 	 * <em>Path Vectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7976,8 +8264,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getConditionalPathVector_PathVectors();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ContainerConfiguration
-	 * <em>Container Configuration</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ContainerConfiguration <em>Container Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7988,7 +8275,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getContainerConfiguration();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.ContainerConfiguration#getAgentType
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.ContainerConfiguration#getAgentType
 	 * <em>Agent Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8001,7 +8288,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getContainerConfiguration_AgentType();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.ContainerConfiguration#getContextBlock
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.ContainerConfiguration#getContextBlock
 	 * <em>Context Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8014,7 +8301,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getContainerConfiguration_ContextBlock();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.build.build.ContainerConfiguration#getDocumentation <em>Documentation</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.ContainerConfiguration#getDocumentation <em>Documentation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8026,8 +8313,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getContainerConfiguration_Documentation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.ContainerConfiguration#getName
-	 * <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.ContainerConfiguration#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8051,7 +8337,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getEffectiveBuilderReferenceFacade();
 
 	/**
-	 * Returns the meta object for the attribute list ' {@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade#getAliases <em>Aliases</em>}
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade#getAliases <em>Aliases</em>}
 	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8064,8 +8350,8 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getEffectiveBuilderReferenceFacade_Aliases();
 
 	/**
-	 * Returns the meta object for the reference ' {@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade#getBuilderReference
-	 * <em>Builder Reference</em>} '.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade#getBuilderReference
+	 * <em>Builder Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8077,8 +8363,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getEffectiveBuilderReferenceFacade_BuilderReference();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade
-	 * <em>Effective Capability Facade</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade <em>Effective Capability Facade</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8089,7 +8374,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getEffectiveCapabilityFacade();
 
 	/**
-	 * Returns the meta object for the reference ' {@link org.eclipse.b3.build.build.EffectiveCapabilityFacade#getProvidedCapability
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade#getProvidedCapability
 	 * <em>Provided Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8113,8 +8398,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getEffectiveFacade();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveFacade#getContext
-	 * <em>Context</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveFacade#getContext <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8126,8 +8410,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getEffectiveFacade_Context();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveRequirementFacade
-	 * <em>Effective Requirement Facade</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveRequirementFacade <em>Effective Requirement Facade</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8138,7 +8421,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getEffectiveRequirementFacade();
 
 	/**
-	 * Returns the meta object for the reference ' {@link org.eclipse.b3.build.build.EffectiveRequirementFacade#getRequirement <em>Requirement</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveRequirementFacade#getRequirement <em>Requirement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8150,8 +8433,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getEffectiveRequirementFacade_Requirement();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveUnitFacade
-	 * <em>Effective Unit Facade</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveUnitFacade <em>Effective Unit Facade</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8162,7 +8444,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getEffectiveUnitFacade();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.EffectiveUnitFacade#getMetaRequiredCapabilities
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getMetaRequiredCapabilities
 	 * <em>Meta Required Capabilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8175,7 +8457,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getEffectiveUnitFacade_MetaRequiredCapabilities();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.EffectiveUnitFacade#getProvidedCapabilities
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getProvidedCapabilities
 	 * <em>Provided Capabilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8188,7 +8470,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getEffectiveUnitFacade_ProvidedCapabilities();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.EffectiveUnitFacade#getRequiredCapabilities
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getRequiredCapabilities
 	 * <em>Required Capabilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8201,8 +8483,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getEffectiveUnitFacade_RequiredCapabilities();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getUnit
-	 * <em>Unit</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getUnit <em>Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8214,8 +8495,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getEffectiveUnitFacade_Unit();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ExecutionStackRepository
-	 * <em>Execution Stack Repository</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ExecutionStackRepository <em>Execution Stack Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8237,7 +8517,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getIBuilder();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.IBuilder#getDefaultProperties
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getDefaultProperties
 	 * <em>Default Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8250,7 +8530,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIBuilder_DefaultProperties();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.IBuilder#getExplicitUnitType
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getExplicitUnitType
 	 * <em>Explicit Unit Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8263,8 +8543,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIBuilder_ExplicitUnitType();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getInput
-	 * <em>Input</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getInput <em>Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8276,8 +8555,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIBuilder_Input();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getOutput
-	 * <em>Output</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getOutput <em>Output</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8289,7 +8567,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIBuilder_Output();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.IBuilder#getPostcondExpr <em>Postcond Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getPostcondExpr <em>Postcond Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8301,7 +8579,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIBuilder_PostcondExpr();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.IBuilder#getPostinputcondExpr
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondExpr
 	 * <em>Postinputcond Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8314,8 +8592,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIBuilder_PostinputcondExpr();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getPrecondExpr
-	 * <em>Precond Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getPrecondExpr <em>Precond Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8327,8 +8604,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIBuilder_PrecondExpr();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getSource
-	 * <em>Source</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8340,8 +8616,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIBuilder_Source();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.IBuilder#getUnitType
-	 * <em>Unit Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.IBuilder#getUnitType <em>Unit Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8353,8 +8628,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getIBuilder_UnitType();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.core.IBuildUnitRepository
-	 * <em>IBuild Unit Repository</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.core.IBuildUnitRepository <em>IBuild Unit Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8366,8 +8640,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getIBuildUnitRepository();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ImplementsPredicate
-	 * <em>Implements Predicate</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ImplementsPredicate <em>Implements Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8378,7 +8651,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getImplementsPredicate();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.ImplementsPredicate#getType <em>Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.ImplementsPredicate#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8401,7 +8674,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getInputPredicate();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.InputPredicate#getBuilderPredicate
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.InputPredicate#getBuilderPredicate
 	 * <em>Builder Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8414,7 +8687,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getInputPredicate_BuilderPredicate();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.InputPredicate#getCapabilityPredicate
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.InputPredicate#getCapabilityPredicate
 	 * <em>Capability Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8427,8 +8700,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getInputPredicate_CapabilityPredicate();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer
-	 * <em>IProvided Capability Container</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8440,8 +8712,7 @@ public interface B3BuildPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.build.build.IProvidedCapabilityContainer#getProvidedCapabilities
-	 * <em>Provided Capabilities</em>}'.
+	 * {@link org.eclipse.b3.build.build.IProvidedCapabilityContainer#getProvidedCapabilities <em>Provided Capabilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8453,8 +8724,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIProvidedCapabilityContainer_ProvidedCapabilities();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer
-	 * <em>IRequired Capability Container</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8466,8 +8736,7 @@ public interface B3BuildPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.build.build.IRequiredCapabilityContainer#getRequiredCapabilities
-	 * <em>Required Capabilities</em>}'.
+	 * {@link org.eclipse.b3.build.build.IRequiredCapabilityContainer#getRequiredCapabilities <em>Required Capabilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8491,8 +8760,7 @@ public interface B3BuildPackage extends EPackage {
 	EDataType getIStatus();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.NameSpacePredicate
-	 * <em>Name Space Predicate</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.NameSpacePredicate <em>Name Space Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8503,8 +8771,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getNameSpacePredicate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.NameSpacePredicate#getNameSpace
-	 * <em>Name Space</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.NameSpacePredicate#getNameSpace <em>Name Space</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8538,7 +8805,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getPathGroup();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.PathGroup#getAnnotations <em>Annotations</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.PathGroup#getAnnotations <em>Annotations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8550,8 +8817,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getPathGroup_Annotations();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.PathGroup#getPathVectors <em>Path Vectors</em>}
-	 * '.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.PathGroup#getPathVectors <em>Path Vectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8563,8 +8829,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getPathGroup_PathVectors();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.PathGroupPredicate
-	 * <em>Path Group Predicate</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.PathGroupPredicate <em>Path Group Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8575,7 +8840,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getPathGroupPredicate();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.PathGroupPredicate#getPathPattern
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.PathGroupPredicate#getPathPattern
 	 * <em>Path Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8588,8 +8853,8 @@ public interface B3BuildPackage extends EPackage {
 	EReference getPathGroupPredicate_PathPattern();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.PathGroupPredicate#getPathVector
-	 * <em>Path Vector</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.PathGroupPredicate#getPathVector <em>Path Vector</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8624,8 +8889,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getPathVector();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.PathVector#getBasePath
-	 * <em>Base Path</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.PathVector#getBasePath <em>Base Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8637,8 +8901,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getPathVector_BasePath();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.PathVector#getPaths
-	 * <em>Paths</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.PathVector#getPaths <em>Paths</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8661,8 +8924,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getPrerequisite();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Prerequisite#getAlias
-	 * <em>Alias</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Prerequisite#getAlias <em>Alias</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8674,7 +8936,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getPrerequisite_Alias();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.Prerequisite#getBuildResult <em>Build Result</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Prerequisite#getBuildResult <em>Build Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8686,7 +8948,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getPrerequisite_BuildResult();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.Prerequisite#getCondExpr <em>Cond Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Prerequisite#getCondExpr <em>Cond Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8698,7 +8960,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getPrerequisite_CondExpr();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.Prerequisite#getWithExpr <em>With Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Prerequisite#getWithExpr <em>With Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8710,8 +8972,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getPrerequisite_WithExpr();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ProvidesPredicate
-	 * <em>Provides Predicate</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ProvidesPredicate <em>Provides Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8722,7 +8983,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getProvidesPredicate();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.ProvidesPredicate#getCapabilityPredicate
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.ProvidesPredicate#getCapabilityPredicate
 	 * <em>Capability Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8735,8 +8996,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getProvidesPredicate_CapabilityPredicate();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryConfiguration
-	 * <em>Repository Configuration</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryConfiguration <em>Repository Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8747,7 +9007,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getRepositoryConfiguration();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.RepositoryConfiguration#getCondExpr
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryConfiguration#getCondExpr
 	 * <em>Cond Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8760,8 +9020,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getRepositoryConfiguration_CondExpr();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.build.build.RepositoryConfiguration#getDocumentation <em>Documentation</em>}
-	 * '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryConfiguration#getDocumentation <em>Documentation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8773,8 +9032,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getRepositoryConfiguration_Documentation();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryDeclaration
-	 * <em>Repository Declaration</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryDeclaration <em>Repository Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8785,7 +9043,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getRepositoryDeclaration();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.RepositoryDeclaration#getContextBlock
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getContextBlock
 	 * <em>Context Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8798,8 +9056,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getRepositoryDeclaration_ContextBlock();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getLocation
-	 * <em>Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8811,7 +9068,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getRepositoryDeclaration_Location();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.RepositoryDeclaration#getResolverType
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getResolverType
 	 * <em>Resolver Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8824,8 +9081,80 @@ public interface B3BuildPackage extends EPackage {
 	EReference getRepositoryDeclaration_ResolverType();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RequiredCapability
-	 * <em>Required Capability</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryHandler <em>Repository Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Repository Handler</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryHandler
+	 * @generated
+	 */
+	EClass getRepositoryHandler();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.RepositoryHandler#getBranches <em>Branches</em>}
+	 * '.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Branches</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryHandler#getBranches()
+	 * @see #getRepositoryHandler()
+	 * @generated
+	 */
+	EReference getRepositoryHandler_Branches();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryHandler#getHandlerType
+	 * <em>Handler Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Handler Type</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryHandler#getHandlerType()
+	 * @see #getRepositoryHandler()
+	 * @generated
+	 */
+	EReference getRepositoryHandler_HandlerType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getLocal <em>Local</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Local</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryHandler#getLocal()
+	 * @see #getRepositoryHandler()
+	 * @generated
+	 */
+	EAttribute getRepositoryHandler_Local();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryHandler#getName()
+	 * @see #getRepositoryHandler()
+	 * @generated
+	 */
+	EAttribute getRepositoryHandler_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getRemote <em>Remote</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Remote</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryHandler#getRemote()
+	 * @see #getRepositoryHandler()
+	 * @generated
+	 */
+	EAttribute getRepositoryHandler_Remote();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RequiredCapability <em>Required Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8836,8 +9165,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getRequiredCapability();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiredCapability#isGreedy
-	 * <em>Greedy</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiredCapability#isGreedy <em>Greedy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8849,8 +9177,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getRequiredCapability_Greedy();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiredCapability#getMax
-	 * <em>Max</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiredCapability#getMax <em>Max</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8862,8 +9189,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getRequiredCapability_Max();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiredCapability#getMin
-	 * <em>Min</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiredCapability#getMin <em>Min</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8875,8 +9201,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getRequiredCapability_Min();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiredCapability#getVersionRange
-	 * <em>Version Range</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiredCapability#getVersionRange <em>Version Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8888,8 +9213,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getRequiredCapability_VersionRange();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RequiresPredicate
-	 * <em>Requires Predicate</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RequiresPredicate <em>Requires Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8900,7 +9224,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getRequiresPredicate();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.RequiresPredicate#getCapabilityPredicate
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RequiresPredicate#getCapabilityPredicate
 	 * <em>Capability Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8913,8 +9237,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getRequiresPredicate_CapabilityPredicate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiresPredicate#isMeta
-	 * <em>Meta</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiresPredicate#isMeta <em>Meta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8937,8 +9260,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getResolutionInfo();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.ResolutionInfo#getStatus
-	 * <em>Status</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.ResolutionInfo#getStatus <em>Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8950,8 +9272,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getResolutionInfo_Status();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategy
-	 * <em>Resolution Strategy</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategy <em>Resolution Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8962,7 +9283,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getResolutionStrategy();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.ResolutionStrategy#getRepositories
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.ResolutionStrategy#getRepositories
 	 * <em>Repositories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8975,8 +9296,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getResolutionStrategy_Repositories();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategyBest
-	 * <em>Resolution Strategy Best</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategyBest <em>Resolution Strategy Best</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8987,8 +9307,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getResolutionStrategyBest();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategyFirst
-	 * <em>Resolution Strategy First</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategyFirst <em>Resolution Strategy First</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8999,8 +9318,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getResolutionStrategyFirst();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategySwitch
-	 * <em>Resolution Strategy Switch</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategySwitch <em>Resolution Strategy Switch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9011,7 +9329,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getResolutionStrategySwitch();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.ResolutionStrategySwitch#getRepoSwitch
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.ResolutionStrategySwitch#getRepoSwitch
 	 * <em>Repo Switch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9024,7 +9342,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getResolutionStrategySwitch_RepoSwitch();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SimpleRepository <em>Simple Repository</em>} '.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SimpleRepository <em>Simple Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9035,8 +9353,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getSimpleRepository();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.SimpleRepository#getBeeModels
-	 * <em>Bee Models</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.SimpleRepository#getBeeModels <em>Bee Models</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9059,7 +9376,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getSourcePredicate();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SwitchRepository <em>Switch Repository</em>} '.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SwitchRepository <em>Switch Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9070,8 +9387,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getSwitchRepository();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.SwitchRepository#getRepoSwitch <em>Repo Switch</em>}
-	 * '.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.SwitchRepository#getRepoSwitch <em>Repo Switch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9094,7 +9410,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getSynchronization();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.Synchronization#getBuilderQueries
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.Synchronization#getBuilderQueries
 	 * <em>Builder Queries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9107,8 +9423,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getSynchronization_BuilderQueries();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitConcernContext
-	 * <em>Unit Concern Context</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitConcernContext <em>Unit Concern Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9119,7 +9434,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getUnitConcernContext();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.UnitConcernContext#getBuilderContexts
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.UnitConcernContext#getBuilderContexts
 	 * <em>Builder Contexts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9132,7 +9447,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getUnitConcernContext_BuilderContexts();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.build.build.UnitConcernContext#getOutputLocation <em>Output Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.UnitConcernContext#getOutputLocation <em>Output Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9144,7 +9459,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getUnitConcernContext_OutputLocation();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.UnitConcernContext#getProvidesRemovals
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.UnitConcernContext#getProvidesRemovals
 	 * <em>Provides Removals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9157,7 +9472,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getUnitConcernContext_ProvidesRemovals();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.build.build.UnitConcernContext#getQuery <em>Query</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.UnitConcernContext#getQuery <em>Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9169,7 +9484,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getUnitConcernContext_Query();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.build.build.UnitConcernContext#getRequiresRemovals
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.UnitConcernContext#getRequiresRemovals
 	 * <em>Requires Removals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9182,7 +9497,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getUnitConcernContext_RequiresRemovals();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.build.build.UnitConcernContext#getSourceLocation <em>Source Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.UnitConcernContext#getSourceLocation <em>Source Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9194,8 +9509,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getUnitConcernContext_SourceLocation();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitNamePredicate
-	 * <em>Unit Name Predicate</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitNamePredicate <em>Unit Name Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9206,8 +9520,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getUnitNamePredicate();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitResolutionInfo
-	 * <em>Unit Resolution Info</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitResolutionInfo <em>Unit Resolution Info</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9218,8 +9531,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getUnitResolutionInfo();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.UnitResolutionInfo#getContext
-	 * <em>Context</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.UnitResolutionInfo#getContext <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9231,8 +9543,7 @@ public interface B3BuildPackage extends EPackage {
 	EReference getUnitResolutionInfo_Context();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.UnitResolutionInfo#getUnit
-	 * <em>Unit</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.UnitResolutionInfo#getUnit <em>Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9242,6 +9553,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUnitResolutionInfo_Unit();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for enum '<em>Update Strategy</em>'.
+	 * @see org.eclipse.b3.build.build.UpdateStrategy
+	 * @generated
+	 */
+	EEnum getUpdateStrategy();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.Version <em>Version</em>}'.
@@ -9256,8 +9578,7 @@ public interface B3BuildPackage extends EPackage {
 	EDataType getVersion();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability
-	 * <em>Versioned Capability</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9268,8 +9589,7 @@ public interface B3BuildPackage extends EPackage {
 	EClass getVersionedCapability();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.VersionedCapability#getVersion
-	 * <em>Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.VersionedCapability#getVersion <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -9281,8 +9601,7 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getVersionedCapability_Version();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.VersionRange
-	 * <em>Version Range</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.VersionRange <em>Version Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

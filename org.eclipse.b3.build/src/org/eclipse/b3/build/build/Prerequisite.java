@@ -101,9 +101,7 @@ public interface Prerequisite extends EObject {
 	 * Returns an iterator over the effective references to builders in this, and other units.
 	 * <!-- end-model-doc -->
 	 * 
-	 * @model dataType=
-	 * 
-	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -113,9 +111,7 @@ public interface Prerequisite extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model dataType=
-	 * 
-	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -150,8 +146,7 @@ public interface Prerequisite extends EObject {
 	void setAlias(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.Prerequisite#getBuildResult <em>Build Result</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.Prerequisite#getBuildResult <em>Build Result</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -163,8 +158,7 @@ public interface Prerequisite extends EObject {
 	void setBuildResult(BuildResultReference value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.Prerequisite#getCondExpr <em>Cond Expr</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.Prerequisite#getCondExpr <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -176,8 +170,7 @@ public interface Prerequisite extends EObject {
 	void setCondExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.Prerequisite#getWithExpr <em>With Expr</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.Prerequisite#getWithExpr <em>With Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

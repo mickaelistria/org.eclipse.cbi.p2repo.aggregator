@@ -205,6 +205,17 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.CAPABILITY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.CAPABILITY__NAME:
@@ -333,17 +344,6 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 		result.append(nameSpace);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.CAPABILITY;
 	}
 
 } // CapabilityImpl

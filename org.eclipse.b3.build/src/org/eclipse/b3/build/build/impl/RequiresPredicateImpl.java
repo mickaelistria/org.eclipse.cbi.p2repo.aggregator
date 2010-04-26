@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl#getCapabilityPredicate <em>Capability Predicate </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl#isMeta <em>Meta</em>}</li>
  * </ul>
  * </p>
@@ -182,6 +182,17 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.REQUIRES_PREDICATE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
@@ -310,16 +321,5 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 		result.append(meta);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.REQUIRES_PREDICATE;
 	}
 } // RequiresPredicateImpl

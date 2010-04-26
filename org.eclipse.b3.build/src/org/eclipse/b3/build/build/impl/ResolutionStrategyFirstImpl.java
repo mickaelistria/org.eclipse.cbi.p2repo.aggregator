@@ -37,6 +37,17 @@ public class ResolutionStrategyFirstImpl extends ResolutionStrategyImpl implemen
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.RESOLUTION_STRATEGY_FIRST;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -56,16 +67,5 @@ public class ResolutionStrategyFirstImpl extends ResolutionStrategyImpl implemen
 			repo.getRepositories().add((BuildUnitRepository) r);
 		}
 		return repo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.RESOLUTION_STRATEGY_FIRST;
 	}
 } // ResolutionStrategyFirstImpl

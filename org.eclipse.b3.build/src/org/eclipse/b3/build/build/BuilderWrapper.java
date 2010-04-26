@@ -128,8 +128,8 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	boolean isUnitTypeAdvised();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isDefaultPropertiesAdvised
-	 * <em>Default Properties Advised</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isDefaultPropertiesAdvised <em>Default Properties Advised</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -141,8 +141,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	void setDefaultPropertiesAdvised(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isInputAdvised <em>Input Advised</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isInputAdvised <em>Input Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -154,8 +153,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	void setInputAdvised(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isOutputAdvised <em>Output Advised</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isOutputAdvised <em>Output Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -167,8 +165,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	void setOutputAdvised(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isProvidesAdvised
-	 * <em>Provides Advised</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isProvidesAdvised <em>Provides Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -180,8 +177,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	void setProvidesAdvised(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isSourceAdvised <em>Source Advised</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isSourceAdvised <em>Source Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -193,8 +189,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	void setSourceAdvised(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isUnitTypeAdvised
-	 * <em>Unit Type Advised</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isUnitTypeAdvised <em>Unit Type Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

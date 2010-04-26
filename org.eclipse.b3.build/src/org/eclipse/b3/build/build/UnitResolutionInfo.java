@@ -63,8 +63,7 @@ public interface UnitResolutionInfo extends ResolutionInfo {
 	BuildUnit getUnit();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.UnitResolutionInfo#getContext <em>Context</em>}'
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.UnitResolutionInfo#getContext <em>Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

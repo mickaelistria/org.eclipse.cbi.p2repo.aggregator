@@ -250,6 +250,17 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BEE_MODEL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BEE_MODEL__IMPORTS:
@@ -354,17 +365,6 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 				RepositoryConfiguration.class, this, B3BuildPackage.BEE_MODEL__REPOSITORIES);
 		}
 		return repositories;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BEE_MODEL;
 	}
 
 } // BeeModelImpl

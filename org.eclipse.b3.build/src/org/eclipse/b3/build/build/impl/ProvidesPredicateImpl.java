@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl#getCapabilityPredicate <em>Capability Predicate </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
  * </ul>
  * </p>
  * 
@@ -155,6 +155,17 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.PROVIDES_PREDICATE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
@@ -163,6 +174,17 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 		}
 		super.eUnset(featureID);
 	}
+
+	// /**
+	// * Removes the capability from its container if it matches
+	// * (watch out for concurrent modification if iterating over the collection and calling this method.
+	// */
+	// public boolean removeMatching(Capability input) {
+	// boolean result = false;
+	// if(result = (input instanceof VersionedCapability) ? matches((VersionedCapability)input) : matches(input))
+	// ((EList<?>)input.eContainer().eGet(input.eContainingFeature())).remove(input);
+	// return result;
+	// }
 
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
@@ -181,17 +203,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 		}
 		return Boolean.FALSE;
 	}
-
-	// /**
-	// * Removes the capability from its container if it matches
-	// * (watch out for concurrent modification if iterating over the collection and calling this method.
-	// */
-	// public boolean removeMatching(Capability input) {
-	// boolean result = false;
-	// if(result = (input instanceof VersionedCapability) ? matches((VersionedCapability)input) : matches(input))
-	// ((EList<?>)input.eContainer().eGet(input.eContainingFeature())).remove(input);
-	// return result;
-	// }
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -275,17 +286,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE,
 				newCapabilityPredicate, newCapabilityPredicate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.PROVIDES_PREDICATE;
 	}
 
 } // ProvidesPredicateImpl

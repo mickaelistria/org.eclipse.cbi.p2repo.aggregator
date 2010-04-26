@@ -147,6 +147,17 @@ public class SwitchRepositoryImpl extends BuildUnitRepositoryImpl implements Swi
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.SWITCH_REPOSITORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.SWITCH_REPOSITORY__REPO_SWITCH:
@@ -209,17 +220,6 @@ public class SwitchRepositoryImpl extends BuildUnitRepositoryImpl implements Swi
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.SWITCH_REPOSITORY__REPO_SWITCH, newRepoSwitch, newRepoSwitch));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.SWITCH_REPOSITORY;
 	}
 
 } // SwitchRepositoryImpl

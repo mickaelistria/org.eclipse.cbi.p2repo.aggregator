@@ -44,8 +44,7 @@ public interface EffectiveRequirementFacade extends EffectiveFacade {
 	RequiredCapability getRequirement();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.EffectiveRequirementFacade#getRequirement
-	 * <em>Requirement</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.EffectiveRequirementFacade#getRequirement <em>Requirement</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

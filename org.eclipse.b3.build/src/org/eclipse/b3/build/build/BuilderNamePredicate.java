@@ -43,8 +43,7 @@ public interface BuilderNamePredicate extends BExpression {
 	BNamePredicate getNamePredicate();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderNamePredicate#getNamePredicate
-	 * <em>Name Predicate</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderNamePredicate#getNamePredicate <em>Name Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

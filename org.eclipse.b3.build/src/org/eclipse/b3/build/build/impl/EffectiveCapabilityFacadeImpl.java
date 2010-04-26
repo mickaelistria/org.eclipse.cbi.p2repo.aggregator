@@ -121,6 +121,17 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.EFFECTIVE_CAPABILITY_FACADE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY:
@@ -163,17 +174,6 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY,
 				oldProvidedCapability, providedCapability));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.EFFECTIVE_CAPABILITY_FACADE;
 	}
 
 } // EffectiveCapabilityFacadeImpl

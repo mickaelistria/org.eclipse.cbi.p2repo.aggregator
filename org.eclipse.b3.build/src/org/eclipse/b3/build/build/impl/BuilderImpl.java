@@ -55,15 +55,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *                                <p>
  *                                The following features are implemented:
  *                                <ul>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getProvidedCapabilities <em> Provided Capabilities</em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPrecondExpr <em>Precond Expr </em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPrecondExpr <em>Precond Expr</em>}</li>
  *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getInput <em>Input</em>}</li>
  *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getOutput <em>Output</em>}</li>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getDefaultProperties <em> Default Properties</em>}</li>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostinputcondExpr <em> Postinputcond Expr</em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getDefaultProperties <em>Default Properties</em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getUnitType <em>Unit Type</em>}</li>
- *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getExplicitUnitType <em> Explicit Unit Type</em>}</li>
+ *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
  *                                <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getSource <em>Source</em>}</li>
  *                                </ul>
  *                                </p>
@@ -73,8 +73,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class BuilderImpl extends B3FunctionImpl implements Builder {
 
 	/**
-	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference
-	 * list.
+	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -367,6 +366,38 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		return new B3BuilderJob(ctx, this);
 	}
 
+	@Override
+	protected void computeParameters() {
+		// TODO: Should react to changes in Parameters instead of doing this
+		// stupid thing and on changes to BuildUnitType
+
+		if(parameterNames == null || parameterTypes == null) {
+			EList<BParameterDeclaration> pList = getParameters();
+			int pCount = pList.size();
+			int insertUnit = (pCount > 0 && "unit".equals(pList.get(0).getName()))
+					? 0
+					: 1;
+
+			pCount += insertUnit;
+
+			parameterNames = new String[pCount];
+			parameterTypes = new Type[pCount];
+
+			if(insertUnit > 0) {
+				parameterTypes[0] = getUnitType();
+				parameterNames[0] = "unit";
+			}
+
+			Iterator<BParameterDeclaration> pIterator = pList.iterator();
+
+			for(int i = insertUnit; i < pCount; ++i) {
+				BParameterDeclaration p = pIterator.next();
+				parameterNames[i] = p.getName();
+				parameterTypes[i] = p.getType();
+			}
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -593,6 +624,17 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return;
 		}
 		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER;
 	}
 
 	/**
@@ -1055,49 +1097,6 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		result.append(unitType);
 		result.append(')');
 		return result.toString();
-	}
-
-	@Override
-	protected void computeParameters() {
-		// TODO: Should react to changes in Parameters instead of doing this
-		// stupid thing and on changes to BuildUnitType
-
-		if(parameterNames == null || parameterTypes == null) {
-			EList<BParameterDeclaration> pList = getParameters();
-			int pCount = pList.size();
-			int insertUnit = (pCount > 0 && "unit".equals(pList.get(0).getName()))
-					? 0
-					: 1;
-
-			pCount += insertUnit;
-
-			parameterNames = new String[pCount];
-			parameterTypes = new Type[pCount];
-
-			if(insertUnit > 0) {
-				parameterTypes[0] = getUnitType();
-				parameterNames[0] = "unit";
-			}
-
-			Iterator<BParameterDeclaration> pIterator = pList.iterator();
-
-			for(int i = insertUnit; i < pCount; ++i) {
-				BParameterDeclaration p = pIterator.next();
-				parameterNames[i] = p.getName();
-				parameterTypes[i] = p.getType();
-			}
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER;
 	}
 
 } // BuilderImpl

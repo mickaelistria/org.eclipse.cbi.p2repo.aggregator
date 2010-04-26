@@ -47,6 +47,17 @@ public abstract class BuildResultReferenceImpl extends EObjectImpl implements Bu
 	 * 
 	 * @generated
 	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_RESULT_REFERENCE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EList<BuilderReference> getBuilderReferences() throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -88,17 +99,6 @@ public abstract class BuildResultReferenceImpl extends EObjectImpl implements Bu
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_RESULT_REFERENCE;
 	}
 
 } // BuildResultReferenceImpl

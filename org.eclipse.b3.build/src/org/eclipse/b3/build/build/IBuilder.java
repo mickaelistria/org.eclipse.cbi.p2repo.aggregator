@@ -61,9 +61,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Returns an iterator over the effective references to builders in this, and other units.
 	 * <!-- end-model-doc -->
 	 * 
-	 * @model dataType=
-	 * 
-	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -73,9 +71,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model dataType=
-	 * 
-	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveCapabilityFacade>"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveCapabilityFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -85,9 +81,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model dataType=
-	 * 
-	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>"
 	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -222,8 +216,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	Class<? extends BuildUnit> getUnitType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getDefaultProperties
-	 * <em>Default Properties</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getDefaultProperties <em>Default Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -235,8 +228,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	void setDefaultProperties(BPropertySet value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getExplicitUnitType
-	 * <em>Explicit Unit Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getExplicitUnitType <em>Explicit Unit Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -248,8 +240,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	void setExplicitUnitType(Type value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getInput <em>Input</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getInput <em>Input</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -261,8 +252,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	void setInput(BuilderInput value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getOutput <em>Output</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getOutput <em>Output</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -274,8 +264,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	void setOutput(PathGroup value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getPostcondExpr <em>Postcond Expr</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getPostcondExpr <em>Postcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -287,8 +276,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	void setPostcondExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondExpr
-	 * <em>Postinputcond Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondExpr <em>Postinputcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -300,8 +288,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	void setPostinputcondExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getPrecondExpr <em>Precond Expr</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getPrecondExpr <em>Precond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -313,8 +300,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	void setPrecondExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getSource <em>Source</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getSource <em>Source</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

@@ -40,6 +40,17 @@ public class CompoundBestFoundRepositoryImpl extends CompoundBuildUnitRepository
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.COMPOUND_BEST_FOUND_REPOSITORY;
+	}
+
+	/**
 	 * TODO: THIS IS A FAKE IMPLEMENTATION OF BEST FOUND - IT IS IDENTICAL TO FIRST FOUND
 	 * The implementation should obtain all possible resolutions and then use the unit that best
 	 * resembles the preference for source, binary, etc.
@@ -51,17 +62,6 @@ public class CompoundBestFoundRepositoryImpl extends CompoundBuildUnitRepository
 			if((result = repo.resolve(ctx, requiredCapability)) != null)
 				return result;
 		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.COMPOUND_BEST_FOUND_REPOSITORY;
 	}
 
 } // CompoundBestFoundRepositoryImpl

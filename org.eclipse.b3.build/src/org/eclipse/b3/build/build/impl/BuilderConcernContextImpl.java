@@ -73,12 +73,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isVarArgs <em>Var Args</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getParameters <em>Parameters</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isMatchParameters <em>Match Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePreCondition <em>Remove Pre Condition </em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePostCondition <em>Remove Post Condition </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePreCondition <em>Remove Pre Condition</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePostCondition <em>Remove Post Condition</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePostInputCondition <em>Remove Post Input Condition</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPrecondExpr <em>Precond Expr</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostinputcondExpr <em>Postinputcond Expr </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getProvidesRemovals <em>Provides Removals</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getOutputAnnotationsRemovals <em>Output Annotations Removals</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}</li>
@@ -324,8 +324,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	protected EList<ProvidesPredicate> providesRemovals;
 
 	/**
-	 * The cached value of the '{@link #getOutputAnnotationsRemovals() <em>Output Annotations Removals</em>}' attribute
-	 * list.
+	 * The cached value of the '{@link #getOutputAnnotationsRemovals() <em>Output Annotations Removals</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -336,8 +335,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	protected EList<String> outputAnnotationsRemovals;
 
 	/**
-	 * The cached value of the '{@link #getOutputAnnotationAdditions() <em>Output Annotation Additions</em>}'
-	 * containment reference.
+	 * The cached value of the '{@link #getOutputAnnotationAdditions() <em>Output Annotation Additions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -370,8 +368,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	protected EList<ConditionalPathVector> sourceAdditions;
 
 	/**
-	 * The cached value of the '{@link #getSourceAnnotationsRemovals() <em>Source Annotations Removals</em>}' attribute
-	 * list.
+	 * The cached value of the '{@link #getSourceAnnotationsRemovals() <em>Source Annotations Removals</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -382,8 +379,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	protected EList<String> sourceAnnotationsRemovals;
 
 	/**
-	 * The cached value of the '{@link #getSourceAnnotationAdditions() <em>Source Annotation Additions</em>}'
-	 * containment reference.
+	 * The cached value of the '{@link #getSourceAnnotationAdditions() <em>Source Annotation Additions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -804,6 +800,17 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_CONCERN_CONTEXT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
@@ -1207,6 +1214,21 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	}
 
 	/**
+	 * Evaluates the query and returns true, if the candidate matches the query. This method does not include
+	 * parameter type matching.
+	 * 
+	 * @param candidate
+	 * @param ctx
+	 * @return
+	 * @throws Throwable
+	 */
+	private boolean matchesQuery(IBuilder candidate, BExecutionContext ctx) throws Throwable {
+		BExecutionContext ictx = ctx.createInnerContext();
+		ictx.defineVariableValue("@test", candidate, Builder.class);
+		return getQuery().evaluate(ictx) == Boolean.TRUE;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1481,32 +1503,6 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		result.append(sourceAnnotationsRemovals);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_CONCERN_CONTEXT;
-	}
-
-	/**
-	 * Evaluates the query and returns true, if the candidate matches the query. This method does not include
-	 * parameter type matching.
-	 * 
-	 * @param candidate
-	 * @param ctx
-	 * @return
-	 * @throws Throwable
-	 */
-	private boolean matchesQuery(IBuilder candidate, BExecutionContext ctx) throws Throwable {
-		BExecutionContext ictx = ctx.createInnerContext();
-		ictx.defineVariableValue("@test", candidate, Builder.class);
-		return getQuery().evaluate(ictx) == Boolean.TRUE;
 	}
 
 	/**

@@ -86,8 +86,7 @@ public interface Capability extends EObject {
 	boolean satisfies(RequiredCapability requirement);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.Capability#getCondExpr <em>Cond Expr</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.Capability#getCondExpr <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

@@ -201,6 +201,17 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.INPUT_PREDICATE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.INPUT_PREDICATE__CAPABILITY_PREDICATE:
@@ -271,6 +282,43 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 		return Boolean.class;
 	}
 
+	private boolean removeMatches(ListIterator<Prerequisite> reqItor) {
+		boolean modified = false;
+		while(reqItor.hasNext()) {
+			BuildResultReference brr = reqItor.next().getBuildResult();
+			if(brr instanceof BuilderReference) {
+				BuilderReference br = (BuilderReference) brr;
+				if(builderPredicate != null && !builderPredicate.matches(br.getBuilderName()))
+					continue;
+				RequiredCapability rc = br.getRequiredCapability();
+				if(rc == null) {
+					rc = br.getRequiredCapabilityReference();
+					if(rc == null)
+						throw new B3InternalError(
+							"A BulderReference had neither a RequiredCapability nor a reference to one");
+				}
+				if(capabilityPredicate != null && !capabilityPredicate.matches(rc))
+					continue;
+
+				reqItor.remove();
+				modified = true;
+			}
+			else if(brr instanceof CompoundBuildResultReference) {
+				EList<Prerequisite> reqs = ((CompoundBuildResultReference) brr).getPrerequisites();
+				modified = removeMatches(reqs.listIterator()) || modified;
+				// compound may be empty after the operation - remove it
+				if(reqs.size() == 0) {
+					reqItor.remove();
+					modified = true;
+				}
+			}
+			else
+				throw new B3InternalError("InputPredicate can not handle unknown subclass of BuildResultReference :" +
+						brr.getClass().toString());
+		}
+		return modified;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Removes prerequisites in the input that matches the InputPredicate. Matching is performed without evaluating
@@ -332,54 +380,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.INPUT_PREDICATE__CAPABILITY_PREDICATE, newCapabilityPredicate,
 				newCapabilityPredicate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.INPUT_PREDICATE;
-	}
-
-	private boolean removeMatches(ListIterator<Prerequisite> reqItor) {
-		boolean modified = false;
-		while(reqItor.hasNext()) {
-			BuildResultReference brr = reqItor.next().getBuildResult();
-			if(brr instanceof BuilderReference) {
-				BuilderReference br = (BuilderReference) brr;
-				if(builderPredicate != null && !builderPredicate.matches(br.getBuilderName()))
-					continue;
-				RequiredCapability rc = br.getRequiredCapability();
-				if(rc == null) {
-					rc = br.getRequiredCapabilityReference();
-					if(rc == null)
-						throw new B3InternalError(
-							"A BulderReference had neither a RequiredCapability nor a reference to one");
-				}
-				if(capabilityPredicate != null && !capabilityPredicate.matches(rc))
-					continue;
-
-				reqItor.remove();
-				modified = true;
-			}
-			else if(brr instanceof CompoundBuildResultReference) {
-				EList<Prerequisite> reqs = ((CompoundBuildResultReference) brr).getPrerequisites();
-				modified = removeMatches(reqs.listIterator()) || modified;
-				// compound may be empty after the operation - remove it
-				if(reqs.size() == 0) {
-					reqItor.remove();
-					modified = true;
-				}
-			}
-			else
-				throw new B3InternalError("InputPredicate can not handle unknown subclass of BuildResultReference :" +
-						brr.getClass().toString());
-		}
-		return modified;
 	}
 
 } // InputPredicateImpl

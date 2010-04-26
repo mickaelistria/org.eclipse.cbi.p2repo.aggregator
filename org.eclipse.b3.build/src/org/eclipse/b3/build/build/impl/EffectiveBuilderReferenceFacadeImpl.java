@@ -145,6 +145,17 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.EFFECTIVE_BUILDER_REFERENCE_FACADE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE:
@@ -223,17 +234,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 		result.append(aliases);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.EFFECTIVE_BUILDER_REFERENCE_FACADE;
 	}
 
 } // EffectiveBuilderReferenceFacadeImpl

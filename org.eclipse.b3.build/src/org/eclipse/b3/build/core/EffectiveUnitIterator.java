@@ -27,6 +27,12 @@ public class EffectiveUnitIterator implements Iterator<BuildUnit>, Iterable<Buil
 		itor = unitStore.values().iterator();
 	}
 
+	private void collectUnits(BuildContext ctx, Iterator<BExecutionContext> pitor) {
+		if(pitor.hasNext())
+			collectUnits((BuildContext) pitor.next(), pitor);
+		unitStore.putAll(((BuildContextImpl) ctx).getBuildUnitStore());
+	}
+
 	public boolean hasNext() {
 		return itor.hasNext();
 	}
@@ -41,12 +47,6 @@ public class EffectiveUnitIterator implements Iterator<BuildUnit>, Iterable<Buil
 
 	public void remove() {
 		throw new UnsupportedOperationException();
-	}
-
-	private void collectUnits(BuildContext ctx, Iterator<BExecutionContext> pitor) {
-		if(pitor.hasNext())
-			collectUnits((BuildContext) pitor.next(), pitor);
-		unitStore.putAll(((BuildContextImpl) ctx).getBuildUnitStore());
 	}
 
 }

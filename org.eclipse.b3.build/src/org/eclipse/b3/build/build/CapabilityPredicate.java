@@ -106,8 +106,7 @@ public interface CapabilityPredicate extends BExpression {
 	boolean matches(VersionedCapability candidate);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNamePredicate
-	 * <em>Name Predicate</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNamePredicate <em>Name Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -119,8 +118,8 @@ public interface CapabilityPredicate extends BExpression {
 	void setNamePredicate(BNamePredicate value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePredicate
-	 * <em>Name Space Predicate</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePredicate <em>Name Space Predicate</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -132,8 +131,7 @@ public interface CapabilityPredicate extends BExpression {
 	void setNameSpacePredicate(BNamePredicate value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.CapabilityPredicate#getVersionRange
-	 * <em>Version Range</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.CapabilityPredicate#getVersionRange <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

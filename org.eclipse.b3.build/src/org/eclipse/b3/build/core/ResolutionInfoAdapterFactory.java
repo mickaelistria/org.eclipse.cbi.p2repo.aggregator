@@ -34,12 +34,12 @@ public class ResolutionInfoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	@Override
-	public boolean isFactoryForType(Object type) {
-		return type == ResolutionInfoAdapter.class;
+	protected Adapter createAdapter(Notifier target, Object type) {
+		return new ResolutionInfoAdapter();
 	}
 
 	@Override
-	protected Adapter createAdapter(Notifier target, Object type) {
-		return new ResolutionInfoAdapter();
+	public boolean isFactoryForType(Object type) {
+		return type == ResolutionInfoAdapter.class;
 	}
 }

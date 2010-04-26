@@ -39,6 +39,17 @@ public class SourcePredicateImpl extends PathGroupPredicateImpl implements Sourc
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.SOURCE_PREDICATE;
+	}
+
+	/**
 	 * Evaluates the source of the IBuilder assigned to the context variable "@test" and matches that against
 	 * either the path vector or pathPattern (a literal any or literal regexp). In the case of a path vector,
 	 * the source specification must contain all paths in the predicate path vector (i.e. containsAll semantics).
@@ -56,17 +67,6 @@ public class SourcePredicateImpl extends PathGroupPredicateImpl implements Sourc
 		PathGroup pg = b.getSource();
 		ctx.defineVariableValue("@test.pathgroup", pg, PathGroup.class);
 		return super.evaluate(ctx);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.SOURCE_PREDICATE;
 	}
 
 } // SourcePredicateImpl

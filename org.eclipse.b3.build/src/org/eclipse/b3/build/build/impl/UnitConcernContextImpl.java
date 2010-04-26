@@ -54,7 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiredCapabilities <em>Required Capabilities </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getBuilderContexts <em>Builder Contexts</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getQuery <em>Query</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiresRemovals <em>Requires Removals</em>}</li>
@@ -68,8 +68,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class UnitConcernContextImpl extends BuildConcernContextImpl implements UnitConcernContext {
 	/**
-	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference
-	 * list.
+	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -175,6 +174,125 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 */
 	protected UnitConcernContextImpl() {
 		super();
+	}
+
+	/**
+	 * Surgically performs the modification of a unit (it should be passed a clone).
+	 * 
+	 * @param u
+	 *            the cloned build unit to modify
+	 * @param ctx
+	 *            the execution context
+	 * @return true if the given unit was modified
+	 * @throws Throwable
+	 */
+	private boolean adviseUnit(BuildUnit u, BuildContext ctx) throws Throwable {
+		boolean modified = false;
+
+		// removal of provided capabilities
+		ListIterator<Capability> pcItor = getProvidedCapabilities().listIterator();
+		while(pcItor.hasNext()) {
+			Capability pc = pcItor.next();
+			for(ProvidesPredicate prem : getProvidesRemovals())
+				if(pc instanceof VersionedCapability
+						? prem.matches((VersionedCapability.class.cast(pc)))
+						: prem.matches(pc)) {
+					pcItor.remove();
+					modified = true;
+				}
+		}
+		// addition of provided capabilities
+		for(Capability pc : getProvidedCapabilities()) {
+			pcItor.add(Capability.class.cast(EcoreUtil.copy(pc)));
+			modified = true;
+		}
+		// removal of required capabilities
+		ListIterator<RequiredCapability> rcItor = getRequiredCapabilities().listIterator();
+		while(rcItor.hasNext()) {
+			RequiredCapability rc = rcItor.next();
+			for(RequiresPredicate rrem : getRequiresRemovals()) {
+				if(rrem.matches(rc)) {
+					rcItor.remove();
+					modified = true;
+				}
+			}
+		}
+		// addition of required capabilities
+		for(RequiredCapability rc : getRequiredCapabilities()) {
+			rcItor.add(RequiredCapability.class.cast(EcoreUtil.copy(rc)));
+			modified = true;
+		}
+
+		// SOURCE AND OUTPUT LOCATIONA
+		if(getSourceLocation() != null) {
+			u.setSourceLocation(getSourceLocation());
+			modified = true;
+		}
+
+		if(getOutputLocation() != null) {
+			u.setOutputLocation(getOutputLocation());
+			modified = true;
+		}
+
+		// ADVICE BUILDERS
+		// (note: does not require marking the unit itself as modified as the modified units
+		// are associated with the build unit via its interface.
+		adviseUnitBuilders(u, ctx);
+
+		// DEFINE ADDITIONAL BUILDERS
+		// these builders are contained in a UnitConcernContext (no surprise) - they do not have a first parameter
+		// set (they can't since it is not known which units they will be defined for in advance). Wrappers must
+		// be used, and each wrapper installed for the matched unit.
+		//
+		EList<IFunction> fList = getFunctions();
+		Class<? extends BuildUnit> iFace = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getIface();
+		for(IFunction f : fList) {
+			BuilderWrapper wrapper = B3BuildFactory.eINSTANCE.createBuilderWrapper();
+			wrapper.setOriginal(f);
+			wrapper.setUnitType(iFace);
+			ctx.defineFunction(wrapper);
+			modified = true;
+		}
+
+		// WEAVE DEFAULT PROPERTIES
+		// if there are removals or additions, copy the property set from the original and then remove
+		// specific property settings - nasty if other properties rely on previously set properties - but
+		// user has to worry about that, then add copied definitions from additions.
+		//
+		if(getDefaultPropertiesRemovals().size() > 0 || getDefaultPropertiesAdditions() != null) {
+			BPropertySet ps = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
+			u.setDefaultProperties(ps);
+			modified = processProperties(
+				ps, getDefaultPropertiesRemovals(), u.getDefaultProperties(), getDefaultPropertiesAdditions()) ||
+					modified;
+		}
+		// TODO: Support advised source and output locations
+
+		return modified;
+	}
+
+	/**
+	 * The builders applicable to the unit are matched using {@link BuilderConcernContext#evaluateIfMatching(Object, BExecutionContext, BuildUnit)}
+	 * which weaves these
+	 * builders as copies specific to the matching build units.
+	 * 
+	 * @param u
+	 * @param ctx
+	 * @return true if any builders were advised
+	 * @throws Throwable
+	 */
+	private boolean adviseUnitBuilders(BuildUnit u, BExecutionContext ctx) throws Throwable {
+		boolean modified = false;
+		BuildUnit proxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getProxy();
+		Iterator<IFunction> fItor = ctx.getFunctionIterator(proxy.getClass(), IBuilder.class);
+		while(fItor.hasNext()) {
+			IFunction candidate = fItor.next();
+			for(BuilderConcernContext bx : getBuilderContexts()) {
+				if(bx.evaluateIfMatching(candidate, ctx, u))
+					modified = true;
+			}
+		}
+		return modified;
 	}
 
 	/**
@@ -353,6 +471,17 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 				return;
 		}
 		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.UNIT_CONCERN_CONTEXT;
 	}
 
 	/**
@@ -587,136 +716,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		result.append(outputLocation);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.UNIT_CONCERN_CONTEXT;
-	}
-
-	/**
-	 * Surgically performs the modification of a unit (it should be passed a clone).
-	 * 
-	 * @param u
-	 *            the cloned build unit to modify
-	 * @param ctx
-	 *            the execution context
-	 * @return true if the given unit was modified
-	 * @throws Throwable
-	 */
-	private boolean adviseUnit(BuildUnit u, BuildContext ctx) throws Throwable {
-		boolean modified = false;
-
-		// removal of provided capabilities
-		ListIterator<Capability> pcItor = getProvidedCapabilities().listIterator();
-		while(pcItor.hasNext()) {
-			Capability pc = pcItor.next();
-			for(ProvidesPredicate prem : getProvidesRemovals())
-				if(pc instanceof VersionedCapability
-						? prem.matches((VersionedCapability.class.cast(pc)))
-						: prem.matches(pc)) {
-					pcItor.remove();
-					modified = true;
-				}
-		}
-		// addition of provided capabilities
-		for(Capability pc : getProvidedCapabilities()) {
-			pcItor.add(Capability.class.cast(EcoreUtil.copy(pc)));
-			modified = true;
-		}
-		// removal of required capabilities
-		ListIterator<RequiredCapability> rcItor = getRequiredCapabilities().listIterator();
-		while(rcItor.hasNext()) {
-			RequiredCapability rc = rcItor.next();
-			for(RequiresPredicate rrem : getRequiresRemovals()) {
-				if(rrem.matches(rc)) {
-					rcItor.remove();
-					modified = true;
-				}
-			}
-		}
-		// addition of required capabilities
-		for(RequiredCapability rc : getRequiredCapabilities()) {
-			rcItor.add(RequiredCapability.class.cast(EcoreUtil.copy(rc)));
-			modified = true;
-		}
-
-		// SOURCE AND OUTPUT LOCATIONA
-		if(getSourceLocation() != null) {
-			u.setSourceLocation(getSourceLocation());
-			modified = true;
-		}
-
-		if(getOutputLocation() != null) {
-			u.setOutputLocation(getOutputLocation());
-			modified = true;
-		}
-
-		// ADVICE BUILDERS
-		// (note: does not require marking the unit itself as modified as the modified units
-		// are associated with the build unit via its interface.
-		adviseUnitBuilders(u, ctx);
-
-		// DEFINE ADDITIONAL BUILDERS
-		// these builders are contained in a UnitConcernContext (no surprise) - they do not have a first parameter
-		// set (they can't since it is not known which units they will be defined for in advance). Wrappers must
-		// be used, and each wrapper installed for the matched unit.
-		//
-		EList<IFunction> fList = getFunctions();
-		Class<? extends BuildUnit> iFace = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getIface();
-		for(IFunction f : fList) {
-			BuilderWrapper wrapper = B3BuildFactory.eINSTANCE.createBuilderWrapper();
-			wrapper.setOriginal(f);
-			wrapper.setUnitType(iFace);
-			ctx.defineFunction(wrapper);
-			modified = true;
-		}
-
-		// WEAVE DEFAULT PROPERTIES
-		// if there are removals or additions, copy the property set from the original and then remove
-		// specific property settings - nasty if other properties rely on previously set properties - but
-		// user has to worry about that, then add copied definitions from additions.
-		//
-		if(getDefaultPropertiesRemovals().size() > 0 || getDefaultPropertiesAdditions() != null) {
-			BPropertySet ps = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
-			u.setDefaultProperties(ps);
-			modified = processProperties(
-				ps, getDefaultPropertiesRemovals(), u.getDefaultProperties(), getDefaultPropertiesAdditions()) ||
-					modified;
-		}
-		// TODO: Support advised source and output locations
-
-		return modified;
-	}
-
-	/**
-	 * The builders applicable to the unit are matched using {@link BuilderConcernContext#evaluateIfMatching(Object, BExecutionContext, BuildUnit)}
-	 * which weaves these
-	 * builders as copies specific to the matching build units.
-	 * 
-	 * @param u
-	 * @param ctx
-	 * @return true if any builders were advised
-	 * @throws Throwable
-	 */
-	private boolean adviseUnitBuilders(BuildUnit u, BExecutionContext ctx) throws Throwable {
-		boolean modified = false;
-		BuildUnit proxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getProxy();
-		Iterator<IFunction> fItor = ctx.getFunctionIterator(proxy.getClass(), IBuilder.class);
-		while(fItor.hasNext()) {
-			IFunction candidate = fItor.next();
-			for(BuilderConcernContext bx : getBuilderContexts()) {
-				if(bx.evaluateIfMatching(candidate, ctx, u))
-					modified = true;
-			}
-		}
-		return modified;
 	}
 
 	private boolean weaveIfMatching(BuildUnit u, BExecutionContext ctx) throws Throwable {

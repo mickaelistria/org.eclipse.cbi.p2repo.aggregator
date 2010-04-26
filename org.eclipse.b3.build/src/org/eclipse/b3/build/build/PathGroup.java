@@ -62,8 +62,7 @@ public interface PathGroup extends EObject {
 	EList<ConditionalPathVector> getPathVectors();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.PathGroup#getAnnotations <em>Annotations</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.PathGroup#getAnnotations <em>Annotations</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

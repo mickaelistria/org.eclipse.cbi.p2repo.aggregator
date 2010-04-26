@@ -75,7 +75,7 @@ public interface PathGroupPredicate extends BExpression {
 	boolean removeMatching(PathGroup input);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.PathGroupPredicate#getPathPattern <em>Path Pattern</em>} ' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.PathGroupPredicate#getPathPattern <em>Path Pattern</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -87,8 +87,7 @@ public interface PathGroupPredicate extends BExpression {
 	void setPathPattern(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.PathGroupPredicate#getPathVector <em>Path Vector</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.PathGroupPredicate#getPathVector <em>Path Vector</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

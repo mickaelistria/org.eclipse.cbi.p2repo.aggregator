@@ -130,8 +130,7 @@ public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabi
 	URI getSourceLocation();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.UnitConcernContext#getOutputLocation
-	 * <em>Output Location</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.UnitConcernContext#getOutputLocation <em>Output Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -143,8 +142,7 @@ public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabi
 	void setOutputLocation(URI value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.UnitConcernContext#getQuery <em>Query</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.UnitConcernContext#getQuery <em>Query</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -156,8 +154,7 @@ public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabi
 	void setQuery(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.UnitConcernContext#getSourceLocation
-	 * <em>Source Location</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.UnitConcernContext#getSourceLocation <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

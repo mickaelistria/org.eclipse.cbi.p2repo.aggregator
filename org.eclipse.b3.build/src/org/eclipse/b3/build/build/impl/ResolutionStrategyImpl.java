@@ -127,6 +127,17 @@ public abstract class ResolutionStrategyImpl extends RepositoryConfigurationImpl
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.RESOLUTION_STRATEGY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES:
@@ -148,17 +159,6 @@ public abstract class ResolutionStrategyImpl extends RepositoryConfigurationImpl
 				RepositoryConfiguration.class, this, B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES);
 		}
 		return repositories;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.RESOLUTION_STRATEGY;
 	}
 
 } // ResolutionStrategyImpl

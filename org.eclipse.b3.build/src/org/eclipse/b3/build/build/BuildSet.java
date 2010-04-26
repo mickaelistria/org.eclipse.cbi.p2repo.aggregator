@@ -49,8 +49,8 @@ public interface BuildSet extends ITypedValueContainer {
 	 * 
 	 * @return the value of the '<em>Path Iterator</em>' attribute.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildSet_PathIterator()
-	 * @model default="" unique="false" dataType="org.eclipse.b3.build.build.PathIterator" transient="true"
-	 *        changeable="false" volatile="true" derived="true" ordered="false"
+	 * @model default="" unique="false" dataType="org.eclipse.b3.build.build.PathIterator" transient="true" changeable="false" volatile="true"
+	 *        derived="true" ordered="false"
 	 * @generated
 	 */
 	PathIterator getPathIterator();

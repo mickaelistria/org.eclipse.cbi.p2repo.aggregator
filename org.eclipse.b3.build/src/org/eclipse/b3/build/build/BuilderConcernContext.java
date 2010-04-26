@@ -415,8 +415,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	boolean isVarArgs();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getFuncExpr <em>Func Expr</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getFuncExpr <em>Func Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -428,8 +427,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setFuncExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isMatchParameters
-	 * <em>Match Parameters</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isMatchParameters <em>Match Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -454,8 +452,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setOutputAnnotationAdditions(BPropertySet value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostcondExpr
-	 * <em>Postcond Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostcondExpr <em>Postcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -467,8 +464,8 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setPostcondExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostinputcondExpr
-	 * <em>Postinputcond Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostinputcondExpr <em>Postinputcond Expr</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -480,8 +477,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setPostinputcondExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPrecondExpr
-	 * <em>Precond Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPrecondExpr <em>Precond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -493,8 +489,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setPrecondExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getQuery <em>Query</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getQuery <em>Query</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -506,8 +501,8 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setQuery(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostCondition
-	 * <em>Remove Post Condition</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostCondition <em>Remove Post Condition</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -519,8 +514,8 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setRemovePostCondition(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostInputCondition
-	 * <em>Remove Post Input Condition</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input Condition</em>}
+	 * ' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -532,8 +527,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setRemovePostInputCondition(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePreCondition
-	 * <em>Remove Pre Condition</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePreCondition <em>Remove Pre Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -558,8 +552,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setSourceAnnotationAdditions(BPropertySet value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isVarArgs <em>Var Args</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isVarArgs <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

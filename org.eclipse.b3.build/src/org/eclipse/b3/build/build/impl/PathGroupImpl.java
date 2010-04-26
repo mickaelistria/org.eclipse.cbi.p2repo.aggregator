@@ -174,6 +174,17 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.PATH_GROUP;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.PATH_GROUP__ANNOTATIONS:
@@ -232,17 +243,6 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.PATH_GROUP__ANNOTATIONS, newAnnotations, newAnnotations));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.PATH_GROUP;
 	}
 
 } // PathGroupImpl

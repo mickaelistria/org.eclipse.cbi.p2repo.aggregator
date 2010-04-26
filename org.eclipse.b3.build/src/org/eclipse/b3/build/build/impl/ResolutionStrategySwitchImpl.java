@@ -151,6 +151,17 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.RESOLUTION_STRATEGY_SWITCH;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.RESOLUTION_STRATEGY_SWITCH__REPO_SWITCH:
@@ -223,17 +234,6 @@ public class ResolutionStrategySwitchImpl extends RepositoryConfigurationImpl im
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.RESOLUTION_STRATEGY_SWITCH__REPO_SWITCH, newRepoSwitch,
 				newRepoSwitch));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.RESOLUTION_STRATEGY_SWITCH;
 	}
 
 } // ResolutionStrategySwitchImpl

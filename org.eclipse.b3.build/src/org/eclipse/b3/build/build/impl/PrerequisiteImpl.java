@@ -272,6 +272,17 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.PREREQUISITE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.PREREQUISITE__COND_EXPR:
@@ -515,17 +526,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 		result.append(alias);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.PREREQUISITE;
 	}
 
 } // PrerequisiteImpl

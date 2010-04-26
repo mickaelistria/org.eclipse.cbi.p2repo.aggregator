@@ -116,6 +116,17 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.ALIASED_REQUIRED_CAPABILITY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
@@ -165,17 +176,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 		result.append(alias);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.ALIASED_REQUIRED_CAPABILITY;
 	}
 
 } // AliasedRequiredCapabilityImpl

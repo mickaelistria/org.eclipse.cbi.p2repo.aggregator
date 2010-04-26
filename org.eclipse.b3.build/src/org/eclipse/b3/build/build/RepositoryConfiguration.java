@@ -60,8 +60,7 @@ public interface RepositoryConfiguration extends BExpression {
 	String getDocumentation();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryConfiguration#getCondExpr <em>Cond Expr</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryConfiguration#getCondExpr <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -73,8 +72,7 @@ public interface RepositoryConfiguration extends BExpression {
 	void setCondExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryConfiguration#getDocumentation
-	 * <em>Documentation</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryConfiguration#getDocumentation <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

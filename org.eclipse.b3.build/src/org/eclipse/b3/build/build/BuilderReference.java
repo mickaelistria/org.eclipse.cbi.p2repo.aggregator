@@ -93,8 +93,7 @@ public interface BuilderReference extends BuildResultReference {
 	AliasedRequiredCapability getRequiredCapabilityReference();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderReference#getBuilderName <em>Builder Name</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderReference#getBuilderName <em>Builder Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -106,8 +105,7 @@ public interface BuilderReference extends BuildResultReference {
 	void setBuilderName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderReference#getParameters <em>Parameters</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderReference#getParameters <em>Parameters</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -119,8 +117,8 @@ public interface BuilderReference extends BuildResultReference {
 	void setParameters(BParameterList value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapability
-	 * <em>Required Capability</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapability <em>Required Capability</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

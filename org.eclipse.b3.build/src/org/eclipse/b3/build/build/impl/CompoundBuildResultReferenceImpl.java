@@ -136,6 +136,17 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.COMPOUND_BUILD_RESULT_REFERENCE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES:
@@ -198,17 +209,6 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 				Prerequisite.class, this, B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES);
 		}
 		return prerequisites;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.COMPOUND_BUILD_RESULT_REFERENCE;
 	}
 
 } // CompoundBuildResultReferenceImpl

@@ -145,6 +145,17 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.PATH_VECTOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.PATH_VECTOR__PATHS:
@@ -239,17 +250,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 		result.append(basePath);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.PATH_VECTOR;
 	}
 
 } // PathVectorImpl

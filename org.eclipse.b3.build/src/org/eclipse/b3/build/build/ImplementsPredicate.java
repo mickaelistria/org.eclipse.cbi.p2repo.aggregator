@@ -44,8 +44,7 @@ public interface ImplementsPredicate extends BExpression {
 	Type getType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.ImplementsPredicate#getType <em>Type</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.ImplementsPredicate#getType <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

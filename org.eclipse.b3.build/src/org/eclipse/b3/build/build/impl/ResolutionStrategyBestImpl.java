@@ -37,6 +37,17 @@ public class ResolutionStrategyBestImpl extends ResolutionStrategyImpl implement
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.RESOLUTION_STRATEGY_BEST;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -56,17 +67,6 @@ public class ResolutionStrategyBestImpl extends ResolutionStrategyImpl implement
 			repo.getRepositories().add((BuildUnitRepository) r);
 		}
 		return repo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.RESOLUTION_STRATEGY_BEST;
 	}
 
 } // ResolutionStrategyBestImpl

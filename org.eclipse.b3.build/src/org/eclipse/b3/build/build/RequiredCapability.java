@@ -131,8 +131,7 @@ public interface RequiredCapability extends Capability {
 	void setMin(int value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.RequiredCapability#getVersionRange
-	 * <em>Version Range</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RequiredCapability#getVersionRange <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

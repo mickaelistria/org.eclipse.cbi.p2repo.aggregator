@@ -73,8 +73,8 @@ public interface ProvidesPredicate extends BExpression {
 	boolean removeMatching(EList<Capability> input);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.ProvidesPredicate#getCapabilityPredicate
-	 * <em>Capability Predicate</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.ProvidesPredicate#getCapabilityPredicate <em>Capability Predicate</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

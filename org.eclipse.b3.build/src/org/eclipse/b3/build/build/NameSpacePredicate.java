@@ -42,8 +42,7 @@ public interface NameSpacePredicate extends EObject {
 	String getNameSpace();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.NameSpacePredicate#getNameSpace <em>Name Space</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.NameSpacePredicate#getNameSpace <em>Name Space</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

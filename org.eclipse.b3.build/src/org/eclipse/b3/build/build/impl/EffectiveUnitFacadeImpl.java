@@ -39,8 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getUnit <em>Unit</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getProvidedCapabilities <em>Provided Capabilities </em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getRequiredCapabilities <em>Required Capabilities </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
  * </ul>
  * </p>
@@ -60,8 +60,7 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	protected BuildUnit unit;
 
 	/**
-	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference
-	 * list.
+	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -72,8 +71,7 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	protected EList<EffectiveCapabilityFacade> providedCapabilities;
 
 	/**
-	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference
-	 * list.
+	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -84,8 +82,7 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	protected EList<EffectiveRequirementFacade> requiredCapabilities;
 
 	/**
-	 * The cached value of the '{@link #getMetaRequiredCapabilities() <em>Meta Required Capabilities</em>}' containment
-	 * reference list.
+	 * The cached value of the '{@link #getMetaRequiredCapabilities() <em>Meta Required Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -214,6 +211,17 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.EFFECTIVE_UNIT_FACADE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT:
@@ -306,17 +314,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT, oldUnit, unit));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.EFFECTIVE_UNIT_FACADE;
 	}
 
 } // EffectiveUnitFacadeImpl

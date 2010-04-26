@@ -17,6 +17,8 @@ import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeHive;
 import org.eclipse.b3.build.build.BeeModel;
+import org.eclipse.b3.build.build.Branch;
+import org.eclipse.b3.build.build.BranchPointType;
 import org.eclipse.b3.build.build.BuildConcernContext;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildResultContext;
@@ -60,6 +62,7 @@ import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.b3.build.build.ProvidesPredicate;
 import org.eclipse.b3.build.build.RepositoryConfiguration;
 import org.eclipse.b3.build.build.RepositoryDeclaration;
+import org.eclipse.b3.build.build.RepositoryHandler;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.RequiresPredicate;
 import org.eclipse.b3.build.build.ResolutionInfo;
@@ -74,6 +77,7 @@ import org.eclipse.b3.build.build.Synchronization;
 import org.eclipse.b3.build.build.UnitConcernContext;
 import org.eclipse.b3.build.build.UnitNamePredicate;
 import org.eclipse.b3.build.build.UnitResolutionInfo;
+import org.eclipse.b3.build.build.UpdateStrategy;
 import org.eclipse.b3.build.build.VersionedCapability;
 import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.b3.build.core.PathIterator;
@@ -81,6 +85,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -352,6 +357,38 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EClass switchRepositoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass repositoryHandlerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass branchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EEnum updateStrategyEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EEnum branchPointTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -690,8 +727,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	private boolean isInitialized = false;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
-	 * EPackage.Registry} by the package
+	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+	 * package
 	 * package URI value.
 	 * <p>
 	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
@@ -983,6 +1020,25 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		switchRepositoryEClass = createEClass(SWITCH_REPOSITORY);
 		createEReference(switchRepositoryEClass, SWITCH_REPOSITORY__REPO_SWITCH);
 
+		repositoryHandlerEClass = createEClass(REPOSITORY_HANDLER);
+		createEReference(repositoryHandlerEClass, REPOSITORY_HANDLER__HANDLER_TYPE);
+		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__NAME);
+		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__LOCAL);
+		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__REMOTE);
+		createEReference(repositoryHandlerEClass, REPOSITORY_HANDLER__BRANCHES);
+
+		branchEClass = createEClass(BRANCH);
+		createEAttribute(branchEClass, BRANCH__NAME);
+		createEAttribute(branchEClass, BRANCH__UPDATE_STRATEGY);
+		createEAttribute(branchEClass, BRANCH__BRANCH_POINT_TYPE);
+		createEAttribute(branchEClass, BRANCH__BRANCH_POINT);
+		createEReference(branchEClass, BRANCH__INCLUDE);
+		createEReference(branchEClass, BRANCH__EXCLUDE);
+
+		// Create enums
+		updateStrategyEEnum = createEEnum(UPDATE_STRATEGY);
+		branchPointTypeEEnum = createEEnum(BRANCH_POINT_TYPE);
+
 		// Create data types
 		versionRangeEDataType = createEDataType(VERSION_RANGE);
 		versionEDataType = createEDataType(VERSION);
@@ -1128,6 +1184,86 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EReference getBeeModel_Repositories() {
 		return (EReference) beeModelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getBranch() {
+		return branchEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBranch_BranchPoint() {
+		return (EAttribute) branchEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBranch_BranchPointType() {
+		return (EAttribute) branchEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getBranch_Exclude() {
+		return (EReference) branchEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getBranch_Include() {
+		return (EReference) branchEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBranch_Name() {
+		return (EAttribute) branchEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBranch_UpdateStrategy() {
+		return (EAttribute) branchEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EEnum getBranchPointType() {
+		return branchPointTypeEEnum;
 	}
 
 	/**
@@ -2676,6 +2812,66 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getRepositoryHandler() {
+		return repositoryHandlerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getRepositoryHandler_Branches() {
+		return (EReference) repositoryHandlerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getRepositoryHandler_HandlerType() {
+		return (EReference) repositoryHandlerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getRepositoryHandler_Local() {
+		return (EAttribute) repositoryHandlerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getRepositoryHandler_Name() {
+		return (EAttribute) repositoryHandlerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getRepositoryHandler_Remote() {
+		return (EAttribute) repositoryHandlerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getRequiredCapability() {
 		return requiredCapabilityEClass;
 	}
@@ -3008,6 +3204,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EReference getUnitResolutionInfo_Unit() {
 		return (EReference) unitResolutionInfoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EEnum getUpdateStrategy() {
+		return updateStrategyEEnum;
 	}
 
 	/**
@@ -4089,6 +4295,67 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getSwitchRepository_RepoSwitch(), theB3backendPackage.getBSwitchExpression(), null, "repoSwitch", null, 0,
 			1, SwitchRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			repositoryHandlerEClass, RepositoryHandler.class, "RepositoryHandler", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getRepositoryHandler_HandlerType(), theB3backendPackage.getIType(), null, "handlerType", null, 0, 1,
+			RepositoryHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getRepositoryHandler_Name(), ecorePackage.getEString(), "name", null, 0, 1, RepositoryHandler.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getRepositoryHandler_Local(), theB3backendPackage.getURI(), "local", null, 0, 1, RepositoryHandler.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getRepositoryHandler_Remote(), theB3backendPackage.getURI(), "remote", null, 0, 1, RepositoryHandler.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getRepositoryHandler_Branches(), this.getBranch(), null, "branches", null, 0, -1, RepositoryHandler.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getBranch_Name(), ecorePackage.getEString(), "name", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBranch_UpdateStrategy(), this.getUpdateStrategy(), "updateStrategy", "BranchPointDefault", 1, 1,
+			Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+			IS_ORDERED);
+		initEAttribute(
+			getBranch_BranchPointType(), this.getBranchPointType(), "branchPointType", "Latest", 1, 1, Branch.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBranch_BranchPoint(), ecorePackage.getEString(), "branchPoint", null, 0, 1, Branch.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getBranch_Include(), theB3backendPackage.getBNamePredicate(), null, "include", null, 0, -1, Branch.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getBranch_Exclude(), theB3backendPackage.getBNamePredicate(), null, "exclude", null, 0, -1, Branch.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		addEOperation(branchEClass, this.getUpdateStrategy(), "getEffectiveUpdateStrategy", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(updateStrategyEEnum, UpdateStrategy.class, "UpdateStrategy");
+		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.BRANCH_POINT_DEFAULT);
+		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.NO_UPDATE);
+		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.MERGE);
+		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.KEEP_MODIFIED);
+		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.REPLACE_MODIFIED);
+		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.FAIL_MODIFIED);
+
+		initEEnum(branchPointTypeEEnum, BranchPointType.class, "BranchPointType");
+		addEEnumLiteral(branchPointTypeEEnum, BranchPointType.LATEST);
+		addEEnumLiteral(branchPointTypeEEnum, BranchPointType.TAG);
+		addEEnumLiteral(branchPointTypeEEnum, BranchPointType.TIMESTAMP);
+		addEEnumLiteral(branchPointTypeEEnum, BranchPointType.REVISION);
 
 		// Initialize data types
 		initEDataType(

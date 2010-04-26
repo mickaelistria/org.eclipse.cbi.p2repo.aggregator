@@ -121,6 +121,17 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.EFFECTIVE_REQUIREMENT_FACADE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT:
@@ -163,17 +174,6 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT, oldRequirement,
 				requirement));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.EFFECTIVE_REQUIREMENT_FACADE;
 	}
 
 } // EffectiveRequirementFacadeImpl

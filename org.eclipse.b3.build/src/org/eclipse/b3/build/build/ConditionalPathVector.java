@@ -67,8 +67,7 @@ public interface ConditionalPathVector extends EObject {
 	EList<PathVector> getPathVectors();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.ConditionalPathVector#getCondExpr <em>Cond Expr</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.ConditionalPathVector#getCondExpr <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

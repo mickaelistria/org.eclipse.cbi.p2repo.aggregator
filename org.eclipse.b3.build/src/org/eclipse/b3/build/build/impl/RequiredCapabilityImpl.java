@@ -208,6 +208,17 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.REQUIRED_CAPABILITY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
@@ -343,17 +354,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 		result.append(min);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.REQUIRED_CAPABILITY;
 	}
 
 } // RequiredCapabilityImpl

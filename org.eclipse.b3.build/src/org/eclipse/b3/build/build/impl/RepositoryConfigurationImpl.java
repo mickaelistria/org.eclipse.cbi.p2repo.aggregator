@@ -175,6 +175,17 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.REPOSITORY_CONFIGURATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.REPOSITORY_CONFIGURATION__COND_EXPR:
@@ -285,16 +296,5 @@ public abstract class RepositoryConfigurationImpl extends BExpressionImpl implem
 		result.append(documentation);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.REPOSITORY_CONFIGURATION;
 	}
 } // RepositoryConfigurationImpl

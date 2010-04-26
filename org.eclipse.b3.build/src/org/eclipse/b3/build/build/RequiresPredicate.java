@@ -68,8 +68,8 @@ public interface RequiresPredicate extends BExpression {
 	boolean matches(RequiredCapability candidate);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.RequiresPredicate#getCapabilityPredicate
-	 * <em>Capability Predicate</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RequiresPredicate#getCapabilityPredicate <em>Capability Predicate</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

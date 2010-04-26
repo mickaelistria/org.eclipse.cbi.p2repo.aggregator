@@ -42,8 +42,7 @@ public interface VersionedCapability extends Capability {
 	Version getVersion();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.VersionedCapability#getVersion <em>Version</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.VersionedCapability#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

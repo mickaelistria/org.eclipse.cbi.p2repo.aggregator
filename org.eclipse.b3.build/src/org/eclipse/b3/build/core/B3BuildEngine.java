@@ -29,18 +29,6 @@ public class B3BuildEngine extends B3Engine {
 		defineDefaultRepositories();
 	}
 
-	public BuildContext getBuildContext() {
-		return buildContext;
-	}
-
-	/**
-	 * Returns the build context parented by the invocation context.
-	 */
-	@Override
-	public BExecutionContext getContext() {
-		return buildContext;
-	}
-
 	/**
 	 * Define the value '@repositories' to refer to the default repositories configuration to use
 	 * when resolving requirements.
@@ -84,5 +72,17 @@ public class B3BuildEngine extends B3Engine {
 				throw new B3InternalError("Defining repository schemes failed", e);
 			}
 		}
+	}
+
+	public BuildContext getBuildContext() {
+		return buildContext;
+	}
+
+	/**
+	 * Returns the build context parented by the invocation context.
+	 */
+	@Override
+	public BExecutionContext getContext() {
+		return buildContext;
 	}
 }

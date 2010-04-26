@@ -80,8 +80,7 @@ public interface RepositoryDeclaration extends RepositoryConfiguration {
 	Type getResolverType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getContextBlock
-	 * <em>Context Block</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getContextBlock <em>Context Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -93,8 +92,7 @@ public interface RepositoryDeclaration extends RepositoryConfiguration {
 	void setContextBlock(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getLocation <em>Location</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getLocation <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -106,8 +104,7 @@ public interface RepositoryDeclaration extends RepositoryConfiguration {
 	void setLocation(URI value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getResolverType
-	 * <em>Resolver Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getResolverType <em>Resolver Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

@@ -116,6 +116,17 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.VERSIONED_CAPABILITY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
@@ -180,16 +191,5 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 		result.append(version);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.VERSIONED_CAPABILITY;
 	}
 } // VersionedCapabilityImpl

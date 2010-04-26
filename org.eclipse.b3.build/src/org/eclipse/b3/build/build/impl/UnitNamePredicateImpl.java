@@ -36,6 +36,17 @@ public class UnitNamePredicateImpl extends CapabilityPredicateImpl implements Un
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.UNIT_NAME_PREDICATE;
+	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// pick up "@test" parameter from context
@@ -52,17 +63,6 @@ public class UnitNamePredicateImpl extends CapabilityPredicateImpl implements Un
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		return Boolean.class;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.UNIT_NAME_PREDICATE;
 	}
 
 } // UnitNamePredicateImpl

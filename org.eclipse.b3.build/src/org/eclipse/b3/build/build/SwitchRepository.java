@@ -46,8 +46,7 @@ public interface SwitchRepository extends BuildUnitRepository {
 	BSwitchExpression getRepoSwitch();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.SwitchRepository#getRepoSwitch <em>Repo Switch</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.SwitchRepository#getRepoSwitch <em>Repo Switch</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

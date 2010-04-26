@@ -35,7 +35,7 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <ul>
  * <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getVersionRange <em>Version Range</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getNameSpacePredicate <em>Name Space Predicate </em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getNameSpacePredicate <em>Name Space Predicate</em>}</li>
  * </ul>
  * </p>
  * 
@@ -94,6 +94,15 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 */
 	protected CapabilityPredicateImpl() {
 		super();
+	}
+
+	private boolean basicMatches(Capability candidate) {
+		if(nameSpacePredicate != null && !nameSpacePredicate.matches(candidate.getNameSpace()))
+			return false;
+
+		if(namePredicate != null && !namePredicate.matches(candidate.getName()))
+			return false;
+		return true;
 	}
 
 	/**
@@ -215,6 +224,17 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 				return;
 		}
 		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.CAPABILITY_PREDICATE;
 	}
 
 	/**
@@ -406,26 +426,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 		result.append(versionRange);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.CAPABILITY_PREDICATE;
-	}
-
-	private boolean basicMatches(Capability candidate) {
-		if(nameSpacePredicate != null && !nameSpacePredicate.matches(candidate.getNameSpace()))
-			return false;
-
-		if(namePredicate != null && !namePredicate.matches(candidate.getName()))
-			return false;
-		return true;
 	}
 
 } // CapabilityPredicateImpl

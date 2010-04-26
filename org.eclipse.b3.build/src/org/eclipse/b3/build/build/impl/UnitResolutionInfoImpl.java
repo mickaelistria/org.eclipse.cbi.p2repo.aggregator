@@ -154,6 +154,17 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.UNIT_RESOLUTION_INFO;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT:
@@ -230,17 +241,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.UNIT_RESOLUTION_INFO__UNIT, oldUnit, unit));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.UNIT_RESOLUTION_INFO;
 	}
 
 } // UnitResolutionInfoImpl
