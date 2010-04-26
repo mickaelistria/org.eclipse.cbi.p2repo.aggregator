@@ -3101,6 +3101,22 @@
           </tokens>
           <tokens xsi:type="xtext:Keyword" value=";"/>
         </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="source"/>
+          <tokens xsi:type="xtext:Keyword" value="="/>
+          <tokens xsi:type="xtext:Assignment" feature="sourceLocation" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.47"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value=";"/>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="output"/>
+          <tokens xsi:type="xtext:Keyword" value="="/>
+          <tokens xsi:type="xtext:Assignment" feature="outputLocation" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.47"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value=";"/>
+        </groups>
       </tokens>
       <tokens xsi:type="xtext:Group" cardinality="?">
         <tokens xsi:type="xtext:Keyword" value="-"/>

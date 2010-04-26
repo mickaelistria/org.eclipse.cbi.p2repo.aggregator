@@ -79,7 +79,7 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	 * @generated
 	 * @ordered
 	 */
-	protected BPatternLiteralExpression namePattern;
+	protected BExpression namePattern;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,8 +97,8 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetNamePattern(BPatternLiteralExpression newNamePattern, NotificationChain msgs) {
-		BPatternLiteralExpression oldNamePattern = namePattern;
+	public NotificationChain basicSetNamePattern(BExpression newNamePattern, NotificationChain msgs) {
+		BExpression oldNamePattern = namePattern;
 		namePattern = newNamePattern;
 		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(
@@ -175,7 +175,7 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 				setName((String) newValue);
 				return;
 			case B3backendPackage.BNAME_PREDICATE__NAME_PATTERN:
-				setNamePattern((BPatternLiteralExpression) newValue);
+				setNamePattern((BExpression) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -205,7 +205,7 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 				setName(NAME_EDEFAULT);
 				return;
 			case B3backendPackage.BNAME_PREDICATE__NAME_PATTERN:
-				setNamePattern((BPatternLiteralExpression) null);
+				setNamePattern((BExpression) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -227,7 +227,7 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	 * 
 	 * @generated
 	 */
-	public BPatternLiteralExpression getNamePattern() {
+	public BExpression getNamePattern() {
 		return namePattern;
 	}
 
@@ -278,7 +278,7 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	 * 
 	 * @generated
 	 */
-	public void setNamePattern(BPatternLiteralExpression newNamePattern) {
+	public void setNamePattern(BExpression newNamePattern) {
 		if(newNamePattern != namePattern) {
 			NotificationChain msgs = null;
 			if(namePattern != null)

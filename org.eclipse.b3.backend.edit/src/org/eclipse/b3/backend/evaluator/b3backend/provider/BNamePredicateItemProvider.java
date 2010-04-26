@@ -94,12 +94,170 @@ public class BNamePredicateItemProvider extends ItemProviderAdapter implements I
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBIfExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBSwitchExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBTryExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBOrExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBAndExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBChainedExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBThrowExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBUnaryOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBUnaryPostOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBBinaryOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBCachedExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBLiteralListExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBLiteralMapExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBFeatureExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBAtExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBVariableExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBLiteralAny()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBCreateExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBUnaryPreOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBAssignmentExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createB3Function()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBJavaFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBDefValue()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
 			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
 			B3backendFactory.eINSTANCE.createBRegularExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBLiteralType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBDefProperty()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBAdvice()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBPropertySet()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBPropertySetOperation()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBConcern()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBWithExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBFunctionWrapper()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBProceedExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBExpressionWrapper()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+			B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN, B3backendFactory.eINSTANCE.createBCallFunction()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,

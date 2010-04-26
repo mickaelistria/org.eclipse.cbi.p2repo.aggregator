@@ -37,7 +37,7 @@
 			<!-- the following fragment tries to use the Antlr Generator fragment which can be installed via update manager from http://download.itemis.com/updates/ -->
 			<!-- <fragment class="org.eclipse.xtext.generator.AntlrDelegatingFragment"/> -->
 			<fragment class="de.itemis.xtext.antlr.XtextAntlrGeneratorFragment">
-				<options backtrack="true" />
+				<options backtrack="true" classSplitting="true"/>
 			   <!-- <options memoize="true" /> -->
 			</fragment>
 			
@@ -69,7 +69,7 @@
 			<!-- java-based API for content assistance -->
 			<fragment class="org.eclipse.xtext.ui.generator.contentAssist.JavaBasedContentAssistFragment"/>
 			<fragment class="de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment">
-			   <options backtrack="true"/>
+			   <options backtrack="true" classSplitting="true"/>
 			   <!-- <options memoize="true" /> -->
 			</fragment>
 			<!-- the following fragment tries to use the Antlr based content assist fragment which can be downloaded from http://www.itemis.com 
