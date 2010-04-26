@@ -572,4 +572,50 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RepositoryHandler">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="handlerType" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="local" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="remote" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
+        eType="#//Branch" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Branch">
+    <eOperations name="getEffectiveUpdateStrategy" eType="#//UpdateStrategy">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the update strategy (explicit, or derived from combination BranchPointDefault, and BranchPointType)."/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="updateStrategy" lowerBound="1"
+        eType="#//UpdateStrategy" defaultValueLiteral="BranchPointDefault"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchPointType" lowerBound="1"
+        eType="#//BranchPointType" defaultValueLiteral="Latest"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchPoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The branch point data - a tag name, a timestamp or revision."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="include" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BNamePredicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exclude" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BNamePredicate"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UpdateStrategy">
+    <eLiterals name="BranchPointDefault" literal="BranchPointDefault"/>
+    <eLiterals name="NoUpdate" value="1"/>
+    <eLiterals name="Merge" value="2"/>
+    <eLiterals name="KeepModified" value="3"/>
+    <eLiterals name="ReplaceModified" value="4"/>
+    <eLiterals name="FailModified" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BranchPointType">
+    <eLiterals name="Latest"/>
+    <eLiterals name="Tag" value="1"/>
+    <eLiterals name="Timestamp" value="2"/>
+    <eLiterals name="Revision" value="3"/>
+  </eClassifiers>
 </ecore:EPackage>
