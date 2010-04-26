@@ -29,6 +29,7 @@ import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
+import org.eclipse.b3.aggregator.PackedStrategy;
 import org.eclipse.b3.aggregator.transformer.TransformationManager;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.cli.AbstractCommand;
@@ -300,6 +301,18 @@ public class Builder extends AbstractCommand {
 			+ "Defaults to the label defined in the aggregation definition. "
 			+ "The subject is formatted as: \"[<subjectPrefix>] Failed for build <buildId>\"", metaVar = "<subject>")
 	private String subjectPrefix;
+
+	// Deprecated options
+	@Option(name = "--packedStrategy", usage = "(Deprecated) Controls how mirroring is done of packed artifacts found in the source repository."
+			+ "Defaults to the setting in the aggregation definition.")
+	private PackedStrategy packedStrategy;
+
+	@Option(name = "--trustedContributions", usage = "(Deprecated) A comma separated list of contributions with repositories that will be referenced directly "
+			+ "(through a composite repository) rather than mirrored into the final repository "
+			+ "(even if the repository is set to mirror artifacts by default)", metaVar = "<contributions>")
+	private String trustedContributions;
+
+	// End of deprecated options
 
 	@Argument
 	private List<String> unparsed = new ArrayList<String>();
@@ -867,6 +880,28 @@ public class Builder extends AbstractCommand {
 			aggregator = (Aggregator) content.get(0);
 
 			verifyContributions();
+
+			if(packedStrategy != null)
+				aggregator.setPackedStrategy(packedStrategy);
+
+			if(trustedContributions != null) {
+				for(String contributionLabel : trustedContributions.split(",")) {
+					contributionLabel = StringUtils.trimmedOrNull(contributionLabel);
+					boolean found = false;
+
+					for(Contribution contribution : aggregator.getContributions()) {
+						if(contributionLabel.equals(contribution.getLabel())) {
+							for(MappedRepository repository : contribution.getRepositories(true))
+								repository.setMirrorArtifacts(false);
+							found = true;
+						}
+					}
+
+					if(!found)
+						throw ExceptionUtils.fromMessage("Unable to trust contribution " + contributionLabel +
+								": contribution does not exist");
+				}
+			}
 
 			sendmail = aggregator.isSendmail();
 			buildLabel = aggregator.getLabel();
