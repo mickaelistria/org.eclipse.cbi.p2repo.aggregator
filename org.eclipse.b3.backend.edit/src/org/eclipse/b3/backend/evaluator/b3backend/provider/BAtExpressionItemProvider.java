@@ -50,6 +50,49 @@ public class BAtExpressionItemProvider extends BExpressionItemProvider implement
 	}
 
 	/**
+	 * This adds a property descriptor for the Index Expr feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addIndexExprPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BAtExpression_indexExpr_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BAtExpression_indexExpr_feature", "_UI_BAtExpression_type"),
+			B3backendPackage.Literals.BAT_EXPRESSION__INDEX_EXPR, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Obj Expr feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addObjExprPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BAtExpression_objExpr_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BAtExpression_objExpr_feature", "_UI_BAtExpression_type"),
+			B3backendPackage.Literals.BAT_EXPRESSION__OBJ_EXPR, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns BAtExpression.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,49 +146,6 @@ public class BAtExpressionItemProvider extends BExpressionItemProvider implement
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Index Expr feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addIndexExprPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BAtExpression_indexExpr_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BAtExpression_indexExpr_feature", "_UI_BAtExpression_type"),
-			B3backendPackage.Literals.BAT_EXPRESSION__INDEX_EXPR, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Obj Expr feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addObjExprPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BAtExpression_objExpr_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BAtExpression_objExpr_feature", "_UI_BAtExpression_type"),
-			B3backendPackage.Literals.BAT_EXPRESSION__OBJ_EXPR, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

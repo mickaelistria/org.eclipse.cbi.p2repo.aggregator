@@ -54,6 +54,51 @@ public class BFeatureExpressionItemProvider extends BExpressionItemProvider impl
 	}
 
 	/**
+	 * This adds a property descriptor for the Feature Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addFeatureNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BFeatureExpression_featureName_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BFeatureExpression_featureName_feature",
+				"_UI_BFeatureExpression_type"), B3backendPackage.Literals.BFEATURE_EXPRESSION__FEATURE_NAME, true,
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Obj Expr feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addObjExprPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BFeatureExpression_objExpr_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BFeatureExpression_objExpr_feature",
+				"_UI_BFeatureExpression_type"), B3backendPackage.Literals.BFEATURE_EXPRESSION__OBJ_EXPR, true, false,
+			true, null, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns BFeatureExpression.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,51 +161,6 @@ public class BFeatureExpressionItemProvider extends BExpressionItemProvider impl
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Feature Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addFeatureNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BFeatureExpression_featureName_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BFeatureExpression_featureName_feature",
-				"_UI_BFeatureExpression_type"), B3backendPackage.Literals.BFEATURE_EXPRESSION__FEATURE_NAME, true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Obj Expr feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addObjExprPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BFeatureExpression_objExpr_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BFeatureExpression_objExpr_feature",
-				"_UI_BFeatureExpression_type"), B3backendPackage.Literals.BFEATURE_EXPRESSION__OBJ_EXPR, true, false,
-			true, null, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

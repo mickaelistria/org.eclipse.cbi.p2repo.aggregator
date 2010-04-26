@@ -60,6 +60,55 @@ public class BCallNamedFunctionTest extends BCallExpressionTest {
 		super(name);
 	}
 
+	private BCallExpression createNamedCallExpression(BExecutionContext ctx) throws Throwable {
+		B3backendFactory b3 = B3backendFactory.eINSTANCE;
+
+		BCallExpression ce = b3.createBCallNamedFunction();
+		ce.setName("+");
+		BParameterList parameterList = b3.createBParameterList();
+		EList<BParameter> params = parameterList.getParameters();
+		params.add(createLiteralParameter(1));
+		params.add(createLiteralParameter(2));
+		ce.setParameterList(parameterList);
+		return ce;
+	}
+
+	/**
+	 * Returns the fixture for this BCall Named Function test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BCallNamedFunction getFixture() {
+		return (BCallNamedFunction) fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(B3backendFactory.eINSTANCE.createBCallNamedFunction());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
 	/**
 	 * Test '+'(1, 2);
 	 */
@@ -100,55 +149,6 @@ public class BCallNamedFunctionTest extends BCallExpressionTest {
 			t.printStackTrace();
 			fail();
 		}
-	}
-
-	/**
-	 * Returns the fixture for this BCall Named Function test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected BCallNamedFunction getFixture() {
-		return (BCallNamedFunction) fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createBCallNamedFunction());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
-
-	private BCallExpression createNamedCallExpression(BExecutionContext ctx) throws Throwable {
-		B3backendFactory b3 = B3backendFactory.eINSTANCE;
-
-		BCallExpression ce = b3.createBCallNamedFunction();
-		ce.setName("+");
-		BParameterList parameterList = b3.createBParameterList();
-		EList<BParameter> params = parameterList.getParameters();
-		params.add(createLiteralParameter(1));
-		params.add(createLiteralParameter(2));
-		ce.setParameterList(parameterList);
-		return ce;
 	}
 
 } // BCallNamedFunctionTest

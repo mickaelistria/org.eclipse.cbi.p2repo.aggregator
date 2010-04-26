@@ -65,38 +65,6 @@ public class BConcernTest extends BAdviceTest {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * <em>Evaluate If Matching</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object,
-	 *      org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * @generated
-	 */
-	public void testEvaluateIfMatching__Object_BExecutionContext() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator()
-	 * <em>Get Concern Context Iterator</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator()
-	 * @generated
-	 */
-	public void testGetConcernContextIterator() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Returns the fixture for this BConcern test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,6 +98,38 @@ public class BConcernTest extends BAdviceTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * <em>Evaluate If Matching</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object,
+	 *      org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated
+	 */
+	public void testEvaluateIfMatching__Object_BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator() <em>Get Concern Context Iterator</em>}'
+	 * operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator()
+	 * @generated
+	 */
+	public void testGetConcernContextIterator() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } // BConcernTest

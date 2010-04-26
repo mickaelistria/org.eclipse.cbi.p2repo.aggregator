@@ -53,6 +53,42 @@ public class BIfExpressionTest extends BExpressionTest {
 		super(name);
 	}
 
+	/**
+	 * Returns the fixture for this BIf Expression test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BIfExpression getFixture() {
+		return (BIfExpression) fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(B3backendFactory.eINSTANCE.createBIfExpression());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated NOT
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
 	@Override
 	public void testEvaluate__BExecutionContext() {
 		// if true then 1 else 2
@@ -153,41 +189,5 @@ public class BIfExpressionTest extends BExpressionTest {
 	@Override
 	public void testGetLValue__BExecutionContext() {
 		super.assertLValShouldFail();
-	}
-
-	/**
-	 * Returns the fixture for this BIf Expression test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected BIfExpression getFixture() {
-		return (BIfExpression) fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createBIfExpression());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated NOT
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 } // BIfExpressionTest

@@ -56,120 +56,6 @@ public class BFunctionItemProvider extends BExpressionItemProvider implements IE
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__GUARD);
-			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__PARAMETERS);
-			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE);
-			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__TYPE_CALCULATOR);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns BFunction.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BFunction"));
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addVisibilityPropertyDescriptor(object);
-			addFinalPropertyDescriptor(object);
-			addExecutionModePropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addParameterTypesPropertyDescriptor(object);
-			addExceptionTypesPropertyDescriptor(object);
-			addTypeParametersPropertyDescriptor(object);
-			addParameterNamesPropertyDescriptor(object);
-			addVarArgsPropertyDescriptor(object);
-			addDocumentationPropertyDescriptor(object);
-			addClosurePropertyDescriptor(object);
-			addClassFunctionPropertyDescriptor(object);
-			addVarargArrayTypePropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		String label = ((BFunction) object).getName();
-		return label == null || label.length() == 0
-				? getString("_UI_BFunction_type")
-				: getString("_UI_BFunction_type") + " " + label;
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(BFunction.class)) {
-			case B3backendPackage.BFUNCTION__VISIBILITY:
-			case B3backendPackage.BFUNCTION__FINAL:
-			case B3backendPackage.BFUNCTION__EXECUTION_MODE:
-			case B3backendPackage.BFUNCTION__NAME:
-			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
-			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
-			case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
-			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
-			case B3backendPackage.BFUNCTION__VAR_ARGS:
-			case B3backendPackage.BFUNCTION__DOCUMENTATION:
-			case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
-			case B3backendPackage.BFUNCTION__VARARG_ARRAY_TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case B3backendPackage.BFUNCTION__GUARD:
-			case B3backendPackage.BFUNCTION__PARAMETERS:
-			case B3backendPackage.BFUNCTION__RETURN_TYPE:
-			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Class Function feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -435,6 +321,120 @@ public class BFunctionItemProvider extends BExpressionItemProvider implements IE
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__GUARD);
+			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__PARAMETERS);
+			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE);
+			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__TYPE_CALCULATOR);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns BFunction.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BFunction"));
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addVisibilityPropertyDescriptor(object);
+			addFinalPropertyDescriptor(object);
+			addExecutionModePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addParameterTypesPropertyDescriptor(object);
+			addExceptionTypesPropertyDescriptor(object);
+			addTypeParametersPropertyDescriptor(object);
+			addParameterNamesPropertyDescriptor(object);
+			addVarArgsPropertyDescriptor(object);
+			addDocumentationPropertyDescriptor(object);
+			addClosurePropertyDescriptor(object);
+			addClassFunctionPropertyDescriptor(object);
+			addVarargArrayTypePropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		String label = ((BFunction) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_BFunction_type")
+				: getString("_UI_BFunction_type") + " " + label;
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(BFunction.class)) {
+			case B3backendPackage.BFUNCTION__VISIBILITY:
+			case B3backendPackage.BFUNCTION__FINAL:
+			case B3backendPackage.BFUNCTION__EXECUTION_MODE:
+			case B3backendPackage.BFUNCTION__NAME:
+			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
+			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
+			case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
+			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
+			case B3backendPackage.BFUNCTION__VAR_ARGS:
+			case B3backendPackage.BFUNCTION__DOCUMENTATION:
+			case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
+			case B3backendPackage.BFUNCTION__VARARG_ARRAY_TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case B3backendPackage.BFUNCTION__GUARD:
+			case B3backendPackage.BFUNCTION__PARAMETERS:
+			case B3backendPackage.BFUNCTION__RETURN_TYPE:
+			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

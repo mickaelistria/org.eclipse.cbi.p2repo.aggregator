@@ -63,6 +63,35 @@ public class B3MetaClassItemProvider extends ItemProviderAdapter implements IEdi
 	}
 
 	/**
+	 * This adds a property descriptor for the Instance Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addInstanceClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_B3MetaClass_instanceClass_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_B3MetaClass_instanceClass_feature", "_UI_B3MetaClass_type"),
+			B3backendPackage.Literals.B3_META_CLASS__INSTANCE_CLASS, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns B3MetaClass.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,35 +168,6 @@ public class B3MetaClassItemProvider extends ItemProviderAdapter implements IEdi
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Instance Class feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addInstanceClassPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3MetaClass_instanceClass_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_B3MetaClass_instanceClass_feature", "_UI_B3MetaClass_type"),
-			B3backendPackage.Literals.B3_META_CLASS__INSTANCE_CLASS, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

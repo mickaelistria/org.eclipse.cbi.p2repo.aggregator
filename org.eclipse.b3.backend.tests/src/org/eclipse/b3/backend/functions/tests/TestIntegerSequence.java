@@ -5,6 +5,13 @@ import junit.framework.TestCase;
 
 public class TestIntegerSequence extends TestCase {
 
+	private int computeSum(IntegerSequence seq) {
+		int value = 0;
+		for(Integer x : seq)
+			value += x.intValue();
+		return value;
+	}
+
 	public void test_IntegerSequence() {
 		IntegerSequence seq = new IntegerSequence(1, 9);
 		int value = 0;
@@ -57,12 +64,5 @@ public class TestIntegerSequence extends TestCase {
 		assertEquals(
 			"testing includeFrom method", 35, computeSum(new IntegerSequence(1, 9).includeTo(false).includeFrom(false)));
 
-	}
-
-	private int computeSum(IntegerSequence seq) {
-		int value = 0;
-		for(Integer x : seq)
-			value += x.intValue();
-		return value;
 	}
 }

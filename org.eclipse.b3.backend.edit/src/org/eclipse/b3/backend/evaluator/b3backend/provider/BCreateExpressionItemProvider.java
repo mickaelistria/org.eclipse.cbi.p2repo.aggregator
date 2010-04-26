@@ -57,115 +57,6 @@ public class BCreateExpressionItemProvider extends BParameterizedExpressionItemP
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR);
-			childrenFeatures.add(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify = childFeature == B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR ||
-				childFeature == B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK;
-
-		if(qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] {
-					getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * This returns BCreateExpression.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BCreateExpression"));
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addAliasPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		String label = ((BCreateExpression) object).getAlias();
-		return label == null || label.length() == 0
-				? getString("_UI_BCreateExpression_type")
-				: getString("_UI_BCreateExpression_type") + " " + label;
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(BCreateExpression.class)) {
-			case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
-			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Alias feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -285,6 +176,10 @@ public class BCreateExpressionItemProvider extends BParameterizedExpressionItemP
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
 			B3backendFactory.eINSTANCE.createBRegularExpression()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -354,6 +249,10 @@ public class BCreateExpressionItemProvider extends BParameterizedExpressionItemP
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+			B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
@@ -453,6 +352,10 @@ public class BCreateExpressionItemProvider extends BParameterizedExpressionItemP
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
 			B3backendFactory.eINSTANCE.createBRegularExpression()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -528,6 +431,10 @@ public class BCreateExpressionItemProvider extends BParameterizedExpressionItemP
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
 			B3backendFactory.eINSTANCE.createBCallFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+			B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
 	}
 
 	/**
@@ -542,6 +449,115 @@ public class BCreateExpressionItemProvider extends BParameterizedExpressionItemP
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR);
+			childrenFeatures.add(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR ||
+				childFeature == B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK;
+
+		if(qualify) {
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
+	}
+
+	/**
+	 * This returns BCreateExpression.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BCreateExpression"));
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addAliasPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		String label = ((BCreateExpression) object).getAlias();
+		return label == null || label.length() == 0
+				? getString("_UI_BCreateExpression_type")
+				: getString("_UI_BCreateExpression_type") + " " + label;
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(BCreateExpression.class)) {
+			case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

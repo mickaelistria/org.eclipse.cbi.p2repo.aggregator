@@ -20,12 +20,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
- * <em>Evaluate</em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
- * <em>Get Declared Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate
+ * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get
+ * Declared Type</em>}</li>
  * </ul>
  * </p>
  * 
@@ -72,34 +70,6 @@ public class BCatchTest extends TestCase {
 	}
 
 	/**
-	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * <em>Evaluate</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCatch#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * @generated NOT
-	 */
-	public void testEvaluate__BExecutionContext() {
-		// TESTED AS PART OF TRY-CATCH, impossible to test on its own.
-		// fail();
-	}
-
-	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * <em>Get Declared Type</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCatch#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * @generated NOT
-	 */
-	public void testGetDeclaredType__BExecutionContext() {
-		// TESTED AS PART OF TRY-CATCH
-	}
-
-	/**
 	 * Returns the fixture for this BCatch test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -143,6 +113,34 @@ public class BCatchTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * <em>Evaluate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCatch#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated NOT
+	 */
+	public void testEvaluate__BExecutionContext() {
+		// TESTED AS PART OF TRY-CATCH, impossible to test on its own.
+		// fail();
+	}
+
+	/**
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * <em>Get Declared Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCatch#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated NOT
+	 */
+	public void testGetDeclaredType__BExecutionContext() {
+		// TESTED AS PART OF TRY-CATCH
 	}
 
 } // BCatchTest

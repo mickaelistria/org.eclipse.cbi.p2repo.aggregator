@@ -64,23 +64,6 @@ public class BWrappingContextTest extends BDelegatingContextTest {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#mapContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.util.Map, org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper)
-	 * <em>Map Context</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#mapContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
-	 *      java.util.Map, org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper)
-	 * @generated
-	 */
-	public void testMapContext__BExecutionContext_Map_BFunctionWrapper() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Returns the fixture for this BWrapping Context test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,6 +97,23 @@ public class BWrappingContextTest extends BDelegatingContextTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#mapContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.util.Map, org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper)
+	 * <em>Map Context</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#mapContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 *      java.util.Map, org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper)
+	 * @generated
+	 */
+	public void testMapContext__BExecutionContext_Map_BFunctionWrapper() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } // BWrappingContextTest

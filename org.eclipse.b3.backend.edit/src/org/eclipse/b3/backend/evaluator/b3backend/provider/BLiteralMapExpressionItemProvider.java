@@ -56,6 +56,68 @@ public class BLiteralMapExpressionItemProvider extends BExpressionItemProvider i
 	}
 
 	/**
+	 * This adds a property descriptor for the Key Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addKeyTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BLiteralMapExpression_keyType_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BLiteralMapExpression_keyType_feature",
+				"_UI_BLiteralMapExpression_type"), B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION__KEY_TYPE, true,
+			false, false, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addValueTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BLiteralMapExpression_valueType_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BLiteralMapExpression_valueType_feature",
+				"_UI_BLiteralMapExpression_type"), B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, true,
+			false, false, null, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION__ENTRIES, B3backendFactory.eINSTANCE.createBMapEntry()));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -137,68 +199,6 @@ public class BLiteralMapExpressionItemProvider extends BExpressionItemProvider i
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Key Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addKeyTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BLiteralMapExpression_keyType_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BLiteralMapExpression_keyType_feature",
-				"_UI_BLiteralMapExpression_type"), B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION__KEY_TYPE, true,
-			false, false, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Value Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addValueTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BLiteralMapExpression_valueType_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BLiteralMapExpression_valueType_feature",
-				"_UI_BLiteralMapExpression_type"), B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, true,
-			false, false, null, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION__ENTRIES, B3backendFactory.eINSTANCE.createBMapEntry()));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 }

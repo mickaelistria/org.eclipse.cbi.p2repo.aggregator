@@ -39,8 +39,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * 
  * @generated
  */
-public class BRegularExpressionItemProvider extends BExpressionItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class BRegularExpressionItemProvider extends BPatternLiteralExpressionItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,6 +59,35 @@ public class BRegularExpressionItemProvider extends BExpressionItemProvider impl
 	 */
 	public BRegularExpressionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
+	}
+
+	/**
+	 * This adds a property descriptor for the Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BRegularExpression_pattern_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BRegularExpression_pattern_feature",
+				"_UI_BRegularExpression_type"), B3backendPackage.Literals.BREGULAR_EXPRESSION__PATTERN, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 	/**
@@ -125,35 +155,6 @@ public class BRegularExpressionItemProvider extends BExpressionItemProvider impl
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Pattern feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addPatternPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BRegularExpression_pattern_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BRegularExpression_pattern_feature",
-				"_UI_BRegularExpression_type"), B3backendPackage.Literals.BREGULAR_EXPRESSION__PATTERN, true, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

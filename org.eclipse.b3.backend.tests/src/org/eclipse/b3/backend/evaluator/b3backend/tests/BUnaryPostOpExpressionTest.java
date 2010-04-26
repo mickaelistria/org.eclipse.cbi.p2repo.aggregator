@@ -53,37 +53,6 @@ public class BUnaryPostOpExpressionTest extends BUnaryOpExpressionTest {
 		super(name);
 	}
 
-	@Override
-	public void testEvaluate__BExecutionContext() {
-		try {
-			B3Engine engine = new B3Engine();
-			B3backendFactory b3 = B3backendFactory.eINSTANCE;
-			BExecutionContext ctx = engine.getContext();
-
-			ctx.defineVariableValue("a", 5, Integer.class);
-			BUnaryPostOpExpression op = b3.createBUnaryPostOpExpression();
-			BVariableExpression a;
-			op.setExpr(a = b3.createBVariableExpression());
-			a.setName("a");
-
-			op.setFunctionName("++");
-			assertEquals(5, op.evaluate(ctx));
-			assertEquals(6, ctx.getValue("a"));
-
-			op.setFunctionName("--");
-			assertEquals(6, op.evaluate(ctx));
-			assertEquals(5, ctx.getValue("a"));
-
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-	}
-
 	/**
 	 * Returns the fixture for this BUnary Post Op Expression test case.
 	 * <!-- begin-user-doc -->
@@ -118,5 +87,36 @@ public class BUnaryPostOpExpressionTest extends BUnaryOpExpressionTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	@Override
+	public void testEvaluate__BExecutionContext() {
+		try {
+			B3Engine engine = new B3Engine();
+			B3backendFactory b3 = B3backendFactory.eINSTANCE;
+			BExecutionContext ctx = engine.getContext();
+
+			ctx.defineVariableValue("a", 5, Integer.class);
+			BUnaryPostOpExpression op = b3.createBUnaryPostOpExpression();
+			BVariableExpression a;
+			op.setExpr(a = b3.createBVariableExpression());
+			a.setName("a");
+
+			op.setFunctionName("++");
+			assertEquals(5, op.evaluate(ctx));
+			assertEquals(6, ctx.getValue("a"));
+
+			op.setFunctionName("--");
+			assertEquals(6, op.evaluate(ctx));
+			assertEquals(5, ctx.getValue("a"));
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
 	}
 } // BUnaryPostOpExpressionTest

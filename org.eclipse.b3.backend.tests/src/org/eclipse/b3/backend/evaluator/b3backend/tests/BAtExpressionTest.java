@@ -61,6 +61,44 @@ public class BAtExpressionTest extends BExpressionTest {
 		super(name);
 	}
 
+	/**
+	 * Returns the fixture for this BAt Expression test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BAtExpression getFixture() {
+		return (BAtExpression) fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated NOT
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(B3backendFactory.eINSTANCE.createBAtExpression());
+		setEngine(new B3Engine());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated NOT
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+		setEngine(null);
+	}
+
 	@Override
 	public void testEvaluate__BExecutionContext() {
 		BLiteralExpression x = B3backendFactory.eINSTANCE.createBLiteralExpression();
@@ -227,43 +265,5 @@ public class BAtExpressionTest extends BExpressionTest {
 				fail("Exception on evaluation of at expression");
 			}
 		}
-	}
-
-	/**
-	 * Returns the fixture for this BAt Expression test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected BAtExpression getFixture() {
-		return (BAtExpression) fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated NOT
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createBAtExpression());
-		setEngine(new B3Engine());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated NOT
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-		setEngine(null);
 	}
 } // BAtExpressionTest

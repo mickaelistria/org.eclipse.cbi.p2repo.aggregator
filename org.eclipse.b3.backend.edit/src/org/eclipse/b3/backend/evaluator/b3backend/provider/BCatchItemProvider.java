@@ -60,104 +60,6 @@ public class BCatchItemProvider extends ItemProviderAdapter implements IEditingD
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.BCATCH__CATCH_EXPR);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns BCatch.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BCatch"));
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addVarnamePropertyDescriptor(object);
-			addExceptionTypePropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return B3BackendEditPlugin.INSTANCE;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		String label = ((BCatch) object).getVarname();
-		return label == null || label.length() == 0
-				? getString("_UI_BCatch_type")
-				: getString("_UI_BCatch_type") + " " + label;
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(BCatch.class)) {
-			case B3backendPackage.BCATCH__VARNAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case B3backendPackage.BCATCH__CATCH_EXPR:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Exception Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,6 +178,9 @@ public class BCatchItemProvider extends ItemProviderAdapter implements IEditingD
 			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -336,6 +241,9 @@ public class BCatchItemProvider extends ItemProviderAdapter implements IEditingD
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
 	}
 
 	/**
@@ -350,6 +258,104 @@ public class BCatchItemProvider extends ItemProviderAdapter implements IEditingD
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.BCATCH__CATCH_EXPR);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns BCatch.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BCatch"));
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addVarnamePropertyDescriptor(object);
+			addExceptionTypePropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return B3BackendEditPlugin.INSTANCE;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		String label = ((BCatch) object).getVarname();
+		return label == null || label.length() == 0
+				? getString("_UI_BCatch_type")
+				: getString("_UI_BCatch_type") + " " + label;
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(BCatch.class)) {
+			case B3backendPackage.BCATCH__VARNAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case B3backendPackage.BCATCH__CATCH_EXPR:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

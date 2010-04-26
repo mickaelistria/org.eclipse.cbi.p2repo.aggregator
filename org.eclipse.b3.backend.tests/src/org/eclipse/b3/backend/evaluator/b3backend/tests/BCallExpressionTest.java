@@ -39,11 +39,6 @@ public abstract class BCallExpressionTest extends BParameterizedExpressionTest {
 		super(name);
 	}
 
-	@Override
-	public void testGetLValue__BExecutionContext() {
-		super.assertLValShouldFail();
-	}
-
 	protected BParameter createLiteralParameter(Object val) {
 		B3backendFactory b3 = B3backendFactory.eINSTANCE;
 		BParameter param = b3.createBParameter();
@@ -63,5 +58,10 @@ public abstract class BCallExpressionTest extends BParameterizedExpressionTest {
 	@Override
 	protected BCallExpression getFixture() {
 		return (BCallExpression) fixture;
+	}
+
+	@Override
+	public void testGetLValue__BExecutionContext() {
+		super.assertLValShouldFail();
 	}
 } // BCallExpressionTest

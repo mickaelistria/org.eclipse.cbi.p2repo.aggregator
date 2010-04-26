@@ -63,84 +63,6 @@ public class B3FunctionTypeItemProvider extends ItemProviderAdapter implements I
 	}
 
 	/**
-	 * This returns B3FunctionType.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/B3FunctionType"));
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addFunctionTypePropertyDescriptor(object);
-			addReturnTypePropertyDescriptor(object);
-			addParameterTypesPropertyDescriptor(object);
-			addVarArgsPropertyDescriptor(object);
-			addTypeCalculatorPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return B3BackendEditPlugin.INSTANCE;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		B3FunctionType b3FunctionType = (B3FunctionType) object;
-		return getString("_UI_B3FunctionType_type") + " " + b3FunctionType.isVarArgs();
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(B3FunctionType.class)) {
-			case B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Function Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -231,6 +153,84 @@ public class B3FunctionTypeItemProvider extends ItemProviderAdapter implements I
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * This returns B3FunctionType.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/B3FunctionType"));
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addFunctionTypePropertyDescriptor(object);
+			addReturnTypePropertyDescriptor(object);
+			addParameterTypesPropertyDescriptor(object);
+			addVarArgsPropertyDescriptor(object);
+			addTypeCalculatorPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return B3BackendEditPlugin.INSTANCE;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		B3FunctionType b3FunctionType = (B3FunctionType) object;
+		return getString("_UI_B3FunctionType_type") + " " + b3FunctionType.isVarArgs();
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(B3FunctionType.class)) {
+			case B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

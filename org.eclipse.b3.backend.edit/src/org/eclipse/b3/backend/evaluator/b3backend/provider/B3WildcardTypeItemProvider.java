@@ -63,6 +63,81 @@ public class B3WildcardTypeItemProvider extends ItemProviderAdapter implements I
 	}
 
 	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3FunctionType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3ParameterizedType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3WildcardType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3MetaClass()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3FunctionType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3ParameterizedType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3WildcardType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
+			B3backendFactory.eINSTANCE.createB3MetaClass()));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -174,81 +249,6 @@ public class B3WildcardTypeItemProvider extends ItemProviderAdapter implements I
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3FunctionType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3ParameterizedType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3WildcardType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3JavaImport()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3MetaClass()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3FunctionType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3ParameterizedType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3WildcardType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3JavaImport()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
-			B3backendFactory.eINSTANCE.createB3MetaClass()));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 }

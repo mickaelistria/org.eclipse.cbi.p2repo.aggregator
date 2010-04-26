@@ -53,6 +53,44 @@ public class BLiteralAnyTest extends BExpressionTest {
 		super(name);
 	}
 
+	/**
+	 * Returns the fixture for this BLiteral Any test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BLiteralAny getFixture() {
+		return (BLiteralAny) fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated NOT
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(B3backendFactory.eINSTANCE.createBLiteralAny());
+		setEngine(new B3Engine());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated NOT
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+		setEngine(null);
+	}
+
 	@Override
 	public void testEvaluate__BExecutionContext() {
 		try {
@@ -97,43 +135,5 @@ public class BLiteralAnyTest extends BExpressionTest {
 		catch(Throwable t) {
 			assertEquals("Should throw special exception", B3NotLValueException.class, t.getClass());
 		}
-	}
-
-	/**
-	 * Returns the fixture for this BLiteral Any test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected BLiteralAny getFixture() {
-		return (BLiteralAny) fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated NOT
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createBLiteralAny());
-		setEngine(new B3Engine());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated NOT
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-		setEngine(null);
 	}
 } // BLiteralAnyTest

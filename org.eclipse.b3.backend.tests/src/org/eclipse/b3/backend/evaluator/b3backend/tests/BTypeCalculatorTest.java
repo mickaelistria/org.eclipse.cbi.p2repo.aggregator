@@ -75,23 +75,6 @@ public class BTypeCalculatorTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * <em>Get Return Type For Parameter Types</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getReturnTypeForParameterTypes(java.lang.reflect.Type[],
-	 *      org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * @generated
-	 */
-	public void testGetReturnTypeForParameterTypes__Type_BExecutionContext() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Returns the fixture for this BType Calculator test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -135,6 +118,23 @@ public class BTypeCalculatorTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * <em>Get Return Type For Parameter Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getReturnTypeForParameterTypes(java.lang.reflect.Type[],
+	 *      org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated
+	 */
+	public void testGetReturnTypeForParameterTypes__Type_BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } // BTypeCalculatorTest

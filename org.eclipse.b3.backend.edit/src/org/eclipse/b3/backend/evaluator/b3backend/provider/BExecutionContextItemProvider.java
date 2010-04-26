@@ -59,6 +59,83 @@ public class BExecutionContextItemProvider extends ItemProviderAdapter implement
 	}
 
 	/**
+	 * This adds a property descriptor for the Effective Concerns feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addEffectiveConcernsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BExecutionContext_effectiveConcerns_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_effectiveConcerns_feature",
+				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS, true,
+			false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Func Store feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addFuncStorePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BExecutionContext_funcStore_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_funcStore_feature",
+				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__FUNC_STORE, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Progress Monitor feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addProgressMonitorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BExecutionContext_progressMonitor_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_progressMonitor_feature",
+				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__PROGRESS_MONITOR, true,
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value Map feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addValueMapPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BExecutionContext_valueMap_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_valueMap_feature",
+				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__VALUE_MAP, false, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns BExecutionContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,83 +217,6 @@ public class BExecutionContextItemProvider extends ItemProviderAdapter implement
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Effective Concerns feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addEffectiveConcernsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BExecutionContext_effectiveConcerns_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_effectiveConcerns_feature",
-				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS, true,
-			false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Func Store feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addFuncStorePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BExecutionContext_funcStore_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_funcStore_feature",
-				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__FUNC_STORE, true, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Progress Monitor feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addProgressMonitorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BExecutionContext_progressMonitor_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_progressMonitor_feature",
-				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__PROGRESS_MONITOR, true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Value Map feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addValueMapPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BExecutionContext_valueMap_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_valueMap_feature",
-				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__VALUE_MAP, false, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

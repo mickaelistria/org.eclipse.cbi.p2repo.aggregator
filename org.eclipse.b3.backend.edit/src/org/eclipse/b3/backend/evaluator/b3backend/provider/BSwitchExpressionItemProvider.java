@@ -55,86 +55,6 @@ public class BSwitchExpressionItemProvider extends BExpressionItemProvider imple
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.BSWITCH_EXPRESSION__SWITCH_EXPRESSION);
-			childrenFeatures.add(B3backendPackage.Literals.BSWITCH_EXPRESSION__CASE_LIST);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns BSwitchExpression.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BSwitchExpression"));
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		return getString("_UI_BSwitchExpression_type");
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(BSwitchExpression.class)) {
-			case B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION:
-			case B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
@@ -248,6 +168,10 @@ public class BSwitchExpressionItemProvider extends BExpressionItemProvider imple
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BSWITCH_EXPRESSION__SWITCH_EXPRESSION,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BSWITCH_EXPRESSION__SWITCH_EXPRESSION,
 			B3backendFactory.eINSTANCE.createBRegularExpression()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -326,6 +250,10 @@ public class BSwitchExpressionItemProvider extends BExpressionItemProvider imple
 			B3backendFactory.eINSTANCE.createBCallFunction()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BSWITCH_EXPRESSION__SWITCH_EXPRESSION,
+			B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BSWITCH_EXPRESSION__CASE_LIST, B3backendFactory.eINSTANCE.createBCase()));
 	}
 
@@ -341,6 +269,86 @@ public class BSwitchExpressionItemProvider extends BExpressionItemProvider imple
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.BSWITCH_EXPRESSION__SWITCH_EXPRESSION);
+			childrenFeatures.add(B3backendPackage.Literals.BSWITCH_EXPRESSION__CASE_LIST);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns BSwitchExpression.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BSwitchExpression"));
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		return getString("_UI_BSwitchExpression_type");
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(BSwitchExpression.class)) {
+			case B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION:
+			case B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

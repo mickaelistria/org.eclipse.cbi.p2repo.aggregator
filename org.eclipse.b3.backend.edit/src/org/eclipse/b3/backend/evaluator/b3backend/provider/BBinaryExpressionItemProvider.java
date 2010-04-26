@@ -55,96 +55,6 @@ public class BBinaryExpressionItemProvider extends BExpressionItemProvider imple
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR);
-			childrenFeatures.add(B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify = childFeature == B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR ||
-				childFeature == B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR;
-
-		if(qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] {
-					getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		return getString("_UI_BBinaryExpression_type");
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(BBinaryExpression.class)) {
-			case B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR:
-			case B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
@@ -248,6 +158,10 @@ public class BBinaryExpressionItemProvider extends BExpressionItemProvider imple
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
 			B3backendFactory.eINSTANCE.createBRegularExpression()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -317,6 +231,10 @@ public class BBinaryExpressionItemProvider extends BExpressionItemProvider imple
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
+			B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR, B3backendFactory.eINSTANCE.createBIfExpression()));
@@ -410,6 +328,10 @@ public class BBinaryExpressionItemProvider extends BExpressionItemProvider imple
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
 			B3backendFactory.eINSTANCE.createBRegularExpression()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -480,6 +402,10 @@ public class BBinaryExpressionItemProvider extends BExpressionItemProvider imple
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
+			B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
 	}
 
 	/**
@@ -494,6 +420,96 @@ public class BBinaryExpressionItemProvider extends BExpressionItemProvider imple
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR);
+			childrenFeatures.add(B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR ||
+				childFeature == B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR;
+
+		if(qualify) {
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		return getString("_UI_BBinaryExpression_type");
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(BBinaryExpression.class)) {
+			case B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR:
+			case B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

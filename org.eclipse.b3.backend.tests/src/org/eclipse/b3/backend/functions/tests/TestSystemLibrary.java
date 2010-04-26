@@ -37,193 +37,6 @@ public class TestSystemLibrary extends TestCase {
 		}
 	}
 
-	public void test_allexists() {
-		try {
-			EngineData b3 = new EngineData();
-
-			BExpression call = createTargetCall(listWithAllRed(), "all", new BExpression[] {
-					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
-			assertEquals("all red == true", Boolean.TRUE, call.evaluate(b3.ctx));
-			call = createTargetCall(listWithOneRed(), "all", new BExpression[] {
-					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
-			assertEquals("all red != true", Boolean.FALSE, call.evaluate(b3.ctx));
-
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-	}
-
-	public void test_do() {
-		try {
-			EngineData b3 = new EngineData();
-
-			BExpression call = createTargetCall(listWith1To9(), "do", new BExpression[] {
-					literal(20), literalAny(), createSumFunc() });
-			assertEquals("do 20 + 1 to 9 ", new Integer(29), call.evaluate(b3.ctx));
-
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-	}
-
-	public void test_evaluate() {
-		try {
-			EngineData b3 = new EngineData();
-
-			BExpression call = createTargetCall(createSumFunc().evaluate(b3.ctx), "evaluate", new BExpression[] {
-					literal(4), literal(12) });
-			assertEquals("evaluate 4 + 12", 16, call.evaluate(b3.ctx));
-
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-	}
-
-	public void test_exists() {
-		try {
-			EngineData b3 = new EngineData();
-
-			BExpression call = createTargetCall(listWithAllRed(), "exists", new BExpression[] {
-					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
-			assertEquals("exists red == true", Boolean.TRUE, call.evaluate(b3.ctx));
-			call = createTargetCall(listWithOneRed(), "exists", new BExpression[] {
-					literalAny(), literal("dummy"), createTrueIfNNNLambda("pink") });
-			assertEquals("exists red != true", Boolean.FALSE, call.evaluate(b3.ctx));
-
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-	}
-
-	public void test_inject() {
-		try {
-			EngineData b3 = new EngineData();
-
-			BExpression call = createTargetCall(listWith1To9(), "inject", new BExpression[] {
-					literal(0), createSumFunc() });
-			assertEquals("sum of 1-9 == 45", new Integer(45), call.evaluate(b3.ctx));
-
-			call = createTargetCall(listWith1To9(), "inject", new BExpression[] { literal(10), createSumFunc() });
-			assertEquals("sum of 10 + 1..9 == 55", new Integer(55), call.evaluate(b3.ctx));
-
-			call = createTargetCall(listWith1To9(), "inject", new BExpression[] {
-					literal(10), literalAny(), createSumFunc() });
-			assertEquals("sum of 10 + 1..9 == 55", new Integer(55), call.evaluate(b3.ctx));
-
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-	}
-
-	public void test_reject() {
-		try {
-			EngineData b3 = new EngineData();
-
-			BExpression call = createTargetCall(listWithAllRed(), "reject", new BExpression[] {
-					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
-			List<?> r = (List<?>) call.evaluate(b3.ctx);
-			assertEquals("reject red == true", 0, r.size());
-
-			call = createTargetCall(listWithOneRed(), "reject", new BExpression[] {
-					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
-			r = (List<?>) call.evaluate(b3.ctx);
-			assertEquals("select red != true", 5, r.size());
-			for(int i = 0; i < 5; i++)
-				assertEquals("blue", r.get(i));
-			call = createTargetCall(listWith27Colors9Red(), "reject", new BExpression[] {
-					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
-			r = (List<?>) call.evaluate(b3.ctx);
-			assertEquals("select red != true", 18, r.size());
-			for(int i = 0; i < 18; i++)
-				assertFalse("red".equals(r.get(i)));
-
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-	}
-
-	public void test_select() {
-		try {
-			EngineData b3 = new EngineData();
-
-			BExpression call = createTargetCall(listWithAllRed(), "select", new BExpression[] {
-					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
-			List<?> r = (List<?>) call.evaluate(b3.ctx);
-			assertEquals("select red == true", 5, r.size());
-			for(int i = 0; i < 5; i++)
-				assertEquals("red", r.get(i));
-
-			call = createTargetCall(listWithOneRed(), "select", new BExpression[] {
-					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
-			r = (List<?>) call.evaluate(b3.ctx);
-			assertEquals("select red != true", 1, r.size());
-			assertEquals("red", r.get(0));
-
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-	}
-
-	public void test_whileTrue() {
-		try {
-			EngineData b3 = new EngineData();
-			BExpression condLambda = createTrueUntilXIsFalse();
-			BExpression repeatLambda = createAdd1ToSumAndSetXFalseIfSumIsGt9();
-			// lambdas communicate via these
-			b3.ctx.defineVariableValue("sum", 0, Integer.class);
-			b3.ctx.defineVariableValue("x", Boolean.TRUE, Boolean.class);
-
-			BExpression call = createTargetCall(
-				condLambda.evaluate(b3.ctx), "whileTrue", new BExpression[] { repeatLambda });
-			call.evaluate(b3.ctx);
-			assertEquals("whileTrue 1 to 10 should produce sum == 10", 10, b3.ctx.getValue("sum"));
-
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-
-	}
-
 	/**
 	 * Creates "{| if sum += 1 > 9 then x = false endif }"
 	 * 
@@ -416,5 +229,192 @@ public class TestSystemLibrary extends TestCase {
 
 	private BExpression literalAny() {
 		return B3backendFactory.eINSTANCE.createBLiteralAny();
+	}
+
+	public void test_allexists() {
+		try {
+			EngineData b3 = new EngineData();
+
+			BExpression call = createTargetCall(listWithAllRed(), "all", new BExpression[] {
+					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
+			assertEquals("all red == true", Boolean.TRUE, call.evaluate(b3.ctx));
+			call = createTargetCall(listWithOneRed(), "all", new BExpression[] {
+					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
+			assertEquals("all red != true", Boolean.FALSE, call.evaluate(b3.ctx));
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
+	}
+
+	public void test_do() {
+		try {
+			EngineData b3 = new EngineData();
+
+			BExpression call = createTargetCall(listWith1To9(), "do", new BExpression[] {
+					literal(20), literalAny(), createSumFunc() });
+			assertEquals("do 20 + 1 to 9 ", new Integer(29), call.evaluate(b3.ctx));
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
+	}
+
+	public void test_evaluate() {
+		try {
+			EngineData b3 = new EngineData();
+
+			BExpression call = createTargetCall(createSumFunc().evaluate(b3.ctx), "evaluate", new BExpression[] {
+					literal(4), literal(12) });
+			assertEquals("evaluate 4 + 12", 16, call.evaluate(b3.ctx));
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
+	}
+
+	public void test_exists() {
+		try {
+			EngineData b3 = new EngineData();
+
+			BExpression call = createTargetCall(listWithAllRed(), "exists", new BExpression[] {
+					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
+			assertEquals("exists red == true", Boolean.TRUE, call.evaluate(b3.ctx));
+			call = createTargetCall(listWithOneRed(), "exists", new BExpression[] {
+					literalAny(), literal("dummy"), createTrueIfNNNLambda("pink") });
+			assertEquals("exists red != true", Boolean.FALSE, call.evaluate(b3.ctx));
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
+	}
+
+	public void test_inject() {
+		try {
+			EngineData b3 = new EngineData();
+
+			BExpression call = createTargetCall(listWith1To9(), "inject", new BExpression[] {
+					literal(0), createSumFunc() });
+			assertEquals("sum of 1-9 == 45", new Integer(45), call.evaluate(b3.ctx));
+
+			call = createTargetCall(listWith1To9(), "inject", new BExpression[] { literal(10), createSumFunc() });
+			assertEquals("sum of 10 + 1..9 == 55", new Integer(55), call.evaluate(b3.ctx));
+
+			call = createTargetCall(listWith1To9(), "inject", new BExpression[] {
+					literal(10), literalAny(), createSumFunc() });
+			assertEquals("sum of 10 + 1..9 == 55", new Integer(55), call.evaluate(b3.ctx));
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
+	}
+
+	public void test_reject() {
+		try {
+			EngineData b3 = new EngineData();
+
+			BExpression call = createTargetCall(listWithAllRed(), "reject", new BExpression[] {
+					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
+			List<?> r = (List<?>) call.evaluate(b3.ctx);
+			assertEquals("reject red == true", 0, r.size());
+
+			call = createTargetCall(listWithOneRed(), "reject", new BExpression[] {
+					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
+			r = (List<?>) call.evaluate(b3.ctx);
+			assertEquals("select red != true", 5, r.size());
+			for(int i = 0; i < 5; i++)
+				assertEquals("blue", r.get(i));
+			call = createTargetCall(listWith27Colors9Red(), "reject", new BExpression[] {
+					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
+			r = (List<?>) call.evaluate(b3.ctx);
+			assertEquals("select red != true", 18, r.size());
+			for(int i = 0; i < 18; i++)
+				assertFalse("red".equals(r.get(i)));
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
+	}
+
+	public void test_select() {
+		try {
+			EngineData b3 = new EngineData();
+
+			BExpression call = createTargetCall(listWithAllRed(), "select", new BExpression[] {
+					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
+			List<?> r = (List<?>) call.evaluate(b3.ctx);
+			assertEquals("select red == true", 5, r.size());
+			for(int i = 0; i < 5; i++)
+				assertEquals("red", r.get(i));
+
+			call = createTargetCall(listWithOneRed(), "select", new BExpression[] {
+					literalAny(), literal("dummy"), createTrueIfNNNLambda("red") });
+			r = (List<?>) call.evaluate(b3.ctx);
+			assertEquals("select red != true", 1, r.size());
+			assertEquals("red", r.get(0));
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
+	}
+
+	public void test_whileTrue() {
+		try {
+			EngineData b3 = new EngineData();
+			BExpression condLambda = createTrueUntilXIsFalse();
+			BExpression repeatLambda = createAdd1ToSumAndSetXFalseIfSumIsGt9();
+			// lambdas communicate via these
+			b3.ctx.defineVariableValue("sum", 0, Integer.class);
+			b3.ctx.defineVariableValue("x", Boolean.TRUE, Boolean.class);
+
+			BExpression call = createTargetCall(
+				condLambda.evaluate(b3.ctx), "whileTrue", new BExpression[] { repeatLambda });
+			call.evaluate(b3.ctx);
+			assertEquals("whileTrue 1 to 10 should produce sum == 10", 10, b3.ctx.getValue("sum"));
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
+
 	}
 }

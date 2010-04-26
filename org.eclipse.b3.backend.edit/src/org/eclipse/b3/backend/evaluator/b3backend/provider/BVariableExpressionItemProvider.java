@@ -54,6 +54,35 @@ public class BVariableExpressionItemProvider extends BExpressionItemProvider imp
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BVariableExpression_name_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BVariableExpression_name_feature",
+				"_UI_BVariableExpression_type"), B3backendPackage.Literals.BVARIABLE_EXPRESSION__NAME, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns BVariableExpression.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,35 +144,6 @@ public class BVariableExpressionItemProvider extends BExpressionItemProvider imp
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BVariableExpression_name_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BVariableExpression_name_feature",
-				"_UI_BVariableExpression_type"), B3backendPackage.Literals.BVARIABLE_EXPRESSION__NAME, true, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

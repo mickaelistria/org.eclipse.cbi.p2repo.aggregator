@@ -86,6 +86,54 @@ public class BFunctionTest extends BExpressionTest {
 		super(name);
 	}
 
+	/**
+	 * Returns the fixture for this BFunction test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	// @Override
+	@Override
+	protected BFunction getFixture() {
+		return fixture;
+	}
+
+	/**
+	 * Sets the fixture for this BFunction test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void setFixture(BFunction fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(B3backendFactory.eINSTANCE.createBFunction());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
 	// @Override
 	@Override
 	public void testEvaluate__BExecutionContext() {
@@ -227,54 +275,6 @@ public class BFunctionTest extends BExpressionTest {
 		// TODO: implement this feature setter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
-	}
-
-	/**
-	 * Returns the fixture for this BFunction test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	// @Override
-	@Override
-	protected BFunction getFixture() {
-		return fixture;
-	}
-
-	/**
-	 * Sets the fixture for this BFunction test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void setFixture(BFunction fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createBFunction());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 } // BFunctionTest

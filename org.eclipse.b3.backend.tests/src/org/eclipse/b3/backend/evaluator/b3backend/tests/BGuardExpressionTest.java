@@ -60,6 +60,42 @@ public class BGuardExpressionTest extends BGuardTest {
 		super(name);
 	}
 
+	/**
+	 * Returns the fixture for this BGuard Expression test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BGuardExpression getFixture() {
+		return (BGuardExpression) fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(B3backendFactory.eINSTANCE.createBGuardExpression());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
 	// @Override
 	public void testAccepts__BFunction_BExecutionContext_Object_Type() {
 		B3Engine engine = new B3Engine();
@@ -119,41 +155,5 @@ public class BGuardExpressionTest extends BGuardTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	/**
-	 * Returns the fixture for this BGuard Expression test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected BGuardExpression getFixture() {
-		return (BGuardExpression) fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createBGuardExpression());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 } // BGuardExpressionTest

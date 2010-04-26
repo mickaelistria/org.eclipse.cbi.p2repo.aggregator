@@ -61,44 +61,21 @@ public class BCallFeatureTest extends BCallExpressionTest {
 		super(name);
 	}
 
-	/**
-	 */
-	@Override
-	public void testEvaluate__BExecutionContext() {
-		try {
-			B3Engine engine = new B3Engine();
-			BExecutionContext ctx = engine.getContext();
-			BCallExpression ce = createTargetFunctionCall(ctx);
-			Object result = ce.evaluate(ctx);
-			assertEquals(3, result);
+	private BCallExpression createTargetFunctionCall(BExecutionContext ctx) throws Throwable {
+		B3backendFactory b3 = B3backendFactory.eINSTANCE;
 
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
-	}
+		BCallExpression ce = b3.createBCallFeature();
+		ce.setName("+");
+		BLiteralExpression val1;
+		ce.setFuncExpr(val1 = b3.createBLiteralExpression());
+		val1.setValue(1);
 
-	@Override
-	public void testGetDeclaredType__BExecutionContext() {
-		try {
-			B3Engine engine = new B3Engine();
-			BExecutionContext ctx = engine.getContext();
+		BParameterList parameterList;
+		ce.setParameterList(parameterList = b3.createBParameterList());
+		EList<BParameter> params = parameterList.getParameters();
+		params.add(createLiteralParameter(2));
 
-			BCallExpression ce = createTargetFunctionCall(ctx);
-			assertEquals(Number.class, ce.getDeclaredType(ctx));
-
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-			fail();
-		}
+		return ce;
 	}
 
 	/**
@@ -137,21 +114,44 @@ public class BCallFeatureTest extends BCallExpressionTest {
 		setFixture(null);
 	}
 
-	private BCallExpression createTargetFunctionCall(BExecutionContext ctx) throws Throwable {
-		B3backendFactory b3 = B3backendFactory.eINSTANCE;
+	/**
+	 */
+	@Override
+	public void testEvaluate__BExecutionContext() {
+		try {
+			B3Engine engine = new B3Engine();
+			BExecutionContext ctx = engine.getContext();
+			BCallExpression ce = createTargetFunctionCall(ctx);
+			Object result = ce.evaluate(ctx);
+			assertEquals(3, result);
 
-		BCallExpression ce = b3.createBCallFeature();
-		ce.setName("+");
-		BLiteralExpression val1;
-		ce.setFuncExpr(val1 = b3.createBLiteralExpression());
-		val1.setValue(1);
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
+	}
 
-		BParameterList parameterList;
-		ce.setParameterList(parameterList = b3.createBParameterList());
-		EList<BParameter> params = parameterList.getParameters();
-		params.add(createLiteralParameter(2));
+	@Override
+	public void testGetDeclaredType__BExecutionContext() {
+		try {
+			B3Engine engine = new B3Engine();
+			BExecutionContext ctx = engine.getContext();
 
-		return ce;
+			BCallExpression ce = createTargetFunctionCall(ctx);
+			assertEquals(Number.class, ce.getDeclaredType(ctx));
+
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			t.printStackTrace();
+			fail();
+		}
 	}
 
 } // BCallFeatureTest

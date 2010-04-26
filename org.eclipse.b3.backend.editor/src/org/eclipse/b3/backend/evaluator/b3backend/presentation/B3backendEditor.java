@@ -389,8 +389,7 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 	protected ViewerPane currentViewerPane;
 
 	/**
-	 * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content
-	 * outline viewer.
+	 * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content outline viewer.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -408,8 +407,7 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 	protected ISelectionChangedListener selectionChangedListener;
 
 	/**
-	 * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to
-	 * this editor.
+	 * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to this editor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -702,6 +700,28 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 		else {
 			return Diagnostic.OK_INSTANCE;
 		}
+	}
+
+	/**
+	 * This creates a context menu for the viewer and adds a listener as well registering the menu for extension.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void createContextMenuFor(StructuredViewer viewer) {
+		MenuManager contextMenu = new MenuManager("#PopUp");
+		contextMenu.add(new Separator("additions"));
+		contextMenu.setRemoveAllWhenShown(true);
+		contextMenu.addMenuListener(this);
+		Menu menu = contextMenu.createContextMenu(viewer.getControl());
+		viewer.getControl().setMenu(menu);
+		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
+
+		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
+		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
+		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
+		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
 
 	/**
@@ -1100,6 +1120,34 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 	 * 
 	 * @generated
 	 */
+	protected void doSaveAs(URI uri, IEditorInput editorInput) {
+		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
+		setInputWithNotify(editorInput);
+		setPartName(editorInput.getName());
+		IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null
+				? getActionBars().getStatusLineManager().getProgressMonitor()
+				: new NullProgressMonitor();
+		doSave(progressMonitor);
+	}
+
+	/**
+	 * This is here for the listener to be able to call it.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void firePropertyChange(int action) {
+		super.firePropertyChange(action);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EditingDomainActionBarContributor getActionBarContributor() {
 		return (EditingDomainActionBarContributor) getEditorSite().getActionBarContributor();
 	}
@@ -1304,6 +1352,80 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 	}
 
 	/**
+	 * Handles activation of the editor or it's associated views.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void handleActivate() {
+		// Recompute the read only state.
+		//
+		if(editingDomain.getResourceToReadOnlyMap() != null) {
+			editingDomain.getResourceToReadOnlyMap().clear();
+
+			// Refresh any actions that may become enabled or disabled.
+			//
+			setSelection(getSelection());
+		}
+
+		if(!removedResources.isEmpty()) {
+			if(handleDirtyConflict()) {
+				getSite().getPage().closeEditor(B3backendEditor.this, false);
+			}
+			else {
+				removedResources.clear();
+				changedResources.clear();
+				savedResources.clear();
+			}
+		}
+		else if(!changedResources.isEmpty()) {
+			changedResources.removeAll(savedResources);
+			handleChangedResources();
+			changedResources.clear();
+			savedResources.clear();
+		}
+	}
+
+	/**
+	 * Handles what to do with changed resources on activation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void handleChangedResources() {
+		if(!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
+			if(isDirty()) {
+				changedResources.addAll(editingDomain.getResourceSet().getResources());
+			}
+			editingDomain.getCommandStack().flush();
+
+			updateProblemIndication = false;
+			for(Resource resource : changedResources) {
+				if(resource.isLoaded()) {
+					resource.unload();
+					try {
+						resource.load(Collections.EMPTY_MAP);
+					}
+					catch(IOException exception) {
+						if(!resourceToDiagnosticMap.containsKey(resource)) {
+							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+						}
+					}
+				}
+			}
+
+			if(AdapterFactoryEditingDomain.isStale(editorSelection)) {
+				setSelection(StructuredSelection.EMPTY);
+			}
+
+			updateProblemIndication = true;
+			updateProblemIndication();
+		}
+	}
+
+	/**
 	 * This deals with how we want selection in the outliner to affect the other views.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1344,6 +1466,37 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 	}
 
 	/**
+	 * Shows a dialog that asks if conflicting changes should be discarded.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected boolean handleDirtyConflict() {
+		return MessageDialog.openQuestion(
+			getSite().getShell(), getString("_UI_FileConflict_label"), getString("_WARN_FileConflict"));
+	}
+
+	/**
+	 * If there is just one page in the multi-page editor part,
+	 * this hides the single tab at the bottom.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void hideTabs() {
+		if(getPageCount() <= 1) {
+			setPageText(0, "");
+			if(getContainer() instanceof CTabFolder) {
+				((CTabFolder) getContainer()).setTabHeight(1);
+				Point point = getContainer().getSize();
+				getContainer().setSize(point.x, point.y + 6);
+			}
+		}
+	}
+
+	/**
 	 * This is called during startup.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1362,6 +1515,53 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 	}
 
 	/**
+	 * This sets up the editing domain for the model editor.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void initializeEditingDomain() {
+		// Create an adapter factory that yields item providers.
+		//
+		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+
+		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new B3backendItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+
+		// Create the command stack that will notify this editor as commands are executed.
+		//
+		BasicCommandStack commandStack = new BasicCommandStack();
+
+		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
+		//
+		commandStack.addCommandStackListener(new CommandStackListener() {
+			public void commandStackChanged(final EventObject event) {
+				getContainer().getDisplay().asyncExec(new Runnable() {
+					public void run() {
+						firePropertyChange(IEditorPart.PROP_DIRTY);
+
+						// Try to select the affected objects.
+						//
+						Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
+						if(mostRecentCommand != null) {
+							setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+						}
+						if(propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
+							propertySheetPage.refresh();
+						}
+					}
+				});
+			}
+		});
+
+		// Create the editing domain with a special command stack.
+		//
+		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+	}
+
+	/**
 	 * This is for implementing {@link IEditorPart} and simply tests the command stack.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1371,6 +1571,29 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 	@Override
 	public boolean isDirty() {
 		return ((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded();
+	}
+
+	/**
+	 * This returns whether something has been persisted to the URI of the specified resource.
+	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected boolean isPersisted(Resource resource) {
+		boolean result = false;
+		try {
+			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
+			if(stream != null) {
+				result = true;
+				stream.close();
+			}
+		}
+		catch(IOException e) {
+			// Ignore
+		}
+		return result;
 	}
 
 	/**
@@ -1386,8 +1609,7 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 	}
 
 	/**
-	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus with contributions
-	 * from the Edit menu.
+	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus with contributions from the Edit menu.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1395,6 +1617,22 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 	 */
 	public void menuAboutToShow(IMenuManager menuManager) {
 		((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
+	}
+
+	/**
+	 * This is used to track the active viewer.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void pageChange(int pageIndex) {
+		super.pageChange(pageIndex);
+
+		if(contentOutlinePage != null) {
+			handleContentOutlineSelection(contentOutlinePage.getSelection());
+		}
 	}
 
 	/**
@@ -1564,248 +1802,6 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 			else {
 				statusLineManager.setMessage("");
 			}
-		}
-	}
-
-	/**
-	 * This creates a context menu for the viewer and adds a listener as well registering the menu for extension.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void createContextMenuFor(StructuredViewer viewer) {
-		MenuManager contextMenu = new MenuManager("#PopUp");
-		contextMenu.add(new Separator("additions"));
-		contextMenu.setRemoveAllWhenShown(true);
-		contextMenu.addMenuListener(this);
-		Menu menu = contextMenu.createContextMenu(viewer.getControl());
-		viewer.getControl().setMenu(menu);
-		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
-
-		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
-		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void doSaveAs(URI uri, IEditorInput editorInput) {
-		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
-		setInputWithNotify(editorInput);
-		setPartName(editorInput.getName());
-		IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null
-				? getActionBars().getStatusLineManager().getProgressMonitor()
-				: new NullProgressMonitor();
-		doSave(progressMonitor);
-	}
-
-	/**
-	 * This is here for the listener to be able to call it.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void firePropertyChange(int action) {
-		super.firePropertyChange(action);
-	}
-
-	/**
-	 * Handles activation of the editor or it's associated views.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void handleActivate() {
-		// Recompute the read only state.
-		//
-		if(editingDomain.getResourceToReadOnlyMap() != null) {
-			editingDomain.getResourceToReadOnlyMap().clear();
-
-			// Refresh any actions that may become enabled or disabled.
-			//
-			setSelection(getSelection());
-		}
-
-		if(!removedResources.isEmpty()) {
-			if(handleDirtyConflict()) {
-				getSite().getPage().closeEditor(B3backendEditor.this, false);
-			}
-			else {
-				removedResources.clear();
-				changedResources.clear();
-				savedResources.clear();
-			}
-		}
-		else if(!changedResources.isEmpty()) {
-			changedResources.removeAll(savedResources);
-			handleChangedResources();
-			changedResources.clear();
-			savedResources.clear();
-		}
-	}
-
-	/**
-	 * Handles what to do with changed resources on activation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void handleChangedResources() {
-		if(!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
-			if(isDirty()) {
-				changedResources.addAll(editingDomain.getResourceSet().getResources());
-			}
-			editingDomain.getCommandStack().flush();
-
-			updateProblemIndication = false;
-			for(Resource resource : changedResources) {
-				if(resource.isLoaded()) {
-					resource.unload();
-					try {
-						resource.load(Collections.EMPTY_MAP);
-					}
-					catch(IOException exception) {
-						if(!resourceToDiagnosticMap.containsKey(resource)) {
-							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
-						}
-					}
-				}
-			}
-
-			if(AdapterFactoryEditingDomain.isStale(editorSelection)) {
-				setSelection(StructuredSelection.EMPTY);
-			}
-
-			updateProblemIndication = true;
-			updateProblemIndication();
-		}
-	}
-
-	/**
-	 * Shows a dialog that asks if conflicting changes should be discarded.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected boolean handleDirtyConflict() {
-		return MessageDialog.openQuestion(
-			getSite().getShell(), getString("_UI_FileConflict_label"), getString("_WARN_FileConflict"));
-	}
-
-	/**
-	 * If there is just one page in the multi-page editor part,
-	 * this hides the single tab at the bottom.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void hideTabs() {
-		if(getPageCount() <= 1) {
-			setPageText(0, "");
-			if(getContainer() instanceof CTabFolder) {
-				((CTabFolder) getContainer()).setTabHeight(1);
-				Point point = getContainer().getSize();
-				getContainer().setSize(point.x, point.y + 6);
-			}
-		}
-	}
-
-	/**
-	 * This sets up the editing domain for the model editor.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void initializeEditingDomain() {
-		// Create an adapter factory that yields item providers.
-		//
-		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-
-		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new B3backendItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-
-		// Create the command stack that will notify this editor as commands are executed.
-		//
-		BasicCommandStack commandStack = new BasicCommandStack();
-
-		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with
-		// focus.
-		//
-		commandStack.addCommandStackListener(new CommandStackListener() {
-			public void commandStackChanged(final EventObject event) {
-				getContainer().getDisplay().asyncExec(new Runnable() {
-					public void run() {
-						firePropertyChange(IEditorPart.PROP_DIRTY);
-
-						// Try to select the affected objects.
-						//
-						Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
-						if(mostRecentCommand != null) {
-							setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-						}
-						if(propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
-							propertySheetPage.refresh();
-						}
-					}
-				});
-			}
-		});
-
-		// Create the editing domain with a special command stack.
-		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
-	}
-
-	/**
-	 * This returns whether something has been persisted to the URI of the specified resource.
-	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected boolean isPersisted(Resource resource) {
-		boolean result = false;
-		try {
-			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
-			if(stream != null) {
-				result = true;
-				stream.close();
-			}
-		}
-		catch(IOException e) {
-			// Ignore
-		}
-		return result;
-	}
-
-	/**
-	 * This is used to track the active viewer.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void pageChange(int pageIndex) {
-		super.pageChange(pageIndex);
-
-		if(contentOutlinePage != null) {
-			handleContentOutlineSelection(contentOutlinePage.getSelection());
 		}
 	}
 

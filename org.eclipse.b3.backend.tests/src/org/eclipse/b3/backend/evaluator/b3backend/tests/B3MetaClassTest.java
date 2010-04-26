@@ -73,21 +73,6 @@ public class B3MetaClassTest extends TestCase {
 	}
 
 	/**
-	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass#isAssignableFrom(java.lang.reflect.Type)
-	 * <em>Is Assignable From</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass#isAssignableFrom(java.lang.reflect.Type)
-	 * @generated
-	 */
-	public void testIsAssignableFrom__Type() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Returns the fixture for this B3 Meta Class test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,6 +116,21 @@ public class B3MetaClassTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass#isAssignableFrom(java.lang.reflect.Type) <em>Is Assignable From</em>}'
+	 * operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass#isAssignableFrom(java.lang.reflect.Type)
+	 * @generated
+	 */
+	public void testIsAssignableFrom__Type() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } // B3MetaClassTest

@@ -44,20 +44,15 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
  * <em>Get Return Type For Parameter Types</em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
- * <em>Evaluate</em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getLValue(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
- * <em>Get LValue</em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>
+ * Evaluate</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getLValue(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get
+ * LValue</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
  * <em>Get Declared Type</em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getEffectiveType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getEffectiveType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
  * <em>Get Effective Type</em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getInferredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getInferredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
  * <em>Get Inferred Type</em>}</li>
  * </ul>
  * </p>
@@ -92,6 +87,28 @@ public abstract class IFunctionTest extends TestCase {
 	 */
 	public IFunctionTest(String name) {
 		super(name);
+	}
+
+	/**
+	 * Returns the fixture for this IFunction test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected IFunction getFixture() {
+		return fixture;
+	}
+
+	/**
+	 * Sets the fixture for this IFunction test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void setFixture(IFunction fixture) {
+		this.fixture = fixture;
 	}
 
 	/**
@@ -192,8 +209,7 @@ public abstract class IFunctionTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames()
-	 * <em>Parameter Names</em>}' feature getter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames() <em>Parameter Names</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -207,8 +223,7 @@ public abstract class IFunctionTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes()
-	 * <em>Parameter Types</em>}' feature getter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes() <em>Parameter Types</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -239,8 +254,7 @@ public abstract class IFunctionTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getSignature() <em>Get Signature</em>}'
-	 * operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getSignature() <em>Get Signature</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -254,8 +268,7 @@ public abstract class IFunctionTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType()
-	 * <em>Vararg Array Type</em>}' feature getter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType() <em>Vararg Array Type</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -303,8 +316,8 @@ public abstract class IFunctionTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterNames(java.lang.String[])
-	 * <em>Parameter Names</em>}' feature setter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterNames(java.lang.String[]) <em>Parameter Names</em>}' feature
+	 * setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -318,8 +331,8 @@ public abstract class IFunctionTest extends TestCase {
 	}
 
 	/**
-	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterTypes(java.lang.reflect.Type[])
-	 * <em>Parameter Types</em>}' feature setter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterTypes(java.lang.reflect.Type[]) <em>Parameter Types</em>}'
+	 * feature setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -333,8 +346,8 @@ public abstract class IFunctionTest extends TestCase {
 	}
 
 	/**
-	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setVarargArrayType(java.lang.reflect.Type)
-	 * <em>Vararg Array Type</em>}' feature setter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setVarargArrayType(java.lang.reflect.Type) <em>Vararg Array Type</em>}'
+	 * feature setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -345,28 +358,6 @@ public abstract class IFunctionTest extends TestCase {
 		// TODO: implement this feature setter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
-	}
-
-	/**
-	 * Returns the fixture for this IFunction test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected IFunction getFixture() {
-		return fixture;
-	}
-
-	/**
-	 * Sets the fixture for this IFunction test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void setFixture(IFunction fixture) {
-		this.fixture = fixture;
 	}
 
 } // IFunctionTest

@@ -55,111 +55,6 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR);
-			childrenFeatures.add(B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR);
-			childrenFeatures.add(B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify = childFeature == B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR ||
-				childFeature == B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR ||
-				childFeature == B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR;
-
-		if(qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] {
-					getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * This returns BIfExpression.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BIfExpression"));
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		return getString("_UI_BIfExpression_type");
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(BIfExpression.class)) {
-			case B3backendPackage.BIF_EXPRESSION__CONDITION_EXPR:
-			case B3backendPackage.BIF_EXPRESSION__THEN_EXPR:
-			case B3backendPackage.BIF_EXPRESSION__ELSE_EXPR:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
@@ -263,6 +158,10 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR,
 			B3backendFactory.eINSTANCE.createBRegularExpression()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -333,6 +232,10 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR,
+			B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR, B3backendFactory.eINSTANCE.createBIfExpression()));
@@ -415,6 +318,10 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -479,6 +386,10 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR,
+			B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR, B3backendFactory.eINSTANCE.createBIfExpression()));
@@ -561,6 +472,10 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -625,6 +540,10 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR,
+			B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
 	}
 
 	/**
@@ -639,6 +558,111 @@ public class BIfExpressionItemProvider extends BExpressionItemProvider implement
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR);
+			childrenFeatures.add(B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR);
+			childrenFeatures.add(B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR ||
+				childFeature == B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR ||
+				childFeature == B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR;
+
+		if(qualify) {
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
+	}
+
+	/**
+	 * This returns BIfExpression.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BIfExpression"));
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		return getString("_UI_BIfExpression_type");
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(BIfExpression.class)) {
+			case B3backendPackage.BIF_EXPRESSION__CONDITION_EXPR:
+			case B3backendPackage.BIF_EXPRESSION__THEN_EXPR:
+			case B3backendPackage.BIF_EXPRESSION__ELSE_EXPR:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

@@ -73,21 +73,6 @@ public class BNamePredicateTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#matches(java.lang.String)
-	 * <em>Matches</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#matches(java.lang.String)
-	 * @generated
-	 */
-	public void testMatches__String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Returns the fixture for this BName Predicate test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,6 +116,20 @@ public class BNamePredicateTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#matches(java.lang.String) <em>Matches</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#matches(java.lang.String)
+	 * @generated
+	 */
+	public void testMatches__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } // BNamePredicateTest

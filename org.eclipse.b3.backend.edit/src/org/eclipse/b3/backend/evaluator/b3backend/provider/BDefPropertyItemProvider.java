@@ -60,6 +60,35 @@ public class BDefPropertyItemProvider extends BDefValueItemProvider implements I
 	}
 
 	/**
+	 * This adds a property descriptor for the Mutable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addMutablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BDefProperty_mutable_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BDefProperty_mutable_feature", "_UI_BDefProperty_type"),
+			B3backendPackage.Literals.BDEF_PROPERTY__MUTABLE, true, false, false,
+			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns BDefProperty.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -121,35 +150,6 @@ public class BDefPropertyItemProvider extends BDefValueItemProvider implements I
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Mutable feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addMutablePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BDefProperty_mutable_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BDefProperty_mutable_feature", "_UI_BDefProperty_type"),
-			B3backendPackage.Literals.BDEF_PROPERTY__MUTABLE, true, false, false,
-			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

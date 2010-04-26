@@ -60,6 +60,42 @@ public class BLiteralMapExpressionTest extends BExpressionTest {
 		super(name);
 	}
 
+	/**
+	 * Returns the fixture for this BLiteral Map Expression test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BLiteralMapExpression getFixture() {
+		return (BLiteralMapExpression) fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(B3backendFactory.eINSTANCE.createBLiteralMapExpression());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
 	@Override
 	public void testEvaluate__BExecutionContext() {
 		try {
@@ -219,41 +255,5 @@ public class BLiteralMapExpressionTest extends BExpressionTest {
 	@Override
 	public void testGetLValue__BExecutionContext() {
 		super.assertLValShouldFail();
-	}
-
-	/**
-	 * Returns the fixture for this BLiteral Map Expression test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected BLiteralMapExpression getFixture() {
-		return (BLiteralMapExpression) fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createBLiteralMapExpression());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 } // BLiteralMapExpressionTest

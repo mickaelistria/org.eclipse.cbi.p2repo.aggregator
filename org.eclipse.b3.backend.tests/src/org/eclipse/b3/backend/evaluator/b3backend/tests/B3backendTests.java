@@ -109,6 +109,8 @@ public class B3backendTests extends TestSuite {
 		suite.addTestSuite(BCallFeatureTest.class);
 		suite.addTestSuite(BCallNamedFunctionTest.class);
 		suite.addTestSuite(BCallFunctionTest.class);
+		suite.addTestSuite(BPatternLiteralExpressionTest.class);
+		suite.addTestSuite(BSimplePatternExpressionTest.class);
 		return suite;
 	}
 

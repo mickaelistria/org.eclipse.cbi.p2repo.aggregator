@@ -56,23 +56,6 @@ public abstract class BGuardTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BGuard#accepts(org.eclipse.b3.backend.evaluator.b3backend.IFunction, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
-	 * <em>Accepts</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BGuard#accepts(org.eclipse.b3.backend.evaluator.b3backend.IFunction,
-	 *      org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
-	 * @generated
-	 */
-	public void testAccepts__IFunction_BExecutionContext_Object_Type() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Returns the fixture for this BGuard test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +75,23 @@ public abstract class BGuardTest extends TestCase {
 	 */
 	protected void setFixture(BGuard fixture) {
 		this.fixture = fixture;
+	}
+
+	/**
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BGuard#accepts(org.eclipse.b3.backend.evaluator.b3backend.IFunction, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+	 * <em>Accepts</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BGuard#accepts(org.eclipse.b3.backend.evaluator.b3backend.IFunction,
+	 *      org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+	 * @generated
+	 */
+	public void testAccepts__IFunction_BExecutionContext_Object_Type() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } // BGuardTest

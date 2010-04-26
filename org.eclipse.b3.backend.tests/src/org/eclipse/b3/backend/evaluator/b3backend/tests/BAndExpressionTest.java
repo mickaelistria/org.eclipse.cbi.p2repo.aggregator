@@ -52,6 +52,44 @@ public class BAndExpressionTest extends BBinaryExpressionTest {
 		super(name);
 	}
 
+	/**
+	 * Returns the fixture for this BAnd Expression test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BAndExpression getFixture() {
+		return (BAndExpression) fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated NOT
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(B3backendFactory.eINSTANCE.createBAndExpression());
+		setEngine(new B3Engine());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated NOT
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+		setEngine(null);
+	}
+
 	@Override
 	public void testEvaluate__BExecutionContext() {
 
@@ -121,44 +159,6 @@ public class BAndExpressionTest extends BBinaryExpressionTest {
 	@Override
 	public void testGetLValue__BExecutionContext() {
 		super.assertLValShouldFail();
-	}
-
-	/**
-	 * Returns the fixture for this BAnd Expression test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected BAndExpression getFixture() {
-		return (BAndExpression) fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated NOT
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createBAndExpression());
-		setEngine(new B3Engine());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated NOT
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-		setEngine(null);
 	}
 
 } // BAndExpressionTest

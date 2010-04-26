@@ -64,6 +64,36 @@ public class BParameterListItemProvider extends ItemProviderAdapter implements I
 	}
 
 	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BPARAMETER_LIST__PARAMETERS, B3backendFactory.eINSTANCE.createBParameter()));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -151,36 +181,6 @@ public class BParameterListItemProvider extends ItemProviderAdapter implements I
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_LIST__PARAMETERS, B3backendFactory.eINSTANCE.createBParameter()));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 }

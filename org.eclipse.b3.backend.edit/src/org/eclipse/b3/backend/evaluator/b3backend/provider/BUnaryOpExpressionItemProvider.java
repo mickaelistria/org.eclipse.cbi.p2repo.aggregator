@@ -54,6 +54,35 @@ public class BUnaryOpExpressionItemProvider extends BUnaryExpressionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Function Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addFunctionNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BUnaryOpExpression_functionName_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BUnaryOpExpression_functionName_feature",
+				"_UI_BUnaryOpExpression_type"), B3backendPackage.Literals.BUNARY_OP_EXPRESSION__FUNCTION_NAME, true,
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns BUnaryOpExpression.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,35 +144,6 @@ public class BUnaryOpExpressionItemProvider extends BUnaryExpressionItemProvider
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Function Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addFunctionNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BUnaryOpExpression_functionName_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BUnaryOpExpression_functionName_feature",
-				"_UI_BUnaryOpExpression_type"), B3backendPackage.Literals.BUNARY_OP_EXPRESSION__FUNCTION_NAME, true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

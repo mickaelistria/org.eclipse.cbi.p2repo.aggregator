@@ -64,6 +64,88 @@ public class B3ParameterizedTypeItemProvider extends ItemProviderAdapter impleme
 	}
 
 	/**
+	 * This adds a property descriptor for the Actual Arguments List feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addActualArgumentsListPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_B3ParameterizedType_actualArgumentsList_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_B3ParameterizedType_actualArgumentsList_feature",
+				"_UI_B3ParameterizedType_type"),
+			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Raw Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addRawTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_B3ParameterizedType_rawType_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_B3ParameterizedType_rawType_feature",
+				"_UI_B3ParameterizedType_type"), B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__RAW_TYPE, true,
+			false, true, null, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
+			B3backendFactory.eINSTANCE.createB3FunctionType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
+			B3backendFactory.eINSTANCE.createB3ParameterizedType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
+			B3backendFactory.eINSTANCE.createB3WildcardType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
+			B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
+			B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE, B3backendFactory.eINSTANCE.createB3MetaClass()));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -153,88 +235,6 @@ public class B3ParameterizedTypeItemProvider extends ItemProviderAdapter impleme
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Actual Arguments List feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addActualArgumentsListPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3ParameterizedType_actualArgumentsList_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_B3ParameterizedType_actualArgumentsList_feature",
-				"_UI_B3ParameterizedType_type"),
-			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Raw Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addRawTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3ParameterizedType_rawType_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_B3ParameterizedType_rawType_feature",
-				"_UI_B3ParameterizedType_type"), B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__RAW_TYPE, true,
-			false, true, null, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
-			B3backendFactory.eINSTANCE.createB3FunctionType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
-			B3backendFactory.eINSTANCE.createB3ParameterizedType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
-			B3backendFactory.eINSTANCE.createB3WildcardType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
-			B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
-			B3backendFactory.eINSTANCE.createB3JavaImport()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE, B3backendFactory.eINSTANCE.createB3MetaClass()));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 }

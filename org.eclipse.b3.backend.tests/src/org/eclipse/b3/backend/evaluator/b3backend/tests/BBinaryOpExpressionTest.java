@@ -52,6 +52,42 @@ public class BBinaryOpExpressionTest extends BBinaryExpressionTest {
 		super(name);
 	}
 
+	/**
+	 * Returns the fixture for this BBinary Op Expression test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BBinaryOpExpression getFixture() {
+		return (BBinaryOpExpression) fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(B3backendFactory.eINSTANCE.createBBinaryOpExpression());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated NOT
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
 	@Override
 	public void testEvaluate__BExecutionContext() {
 		try {
@@ -123,41 +159,5 @@ public class BBinaryOpExpressionTest extends BBinaryExpressionTest {
 	@Override
 	public void testGetLValue__BExecutionContext() {
 		super.assertLValShouldFail();
-	}
-
-	/**
-	 * Returns the fixture for this BBinary Op Expression test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected BBinaryOpExpression getFixture() {
-		return (BBinaryOpExpression) fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createBBinaryOpExpression());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated NOT
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 } // BBinaryOpExpressionTest

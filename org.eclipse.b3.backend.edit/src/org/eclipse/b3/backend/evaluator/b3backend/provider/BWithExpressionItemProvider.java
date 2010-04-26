@@ -62,112 +62,6 @@ public class BWithExpressionItemProvider extends BExpressionItemProvider impleme
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.BWITH_EXPRESSION__PROPERTY_SETS);
-			childrenFeatures.add(B3backendPackage.Literals.BWITH_EXPRESSION__CONCERNS);
-			childrenFeatures.add(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify = childFeature == B3backendPackage.Literals.BWITH_EXPRESSION__PROPERTY_SETS ||
-				childFeature == B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR ||
-				childFeature == B3backendPackage.Literals.BWITH_EXPRESSION__CONCERNS;
-
-		if(qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] {
-					getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * This returns BWithExpression.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BWithExpression"));
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addReferencedAdvicePropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		return getString("_UI_BWithExpression_type");
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(BWithExpression.class)) {
-			case B3backendPackage.BWITH_EXPRESSION__PROPERTY_SETS:
-			case B3backendPackage.BWITH_EXPRESSION__CONCERNS:
-			case B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Referenced Advice feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,6 +187,10 @@ public class BWithExpressionItemProvider extends BExpressionItemProvider impleme
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
 			B3backendFactory.eINSTANCE.createBRegularExpression()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -361,6 +259,10 @@ public class BWithExpressionItemProvider extends BExpressionItemProvider impleme
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
+			B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
 	}
 
 	/**
@@ -375,6 +277,112 @@ public class BWithExpressionItemProvider extends BExpressionItemProvider impleme
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.BWITH_EXPRESSION__PROPERTY_SETS);
+			childrenFeatures.add(B3backendPackage.Literals.BWITH_EXPRESSION__CONCERNS);
+			childrenFeatures.add(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == B3backendPackage.Literals.BWITH_EXPRESSION__PROPERTY_SETS ||
+				childFeature == B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR ||
+				childFeature == B3backendPackage.Literals.BWITH_EXPRESSION__CONCERNS;
+
+		if(qualify) {
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
+	}
+
+	/**
+	 * This returns BWithExpression.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BWithExpression"));
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addReferencedAdvicePropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		return getString("_UI_BWithExpression_type");
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(BWithExpression.class)) {
+			case B3backendPackage.BWITH_EXPRESSION__PROPERTY_SETS:
+			case B3backendPackage.BWITH_EXPRESSION__CONCERNS:
+			case B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

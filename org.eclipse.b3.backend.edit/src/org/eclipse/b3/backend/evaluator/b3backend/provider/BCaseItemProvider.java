@@ -58,6 +58,320 @@ public class BCaseItemProvider extends ItemProviderAdapter implements IEditingDo
 	}
 
 	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBIfExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBSwitchExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBTryExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBOrExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBAndExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBChainedExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBThrowExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBUnaryOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBUnaryPostOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBBinaryOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBCachedExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralListExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralMapExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBFeatureExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBAtExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBCreateExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBUnaryPreOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBAssignmentExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createB3Function()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBJavaFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBDefProperty()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBAdvice()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBPropertySet()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+			B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+			B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBPropertySetOperation()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBConcern()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBWithExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBFunctionWrapper()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBProceedExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBExpressionWrapper()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+			B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBIfExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBSwitchExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBTryExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBOrExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBAndExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBChainedExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBThrowExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBUnaryOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBUnaryPostOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBBinaryOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBCachedExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralListExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralMapExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBFeatureExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBAtExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBCreateExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBUnaryPreOpExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBAssignmentExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createB3Function()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBJavaFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBDefProperty()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBAdvice()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBPropertySet()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR,
+			B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBPropertySetOperation()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBConcern()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBWithExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBFunctionWrapper()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBProceedExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBExpressionWrapper()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBCallFeature()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBCallNamedFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -169,306 +483,6 @@ public class BCaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBIfExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBSwitchExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBTryExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBOrExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBAndExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBChainedExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBThrowExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBUnaryOpExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBUnaryPostOpExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBBinaryOpExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBCachedExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralListExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralMapExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBFeatureExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBAtExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBCreateExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBUnaryPreOpExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBAssignmentExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBFunction()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createB3Function()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBJavaFunction()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBLiteralType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBDefProperty()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBAdvice()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBPropertySet()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR,
-			B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR,
-			B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBPropertySetOperation()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBConcern()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBWithExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBFunctionWrapper()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBProceedExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBExpressionWrapper()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBWithContextExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBCallFeature()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBCallNamedFunction()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__CONDITION_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBIfExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBSwitchExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBTryExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBOrExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBAndExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBChainedExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBThrowExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBUnaryOpExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBUnaryPostOpExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBBinaryOpExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBCachedExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralListExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralMapExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBFeatureExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBAtExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBVariableExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralAny()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBCreateExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBUnaryPreOpExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBAssignmentExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBFunction()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createB3Function()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBJavaFunction()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBLiteralType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBDefProperty()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBAdvice()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBPropertySet()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR,
-			B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBPropertySetOperation()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBConcern()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBWithExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBFunctionWrapper()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBProceedExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBExpressionWrapper()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBWithContextExpression()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBCallFeature()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBCallNamedFunction()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BCASE__THEN_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 }

@@ -57,6 +57,35 @@ public class BInvocationContextItemProvider extends BExecutionContextItemProvide
 	}
 
 	/**
+	 * This adds a property descriptor for the Expression Cache feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addExpressionCachePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BInvocationContext_expressionCache_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BInvocationContext_expressionCache_feature",
+				"_UI_BInvocationContext_type"), B3backendPackage.Literals.BINVOCATION_CONTEXT__EXPRESSION_CACHE, true,
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns BInvocationContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -121,35 +150,6 @@ public class BInvocationContextItemProvider extends BExecutionContextItemProvide
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Expression Cache feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addExpressionCachePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BInvocationContext_expressionCache_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BInvocationContext_expressionCache_feature",
-				"_UI_BInvocationContext_type"), B3backendPackage.Literals.BINVOCATION_CONTEXT__EXPRESSION_CACHE, true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

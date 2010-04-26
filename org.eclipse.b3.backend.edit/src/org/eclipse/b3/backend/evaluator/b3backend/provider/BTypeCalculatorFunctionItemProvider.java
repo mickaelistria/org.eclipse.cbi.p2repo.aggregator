@@ -58,6 +58,35 @@ public class BTypeCalculatorFunctionItemProvider extends BTypeCalculatorItemProv
 	}
 
 	/**
+	 * This adds a property descriptor for the Func feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addFuncPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BTypeCalculatorFunction_func_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BTypeCalculatorFunction_func_feature",
+				"_UI_BTypeCalculatorFunction_type"), B3backendPackage.Literals.BTYPE_CALCULATOR_FUNCTION__FUNC, true,
+			false, true, null, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns BTypeCalculatorFunction.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,35 +139,6 @@ public class BTypeCalculatorFunctionItemProvider extends BTypeCalculatorItemProv
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Func feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addFuncPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BTypeCalculatorFunction_func_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BTypeCalculatorFunction_func_feature",
-				"_UI_BTypeCalculatorFunction_type"), B3backendPackage.Literals.BTYPE_CALCULATOR_FUNCTION__FUNC, true,
-			false, true, null, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

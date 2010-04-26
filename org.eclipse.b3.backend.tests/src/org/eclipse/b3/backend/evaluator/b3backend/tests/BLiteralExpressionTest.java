@@ -52,40 +52,6 @@ public class BLiteralExpressionTest extends BExpressionTest {
 		super(name);
 	}
 
-	@Override
-	public void testEvaluate__BExecutionContext() {
-		try {
-			Object result = getFixture().evaluate(getEngine().getContext());
-			assertEquals(result, "DUMMY");
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			fail(t.getMessage());
-		}
-	}
-
-	@Override
-	public void testGetDeclaredType__BExecutionContext() {
-		try {
-			BExecutionContext ctx = getEngine().getContext();
-			assertEquals(String.class, getFixture().getDeclaredType(ctx));
-		}
-		catch(AssertionFailedError e) {
-			throw e;
-		}
-		catch(Throwable t) {
-			fail(t.getMessage());
-		}
-
-	}
-
-	@Override
-	public void testGetLValue__BExecutionContext() {
-		super.assertLValShouldFail();
-	}
-
 	/**
 	 * Returns the fixture for this BLiteral Expression test case.
 	 * <!-- begin-user-doc -->
@@ -124,5 +90,39 @@ public class BLiteralExpressionTest extends BExpressionTest {
 	protected void tearDown() throws Exception {
 		setFixture(null);
 		setEngine(null);
+	}
+
+	@Override
+	public void testEvaluate__BExecutionContext() {
+		try {
+			Object result = getFixture().evaluate(getEngine().getContext());
+			assertEquals(result, "DUMMY");
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			fail(t.getMessage());
+		}
+	}
+
+	@Override
+	public void testGetDeclaredType__BExecutionContext() {
+		try {
+			BExecutionContext ctx = getEngine().getContext();
+			assertEquals(String.class, getFixture().getDeclaredType(ctx));
+		}
+		catch(AssertionFailedError e) {
+			throw e;
+		}
+		catch(Throwable t) {
+			fail(t.getMessage());
+		}
+
+	}
+
+	@Override
+	public void testGetLValue__BExecutionContext() {
+		super.assertLValShouldFail();
 	}
 } // BLiteralExpressionTest

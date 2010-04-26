@@ -63,6 +63,78 @@ public class BCallFunctionTest extends BCallExpressionTest {
 		super(name);
 	}
 
+	private BCallExpression createExpressionCall(BExecutionContext ctx) throws Throwable {
+		B3backendFactory b3 = B3backendFactory.eINSTANCE;
+
+		// this is really a lambda function call test, but it also verifies that the function was loaded
+		// as there is really no other way of querying if functions where loaded ok.
+		//
+
+		// func = 2 + 1
+		B3Function func = b3.createB3Function();
+		{
+			func.setReturnType(Integer.class);
+			// func.setParameterTypes(new Type[] { Integer.class });
+			BLiteralExpression valx = b3.createBLiteralExpression();
+			valx.setValue(2);
+			BLiteralExpression valy = b3.createBLiteralExpression();
+			valy.setValue(1);
+			BBinaryOpExpression op = b3.createBBinaryOpExpression();
+			func.setFuncExpr(op);
+			op.setFunctionName("+");
+			op.setLeftExpr(valx);
+			op.setRightExpr(valy);
+		}
+		// a = func : 2 + 1;
+		B3FunctionType funcType = b3.createB3FunctionType();
+		funcType.setFunctionType(BFunction.class);
+		funcType.setReturnType(Integer.class);
+		funcType.setVarArgs(false);
+		ctx.defineVariableValue("a", func, funcType);
+		BCallExpression ce = b3.createBCallFunction();
+		BVariableExpression vara = b3.createBVariableExpression();
+		vara.setName("a");
+		ce.setFuncExpr(vara);
+
+		return ce;
+	}
+
+	/**
+	 * Returns the fixture for this BCall Function test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BCallFunction getFixture() {
+		return (BCallFunction) fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(B3backendFactory.eINSTANCE.createBCallFunction());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
 	/**
 	 * Tests an expression call - other test methods test a feature call, and a function call
 	 * test: a = {| 1 + 2}; (a)();
@@ -104,78 +176,6 @@ public class BCallFunctionTest extends BCallExpressionTest {
 			t.printStackTrace();
 			fail();
 		}
-	}
-
-	/**
-	 * Returns the fixture for this BCall Function test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected BCallFunction getFixture() {
-		return (BCallFunction) fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createBCallFunction());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
-
-	private BCallExpression createExpressionCall(BExecutionContext ctx) throws Throwable {
-		B3backendFactory b3 = B3backendFactory.eINSTANCE;
-
-		// this is really a lambda function call test, but it also verifies that the function was loaded
-		// as there is really no other way of querying if functions where loaded ok.
-		//
-
-		// func = 2 + 1
-		B3Function func = b3.createB3Function();
-		{
-			func.setReturnType(Integer.class);
-			// func.setParameterTypes(new Type[] { Integer.class });
-			BLiteralExpression valx = b3.createBLiteralExpression();
-			valx.setValue(2);
-			BLiteralExpression valy = b3.createBLiteralExpression();
-			valy.setValue(1);
-			BBinaryOpExpression op = b3.createBBinaryOpExpression();
-			func.setFuncExpr(op);
-			op.setFunctionName("+");
-			op.setLeftExpr(valx);
-			op.setRightExpr(valy);
-		}
-		// a = func : 2 + 1;
-		B3FunctionType funcType = b3.createB3FunctionType();
-		funcType.setFunctionType(BFunction.class);
-		funcType.setReturnType(Integer.class);
-		funcType.setVarArgs(false);
-		ctx.defineVariableValue("a", func, funcType);
-		BCallExpression ce = b3.createBCallFunction();
-		BVariableExpression vara = b3.createBVariableExpression();
-		vara.setName("a");
-		ce.setFuncExpr(vara);
-
-		return ce;
 	}
 
 } // BCallFunctionTest

@@ -58,22 +58,6 @@ public class BInvocationContextTest extends BExecutionContextTest {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext#evaluateIfNotCached(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression)
-	 * <em>Evaluate If Not Cached</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext#evaluateIfNotCached(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
-	 *      org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression)
-	 * @generated NOT
-	 */
-	public void testEvaluateIfNotCached__BExecutionContext_BCachedExpression() {
-		// This is tested by BCachedExpressionTest
-		//
-	}
-
-	/**
 	 * Returns the fixture for this BInvocation Context test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,6 +91,22 @@ public class BInvocationContextTest extends BExecutionContextTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext#evaluateIfNotCached(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression)
+	 * <em>Evaluate If Not Cached</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext#evaluateIfNotCached(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 *      org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression)
+	 * @generated NOT
+	 */
+	public void testEvaluateIfNotCached__BExecutionContext_BCachedExpression() {
+		// This is tested by BCachedExpressionTest
+		//
 	}
 
 } // BInvocationContextTest

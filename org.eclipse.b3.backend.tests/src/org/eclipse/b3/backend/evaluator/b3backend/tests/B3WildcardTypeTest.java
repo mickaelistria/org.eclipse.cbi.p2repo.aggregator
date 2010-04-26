@@ -74,36 +74,6 @@ public class B3WildcardTypeTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getLowerBounds()
-	 * <em>Get Lower Bounds</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getLowerBounds()
-	 * @generated
-	 */
-	public void testGetLowerBounds() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getUpperBounds()
-	 * <em>Get Upper Bounds</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getUpperBounds()
-	 * @generated
-	 */
-	public void testGetUpperBounds() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Returns the fixture for this B3 Wildcard Type test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,6 +117,34 @@ public class B3WildcardTypeTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getLowerBounds() <em>Get Lower Bounds</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getLowerBounds()
+	 * @generated
+	 */
+	public void testGetLowerBounds() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getUpperBounds() <em>Get Upper Bounds</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getUpperBounds()
+	 * @generated
+	 */
+	public void testGetUpperBounds() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } // B3WildcardTypeTest

@@ -21,10 +21,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getValue(java.lang.String) <em>Get Value </em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getLValue(java.lang.String) <em>Get LValue </em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#defineValue(java.lang.String, java.lang.Object, java.lang.reflect.Type)
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getValue(java.lang.String) <em>Get Value</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getLValue(java.lang.String) <em>Get LValue</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#defineValue(java.lang.String, java.lang.Object, java.lang.reflect.Type)
  * <em>Define Value</em>}</li>
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#defineFinalValue(java.lang.String, java.lang.Object, java.lang.reflect.Type)
@@ -35,13 +34,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#defineFinalVariableValue(java.lang.String, java.lang.Object, java.lang.reflect.Type)
  * <em>Define Final Variable Value</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isFinal(java.lang.String) <em>Is Final </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isFinal(java.lang.String) <em>Is Final</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isImmutable(java.lang.String) <em>Is Immutable</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getDeclaredValueType(java.lang.String)
- * <em>Get Declared Value Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String) <em> Contains Value</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String, boolean)
- * <em>Contains Value</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getDeclaredValueType(java.lang.String) <em>Get Declared Value Type</em>}
+ * </li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String) <em>Contains Value</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String, boolean) <em>Contains Value</em>}</li>
  * </ul>
  * </p>
  * 
@@ -78,8 +76,30 @@ public abstract class ITypedValueContainerTest extends TestCase {
 	}
 
 	/**
-	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String)
-	 * <em>Contains Value</em>}' operation.
+	 * Returns the fixture for this ITyped Value Container test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected ITypedValueContainer getFixture() {
+		return fixture;
+	}
+
+	/**
+	 * Sets the fixture for this ITyped Value Container test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void setFixture(ITypedValueContainer fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String) <em>Contains Value</em>}'
+	 * operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -93,7 +113,7 @@ public abstract class ITypedValueContainerTest extends TestCase {
 	}
 
 	/**
-	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String, boolean)
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String, boolean)
 	 * <em>Contains Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,7 +195,7 @@ public abstract class ITypedValueContainerTest extends TestCase {
 	}
 
 	/**
-	 * Tests the ' {@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getDeclaredValueType(java.lang.String)
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getDeclaredValueType(java.lang.String)
 	 * <em>Get Declared Value Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -190,8 +210,7 @@ public abstract class ITypedValueContainerTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getLValue(java.lang.String)
-	 * <em>Get LValue</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getLValue(java.lang.String) <em>Get LValue</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -205,8 +224,7 @@ public abstract class ITypedValueContainerTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getValue(java.lang.String)
-	 * <em>Get Value</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getValue(java.lang.String) <em>Get Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -220,8 +238,7 @@ public abstract class ITypedValueContainerTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isFinal(java.lang.String)
-	 * <em>Is Final</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isFinal(java.lang.String) <em>Is Final</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -235,8 +252,8 @@ public abstract class ITypedValueContainerTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isImmutable(java.lang.String)
-	 * <em>Is Immutable</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isImmutable(java.lang.String) <em>Is Immutable</em>}'
+	 * operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -247,28 +264,6 @@ public abstract class ITypedValueContainerTest extends TestCase {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
-	}
-
-	/**
-	 * Returns the fixture for this ITyped Value Container test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected ITypedValueContainer getFixture() {
-		return fixture;
-	}
-
-	/**
-	 * Sets the fixture for this ITyped Value Container test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void setFixture(ITypedValueContainer fixture) {
-		this.fixture = fixture;
 	}
 
 } // ITypedValueContainerTest

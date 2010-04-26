@@ -51,6 +51,18 @@ public abstract class BPropertyOperationTest extends BExpressionTest {
 	}
 
 	/**
+	 * Returns the fixture for this BProperty Operation test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BPropertyOperation getFixture() {
+		return (BPropertyOperation) fixture;
+	}
+
+	/**
 	 * Tests the '
 	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, boolean)
 	 * <em>Evaluate Defaults</em>}' operation.
@@ -65,18 +77,6 @@ public abstract class BPropertyOperationTest extends BExpressionTest {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
-	}
-
-	/**
-	 * Returns the fixture for this BProperty Operation test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected BPropertyOperation getFixture() {
-		return (BPropertyOperation) fixture;
 	}
 
 } // BPropertyOperationTest

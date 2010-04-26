@@ -58,51 +58,6 @@ public class BJavaFunctionTest extends BFunctionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isFunctionCall()
-	 * <em>Is Function Call</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isFunctionCall()
-	 * @generated
-	 */
-	public void testIsFunctionCall() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isMethodCall()
-	 * <em>Is Method Call</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isMethodCall()
-	 * @generated
-	 */
-	public void testIsMethodCall() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isSystemCall()
-	 * <em>Is System Call</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isSystemCall()
-	 * @generated
-	 */
-	public void testIsSystemCall() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Returns the fixture for this BJava Function test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,6 +91,48 @@ public class BJavaFunctionTest extends BFunctionTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isFunctionCall() <em>Is Function Call</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isFunctionCall()
+	 * @generated
+	 */
+	public void testIsFunctionCall() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isMethodCall() <em>Is Method Call</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isMethodCall()
+	 * @generated
+	 */
+	public void testIsMethodCall() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isSystemCall() <em>Is System Call</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isSystemCall()
+	 * @generated
+	 */
+	public void testIsSystemCall() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } // BJavaFunctionTest

@@ -24,8 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#createContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#createContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
  * <em>Create Context</em>}</li>
  * <li>
  * {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getEvaluationContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
@@ -67,38 +66,6 @@ public class BWithExpressionTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#createContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * <em>Create Context</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#createContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * @generated
-	 */
-	public void testCreateContext__BExecutionContext() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getEvaluationContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * <em>Get Evaluation Context</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getEvaluationContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * @generated
-	 */
-	public void testGetEvaluationContext__BExecutionContext() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Returns the fixture for this BWith Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,6 +99,38 @@ public class BWithExpressionTest extends BExpressionTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#createContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * <em>Create Context</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#createContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated
+	 */
+	public void testCreateContext__BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getEvaluationContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * <em>Get Evaluation Context</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getEvaluationContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated
+	 */
+	public void testGetEvaluationContext__BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } // BWithExpressionTest

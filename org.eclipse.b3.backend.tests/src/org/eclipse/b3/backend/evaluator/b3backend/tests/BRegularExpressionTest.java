@@ -24,7 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
  * 
  * @generated
  */
-public class BRegularExpressionTest extends BExpressionTest {
+public class BRegularExpressionTest extends BPatternLiteralExpressionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

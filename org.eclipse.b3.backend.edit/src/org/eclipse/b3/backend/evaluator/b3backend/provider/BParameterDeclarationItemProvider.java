@@ -65,6 +65,101 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	}
 
 	/**
+	 * This adds a property descriptor for the Final feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addFinalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BParameterDeclaration_final_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_final_feature",
+				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__FINAL, true,
+			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Immutable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addImmutablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BParameterDeclaration_immutable_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_immutable_feature",
+				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__IMMUTABLE, true,
+			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BParameterDeclaration_name_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_name_feature",
+				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__NAME, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3FunctionType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE,
+			B3backendFactory.eINSTANCE.createB3ParameterizedType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3WildcardType()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE,
+			B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3MetaClass()));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -163,101 +258,6 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Final feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addFinalPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BParameterDeclaration_final_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_final_feature",
-				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__FINAL, true,
-			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Immutable feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addImmutablePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BParameterDeclaration_immutable_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_immutable_feature",
-				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__IMMUTABLE, true,
-			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BParameterDeclaration_name_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_name_feature",
-				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__NAME, true, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3FunctionType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE,
-			B3backendFactory.eINSTANCE.createB3ParameterizedType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3WildcardType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE,
-			B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3JavaImport()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3MetaClass()));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 }

@@ -62,97 +62,6 @@ public class BDefValueItemProvider extends BExpressionItemProvider implements IE
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR);
-			childrenFeatures.add(B3backendPackage.Literals.BDEF_VALUE__TYPE);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns BDefValue.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BDefValue"));
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addNamePropertyDescriptor(object);
-			addFinalPropertyDescriptor(object);
-			addImmutablePropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		String label = ((BDefValue) object).getName();
-		return label == null || label.length() == 0
-				? getString("_UI_BDefValue_type")
-				: getString("_UI_BDefValue_type") + " " + label;
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(BDefValue.class)) {
-			case B3backendPackage.BDEF_VALUE__NAME:
-			case B3backendPackage.BDEF_VALUE__FINAL:
-			case B3backendPackage.BDEF_VALUE__IMMUTABLE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case B3backendPackage.BDEF_VALUE__VALUE_EXPR:
-			case B3backendPackage.BDEF_VALUE__TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Final feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -288,6 +197,10 @@ public class BDefValueItemProvider extends BExpressionItemProvider implements IE
 			B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR, B3backendFactory.eINSTANCE.createBDefValue()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
+			B3backendFactory.eINSTANCE.createBPatternLiteralExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR, B3backendFactory.eINSTANCE.createBRegularExpression()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -351,6 +264,10 @@ public class BDefValueItemProvider extends BExpressionItemProvider implements IE
 			B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR, B3backendFactory.eINSTANCE.createBCallFunction()));
 
 		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
+			B3backendFactory.eINSTANCE.createBSimplePatternExpression()));
+
+		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BDEF_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3FunctionType()));
 
 		newChildDescriptors.add(createChildParameter(
@@ -381,6 +298,97 @@ public class BDefValueItemProvider extends BExpressionItemProvider implements IE
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR);
+			childrenFeatures.add(B3backendPackage.Literals.BDEF_VALUE__TYPE);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns BDefValue.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BDefValue"));
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addNamePropertyDescriptor(object);
+			addFinalPropertyDescriptor(object);
+			addImmutablePropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		String label = ((BDefValue) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_BDefValue_type")
+				: getString("_UI_BDefValue_type") + " " + label;
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(BDefValue.class)) {
+			case B3backendPackage.BDEF_VALUE__NAME:
+			case B3backendPackage.BDEF_VALUE__FINAL:
+			case B3backendPackage.BDEF_VALUE__IMMUTABLE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case B3backendPackage.BDEF_VALUE__VALUE_EXPR:
+			case B3backendPackage.BDEF_VALUE__TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

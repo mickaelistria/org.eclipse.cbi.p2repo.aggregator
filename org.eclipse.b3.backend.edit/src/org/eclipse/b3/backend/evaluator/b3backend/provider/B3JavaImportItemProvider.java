@@ -63,6 +63,85 @@ public class B3JavaImportItemProvider extends ItemProviderAdapter implements IEd
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_B3JavaImport_name_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_B3JavaImport_name_feature", "_UI_B3JavaImport_type"),
+			B3backendPackage.Literals.B3_JAVA_IMPORT__NAME, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Qualified Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addQualifiedNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3JavaImport_qualifiedName_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_B3JavaImport_qualifiedName_feature", "_UI_B3JavaImport_type"),
+			B3backendPackage.Literals.B3_JAVA_IMPORT__QUALIFIED_NAME, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Reexport feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addReexportPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_B3JavaImport_reexport_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_B3JavaImport_reexport_feature", "_UI_B3JavaImport_type"),
+			B3backendPackage.Literals.B3_JAVA_IMPORT__REEXPORT, true, false, false,
+			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_B3JavaImport_type_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_B3JavaImport_type_feature", "_UI_B3JavaImport_type"),
+			B3backendPackage.Literals.B3_JAVA_IMPORT__TYPE, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns B3JavaImport.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -142,85 +221,6 @@ public class B3JavaImportItemProvider extends ItemProviderAdapter implements IEd
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3JavaImport_name_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_B3JavaImport_name_feature", "_UI_B3JavaImport_type"),
-			B3backendPackage.Literals.B3_JAVA_IMPORT__NAME, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Qualified Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addQualifiedNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_B3JavaImport_qualifiedName_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_B3JavaImport_qualifiedName_feature", "_UI_B3JavaImport_type"),
-			B3backendPackage.Literals.B3_JAVA_IMPORT__QUALIFIED_NAME, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Reexport feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addReexportPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3JavaImport_reexport_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_B3JavaImport_reexport_feature", "_UI_B3JavaImport_type"),
-			B3backendPackage.Literals.B3_JAVA_IMPORT__REEXPORT, true, false, false,
-			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3JavaImport_type_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_B3JavaImport_type_feature", "_UI_B3JavaImport_type"),
-			B3backendPackage.Literals.B3_JAVA_IMPORT__TYPE, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

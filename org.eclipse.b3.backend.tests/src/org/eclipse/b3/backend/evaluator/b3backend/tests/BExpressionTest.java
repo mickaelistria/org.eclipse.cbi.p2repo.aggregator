@@ -21,20 +21,15 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
- * <em>Evaluate</em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getLValue(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
- * <em>Get LValue</em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>
+ * Evaluate</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getLValue(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get
+ * LValue</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
  * <em>Get Declared Type</em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getEffectiveType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getEffectiveType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
  * <em>Get Effective Type</em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getInferredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getInferredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
  * <em>Get Inferred Type</em>}</li>
  * </ul>
  * </p>
@@ -71,6 +66,56 @@ public abstract class BExpressionTest extends TestCase {
 	 */
 	public BExpressionTest(String name) {
 		super(name);
+	}
+
+	protected void assertBooleanFalse(Object value) {
+		assertEquals("Class should be Boolean", Boolean.class, value.getClass());
+		assertFalse(((Boolean) value).booleanValue());
+	}
+
+	protected void assertBooleanTrue(Object value) {
+		assertEquals("Class should be Boolean", Boolean.class, value.getClass());
+		assertTrue(((Boolean) value).booleanValue());
+	}
+
+	protected void assertLValShouldFail() {
+		try {
+			getFixture().getLValue(getEngine().getContext());
+		}
+		catch(Throwable e) {
+			return;
+		}
+		fail("Get LVal should have thrown an exception");
+	}
+
+	protected B3Engine getEngine() {
+		return engine;
+	}
+
+	/**
+	 * Returns the fixture for this BExpression test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected BExpression getFixture() {
+		return fixture;
+	}
+
+	protected void setEngine(B3Engine engine) {
+		this.engine = engine;
+	}
+
+	/**
+	 * Sets the fixture for this BExpression test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void setFixture(BExpression fixture) {
+		this.fixture = fixture;
 	}
 
 	/**
@@ -163,56 +208,6 @@ public abstract class BExpressionTest extends TestCase {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
-	}
-
-	protected void assertBooleanFalse(Object value) {
-		assertEquals("Class should be Boolean", Boolean.class, value.getClass());
-		assertFalse(((Boolean) value).booleanValue());
-	}
-
-	protected void assertBooleanTrue(Object value) {
-		assertEquals("Class should be Boolean", Boolean.class, value.getClass());
-		assertTrue(((Boolean) value).booleanValue());
-	}
-
-	protected void assertLValShouldFail() {
-		try {
-			getFixture().getLValue(getEngine().getContext());
-		}
-		catch(Throwable e) {
-			return;
-		}
-		fail("Get LVal should have thrown an exception");
-	}
-
-	protected B3Engine getEngine() {
-		return engine;
-	}
-
-	/**
-	 * Returns the fixture for this BExpression test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected BExpression getFixture() {
-		return fixture;
-	}
-
-	protected void setEngine(B3Engine engine) {
-		this.engine = engine;
-	}
-
-	/**
-	 * Sets the fixture for this BExpression test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void setFixture(BExpression fixture) {
-		this.fixture = fixture;
 	}
 
 } // BExpressionTest

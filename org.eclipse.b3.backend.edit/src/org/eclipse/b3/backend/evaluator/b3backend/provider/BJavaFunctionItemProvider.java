@@ -54,6 +54,51 @@ public class BJavaFunctionItemProvider extends BFunctionItemProvider implements 
 	}
 
 	/**
+	 * This adds a property descriptor for the Call Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addCallTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BJavaFunction_callType_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BJavaFunction_callType_feature", "_UI_BJavaFunction_type"),
+			B3backendPackage.Literals.BJAVA_FUNCTION__CALL_TYPE, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Method feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addMethodPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BJavaFunction_method_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BJavaFunction_method_feature", "_UI_BJavaFunction_type"),
+			B3backendPackage.Literals.BJAVA_FUNCTION__METHOD, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns BJavaFunction.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,51 +162,6 @@ public class BJavaFunctionItemProvider extends BFunctionItemProvider implements 
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Call Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addCallTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BJavaFunction_callType_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BJavaFunction_callType_feature", "_UI_BJavaFunction_type"),
-			B3backendPackage.Literals.BJAVA_FUNCTION__CALL_TYPE, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Method feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addMethodPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BJavaFunction_method_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BJavaFunction_method_feature", "_UI_BJavaFunction_type"),
-			B3backendPackage.Literals.BJAVA_FUNCTION__METHOD, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

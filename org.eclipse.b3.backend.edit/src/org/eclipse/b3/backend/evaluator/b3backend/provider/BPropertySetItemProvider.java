@@ -63,6 +63,76 @@ public class BPropertySetItemProvider extends BAdviceItemProvider implements IEd
 	}
 
 	/**
+	 * This adds a property descriptor for the Extends feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addExtendsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BPropertySet_extends_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BPropertySet_extends_feature", "_UI_BPropertySet_type"),
+			B3backendPackage.Literals.BPROPERTY_SET__EXTENDS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Properties File feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addPropertiesFilePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BPropertySet_propertiesFile_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BPropertySet_propertiesFile_feature",
+				"_UI_BPropertySet_type"), B3backendPackage.Literals.BPROPERTY_SET__PROPERTIES_FILE, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BPROPERTY_SET__OPERATIONS,
+			B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BPROPERTY_SET__OPERATIONS,
+			B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BPROPERTY_SET__OPERATIONS,
+			B3backendFactory.eINSTANCE.createBPropertySetOperation()));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -146,76 +216,6 @@ public class BPropertySetItemProvider extends BAdviceItemProvider implements IEd
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Extends feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addExtendsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BPropertySet_extends_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BPropertySet_extends_feature", "_UI_BPropertySet_type"),
-			B3backendPackage.Literals.BPROPERTY_SET__EXTENDS, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Properties File feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addPropertiesFilePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BPropertySet_propertiesFile_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BPropertySet_propertiesFile_feature",
-				"_UI_BPropertySet_type"), B3backendPackage.Literals.BPROPERTY_SET__PROPERTIES_FILE, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPROPERTY_SET__OPERATIONS,
-			B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPROPERTY_SET__OPERATIONS,
-			B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPROPERTY_SET__OPERATIONS,
-			B3backendFactory.eINSTANCE.createBPropertySetOperation()));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 }

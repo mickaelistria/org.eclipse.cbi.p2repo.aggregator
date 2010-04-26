@@ -54,6 +54,18 @@ public abstract class BConcernContextTest extends BExpressionTest {
 	}
 
 	/**
+	 * Returns the fixture for this BConcern Context test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected BConcernContext getFixture() {
+		return (BConcernContext) fixture;
+	}
+
+	/**
 	 * Tests the '
 	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BConcernContext#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
 	 * <em>Evaluate If Matching</em>}' operation.
@@ -85,18 +97,6 @@ public abstract class BConcernContextTest extends BExpressionTest {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
-	}
-
-	/**
-	 * Returns the fixture for this BConcern Context test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected BConcernContext getFixture() {
-		return (BConcernContext) fixture;
 	}
 
 } // BConcernContextTest

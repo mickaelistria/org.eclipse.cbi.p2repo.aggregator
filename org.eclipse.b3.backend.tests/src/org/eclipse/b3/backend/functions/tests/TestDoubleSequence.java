@@ -5,6 +5,13 @@ import junit.framework.TestCase;
 
 public class TestDoubleSequence extends TestCase {
 
+	private double computeSum(DoubleSequence seq) {
+		double value = 0;
+		for(Double x : seq)
+			value += x.doubleValue();
+		return value;
+	}
+
 	public void test_DoubleSequence() {
 		DoubleSequence seq = new DoubleSequence(1.0, 9.0);
 		double value = 0.0;
@@ -58,12 +65,5 @@ public class TestDoubleSequence extends TestCase {
 			"testing includeFrom method", 35.0, computeSum(new DoubleSequence(1.0, 9.0).includeTo(false).includeFrom(
 				false)));
 
-	}
-
-	private double computeSum(DoubleSequence seq) {
-		double value = 0;
-		for(Double x : seq)
-			value += x.doubleValue();
-		return value;
 	}
 }

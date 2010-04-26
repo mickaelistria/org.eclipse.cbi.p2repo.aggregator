@@ -60,6 +60,35 @@ public class BAdviceItemProvider extends BExpressionItemProvider implements IEdi
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BAdvice_name_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_BAdvice_name_feature", "_UI_BAdvice_type"),
+			B3backendPackage.Literals.BADVICE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns BAdvice.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -121,35 +150,6 @@ public class BAdviceItemProvider extends BExpressionItemProvider implements IEdi
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BAdvice_name_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BAdvice_name_feature", "_UI_BAdvice_type"),
-			B3backendPackage.Literals.BADVICE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-			null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }
