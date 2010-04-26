@@ -53,6 +53,17 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCALL_FEATURE;
+	}
+
+	/**
 	 * A target call has a funcExpr that evaluates to the target.
 	 * A function of 'name' is then called with the evaluated funcExpr as the first
 	 * argument.
@@ -116,17 +127,6 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 		}
 		throw B3BackendException.fromMessage(this, lastError, "Determening return type of Call failed - see details.");
 
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCALL_FEATURE;
 	}
 
 } // BCallFeatureImpl

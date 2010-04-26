@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext <em>Parent Context</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValueMap <em>Value Map</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFuncStore <em>Func Store</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getEffectiveConcerns <em>Effective Concerns </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getEffectiveConcerns <em>Effective Concerns</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getProgressMonitor <em>Progress Monitor</em>}</li>
  * </ul>
  * </p>
@@ -85,9 +85,8 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * Creates a new inner context parented by a delegating context refering to a newly created outer context.
 	 * The freshly created outer context is obtained by simply calling getOuterContext on the returned inner context.
 	 * 
-	 * This method is useful when a context is needed that keeps the input context's content visible (in the returned
-	 * inner context), while at the same time providing a new outer context where values visible downstream can be
-	 * placed.
+	 * This method is useful when a context is needed that keeps the input context's content visible (in the returned inner context), while at the
+	 * same time providing a new outer context where values visible downstream can be placed.
 	 * <!-- end-model-doc -->
 	 * 
 	 * @model
@@ -108,8 +107,7 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model dataType=
-	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
 	 * @generated
 	 */
 	Iterator<BConcernContext> getConcernIterator(Object candidate);
@@ -130,8 +128,7 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * Evaluate the function referenced by name in this context.
 	 * <!-- end-model-doc -->
 	 * 
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType"
-	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 *        typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
@@ -173,8 +170,8 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model kind="operation" dataType=
-	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
+	 * @model kind="operation"
+	 *        dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
 	 * @generated
 	 */
 	Iterator<IFunction> getFunctionIterator();
@@ -183,8 +180,7 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model dataType=
-	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
 	 * @generated
 	 */
 	Iterator<IFunction> getFunctionIterator(String name);
@@ -193,8 +189,7 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model dataType=
-	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
 	 *        typeDataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
 	 * @generated
 	 */
@@ -287,8 +282,7 @@ public interface BExecutionContext extends ITypedValueContainer {
 	void loadFunctions(Class<? extends Object> clazz) throws B3EngineException;
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFuncStore
-	 * <em>Func Store</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFuncStore <em>Func Store</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -300,8 +294,8 @@ public interface BExecutionContext extends ITypedValueContainer {
 	void setFuncStore(B3FuncStore value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext
-	 * <em>Parent Context</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext <em>Parent Context</em>}'
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -313,8 +307,8 @@ public interface BExecutionContext extends ITypedValueContainer {
 	void setParentContext(BExecutionContext value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getProgressMonitor
-	 * <em>Progress Monitor</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getProgressMonitor <em>Progress Monitor</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -326,8 +320,7 @@ public interface BExecutionContext extends ITypedValueContainer {
 	void setProgressMonitor(IProgressMonitor value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValueMap
-	 * <em>Value Map</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValueMap <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

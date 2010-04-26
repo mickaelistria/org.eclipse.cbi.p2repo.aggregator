@@ -109,8 +109,7 @@ public interface BParameterDeclaration extends EObject {
 	boolean isImmutable();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isFinal
-	 * <em>Final</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isFinal <em>Final</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -122,8 +121,7 @@ public interface BParameterDeclaration extends EObject {
 	void setFinal(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isImmutable
-	 * <em>Immutable</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isImmutable <em>Immutable</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -135,8 +133,7 @@ public interface BParameterDeclaration extends EObject {
 	void setImmutable(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#getName
-	 * <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -148,8 +145,7 @@ public interface BParameterDeclaration extends EObject {
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#getType
-	 * <em>Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#getType <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

@@ -73,8 +73,7 @@ public interface BParameter extends EObject {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameter#getExpr <em>Expr</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameter#getExpr <em>Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -86,8 +85,7 @@ public interface BParameter extends EObject {
 	void setExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameter#getName <em>Name</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameter#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

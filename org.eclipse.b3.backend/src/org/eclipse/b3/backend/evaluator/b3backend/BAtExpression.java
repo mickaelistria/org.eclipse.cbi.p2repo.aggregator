@@ -65,8 +65,8 @@ public interface BAtExpression extends BExpression {
 	BExpression getObjExpr();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression#getIndexExpr
-	 * <em>Index Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression#getIndexExpr <em>Index Expr</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -78,8 +78,7 @@ public interface BAtExpression extends BExpression {
 	void setIndexExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression#getObjExpr
-	 * <em>Obj Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression#getObjExpr <em>Obj Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

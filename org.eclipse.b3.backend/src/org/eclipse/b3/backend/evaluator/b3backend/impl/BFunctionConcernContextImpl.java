@@ -47,8 +47,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getNamePredicate <em>Name Predicate</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getParameters <em>Parameters </em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getFuncExpr <em>Func Expr </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getParameters <em>Parameters</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getFuncExpr <em>Func Expr</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#isVarArgs <em>Var Args</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#isMatchParameters <em>Match Parameters</em>}</li>
  * </ul>
@@ -302,6 +302,17 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE:
@@ -495,17 +506,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 		result.append(matchParameters);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT;
 	}
 
 	private boolean weaveIfParametersMatch(TypePattern pattern, IFunction f, BExecutionContext ctx)

@@ -109,8 +109,7 @@ public interface B3JavaImport extends EObject, Type {
 	boolean isReexport();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getName <em>Name</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -122,8 +121,7 @@ public interface B3JavaImport extends EObject, Type {
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getQualifiedName
-	 * <em>Qualified Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getQualifiedName <em>Qualified Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -135,8 +133,7 @@ public interface B3JavaImport extends EObject, Type {
 	void setQualifiedName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#isReexport
-	 * <em>Reexport</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#isReexport <em>Reexport</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -148,8 +145,7 @@ public interface B3JavaImport extends EObject, Type {
 	void setReexport(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getType <em>Type</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

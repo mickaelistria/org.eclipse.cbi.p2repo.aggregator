@@ -124,8 +124,7 @@ public interface BDefValue extends BExpression {
 	boolean isImmutable();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isFinal <em>Final</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isFinal <em>Final</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -137,8 +136,7 @@ public interface BDefValue extends BExpression {
 	void setFinal(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isImmutable
-	 * <em>Immutable</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isImmutable <em>Immutable</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -150,8 +148,7 @@ public interface BDefValue extends BExpression {
 	void setImmutable(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getName <em>Name</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -163,8 +160,7 @@ public interface BDefValue extends BExpression {
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getType <em>Type</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getType <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -176,8 +172,7 @@ public interface BDefValue extends BExpression {
 	void setType(Type value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getValueExpr
-	 * <em>Value Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getValueExpr <em>Value Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

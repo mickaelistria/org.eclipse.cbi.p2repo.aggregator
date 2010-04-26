@@ -42,9 +42,9 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getFunctionType <em>Function Type</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getReturnType <em>Return Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getParameterTypes <em>Parameter Types </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getParameterTypes <em>Parameter Types</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#isVarArgs <em>Var Args</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getTypeCalculator <em>Type Calculator </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  * </ul>
  * </p>
  * 
@@ -245,6 +245,17 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 				return;
 		}
 		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.B3_FUNCTION_TYPE;
 	}
 
 	/**
@@ -493,17 +504,6 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 		result.append(varArgs);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.B3_FUNCTION_TYPE;
 	}
 
 } // B3FunctionTypeImpl

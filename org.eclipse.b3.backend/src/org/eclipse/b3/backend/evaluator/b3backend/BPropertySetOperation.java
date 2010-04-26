@@ -54,8 +54,8 @@ public interface BPropertySetOperation extends BPropertyOperation {
 	BPropertySet getPropertySet();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation#getPropertySet
-	 * <em>Property Set</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation#getPropertySet <em>Property Set</em>}'
+	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

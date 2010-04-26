@@ -182,6 +182,17 @@ public abstract class BCallExpressionImpl extends BParameterizedExpressionImpl i
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCALL_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BCALL_EXPRESSION__FUNC_EXPR:
@@ -212,6 +223,16 @@ public abstract class BCallExpressionImpl extends BParameterizedExpressionImpl i
 	 */
 	public String getName() {
 		return name;
+	}
+
+	protected Type safeTypeOf(Object x, Type declaredType) {
+		if(x == null)
+			return declaredType;
+		if(x instanceof IFunction)
+			return ((IFunction) x).getSignature();
+		if(declaredType instanceof B3MetaClass)
+			return declaredType;
+		return x.getClass();
 	}
 
 	/**
@@ -268,26 +289,5 @@ public abstract class BCallExpressionImpl extends BParameterizedExpressionImpl i
 		result.append(name);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCALL_EXPRESSION;
-	}
-
-	protected Type safeTypeOf(Object x, Type declaredType) {
-		if(x == null)
-			return declaredType;
-		if(x instanceof IFunction)
-			return ((IFunction) x).getSignature();
-		if(declaredType instanceof B3MetaClass)
-			return declaredType;
-		return x.getClass();
 	}
 } // BCallExpressionImpl

@@ -43,6 +43,17 @@ public class BAssignmentExpressionImpl extends BBinaryOpExpressionImpl implement
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BASSIGNMENT_EXPRESSION;
+	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// if(leftExpr instanceof BDefValue && ((BDefValue)leftExpr).isImmutable()) {
@@ -70,16 +81,5 @@ public class BAssignmentExpressionImpl extends BBinaryOpExpressionImpl implement
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		return leftExpr.getDeclaredType(ctx);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BASSIGNMENT_EXPRESSION;
 	}
 } // BAssignmentExpressionImpl

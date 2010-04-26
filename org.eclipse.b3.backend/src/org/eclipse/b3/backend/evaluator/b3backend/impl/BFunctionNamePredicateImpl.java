@@ -204,6 +204,17 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BFUNCTION_NAME_PREDICATE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
@@ -282,16 +293,5 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, newNamePredicate,
 				newNamePredicate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BFUNCTION_NAME_PREDICATE;
 	}
 } // BFunctionNamePredicateImpl

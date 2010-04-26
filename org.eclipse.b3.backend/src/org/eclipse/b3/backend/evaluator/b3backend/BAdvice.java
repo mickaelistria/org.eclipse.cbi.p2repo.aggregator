@@ -54,8 +54,7 @@ public interface BAdvice extends BExpression {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice#getName <em>Name</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

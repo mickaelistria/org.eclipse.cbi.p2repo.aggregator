@@ -22,8 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc -->
- * Represents the type of a class "instance". In java there is no type that describes the difference between the type of
- * instances, and the type of the class - for String, both are represented by Class<T> (java.lang.String).
+ * Represents the type of a class "instance". In java there is no type that describes the difference between the type of instances, and the type of
+ * the class - for String, both are represented by Class<T> (java.lang.String).
  * An instance of B3MetaClass has an attribute {@link #instanceClass} that is reference to the class.
  * It only computes equal to another B3MetaClass instance for the same instance class.
  * It computes isAssignableTo to true for any B3MetaClass with an instanceClass being a subclass.
@@ -75,8 +75,7 @@ public interface B3MetaClass extends EObject, Type {
 	boolean isAssignableFrom(Type type);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass#getInstanceClass
-	 * <em>Instance Class</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass#getInstanceClass <em>Instance Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

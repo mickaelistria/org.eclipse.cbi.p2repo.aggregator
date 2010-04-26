@@ -94,6 +94,20 @@ public class B3FuncStore {
 			computeNext();
 		}
 
+		private void computeNext() {
+			theNext = null;
+			if(!allFunctionsIterator.hasNext())
+				return;
+			while(theNext == null && allFunctionsIterator.hasNext()) {
+				IFunction f = allFunctionsIterator.next();
+				if(functionType == null || functionType.isAssignableFrom(f.getClass())) {
+					if(!TypeUtils.isAssignableFrom(f.getParameterTypes()[0], firstType))
+						continue;
+					theNext = f;
+				}
+			}
+		}
+
 		public boolean hasNext() {
 			return theNext != null;
 		}
@@ -109,20 +123,6 @@ public class B3FuncStore {
 		 */
 		public void remove() {
 			throw new UnsupportedOperationException("remove from function iterator not allowed");
-		}
-
-		private void computeNext() {
-			theNext = null;
-			if(!allFunctionsIterator.hasNext())
-				return;
-			while(theNext == null && allFunctionsIterator.hasNext()) {
-				IFunction f = allFunctionsIterator.next();
-				if(functionType == null || functionType.isAssignableFrom(f.getClass())) {
-					if(!TypeUtils.isAssignableFrom(f.getParameterTypes()[0], firstType))
-						continue;
-					theNext = f;
-				}
-			}
 		}
 
 	}
@@ -196,8 +196,7 @@ public class B3FuncStore {
 		if(f == null || f.size() < 1) {
 			if(parentStore == null)
 				throw new B3NoSuchFunctionException(functionName);
-			else
-				return parentStore.callFunction(functionName, parameters, types, ctx);
+			return parentStore.callFunction(functionName, parameters, types, ctx);
 		}
 
 		IFunction toBeCalled = getMostSpecificFunction(functionName, parameters, types, ctx);
@@ -387,8 +386,7 @@ public class B3FuncStore {
 		if(f == null || f.size() < 1) {
 			if(parentStore == null)
 				throw new B3NoSuchFunctionException(functionName);
-			else
-				return parentStore.getDeclaredFunctionType(functionName, types, ctx);
+			return parentStore.getDeclaredFunctionType(functionName, types, ctx);
 		}
 		// if the cache is dirty for name - update the cache
 		if(dirtyFunctions.contains(functionName))
@@ -406,6 +404,39 @@ public class B3FuncStore {
 		IFunction toBeCalled = getMostSpecificFunction(functionName, fakeParameters, types, ctx);
 
 		return toBeCalled.getReturnTypeForParameterTypes(types, ctx);
+	}
+
+	// /**
+	// * Updates cache for all functions.
+	// * @throws B3EngineException
+	// */
+	// private void updateCache() throws B3EngineException {
+	// for(String name : dirtyFunctions)
+	// effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
+	// dirtyFunctions.clear();
+	// }
+	private List<IFunction> getEffectiveList(String name, int size) throws B3EngineException {
+		if(parentStore == null) {
+			List<IFunction> thisList = getFunctionsByName(name);
+			List<IFunction> result = new ArrayList<IFunction>(size + thisList.size());
+			result.addAll(thisList);
+			return result;
+		}
+		List<IFunction> thisList = getFunctionsByName(name);
+		List<IFunction> parentList = parentStore.getEffectiveList(name, size + thisList.size());
+		List<IFunction> overloaded = new ArrayList<IFunction>();
+		for(IFunction f : thisList)
+			for(IFunction f2 : parentList) {
+				// if f has same signature as f2, make it hide predecessor
+				if(hasEqualSignature(f, f2)) {
+					if(!hasCompatibleReturnType(f2, f))
+						throw new B3IncompatibleReturnTypeException(f2.getReturnType(), f.getReturnType());
+					overloaded.add(f2);
+				}
+			}
+		parentList.removeAll(overloaded);
+		parentList.addAll(thisList);
+		return parentList;
 	}
 
 	/**
@@ -472,57 +503,6 @@ public class B3FuncStore {
 		return new TypeIterator(itor, type, functionType);
 	}
 
-	public void undefineFunction(String name, BFunction func) {
-		dirtyFunctions.add(name);
-		effective.remove(name);
-		if(defined == null)
-			return;
-		List<IFunction> fList = defined.get(name);
-		if(fList == null)
-			return;
-		fList.remove(func);
-	}
-
-	public void updateCache(String name) throws B3EngineException {
-		// if(!dirtyFunctions.contains(name))
-		// return;
-		effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
-		dirtyFunctions.remove(name);
-	}
-
-	// /**
-	// * Updates cache for all functions.
-	// * @throws B3EngineException
-	// */
-	// private void updateCache() throws B3EngineException {
-	// for(String name : dirtyFunctions)
-	// effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
-	// dirtyFunctions.clear();
-	// }
-	private List<IFunction> getEffectiveList(String name, int size) throws B3EngineException {
-		if(parentStore == null) {
-			List<IFunction> thisList = getFunctionsByName(name);
-			List<IFunction> result = new ArrayList<IFunction>(size + thisList.size());
-			result.addAll(thisList);
-			return result;
-		}
-		List<IFunction> thisList = getFunctionsByName(name);
-		List<IFunction> parentList = parentStore.getEffectiveList(name, size + thisList.size());
-		List<IFunction> overloaded = new ArrayList<IFunction>();
-		for(IFunction f : thisList)
-			for(IFunction f2 : parentList) {
-				// if f has same signature as f2, make it hide predecessor
-				if(hasEqualSignature(f, f2)) {
-					if(!hasCompatibleReturnType(f2, f))
-						throw new B3IncompatibleReturnTypeException(f2.getReturnType(), f.getReturnType());
-					overloaded.add(f2);
-				}
-			}
-		parentList.removeAll(overloaded);
-		parentList.addAll(thisList);
-		return parentList;
-	}
-
 	/**
 	 * Returns the list of functions defined in this func store for name (or an empty list).
 	 * 
@@ -569,28 +549,6 @@ public class B3FuncStore {
 		}
 	}
 
-	// /**
-	// * Computes the specificity distance of the function.
-	// *
-	// * @param f
-	// * @param types
-	// * @return parameter distance from stated types - 0 is most specific
-	// */
-	// public int specificity(IFunction f, Type[] types) {
-	// Type[] pt = f.getParameterTypes();
-	// int distance = 0;
-	// for(int i = 0; i < pt.length; i++)
-	// distance += TypeUtils.typeDistance(pt[i], types[i]);
-	// //
-	// // Class ptc = pt[i].getClass();
-	// // if(ptc.isInterface())
-	// // distance += (1+TypeUtils.interfaceDistance(ptc, types[i]));
-	// // else
-	// // distance += TypeUtils.classDistance(ptc, types[i]);
-	// // }
-	// return distance;
-	// }
-
 	/**
 	 * Returns true if the overloaded type is assignable from the overloading type.
 	 * 
@@ -626,5 +584,45 @@ public class B3FuncStore {
 			if(!pta[i].equals(ptb[i]))
 				return false;
 		return true;
+	}
+
+	// /**
+	// * Computes the specificity distance of the function.
+	// *
+	// * @param f
+	// * @param types
+	// * @return parameter distance from stated types - 0 is most specific
+	// */
+	// public int specificity(IFunction f, Type[] types) {
+	// Type[] pt = f.getParameterTypes();
+	// int distance = 0;
+	// for(int i = 0; i < pt.length; i++)
+	// distance += TypeUtils.typeDistance(pt[i], types[i]);
+	// //
+	// // Class ptc = pt[i].getClass();
+	// // if(ptc.isInterface())
+	// // distance += (1+TypeUtils.interfaceDistance(ptc, types[i]));
+	// // else
+	// // distance += TypeUtils.classDistance(ptc, types[i]);
+	// // }
+	// return distance;
+	// }
+
+	public void undefineFunction(String name, BFunction func) {
+		dirtyFunctions.add(name);
+		effective.remove(name);
+		if(defined == null)
+			return;
+		List<IFunction> fList = defined.get(name);
+		if(fList == null)
+			return;
+		fList.remove(func);
+	}
+
+	public void updateCache(String name) throws B3EngineException {
+		// if(!dirtyFunctions.contains(name))
+		// return;
+		effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
+		dirtyFunctions.remove(name);
 	}
 }

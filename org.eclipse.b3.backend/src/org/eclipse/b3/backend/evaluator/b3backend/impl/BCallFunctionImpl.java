@@ -57,6 +57,17 @@ public class BCallFunctionImpl extends BCallExpressionImpl implements BCallFunct
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCALL_FUNCTION;
+	}
+
+	/**
 	 * Checks for progress monitor cancellation, and if not canceled calls the function
 	 * resulting from evaluating the funcExpr.
 	 * i.e. handle a call on the form (a)(x,y);
@@ -140,17 +151,6 @@ public class BCallFunctionImpl extends BCallExpressionImpl implements BCallFunct
 		}
 		throw B3BackendException.fromMessage(this, lastError, "Determening return type of Call failed - see details.");
 
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCALL_FUNCTION;
 	}
 
 } // BCallFunctionImpl

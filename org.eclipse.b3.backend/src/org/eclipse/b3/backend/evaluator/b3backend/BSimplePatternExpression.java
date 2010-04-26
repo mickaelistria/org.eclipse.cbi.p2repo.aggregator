@@ -7,28 +7,28 @@
  * Contributors:
  * - Cloudsmith Inc - initial API and implementation.
  * 
- *
- * $Id$
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
+import org.eclipse.b3.backend.core.SimplePattern;
+
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>BGuard Function</b></em>'.
+ * A representation of the model object '<em><b>BSimple Pattern Expression</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction#getFunc <em>Func</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
  * 
- * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBGuardFunction()
+ * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBSimplePatternExpression()
  * @model
  * @generated
  */
-public interface BGuardFunction extends BGuard {
+public interface BSimplePatternExpression extends BPatternLiteralExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,31 +38,31 @@ public interface BGuardFunction extends BGuard {
 	String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * Returns the value of the '<em><b>Func</b></em>' reference.
+	 * Returns the value of the '<em><b>Pattern</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Func</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Pattern</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Func</em>' reference.
-	 * @see #setFunc(IFunction)
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBGuardFunction_Func()
-	 * @model
+	 * @return the value of the '<em>Pattern</em>' attribute.
+	 * @see #setPattern(SimplePattern)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBSimplePatternExpression_Pattern()
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.SimplePattern"
 	 * @generated
 	 */
-	IFunction getFunc();
+	SimplePattern getPattern();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction#getFunc <em>Func</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression#getPattern <em>Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Func</em>' reference.
-	 * @see #getFunc()
+	 *            the new value of the '<em>Pattern</em>' attribute.
+	 * @see #getPattern()
 	 * @generated
 	 */
-	void setFunc(IFunction value);
+	void setPattern(SimplePattern value);
 
-} // BGuardFunction
+} // BSimplePatternExpression

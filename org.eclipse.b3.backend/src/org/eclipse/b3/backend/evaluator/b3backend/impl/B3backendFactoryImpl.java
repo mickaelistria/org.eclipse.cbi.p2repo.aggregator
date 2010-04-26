@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+import java.lang.CharSequence;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
@@ -16,6 +17,7 @@ import org.eclipse.b3.backend.core.B3DynamicClassLoader;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.core.SimplePattern;
 import org.eclipse.b3.backend.core.ValueMap;
 import org.eclipse.b3.backend.evaluator.b3backend.*;
 
@@ -128,6 +130,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * 
 	 * @generated
 	 */
+	public String convertCharSequenceToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public String convertCoreExceptionToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
@@ -220,6 +232,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * 
 	 * @generated
 	 */
+	public String convertSimplePatternToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public String convertStringArrayToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
@@ -283,6 +305,10 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return convertURIToString(eDataType, instanceValue);
 			case B3backendPackage.IPROGRESS_MONITOR:
 				return convertIProgressMonitorToString(eDataType, instanceValue);
+			case B3backendPackage.SIMPLE_PATTERN:
+				return convertSimplePatternToString(eDataType, instanceValue);
+			case B3backendPackage.CHAR_SEQUENCE:
+				return convertCharSequenceToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
 						"' is not a valid classifier");
@@ -502,6 +528,10 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createBCallNamedFunction();
 			case B3backendPackage.BCALL_FUNCTION:
 				return createBCallFunction();
+			case B3backendPackage.BPATTERN_LITERAL_EXPRESSION:
+				return createBPatternLiteralExpression();
+			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION:
+				return createBSimplePatternExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1130,6 +1160,17 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * 
 	 * @generated
 	 */
+	public BPatternLiteralExpression createBPatternLiteralExpression() {
+		BPatternLiteralExpressionImpl bPatternLiteralExpression = new BPatternLiteralExpressionImpl();
+		return bPatternLiteralExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public BProceedExpression createBProceedExpression() {
 		BProceedExpressionImpl bProceedExpression = new BProceedExpressionImpl();
 		return bProceedExpression;
@@ -1177,6 +1218,17 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BRegularExpression createBRegularExpression() {
 		BRegularExpressionImpl bRegularExpression = new BRegularExpressionImpl();
 		return bRegularExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BSimplePatternExpression createBSimplePatternExpression() {
+		BSimplePatternExpressionImpl bSimplePatternExpression = new BSimplePatternExpressionImpl();
+		return bSimplePatternExpression;
 	}
 
 	/**
@@ -1328,6 +1380,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * 
 	 * @generated
 	 */
+	public CharSequence createCharSequenceFromString(EDataType eDataType, String initialValue) {
+		return (CharSequence) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public CoreException createCoreExceptionFromString(EDataType eDataType, String initialValue) {
 		return (CoreException) super.createFromString(eDataType, initialValue);
 	}
@@ -1395,6 +1457,10 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createURIFromString(eDataType, initialValue);
 			case B3backendPackage.IPROGRESS_MONITOR:
 				return createIProgressMonitorFromString(eDataType, initialValue);
+			case B3backendPackage.SIMPLE_PATTERN:
+				return createSimplePatternFromString(eDataType, initialValue);
+			case B3backendPackage.CHAR_SEQUENCE:
+				return createCharSequenceFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
 						"' is not a valid classifier");
@@ -1469,6 +1535,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 */
 	public Pattern createRegexpPatternFromString(EDataType eDataType, String initialValue) {
 		return (Pattern) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public SimplePattern createSimplePatternFromString(EDataType eDataType, String initialValue) {
+		return (SimplePattern) super.createFromString(eDataType, initialValue);
 	}
 
 	/**

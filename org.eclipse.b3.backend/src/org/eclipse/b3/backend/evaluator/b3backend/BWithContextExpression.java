@@ -86,8 +86,7 @@ public interface BWithContextExpression extends BExpression {
 	BExpression getExpr();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression#getAlias
-	 * <em>Alias</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression#getAlias <em>Alias</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -99,8 +98,8 @@ public interface BWithContextExpression extends BExpression {
 	void setAlias(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression#getContextBlock
-	 * <em>Context Block</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression#getContextBlock <em>Context Block</em>}'
+	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -112,8 +111,7 @@ public interface BWithContextExpression extends BExpression {
 	void setContextBlock(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression#getExpr
-	 * <em>Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression#getExpr <em>Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

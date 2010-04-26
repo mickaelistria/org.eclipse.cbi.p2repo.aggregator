@@ -54,8 +54,7 @@ public interface BTypeCalculatorFunction extends BTypeCalculator {
 	IFunction getFunc();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction#getFunc
-	 * <em>Func</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction#getFunc <em>Func</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

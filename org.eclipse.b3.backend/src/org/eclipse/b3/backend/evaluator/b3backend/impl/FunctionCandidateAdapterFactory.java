@@ -20,12 +20,6 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 
-	public interface IFunctionCandidateAdapter extends TypeUtils.ICandidate, Adapter {
-
-		public IFunction getTarget();
-
-	}
-
 	protected static class FunctionCandidateAdapter extends TypeUtils.Candidate implements IFunctionCandidateAdapter {
 
 		private IFunction target;
@@ -64,6 +58,12 @@ public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 
 	}
 
+	public interface IFunctionCandidateAdapter extends TypeUtils.ICandidate, Adapter {
+
+		public IFunction getTarget();
+
+	}
+
 	protected static class JavaFunctionCandidateAdapter extends TypeUtils.JavaCandidate implements
 			IFunctionCandidateAdapter {
 
@@ -71,6 +71,11 @@ public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 
 		public JavaFunctionCandidateAdapter(BJavaFunction aTarget) {
 			target = aTarget;
+		}
+
+		@Override
+		protected Type[] getJavaParameterTypes() {
+			return target.getMethod().getGenericParameterTypes();
 		}
 
 		public Type[] getParameterTypes() {
@@ -97,18 +102,13 @@ public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 			// TODO we might want to react to changes to parameters, isVarArgs, parameterTypes
 		}
 
-		public void setTarget(Notifier newTarget) {
-			target = (BJavaFunction) newTarget;
-		}
-
-		@Override
-		protected Type[] getJavaParameterTypes() {
-			return target.getMethod().getGenericParameterTypes();
-		}
-
 		@Override
 		protected void setParameterTypes(Type[] types) {
 			target.setParameterTypes(types);
+		}
+
+		public void setTarget(Notifier newTarget) {
+			target = (BJavaFunction) newTarget;
 		}
 
 		@Override
@@ -144,11 +144,6 @@ public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	@Override
-	public boolean isFactoryForType(Object type) {
-		return isAssignableFrom(type, IFunctionCandidateAdapter.class);
-	}
-
-	@Override
 	protected Adapter createAdapter(Notifier target) {
 		throw new UnsupportedOperationException();
 	}
@@ -163,6 +158,11 @@ public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 				return new FunctionCandidateAdapter((IFunction) target);
 		}
 		return null;
+	}
+
+	@Override
+	public boolean isFactoryForType(Object type) {
+		return isAssignableFrom(type, IFunctionCandidateAdapter.class);
 	}
 
 }

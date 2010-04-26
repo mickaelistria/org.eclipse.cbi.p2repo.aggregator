@@ -143,6 +143,16 @@ public class ArithmeticFunctions {
 				"," + b.getClass().toString());
 	}
 
+	private static BigInteger convertToBigInteger(Number n) {
+		return BigInteger.valueOf(n.longValue());
+	}
+
+	private static BigInteger convertToBigIntegerIfNeeded(Number n) {
+		return (n instanceof BigInteger)
+				? (BigInteger) n
+				: convertToBigInteger(n);
+	}
+
 	@B3Backend(funcNames = { "--" })
 	public static Number decrement(Number a) {
 		if(a instanceof Double)
@@ -336,6 +346,10 @@ public class ArithmeticFunctions {
 				"," + b.getClass().toString());
 	}
 
+	private static boolean trueWithSideEffect(Object ignored) {
+		return true;
+	}
+
 	@B3Backend(funcNames = { "-" }, typeFunction = "numberGenericityCalculator")
 	public static Number unaryMinus(Number a) {
 		if(a instanceof Double)
@@ -349,19 +363,5 @@ public class ArithmeticFunctions {
 		if(a instanceof Short)
 			return new Short((short) -(a.shortValue()));
 		throw new IllegalArgumentException("Unary minus on unsupported Number subclass: " + a.getClass().toString());
-	}
-
-	private static BigInteger convertToBigInteger(Number n) {
-		return BigInteger.valueOf(n.longValue());
-	}
-
-	private static BigInteger convertToBigIntegerIfNeeded(Number n) {
-		return (n instanceof BigInteger)
-				? (BigInteger) n
-				: convertToBigInteger(n);
-	}
-
-	private static boolean trueWithSideEffect(Object ignored) {
-		return true;
 	}
 }

@@ -84,8 +84,8 @@ public interface BTryExpression extends BExpression {
 	BExpression getTryExpr();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BTryExpression#getFinallyExpr
-	 * <em>Finally Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BTryExpression#getFinallyExpr <em>Finally Expr</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -97,8 +97,7 @@ public interface BTryExpression extends BExpression {
 	void setFinallyExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BTryExpression#getTryExpr
-	 * <em>Try Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BTryExpression#getTryExpr <em>Try Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

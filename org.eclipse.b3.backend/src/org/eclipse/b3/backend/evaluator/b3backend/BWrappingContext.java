@@ -128,8 +128,8 @@ public interface BWrappingContext extends BDelegatingContext {
 	void mapContext(BExecutionContext ctx, Map<String, String> map, BFunctionWrapper functionWrapper);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getFunctionWrapper
-	 * <em>Function Wrapper</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getFunctionWrapper <em>Function Wrapper</em>}'
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -141,8 +141,7 @@ public interface BWrappingContext extends BDelegatingContext {
 	void setFunctionWrapper(BFunctionWrapper value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getParameters
-	 * <em>Parameters</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getParameters <em>Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -154,8 +153,8 @@ public interface BWrappingContext extends BDelegatingContext {
 	void setParameters(Object[] value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getParameterTypes
-	 * <em>Parameter Types</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getParameterTypes <em>Parameter Types</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -167,8 +166,7 @@ public interface BWrappingContext extends BDelegatingContext {
 	void setParameterTypes(Type[] value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getVarargsName
-	 * <em>Varargs Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getVarargsName <em>Varargs Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -180,8 +178,8 @@ public interface BWrappingContext extends BDelegatingContext {
 	void setVarargsName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getWrappedContext
-	 * <em>Wrapped Context</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getWrappedContext <em>Wrapped Context</em>}'
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

@@ -48,8 +48,7 @@ public interface BLiteralExpression extends BExpression {
 	Object getValue();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression#getValue
-	 * <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

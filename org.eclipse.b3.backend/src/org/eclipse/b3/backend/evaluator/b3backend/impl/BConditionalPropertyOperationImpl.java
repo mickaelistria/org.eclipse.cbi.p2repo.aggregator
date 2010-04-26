@@ -199,6 +199,17 @@ public class BConditionalPropertyOperationImpl extends BPropertyOperationImpl im
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR:
@@ -298,16 +309,5 @@ public class BConditionalPropertyOperationImpl extends BPropertyOperationImpl im
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR, newCondExpr,
 				newCondExpr));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION;
 	}
 } // BConditionalPropertyOperationImpl

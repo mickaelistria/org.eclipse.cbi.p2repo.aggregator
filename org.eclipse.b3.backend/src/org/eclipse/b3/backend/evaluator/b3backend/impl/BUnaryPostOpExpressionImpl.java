@@ -44,6 +44,17 @@ public class BUnaryPostOpExpressionImpl extends BUnaryOpExpressionImpl implement
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BUNARY_POST_OP_EXPRESSION;
+	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		LValue lval = expr.getLValue(ctx);
@@ -57,16 +68,5 @@ public class BUnaryPostOpExpressionImpl extends BUnaryOpExpressionImpl implement
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		return expr.getLValue(ctx).getDeclaredType();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BUNARY_POST_OP_EXPRESSION;
 	}
 } // BUnaryPostOpExpressionImpl

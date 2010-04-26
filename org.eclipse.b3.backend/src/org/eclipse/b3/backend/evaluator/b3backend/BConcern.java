@@ -57,8 +57,8 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model kind="operation" dataType=
-	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
+	 * @model kind="operation"
+	 *        dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
 	 * @generated
 	 */
 	Iterator<BConcernContext> getConcernContextIterator();
@@ -128,8 +128,7 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	EList<BConcern> getSuperConcerns();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getDocumentation
-	 * <em>Documentation</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getDocumentation <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

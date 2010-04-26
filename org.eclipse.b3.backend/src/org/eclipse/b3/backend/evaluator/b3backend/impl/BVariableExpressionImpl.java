@@ -129,6 +129,17 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BVARIABLE_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BVARIABLE_EXPRESSION__NAME:
@@ -193,16 +204,5 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 		result.append(name);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BVARIABLE_EXPRESSION;
 	}
 } // BVariableExpressionImpl

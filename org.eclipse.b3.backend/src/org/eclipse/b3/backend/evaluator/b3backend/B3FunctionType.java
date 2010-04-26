@@ -108,8 +108,7 @@ public interface B3FunctionType extends EObject, Type {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
-	 *        typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
 	Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx);
@@ -156,8 +155,7 @@ public interface B3FunctionType extends EObject, Type {
 	boolean isVarArgs();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getFunctionType
-	 * <em>Function Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getFunctionType <em>Function Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -169,8 +167,7 @@ public interface B3FunctionType extends EObject, Type {
 	void setFunctionType(Type value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnType
-	 * <em>Return Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnType <em>Return Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -182,8 +179,7 @@ public interface B3FunctionType extends EObject, Type {
 	void setReturnType(Type value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getTypeCalculator
-	 * <em>Type Calculator</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getTypeCalculator <em>Type Calculator</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -195,8 +191,7 @@ public interface B3FunctionType extends EObject, Type {
 	void setTypeCalculator(BTypeCalculator value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isVarArgs
-	 * <em>Var Args</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isVarArgs <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

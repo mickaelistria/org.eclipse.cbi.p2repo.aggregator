@@ -68,7 +68,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getContainer <em>Container</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isClassFunction <em>Class Function</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getVarargArrayType <em>Vararg Array Type </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getVarargArrayType <em>Vararg Array Type</em>}</li>
  * </ul>
  * </p>
  * 
@@ -524,6 +524,24 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 
 	}
 
+	protected void computeParameters() {
+		if(parameterNames == null || parameterTypes == null) {
+			EList<BParameterDeclaration> pList = getParameters();
+			int pCount = pList.size();
+
+			parameterNames = new String[pCount];
+			parameterTypes = new Type[pCount];
+
+			Iterator<BParameterDeclaration> pIterator = pList.iterator();
+
+			for(int i = 0; i < pCount; ++i) {
+				BParameterDeclaration p = pIterator.next();
+				parameterNames[i] = p.getName();
+				parameterTypes[i] = p.getType();
+			}
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -879,6 +897,17 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				return;
 		}
 		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BFUNCTION;
 	}
 
 	/**
@@ -1628,35 +1657,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		result.append(varargArrayType);
 		result.append(')');
 		return result.toString();
-	}
-
-	protected void computeParameters() {
-		if(parameterNames == null || parameterTypes == null) {
-			EList<BParameterDeclaration> pList = getParameters();
-			int pCount = pList.size();
-
-			parameterNames = new String[pCount];
-			parameterTypes = new Type[pCount];
-
-			Iterator<BParameterDeclaration> pIterator = pList.iterator();
-
-			for(int i = 0; i < pCount; ++i) {
-				BParameterDeclaration p = pIterator.next();
-				parameterNames[i] = p.getName();
-				parameterTypes[i] = p.getType();
-			}
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BFUNCTION;
 	}
 
 } // BFunctionImpl

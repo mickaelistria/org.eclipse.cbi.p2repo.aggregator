@@ -283,6 +283,17 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BAT_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BAT_EXPRESSION__OBJ_EXPR:
@@ -401,16 +412,5 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BAT_EXPRESSION__OBJ_EXPR, newObjExpr, newObjExpr));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BAT_EXPRESSION;
 	}
 } // BAtExpressionImpl

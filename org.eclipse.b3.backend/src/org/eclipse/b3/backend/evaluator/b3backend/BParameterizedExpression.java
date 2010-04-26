@@ -14,7 +14,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression#getParameterList <em>Parameter List </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression#getParameterList <em>Parameter List</em>}</li>
  * </ul>
  * </p>
  * 
@@ -48,8 +48,8 @@ public interface BParameterizedExpression extends BExpression {
 	BParameterList getParameterList();
 
 	/**
-	 * Sets the value of the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression#getParameterList
-	 * <em>Parameter List</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression#getParameterList <em>Parameter List</em>}'
+	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

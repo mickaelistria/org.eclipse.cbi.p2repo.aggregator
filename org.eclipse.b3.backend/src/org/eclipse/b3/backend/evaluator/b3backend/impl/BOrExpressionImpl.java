@@ -42,6 +42,17 @@ public class BOrExpressionImpl extends BBinaryExpressionImpl implements BOrExpre
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BOR_EXPRESSION;
+	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		if(Boolean.TRUE.equals(leftExpr.evaluate(ctx)))
@@ -52,17 +63,6 @@ public class BOrExpressionImpl extends BBinaryExpressionImpl implements BOrExpre
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) {
 		return Boolean.class;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BOR_EXPRESSION;
 	}
 
 } // BOrExpressionImpl

@@ -61,8 +61,7 @@ public interface ITypedValueContainer extends EObject {
 	 * Defines an immutable value
 	 * <!-- end-model-doc -->
 	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
-	 *        typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
 	Object defineFinalValue(String name, Object value, Type type) throws B3EngineException;
@@ -74,8 +73,7 @@ public interface ITypedValueContainer extends EObject {
 	 * Defines a variable value (mutable).
 	 * <!-- end-model-doc -->
 	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
-	 *        typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
 	Object defineFinalVariableValue(String name, Object value, Type type) throws B3EngineException;
@@ -87,8 +85,7 @@ public interface ITypedValueContainer extends EObject {
 	 * Defines an immutable value
 	 * <!-- end-model-doc -->
 	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
-	 *        typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
 	Object defineValue(String name, Object value, Type type) throws B3EngineException;
@@ -100,8 +97,7 @@ public interface ITypedValueContainer extends EObject {
 	 * Defines a variable value (mutable).
 	 * <!-- end-model-doc -->
 	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
-	 *        typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
 	Object defineVariableValue(String name, Object value, Type type) throws B3EngineException;
@@ -110,8 +106,7 @@ public interface ITypedValueContainer extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType"
-	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
 	Type getDeclaredValueType(String name) throws B3EngineException;
@@ -120,8 +115,7 @@ public interface ITypedValueContainer extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.LValue"
-	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.LValue" exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
 	LValue getLValue(String name) throws B3EngineException;

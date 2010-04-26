@@ -103,8 +103,8 @@ public interface B3ParameterizedType extends EObject, ParameterizedType {
 	Type getRawType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getOwnerType
-	 * <em>Owner Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getOwnerType <em>Owner Type</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -116,8 +116,7 @@ public interface B3ParameterizedType extends EObject, ParameterizedType {
 	void setOwnerType(Type value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType
-	 * <em>Raw Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType <em>Raw Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

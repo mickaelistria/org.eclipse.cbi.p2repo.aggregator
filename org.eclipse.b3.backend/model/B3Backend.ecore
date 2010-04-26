@@ -387,7 +387,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//IType"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BRegularExpression" eSuperTypes="#//BExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="BRegularExpression" eSuperTypes="#//BPatternLiteralExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="#//RegexpPattern"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="RegexpPattern" instanceClassName="java.util.regex.Pattern"/>
@@ -608,6 +608,8 @@
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namePattern" eType="#//BPatternLiteralExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BFunctionNamePredicate" eSuperTypes="#//BExpression">
     <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -760,4 +762,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="BCallFeature" eSuperTypes="#//BCallExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="BCallNamedFunction" eSuperTypes="#//BCallExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="BCallFunction" eSuperTypes="#//BCallExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BPatternLiteralExpression" eSuperTypes="#//BExpression">
+    <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="candidate" eType="#//CharSequence"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BSimplePatternExpression" eSuperTypes="#//BPatternLiteralExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="#//SimplePattern"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="SimplePattern" instanceClassName="org.eclipse.b3.backend.core.SimplePattern"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="CharSequence" instanceClassName="java.lang.CharSequence"/>
 </ecore:EPackage>

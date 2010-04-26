@@ -163,6 +163,17 @@ public class BGuardExpressionImpl extends BGuardImpl implements BGuardExpression
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BGUARD_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BGUARD_EXPRESSION__GUARD_EXPR:
@@ -204,16 +215,5 @@ public class BGuardExpressionImpl extends BGuardImpl implements BGuardExpression
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BGUARD_EXPRESSION__GUARD_EXPR, newGuardExpr, newGuardExpr));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BGUARD_EXPRESSION;
 	}
 } // BGuardExpressionImpl

@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterizedExpressionImpl#getParameterList <em> Parameter List</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterizedExpressionImpl#getParameterList <em>Parameter List</em>}</li>
  * </ul>
  * </p>
  * 
@@ -151,6 +151,17 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPARAMETERIZED_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST:
@@ -195,17 +206,6 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST, newParameterList,
 				newParameterList));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPARAMETERIZED_EXPRESSION;
 	}
 
 } // BParameterizedExpressionImpl

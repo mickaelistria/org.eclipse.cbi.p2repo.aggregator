@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetOperationImpl#getPropertySet <em>Property Set </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetOperationImpl#getPropertySet <em>Property Set</em>}</li>
  * </ul>
  * </p>
  * 
@@ -157,6 +157,17 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPROPERTY_SET_OPERATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET:
@@ -209,16 +220,5 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET, newPropertySet,
 				newPropertySet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPROPERTY_SET_OPERATION;
 	}
 } // BPropertySetOperationImpl

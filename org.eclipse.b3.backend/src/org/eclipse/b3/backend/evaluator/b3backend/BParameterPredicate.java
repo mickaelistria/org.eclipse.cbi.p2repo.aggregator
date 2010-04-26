@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getTypePredicateOp <em>Type Predicate Op </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getTypePredicateOp <em>Type Predicate Op</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getType <em>Type</em>}</li>
  * </ul>
  * </p>
@@ -92,8 +92,7 @@ public interface BParameterPredicate extends EObject {
 	String getTypePredicateOp();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getName
-	 * <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -105,8 +104,7 @@ public interface BParameterPredicate extends EObject {
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getType
-	 * <em>Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getType <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -118,8 +116,8 @@ public interface BParameterPredicate extends EObject {
 	void setType(Type value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getTypePredicateOp
-	 * <em>Type Predicate Op</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getTypePredicateOp <em>Type Predicate Op</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

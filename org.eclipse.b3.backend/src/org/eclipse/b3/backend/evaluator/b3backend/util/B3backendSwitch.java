@@ -1101,6 +1101,23 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BPattern Literal Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BPattern Literal Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBPatternLiteralExpression(BPatternLiteralExpression object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BProceed Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1199,6 +1216,23 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBRegularExpression(BRegularExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BSimple Pattern Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BSimple Pattern Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBSimplePatternExpression(BSimplePatternExpression object) {
 		return null;
 	}
 
@@ -1577,21 +1611,7 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that
-	 * result.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
-	public T doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that
-	 * result.
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1611,8 +1631,19 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that
-	 * result.
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @generated
+	 */
+	public T doSwitch(EObject theEObject) {
+		return doSwitch(theEObject.eClass(), theEObject);
+	}
+
+	/**
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2039,6 +2070,8 @@ public class B3backendSwitch<T> {
 				BRegularExpression bRegularExpression = (BRegularExpression) theEObject;
 				T result = caseBRegularExpression(bRegularExpression);
 				if(result == null)
+					result = caseBPatternLiteralExpression(bRegularExpression);
+				if(result == null)
 					result = caseBExpression(bRegularExpression);
 				if(result == null)
 					result = defaultCase(theEObject);
@@ -2450,6 +2483,26 @@ public class B3backendSwitch<T> {
 					result = caseBParameterizedExpression(bCallFunction);
 				if(result == null)
 					result = caseBExpression(bCallFunction);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BPATTERN_LITERAL_EXPRESSION: {
+				BPatternLiteralExpression bPatternLiteralExpression = (BPatternLiteralExpression) theEObject;
+				T result = caseBPatternLiteralExpression(bPatternLiteralExpression);
+				if(result == null)
+					result = caseBExpression(bPatternLiteralExpression);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION: {
+				BSimplePatternExpression bSimplePatternExpression = (BSimplePatternExpression) theEObject;
+				T result = caseBSimplePatternExpression(bSimplePatternExpression);
+				if(result == null)
+					result = caseBPatternLiteralExpression(bSimplePatternExpression);
+				if(result == null)
+					result = caseBExpression(bSimplePatternExpression);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

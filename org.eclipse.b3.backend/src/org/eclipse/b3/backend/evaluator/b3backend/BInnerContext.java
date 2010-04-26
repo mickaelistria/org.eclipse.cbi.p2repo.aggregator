@@ -48,8 +48,7 @@ public interface BInnerContext extends BExecutionContext {
 	BExecutionContext getOuterContext();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BInnerContext#getOuterContext
-	 * <em>Outer Context</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BInnerContext#getOuterContext <em>Outer Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

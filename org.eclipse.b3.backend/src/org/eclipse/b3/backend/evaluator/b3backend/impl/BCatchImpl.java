@@ -229,6 +229,17 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCATCH;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BCATCH__CATCH_EXPR:
@@ -383,17 +394,6 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 		result.append(varname);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCATCH;
 	}
 
 } // BCatchImpl

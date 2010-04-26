@@ -17,7 +17,7 @@ import org.eclipse.core.runtime.CoreException;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext#getExpressionCache <em>Expression Cache </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext#getExpressionCache <em>Expression Cache</em>}</li>
  * </ul>
  * </p>
  * 
@@ -61,8 +61,8 @@ public interface BInvocationContext extends BExecutionContext {
 	B3ExpressionCache getExpressionCache();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext#getExpressionCache
-	 * <em>Expression Cache</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext#getExpressionCache <em>Expression Cache</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

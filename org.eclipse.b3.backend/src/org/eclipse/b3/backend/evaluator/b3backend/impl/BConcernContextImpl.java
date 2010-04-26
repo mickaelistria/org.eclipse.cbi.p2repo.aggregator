@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl#getFunctions <em>Functions</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl#getDocumentation <em>Documentation </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
  * 
@@ -231,6 +231,17 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCONCERN_CONTEXT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
@@ -323,17 +334,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 		result.append(documentation);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCONCERN_CONTEXT;
 	}
 
 } // BConcernContextImpl

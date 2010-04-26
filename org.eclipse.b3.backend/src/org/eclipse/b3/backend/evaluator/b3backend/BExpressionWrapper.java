@@ -61,8 +61,7 @@ public interface BExpressionWrapper extends BExpression {
 	BExpression getOriginal();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper#getOriginal
-	 * <em>Original</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper#getOriginal <em>Original</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

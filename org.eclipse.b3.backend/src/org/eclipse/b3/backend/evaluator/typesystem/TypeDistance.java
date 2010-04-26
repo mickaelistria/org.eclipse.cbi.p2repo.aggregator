@@ -59,6 +59,16 @@ public class TypeDistance {
 			rank = -1; // unranked
 		}
 
+		// int getClassRank() {
+		// return rank;
+		// }
+		void addExtendedBy(TreeNode child) {
+			if(extensions.contains(child))
+				return;
+			extensions.add(child);
+			child.rank = rank + 1;
+		}
+
 		// void addImplements(TreeNode child) {
 		// if(extensions.contains(child))
 		// return;
@@ -70,16 +80,6 @@ public class TypeDistance {
 		@Override
 		public String toString() {
 			return "rank=" + Integer.toString(rank);
-		}
-
-		// int getClassRank() {
-		// return rank;
-		// }
-		void addExtendedBy(TreeNode child) {
-			if(extensions.contains(child))
-				return;
-			extensions.add(child);
-			child.rank = rank + 1;
 		}
 	}
 
@@ -104,11 +104,6 @@ public class TypeDistance {
 		classToNodeMap.put(Object.class, root);
 		OBJECT_SET = new ClassSet();
 		OBJECT_SET.add(Object.class);
-	}
-
-	public Type getMostSpecificCommonType(Type[] types) {
-		return computeCommonClass(types);
-		// return mostSpecific(r);
 	}
 
 	// private Class<?> computeMostSpecificCommonClass(Class<?> ac, Class<?> bc) {
@@ -225,6 +220,11 @@ public class TypeDistance {
 	private void eulerize() {
 		classList = new ArrayList<Class<?>>();
 		visitTree(root);
+	}
+
+	public Type getMostSpecificCommonType(Type[] types) {
+		return computeCommonClass(types);
+		// return mostSpecific(r);
 	}
 
 	// private ClassSet computeCommonClasses(Class<?> ac, Class<?> bc) {

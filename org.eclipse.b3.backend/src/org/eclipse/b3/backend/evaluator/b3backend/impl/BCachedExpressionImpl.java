@@ -45,6 +45,17 @@ public class BCachedExpressionImpl extends BUnaryExpressionImpl implements BCach
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCACHED_EXPRESSION;
+	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		BInvocationContext bctx = null;
@@ -60,16 +71,5 @@ public class BCachedExpressionImpl extends BUnaryExpressionImpl implements BCach
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		return expr.getDeclaredType(ctx);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCACHED_EXPRESSION;
 	}
 } // BCachedExpressionImpl

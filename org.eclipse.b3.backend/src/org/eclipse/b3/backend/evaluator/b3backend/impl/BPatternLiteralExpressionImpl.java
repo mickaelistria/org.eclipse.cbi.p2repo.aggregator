@@ -7,31 +7,26 @@
  * Contributors:
  * - Cloudsmith Inc - initial API and implementation.
  * 
- *
- * $Id$
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
+import java.lang.CharSequence;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
+import org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>BType Calculator</b></em>'.
+ * An implementation of the model object '<em><b>BPattern Literal Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  * 
  * @generated
  */
-public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator {
+public class BPatternLiteralExpressionImpl extends BExpressionImpl implements BPatternLiteralExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +41,7 @@ public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator 
 	 * 
 	 * @generated
 	 */
-	protected BTypeCalculatorImpl() {
+	protected BPatternLiteralExpressionImpl() {
 		super();
 	}
 
@@ -58,20 +53,19 @@ public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BTYPE_CALCULATOR;
+		return B3backendPackage.Literals.BPATTERN_LITERAL_EXPRESSION;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Derived classes must implement this method.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx) {
+	public boolean matches(CharSequence candidate) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
-} // BTypeCalculatorImpl
+} // BPatternLiteralExpressionImpl

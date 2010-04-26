@@ -7,35 +7,30 @@
  * Contributors:
  * - Cloudsmith Inc - initial API and implementation.
  * 
- *
- * $Id$
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-import java.util.regex.Pattern;
-
+import org.eclipse.b3.backend.core.SimplePattern;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>BRegular Expression</b></em>'.
+ * An implementation of the model object '<em><b>BSimple Pattern Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BRegularExpressionImpl#getPattern <em>Pattern</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BSimplePatternExpressionImpl#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implements BRegularExpression {
+public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl implements BSimplePatternExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,7 +48,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Pattern PATTERN_EDEFAULT = null;
+	protected static final SimplePattern PATTERN_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
@@ -64,7 +59,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected Pattern pattern = PATTERN_EDEFAULT;
+	protected SimplePattern pattern = PATTERN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,7 +67,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	 * 
 	 * @generated
 	 */
-	protected BRegularExpressionImpl() {
+	protected BSimplePatternExpressionImpl() {
 		super();
 	}
 
@@ -85,7 +80,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-			case B3backendPackage.BREGULAR_EXPRESSION__PATTERN:
+			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN:
 				return getPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -100,7 +95,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-			case B3backendPackage.BREGULAR_EXPRESSION__PATTERN:
+			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN:
 				return PATTERN_EDEFAULT == null
 						? pattern != null
 						: !PATTERN_EDEFAULT.equals(pattern);
@@ -117,8 +112,8 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-			case B3backendPackage.BREGULAR_EXPRESSION__PATTERN:
-				setPattern((Pattern) newValue);
+			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN:
+				setPattern((SimplePattern) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,7 +127,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BREGULAR_EXPRESSION;
+		return B3backendPackage.Literals.BSIMPLE_PATTERN_EXPRESSION;
 	}
 
 	/**
@@ -144,21 +139,11 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-			case B3backendPackage.BREGULAR_EXPRESSION__PATTERN:
+			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN:
 				setPattern(PATTERN_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		return pattern;
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return Pattern.class;
 	}
 
 	/**
@@ -167,7 +152,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	 * 
 	 * @generated
 	 */
-	public Pattern getPattern() {
+	public SimplePattern getPattern() {
 		return pattern;
 	}
 
@@ -178,7 +163,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	 */
 	@Override
 	public boolean matches(CharSequence candidate) {
-		return getPattern().matcher(candidate).matches();
+		return pattern.isMatch(candidate);
 	}
 
 	/**
@@ -187,12 +172,12 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	 * 
 	 * @generated
 	 */
-	public void setPattern(Pattern newPattern) {
-		Pattern oldPattern = pattern;
+	public void setPattern(SimplePattern newPattern) {
+		SimplePattern oldPattern = pattern;
 		pattern = newPattern;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BREGULAR_EXPRESSION__PATTERN, oldPattern, pattern));
+				this, Notification.SET, B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN, oldPattern, pattern));
 	}
 
 	/**
@@ -212,4 +197,4 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 		result.append(')');
 		return result.toString();
 	}
-} // BRegularExpressionImpl
+} // BSimplePatternExpressionImpl

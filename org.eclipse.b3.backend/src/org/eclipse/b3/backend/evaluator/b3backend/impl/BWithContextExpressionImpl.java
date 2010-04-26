@@ -228,6 +228,17 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BWITH_CONTEXT_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__ALIAS:
@@ -393,16 +404,5 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 		result.append(alias);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BWITH_CONTEXT_EXPRESSION;
 	}
 } // BWithContextExpressionImpl

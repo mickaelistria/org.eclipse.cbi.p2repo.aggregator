@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BBinaryOpExpressionImpl#getFunctionName <em>Function Name </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BBinaryOpExpressionImpl#getFunctionName <em>Function Name</em>}</li>
  * </ul>
  * </p>
  * 
@@ -127,6 +127,17 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BBINARY_OP_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BBINARY_OP_EXPRESSION__FUNCTION_NAME:
@@ -190,16 +201,5 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 		result.append(functionName);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BBINARY_OP_EXPRESSION;
 	}
 } // BBinaryOpExpressionImpl

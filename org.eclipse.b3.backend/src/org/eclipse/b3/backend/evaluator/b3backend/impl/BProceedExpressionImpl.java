@@ -51,6 +51,17 @@ public class BProceedExpressionImpl extends BExpressionImpl implements BProceedE
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPROCEED_EXPRESSION;
+	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// find the mapping context to proceed in
@@ -72,16 +83,5 @@ public class BProceedExpressionImpl extends BExpressionImpl implements BProceedE
 				this, "A proceed expression could not find a corresponding context to proceed in.");
 		IFunction original = wrappingCtx.getFunctionWrapper().getOriginal();
 		return original.getDeclaredType(ctx);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPROCEED_EXPRESSION;
 	}
 } // BProceedExpressionImpl

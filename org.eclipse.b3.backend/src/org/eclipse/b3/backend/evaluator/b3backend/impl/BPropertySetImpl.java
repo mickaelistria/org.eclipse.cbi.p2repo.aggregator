@@ -56,7 +56,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getExtends <em>Extends</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getOperations <em>Operations</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getPropertiesFile <em>Properties File </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getPropertiesFile <em>Properties File</em>}</li>
  * </ul>
  * </p>
  * 
@@ -228,6 +228,17 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPROPERTY_SET;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BPROPERTY_SET__EXTENDS:
@@ -329,6 +340,47 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	}
 
 	/**
+	 * Loads properties by transforming them into property operations (for later evaluation).
+	 * TODO: This is a very simple implementation using toURL().openStream() to read from a URL.
+	 * 
+	 * @throws IOException
+	 */
+	private void loadProperties() throws IOException {
+		if(propertiesFile == null || propertiesFileLoaded)
+			return;
+		InputStream inputStream = null;
+		Properties p = new Properties();
+		try {
+			inputStream = propertiesFile.toURL().openStream();
+			p.load(propertiesFile.toURL().openStream());
+			EList<BPropertyOperation> ops = getOperations();
+			for(Entry<Object, Object> e : p.entrySet()) {
+				String key = "$" + String.class.cast(e.getKey());
+				String value = String.class.cast(e.getValue());
+				BPropertyDefinitionOperation propDef = B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation();
+				BDefProperty valueDef = B3backendFactory.eINSTANCE.createBDefProperty();
+				BLiteralExpression valueLiteral = B3backendFactory.eINSTANCE.createBLiteralExpression();
+				valueLiteral.setValue(value);
+				valueDef.setName(key);
+				valueDef.setValueExpr(valueLiteral);
+				propDef.setDefinition(valueDef);
+				ops.add(propDef);
+			}
+		}
+		finally {
+			propertiesFileLoaded = true; // don't try again if there are errors (TODO: too simplistic handling of
+											// errors)
+			if(inputStream != null)
+				try {
+					inputStream.close();
+				}
+				catch(IOException e) {
+					// ignored
+				}
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -373,57 +425,5 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 		result.append(propertiesFile);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPROPERTY_SET;
-	}
-
-	/**
-	 * Loads properties by transforming them into property operations (for later evaluation).
-	 * TODO: This is a very simple implementation using toURL().openStream() to read from a URL.
-	 * 
-	 * @throws IOException
-	 */
-	private void loadProperties() throws IOException {
-		if(propertiesFile == null || propertiesFileLoaded)
-			return;
-		InputStream inputStream = null;
-		Properties p = new Properties();
-		try {
-			inputStream = propertiesFile.toURL().openStream();
-			p.load(propertiesFile.toURL().openStream());
-			EList<BPropertyOperation> ops = getOperations();
-			for(Entry<Object, Object> e : p.entrySet()) {
-				String key = "$" + String.class.cast(e.getKey());
-				String value = String.class.cast(e.getValue());
-				BPropertyDefinitionOperation propDef = B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation();
-				BDefProperty valueDef = B3backendFactory.eINSTANCE.createBDefProperty();
-				BLiteralExpression valueLiteral = B3backendFactory.eINSTANCE.createBLiteralExpression();
-				valueLiteral.setValue(value);
-				valueDef.setName(key);
-				valueDef.setValueExpr(valueLiteral);
-				propDef.setDefinition(valueDef);
-				ops.add(propDef);
-			}
-		}
-		finally {
-			propertiesFileLoaded = true; // don't try again if there are errors (TODO: too simplistic handling of
-											// errors)
-			if(inputStream != null)
-				try {
-					inputStream.close();
-				}
-				catch(IOException e) {
-					// ignored
-				}
-		}
 	}
 } // BPropertySetImpl

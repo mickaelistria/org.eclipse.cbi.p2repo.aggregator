@@ -47,14 +47,6 @@ public class BDefaultPropertySetImpl extends BPropertySetImpl implements BDefaul
 	}
 
 	/**
-	 * Calls {@link #evaluateDefaults(BExecutionContext)}
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		return evaluateDefaults(ctx, true);
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -63,5 +55,13 @@ public class BDefaultPropertySetImpl extends BPropertySetImpl implements BDefaul
 	@Override
 	protected EClass eStaticClass() {
 		return B3backendPackage.Literals.BDEFAULT_PROPERTY_SET;
+	}
+
+	/**
+	 * Calls {@link #evaluateDefaults(BExecutionContext)}
+	 */
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		return evaluateDefaults(ctx, true);
 	}
 } // BDefaultPropertySetImpl

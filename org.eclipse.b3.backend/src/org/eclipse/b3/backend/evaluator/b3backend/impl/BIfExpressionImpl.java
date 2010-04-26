@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl#getConditionExpr <em>Condition Expr </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl#getConditionExpr <em>Condition Expr</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl#getThenExpr <em>Then Expr</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl#getElseExpr <em>Else Expr</em>}</li>
  * </ul>
@@ -237,6 +237,17 @@ public class BIfExpressionImpl extends BExpressionImpl implements BIfExpression 
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BIF_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BIF_EXPRESSION__CONDITION_EXPR:
@@ -371,16 +382,5 @@ public class BIfExpressionImpl extends BExpressionImpl implements BIfExpression 
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BIF_EXPRESSION__THEN_EXPR, newThenExpr, newThenExpr));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BIF_EXPRESSION;
 	}
 } // BIfExpressionImpl

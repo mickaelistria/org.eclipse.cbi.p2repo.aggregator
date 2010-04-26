@@ -48,8 +48,8 @@ public interface BBinaryOpExpression extends BBinaryExpression {
 	String getFunctionName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression#getFunctionName
-	 * <em>Function Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression#getFunctionName <em>Function Name</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

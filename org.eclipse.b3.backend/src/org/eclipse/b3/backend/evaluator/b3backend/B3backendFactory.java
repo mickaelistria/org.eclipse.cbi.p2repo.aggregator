@@ -566,6 +566,16 @@ public interface B3backendFactory extends EFactory {
 	BParameterPredicate createBParameterPredicate();
 
 	/**
+	 * Returns a new object of class '<em>BPattern Literal Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BPattern Literal Expression</em>'.
+	 * @generated
+	 */
+	BPatternLiteralExpression createBPatternLiteralExpression();
+
+	/**
 	 * Returns a new object of class '<em>BProceed Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -614,6 +624,16 @@ public interface B3backendFactory extends EFactory {
 	 * @generated
 	 */
 	BRegularExpression createBRegularExpression();
+
+	/**
+	 * Returns a new object of class '<em>BSimple Pattern Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BSimple Pattern Expression</em>'.
+	 * @generated
+	 */
+	BSimplePatternExpression createBSimplePatternExpression();
 
 	/**
 	 * Returns a new object of class '<em>BSwitch Expression</em>'.

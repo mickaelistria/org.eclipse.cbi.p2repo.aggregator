@@ -65,8 +65,7 @@ public interface BCase extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType"
-	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
 	Type getDeclaredType(BExecutionContext ctx) throws Throwable;
@@ -88,8 +87,8 @@ public interface BCase extends EObject {
 	BExpression getThenExpr();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getConditionExpr
-	 * <em>Condition Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getConditionExpr <em>Condition Expr</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -101,8 +100,7 @@ public interface BCase extends EObject {
 	void setConditionExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getThenExpr <em>Then Expr</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getThenExpr <em>Then Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

@@ -30,6 +30,17 @@ public class PropertyOperationIterator implements Iterator<BPropertyOperation> {
 		addAllSets(propertySet);
 	}
 
+	private void addAllSets(BPropertySet set) {
+		if(set == null)
+			return;
+		if(visitedSets.contains(set))
+			throw new IllegalArgumentException("Recursive Property Set Definition - set already visited: " +
+					set.getName());
+		visitedSets.add(set);
+		addAllSets(set.getExtends());
+		itor.addIterator(set.getOperations().iterator());
+	}
+
 	public boolean hasNext() {
 		return itor.hasNext();
 	}
@@ -41,17 +52,6 @@ public class PropertyOperationIterator implements Iterator<BPropertyOperation> {
 	public void remove() {
 		// looks like endless recursion, but will eventually hit a the list iterator from set.getOperation().iterator()
 		itor.remove();
-	}
-
-	private void addAllSets(BPropertySet set) {
-		if(set == null)
-			return;
-		if(visitedSets.contains(set))
-			throw new IllegalArgumentException("Recursive Property Set Definition - set already visited: " +
-					set.getName());
-		visitedSets.add(set);
-		addAllSets(set.getExtends());
-		itor.addIterator(set.getOperations().iterator());
 	}
 
 }

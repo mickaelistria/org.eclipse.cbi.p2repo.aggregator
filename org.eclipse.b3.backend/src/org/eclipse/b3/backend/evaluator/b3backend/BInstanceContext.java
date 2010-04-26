@@ -54,8 +54,7 @@ public interface BInstanceContext extends BInnerContext {
 	Object getInstance();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext#getInstance
-	 * <em>Instance</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext#getInstance <em>Instance</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

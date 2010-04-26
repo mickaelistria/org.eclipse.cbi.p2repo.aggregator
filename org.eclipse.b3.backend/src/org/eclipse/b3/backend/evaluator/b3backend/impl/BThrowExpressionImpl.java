@@ -44,6 +44,17 @@ public class BThrowExpressionImpl extends BUnaryExpressionImpl implements BThrow
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BTHROW_EXPRESSION;
+	}
+
+	/**
 	 * Throws an exception that is the result of evaluating the expression, or a B3UserException
 	 * if the result of the expression is something other than a Throwable.
 	 */
@@ -59,16 +70,5 @@ public class BThrowExpressionImpl extends BUnaryExpressionImpl implements BThrow
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		// TODO: this is lying - evaluation of a throw is really void
 		return Object.class;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BTHROW_EXPRESSION;
 	}
 } // BThrowExpressionImpl

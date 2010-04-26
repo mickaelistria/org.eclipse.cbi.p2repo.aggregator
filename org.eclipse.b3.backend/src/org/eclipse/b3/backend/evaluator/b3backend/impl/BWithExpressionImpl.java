@@ -45,7 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getReferencedAdvice <em>Referenced Advice</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getPropertySets <em>Property Sets </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getConcerns <em>Concerns</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getFuncExpr <em>Func Expr</em>}</li>
  * </ul>
@@ -246,6 +246,17 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BWITH_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BWITH_EXPRESSION__REFERENCED_ADVICE:
@@ -398,16 +409,5 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR, newFuncExpr, newFuncExpr));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BWITH_EXPRESSION;
 	}
 } // BWithExpressionImpl

@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyDefinitionOperationImpl#getDefinition <em> Definition</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyDefinitionOperationImpl#getDefinition <em>Definition</em>}</li>
  * </ul>
  * </p>
  * 
@@ -157,6 +157,17 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPROPERTY_DEFINITION_OPERATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION:
@@ -209,16 +220,5 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION, newDefinition,
 				newDefinition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPROPERTY_DEFINITION_OPERATION;
 	}
 } // BPropertyDefinitionOperationImpl

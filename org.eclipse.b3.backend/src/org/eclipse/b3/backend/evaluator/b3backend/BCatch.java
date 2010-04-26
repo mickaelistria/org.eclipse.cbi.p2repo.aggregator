@@ -67,8 +67,7 @@ public interface BCatch extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
-	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
 	Type getDeclaredType(BExecutionContext ctx) throws Throwable;
@@ -106,7 +105,7 @@ public interface BCatch extends EObject {
 	String getVarname();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getCatchExpr <em>Catch Expr</em>} ' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getCatchExpr <em>Catch Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -118,8 +117,8 @@ public interface BCatch extends EObject {
 	void setCatchExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getExceptionType
-	 * <em>Exception Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getExceptionType <em>Exception Type</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -131,8 +130,7 @@ public interface BCatch extends EObject {
 	void setExceptionType(Type value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getVarname <em>Varname</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getVarname <em>Varname</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

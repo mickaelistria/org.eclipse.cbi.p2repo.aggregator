@@ -67,8 +67,7 @@ public interface BMapEntry extends EObject {
 	BExpression getValue();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BMapEntry#getKey <em>Key</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BMapEntry#getKey <em>Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -80,8 +79,7 @@ public interface BMapEntry extends EObject {
 	void setKey(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BMapEntry#getValue <em>Value</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BMapEntry#getValue <em>Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

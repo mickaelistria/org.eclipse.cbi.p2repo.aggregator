@@ -425,6 +425,54 @@ public class SystemFunctions {
 		return null;
 	}
 
+	/**
+	 * Organizes the parameters in a curried call.
+	 * 
+	 * @param params
+	 * @param types
+	 * @param name
+	 * @return A Curry with data for the function to use
+	 */
+	private static Curry hurryCurry(Object[] params, Type[] types, String name) {
+		Curry cur = new Curry();
+
+		Iterable<?> iterable = (Iterable<?>) params[0];
+		int nParameters = params.length;
+		if(nParameters < 2)
+			throw new IllegalArgumentException("system function '" + name + "' expected 2 or more arguments");
+		// Object[] varargs = (Object[])params[1];
+		// int varargsLength = varargs.length;
+		if(!(params[nParameters - 1] instanceof BFunction))
+			throw new IllegalArgumentException("system function '" + name + "' did not get a function as last argument");
+		cur.lambda = (BFunction) params[nParameters - 1];
+		cur.closure = cur.lambda.getClosure();
+		cur.curry = -1; // unknown
+		int nLambdaParameters = 1; // default
+		if(nParameters == 2)
+			cur.curry = 0;
+		if(nParameters > 2) {
+			for(int i = 1; i < nParameters - 1; i++)
+				if(params[i] == Any.ANY) {
+					cur.curry = i - 1;
+					break;
+				}
+			nLambdaParameters = nParameters - 2; // -1 for iterator, -1 for lambda
+		}
+		cur.itor = iterable.iterator();
+		cur.p = new Object[nLambdaParameters];
+		cur.t = new Type[nLambdaParameters];
+		for(int i = 0; i < nLambdaParameters; i++) {
+			cur.p[i] = params[i + 1];
+			cur.t[i] = params[i + 1].getClass();
+		}
+		if(cur.curry != -1) {
+			// TODO: get the type of the itor - cheating now by getting type of parameter
+			// from called function
+			cur.t[cur.curry] = cur.lambda.getParameterTypes()[cur.curry];
+		}
+		return cur;
+	}
+
 	@B3Backend(systemFunction = "_inject", varargs = true, typeFunction = "returnTypeOfLastLambda")
 	public static Object inject(@B3Backend(name = "iterable") Iterable<?> iterable,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
@@ -490,53 +538,5 @@ public class SystemFunctions {
 	public static Object whileTrue(@B3Backend(name = "conditionBlock") BFunction cond,
 			@B3Backend(name = "functionBlock") BFunction body) {
 		return null;
-	}
-
-	/**
-	 * Organizes the parameters in a curried call.
-	 * 
-	 * @param params
-	 * @param types
-	 * @param name
-	 * @return A Curry with data for the function to use
-	 */
-	private static Curry hurryCurry(Object[] params, Type[] types, String name) {
-		Curry cur = new Curry();
-
-		Iterable<?> iterable = (Iterable<?>) params[0];
-		int nParameters = params.length;
-		if(nParameters < 2)
-			throw new IllegalArgumentException("system function '" + name + "' expected 2 or more arguments");
-		// Object[] varargs = (Object[])params[1];
-		// int varargsLength = varargs.length;
-		if(!(params[nParameters - 1] instanceof BFunction))
-			throw new IllegalArgumentException("system function '" + name + "' did not get a function as last argument");
-		cur.lambda = (BFunction) params[nParameters - 1];
-		cur.closure = cur.lambda.getClosure();
-		cur.curry = -1; // unknown
-		int nLambdaParameters = 1; // default
-		if(nParameters == 2)
-			cur.curry = 0;
-		if(nParameters > 2) {
-			for(int i = 1; i < nParameters - 1; i++)
-				if(params[i] == Any.ANY) {
-					cur.curry = i - 1;
-					break;
-				}
-			nLambdaParameters = nParameters - 2; // -1 for iterator, -1 for lambda
-		}
-		cur.itor = iterable.iterator();
-		cur.p = new Object[nLambdaParameters];
-		cur.t = new Type[nLambdaParameters];
-		for(int i = 0; i < nLambdaParameters; i++) {
-			cur.p[i] = params[i + 1];
-			cur.t[i] = params[i + 1].getClass();
-		}
-		if(cur.curry != -1) {
-			// TODO: get the type of the itor - cheating now by getting type of parameter
-			// from called function
-			cur.t[cur.curry] = cur.lambda.getParameterTypes()[cur.curry];
-		}
-		return cur;
 	}
 }

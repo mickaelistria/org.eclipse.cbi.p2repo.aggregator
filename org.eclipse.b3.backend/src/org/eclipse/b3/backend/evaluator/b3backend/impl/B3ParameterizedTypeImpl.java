@@ -213,6 +213,17 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.B3_PARAMETERIZED_TYPE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE:
@@ -341,17 +352,6 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 			buf.append(">");
 		}
 		return buf.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.B3_PARAMETERIZED_TYPE;
 	}
 
 } // B3ParameterizedTypeImpl

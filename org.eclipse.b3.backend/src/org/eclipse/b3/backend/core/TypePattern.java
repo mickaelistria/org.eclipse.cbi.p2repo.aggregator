@@ -18,6 +18,17 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class TypePattern {
+	private static class EmptyVectorNode extends Node {
+		EmptyVectorNode() {
+			super(0, null);
+		}
+
+		@Override
+		boolean match(Type[] value, int pos, Matcher matcher) {
+			return value == null || value.length == 0;
+		}
+	}
+
 	public static class Matcher {
 		private int[] matchStarts;
 
@@ -27,6 +38,10 @@ public class TypePattern {
 			matchStarts = new int[numRules];
 			Arrays.fill(matchStarts, -1);
 			matched = false;
+		}
+
+		private void addMatchStart(int rulePos, int paramPos) {
+			matchStarts[rulePos] = paramPos;
 		}
 
 		/**
@@ -44,27 +59,12 @@ public class TypePattern {
 			return matched;
 		}
 
-		public int size() {
-			return matchStarts.length;
-		}
-
-		private void addMatchStart(int rulePos, int paramPos) {
-			matchStarts[rulePos] = paramPos;
-		}
-
 		private void setMatched(boolean flag) {
 			matched = flag;
 		}
-	}
 
-	private static class EmptyVectorNode extends Node {
-		EmptyVectorNode() {
-			super(0, null);
-		}
-
-		@Override
-		boolean match(Type[] value, int pos, Matcher matcher) {
-			return value == null || value.length == 0;
+		public int size() {
+			return matchStarts.length;
 		}
 	}
 

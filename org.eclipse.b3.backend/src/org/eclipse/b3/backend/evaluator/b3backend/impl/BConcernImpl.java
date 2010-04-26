@@ -303,6 +303,17 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCONCERN;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
@@ -468,16 +479,5 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		result.append(documentation);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCONCERN;
 	}
 } // BConcernImpl

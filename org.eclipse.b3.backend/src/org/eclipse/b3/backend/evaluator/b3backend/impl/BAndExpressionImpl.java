@@ -42,6 +42,17 @@ public class BAndExpressionImpl extends BBinaryExpressionImpl implements BAndExp
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BAND_EXPRESSION;
+	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		if(Boolean.FALSE.equals(leftExpr.evaluate(ctx)))
@@ -52,16 +63,5 @@ public class BAndExpressionImpl extends BBinaryExpressionImpl implements BAndExp
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) {
 		return Boolean.class;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BAND_EXPRESSION;
 	}
 } // BAndExpressionImpl

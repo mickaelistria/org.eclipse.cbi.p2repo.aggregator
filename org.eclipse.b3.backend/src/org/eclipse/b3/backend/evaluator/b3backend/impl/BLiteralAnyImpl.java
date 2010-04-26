@@ -46,6 +46,17 @@ public class BLiteralAnyImpl extends BExpressionImpl implements BLiteralAny {
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BLITERAL_ANY;
+	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws CoreException {
 		return Any.ANY;
@@ -61,16 +72,5 @@ public class BLiteralAnyImpl extends BExpressionImpl implements BLiteralAny {
 	@Override
 	public LValue getLValue(BExecutionContext ctx) throws Throwable {
 		throw new B3NotLValueException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BLITERAL_ANY;
 	}
 } // BLiteralAnyImpl

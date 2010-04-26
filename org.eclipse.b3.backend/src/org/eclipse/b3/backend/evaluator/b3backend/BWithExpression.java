@@ -125,8 +125,8 @@ public interface BWithExpression extends BExpression {
 	EList<BAdvice> getReferencedAdvice();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getFuncExpr
-	 * <em>Func Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getFuncExpr <em>Func Expr</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

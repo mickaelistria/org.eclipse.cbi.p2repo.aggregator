@@ -21,8 +21,7 @@ public class DoubleSequence extends AbstractSequence<DoubleSequence, Double> {
 			if(ascending) {
 				if(toInclusive)
 					return currentValue <= to;
-				else
-					return currentValue < to;
+				return currentValue < to;
 			}
 			if(toInclusive)
 				return currentValue >= to;

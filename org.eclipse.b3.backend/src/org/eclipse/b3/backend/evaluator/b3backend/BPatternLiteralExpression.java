@@ -7,26 +7,22 @@
  * Contributors:
  * - Cloudsmith Inc - initial API and implementation.
  * 
- *
- * $Id$
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.emf.ecore.EObject;
+import java.lang.CharSequence;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>BType Calculator</b></em>'.
+ * A representation of the model object '<em><b>BPattern Literal Expression</b></em>'.
  * <!-- end-user-doc -->
  * 
  * 
- * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBTypeCalculator()
+ * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBPatternLiteralExpression()
  * @model
  * @generated
  */
-public interface BTypeCalculator extends EObject {
+public interface BPatternLiteralExpression extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,9 +35,9 @@ public interface BTypeCalculator extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @model candidateDataType="org.eclipse.b3.backend.evaluator.b3backend.CharSequence"
 	 * @generated
 	 */
-	Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx);
+	boolean matches(CharSequence candidate);
 
-} // BTypeCalculator
+} // BPatternLiteralExpression

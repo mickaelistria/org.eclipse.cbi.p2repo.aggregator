@@ -72,8 +72,7 @@ public interface BConcernContext extends BExpression, BFunctionContainer {
 	boolean matches(Object candidate, BExecutionContext ctx);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcernContext#getDocumentation
-	 * <em>Documentation</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcernContext#getDocumentation <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

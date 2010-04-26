@@ -100,8 +100,7 @@ public interface BPropertySet extends BAdvice {
 	URI getPropertiesFile();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getExtends
-	 * <em>Extends</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getExtends <em>Extends</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -113,8 +112,7 @@ public interface BPropertySet extends BAdvice {
 	void setExtends(BPropertySet value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getPropertiesFile
-	 * <em>Properties File</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getPropertiesFile <em>Properties File</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

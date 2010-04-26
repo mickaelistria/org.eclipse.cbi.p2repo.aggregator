@@ -386,6 +386,20 @@ public class TypeUtils {
 
 	}
 
+	protected static class GenericArrayTypeImpl implements GenericArrayType {
+
+		private final Type componentType;
+
+		public GenericArrayTypeImpl(Type aComponentType) {
+			componentType = aComponentType;
+		}
+
+		public Type getGenericComponentType() {
+			return componentType;
+		}
+
+	}
+
 	public interface ICandidate {
 
 		String getName();
@@ -405,6 +419,8 @@ public class TypeUtils {
 		public int getInstanceParametersCount() {
 			return instanceParametersCount;
 		}
+
+		protected abstract Type[] getJavaParameterTypes();
 
 		public Object[] prepareJavaCallParameters(Type[] actualParameterTypes, Object[] actualParameters) {
 			Type[] declaredParameterTypes = getParameterTypes();
@@ -486,25 +502,9 @@ public class TypeUtils {
 			instanceParametersCount = instanceParameterTypesCount;
 		}
 
-		protected abstract Type[] getJavaParameterTypes();
-
 		protected abstract void setParameterTypes(Type[] types);
 
 		protected abstract void setVarargArrayType(Type type);
-
-	}
-
-	protected static class GenericArrayTypeImpl implements GenericArrayType {
-
-		private final Type componentType;
-
-		public GenericArrayTypeImpl(Type aComponentType) {
-			componentType = aComponentType;
-		}
-
-		public Type getGenericComponentType() {
-			return componentType;
-		}
 
 	}
 
@@ -663,24 +663,28 @@ public class TypeUtils {
 		return Object.class;
 	}
 
-	public static Class<?> getRaw(Type t) {
-		if(t instanceof Class<?>)
-			return (Class<?>) t;
-		if(t instanceof ParameterizedType)
-			return getRaw(((ParameterizedType) t).getRawType());
-		if(t instanceof GenericArrayType)
-			// return (Class<?>) getArrayType(getRaw(((GenericArrayType) t).getGenericComponentType()));
-			return getRaw((GenericArrayType) t); // optimization
-		if(t instanceof B3JavaImport)
-			return getRaw(((B3JavaImport) t).getType());
-		if(t instanceof B3FunctionType)
-			return getRaw(((B3FunctionType) t).getFunctionType()); // i.e. what type of function this is B3, or Java
-		if(t instanceof B3MetaClass)
-			return ((B3MetaClass) t).getInstanceClass();
-		if(t instanceof TypeVariable<?>)
-			// TODO: OMG - this is cheating...
-			return getRaw(((TypeVariable<?>) t).getBounds()[0]);
-		throw new UnsupportedOperationException("UNSUPPORTED TYPE CLASS - was: " + t);
+	private static Class<?> getPrimitiveTypeReflectively(Class<?> objectType) {
+		Field f;
+
+		try {
+			f = objectType.getField("TYPE");
+		}
+		catch(SecurityException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+		catch(NoSuchFieldException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+
+		try {
+			return (Class<?>) f.get(null);
+		}
+		catch(IllegalArgumentException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+		catch(IllegalAccessException e) {
+			throw new ExceptionInInitializerError(e);
+		}
 	}
 
 	// /**
@@ -709,6 +713,51 @@ public class TypeUtils {
 	// ? best + 1
 	// : best;
 	// }
+
+	protected static Class<?> getRaw(GenericArrayType type) {
+		StringBuilder rawArrayClassName = new StringBuilder();
+		GenericArrayType arrayType = type;
+		Type componentType;
+
+		while(true) {
+			rawArrayClassName.append('[');
+
+			componentType = arrayType.getGenericComponentType();
+			if(!(componentType instanceof GenericArrayType))
+				break;
+
+			arrayType = (GenericArrayType) componentType;
+		}
+
+		rawArrayClassName.append('L').append(getRaw(componentType).getName()).append(';');
+
+		try {
+			return Class.forName(rawArrayClassName.toString());
+		}
+		catch(ClassNotFoundException e) {
+			throw new Error("Failed to construct raw array type for generic array type: " + type, e);
+		}
+	}
+
+	public static Class<?> getRaw(Type t) {
+		if(t instanceof Class<?>)
+			return (Class<?>) t;
+		if(t instanceof ParameterizedType)
+			return getRaw(((ParameterizedType) t).getRawType());
+		if(t instanceof GenericArrayType)
+			// return (Class<?>) getArrayType(getRaw(((GenericArrayType) t).getGenericComponentType()));
+			return getRaw((GenericArrayType) t); // optimization
+		if(t instanceof B3JavaImport)
+			return getRaw(((B3JavaImport) t).getType());
+		if(t instanceof B3FunctionType)
+			return getRaw(((B3FunctionType) t).getFunctionType()); // i.e. what type of function this is B3, or Java
+		if(t instanceof B3MetaClass)
+			return ((B3MetaClass) t).getInstanceClass();
+		if(t instanceof TypeVariable<?>)
+			// TODO: OMG - this is cheating...
+			return getRaw(((TypeVariable<?>) t).getBounds()[0]);
+		throw new UnsupportedOperationException("UNSUPPORTED TYPE CLASS - was: " + t);
+	}
 
 	public static boolean isArray(Type baseType) {
 		if(baseType instanceof B3ParameterizedType)
@@ -739,6 +788,21 @@ public class TypeUtils {
 		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
 	}
 
+	protected static Boolean isAssignableFromSpecialCase(Type baseType, Type fromType) {
+		if(baseType instanceof B3FunctionType)
+			return Boolean.valueOf(((B3FunctionType) baseType).isAssignableFrom(fromType));
+		if(baseType instanceof B3MetaClass)
+			return Boolean.valueOf(((B3MetaClass) baseType).isAssignableFrom(fromType));
+		return null;
+	}
+
+	// public static int typeDistance(Type baseType, Type queriedType) {
+	// Class<?> baseClass = getRaw(baseType);
+	// if(baseClass.isInterface())
+	// return interfaceDistance(baseClass, getRaw(queriedType));
+	// return classDistance(baseClass, getRaw(queriedType));
+	// }
+
 	public static boolean isCoercibleFrom(Type baseType, Type fromType) {
 		Set<Type> coerceTypes = coerceMap.get(fromType);
 
@@ -763,70 +827,6 @@ public class TypeUtils {
 		return primitiveType != null
 				? primitiveType
 				: objectType;
-	}
-
-	// public static int typeDistance(Type baseType, Type queriedType) {
-	// Class<?> baseClass = getRaw(baseType);
-	// if(baseClass.isInterface())
-	// return interfaceDistance(baseClass, getRaw(queriedType));
-	// return classDistance(baseClass, getRaw(queriedType));
-	// }
-
-	protected static Class<?> getRaw(GenericArrayType type) {
-		StringBuilder rawArrayClassName = new StringBuilder();
-		GenericArrayType arrayType = type;
-		Type componentType;
-
-		while(true) {
-			rawArrayClassName.append('[');
-
-			componentType = arrayType.getGenericComponentType();
-			if(!(componentType instanceof GenericArrayType))
-				break;
-
-			arrayType = (GenericArrayType) componentType;
-		}
-
-		rawArrayClassName.append('L').append(getRaw(componentType).getName()).append(';');
-
-		try {
-			return Class.forName(rawArrayClassName.toString());
-		}
-		catch(ClassNotFoundException e) {
-			throw new Error("Failed to construct raw array type for generic array type: " + type, e);
-		}
-	}
-
-	protected static Boolean isAssignableFromSpecialCase(Type baseType, Type fromType) {
-		if(baseType instanceof B3FunctionType)
-			return Boolean.valueOf(((B3FunctionType) baseType).isAssignableFrom(fromType));
-		if(baseType instanceof B3MetaClass)
-			return Boolean.valueOf(((B3MetaClass) baseType).isAssignableFrom(fromType));
-		return null;
-	}
-
-	private static Class<?> getPrimitiveTypeReflectively(Class<?> objectType) {
-		Field f;
-
-		try {
-			f = objectType.getField("TYPE");
-		}
-		catch(SecurityException e) {
-			throw new ExceptionInInitializerError(e);
-		}
-		catch(NoSuchFieldException e) {
-			throw new ExceptionInInitializerError(e);
-		}
-
-		try {
-			return (Class<?>) f.get(null);
-		}
-		catch(IllegalArgumentException e) {
-			throw new ExceptionInInitializerError(e);
-		}
-		catch(IllegalAccessException e) {
-			throw new ExceptionInInitializerError(e);
-		}
 	}
 
 }

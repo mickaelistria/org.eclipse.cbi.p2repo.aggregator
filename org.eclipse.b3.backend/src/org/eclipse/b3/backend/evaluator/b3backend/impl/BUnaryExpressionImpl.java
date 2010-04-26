@@ -149,6 +149,17 @@ public abstract class BUnaryExpressionImpl extends BExpressionImpl implements BU
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BUNARY_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BUNARY_EXPRESSION__EXPR:
@@ -190,17 +201,6 @@ public abstract class BUnaryExpressionImpl extends BExpressionImpl implements BU
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BUNARY_EXPRESSION__EXPR, newExpr, newExpr));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BUNARY_EXPRESSION;
 	}
 
 } // BUnaryExpressionImpl

@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+import java.lang.CharSequence;
 import java.lang.reflect.GenericDeclaration;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -19,6 +20,7 @@ import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3ExpressionCache;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.core.SimplePattern;
 import org.eclipse.b3.backend.core.ValueMap;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
@@ -84,12 +86,14 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
@@ -507,6 +511,22 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bCallFunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass bPatternLiteralExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass bSimplePatternExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1018,6 +1038,22 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	private EDataType simplePatternEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType charSequenceEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private static boolean isInited = false;
 
 	/**
@@ -1074,8 +1110,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	private boolean isInitialized = false;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
-	 * EPackage.Registry} by the package
+	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+	 * package
 	 * package URI value.
 	 * <p>
 	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
@@ -1377,8 +1413,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bFunctionWrapperEClass, BFUNCTION_WRAPPER__VARARGS_NAME);
 
 		bNamePredicateEClass = createEClass(BNAME_PREDICATE);
-		createEReference(bNamePredicateEClass, BNAME_PREDICATE__NAME_PATTERN);
 		createEAttribute(bNamePredicateEClass, BNAME_PREDICATE__NAME);
+		createEReference(bNamePredicateEClass, BNAME_PREDICATE__NAME_PATTERN);
 
 		bFunctionNamePredicateEClass = createEClass(BFUNCTION_NAME_PREDICATE);
 		createEReference(bFunctionNamePredicateEClass, BFUNCTION_NAME_PREDICATE__NAME_PREDICATE);
@@ -1425,6 +1461,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		bCallFunctionEClass = createEClass(BCALL_FUNCTION);
 
+		bPatternLiteralExpressionEClass = createEClass(BPATTERN_LITERAL_EXPRESSION);
+
+		bSimplePatternExpressionEClass = createEClass(BSIMPLE_PATTERN_EXPRESSION);
+		createEAttribute(bSimplePatternExpressionEClass, BSIMPLE_PATTERN_EXPRESSION__PATTERN);
+
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
 		executionModeEEnum = createEEnum(EXECUTION_MODE);
@@ -1449,6 +1490,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		javaIteratorEDataType = createEDataType(JAVA_ITERATOR);
 		uriEDataType = createEDataType(URI);
 		iProgressMonitorEDataType = createEDataType(IPROGRESS_MONITOR);
+		simplePatternEDataType = createEDataType(SIMPLE_PATTERN);
+		charSequenceEDataType = createEDataType(CHAR_SEQUENCE);
 	}
 
 	/**
@@ -2928,7 +2971,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EAttribute getBNamePredicate_Name() {
-		return (EAttribute) bNamePredicateEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) bNamePredicateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2938,7 +2981,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EReference getBNamePredicate_NamePattern() {
-		return (EReference) bNamePredicateEClass.getEStructuralFeatures().get(0);
+		return (EReference) bNamePredicateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3117,6 +3160,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	public EClass getBPatternLiteralExpression() {
+		return bPatternLiteralExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getBProceedExpression() {
 		return bProceedExpressionEClass;
 	}
@@ -3229,6 +3282,26 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EAttribute getBRegularExpression_Pattern() {
 		return (EAttribute) bRegularExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getBSimplePatternExpression() {
+		return bSimplePatternExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBSimplePatternExpression_Pattern() {
+		return (EAttribute) bSimplePatternExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3587,6 +3660,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	public EDataType getCharSequence() {
+		return charSequenceEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EDataType getCoreException() {
 		return coreExceptionEDataType;
 	}
@@ -3927,6 +4010,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	public EDataType getSimplePattern() {
+		return simplePatternEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EDataType getStringArray() {
 		return stringArrayEDataType;
 	}
@@ -4064,7 +4157,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		b3FunctionEClass.getESuperTypes().add(this.getBFunction());
 		bJavaFunctionEClass.getESuperTypes().add(this.getBFunction());
 		bDefValueEClass.getESuperTypes().add(this.getBExpression());
-		bRegularExpressionEClass.getESuperTypes().add(this.getBExpression());
+		bRegularExpressionEClass.getESuperTypes().add(this.getBPatternLiteralExpression());
 		b3FunctionTypeEClass.getESuperTypes().add(this.getIType());
 		iParameterizedTypeEClass.getESuperTypes().add(this.getIType());
 		b3ParameterizedTypeEClass.getESuperTypes().add(this.getIParameterizedType());
@@ -4108,6 +4201,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bCallFeatureEClass.getESuperTypes().add(this.getBCallExpression());
 		bCallNamedFunctionEClass.getESuperTypes().add(this.getBCallExpression());
 		bCallFunctionEClass.getESuperTypes().add(this.getBCallExpression());
+		bPatternLiteralExpressionEClass.getESuperTypes().add(this.getBExpression());
+		bSimplePatternExpressionEClass.getESuperTypes().add(this.getBPatternLiteralExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -5099,13 +5194,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(
 			bNamePredicateEClass, BNamePredicate.class, "BNamePredicate", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBNamePredicate_NamePattern(), this.getBExpression(), null, "namePattern", null, 0, 1,
-			BNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getBNamePredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, BNamePredicate.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getBNamePredicate_NamePattern(), this.getBPatternLiteralExpression(), null, "namePattern", null, 0, 1,
+			BNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bNamePredicateEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -5317,6 +5412,22 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			bCallFunctionEClass, BCallFunction.class, "BCallFunction", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(
+			bPatternLiteralExpressionEClass, BPatternLiteralExpression.class, "BPatternLiteralExpression",
+			!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(
+			bPatternLiteralExpressionEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCharSequence(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(
+			bSimplePatternExpressionEClass, BSimplePatternExpression.class, "BSimplePatternExpression", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getBSimplePatternExpression_Pattern(), this.getSimplePattern(), "pattern", null, 0, 1,
+			BSimplePatternExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");
 		addEEnumLiteral(visibilityEEnum, Visibility.PRIVATE);
@@ -5365,6 +5476,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEDataType(
 			iProgressMonitorEDataType, IProgressMonitor.class, "IProgressMonitor", IS_SERIALIZABLE,
 			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			simplePatternEDataType, SimplePattern.class, "SimplePattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			charSequenceEDataType, CharSequence.class, "CharSequence", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

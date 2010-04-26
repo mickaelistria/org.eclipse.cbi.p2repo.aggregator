@@ -17,7 +17,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -32,8 +32,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BNamePredicateImpl#getNamePattern <em>Name Pattern</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BNamePredicateImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BNamePredicateImpl#getNamePattern <em>Name Pattern</em>}</li>
  * </ul>
  * </p>
  * 
@@ -47,17 +47,6 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
-
-	/**
-	 * The cached value of the '{@link #getNamePattern() <em>Name Pattern</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getNamePattern()
-	 * @generated
-	 * @ordered
-	 */
-	protected BExpression namePattern;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -82,6 +71,17 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getNamePattern() <em>Name Pattern</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getNamePattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected BPatternLiteralExpression namePattern;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -97,8 +97,8 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetNamePattern(BExpression newNamePattern, NotificationChain msgs) {
-		BExpression oldNamePattern = namePattern;
+	public NotificationChain basicSetNamePattern(BPatternLiteralExpression newNamePattern, NotificationChain msgs) {
+		BPatternLiteralExpression oldNamePattern = namePattern;
 		namePattern = newNamePattern;
 		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(
@@ -120,10 +120,10 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-			case B3backendPackage.BNAME_PREDICATE__NAME_PATTERN:
-				return getNamePattern();
 			case B3backendPackage.BNAME_PREDICATE__NAME:
 				return getName();
+			case B3backendPackage.BNAME_PREDICATE__NAME_PATTERN:
+				return getNamePattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,12 +152,12 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-			case B3backendPackage.BNAME_PREDICATE__NAME_PATTERN:
-				return namePattern != null;
 			case B3backendPackage.BNAME_PREDICATE__NAME:
 				return NAME_EDEFAULT == null
 						? name != null
 						: !NAME_EDEFAULT.equals(name);
+			case B3backendPackage.BNAME_PREDICATE__NAME_PATTERN:
+				return namePattern != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -171,11 +171,11 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-			case B3backendPackage.BNAME_PREDICATE__NAME_PATTERN:
-				setNamePattern((BExpression) newValue);
-				return;
 			case B3backendPackage.BNAME_PREDICATE__NAME:
 				setName((String) newValue);
+				return;
+			case B3backendPackage.BNAME_PREDICATE__NAME_PATTERN:
+				setNamePattern((BPatternLiteralExpression) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -201,11 +201,11 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-			case B3backendPackage.BNAME_PREDICATE__NAME_PATTERN:
-				setNamePattern((BExpression) null);
-				return;
 			case B3backendPackage.BNAME_PREDICATE__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case B3backendPackage.BNAME_PREDICATE__NAME_PATTERN:
+				setNamePattern((BPatternLiteralExpression) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -227,7 +227,7 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	 * 
 	 * @generated
 	 */
-	public BExpression getNamePattern() {
+	public BPatternLiteralExpression getNamePattern() {
 		return namePattern;
 	}
 
@@ -253,10 +253,10 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 		if(expr instanceof BLiteralAny)
 			return true;
 
-		if(expr instanceof BRegularExpression)
-			return ((BRegularExpression) expr).getPattern().matcher(name).matches();
+		if(expr instanceof BPatternLiteralExpression)
+			return ((BPatternLiteralExpression) expr).matches(name);
 		throw new B3InternalError(
-			"Attempt to match a BNamePredicate without a valid pattern type (literal, any, or regexp");
+			"Attempt to match a BNamePredicate without a valid pattern type (literal, any, simple, or regexp");
 	}
 
 	/**
@@ -278,7 +278,7 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 	 * 
 	 * @generated
 	 */
-	public void setNamePattern(BExpression newNamePattern) {
+	public void setNamePattern(BPatternLiteralExpression newNamePattern) {
 		if(newNamePattern != namePattern) {
 			NotificationChain msgs = null;
 			if(namePattern != null)

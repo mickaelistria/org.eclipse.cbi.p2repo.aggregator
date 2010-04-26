@@ -107,8 +107,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	String getVarargsName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getAroundExpr
-	 * <em>Around Expr</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getAroundExpr <em>Around Expr</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -120,8 +119,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	void setAroundExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getOriginal
-	 * <em>Original</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getOriginal <em>Original</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -133,8 +131,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	void setOriginal(IFunction value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getParameterMap
-	 * <em>Parameter Map</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getParameterMap <em>Parameter Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -146,8 +143,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	void setParameterMap(Map<String, String> value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getVarargsName
-	 * <em>Varargs Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getVarargsName <em>Varargs Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

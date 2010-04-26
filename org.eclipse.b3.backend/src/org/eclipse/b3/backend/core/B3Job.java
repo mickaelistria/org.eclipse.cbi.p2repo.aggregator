@@ -21,13 +21,13 @@ public class B3Job extends Job {
 	}
 
 	@Override
-	public String toString() {
-		return "B3Job(" + getName() + ") @" + Integer.toHexString(this.hashCode());
-	}
-
-	@Override
 	protected IStatus run(IProgressMonitor monitor) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String toString() {
+		return "B3Job(" + getName() + ") @" + Integer.toHexString(this.hashCode());
 	}
 }

@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralListExpressionImpl#getEntries <em>Entries</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralListExpressionImpl#getEntryType <em>Entry Type </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralListExpressionImpl#getEntryType <em>Entry Type</em>}</li>
  * </ul>
  * </p>
  * 
@@ -184,6 +184,17 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
@@ -304,16 +315,5 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, newEntryType,
 				newEntryType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION;
 	}
 } // BLiteralListExpressionImpl

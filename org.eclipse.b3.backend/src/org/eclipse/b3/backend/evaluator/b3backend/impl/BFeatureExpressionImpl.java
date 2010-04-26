@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFeatureExpressionImpl#getObjExpr <em>Obj Expr</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFeatureExpressionImpl#getFeatureName <em>Feature Name </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFeatureExpressionImpl#getFeatureName <em>Feature Name</em>}</li>
  * </ul>
  * </p>
  * 
@@ -187,6 +187,17 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BFEATURE_EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BFEATURE_EXPRESSION__OBJ_EXPR:
@@ -328,16 +339,5 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 		result.append(featureName);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BFEATURE_EXPRESSION;
 	}
 } // BFeatureExpressionImpl

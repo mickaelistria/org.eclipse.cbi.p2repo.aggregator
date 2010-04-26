@@ -152,6 +152,17 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BGUARD_FUNCTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BGUARD_FUNCTION__FUNC:
@@ -191,16 +202,5 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 		func = newFunc;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BGUARD_FUNCTION__FUNC, oldFunc, func));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BGUARD_FUNCTION;
 	}
 } // BGuardFunctionImpl

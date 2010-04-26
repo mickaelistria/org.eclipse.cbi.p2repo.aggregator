@@ -40,9 +40,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getFunctionWrapper <em>Function Wrapper</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getWrappedContext <em>Wrapped Context </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getWrappedContext <em>Wrapped Context</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameters <em>Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameterTypes <em>Parameter Types </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameterTypes <em>Parameter Types</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getVarargsName <em>Varargs Name</em>}</li>
  * </ul>
  * </p>
@@ -267,6 +267,17 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BWRAPPING_CONTEXT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BWRAPPING_CONTEXT__FUNCTION_WRAPPER:
@@ -341,6 +352,10 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	@Override
 	public ValueMap getValueMap() {
 		return valueMap;
+	}
+
+	private ValueMapFacade getValueMapFacade() {
+		return ValueMapFacade.class.cast(valueMap);
 	}
 
 	/**
@@ -491,20 +506,5 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 		result.append(varargsName);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BWRAPPING_CONTEXT;
-	}
-
-	private ValueMapFacade getValueMapFacade() {
-		return ValueMapFacade.class.cast(valueMap);
 	}
 } // BWrappingContextImpl

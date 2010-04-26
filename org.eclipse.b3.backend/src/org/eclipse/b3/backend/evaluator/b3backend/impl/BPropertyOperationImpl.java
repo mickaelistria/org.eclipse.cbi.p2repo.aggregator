@@ -52,10 +52,9 @@ public abstract class BPropertyOperationImpl extends BExpressionImpl implements 
 	 * 
 	 * @generated
 	 */
-	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPROPERTY_OPERATION;
 	}
 
 	/**
@@ -64,9 +63,10 @@ public abstract class BPropertyOperationImpl extends BExpressionImpl implements 
 	 * 
 	 * @generated
 	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPROPERTY_OPERATION;
+	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 } // BPropertyOperationImpl

@@ -134,6 +134,17 @@ public class BTypeCalculatorFunctionImpl extends BTypeCalculatorImpl implements 
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BTYPE_CALCULATOR_FUNCTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION__FUNC:
@@ -186,16 +197,5 @@ public class BTypeCalculatorFunctionImpl extends BTypeCalculatorImpl implements 
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BTYPE_CALCULATOR_FUNCTION__FUNC, oldFunc, func));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BTYPE_CALCULATOR_FUNCTION;
 	}
 } // BTypeCalculatorFunctionImpl

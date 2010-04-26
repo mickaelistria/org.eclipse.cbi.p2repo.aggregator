@@ -68,8 +68,8 @@ public interface BLiteralListExpression extends BExpression {
 	Type getEntryType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression#getEntryType
-	 * <em>Entry Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression#getEntryType <em>Entry Type</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

@@ -22,8 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#getNamePattern <em>Name Pattern</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#getNamePattern <em>Name Pattern</em>}</li>
  * </ul>
  * </p>
  * 
@@ -65,12 +65,12 @@ public interface BNamePredicate extends EObject {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Name Pattern</em>' containment reference.
-	 * @see #setNamePattern(BExpression)
+	 * @see #setNamePattern(BPatternLiteralExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBNamePredicate_NamePattern()
 	 * @model containment="true"
 	 * @generated
 	 */
-	BExpression getNamePattern();
+	BPatternLiteralExpression getNamePattern();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,8 +82,7 @@ public interface BNamePredicate extends EObject {
 	boolean matches(String name);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#getName <em>Name</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -95,8 +94,8 @@ public interface BNamePredicate extends EObject {
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#getNamePattern
-	 * <em>Name Pattern</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#getNamePattern <em>Name Pattern</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -105,6 +104,6 @@ public interface BNamePredicate extends EObject {
 	 * @see #getNamePattern()
 	 * @generated
 	 */
-	void setNamePattern(BExpression value);
+	void setNamePattern(BPatternLiteralExpression value);
 
 } // BNamePredicate

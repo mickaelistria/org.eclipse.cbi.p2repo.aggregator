@@ -71,8 +71,8 @@ public interface BConditionalPropertyOperation extends BPropertyOperation {
 	BExpression getCondExpr();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation#getBody
-	 * <em>Body</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation#getBody <em>Body</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -84,7 +84,7 @@ public interface BConditionalPropertyOperation extends BPropertyOperation {
 	void setBody(BPropertyOperation value);
 
 	/**
-	 * Sets the value of the ' {@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation#getCondExpr <em>Cond Expr</em>}'
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation#getCondExpr <em>Cond Expr</em>}'
 	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

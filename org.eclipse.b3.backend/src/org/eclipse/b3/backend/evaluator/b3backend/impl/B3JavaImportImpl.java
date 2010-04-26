@@ -228,6 +228,17 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.B3_JAVA_IMPORT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.B3_JAVA_IMPORT__NAME:
@@ -380,17 +391,6 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 		if(reexport)
 			result.append(" rexported");
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.B3_JAVA_IMPORT;
 	}
 
 } // B3JavaImportImpl

@@ -44,6 +44,17 @@ public class BUnaryPreOpExpressionImpl extends BUnaryOpExpressionImpl implements
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BUNARY_PRE_OP_EXPRESSION;
+	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		LValue lval = expr.getLValue(ctx);
@@ -56,17 +67,6 @@ public class BUnaryPreOpExpressionImpl extends BUnaryOpExpressionImpl implements
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		return expr.getLValue(ctx).getDeclaredType();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BUNARY_PRE_OP_EXPRESSION;
 	}
 
 } // BUnaryPreOpExpressionImpl

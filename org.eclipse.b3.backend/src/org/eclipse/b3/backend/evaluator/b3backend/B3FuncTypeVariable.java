@@ -32,8 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3FuncTypeVariable()
- * @model superTypes=
- *        "org.eclipse.b3.backend.evaluator.b3backend.ITypeVariable<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
+ * @model superTypes="org.eclipse.b3.backend.evaluator.b3backend.ITypeVariable<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
  * @generated
  */
 public interface B3FuncTypeVariable extends EObject, TypeVariable<IFunction> {
@@ -94,8 +93,7 @@ public interface B3FuncTypeVariable extends EObject, TypeVariable<IFunction> {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getBounds
-	 * <em>Bounds</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getBounds <em>Bounds</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -107,8 +105,8 @@ public interface B3FuncTypeVariable extends EObject, TypeVariable<IFunction> {
 	void setBounds(Type[] value);
 
 	/**
-	 * Sets the value of the ' {@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration
-	 * <em>Generic Declaration</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration <em>Generic Declaration</em>}
+	 * ' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -120,8 +118,7 @@ public interface B3FuncTypeVariable extends EObject, TypeVariable<IFunction> {
 	void setGenericDeclaration(IFunction value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getName
-	 * <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

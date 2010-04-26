@@ -30,7 +30,7 @@ import java.util.regex.Pattern;
  * @model
  * @generated
  */
-public interface BRegularExpression extends BExpression {
+public interface BRegularExpression extends BPatternLiteralExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,8 +56,7 @@ public interface BRegularExpression extends BExpression {
 	Pattern getPattern();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression#getPattern
-	 * <em>Pattern</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression#getPattern <em>Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

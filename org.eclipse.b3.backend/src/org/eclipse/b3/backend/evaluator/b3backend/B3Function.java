@@ -48,8 +48,7 @@ public interface B3Function extends BFunction {
 	BExpression getFuncExpr();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3Function#getFuncExpr
-	 * <em>Func Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3Function#getFuncExpr <em>Func Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
