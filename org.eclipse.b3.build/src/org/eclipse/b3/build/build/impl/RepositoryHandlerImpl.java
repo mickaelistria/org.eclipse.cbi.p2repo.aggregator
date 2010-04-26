@@ -46,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl#getLocal <em>Local</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl#getRemote <em>Remote</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl#getBranches <em>Branches</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
  * 
@@ -141,6 +142,28 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 	protected EList<Branch> branches;
 
 	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -189,6 +212,8 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 				return getRemote();
 			case B3BuildPackage.REPOSITORY_HANDLER__BRANCHES:
 				return getBranches();
+			case B3BuildPackage.REPOSITORY_HANDLER__DOCUMENTATION:
+				return getDocumentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -235,6 +260,10 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 						: !REMOTE_EDEFAULT.equals(remote);
 			case B3BuildPackage.REPOSITORY_HANDLER__BRANCHES:
 				return branches != null && !branches.isEmpty();
+			case B3BuildPackage.REPOSITORY_HANDLER__DOCUMENTATION:
+				return DOCUMENTATION_EDEFAULT == null
+						? documentation != null
+						: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -264,6 +293,9 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 			case B3BuildPackage.REPOSITORY_HANDLER__BRANCHES:
 				getBranches().clear();
 				getBranches().addAll((Collection<? extends Branch>) newValue);
+				return;
+			case B3BuildPackage.REPOSITORY_HANDLER__DOCUMENTATION:
+				setDocumentation((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -304,6 +336,9 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 			case B3BuildPackage.REPOSITORY_HANDLER__BRANCHES:
 				getBranches().clear();
 				return;
+			case B3BuildPackage.REPOSITORY_HANDLER__DOCUMENTATION:
+				setDocumentation(DOCUMENTATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -320,6 +355,16 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 				Branch.class, this, B3BuildPackage.REPOSITORY_HANDLER__BRANCHES);
 		}
 		return branches;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getDocumentation() {
+		return documentation;
 	}
 
 	/**
@@ -360,6 +405,21 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 	 */
 	public URI getRemote() {
 		return remote;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REPOSITORY_HANDLER__DOCUMENTATION, oldDocumentation,
+				documentation));
 	}
 
 	/**
@@ -446,6 +506,8 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 		result.append(local);
 		result.append(", remote: ");
 		result.append(remote);
+		result.append(", documentation: ");
+		result.append(documentation);
 		result.append(')');
 		return result.toString();
 	}

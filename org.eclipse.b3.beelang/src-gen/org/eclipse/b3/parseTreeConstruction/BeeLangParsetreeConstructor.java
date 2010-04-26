@@ -71,113 +71,115 @@ protected class ThisRootNode extends RootToken {
 			case 33: return new ClosureParameter_Group(this, this, 33, inst);
 			case 34: return new ParameterDeclaration_Group(this, this, 34, inst);
 			case 35: return new BuilderInput_Group(this, this, 35, inst);
-			case 36: return new RepositoryConfiguration_Alternatives(this, this, 36, inst);
-			case 37: return new RepositoryDeclaration_Group(this, this, 37, inst);
-			case 38: return new ResolutionStrategy_Alternatives(this, this, 38, inst);
-			case 39: return new ResolutionStrategyFirst_Group(this, this, 39, inst);
-			case 40: return new ResolutionStrategyBest_Group(this, this, 40, inst);
-			case 41: return new ResolutionStrategySwitch_Group(this, this, 41, inst);
-			case 42: return new SelectSwitchExpression_Group(this, this, 42, inst);
-			case 43: return new RepositorySelectCase_Group(this, this, 43, inst);
-			case 44: return new ContainerConfiguration_Group(this, this, 44, inst);
-			case 45: return new Concern_Named_Group(this, this, 45, inst);
-			case 46: return new Concern_Anonymous_Group(this, this, 46, inst);
-			case 47: return new Function_Group(this, this, 47, inst);
-			case 48: return new GuardExpression_Alternatives(this, this, 48, inst);
-			case 49: return new TopLevelExpression_Alternatives(this, this, 49, inst);
-			case 50: return new Expression_AssignmentExpressionParserRuleCall(this, this, 50, inst);
-			case 51: return new AssignmentExpression_Group(this, this, 51, inst);
-			case 52: return new VarDeclaration_Group(this, this, 52, inst);
-			case 53: return new ValDeclaration_Group(this, this, 53, inst);
-			case 54: return new TypeRef_Alternatives(this, this, 54, inst);
-			case 55: return new SimpleTypeRef_Group(this, this, 55, inst);
-			case 56: return new ClosureTypeRef_Group(this, this, 56, inst);
-			case 57: return new TypeParam_Alternatives(this, this, 57, inst);
-			case 58: return new TypeRefParam_TypeRefParserRuleCall(this, this, 58, inst);
-			case 59: return new WildcardRefParam_Group(this, this, 59, inst);
-			case 60: return new CachedExpression_Alternatives(this, this, 60, inst);
-			case 61: return new OrExpression_Group(this, this, 61, inst);
-			case 62: return new AndExpression_Group(this, this, 62, inst);
-			case 63: return new RelationalExpression_Group(this, this, 63, inst);
-			case 64: return new InstanceOfExpression_Group(this, this, 64, inst);
-			case 65: return new AdditiveExpression_Group(this, this, 65, inst);
-			case 66: return new MultiplicativeExpression_Group(this, this, 66, inst);
-			case 67: return new SetExpression_Group(this, this, 67, inst);
-			case 68: return new UnaryOrInfixExpression_Alternatives(this, this, 68, inst);
-			case 69: return new UnaryExpression_Group(this, this, 69, inst);
-			case 70: return new PreopExpression_Group(this, this, 70, inst);
-			case 71: return new PostopExpression_Group(this, this, 71, inst);
-			case 72: return new InfixExpression_Group(this, this, 72, inst);
-			case 73: return new CallExpression_Group(this, this, 73, inst);
-			case 74: return new PrimaryExpression_Alternatives(this, this, 74, inst);
-			case 75: return new WithExpression_Group(this, this, 75, inst);
-			case 76: return new WithContextExpression_Group(this, this, 76, inst);
-			case 77: return new ProceedExpression_Group(this, this, 77, inst);
-			case 78: return new WildcardExpression_Group(this, this, 78, inst);
-			case 79: return new ThrowExpression_Group(this, this, 79, inst);
-			case 80: return new TryCatchExpression_Group(this, this, 80, inst);
-			case 81: return new CatchBlock_Group(this, this, 81, inst);
-			case 82: return new SwitchExpression_Group(this, this, 82, inst);
-			case 83: return new Case_Group(this, this, 83, inst);
-			case 84: return new BlockExpression_Group(this, this, 84, inst);
-			case 85: return new IfExpression_Group(this, this, 85, inst);
-			case 86: return new ElseIfExpression_Group(this, this, 86, inst);
-			case 87: return new PropertyValue_Group(this, this, 87, inst);
-			case 88: return new VariableValue_Group(this, this, 88, inst);
-			case 89: return new KeywordVariables_Group(this, this, 89, inst);
-			case 90: return new FeatureCall_Alternatives(this, this, 90, inst);
-			case 91: return new OperationCall_Group(this, this, 91, inst);
-			case 92: return new ConstructorCallExpression_Group(this, this, 92, inst);
-			case 93: return new BuildConcernContext_Alternatives(this, this, 93, inst);
-			case 94: return new FunctionConcernContext_Group(this, this, 94, inst);
-			case 95: return new FunctionNamePredicate_Group(this, this, 95, inst);
-			case 96: return new ParameterPredicate_Alternatives(this, this, 96, inst);
-			case 97: return new ParameterVarargsPredicate_Alternatives(this, this, 97, inst);
-			case 98: return new UnitConcernContext_Group(this, this, 98, inst);
-			case 99: return new BuilderConcernContext_Group(this, this, 99, inst);
-			case 100: return new UnitOrExpression_Group(this, this, 100, inst);
-			case 101: return new UnitAndExpression_Group(this, this, 101, inst);
-			case 102: return new UnitNotOrPrimaryExpression_Alternatives(this, this, 102, inst);
-			case 103: return new UnitNotExpression_Group(this, this, 103, inst);
-			case 104: return new UnitPrimaryExpression_Alternatives(this, this, 104, inst);
-			case 105: return new GroupedUnitPrimaryExpression_Group(this, this, 105, inst);
-			case 106: return new RequiresPredicate_Group(this, this, 106, inst);
-			case 107: return new ImplementsPredcicate_Group(this, this, 107, inst);
-			case 108: return new ProvidesPredicate_Group(this, this, 108, inst);
-			case 109: return new UnitNamePredicate_Group(this, this, 109, inst);
-			case 110: return new BuilderNamePredicate_Group(this, this, 110, inst);
-			case 111: return new InputPredicate_Group(this, this, 111, inst);
-			case 112: return new SourcePredicate_Alternatives(this, this, 112, inst);
-			case 113: return new OutputPredicate_Alternatives(this, this, 113, inst);
-			case 114: return new BasePathPredicate_Group(this, this, 114, inst);
-			case 115: return new PathPredicate_Group(this, this, 115, inst);
-			case 116: return new CapabilityPredicate_Group(this, this, 116, inst);
-			case 117: return new NamePredicate_Group(this, this, 117, inst);
-			case 118: return new BuilderOrExpression_Group(this, this, 118, inst);
-			case 119: return new BuilderAndExpression_Group(this, this, 119, inst);
-			case 120: return new BuilderNotOrPrimaryExpression_Alternatives(this, this, 120, inst);
-			case 121: return new BuilderNotExpression_Group(this, this, 121, inst);
-			case 122: return new BuilderPrimaryExpression_Alternatives(this, this, 122, inst);
-			case 123: return new GroupedBuilderPrimaryExpression_Group(this, this, 123, inst);
-			case 124: return new Literal_Alternatives(this, this, 124, inst);
-			case 125: return new LiteralList_Alternatives(this, this, 125, inst);
-			case 126: return new LiteralMap_Alternatives(this, this, 126, inst);
-			case 127: return new LiteralFunction_Group(this, this, 127, inst);
-			case 128: return new ClosureExpression_Group(this, this, 128, inst);
-			case 129: return new OneOrManyExpressions_Alternatives(this, this, 129, inst);
-			case 130: return new BlockExpressionWithoutBrackets_Group(this, this, 130, inst);
-			case 131: return new MapEntry_Group(this, this, 131, inst);
-			case 132: return new KeyLiteral_Group(this, this, 132, inst);
-			case 133: return new LiteralType_Group(this, this, 133, inst);
-			case 134: return new ValueLiteral_Alternatives(this, this, 134, inst);
-			case 135: return new BooleanLiteral_Group(this, this, 135, inst);
-			case 136: return new IntegerLiteral_Group(this, this, 136, inst);
-			case 137: return new UnitLiteral_Group(this, this, 137, inst);
-			case 138: return new StringLiteral_Group(this, this, 138, inst);
-			case 139: return new RealLiteral_Group(this, this, 139, inst);
-			case 140: return new RegexpLiteral_Group(this, this, 140, inst);
-			case 141: return new NullLiteral_Group(this, this, 141, inst);
-			case 142: return new ParanthesizedExpression_Group(this, this, 142, inst);
+			case 36: return new RepositoryHandler_Group(this, this, 36, inst);
+			case 37: return new Branch_BranchAction(this, this, 37, inst);
+			case 38: return new RepositoryConfiguration_Alternatives(this, this, 38, inst);
+			case 39: return new RepositoryDeclaration_Group(this, this, 39, inst);
+			case 40: return new ResolutionStrategy_Alternatives(this, this, 40, inst);
+			case 41: return new ResolutionStrategyFirst_Group(this, this, 41, inst);
+			case 42: return new ResolutionStrategyBest_Group(this, this, 42, inst);
+			case 43: return new ResolutionStrategySwitch_Group(this, this, 43, inst);
+			case 44: return new SelectSwitchExpression_Group(this, this, 44, inst);
+			case 45: return new RepositorySelectCase_Group(this, this, 45, inst);
+			case 46: return new ContainerConfiguration_Group(this, this, 46, inst);
+			case 47: return new Concern_Named_Group(this, this, 47, inst);
+			case 48: return new Concern_Anonymous_Group(this, this, 48, inst);
+			case 49: return new Function_Group(this, this, 49, inst);
+			case 50: return new GuardExpression_Alternatives(this, this, 50, inst);
+			case 51: return new TopLevelExpression_Alternatives(this, this, 51, inst);
+			case 52: return new Expression_AssignmentExpressionParserRuleCall(this, this, 52, inst);
+			case 53: return new AssignmentExpression_Group(this, this, 53, inst);
+			case 54: return new VarDeclaration_Group(this, this, 54, inst);
+			case 55: return new ValDeclaration_Group(this, this, 55, inst);
+			case 56: return new TypeRef_Alternatives(this, this, 56, inst);
+			case 57: return new SimpleTypeRef_Group(this, this, 57, inst);
+			case 58: return new ClosureTypeRef_Group(this, this, 58, inst);
+			case 59: return new TypeParam_Alternatives(this, this, 59, inst);
+			case 60: return new TypeRefParam_TypeRefParserRuleCall(this, this, 60, inst);
+			case 61: return new WildcardRefParam_Group(this, this, 61, inst);
+			case 62: return new CachedExpression_Alternatives(this, this, 62, inst);
+			case 63: return new OrExpression_Group(this, this, 63, inst);
+			case 64: return new AndExpression_Group(this, this, 64, inst);
+			case 65: return new RelationalExpression_Group(this, this, 65, inst);
+			case 66: return new InstanceOfExpression_Group(this, this, 66, inst);
+			case 67: return new AdditiveExpression_Group(this, this, 67, inst);
+			case 68: return new MultiplicativeExpression_Group(this, this, 68, inst);
+			case 69: return new SetExpression_Group(this, this, 69, inst);
+			case 70: return new UnaryOrInfixExpression_Alternatives(this, this, 70, inst);
+			case 71: return new UnaryExpression_Group(this, this, 71, inst);
+			case 72: return new PreopExpression_Group(this, this, 72, inst);
+			case 73: return new PostopExpression_Group(this, this, 73, inst);
+			case 74: return new InfixExpression_Group(this, this, 74, inst);
+			case 75: return new CallExpression_Group(this, this, 75, inst);
+			case 76: return new PrimaryExpression_Alternatives(this, this, 76, inst);
+			case 77: return new WithExpression_Group(this, this, 77, inst);
+			case 78: return new WithContextExpression_Group(this, this, 78, inst);
+			case 79: return new ProceedExpression_Group(this, this, 79, inst);
+			case 80: return new WildcardExpression_Group(this, this, 80, inst);
+			case 81: return new ThrowExpression_Group(this, this, 81, inst);
+			case 82: return new TryCatchExpression_Group(this, this, 82, inst);
+			case 83: return new CatchBlock_Group(this, this, 83, inst);
+			case 84: return new SwitchExpression_Group(this, this, 84, inst);
+			case 85: return new Case_Group(this, this, 85, inst);
+			case 86: return new BlockExpression_Group(this, this, 86, inst);
+			case 87: return new IfExpression_Group(this, this, 87, inst);
+			case 88: return new ElseIfExpression_Group(this, this, 88, inst);
+			case 89: return new PropertyValue_Group(this, this, 89, inst);
+			case 90: return new VariableValue_Group(this, this, 90, inst);
+			case 91: return new KeywordVariables_Group(this, this, 91, inst);
+			case 92: return new FeatureCall_Alternatives(this, this, 92, inst);
+			case 93: return new OperationCall_Group(this, this, 93, inst);
+			case 94: return new ConstructorCallExpression_Group(this, this, 94, inst);
+			case 95: return new BuildConcernContext_Alternatives(this, this, 95, inst);
+			case 96: return new FunctionConcernContext_Group(this, this, 96, inst);
+			case 97: return new FunctionNamePredicate_Group(this, this, 97, inst);
+			case 98: return new ParameterPredicate_Alternatives(this, this, 98, inst);
+			case 99: return new ParameterVarargsPredicate_Alternatives(this, this, 99, inst);
+			case 100: return new UnitConcernContext_Group(this, this, 100, inst);
+			case 101: return new BuilderConcernContext_Group(this, this, 101, inst);
+			case 102: return new UnitOrExpression_Group(this, this, 102, inst);
+			case 103: return new UnitAndExpression_Group(this, this, 103, inst);
+			case 104: return new UnitNotOrPrimaryExpression_Alternatives(this, this, 104, inst);
+			case 105: return new UnitNotExpression_Group(this, this, 105, inst);
+			case 106: return new UnitPrimaryExpression_Alternatives(this, this, 106, inst);
+			case 107: return new GroupedUnitPrimaryExpression_Group(this, this, 107, inst);
+			case 108: return new RequiresPredicate_Group(this, this, 108, inst);
+			case 109: return new ImplementsPredcicate_Group(this, this, 109, inst);
+			case 110: return new ProvidesPredicate_Group(this, this, 110, inst);
+			case 111: return new UnitNamePredicate_Group(this, this, 111, inst);
+			case 112: return new BuilderNamePredicate_Group(this, this, 112, inst);
+			case 113: return new InputPredicate_Group(this, this, 113, inst);
+			case 114: return new SourcePredicate_Alternatives(this, this, 114, inst);
+			case 115: return new OutputPredicate_Alternatives(this, this, 115, inst);
+			case 116: return new BasePathPredicate_Group(this, this, 116, inst);
+			case 117: return new PathPredicate_Group(this, this, 117, inst);
+			case 118: return new CapabilityPredicate_Group(this, this, 118, inst);
+			case 119: return new NamePredicate_Group(this, this, 119, inst);
+			case 120: return new BuilderOrExpression_Group(this, this, 120, inst);
+			case 121: return new BuilderAndExpression_Group(this, this, 121, inst);
+			case 122: return new BuilderNotOrPrimaryExpression_Alternatives(this, this, 122, inst);
+			case 123: return new BuilderNotExpression_Group(this, this, 123, inst);
+			case 124: return new BuilderPrimaryExpression_Alternatives(this, this, 124, inst);
+			case 125: return new GroupedBuilderPrimaryExpression_Group(this, this, 125, inst);
+			case 126: return new Literal_Alternatives(this, this, 126, inst);
+			case 127: return new LiteralList_Alternatives(this, this, 127, inst);
+			case 128: return new LiteralMap_Alternatives(this, this, 128, inst);
+			case 129: return new LiteralFunction_Group(this, this, 129, inst);
+			case 130: return new ClosureExpression_Group(this, this, 130, inst);
+			case 131: return new OneOrManyExpressions_Alternatives(this, this, 131, inst);
+			case 132: return new BlockExpressionWithoutBrackets_Group(this, this, 132, inst);
+			case 133: return new MapEntry_Group(this, this, 133, inst);
+			case 134: return new KeyLiteral_Group(this, this, 134, inst);
+			case 135: return new LiteralType_Group(this, this, 135, inst);
+			case 136: return new ValueLiteral_Alternatives(this, this, 136, inst);
+			case 137: return new BooleanLiteral_Group(this, this, 137, inst);
+			case 138: return new IntegerLiteral_Group(this, this, 138, inst);
+			case 139: return new UnitLiteral_Group(this, this, 139, inst);
+			case 140: return new StringLiteral_Group(this, this, 140, inst);
+			case 141: return new RealLiteral_Group(this, this, 141, inst);
+			case 142: return new RegexpLiteral_Group(this, this, 142, inst);
+			case 143: return new NullLiteral_Group(this, this, 143, inst);
+			case 144: return new ParanthesizedExpression_Group(this, this, 144, inst);
 			default: return null;
 		}	
 	}	
@@ -1043,9 +1045,9 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
  *   metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
  *   "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
  *   synchronizations+=Synchronization|functions+=Builder|functions+=Function|
- *   "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
- *   propertySets+=PropertySet_Named|"containers" "{" containers+=
- *   ContainerConfiguration* "}")* "}"; 
+ *   "repositories" "{" repositories+=RepositoryHandler* "}"|"resolution" "{"
+ *   resolutionConfig+=RepositoryConfiguration* "}"|"properties" propertySets+=
+ *   PropertySet_Named|"containers" "{" containers+=ContainerConfiguration* "}")* "}"; 
  * 
  * // Wanted later 
  * //Import : (reexport ?='reexport')? 
@@ -1102,9 +1104,9 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
 // metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
 // "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
 // synchronizations+=Synchronization|functions+=Builder|functions+=Function|
-// "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
-// propertySets+=PropertySet_Named|"containers" "{" containers+=
-// ContainerConfiguration* "}")* "}"   
+// "repositories" "{" repositories+=RepositoryHandler* "}"|"resolution" "{"
+// resolutionConfig+=RepositoryConfiguration* "}"|"properties" propertySets+=
+// PropertySet_Named|"containers" "{" containers+=ContainerConfiguration* "}")* "}"   
 // 	    
 // 	    
 // 	          
@@ -1982,9 +1984,10 @@ protected class BuildUnit_SemicolonKeyword_10_3 extends KeywordToken  {
 // RequiredCapability ";")+ "}"|"requires" "env" metaRequiredCapabilities+=
 // RequiredCapability ";"|concerns+=Concern_Named|"sequential" "{" synchronizations+=
 // Synchronization+ "}"|"sequential" synchronizations+=Synchronization|functions+=
-// Builder|functions+=Function|"repositories" "{" repositories+=
-// RepositoryConfiguration* "}"|"properties" propertySets+=PropertySet_Named|
-// "containers" "{" containers+=ContainerConfiguration* "}")* 
+// Builder|functions+=Function|"repositories" "{" repositories+=RepositoryHandler* "}"
+// |"resolution" "{" resolutionConfig+=RepositoryConfiguration* "}"|"properties"
+// propertySets+=PropertySet_Named|"containers" "{" containers+=
+// ContainerConfiguration* "}")* 
 // 		
 // 		 	 //-- PROVIDES
 // 			               
@@ -2031,6 +2034,7 @@ protected class BuildUnit_Alternatives_11 extends AlternativesToken {
 			case 11: return new BuildUnit_Group_11_11(parent, this, 11, inst);
 			case 12: return new BuildUnit_Group_11_12(parent, this, 12, inst);
 			case 13: return new BuildUnit_Group_11_13(parent, this, 13, inst);
+			case 14: return new BuildUnit_Group_11_14(parent, this, 14, inst);
 			default: return null;
 		}	
 	}	
@@ -3372,7 +3376,7 @@ protected class BuildUnit_FunctionsAssignment_11_10 extends AssignmentToken  {
 	}	
 }
 
-// "repositories" "{" repositories+=RepositoryConfiguration* "}"
+// "repositories" "{" repositories+=RepositoryHandler* "}"
 protected class BuildUnit_Group_11_11 extends GroupToken {
 	
 	public BuildUnit_Group_11_11(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3442,7 +3446,7 @@ protected class BuildUnit_LeftCurlyBracketKeyword_11_11_1 extends KeywordToken  
 		
 }
 
-// repositories+=RepositoryConfiguration*
+// repositories+=RepositoryHandler*
 protected class BuildUnit_RepositoriesAssignment_11_11_2 extends AssignmentToken  {
 	
 	public BuildUnit_RepositoriesAssignment_11_11_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3457,7 +3461,7 @@ protected class BuildUnit_RepositoriesAssignment_11_11_2 extends AssignmentToken
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RepositoryConfiguration_Alternatives(this, this, 0, inst);
+			case 0: return new RepositoryHandler_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -3468,9 +3472,9 @@ protected class BuildUnit_RepositoriesAssignment_11_11_2 extends AssignmentToken
 		IInstanceDescription obj = current.cloneAndConsume("repositories");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getRepositoryConfigurationRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getRepositoryHandlerRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBuildUnitAccess().getRepositoriesRepositoryConfigurationParserRuleCall_11_11_2_0(); 
+				element = grammarAccess.getBuildUnitAccess().getRepositoriesRepositoryHandlerParserRuleCall_11_11_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -3512,7 +3516,7 @@ protected class BuildUnit_RightCurlyBracketKeyword_11_11_3 extends KeywordToken 
 }
 
 
-// "properties" propertySets+=PropertySet_Named
+// "resolution" "{" resolutionConfig+=RepositoryConfiguration* "}"
 protected class BuildUnit_Group_11_12 extends GroupToken {
 	
 	public BuildUnit_Group_11_12(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3527,7 +3531,147 @@ protected class BuildUnit_Group_11_12 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BuildUnit_PropertySetsAssignment_11_12_1(parent, this, 0, inst);
+			case 0: return new BuildUnit_RightCurlyBracketKeyword_11_12_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "resolution"
+protected class BuildUnit_ResolutionKeyword_11_12_0 extends KeywordToken  {
+	
+	public BuildUnit_ResolutionKeyword_11_12_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuildUnitAccess().getResolutionKeyword_11_12_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BuildUnit_Alternatives_11(parent, this, 0, inst);
+			case 1: return new BuildUnit_Group_10(parent, this, 1, inst);
+			case 2: return new BuildUnit_Group_9(parent, this, 2, inst);
+			case 3: return new BuildUnit_Group_8(parent, this, 3, inst);
+			case 4: return new BuildUnit_LeftCurlyBracketKeyword_7(parent, this, 4, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "{"
+protected class BuildUnit_LeftCurlyBracketKeyword_11_12_1 extends KeywordToken  {
+	
+	public BuildUnit_LeftCurlyBracketKeyword_11_12_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuildUnitAccess().getLeftCurlyBracketKeyword_11_12_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BuildUnit_ResolutionKeyword_11_12_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// resolutionConfig+=RepositoryConfiguration*
+protected class BuildUnit_ResolutionConfigAssignment_11_12_2 extends AssignmentToken  {
+	
+	public BuildUnit_ResolutionConfigAssignment_11_12_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBuildUnitAccess().getResolutionConfigAssignment_11_12_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryConfiguration_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("resolutionConfig",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("resolutionConfig");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getRepositoryConfigurationRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBuildUnitAccess().getResolutionConfigRepositoryConfigurationParserRuleCall_11_12_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new BuildUnit_ResolutionConfigAssignment_11_12_2(parent, next, actIndex, consumed);
+			case 1: return new BuildUnit_LeftCurlyBracketKeyword_11_12_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// "}"
+protected class BuildUnit_RightCurlyBracketKeyword_11_12_3 extends KeywordToken  {
+	
+	public BuildUnit_RightCurlyBracketKeyword_11_12_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuildUnitAccess().getRightCurlyBracketKeyword_11_12_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BuildUnit_ResolutionConfigAssignment_11_12_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// "properties" propertySets+=PropertySet_Named
+protected class BuildUnit_Group_11_13 extends GroupToken {
+	
+	public BuildUnit_Group_11_13(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBuildUnitAccess().getGroup_11_13();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BuildUnit_PropertySetsAssignment_11_13_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -3535,15 +3679,15 @@ protected class BuildUnit_Group_11_12 extends GroupToken {
 }
 
 // "properties"
-protected class BuildUnit_PropertiesKeyword_11_12_0 extends KeywordToken  {
+protected class BuildUnit_PropertiesKeyword_11_13_0 extends KeywordToken  {
 	
-	public BuildUnit_PropertiesKeyword_11_12_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_PropertiesKeyword_11_13_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getPropertiesKeyword_11_12_0();
+		return grammarAccess.getBuildUnitAccess().getPropertiesKeyword_11_13_0();
 	}
 
     @Override
@@ -3561,15 +3705,15 @@ protected class BuildUnit_PropertiesKeyword_11_12_0 extends KeywordToken  {
 }
 
 // propertySets+=PropertySet_Named
-protected class BuildUnit_PropertySetsAssignment_11_12_1 extends AssignmentToken  {
+protected class BuildUnit_PropertySetsAssignment_11_13_1 extends AssignmentToken  {
 	
-	public BuildUnit_PropertySetsAssignment_11_12_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_PropertySetsAssignment_11_13_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getPropertySetsAssignment_11_12_1();
+		return grammarAccess.getBuildUnitAccess().getPropertySetsAssignment_11_13_1();
 	}
 
     @Override
@@ -3588,7 +3732,7 @@ protected class BuildUnit_PropertySetsAssignment_11_12_1 extends AssignmentToken
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getPropertySet_NamedRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBuildUnitAccess().getPropertySetsPropertySet_NamedParserRuleCall_11_12_1_0(); 
+				element = grammarAccess.getBuildUnitAccess().getPropertySetsPropertySet_NamedParserRuleCall_11_13_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -3600,7 +3744,7 @@ protected class BuildUnit_PropertySetsAssignment_11_12_1 extends AssignmentToken
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BuildUnit_PropertiesKeyword_11_12_0(parent, next, actIndex, consumed);
+			case 0: return new BuildUnit_PropertiesKeyword_11_13_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -3608,21 +3752,21 @@ protected class BuildUnit_PropertySetsAssignment_11_12_1 extends AssignmentToken
 
 
 // "containers" "{" containers+=ContainerConfiguration* "}"
-protected class BuildUnit_Group_11_13 extends GroupToken {
+protected class BuildUnit_Group_11_14 extends GroupToken {
 	
-	public BuildUnit_Group_11_13(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_Group_11_14(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getGroup_11_13();
+		return grammarAccess.getBuildUnitAccess().getGroup_11_14();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BuildUnit_RightCurlyBracketKeyword_11_13_3(parent, this, 0, inst);
+			case 0: return new BuildUnit_RightCurlyBracketKeyword_11_14_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -3630,15 +3774,15 @@ protected class BuildUnit_Group_11_13 extends GroupToken {
 }
 
 // "containers"
-protected class BuildUnit_ContainersKeyword_11_13_0 extends KeywordToken  {
+protected class BuildUnit_ContainersKeyword_11_14_0 extends KeywordToken  {
 	
-	public BuildUnit_ContainersKeyword_11_13_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_ContainersKeyword_11_14_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getContainersKeyword_11_13_0();
+		return grammarAccess.getBuildUnitAccess().getContainersKeyword_11_14_0();
 	}
 
     @Override
@@ -3656,21 +3800,21 @@ protected class BuildUnit_ContainersKeyword_11_13_0 extends KeywordToken  {
 }
 
 // "{"
-protected class BuildUnit_LeftCurlyBracketKeyword_11_13_1 extends KeywordToken  {
+protected class BuildUnit_LeftCurlyBracketKeyword_11_14_1 extends KeywordToken  {
 	
-	public BuildUnit_LeftCurlyBracketKeyword_11_13_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_LeftCurlyBracketKeyword_11_14_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getLeftCurlyBracketKeyword_11_13_1();
+		return grammarAccess.getBuildUnitAccess().getLeftCurlyBracketKeyword_11_14_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BuildUnit_ContainersKeyword_11_13_0(parent, this, 0, inst);
+			case 0: return new BuildUnit_ContainersKeyword_11_14_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -3678,15 +3822,15 @@ protected class BuildUnit_LeftCurlyBracketKeyword_11_13_1 extends KeywordToken  
 }
 
 // containers+=ContainerConfiguration*
-protected class BuildUnit_ContainersAssignment_11_13_2 extends AssignmentToken  {
+protected class BuildUnit_ContainersAssignment_11_14_2 extends AssignmentToken  {
 	
-	public BuildUnit_ContainersAssignment_11_13_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_ContainersAssignment_11_14_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getContainersAssignment_11_13_2();
+		return grammarAccess.getBuildUnitAccess().getContainersAssignment_11_14_2();
 	}
 
     @Override
@@ -3705,7 +3849,7 @@ protected class BuildUnit_ContainersAssignment_11_13_2 extends AssignmentToken  
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getContainerConfigurationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBuildUnitAccess().getContainersContainerConfigurationParserRuleCall_11_13_2_0(); 
+				element = grammarAccess.getBuildUnitAccess().getContainersContainerConfigurationParserRuleCall_11_14_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -3717,29 +3861,29 @@ protected class BuildUnit_ContainersAssignment_11_13_2 extends AssignmentToken  
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BuildUnit_ContainersAssignment_11_13_2(parent, next, actIndex, consumed);
-			case 1: return new BuildUnit_LeftCurlyBracketKeyword_11_13_1(parent, next, actIndex, consumed);
+			case 0: return new BuildUnit_ContainersAssignment_11_14_2(parent, next, actIndex, consumed);
+			case 1: return new BuildUnit_LeftCurlyBracketKeyword_11_14_1(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "}"
-protected class BuildUnit_RightCurlyBracketKeyword_11_13_3 extends KeywordToken  {
+protected class BuildUnit_RightCurlyBracketKeyword_11_14_3 extends KeywordToken  {
 	
-	public BuildUnit_RightCurlyBracketKeyword_11_13_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_RightCurlyBracketKeyword_11_14_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getRightCurlyBracketKeyword_11_13_3();
+		return grammarAccess.getBuildUnitAccess().getRightCurlyBracketKeyword_11_14_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BuildUnit_ContainersAssignment_11_13_2(parent, this, 0, inst);
+			case 0: return new BuildUnit_ContainersAssignment_11_14_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -16252,6 +16396,656 @@ protected class BuilderInput_RightCurlyBracketKeyword_4 extends KeywordToken  {
 
 
 /************ end Rule BuilderInput ****************/
+
+
+/************ begin Rule RepositoryHandler ****************
+ *
+ * RepositoryHandler returns build::RepositoryHandler:
+ *   {build::RepositoryHandler} documentation=DOCUMENTATION? handlerType=TypeRef name=ID
+ *   "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)
+ *   * "}"; 
+ * 	
+ *         
+ * 	      
+ * 	      
+ * 	      
+ * 	  // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+ *
+ **/
+
+// {build::RepositoryHandler} documentation=DOCUMENTATION? handlerType=TypeRef name=ID
+// "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)
+// * "}"   
+// 	      
+// 	      
+// 	      
+// 	  // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+protected class RepositoryHandler_Group extends GroupToken {
+	
+	public RepositoryHandler_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_RightCurlyBracketKeyword_6(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getRepositoryHandlerRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {build::RepositoryHandler}
+protected class RepositoryHandler_RepositoryHandlerAction_0 extends ActionToken  {
+
+	public RepositoryHandler_RepositoryHandlerAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getRepositoryHandlerAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getRepositoryHandlerAccess().getRepositoryHandlerAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// documentation=DOCUMENTATION?
+protected class RepositoryHandler_DocumentationAssignment_1 extends AssignmentToken  {
+	
+	public RepositoryHandler_DocumentationAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getDocumentationAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_RepositoryHandlerAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("documentation",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("documentation");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getRepositoryHandlerAccess().getDocumentationDOCUMENTATIONTerminalRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// handlerType=TypeRef
+protected class RepositoryHandler_HandlerTypeAssignment_2 extends AssignmentToken  {
+	
+	public RepositoryHandler_HandlerTypeAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getHandlerTypeAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("handlerType",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("handlerType");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getRepositoryHandlerAccess().getHandlerTypeTypeRefParserRuleCall_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new RepositoryHandler_DocumentationAssignment_1(parent, next, actIndex, consumed);
+			case 1: return new RepositoryHandler_RepositoryHandlerAction_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// name=ID
+protected class RepositoryHandler_NameAssignment_3 extends AssignmentToken  {
+	
+	public RepositoryHandler_NameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getNameAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_HandlerTypeAssignment_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("name",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("name");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getRepositoryHandlerAccess().getNameIDTerminalRuleCall_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "{" 
+// 	  // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+protected class RepositoryHandler_LeftCurlyBracketKeyword_4 extends KeywordToken  {
+	
+	public RepositoryHandler_LeftCurlyBracketKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getLeftCurlyBracketKeyword_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_NameAssignment_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)* // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+protected class RepositoryHandler_Alternatives_5 extends AlternativesToken {
+
+	public RepositoryHandler_Alternatives_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getAlternatives_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_Group_5_0(parent, this, 0, inst);
+			case 1: return new RepositoryHandler_Group_5_1(parent, this, 1, inst);
+			case 2: return new RepositoryHandler_Group_5_2(parent, this, 2, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "local" "=" local=URI ";"
+protected class RepositoryHandler_Group_5_0 extends GroupToken {
+	
+	public RepositoryHandler_Group_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getGroup_5_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_SemicolonKeyword_5_0_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "local"
+protected class RepositoryHandler_LocalKeyword_5_0_0 extends KeywordToken  {
+	
+	public RepositoryHandler_LocalKeyword_5_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getLocalKeyword_5_0_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_Alternatives_5(parent, this, 0, inst);
+			case 1: return new RepositoryHandler_LeftCurlyBracketKeyword_4(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "="
+protected class RepositoryHandler_EqualsSignKeyword_5_0_1 extends KeywordToken  {
+	
+	public RepositoryHandler_EqualsSignKeyword_5_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getEqualsSignKeyword_5_0_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_LocalKeyword_5_0_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// local=URI
+protected class RepositoryHandler_LocalAssignment_5_0_2 extends AssignmentToken  {
+	
+	public RepositoryHandler_LocalAssignment_5_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getLocalAssignment_5_0_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_EqualsSignKeyword_5_0_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("local",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("local");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getRepositoryHandlerAccess().getLocalURIParserRuleCall_5_0_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ";"
+protected class RepositoryHandler_SemicolonKeyword_5_0_3 extends KeywordToken  {
+	
+	public RepositoryHandler_SemicolonKeyword_5_0_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getSemicolonKeyword_5_0_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_LocalAssignment_5_0_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// "remote" "=" remote=URI ";"
+protected class RepositoryHandler_Group_5_1 extends GroupToken {
+	
+	public RepositoryHandler_Group_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getGroup_5_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_SemicolonKeyword_5_1_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "remote"
+protected class RepositoryHandler_RemoteKeyword_5_1_0 extends KeywordToken  {
+	
+	public RepositoryHandler_RemoteKeyword_5_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getRemoteKeyword_5_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_Alternatives_5(parent, this, 0, inst);
+			case 1: return new RepositoryHandler_LeftCurlyBracketKeyword_4(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "="
+protected class RepositoryHandler_EqualsSignKeyword_5_1_1 extends KeywordToken  {
+	
+	public RepositoryHandler_EqualsSignKeyword_5_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getEqualsSignKeyword_5_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_RemoteKeyword_5_1_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// remote=URI
+protected class RepositoryHandler_RemoteAssignment_5_1_2 extends AssignmentToken  {
+	
+	public RepositoryHandler_RemoteAssignment_5_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getRemoteAssignment_5_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_EqualsSignKeyword_5_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("remote",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("remote");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getRepositoryHandlerAccess().getRemoteURIParserRuleCall_5_1_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ";"
+protected class RepositoryHandler_SemicolonKeyword_5_1_3 extends KeywordToken  {
+	
+	public RepositoryHandler_SemicolonKeyword_5_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getSemicolonKeyword_5_1_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_RemoteAssignment_5_1_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// "branches" branches+=Branch*
+protected class RepositoryHandler_Group_5_2 extends GroupToken {
+	
+	public RepositoryHandler_Group_5_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getGroup_5_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_BranchesAssignment_5_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "branches"
+protected class RepositoryHandler_BranchesKeyword_5_2_0 extends KeywordToken  {
+	
+	public RepositoryHandler_BranchesKeyword_5_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getBranchesKeyword_5_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_Alternatives_5(parent, this, 0, inst);
+			case 1: return new RepositoryHandler_LeftCurlyBracketKeyword_4(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// branches+=Branch*
+protected class RepositoryHandler_BranchesAssignment_5_2_1 extends AssignmentToken  {
+	
+	public RepositoryHandler_BranchesAssignment_5_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getBranchesAssignment_5_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Branch_BranchAction(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("branches",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("branches");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getBranchRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getRepositoryHandlerAccess().getBranchesBranchParserRuleCall_5_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new RepositoryHandler_BranchesAssignment_5_2_1(parent, next, actIndex, consumed);
+			case 1: return new RepositoryHandler_BranchesKeyword_5_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+// "}"
+protected class RepositoryHandler_RightCurlyBracketKeyword_6 extends KeywordToken  {
+	
+	public RepositoryHandler_RightCurlyBracketKeyword_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositoryHandlerAccess().getRightCurlyBracketKeyword_6();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryHandler_Alternatives_5(parent, this, 0, inst);
+			case 1: return new RepositoryHandler_LeftCurlyBracketKeyword_4(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+/************ end Rule RepositoryHandler ****************/
+
+
+/************ begin Rule Branch ****************
+ *
+ * Branch returns build::Branch:
+ *   {build::Branch};
+ *
+ **/
+
+// {build::Branch}
+protected class Branch_BranchAction extends ActionToken  {
+
+	public Branch_BranchAction(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getBranchAccess().getBranchAction();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getBranchRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getBranchAccess().getBranchAction().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+/************ end Rule Branch ****************/
 
 
 /************ begin Rule RepositoryConfiguration ****************

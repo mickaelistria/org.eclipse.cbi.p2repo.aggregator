@@ -133,7 +133,7 @@ unit aTestUnit version 1.0.0 {
 	provides food.nutrition.vitamin/C;
 	provides food.nutrition.mineral/potassium;
 	
-	repositories {
+	resolution {
 		select-switch request.name case "a" : repository TestRepo case _ : repository TestRepo endswitch
 	}
 	

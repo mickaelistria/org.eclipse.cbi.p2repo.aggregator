@@ -36,6 +36,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getResolutionConfig <em>Resolution Config</em>}</li>
  * </ul>
  * </p>
  * 
@@ -220,7 +221,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 
 	/**
 	 * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.build.RepositoryConfiguration}.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.RepositoryHandler}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more of a description here...
@@ -232,7 +233,23 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RepositoryConfiguration> getRepositories();
+	EList<RepositoryHandler> getRepositories();
+
+	/**
+	 * Returns the value of the '<em><b>Resolution Config</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.RepositoryConfiguration}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resolution Config</em>' reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Resolution Config</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_ResolutionConfig()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RepositoryConfiguration> getResolutionConfig();
 
 	/**
 	 * Returns the value of the '<em><b>Source Location</b></em>' attribute.

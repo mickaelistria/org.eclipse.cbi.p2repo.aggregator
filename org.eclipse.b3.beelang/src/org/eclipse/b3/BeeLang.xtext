@@ -80,7 +80,8 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 			| (functions += Builder )			
 			| (functions += Function )			
 			//-- REPOSITORIES
-			| ('repositories' '{' (repositories+=RepositoryConfiguration)* '}' )
+			| ('repositories' '{' (repositories+=RepositoryHandler)* '}' )
+			| ("resolution" '{' (resolutionConfig += RepositoryConfiguration)* '}')
 			| ('properties'  propertySets += PropertySet_Named)
 			| ('containers' '{' containers += ContainerConfiguration* '}' )
 		)*
@@ -303,7 +304,19 @@ BuilderInput returns build::BuilderInput : {build::BuilderInput}
 	"input"
 		'{' (prerequisites += Prerequisite)+ '}'
 	;
-
+	
+RepositoryHandler returns build::RepositoryHandler : {build::RepositoryHandler}
+	  (documentation = DOCUMENTATION)?
+	  handlerType = TypeRef
+	  name = ID
+	  '{'// TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+	  	("local" '=' local = URI ';'
+	  	| "remote" '=' remote = URI ';'
+	  	|"branches" (branches += Branch)* )*
+	  '}'
+	;
+Branch returns build::Branch : {build::Branch}
+	;	
 RepositoryConfiguration returns build::RepositoryConfiguration 
 	: RepositoryDeclaration
 	| ResolutionStrategy 

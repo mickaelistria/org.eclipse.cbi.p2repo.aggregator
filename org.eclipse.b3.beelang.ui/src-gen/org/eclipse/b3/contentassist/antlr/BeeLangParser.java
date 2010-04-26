@@ -61,6 +61,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuilderAccess().getAlternatives_12_1(), "rule__Builder__Alternatives_12_1");
 					put(grammarAccess.getFirstParameterAccess().getAlternatives(), "rule__FirstParameter__Alternatives");
 					put(grammarAccess.getParameterDeclarationAccess().getNameAlternatives_1_1_0(), "rule__ParameterDeclaration__NameAlternatives_1_1_0");
+					put(grammarAccess.getRepositoryHandlerAccess().getAlternatives_5(), "rule__RepositoryHandler__Alternatives_5");
 					put(grammarAccess.getRepositoryConfigurationAccess().getAlternatives(), "rule__RepositoryConfiguration__Alternatives");
 					put(grammarAccess.getResolutionStrategyAccess().getAlternatives(), "rule__ResolutionStrategy__Alternatives");
 					put(grammarAccess.getRepositorySelectCaseAccess().getAlternatives_1(), "rule__RepositorySelectCase__Alternatives_1");
@@ -172,6 +173,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuildUnitAccess().getGroup_11_11(), "rule__BuildUnit__Group_11_11__0");
 					put(grammarAccess.getBuildUnitAccess().getGroup_11_12(), "rule__BuildUnit__Group_11_12__0");
 					put(grammarAccess.getBuildUnitAccess().getGroup_11_13(), "rule__BuildUnit__Group_11_13__0");
+					put(grammarAccess.getBuildUnitAccess().getGroup_11_14(), "rule__BuildUnit__Group_11_14__0");
 					put(grammarAccess.getProvidedCapabilityAccess().getGroup(), "rule__ProvidedCapability__Group__0");
 					put(grammarAccess.getProvidedCapabilityAccess().getGroup_1(), "rule__ProvidedCapability__Group_1__0");
 					put(grammarAccess.getProvidedCapabilityAccess().getGroup_5(), "rule__ProvidedCapability__Group_5__0");
@@ -275,6 +277,10 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterDeclarationAccess().getGroup(), "rule__ParameterDeclaration__Group__0");
 					put(grammarAccess.getParameterDeclarationAccess().getGroup_1(), "rule__ParameterDeclaration__Group_1__0");
 					put(grammarAccess.getBuilderInputAccess().getGroup(), "rule__BuilderInput__Group__0");
+					put(grammarAccess.getRepositoryHandlerAccess().getGroup(), "rule__RepositoryHandler__Group__0");
+					put(grammarAccess.getRepositoryHandlerAccess().getGroup_5_0(), "rule__RepositoryHandler__Group_5_0__0");
+					put(grammarAccess.getRepositoryHandlerAccess().getGroup_5_1(), "rule__RepositoryHandler__Group_5_1__0");
+					put(grammarAccess.getRepositoryHandlerAccess().getGroup_5_2(), "rule__RepositoryHandler__Group_5_2__0");
 					put(grammarAccess.getRepositoryDeclarationAccess().getGroup(), "rule__RepositoryDeclaration__Group__0");
 					put(grammarAccess.getResolutionStrategyFirstAccess().getGroup(), "rule__ResolutionStrategyFirst__Group__0");
 					put(grammarAccess.getResolutionStrategyBestAccess().getGroup(), "rule__ResolutionStrategyBest__Group__0");
@@ -536,8 +542,9 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuildUnitAccess().getFunctionsAssignment_11_9(), "rule__BuildUnit__FunctionsAssignment_11_9");
 					put(grammarAccess.getBuildUnitAccess().getFunctionsAssignment_11_10(), "rule__BuildUnit__FunctionsAssignment_11_10");
 					put(grammarAccess.getBuildUnitAccess().getRepositoriesAssignment_11_11_2(), "rule__BuildUnit__RepositoriesAssignment_11_11_2");
-					put(grammarAccess.getBuildUnitAccess().getPropertySetsAssignment_11_12_1(), "rule__BuildUnit__PropertySetsAssignment_11_12_1");
-					put(grammarAccess.getBuildUnitAccess().getContainersAssignment_11_13_2(), "rule__BuildUnit__ContainersAssignment_11_13_2");
+					put(grammarAccess.getBuildUnitAccess().getResolutionConfigAssignment_11_12_2(), "rule__BuildUnit__ResolutionConfigAssignment_11_12_2");
+					put(grammarAccess.getBuildUnitAccess().getPropertySetsAssignment_11_13_1(), "rule__BuildUnit__PropertySetsAssignment_11_13_1");
+					put(grammarAccess.getBuildUnitAccess().getContainersAssignment_11_14_2(), "rule__BuildUnit__ContainersAssignment_11_14_2");
 					put(grammarAccess.getProvidedCapabilityAccess().getCondExprAssignment_1_2(), "rule__ProvidedCapability__CondExprAssignment_1_2");
 					put(grammarAccess.getProvidedCapabilityAccess().getNameSpaceAssignment_2(), "rule__ProvidedCapability__NameSpaceAssignment_2");
 					put(grammarAccess.getProvidedCapabilityAccess().getNameAssignment_4(), "rule__ProvidedCapability__NameAssignment_4");
@@ -658,6 +665,12 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterDeclarationAccess().getTypeAssignment_1_0(), "rule__ParameterDeclaration__TypeAssignment_1_0");
 					put(grammarAccess.getParameterDeclarationAccess().getNameAssignment_1_1(), "rule__ParameterDeclaration__NameAssignment_1_1");
 					put(grammarAccess.getBuilderInputAccess().getPrerequisitesAssignment_3(), "rule__BuilderInput__PrerequisitesAssignment_3");
+					put(grammarAccess.getRepositoryHandlerAccess().getDocumentationAssignment_1(), "rule__RepositoryHandler__DocumentationAssignment_1");
+					put(grammarAccess.getRepositoryHandlerAccess().getHandlerTypeAssignment_2(), "rule__RepositoryHandler__HandlerTypeAssignment_2");
+					put(grammarAccess.getRepositoryHandlerAccess().getNameAssignment_3(), "rule__RepositoryHandler__NameAssignment_3");
+					put(grammarAccess.getRepositoryHandlerAccess().getLocalAssignment_5_0_2(), "rule__RepositoryHandler__LocalAssignment_5_0_2");
+					put(grammarAccess.getRepositoryHandlerAccess().getRemoteAssignment_5_1_2(), "rule__RepositoryHandler__RemoteAssignment_5_1_2");
+					put(grammarAccess.getRepositoryHandlerAccess().getBranchesAssignment_5_2_1(), "rule__RepositoryHandler__BranchesAssignment_5_2_1");
 					put(grammarAccess.getRepositoryDeclarationAccess().getDocumentationAssignment_1(), "rule__RepositoryDeclaration__DocumentationAssignment_1");
 					put(grammarAccess.getRepositoryDeclarationAccess().getResolverTypeAssignment_3(), "rule__RepositoryDeclaration__ResolverTypeAssignment_3");
 					put(grammarAccess.getRepositoryDeclarationAccess().getContextBlockAssignment_4(), "rule__RepositoryDeclaration__ContextBlockAssignment_4");

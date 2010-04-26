@@ -771,6 +771,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(buildUnitEClass, BUILD_UNIT__PROPERTY_SETS);
 		createEAttribute(buildUnitEClass, BUILD_UNIT__SOURCE_LOCATION);
 		createEAttribute(buildUnitEClass, BUILD_UNIT__OUTPUT_LOCATION);
+		createEReference(buildUnitEClass, BUILD_UNIT__RESOLUTION_CONFIG);
 
 		iBuilderEClass = createEClass(IBUILDER);
 		createEReference(iBuilderEClass, IBUILDER__POSTCOND_EXPR);
@@ -1026,6 +1027,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__LOCAL);
 		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__REMOTE);
 		createEReference(repositoryHandlerEClass, REPOSITORY_HANDLER__BRANCHES);
+		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__DOCUMENTATION);
 
 		branchEClass = createEClass(BRANCH);
 		createEAttribute(branchEClass, BRANCH__NAME);
@@ -1924,6 +1926,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EReference getBuildUnit_Repositories() {
 		return (EReference) buildUnitEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getBuildUnit_ResolutionConfig() {
+		return (EReference) buildUnitEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -2832,6 +2844,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EAttribute getRepositoryHandler_Documentation() {
+		return (EAttribute) repositoryHandlerEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EReference getRepositoryHandler_HandlerType() {
 		return (EReference) repositoryHandlerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3372,7 +3394,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getBuildUnit_Repositories(), this.getRepositoryConfiguration(), null, "repositories", null, 0, -1,
+			getBuildUnit_Repositories(), this.getRepositoryHandler(), null, "repositories", null, 0, -1,
 			BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
@@ -3390,6 +3412,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEAttribute(
 			getBuildUnit_OutputLocation(), theB3backendPackage.getURI(), "outputLocation", null, 0, 1, BuildUnit.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getBuildUnit_ResolutionConfig(), this.getRepositoryConfiguration(), null, "resolutionConfig", null, 0, -1,
+			BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(
 			buildUnitEClass, this.getEffectiveUnitFacade(), "getEffectiveFacade", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4315,6 +4341,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEReference(
 			getRepositoryHandler_Branches(), this.getBranch(), null, "branches", null, 0, -1, RepositoryHandler.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getRepositoryHandler_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1,
+			RepositoryHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 
 		initEClass(branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

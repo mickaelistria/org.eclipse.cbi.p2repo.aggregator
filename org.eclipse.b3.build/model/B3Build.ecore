@@ -25,7 +25,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="synchronizations" upperBound="-1"
         eType="#//Synchronization" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
-        eType="#//RepositoryConfiguration" containment="true"/>
+        eType="#//RepositoryHandler" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containers" upperBound="-1"
         eType="#//ContainerConfiguration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
@@ -34,6 +34,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"
         defaultValueLiteral="resource:/"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resolutionConfig" upperBound="-1"
+        eType="#//RepositoryConfiguration" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBuilder" abstract="true" interface="true"
       eSuperTypes="#//IProvidedCapabilityContainer ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IFunction">
@@ -580,6 +582,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="remote" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
         eType="#//Branch" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Branch">
     <eOperations name="getEffectiveUpdateStrategy" eType="#//UpdateStrategy">

@@ -35,6 +35,7 @@ import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.build.RepositoryConfiguration;
+import org.eclipse.b3.build.build.RepositoryHandler;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.Synchronization;
 import org.eclipse.b3.build.core.B3BuildConstants;
@@ -75,6 +76,7 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getSourceLocation <em>Source Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getOutputLocation <em>Output Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getResolutionConfig <em>Resolution Config</em>}</li>
  * </ul>
  * </p>
  * 
@@ -222,7 +224,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RepositoryConfiguration> repositories;
+	protected EList<RepositoryHandler> repositories;
 
 	/**
 	 * The cached value of the '{@link #getContainers() <em>Containers</em>}' containment reference list.
@@ -290,6 +292,17 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @ordered
 	 */
 	protected URI outputLocation = OUTPUT_LOCATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getResolutionConfig() <em>Resolution Config</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getResolutionConfig()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RepositoryConfiguration> resolutionConfig;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -436,6 +449,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getSourceLocation();
 			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
 				return getOutputLocation();
+			case B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG:
+				return getResolutionConfig();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -487,6 +502,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return ((InternalEList<?>) getContainers()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
 				return ((InternalEList<?>) getPropertySets()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG:
+				return ((InternalEList<?>) getResolutionConfig()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -538,6 +555,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return OUTPUT_LOCATION_EDEFAULT == null
 						? outputLocation != null
 						: !OUTPUT_LOCATION_EDEFAULT.equals(outputLocation);
+			case B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG:
+				return resolutionConfig != null && !resolutionConfig.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -591,7 +610,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return;
 			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
 				getRepositories().clear();
-				getRepositories().addAll((Collection<? extends RepositoryConfiguration>) newValue);
+				getRepositories().addAll((Collection<? extends RepositoryHandler>) newValue);
 				return;
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
 				getContainers().clear();
@@ -606,6 +625,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return;
 			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
 				setOutputLocation((URI) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG:
+				getResolutionConfig().clear();
+				getResolutionConfig().addAll((Collection<? extends RepositoryConfiguration>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -675,6 +698,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return;
 			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
 				setOutputLocation(OUTPUT_LOCATION_EDEFAULT);
+				return;
+			case B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG:
+				getResolutionConfig().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -776,7 +802,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		// REPOSITORIES
 		// if unit defines repositories, define them in the outer context
 		//
-		EList<RepositoryConfiguration> reposDecls = u.getRepositories();
+		EList<RepositoryConfiguration> reposDecls = u.getResolutionConfig();
 		if(reposDecls.size() > 0) {
 			// wrap in a first found
 			// TODO: Consider default repositories (workspace, target platform, etc)
@@ -979,10 +1005,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * 
 	 * @generated
 	 */
-	public EList<RepositoryConfiguration> getRepositories() {
+	public EList<RepositoryHandler> getRepositories() {
 		if(repositories == null) {
-			repositories = new EObjectContainmentEList<RepositoryConfiguration>(
-				RepositoryConfiguration.class, this, B3BuildPackage.BUILD_UNIT__REPOSITORIES);
+			repositories = new EObjectContainmentEList<RepositoryHandler>(
+				RepositoryHandler.class, this, B3BuildPackage.BUILD_UNIT__REPOSITORIES);
 		}
 		return repositories;
 	}
@@ -999,6 +1025,20 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				RequiredCapability.class, this, B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES);
 		}
 		return requiredCapabilities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<RepositoryConfiguration> getResolutionConfig() {
+		if(resolutionConfig == null) {
+			resolutionConfig = new EObjectContainmentEList<RepositoryConfiguration>(
+				RepositoryConfiguration.class, this, B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG);
+		}
+		return resolutionConfig;
 	}
 
 	/**

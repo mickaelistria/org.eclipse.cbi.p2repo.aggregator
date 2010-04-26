@@ -175,6 +175,15 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute BUILD_UNIT__OUTPUT_LOCATION = eINSTANCE.getBuildUnit_OutputLocation();
 
 		/**
+		 * The meta object literal for the '<em><b>Resolution Config</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference BUILD_UNIT__RESOLUTION_CONFIG = eINSTANCE.getBuildUnit_ResolutionConfig();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -910,6 +919,15 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REPOSITORY_HANDLER__BRANCHES = eINSTANCE.getRepositoryHandler_Branches();
+
+		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute REPOSITORY_HANDLER__DOCUMENTATION = eINSTANCE.getRepositoryHandler_Documentation();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BranchImpl <em>Branch</em>}' class.
@@ -2544,6 +2562,16 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_UNIT__OUTPUT_LOCATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 15;
 
 	/**
+	 * The feature id for the '<em><b>Resolution Config</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_UNIT__RESOLUTION_CONFIG = VERSIONED_CAPABILITY_FEATURE_COUNT + 16;
+
+	/**
 	 * The number of structural features of the '<em>Build Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2551,7 +2579,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 16;
+	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderImpl <em>Builder</em>}' class.
@@ -6800,6 +6828,16 @@ public interface B3BuildPackage extends EPackage {
 	int REPOSITORY_HANDLER__BRANCHES = 4;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_HANDLER__DOCUMENTATION = 5;
+
+	/**
 	 * The number of structural features of the '<em>Repository Handler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6807,7 +6845,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_HANDLER_FEATURE_COUNT = 5;
+	int REPOSITORY_HANDLER_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BranchImpl <em>Branch</em>}' class.
@@ -8025,6 +8063,19 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_Repositories();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getResolutionConfig
+	 * <em>Resolution Config</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Resolution Config</em>'.
+	 * @see org.eclipse.b3.build.build.BuildUnit#getResolutionConfig()
+	 * @see #getBuildUnit()
+	 * @generated
+	 */
+	EReference getBuildUnit_ResolutionConfig();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9103,6 +9154,18 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRepositoryHandler_Branches();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryHandler#getDocumentation()
+	 * @see #getRepositoryHandler()
+	 * @generated
+	 */
+	EAttribute getRepositoryHandler_Documentation();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryHandler#getHandlerType

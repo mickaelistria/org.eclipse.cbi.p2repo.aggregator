@@ -106,7 +106,7 @@ function testFruitWaste() {
 * the current execution context). 
 */
 unit fruitsallad version 1.0.0 {
-	repositories { repository TestRepo }
+	resolution { repository TestRepo }
 	builder make {
 		input {
 			unit/apple/1.0.0#pulp;

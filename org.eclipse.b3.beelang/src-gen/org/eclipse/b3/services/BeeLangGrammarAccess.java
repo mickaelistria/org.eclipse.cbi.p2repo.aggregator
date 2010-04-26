@@ -316,18 +316,24 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRepositoriesKeyword_11_11_0 = (Keyword)cGroup_11_11.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_11_11_1 = (Keyword)cGroup_11_11.eContents().get(1);
 		private final Assignment cRepositoriesAssignment_11_11_2 = (Assignment)cGroup_11_11.eContents().get(2);
-		private final RuleCall cRepositoriesRepositoryConfigurationParserRuleCall_11_11_2_0 = (RuleCall)cRepositoriesAssignment_11_11_2.eContents().get(0);
+		private final RuleCall cRepositoriesRepositoryHandlerParserRuleCall_11_11_2_0 = (RuleCall)cRepositoriesAssignment_11_11_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_11_11_3 = (Keyword)cGroup_11_11.eContents().get(3);
 		private final Group cGroup_11_12 = (Group)cAlternatives_11.eContents().get(12);
-		private final Keyword cPropertiesKeyword_11_12_0 = (Keyword)cGroup_11_12.eContents().get(0);
-		private final Assignment cPropertySetsAssignment_11_12_1 = (Assignment)cGroup_11_12.eContents().get(1);
-		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_11_12_1_0 = (RuleCall)cPropertySetsAssignment_11_12_1.eContents().get(0);
+		private final Keyword cResolutionKeyword_11_12_0 = (Keyword)cGroup_11_12.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_11_12_1 = (Keyword)cGroup_11_12.eContents().get(1);
+		private final Assignment cResolutionConfigAssignment_11_12_2 = (Assignment)cGroup_11_12.eContents().get(2);
+		private final RuleCall cResolutionConfigRepositoryConfigurationParserRuleCall_11_12_2_0 = (RuleCall)cResolutionConfigAssignment_11_12_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11_12_3 = (Keyword)cGroup_11_12.eContents().get(3);
 		private final Group cGroup_11_13 = (Group)cAlternatives_11.eContents().get(13);
-		private final Keyword cContainersKeyword_11_13_0 = (Keyword)cGroup_11_13.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_11_13_1 = (Keyword)cGroup_11_13.eContents().get(1);
-		private final Assignment cContainersAssignment_11_13_2 = (Assignment)cGroup_11_13.eContents().get(2);
-		private final RuleCall cContainersContainerConfigurationParserRuleCall_11_13_2_0 = (RuleCall)cContainersAssignment_11_13_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_11_13_3 = (Keyword)cGroup_11_13.eContents().get(3);
+		private final Keyword cPropertiesKeyword_11_13_0 = (Keyword)cGroup_11_13.eContents().get(0);
+		private final Assignment cPropertySetsAssignment_11_13_1 = (Assignment)cGroup_11_13.eContents().get(1);
+		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_11_13_1_0 = (RuleCall)cPropertySetsAssignment_11_13_1.eContents().get(0);
+		private final Group cGroup_11_14 = (Group)cAlternatives_11.eContents().get(14);
+		private final Keyword cContainersKeyword_11_14_0 = (Keyword)cGroup_11_14.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_11_14_1 = (Keyword)cGroup_11_14.eContents().get(1);
+		private final Assignment cContainersAssignment_11_14_2 = (Assignment)cGroup_11_14.eContents().get(2);
+		private final RuleCall cContainersContainerConfigurationParserRuleCall_11_14_2_0 = (RuleCall)cContainersAssignment_11_14_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11_14_3 = (Keyword)cGroup_11_14.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//BuildUnit returns build::BuildUnit hidden ( WS , ML_COMMENT , SL_COMMENT ):
@@ -343,9 +349,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
 		//  "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
 		//  synchronizations+=Synchronization|functions+=Builder|functions+=Function|
-		//  "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
-		//  propertySets+=PropertySet_Named|"containers" "{" containers+=
-		//  ContainerConfiguration* "}")* "}"; 
+		//  "repositories" "{" repositories+=RepositoryHandler* "}"|"resolution" "{"
+		//  resolutionConfig+=RepositoryConfiguration* "}"|"properties" propertySets+=
+		//  PropertySet_Named|"containers" "{" containers+=ContainerConfiguration* "}")* "}"; 
 		//
 		//// Wanted later 
 		////Import : (reexport ?='reexport')? 
@@ -401,9 +407,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
 		//"sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
 		//synchronizations+=Synchronization|functions+=Builder|functions+=Function|
-		//"repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
-		//propertySets+=PropertySet_Named|"containers" "{" containers+=
-		//ContainerConfiguration* "}")* "}"   
+		//"repositories" "{" repositories+=RepositoryHandler* "}"|"resolution" "{"
+		//resolutionConfig+=RepositoryConfiguration* "}"|"properties" propertySets+=
+		//PropertySet_Named|"containers" "{" containers+=ContainerConfiguration* "}")* "}"   
 		//	    
 		//	    
 		//	          
@@ -563,9 +569,10 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//RequiredCapability ";")+ "}"|"requires" "env" metaRequiredCapabilities+=
 		//RequiredCapability ";"|concerns+=Concern_Named|"sequential" "{" synchronizations+=
 		//Synchronization+ "}"|"sequential" synchronizations+=Synchronization|functions+=
-		//Builder|functions+=Function|"repositories" "{" repositories+=
-		//RepositoryConfiguration* "}"|"properties" propertySets+=PropertySet_Named|
-		//"containers" "{" containers+=ContainerConfiguration* "}")* 
+		//Builder|functions+=Function|"repositories" "{" repositories+=RepositoryHandler* "}"
+		//|"resolution" "{" resolutionConfig+=RepositoryConfiguration* "}"|"properties"
+		//propertySets+=PropertySet_Named|"containers" "{" containers+=
+		//ContainerConfiguration* "}")* 
 		//		
 		//		 	 //-- PROVIDES
 		//			               
@@ -757,7 +764,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Function
 		public RuleCall getFunctionsFunctionParserRuleCall_11_10_0() { return cFunctionsFunctionParserRuleCall_11_10_0; }
 
-		//"repositories" "{" repositories+=RepositoryConfiguration* "}"
+		//"repositories" "{" repositories+=RepositoryHandler* "}"
 		public Group getGroup_11_11() { return cGroup_11_11; }
 
 		//"repositories"
@@ -766,44 +773,62 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_11_11_1() { return cLeftCurlyBracketKeyword_11_11_1; }
 
-		//repositories+=RepositoryConfiguration*
+		//repositories+=RepositoryHandler*
 		public Assignment getRepositoriesAssignment_11_11_2() { return cRepositoriesAssignment_11_11_2; }
 
-		//RepositoryConfiguration
-		public RuleCall getRepositoriesRepositoryConfigurationParserRuleCall_11_11_2_0() { return cRepositoriesRepositoryConfigurationParserRuleCall_11_11_2_0; }
+		//RepositoryHandler
+		public RuleCall getRepositoriesRepositoryHandlerParserRuleCall_11_11_2_0() { return cRepositoriesRepositoryHandlerParserRuleCall_11_11_2_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_11_11_3() { return cRightCurlyBracketKeyword_11_11_3; }
 
-		//"properties" propertySets+=PropertySet_Named
+		//"resolution" "{" resolutionConfig+=RepositoryConfiguration* "}"
 		public Group getGroup_11_12() { return cGroup_11_12; }
 
-		//"properties"
-		public Keyword getPropertiesKeyword_11_12_0() { return cPropertiesKeyword_11_12_0; }
-
-		//propertySets+=PropertySet_Named
-		public Assignment getPropertySetsAssignment_11_12_1() { return cPropertySetsAssignment_11_12_1; }
-
-		//PropertySet_Named
-		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_11_12_1_0() { return cPropertySetsPropertySet_NamedParserRuleCall_11_12_1_0; }
-
-		//"containers" "{" containers+=ContainerConfiguration* "}"
-		public Group getGroup_11_13() { return cGroup_11_13; }
-
-		//"containers"
-		public Keyword getContainersKeyword_11_13_0() { return cContainersKeyword_11_13_0; }
+		//"resolution"
+		public Keyword getResolutionKeyword_11_12_0() { return cResolutionKeyword_11_12_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_11_13_1() { return cLeftCurlyBracketKeyword_11_13_1; }
+		public Keyword getLeftCurlyBracketKeyword_11_12_1() { return cLeftCurlyBracketKeyword_11_12_1; }
 
-		//containers+=ContainerConfiguration*
-		public Assignment getContainersAssignment_11_13_2() { return cContainersAssignment_11_13_2; }
+		//resolutionConfig+=RepositoryConfiguration*
+		public Assignment getResolutionConfigAssignment_11_12_2() { return cResolutionConfigAssignment_11_12_2; }
 
-		//ContainerConfiguration
-		public RuleCall getContainersContainerConfigurationParserRuleCall_11_13_2_0() { return cContainersContainerConfigurationParserRuleCall_11_13_2_0; }
+		//RepositoryConfiguration
+		public RuleCall getResolutionConfigRepositoryConfigurationParserRuleCall_11_12_2_0() { return cResolutionConfigRepositoryConfigurationParserRuleCall_11_12_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_11_13_3() { return cRightCurlyBracketKeyword_11_13_3; }
+		public Keyword getRightCurlyBracketKeyword_11_12_3() { return cRightCurlyBracketKeyword_11_12_3; }
+
+		//"properties" propertySets+=PropertySet_Named
+		public Group getGroup_11_13() { return cGroup_11_13; }
+
+		//"properties"
+		public Keyword getPropertiesKeyword_11_13_0() { return cPropertiesKeyword_11_13_0; }
+
+		//propertySets+=PropertySet_Named
+		public Assignment getPropertySetsAssignment_11_13_1() { return cPropertySetsAssignment_11_13_1; }
+
+		//PropertySet_Named
+		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_11_13_1_0() { return cPropertySetsPropertySet_NamedParserRuleCall_11_13_1_0; }
+
+		//"containers" "{" containers+=ContainerConfiguration* "}"
+		public Group getGroup_11_14() { return cGroup_11_14; }
+
+		//"containers"
+		public Keyword getContainersKeyword_11_14_0() { return cContainersKeyword_11_14_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_11_14_1() { return cLeftCurlyBracketKeyword_11_14_1; }
+
+		//containers+=ContainerConfiguration*
+		public Assignment getContainersAssignment_11_14_2() { return cContainersAssignment_11_14_2; }
+
+		//ContainerConfiguration
+		public RuleCall getContainersContainerConfigurationParserRuleCall_11_14_2_0() { return cContainersContainerConfigurationParserRuleCall_11_14_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_11_14_3() { return cRightCurlyBracketKeyword_11_14_3; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
@@ -3584,6 +3609,149 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class RepositoryHandlerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RepositoryHandler");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cRepositoryHandlerAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final Assignment cHandlerTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cHandlerTypeTypeRefParserRuleCall_2_0 = (RuleCall)cHandlerTypeAssignment_2.eContents().get(0);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
+		private final Group cGroup_5_0 = (Group)cAlternatives_5.eContents().get(0);
+		private final Keyword cLocalKeyword_5_0_0 = (Keyword)cGroup_5_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_5_0_1 = (Keyword)cGroup_5_0.eContents().get(1);
+		private final Assignment cLocalAssignment_5_0_2 = (Assignment)cGroup_5_0.eContents().get(2);
+		private final RuleCall cLocalURIParserRuleCall_5_0_2_0 = (RuleCall)cLocalAssignment_5_0_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5_0_3 = (Keyword)cGroup_5_0.eContents().get(3);
+		private final Group cGroup_5_1 = (Group)cAlternatives_5.eContents().get(1);
+		private final Keyword cRemoteKeyword_5_1_0 = (Keyword)cGroup_5_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_5_1_1 = (Keyword)cGroup_5_1.eContents().get(1);
+		private final Assignment cRemoteAssignment_5_1_2 = (Assignment)cGroup_5_1.eContents().get(2);
+		private final RuleCall cRemoteURIParserRuleCall_5_1_2_0 = (RuleCall)cRemoteAssignment_5_1_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5_1_3 = (Keyword)cGroup_5_1.eContents().get(3);
+		private final Group cGroup_5_2 = (Group)cAlternatives_5.eContents().get(2);
+		private final Keyword cBranchesKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
+		private final Assignment cBranchesAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final RuleCall cBranchesBranchParserRuleCall_5_2_1_0 = (RuleCall)cBranchesAssignment_5_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//RepositoryHandler returns build::RepositoryHandler:
+		//  {build::RepositoryHandler} documentation=DOCUMENTATION? handlerType=TypeRef name=ID
+		//  "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)
+		//  * "}"; 
+		//	
+		//        
+		//	      
+		//	      
+		//	      
+		//	  // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+		public ParserRule getRule() { return rule; }
+
+		//{build::RepositoryHandler} documentation=DOCUMENTATION? handlerType=TypeRef name=ID
+		//"{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)
+		// * "}"   
+		//	      
+		//	      
+		//	      
+		//	  // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+		public Group getGroup() { return cGroup; }
+
+		//{build::RepositoryHandler}
+		public Action getRepositoryHandlerAction_0() { return cRepositoryHandlerAction_0; }
+
+		//documentation=DOCUMENTATION?
+		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
+
+		//DOCUMENTATION
+		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+
+		//handlerType=TypeRef
+		public Assignment getHandlerTypeAssignment_2() { return cHandlerTypeAssignment_2; }
+
+		//TypeRef
+		public RuleCall getHandlerTypeTypeRefParserRuleCall_2_0() { return cHandlerTypeTypeRefParserRuleCall_2_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+
+		//"{" 
+		//	  // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+
+		//("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)* // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+		public Alternatives getAlternatives_5() { return cAlternatives_5; }
+
+		//"local" "=" local=URI ";"
+		public Group getGroup_5_0() { return cGroup_5_0; }
+
+		//"local"
+		public Keyword getLocalKeyword_5_0_0() { return cLocalKeyword_5_0_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_5_0_1() { return cEqualsSignKeyword_5_0_1; }
+
+		//local=URI
+		public Assignment getLocalAssignment_5_0_2() { return cLocalAssignment_5_0_2; }
+
+		//URI
+		public RuleCall getLocalURIParserRuleCall_5_0_2_0() { return cLocalURIParserRuleCall_5_0_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5_0_3() { return cSemicolonKeyword_5_0_3; }
+
+		//"remote" "=" remote=URI ";"
+		public Group getGroup_5_1() { return cGroup_5_1; }
+
+		//"remote"
+		public Keyword getRemoteKeyword_5_1_0() { return cRemoteKeyword_5_1_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_5_1_1() { return cEqualsSignKeyword_5_1_1; }
+
+		//remote=URI
+		public Assignment getRemoteAssignment_5_1_2() { return cRemoteAssignment_5_1_2; }
+
+		//URI
+		public RuleCall getRemoteURIParserRuleCall_5_1_2_0() { return cRemoteURIParserRuleCall_5_1_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5_1_3() { return cSemicolonKeyword_5_1_3; }
+
+		//"branches" branches+=Branch*
+		public Group getGroup_5_2() { return cGroup_5_2; }
+
+		//"branches"
+		public Keyword getBranchesKeyword_5_2_0() { return cBranchesKeyword_5_2_0; }
+
+		//branches+=Branch*
+		public Assignment getBranchesAssignment_5_2_1() { return cBranchesAssignment_5_2_1; }
+
+		//Branch
+		public RuleCall getBranchesBranchParserRuleCall_5_2_1_0() { return cBranchesBranchParserRuleCall_5_2_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+
+	public class BranchElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Branch");
+		private final Action cBranchAction = (Action)rule.eContents().get(1);
+		
+		//Branch returns build::Branch:
+		//  {build::Branch};
+		public ParserRule getRule() { return rule; }
+
+		//{build::Branch}
+		public Action getBranchAction() { return cBranchAction; }
 	}
 
 	public class RepositoryConfigurationElements extends AbstractParserRuleElementFinder {
@@ -11254,6 +11422,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private ParameterDeclarationElements pParameterDeclaration;
 	private KeywordParameterNameElements pKeywordParameterName;
 	private BuilderInputElements pBuilderInput;
+	private RepositoryHandlerElements pRepositoryHandler;
+	private BranchElements pBranch;
 	private RepositoryConfigurationElements pRepositoryConfiguration;
 	private RepositoryDeclarationElements pRepositoryDeclaration;
 	private ResolutionStrategyElements pResolutionStrategy;
@@ -11466,9 +11636,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
 	//  "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
 	//  synchronizations+=Synchronization|functions+=Builder|functions+=Function|
-	//  "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
-	//  propertySets+=PropertySet_Named|"containers" "{" containers+=
-	//  ContainerConfiguration* "}")* "}"; 
+	//  "repositories" "{" repositories+=RepositoryHandler* "}"|"resolution" "{"
+	//  resolutionConfig+=RepositoryConfiguration* "}"|"properties" propertySets+=
+	//  PropertySet_Named|"containers" "{" containers+=ContainerConfiguration* "}")* "}"; 
 	//
 	//// Wanted later 
 	////Import : (reexport ?='reexport')? 
@@ -12055,6 +12225,34 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getBuilderInputRule() {
 		return getBuilderInputAccess().getRule();
+	}
+
+	//RepositoryHandler returns build::RepositoryHandler:
+	//  {build::RepositoryHandler} documentation=DOCUMENTATION? handlerType=TypeRef name=ID
+	//  "{" ("local" "=" local=URI ";"|"remote" "=" remote=URI ";"|"branches" branches+=Branch*)
+	//  * "}"; 
+	//	
+	//        
+	//	      
+	//	      
+	//	      
+	//	  // TODO: need to use "one of each" rule after switch to 1.0 of Xtext
+	public RepositoryHandlerElements getRepositoryHandlerAccess() {
+		return (pRepositoryHandler != null) ? pRepositoryHandler : (pRepositoryHandler = new RepositoryHandlerElements());
+	}
+	
+	public ParserRule getRepositoryHandlerRule() {
+		return getRepositoryHandlerAccess().getRule();
+	}
+
+	//Branch returns build::Branch:
+	//  {build::Branch};
+	public BranchElements getBranchAccess() {
+		return (pBranch != null) ? pBranch : (pBranch = new BranchElements());
+	}
+	
+	public ParserRule getBranchRule() {
+		return getBranchAccess().getRule();
 	}
 
 	//RepositoryConfiguration returns build::RepositoryConfiguration:
