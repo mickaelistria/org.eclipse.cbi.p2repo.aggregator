@@ -65,8 +65,7 @@ public class RequirementUtils {
 				if(inheritedFilter == null)
 					inheritedFilter = iuFilter;
 				else if(!inheritedFilter.equals(iuFilter)) {
-					LogUtils.log(
-						LogUtils.INFO, "More than one filter definition found on %s; using an empty filter", name);
+					LogUtils.info("More than one filter definition found on %s; using an empty filter", name);
 					inheritedFilter = null;
 					break;
 				}

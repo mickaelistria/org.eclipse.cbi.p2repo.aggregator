@@ -37,7 +37,9 @@ import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.util.P2ResourceImpl;
 import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.b3.p2.util.ResourceSetWithAgent;
+import org.eclipse.b3.util.B3Util;
 import org.eclipse.b3.util.ExceptionUtils;
+import org.eclipse.b3.util.LogLevel;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.b3.util.StringUtils;
@@ -269,6 +271,12 @@ public class Builder extends AbstractCommand {
 			+ " aggregation definition.")
 	private File buildRoot;
 
+	@Option(name = "--logLevel", usage = "Control the verbosity of the console trace output. Defaults to global b3 settings.")
+	private LogLevel logLevel;
+
+	@Option(name = "--eclipseLogLevel", usage = "Control the verbosity of the eclipse log trace output. Defaults to global b3 settings.")
+	private LogLevel eclipseLogLevel;
+
 	@Option(name = "--logURL", usage = "The URL that will be pasted into the emails. "
 			+ "Should normally point to the a public URL for output log for the aggregator so "
 			+ "that the receiver can browse the log for details on failures.", metaVar = "<url>")
@@ -486,7 +494,15 @@ public class Builder extends AbstractCommand {
 		}
 		MonitorUtils.begin(monitor, ticks);
 
+		LogLevel originalConsoleLogLevel = B3Util.getPlugin().getConsoleLogLevel();
+		LogLevel originalEclipseLogLevel = B3Util.getPlugin().getEclipseLogLevel();
+
 		try {
+			if(logLevel != null)
+				B3Util.getPlugin().setConsoleLogLevel(logLevel);
+			if(eclipseLogLevel != null)
+				B3Util.getPlugin().setEclipseLogLevel(logLevel);
+
 			if(buildModelLocation == null)
 				throw ExceptionUtils.fromMessage("No buildmodel has been set");
 
@@ -583,6 +599,12 @@ public class Builder extends AbstractCommand {
 						// ignore
 					}
 			}
+
+			if(logLevel != null)
+				B3Util.getPlugin().setConsoleLogLevel(originalConsoleLogLevel);
+			if(eclipseLogLevel != null)
+				B3Util.getPlugin().setEclipseLogLevel(originalEclipseLogLevel);
+
 			monitor.done();
 		}
 	}
@@ -796,6 +818,8 @@ public class Builder extends AbstractCommand {
 	}
 
 	private void loadAllMappedRepositories() throws CoreException {
+		LogUtils.info("Loading all repositories");
+
 		Set<MetadataRepositoryReference> repositoriesToLoad = new HashSet<MetadataRepositoryReference>();
 
 		// first, set up asynchronous loading jobs so that the repos are loaded in parallel
