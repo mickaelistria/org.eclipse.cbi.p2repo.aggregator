@@ -31,10 +31,28 @@ public class B3Util extends Plugin {
 		return plugin.getBundle().getSymbolicName();
 	}
 
+	private LogLevel eclipseLogLevel = LogLevel.INFO;
+
+	private LogLevel consoleLogLevel = LogLevel.INFO;
+
 	private IdentityHashMap<Object, ServiceReference> services;
 
 	public B3Util() {
 		plugin = this;
+	}
+
+	/**
+	 * @return the consoleLogLevel
+	 */
+	public final LogLevel getConsoleLogLevel() {
+		return consoleLogLevel;
+	}
+
+	/**
+	 * @return the eclipseLogLevel
+	 */
+	public final LogLevel getEclipseLogLevel() {
+		return eclipseLogLevel;
 	}
 
 	public <T> T getService(Class<T> serviceClass) throws CoreException {
@@ -58,6 +76,22 @@ public class B3Util extends Plugin {
 			services = new IdentityHashMap<Object, ServiceReference>();
 		services.put(service, serviceRef[0]);
 		return service;
+	}
+
+	/**
+	 * @param consoleLogLevel
+	 *            the consoleLogLevel to set
+	 */
+	public final void setConsoleLogLevel(LogLevel consoleLogLevel) {
+		this.consoleLogLevel = consoleLogLevel;
+	}
+
+	/**
+	 * @param eclipseLogLevel
+	 *            the eclipseLogLevel to set
+	 */
+	public final void setEclipseLogLevel(LogLevel eclipseLogLevel) {
+		this.eclipseLogLevel = eclipseLogLevel;
 	}
 
 	@Override

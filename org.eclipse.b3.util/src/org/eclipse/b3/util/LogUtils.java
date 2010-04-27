@@ -8,8 +8,12 @@
 
 package org.eclipse.b3.util;
 
+import static org.eclipse.b3.util.LogLevel.DEBUG;
+import static org.eclipse.b3.util.LogLevel.ERROR;
+import static org.eclipse.b3.util.LogLevel.INFO;
+import static org.eclipse.b3.util.LogLevel.WARNING;
+
 import org.eclipse.core.runtime.ILog;
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 
@@ -18,14 +22,6 @@ import org.eclipse.core.runtime.Status;
  * 
  */
 public class LogUtils {
-
-	public static final int DEBUG = IStatus.OK;
-
-	public static final int ERROR = IStatus.ERROR;
-
-	public static final int INFO = IStatus.INFO;
-
-	public static final int WARNING = IStatus.WARNING;
 
 	private static final int MAGIC = B3Util.getPluginID().hashCode();
 
@@ -57,14 +53,20 @@ public class LogUtils {
 		log(INFO, t, msg, args);
 	}
 
-	public static void log(int level, String msg, Object... args) {
+	public static void log(LogLevel level, String msg, Object... args) {
 		log(level, null, msg, args);
 	}
 
-	public static void log(int level, Throwable t, String msg, Object... args) {
-		getLog().log(new Status(level, B3Util.getPluginID(), MAGIC, (args == null || args.length == 0)
+	public static void log(LogLevel level, Throwable t, String msg, Object... args) {
+		String fullMessage = (args == null || args.length == 0)
 				? msg
-				: String.format(msg, args), t));
+				: String.format(msg, args);
+
+		B3Util plugin = B3Util.getPlugin();
+		if(level.ordinal() >= plugin.getConsoleLogLevel().ordinal())
+			System.out.println(fullMessage);
+		if(level.ordinal() >= plugin.getEclipseLogLevel().ordinal())
+			getLog().log(new Status(level.getStatusLevel(), B3Util.getPluginID(), MAGIC, fullMessage, t));
 	}
 
 	public static void warning(String msg, Object... args) {
