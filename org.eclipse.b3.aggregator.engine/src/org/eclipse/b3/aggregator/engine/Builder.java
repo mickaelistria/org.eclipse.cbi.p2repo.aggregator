@@ -271,10 +271,10 @@ public class Builder extends AbstractCommand {
 			+ " aggregation definition.")
 	private File buildRoot;
 
-	@Option(name = "--logLevel", usage = "Control the verbosity of the console trace output. Defaults to global b3 settings.")
+	@Option(name = "--logLevel", usage = "Controls the verbosity of the console trace output. Defaults to global b3 settings.")
 	private LogLevel logLevel;
 
-	@Option(name = "--eclipseLogLevel", usage = "Control the verbosity of the eclipse log trace output. Defaults to global b3 settings.")
+	@Option(name = "--eclipseLogLevel", usage = "Controls the verbosity of the eclipse log trace output. Defaults to global b3 settings.")
 	private LogLevel eclipseLogLevel;
 
 	@Option(name = "--logURL", usage = "The URL that will be pasted into the emails. "
