@@ -1925,8 +1925,13 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 							notification.getFeatureID(Resource.class) == Resource.RESOURCE__IS_LOADED) {
 						fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 
-						Aggregator aggregator = (Aggregator) ((Resource) notification.getNotifier()).getResourceSet().getResources().get(
-							0).getContents().get(0);
+						ResourceSet resourceSet = ((Resource) notification.getNotifier()).getResourceSet();
+
+						// if the resource is already excluded from the resource set, ignore this notification
+						if(resourceSet == null)
+							return;
+
+						Aggregator aggregator = (Aggregator) resourceSet.getResources().get(0).getContents().get(0);
 
 						for(MetadataRepositoryReference mdr : aggregator.getAllMetadataRepositoryReferences(true))
 							fireNotifyChanged(new ViewerNotification(notification, mdr, false, true));
