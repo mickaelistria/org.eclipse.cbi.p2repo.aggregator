@@ -62,22 +62,22 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	private static IMatchExpression<IInstallableUnit> createFilter(Collection<AvailableVersion> availableVersions,
 			List<Configuration> configs) {
-		StringBuilder filterBld = new StringBuilder();
+		StringBuilder configFilterBld = new StringBuilder();
 		if(!(configs == null || configs.isEmpty())) {
 			if(configs.size() > 1)
-				filterBld.append("(|");
+				configFilterBld.append("(|");
 
 			for(Configuration config : configs) {
-				filterBld.append("(&(osgi.os=");
-				filterBld.append(config.getOperatingSystem().getLiteral());
-				filterBld.append(")(osgi.ws=");
-				filterBld.append(config.getWindowSystem().getLiteral());
-				filterBld.append(")(osgi.arch=");
-				filterBld.append(config.getArchitecture().getLiteral());
-				filterBld.append("))");
+				configFilterBld.append("(&(osgi.os=");
+				configFilterBld.append(config.getOperatingSystem().getLiteral());
+				configFilterBld.append(")(osgi.ws=");
+				configFilterBld.append(config.getWindowSystem().getLiteral());
+				configFilterBld.append(")(osgi.arch=");
+				configFilterBld.append(config.getArchitecture().getLiteral());
+				configFilterBld.append("))");
 			}
 			if(configs.size() > 1)
-				filterBld.append(')');
+				configFilterBld.append(')');
 		}
 
 		IMatchExpression<IInstallableUnit> inheritedFilter = null;
@@ -90,22 +90,30 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 			}
 		}
 
+		StringBuilder filterBld = new StringBuilder(inheritedFilter != null
+				? inheritedFilter.toString()
+				: "");
+		Object[] parameters = new Object[(inheritedFilter != null
+				? inheritedFilter.getParameters().length
+				: 0) + (configFilterBld.length() > 0
+				? 1
+				: 0)];
+
+		int paramIdx = 0;
 		if(inheritedFilter != null) {
-			if(filterBld.length() > 0) {
-				filterBld.insert(0, "(&");
-				filterBld.append(inheritedFilter);
-				filterBld.append(')');
-			}
-			else
-				filterBld.append(inheritedFilter);
+			for(Object param : inheritedFilter.getParameters())
+				parameters[paramIdx++] = param;
+		}
+
+		if(configFilterBld.length() > 0) {
+			if(inheritedFilter != null)
+				filterBld.append(" && ");
+			filterBld.append("properties ~= $" + paramIdx);
+			parameters[paramIdx] = ExpressionUtil.parseLDAP(configFilterBld.toString());
 		}
 
 		if(filterBld.length() > 0)
-			return ExpressionUtil.getFactory().matchExpression(ExpressionUtil.parse(filterBld.toString()),
-			// we know that our filter does not introduce any parameters - we can safely pass only inherited params
-			inheritedFilter != null
-					? inheritedFilter.getParameters()
-					: new Object[0]);
+			return ExpressionUtil.getFactory().matchExpression(ExpressionUtil.parse(filterBld.toString()), parameters);
 
 		return null;
 	}
