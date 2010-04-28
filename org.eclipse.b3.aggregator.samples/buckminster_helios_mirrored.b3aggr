@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<aggregator:Aggregator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aggregator="http://www.eclipse.org/b3/2010/aggregator/1.0.0" label="Galileo + Buckminster for Subversive" buildRoot="${user.home}/buckminster_subversive_mirror">
+<aggregator:Aggregator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aggregator="http://www.eclipse.org/b3/2010/aggregator/1.0.0" label="Helios + Buckminster for Subversive" buildRoot="${user.home}/buckminster_subversive_mirror">
   <configurations/>
   <configurations operatingSystem="linux" windowSystem="gtk"/>
   <configurations operatingSystem="macosx" windowSystem="cocoa"/>
