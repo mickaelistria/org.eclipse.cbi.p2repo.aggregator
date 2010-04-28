@@ -31,7 +31,7 @@ import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
-import org.eclipse.b3.aggregator.MappedUnit;
+import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.engine.Builder;
@@ -1250,7 +1250,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				}
 				if(object instanceof AvailableVersion) {
 					AvailableVersion av = (AvailableVersion) object;
-					MappedUnit mappedUnit = (MappedUnit) ((EObject) av).eContainer();
+					InstallableUnitRequest mappedUnit = (InstallableUnitRequest) ((EObject) av).eContainer();
 
 					IRequirement requiredCapability = MetadataFactory.createRequirement(
 						IInstallableUnit.NAMESPACE_IU_ID, mappedUnit.getName(), new VersionRange(
