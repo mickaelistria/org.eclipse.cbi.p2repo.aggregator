@@ -147,15 +147,18 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				synchronized(MetadataRepositoryResourceImpl.this) {
 					String myLocation = getURI().opaquePart();
 					Aggregator aggregator = getAggregator();
-					for(MetadataRepositoryReference repoRef : aggregator.getAllMetadataRepositoryReferences(true)) {
-						synchronized(repoRef) {
-							String refLocation = repoRef.getNature() + ":" + repoRef.getResolvedLocation();
-							if(myLocation.equals(refLocation)) {
-								repoRef.setMetadataRepository(mdr);
-								repoRef.onRepositoryLoad();
+
+					// check if the aggregator is still available - if not, it means that the resource has already been excluded
+					if(aggregator != null)
+						for(MetadataRepositoryReference repoRef : aggregator.getAllMetadataRepositoryReferences(true)) {
+							synchronized(repoRef) {
+								String refLocation = repoRef.getNature() + ":" + repoRef.getResolvedLocation();
+								if(myLocation.equals(refLocation)) {
+									repoRef.setMetadataRepository(mdr);
+									repoRef.onRepositoryLoad();
+								}
 							}
 						}
-					}
 				}
 
 				return status;
