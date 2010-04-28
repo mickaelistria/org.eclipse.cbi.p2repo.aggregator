@@ -95,7 +95,8 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 			}
 			if(enabledConfigs.size() > 1)
 				filterBld.append(')');
-			return ExpressionUtil.getFactory().matchExpression(ExpressionUtil.parse(filterBld.toString()));
+			return ExpressionUtil.getFactory().matchExpression(
+				ExpressionUtil.parse("properties ~= $0"), ExpressionUtil.parseLDAP(filterBld.toString()));
 		}
 		return null;
 	}
@@ -176,8 +177,12 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 											builder.addMappingExclusion(repository);
 											continue allIUs;
 										}
-										if(rule instanceof ValidConfigurationsRule)
+										if(rule instanceof ValidConfigurationsRule) {
+											if(filter != null)
+												throw new IllegalStateException(
+													"Only one configuration rule per IU name can be specified");
 											filter = createFilter(((ValidConfigurationsRule) rule).getValidConfigurations());
+										}
 									}
 								}
 								List<IInstallableUnit> units = preSelectedIUs.get(filter);
