@@ -451,7 +451,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	synchronized private void computeMatches() {
 		if(matchesDirty) {
 			org.eclipse.equinox.internal.p2.metadata.RequiredCapability rc = new org.eclipse.equinox.internal.p2.metadata.RequiredCapability(
-				getNamespace(), getName(), getRange(), getFilter(), getMin(), getMax(), isGreedy());
+				getNamespace(), getName(), getRange(), getFilter(), getMin(), getMax(), isGreedy(), getDescription());
 			super.setMatches(rc.getMatches());
 		}
 
