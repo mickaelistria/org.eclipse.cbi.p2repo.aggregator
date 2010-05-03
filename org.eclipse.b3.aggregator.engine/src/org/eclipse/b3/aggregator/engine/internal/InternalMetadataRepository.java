@@ -114,23 +114,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 	}
 
 	@Override
-	public String setProperty(String key, String newValue) {
-		String oldValue = null;
-		synchronized(this) {
-			oldValue = basicSetProperty(key, newValue);
-			if(oldValue == newValue || (oldValue != null && oldValue.equals(newValue)))
-				return oldValue;
-			save();
-		}
-		// force repository manager to reload this repository because it caches properties
-		MetadataRepositoryManager manager = (MetadataRepositoryManager) ServiceHelper.getService(
-			Activator.getContext(), IMetadataRepositoryManager.SERVICE_NAME);
-		if(manager.removeRepository(getLocation()))
-			manager.addRepository(this);
-		return oldValue;
-	}
-
-	private void save() {
+	public void save() {
 		File file = getActualLocation(getLocation(), XML_EXTENSION);
 		File jarFile = getActualLocation(getLocation(), JAR_EXTENSION);
 		boolean compress = "true".equalsIgnoreCase(getProperties().get(PROP_COMPRESSED)); //$NON-NLS-1$
@@ -169,5 +153,22 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_WRITE,
 				"Error saving metadata repository: " + getLocation(), e)); //$NON-NLS-1$
 		}
+	}
+
+	@Override
+	public String setProperty(String key, String newValue) {
+		String oldValue = null;
+		synchronized(this) {
+			oldValue = basicSetProperty(key, newValue);
+			if(oldValue == newValue || (oldValue != null && oldValue.equals(newValue)))
+				return oldValue;
+			save();
+		}
+		// force repository manager to reload this repository because it caches properties
+		MetadataRepositoryManager manager = (MetadataRepositoryManager) ServiceHelper.getService(
+			Activator.getContext(), IMetadataRepositoryManager.SERVICE_NAME);
+		if(manager.removeRepository(getLocation()))
+			manager.addRepository(this);
+		return oldValue;
 	}
 }
