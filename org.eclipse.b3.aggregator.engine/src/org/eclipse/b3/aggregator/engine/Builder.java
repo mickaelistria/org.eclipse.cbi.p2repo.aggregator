@@ -320,6 +320,9 @@ public class Builder extends AbstractCommand {
 			+ "(even if the repository is set to mirror artifacts by default)", metaVar = "<contributions>")
 	private String trustedContributions;
 
+	@Option(name = "--mavenResult", usage = "(Deprecated) Tells the aggregator to generate a hybrid repository that is compatible with p2 and maven2")
+	private Boolean mavenResult;
+
 	// End of deprecated options
 
 	@Argument
@@ -926,6 +929,9 @@ public class Builder extends AbstractCommand {
 								": contribution does not exist");
 				}
 			}
+
+			if(mavenResult != null)
+				aggregator.setMavenResult(mavenResult.booleanValue());
 
 			sendmail = aggregator.isSendmail();
 			buildLabel = aggregator.getLabel();
