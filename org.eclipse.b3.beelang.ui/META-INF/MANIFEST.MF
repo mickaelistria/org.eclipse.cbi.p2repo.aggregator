@@ -7,8 +7,7 @@ Bundle-SymbolicName: org.eclipse.b3.beelang.ui; singleton:=true
 Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.b3.beelang;visibility:=reexport,
- org.eclipse.xtext.ui.core,
- org.eclipse.xtext.ui.common,
+ org.eclipse.xtext.ui,
  org.eclipse.ui.editors;bundle-version="3.5.0",
  org.eclipse.ui.ide;bundle-version="3.5.0",
  org.eclipse.ui,
@@ -17,9 +16,10 @@ Require-Bundle: org.eclipse.b3.beelang;visibility:=reexport,
  org.eclipse.core.expressions;bundle-version="3.4.100",
  org.eclipse.ui.console;bundle-version="3.4.0",
  org.eclipse.b3.core,
- org.eclipse.b3.build
+ org.eclipse.b3.build,
+ org.eclipse.xtext.ui.shared
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.eclipse.b3.contentassist,
- org.eclipse.b3.contentassist.antlr
-Bundle-Activator: org.eclipse.b3.internal.BeeLangActivator
+Export-Package: org.eclipse.b3.ui.contentassist,
+ org.eclipse.b3.ui.contentassist.antlr
+Bundle-Activator: org.eclipse.b3.ui.internal.BeeLangActivator

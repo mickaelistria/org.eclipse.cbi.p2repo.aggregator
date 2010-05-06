@@ -17,6 +17,7 @@ import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.EffectiveUnitFacade;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.ResolutionInfo;
+import org.eclipse.b3.build.build.UnitProvider;
 import org.eclipse.b3.build.build.UnitResolutionInfo;
 import org.eclipse.b3.build.internal.B3BuildActivator;
 import org.eclipse.core.runtime.IStatus;
@@ -107,7 +108,7 @@ public class SimpleResolver {
 
 			// get the effective repositories to use for resolution
 			try {
-				IBuildUnitRepository repos = IBuildUnitRepository.class.cast(ereq.getContext().getValue(
+				UnitProvider repos = UnitProvider.class.cast(ereq.getContext().getValue(
 					B3BuildConstants.B3ENGINE_VAR_REPOSITORIES));
 				// note effective requirement has reference to the context to use
 				BuildUnit result = repos.resolve(ereq);
@@ -143,4 +144,5 @@ public class SimpleResolver {
 		unitAdapter.setAssociatedInfo(this, ri);
 		return ms;
 	}
+
 }

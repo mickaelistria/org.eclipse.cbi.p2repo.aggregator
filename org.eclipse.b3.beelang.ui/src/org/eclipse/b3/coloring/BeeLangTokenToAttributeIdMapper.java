@@ -1,7 +1,7 @@
 package org.eclipse.b3.coloring;
 
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.DefaultHighlightingConfiguration;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.antlr.DefaultAntlrTokenToAttributeIdMapper;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfiguration;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.DefaultAntlrTokenToAttributeIdMapper;
 
 public class BeeLangTokenToAttributeIdMapper extends DefaultAntlrTokenToAttributeIdMapper {
 	@Override

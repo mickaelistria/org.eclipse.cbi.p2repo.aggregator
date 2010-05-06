@@ -57,10 +57,11 @@ public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositor
 	 * BExecutionContext, org.eclipse.b3.build.build.RequiredCapability)
 	 */
 	@Override
-	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
+	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath)
+			throws Throwable {
 		BuildUnit result = null;
 		for(IBuildUnitRepository repo : getRepositories())
-			if((result = repo.resolve(ctx, requiredCapability)) != null)
+			if((result = repo.resolve(ctx, requiredCapability, unitPath)) != null)
 				return result;
 		return null;
 	}

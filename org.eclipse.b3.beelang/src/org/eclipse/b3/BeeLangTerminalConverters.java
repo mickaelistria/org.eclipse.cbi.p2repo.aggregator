@@ -16,6 +16,8 @@ import java.net.URISyntaxException;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.IGrammarAccess;
@@ -25,10 +27,9 @@ import org.eclipse.xtext.conversion.ValueConverterException;
 import org.eclipse.xtext.conversion.impl.AbstractDeclarativeValueConverterService;
 import org.eclipse.xtext.conversion.impl.AbstractNullSafeConverter;
 import org.eclipse.xtext.parsetree.AbstractNode;
-import org.eclipse.xtext.util.Strings;// 
+import org.eclipse.xtext.util.Strings;
+
 import com.google.inject.Inject;
-import org.eclipse.equinox.p2.metadata.Version;
-import org.eclipse.equinox.p2.metadata.VersionRange;
 
 /**
  * Converters for BeeLang terminals.
@@ -92,9 +93,14 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 						buf.append("\n");
 					buf.append(lines[i]);
 				}
-				return Strings.convertFromJavaString(buf.toString());
+				return Strings.convertFromJavaString(buf.toString(), true);
 			}
 		};
+	}
+
+	@Override
+	protected Grammar getGrammar() {
+		return grammar;
 	}
 
 	@ValueConverter(rule = "ID")
@@ -284,7 +290,7 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 
 			@Override
 			protected String internalToValue(String string, AbstractNode node) {
-				return Strings.convertFromJavaString(string.substring(1, string.length() - 1));
+				return Strings.convertFromJavaString(string.substring(1, string.length() - 1), true);
 			}
 		};
 	}
@@ -304,7 +310,7 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 					int truncate = string.startsWith("\"") && string.endsWith("\"")
 							? 1
 							: 0;
-					string = Strings.convertFromJavaString(string.substring(truncate, string.length() - truncate));
+					string = Strings.convertFromJavaString(string.substring(truncate, string.length() - truncate), true);
 
 					return new URI(string);
 				}
@@ -331,7 +337,7 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 				try {
 					char c = string.charAt(0);
 					if(c == '"' || c == '\"')
-						string = Strings.convertFromJavaString(string.substring(1, string.length() - 1));
+						string = Strings.convertFromJavaString(string.substring(1, string.length() - 1), true);
 
 					return Version.create(string);
 				}
@@ -358,7 +364,7 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 				try {
 					char c = string.charAt(0);
 					if(c == '"' || c == '\"')
-						string = Strings.convertFromJavaString(string.substring(1, string.length() - 1));
+						string = Strings.convertFromJavaString(string.substring(1, string.length() - 1), true);
 
 					return new VersionRange(string);
 				}
@@ -369,10 +375,5 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 			}
 
 		};
-	}
-
-	@Override
-	protected Grammar getGrammar() {
-		return grammar;
 	}
 }

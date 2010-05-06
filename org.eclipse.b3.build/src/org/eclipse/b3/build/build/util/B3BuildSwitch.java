@@ -168,6 +168,23 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Best Found Unit Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Best Found Unit Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBestFoundUnitProvider(BestFoundUnitProvider object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BExecution Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -593,23 +610,6 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Compound Best Found Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Compound Best Found Repository</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCompoundBestFoundRepository(CompoundBestFoundRepository object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Compound Build Result Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -661,6 +661,23 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Compound Unit Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Compound Unit Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompoundUnitProvider(CompoundUnitProvider object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Conditional Path Vector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -691,6 +708,23 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseContainerConfiguration(ContainerConfiguration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Delegating Unit Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Delegating Unit Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDelegatingUnitProvider(DelegatingUnitProvider object) {
 		return null;
 	}
 
@@ -793,6 +827,23 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseExecutionStackRepository(ExecutionStackRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>First Found Unit Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>First Found Unit Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFirstFoundUnitProvider(FirstFoundUnitProvider object) {
 		return null;
 	}
 
@@ -1069,40 +1120,6 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Repository Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Repository Configuration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRepositoryConfiguration(RepositoryConfiguration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Repository Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Repository Declaration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRepositoryDeclaration(RepositoryDeclaration object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Repository Handler</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1116,6 +1133,23 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseRepositoryHandler(RepositoryHandler object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository Unit Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository Unit Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRepositoryUnitProvider(RepositoryUnitProvider object) {
 		return null;
 	}
 
@@ -1171,74 +1205,6 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resolution Strategy</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resolution Strategy</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResolutionStrategy(ResolutionStrategy object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resolution Strategy Best</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resolution Strategy Best</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResolutionStrategyBest(ResolutionStrategyBest object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resolution Strategy First</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resolution Strategy First</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResolutionStrategyFirst(ResolutionStrategyFirst object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resolution Strategy Switch</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resolution Strategy Switch</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResolutionStrategySwitch(ResolutionStrategySwitch object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Simple Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1273,7 +1239,7 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Switch Repository</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Switch Unit Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
@@ -1281,11 +1247,11 @@ public class B3BuildSwitch<T> {
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Switch Repository</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Switch Unit Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSwitchRepository(SwitchRepository object) {
+	public T caseSwitchUnitProvider(SwitchUnitProvider object) {
 		return null;
 	}
 
@@ -1337,6 +1303,23 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseUnitNamePredicate(UnitNamePredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitProvider(UnitProvider object) {
 		return null;
 	}
 
@@ -1557,59 +1540,59 @@ public class B3BuildSwitch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.REPOSITORY_CONFIGURATION: {
-				RepositoryConfiguration repositoryConfiguration = (RepositoryConfiguration) theEObject;
-				T result = caseRepositoryConfiguration(repositoryConfiguration);
+			case B3BuildPackage.UNIT_PROVIDER: {
+				UnitProvider unitProvider = (UnitProvider) theEObject;
+				T result = caseUnitProvider(unitProvider);
 				if(result == null)
-					result = caseBExpression(repositoryConfiguration);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.REPOSITORY_DECLARATION: {
-				RepositoryDeclaration repositoryDeclaration = (RepositoryDeclaration) theEObject;
-				T result = caseRepositoryDeclaration(repositoryDeclaration);
-				if(result == null)
-					result = caseRepositoryConfiguration(repositoryDeclaration);
-				if(result == null)
-					result = caseBExpression(repositoryDeclaration);
+					result = caseBExpression(unitProvider);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.RESOLUTION_STRATEGY: {
-				ResolutionStrategy resolutionStrategy = (ResolutionStrategy) theEObject;
-				T result = caseResolutionStrategy(resolutionStrategy);
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER: {
+				RepositoryUnitProvider repositoryUnitProvider = (RepositoryUnitProvider) theEObject;
+				T result = caseRepositoryUnitProvider(repositoryUnitProvider);
 				if(result == null)
-					result = caseRepositoryConfiguration(resolutionStrategy);
+					result = caseUnitProvider(repositoryUnitProvider);
 				if(result == null)
-					result = caseBExpression(resolutionStrategy);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.RESOLUTION_STRATEGY_FIRST: {
-				ResolutionStrategyFirst resolutionStrategyFirst = (ResolutionStrategyFirst) theEObject;
-				T result = caseResolutionStrategyFirst(resolutionStrategyFirst);
-				if(result == null)
-					result = caseResolutionStrategy(resolutionStrategyFirst);
-				if(result == null)
-					result = caseRepositoryConfiguration(resolutionStrategyFirst);
-				if(result == null)
-					result = caseBExpression(resolutionStrategyFirst);
+					result = caseBExpression(repositoryUnitProvider);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.RESOLUTION_STRATEGY_BEST: {
-				ResolutionStrategyBest resolutionStrategyBest = (ResolutionStrategyBest) theEObject;
-				T result = caseResolutionStrategyBest(resolutionStrategyBest);
+			case B3BuildPackage.COMPOUND_UNIT_PROVIDER: {
+				CompoundUnitProvider compoundUnitProvider = (CompoundUnitProvider) theEObject;
+				T result = caseCompoundUnitProvider(compoundUnitProvider);
 				if(result == null)
-					result = caseResolutionStrategy(resolutionStrategyBest);
+					result = caseUnitProvider(compoundUnitProvider);
 				if(result == null)
-					result = caseRepositoryConfiguration(resolutionStrategyBest);
+					result = caseBExpression(compoundUnitProvider);
 				if(result == null)
-					result = caseBExpression(resolutionStrategyBest);
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.FIRST_FOUND_UNIT_PROVIDER: {
+				FirstFoundUnitProvider firstFoundUnitProvider = (FirstFoundUnitProvider) theEObject;
+				T result = caseFirstFoundUnitProvider(firstFoundUnitProvider);
+				if(result == null)
+					result = caseCompoundUnitProvider(firstFoundUnitProvider);
+				if(result == null)
+					result = caseUnitProvider(firstFoundUnitProvider);
+				if(result == null)
+					result = caseBExpression(firstFoundUnitProvider);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.BEST_FOUND_UNIT_PROVIDER: {
+				BestFoundUnitProvider bestFoundUnitProvider = (BestFoundUnitProvider) theEObject;
+				T result = caseBestFoundUnitProvider(bestFoundUnitProvider);
+				if(result == null)
+					result = caseCompoundUnitProvider(bestFoundUnitProvider);
+				if(result == null)
+					result = caseUnitProvider(bestFoundUnitProvider);
+				if(result == null)
+					result = caseBExpression(bestFoundUnitProvider);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -2002,19 +1985,6 @@ public class B3BuildSwitch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.COMPOUND_BEST_FOUND_REPOSITORY: {
-				CompoundBestFoundRepository compoundBestFoundRepository = (CompoundBestFoundRepository) theEObject;
-				T result = caseCompoundBestFoundRepository(compoundBestFoundRepository);
-				if(result == null)
-					result = caseCompoundBuildUnitRepository(compoundBestFoundRepository);
-				if(result == null)
-					result = caseBuildUnitRepository(compoundBestFoundRepository);
-				if(result == null)
-					result = caseIBuildUnitRepository(compoundBestFoundRepository);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
 			case B3BuildPackage.EXECUTION_STACK_REPOSITORY: {
 				ExecutionStackRepository executionStackRepository = (ExecutionStackRepository) theEObject;
 				T result = caseExecutionStackRepository(executionStackRepository);
@@ -2046,24 +2016,13 @@ public class B3BuildSwitch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.RESOLUTION_STRATEGY_SWITCH: {
-				ResolutionStrategySwitch resolutionStrategySwitch = (ResolutionStrategySwitch) theEObject;
-				T result = caseResolutionStrategySwitch(resolutionStrategySwitch);
+			case B3BuildPackage.SWITCH_UNIT_PROVIDER: {
+				SwitchUnitProvider switchUnitProvider = (SwitchUnitProvider) theEObject;
+				T result = caseSwitchUnitProvider(switchUnitProvider);
 				if(result == null)
-					result = caseRepositoryConfiguration(resolutionStrategySwitch);
+					result = caseUnitProvider(switchUnitProvider);
 				if(result == null)
-					result = caseBExpression(resolutionStrategySwitch);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.SWITCH_REPOSITORY: {
-				SwitchRepository switchRepository = (SwitchRepository) theEObject;
-				T result = caseSwitchRepository(switchRepository);
-				if(result == null)
-					result = caseBuildUnitRepository(switchRepository);
-				if(result == null)
-					result = caseIBuildUnitRepository(switchRepository);
+					result = caseBExpression(switchUnitProvider);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -2078,6 +2037,17 @@ public class B3BuildSwitch<T> {
 			case B3BuildPackage.BRANCH: {
 				Branch branch = (Branch) theEObject;
 				T result = caseBranch(branch);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.DELEGATING_UNIT_PROVIDER: {
+				DelegatingUnitProvider delegatingUnitProvider = (DelegatingUnitProvider) theEObject;
+				T result = caseDelegatingUnitProvider(delegatingUnitProvider);
+				if(result == null)
+					result = caseUnitProvider(delegatingUnitProvider);
+				if(result == null)
+					result = caseBExpression(delegatingUnitProvider);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

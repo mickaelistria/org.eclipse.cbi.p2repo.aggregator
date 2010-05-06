@@ -28,10 +28,9 @@ BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT) : {build::Be
 	(	(functions += Function) 
 	| 	(concerns += Concern_Named)
 	|	('properties'  propertySets += PropertySet_Named)
-//	|   (expressions += TopLevelExpression ';') // To be discussed (code completion shows too much)
 	|   (buildUnits += BuildUnit)
-	|   ('repositories' '{' (repositories += RepositoryConfiguration)* '}' )
-	
+	| 	(provider = TopLevelUnitProvider)
+	|   ('repositories' '{' (repositories += RepositoryHandler)* '}' )
 	)* 
 	 )
 	;
@@ -80,8 +79,8 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 			| (functions += Builder )			
 			| (functions += Function )			
 			//-- REPOSITORIES
-			| ('repositories' '{' (repositories+=RepositoryHandler)* '}' )
-			| ("resolution" '{' (resolutionConfig += RepositoryConfiguration)* '}')
+			| ('repositories' '{' (repositories += RepositoryHandler)* '}' )
+			| (provider = TopLevelUnitProvider)
 			| ('properties'  propertySets += PropertySet_Named)
 			| ('containers' '{' containers += ContainerConfiguration* '}' )
 		)*
@@ -310,10 +309,12 @@ RepositoryHandler returns build::RepositoryHandler : {build::RepositoryHandler}
 	  handlerType = TypeRef
 	  name = ID
 	  '{'// TODO: need to use "one of each" rule after switch to 1.0 of Xtext
-	  	( "local" '=' local = URI ';'
-	  	| "remote" '=' remote = URI ';'
-	  	| "branches" branches += Branch (',' branches += Branch)* ';'
-	  	)*
+	  	(( ("local" '=' local = URI)
+	  	| ("remote" '=' remote = URI)
+//	  	| ("user" '=' user = STRING)
+//	  	| ("password" '=' password = STRING)
+	  	| ("branches" branches += Branch (',' branches += Branch)*)
+	  	) ';') *
 	  '}'
 	;
 enum BranchPointTypeLatest returns build::BranchPointType :  Latest="latest" ;
@@ -335,40 +336,40 @@ Branch returns build::Branch : {build::Branch}
 		| (branchPointType = BranchPointTypeNamed '=' branchPoint = EscapedQualifiedName ';')
 		| (branchPointType = BranchPointTypeTs '=' branchPoint = STRING ';')
 		)?
-		("update-policy" updateStrategy = UpdateStrategy ';')?
-		("include" include += NamePredicate (',' include += NamePredicate)*) ?
-		("exclude" exclude += NamePredicate (',' exclude += NamePredicate)*) ?
+		("update-policy" '=' updateStrategy = UpdateStrategy ';')?
+		("include" '=' include += NamePredicate (',' include += NamePredicate)* ';') ?
+		("exclude" '=' exclude += NamePredicate (',' exclude += NamePredicate)* ';') ?
 	'}')?
 ;
 	
-RepositoryConfiguration returns build::RepositoryConfiguration 
-	: RepositoryDeclaration
-	| ResolutionStrategy 
-	| ResolutionStrategySwitch
+UnitProvider returns build::UnitProvider 
+	: FirstFoundUnitProvider
+	| BestFoundUnitProvider 
+	| SwitchUnitProvider
+	| RepositoryUnitProvider
 	;
 
-RepositoryDeclaration returns build::RepositoryDeclaration : {build::RepositoryDeclaration}
+RepositoryUnitProvider returns build::RepositoryUnitProvider : {build::RepositoryUnitProvider}
 	(documentation = DOCUMENTATION)?
-//	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = BlockExpression)?
-	'repository' resolverType=TypeRef (contextBlock = BlockExpression)?
+	'repository' repository = [build::RepositoryHandler | ID] 
+		('{' "unit-path" '=' repositoryPathExpression = Expression ';' '}')?
 	;
-
-ResolutionStrategy returns build::ResolutionStrategy 
-	: ResolutionStrategyFirst
-	| ResolutionStrategyBest
+TopLevelUnitProvider returns build::FirstFoundUnitProvider : {build::FirstFoundUnitProvider}
+	(documentation = DOCUMENTATION)?
+	"resolution" '{' providers += UnitProvider (';' providers += UnitProvider)* '}'
 	;
 	
-ResolutionStrategyFirst returns build::ResolutionStrategyFirst : {build::ResolutionStrategyFirst}
+FirstFoundUnitProvider returns build::FirstFoundUnitProvider : {build::FirstFoundUnitProvider}
 	(documentation = DOCUMENTATION)?
-	 "select-first" '{' (repositories += RepositoryConfiguration)* '}'
+	 "select-first" '{' providers += UnitProvider (';' providers += UnitProvider)* '}'
 	;
 	
-ResolutionStrategyBest returns build::ResolutionStrategyBest : {build::ResolutionStrategyBest}
+BestFoundUnitProvider returns build::BestFoundUnitProvider : {build::BestFoundUnitProvider}
 	(documentation = DOCUMENTATION)?
-	"select-best" '{' (repositories += RepositoryConfiguration)* '}'
+	"select-best" '{' providers += UnitProvider (';' providers += UnitProvider)* '}'
 	;
 	
-ResolutionStrategySwitch returns build::ResolutionStrategySwitch : {build::ResolutionStrategySwitch}
+SwitchUnitProvider returns build::SwitchUnitProvider : {build::SwitchUnitProvider}
 	(documentation = DOCUMENTATION)?
 	"select-switch" repoSwitch=SelectSwitchExpression
 	; 
@@ -378,7 +379,7 @@ SelectSwitchExpression returns be::BSwitchExpression : {be::BSwitchExpression}
 	;
 			
 RepositorySelectCase returns be::BCase : {be::BCase} 
-	(("case" conditionExpr=Expression) | "default") ":" thenExpr = RepositoryConfiguration
+	(("case" conditionExpr=Expression) | "default") ":" thenExpr = UnitProvider
 	;
 	
 ContainerConfiguration returns build::ContainerConfiguration: {build::ContainerConfiguration} 
@@ -686,7 +687,9 @@ VariableValue returns  be::BExpression : {be::BVariableExpression}
 	;
 	
 KeywordVariables returns  be::BExpression : {be::BVariableExpression} 
-	name = ("input" | "output" | "source" | "properties" | "builder" | "unit" | "this")
+	name = ("input" | "output" | "source" | "properties" | "builder" | "unit" | "this"
+//		| "local" | "remote" | "user" | "password"
+		)
 	;
 
 FeatureCall returns be::BExpression :

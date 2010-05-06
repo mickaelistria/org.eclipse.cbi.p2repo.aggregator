@@ -175,13 +175,13 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute BUILD_UNIT__OUTPUT_LOCATION = eINSTANCE.getBuildUnit_OutputLocation();
 
 		/**
-		 * The meta object literal for the '<em><b>Resolution Config</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Provider</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference BUILD_UNIT__RESOLUTION_CONFIG = eINSTANCE.getBuildUnit_ResolutionConfig();
+		EReference BUILD_UNIT__PROVIDER = eINSTANCE.getBuildUnit_Provider();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}' class.
@@ -426,6 +426,15 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BEE_MODEL__REPOSITORIES = eINSTANCE.getBeeModel_Repositories();
+
+		/**
+		 * The meta object literal for the '<em><b>Provider</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference BEE_MODEL__PROVIDER = eINSTANCE.getBeeModel_Provider();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeHiveImpl <em>Bee Hive</em>}' class.
@@ -740,18 +749,6 @@ public interface B3BuildPackage extends EPackage {
 		EClass COMPOUND_FIRST_FOUND_REPOSITORY = eINSTANCE.getCompoundFirstFoundRepository();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CompoundBestFoundRepositoryImpl
-		 * <em>Compound Best Found Repository</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @see org.eclipse.b3.build.build.impl.CompoundBestFoundRepositoryImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundBestFoundRepository()
-		 * @generated
-		 */
-		EClass COMPOUND_BEST_FOUND_REPOSITORY = eINSTANCE.getCompoundBestFoundRepository();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl <em>Execution Stack Repository</em>}'
 		 * class.
 		 * <!-- begin-user-doc -->
@@ -824,16 +821,15 @@ public interface B3BuildPackage extends EPackage {
 		EReference UNIT_RESOLUTION_INFO__CONTEXT = eINSTANCE.getUnitResolutionInfo_Context();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl <em>Resolution Strategy Switch</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SwitchUnitProviderImpl <em>Switch Unit Provider</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategySwitch()
+		 * @see org.eclipse.b3.build.build.impl.SwitchUnitProviderImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSwitchUnitProvider()
 		 * @generated
 		 */
-		EClass RESOLUTION_STRATEGY_SWITCH = eINSTANCE.getResolutionStrategySwitch();
+		EClass SWITCH_UNIT_PROVIDER = eINSTANCE.getSwitchUnitProvider();
 
 		/**
 		 * The meta object literal for the '<em><b>Repo Switch</b></em>' containment reference feature.
@@ -842,27 +838,7 @@ public interface B3BuildPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EReference RESOLUTION_STRATEGY_SWITCH__REPO_SWITCH = eINSTANCE.getResolutionStrategySwitch_RepoSwitch();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SwitchRepositoryImpl <em>Switch Repository</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @see org.eclipse.b3.build.build.impl.SwitchRepositoryImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSwitchRepository()
-		 * @generated
-		 */
-		EClass SWITCH_REPOSITORY = eINSTANCE.getSwitchRepository();
-
-		/**
-		 * The meta object literal for the '<em><b>Repo Switch</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference SWITCH_REPOSITORY__REPO_SWITCH = eINSTANCE.getSwitchRepository_RepoSwitch();
+		EReference SWITCH_UNIT_PROVIDER__REPO_SWITCH = eINSTANCE.getSwitchUnitProvider_RepoSwitch();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl <em>Repository Handler</em>}' class.
@@ -930,6 +906,24 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute REPOSITORY_HANDLER__DOCUMENTATION = eINSTANCE.getRepositoryHandler_Documentation();
 
 		/**
+		 * The meta object literal for the '<em><b>User</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute REPOSITORY_HANDLER__USER = eINSTANCE.getRepositoryHandler_User();
+
+		/**
+		 * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute REPOSITORY_HANDLER__PASSWORD = eINSTANCE.getRepositoryHandler_Password();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BranchImpl <em>Branch</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -993,6 +987,27 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BRANCH__EXCLUDE = eINSTANCE.getBranch_Exclude();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.DelegatingUnitProviderImpl <em>Delegating Unit Provider</em>}'
+		 * class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.build.impl.DelegatingUnitProviderImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getDelegatingUnitProvider()
+		 * @generated
+		 */
+		EClass DELEGATING_UNIT_PROVIDER = eINSTANCE.getDelegatingUnitProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Delegate</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference DELEGATING_UNIT_PROVIDER__DELEGATE = eINSTANCE.getDelegatingUnitProvider_Delegate();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}' enum.
@@ -1200,25 +1215,15 @@ public interface B3BuildPackage extends EPackage {
 		EReference SYNCHRONIZATION__BUILDER_QUERIES = eINSTANCE.getSynchronization_BuilderQueries();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl <em>Repository Configuration</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.UnitProviderImpl <em>Unit Provider</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryConfiguration()
+		 * @see org.eclipse.b3.build.build.impl.UnitProviderImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitProvider()
 		 * @generated
 		 */
-		EClass REPOSITORY_CONFIGURATION = eINSTANCE.getRepositoryConfiguration();
-
-		/**
-		 * The meta object literal for the '<em><b>Cond Expr</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference REPOSITORY_CONFIGURATION__COND_EXPR = eINSTANCE.getRepositoryConfiguration_CondExpr();
+		EClass UNIT_PROVIDER = eINSTANCE.getUnitProvider();
 
 		/**
 		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
@@ -1227,89 +1232,81 @@ public interface B3BuildPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EAttribute REPOSITORY_CONFIGURATION__DOCUMENTATION = eINSTANCE.getRepositoryConfiguration_Documentation();
+		EAttribute UNIT_PROVIDER__DOCUMENTATION = eINSTANCE.getUnitProvider_Documentation();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl <em>Repository Declaration</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @see org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryDeclaration()
-		 * @generated
-		 */
-		EClass REPOSITORY_DECLARATION = eINSTANCE.getRepositoryDeclaration();
-
-		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute REPOSITORY_DECLARATION__LOCATION = eINSTANCE.getRepositoryDeclaration_Location();
-
-		/**
-		 * The meta object literal for the '<em><b>Resolver Type</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference REPOSITORY_DECLARATION__RESOLVER_TYPE = eINSTANCE.getRepositoryDeclaration_ResolverType();
-
-		/**
-		 * The meta object literal for the '<em><b>Context Block</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference REPOSITORY_DECLARATION__CONTEXT_BLOCK = eINSTANCE.getRepositoryDeclaration_ContextBlock();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyImpl <em>Resolution Strategy</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategy()
-		 * @generated
-		 */
-		EClass RESOLUTION_STRATEGY = eINSTANCE.getResolutionStrategy();
-
-		/**
-		 * The meta object literal for the '<em><b>Repositories</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference RESOLUTION_STRATEGY__REPOSITORIES = eINSTANCE.getResolutionStrategy_Repositories();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl <em>Resolution Strategy First</em>}'
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl <em>Repository Unit Provider</em>}'
 		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyFirst()
+		 * @see org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryUnitProvider()
 		 * @generated
 		 */
-		EClass RESOLUTION_STRATEGY_FIRST = eINSTANCE.getResolutionStrategyFirst();
+		EClass REPOSITORY_UNIT_PROVIDER = eINSTANCE.getRepositoryUnitProvider();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl <em>Resolution Strategy Best</em>}'
+		 * The meta object literal for the '<em><b>Repository Path Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION = eINSTANCE.getRepositoryUnitProvider_RepositoryPathExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Repository</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPOSITORY_UNIT_PROVIDER__REPOSITORY = eINSTANCE.getRepositoryUnitProvider_Repository();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CompoundUnitProviderImpl <em>Compound Unit Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.build.impl.CompoundUnitProviderImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundUnitProvider()
+		 * @generated
+		 */
+		EClass COMPOUND_UNIT_PROVIDER = eINSTANCE.getCompoundUnitProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Providers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference COMPOUND_UNIT_PROVIDER__PROVIDERS = eINSTANCE.getCompoundUnitProvider_Providers();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.FirstFoundUnitProviderImpl <em>First Found Unit Provider</em>}'
 		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyBest()
+		 * @see org.eclipse.b3.build.build.impl.FirstFoundUnitProviderImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getFirstFoundUnitProvider()
 		 * @generated
 		 */
-		EClass RESOLUTION_STRATEGY_BEST = eINSTANCE.getResolutionStrategyBest();
+		EClass FIRST_FOUND_UNIT_PROVIDER = eINSTANCE.getFirstFoundUnitProvider();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BestFoundUnitProviderImpl <em>Best Found Unit Provider</em>}'
+		 * class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.build.impl.BestFoundUnitProviderImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBestFoundUnitProvider()
+		 * @generated
+		 */
+		EClass BEST_FOUND_UNIT_PROVIDER = eINSTANCE.getBestFoundUnitProvider();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ContainerConfigurationImpl <em>Container Configuration</em>}'
@@ -2562,14 +2559,14 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_UNIT__OUTPUT_LOCATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Resolution Config</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Provider</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__RESOLUTION_CONFIG = VERSIONED_CAPABILITY_FEATURE_COUNT + 16;
+	int BUILD_UNIT__PROVIDER = VERSIONED_CAPABILITY_FEATURE_COUNT + 16;
 
 	/**
 	 * The number of structural features of the '<em>Build Unit</em>' class.
@@ -2702,61 +2699,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	int SYNCHRONIZATION = 13;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl <em>Repository Configuration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryConfiguration()
-	 * @generated
-	 */
-	int REPOSITORY_CONFIGURATION = 14;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl <em>Repository Declaration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryDeclaration()
-	 * @generated
-	 */
-	int REPOSITORY_DECLARATION = 15;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyImpl <em>Resolution Strategy</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategy()
-	 * @generated
-	 */
-	int RESOLUTION_STRATEGY = 16;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl <em>Resolution Strategy First</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyFirst()
-	 * @generated
-	 */
-	int RESOLUTION_STRATEGY_FIRST = 17;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl <em>Resolution Strategy Best</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyBest()
-	 * @generated
-	 */
-	int RESOLUTION_STRATEGY_BEST = 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ContainerConfigurationImpl <em>Container Configuration</em>}' class.
@@ -3607,14 +3549,15 @@ public interface B3BuildPackage extends EPackage {
 	int SYNCHRONIZATION_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitProviderImpl <em>Unit Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @see org.eclipse.b3.build.build.impl.UnitProviderImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitProvider()
 	 * @generated
-	 * @ordered
 	 */
-	int REPOSITORY_CONFIGURATION__COND_EXPR = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+	int UNIT_PROVIDER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -3624,87 +3567,28 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_CONFIGURATION__DOCUMENTATION = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+	int UNIT_PROVIDER__DOCUMENTATION = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Repository Configuration</em>' class.
+	 * The number of structural features of the '<em>Unit Provider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_CONFIGURATION_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
+	int UNIT_PROVIDER_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl <em>Repository Unit Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @see org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryUnitProvider()
 	 * @generated
-	 * @ordered
 	 */
-	int REPOSITORY_DECLARATION__COND_EXPR = REPOSITORY_CONFIGURATION__COND_EXPR;
-
-	/**
-	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_DECLARATION__DOCUMENTATION = REPOSITORY_CONFIGURATION__DOCUMENTATION;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_DECLARATION__LOCATION = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Resolver Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_DECLARATION__RESOLVER_TYPE = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Context Block</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_DECLARATION__CONTEXT_BLOCK = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Repository Declaration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_DECLARATION_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int RESOLUTION_STRATEGY__COND_EXPR = REPOSITORY_CONFIGURATION__COND_EXPR;
+	int REPOSITORY_UNIT_PROVIDER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -3714,77 +3598,48 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOLUTION_STRATEGY__DOCUMENTATION = REPOSITORY_CONFIGURATION__DOCUMENTATION;
+	int REPOSITORY_UNIT_PROVIDER__DOCUMENTATION = UNIT_PROVIDER__DOCUMENTATION;
 
 	/**
-	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Repository Path Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int RESOLUTION_STRATEGY__REPOSITORIES = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 0;
+	int REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION = UNIT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Resolution Strategy</em>' class.
+	 * The feature id for the '<em><b>Repository</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int RESOLUTION_STRATEGY_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
+	int REPOSITORY_UNIT_PROVIDER__REPOSITORY = UNIT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * The number of structural features of the '<em>Repository Unit Provider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int RESOLUTION_STRATEGY_FIRST__COND_EXPR = RESOLUTION_STRATEGY__COND_EXPR;
+	int REPOSITORY_UNIT_PROVIDER_FEATURE_COUNT = UNIT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundUnitProviderImpl <em>Compound Unit Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @see org.eclipse.b3.build.build.impl.CompoundUnitProviderImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundUnitProvider()
 	 * @generated
-	 * @ordered
 	 */
-	int RESOLUTION_STRATEGY_FIRST__DOCUMENTATION = RESOLUTION_STRATEGY__DOCUMENTATION;
-
-	/**
-	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int RESOLUTION_STRATEGY_FIRST__REPOSITORIES = RESOLUTION_STRATEGY__REPOSITORIES;
-
-	/**
-	 * The number of structural features of the '<em>Resolution Strategy First</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int RESOLUTION_STRATEGY_FIRST_FEATURE_COUNT = RESOLUTION_STRATEGY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int RESOLUTION_STRATEGY_BEST__COND_EXPR = RESOLUTION_STRATEGY__COND_EXPR;
+	int COMPOUND_UNIT_PROVIDER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -3794,27 +3649,109 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOLUTION_STRATEGY_BEST__DOCUMENTATION = RESOLUTION_STRATEGY__DOCUMENTATION;
+	int COMPOUND_UNIT_PROVIDER__DOCUMENTATION = UNIT_PROVIDER__DOCUMENTATION;
 
 	/**
-	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int RESOLUTION_STRATEGY_BEST__REPOSITORIES = RESOLUTION_STRATEGY__REPOSITORIES;
+	int COMPOUND_UNIT_PROVIDER__PROVIDERS = UNIT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Resolution Strategy Best</em>' class.
+	 * The number of structural features of the '<em>Compound Unit Provider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int RESOLUTION_STRATEGY_BEST_FEATURE_COUNT = RESOLUTION_STRATEGY_FEATURE_COUNT + 0;
+	int COMPOUND_UNIT_PROVIDER_FEATURE_COUNT = UNIT_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.FirstFoundUnitProviderImpl <em>First Found Unit Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.build.build.impl.FirstFoundUnitProviderImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getFirstFoundUnitProvider()
+	 * @generated
+	 */
+	int FIRST_FOUND_UNIT_PROVIDER = 17;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FIRST_FOUND_UNIT_PROVIDER__DOCUMENTATION = COMPOUND_UNIT_PROVIDER__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FIRST_FOUND_UNIT_PROVIDER__PROVIDERS = COMPOUND_UNIT_PROVIDER__PROVIDERS;
+
+	/**
+	 * The number of structural features of the '<em>First Found Unit Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FIRST_FOUND_UNIT_PROVIDER_FEATURE_COUNT = COMPOUND_UNIT_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BestFoundUnitProviderImpl <em>Best Found Unit Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.build.build.impl.BestFoundUnitProviderImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBestFoundUnitProvider()
+	 * @generated
+	 */
+	int BEST_FOUND_UNIT_PROVIDER = 18;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BEST_FOUND_UNIT_PROVIDER__DOCUMENTATION = COMPOUND_UNIT_PROVIDER__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BEST_FOUND_UNIT_PROVIDER__PROVIDERS = COMPOUND_UNIT_PROVIDER__PROVIDERS;
+
+	/**
+	 * The number of structural features of the '<em>Best Found Unit Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BEST_FOUND_UNIT_PROVIDER_FEATURE_COUNT = COMPOUND_UNIT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -5901,6 +5838,16 @@ public interface B3BuildPackage extends EPackage {
 	int BEE_MODEL__REPOSITORIES = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Provider</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_MODEL__PROVIDER = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Bee Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5908,7 +5855,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEE_MODEL_FEATURE_COUNT = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 6;
+	int BEE_MODEL_FEATURE_COUNT = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BeeHiveImpl <em>Bee Hive</em>}' class.
@@ -6452,7 +6399,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIBuildUnitRepository()
 	 * @generated
 	 */
-	int IBUILD_UNIT_REPOSITORY = 58;
+	int IBUILD_UNIT_REPOSITORY = 57;
 
 	/**
 	 * The number of structural features of the '<em>IBuild Unit Repository</em>' class.
@@ -6550,38 +6497,6 @@ public interface B3BuildPackage extends EPackage {
 	int COMPOUND_FIRST_FOUND_REPOSITORY_FEATURE_COUNT = COMPOUND_BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBestFoundRepositoryImpl <em>Compound Best Found Repository</em>}'
-	 * class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.build.build.impl.CompoundBestFoundRepositoryImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundBestFoundRepository()
-	 * @generated
-	 */
-	int COMPOUND_BEST_FOUND_REPOSITORY = 55;
-
-	/**
-	 * The feature id for the '<em><b>Repositories</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_BEST_FOUND_REPOSITORY__REPOSITORIES = COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES;
-
-	/**
-	 * The number of structural features of the '<em>Compound Best Found Repository</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_BEST_FOUND_REPOSITORY_FEATURE_COUNT = COMPOUND_BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl <em>Execution Stack Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6590,7 +6505,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getExecutionStackRepository()
 	 * @generated
 	 */
-	int EXECUTION_STACK_REPOSITORY = 56;
+	int EXECUTION_STACK_REPOSITORY = 55;
 
 	/**
 	 * The number of structural features of the '<em>Execution Stack Repository</em>' class.
@@ -6611,7 +6526,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSimpleRepository()
 	 * @generated
 	 */
-	int SIMPLE_REPOSITORY = 57;
+	int SIMPLE_REPOSITORY = 56;
 
 	/**
 	 * The feature id for the '<em><b>Bee Models</b></em>' reference list.
@@ -6642,7 +6557,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitResolutionInfo()
 	 * @generated
 	 */
-	int UNIT_RESOLUTION_INFO = 59;
+	int UNIT_RESOLUTION_INFO = 58;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -6685,25 +6600,15 @@ public interface B3BuildPackage extends EPackage {
 	int UNIT_RESOLUTION_INFO_FEATURE_COUNT = RESOLUTION_INFO_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl <em>Resolution Strategy Switch</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SwitchUnitProviderImpl <em>Switch Unit Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.build.build.impl.ResolutionStrategySwitchImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategySwitch()
+	 * @see org.eclipse.b3.build.build.impl.SwitchUnitProviderImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSwitchUnitProvider()
 	 * @generated
 	 */
-	int RESOLUTION_STRATEGY_SWITCH = 60;
-
-	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int RESOLUTION_STRATEGY_SWITCH__COND_EXPR = REPOSITORY_CONFIGURATION__COND_EXPR;
+	int SWITCH_UNIT_PROVIDER = 59;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -6713,7 +6618,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOLUTION_STRATEGY_SWITCH__DOCUMENTATION = REPOSITORY_CONFIGURATION__DOCUMENTATION;
+	int SWITCH_UNIT_PROVIDER__DOCUMENTATION = UNIT_PROVIDER__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Repo Switch</b></em>' containment reference.
@@ -6723,48 +6628,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOLUTION_STRATEGY_SWITCH__REPO_SWITCH = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 0;
+	int SWITCH_UNIT_PROVIDER__REPO_SWITCH = UNIT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Resolution Strategy Switch</em>' class.
+	 * The number of structural features of the '<em>Switch Unit Provider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int RESOLUTION_STRATEGY_SWITCH_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SwitchRepositoryImpl <em>Switch Repository</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.build.build.impl.SwitchRepositoryImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSwitchRepository()
-	 * @generated
-	 */
-	int SWITCH_REPOSITORY = 61;
-
-	/**
-	 * The feature id for the '<em><b>Repo Switch</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int SWITCH_REPOSITORY__REPO_SWITCH = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Switch Repository</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int SWITCH_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 1;
+	int SWITCH_UNIT_PROVIDER_FEATURE_COUNT = UNIT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl <em>Repository Handler</em>}' class.
@@ -6775,7 +6649,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryHandler()
 	 * @generated
 	 */
-	int REPOSITORY_HANDLER = 62;
+	int REPOSITORY_HANDLER = 60;
 
 	/**
 	 * The feature id for the '<em><b>Handler Type</b></em>' containment reference.
@@ -6838,6 +6712,26 @@ public interface B3BuildPackage extends EPackage {
 	int REPOSITORY_HANDLER__DOCUMENTATION = 5;
 
 	/**
+	 * The feature id for the '<em><b>User</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_HANDLER__USER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_HANDLER__PASSWORD = 7;
+
+	/**
 	 * The number of structural features of the '<em>Repository Handler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6845,7 +6739,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_HANDLER_FEATURE_COUNT = 6;
+	int REPOSITORY_HANDLER_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BranchImpl <em>Branch</em>}' class.
@@ -6856,7 +6750,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBranch()
 	 * @generated
 	 */
-	int BRANCH = 63;
+	int BRANCH = 61;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6929,6 +6823,47 @@ public interface B3BuildPackage extends EPackage {
 	int BRANCH_FEATURE_COUNT = 6;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.DelegatingUnitProviderImpl <em>Delegating Unit Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.build.build.impl.DelegatingUnitProviderImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getDelegatingUnitProvider()
+	 * @generated
+	 */
+	int DELEGATING_UNIT_PROVIDER = 62;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATING_UNIT_PROVIDER__DOCUMENTATION = UNIT_PROVIDER__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Delegate</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATING_UNIT_PROVIDER__DELEGATE = UNIT_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Delegating Unit Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATING_UNIT_PROVIDER_FEATURE_COUNT = UNIT_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6937,7 +6872,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUpdateStrategy()
 	 * @generated
 	 */
-	int UPDATE_STRATEGY = 64;
+	int UPDATE_STRATEGY = 63;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.BranchPointType <em>Branch Point Type</em>}' enum.
@@ -6948,7 +6883,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBranchPointType()
 	 * @generated
 	 */
-	int BRANCH_POINT_TYPE = 65;
+	int BRANCH_POINT_TYPE = 64;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -6959,7 +6894,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 66;
+	int VERSION_RANGE = 65;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -6970,7 +6905,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 67;
+	int VERSION = 66;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -6981,7 +6916,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 68;
+	int ISTATUS = 67;
 
 	/**
 	 * The meta object id for the '<em>Path Iterator</em>' data type.
@@ -6992,7 +6927,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathIterator()
 	 * @generated
 	 */
-	int PATH_ITERATOR = 69;
+	int PATH_ITERATOR = 68;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
@@ -7147,6 +7082,18 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBeeModel_PropertySets();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BeeModel#getProvider <em>Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Provider</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModel#getProvider()
+	 * @see #getBeeModel()
+	 * @generated
+	 */
+	EReference getBeeModel_Provider();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getRepositories <em>Repositories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7157,6 +7104,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBeeModel_Repositories();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BestFoundUnitProvider <em>Best Found Unit Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Best Found Unit Provider</em>'.
+	 * @see org.eclipse.b3.build.build.BestFoundUnitProvider
+	 * @generated
+	 */
+	EClass getBestFoundUnitProvider();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.Branch <em>Branch</em>}'.
@@ -8050,6 +8008,18 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_PropertySets();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuildUnit#getProvider <em>Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Provider</em>'.
+	 * @see org.eclipse.b3.build.build.BuildUnit#getProvider()
+	 * @see #getBuildUnit()
+	 * @generated
+	 */
+	EReference getBuildUnit_Provider();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getRepositories <em>Repositories</em>}
 	 * '.
 	 * <!-- begin-user-doc -->
@@ -8061,19 +8031,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBuildUnit_Repositories();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getResolutionConfig
-	 * <em>Resolution Config</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Resolution Config</em>'.
-	 * @see org.eclipse.b3.build.build.BuildUnit#getResolutionConfig()
-	 * @see #getBuildUnit()
-	 * @generated
-	 */
-	EReference getBuildUnit_ResolutionConfig();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}'.
@@ -8208,17 +8165,6 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getCapabilityPredicate_VersionRange();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundBestFoundRepository <em>Compound Best Found Repository</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Compound Best Found Repository</em>'.
-	 * @see org.eclipse.b3.build.build.CompoundBestFoundRepository
-	 * @generated
-	 */
-	EClass getCompoundBestFoundRepository();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundBuildResultReference <em>Compound Build Result Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8276,6 +8222,30 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCompoundFirstFoundRepository();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundUnitProvider <em>Compound Unit Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Compound Unit Provider</em>'.
+	 * @see org.eclipse.b3.build.build.CompoundUnitProvider
+	 * @generated
+	 */
+	EClass getCompoundUnitProvider();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.CompoundUnitProvider#getProviders
+	 * <em>Providers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Providers</em>'.
+	 * @see org.eclipse.b3.build.build.CompoundUnitProvider#getProviders()
+	 * @see #getCompoundUnitProvider()
+	 * @generated
+	 */
+	EReference getCompoundUnitProvider_Providers();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ConditionalPathVector <em>Conditional Path Vector</em>}'.
@@ -8374,6 +8344,29 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getContainerConfiguration_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.DelegatingUnitProvider <em>Delegating Unit Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Delegating Unit Provider</em>'.
+	 * @see org.eclipse.b3.build.build.DelegatingUnitProvider
+	 * @generated
+	 */
+	EClass getDelegatingUnitProvider();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.DelegatingUnitProvider#getDelegate <em>Delegate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Delegate</em>'.
+	 * @see org.eclipse.b3.build.build.DelegatingUnitProvider#getDelegate()
+	 * @see #getDelegatingUnitProvider()
+	 * @generated
+	 */
+	EReference getDelegatingUnitProvider_Delegate();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade
@@ -8555,6 +8548,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getExecutionStackRepository();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.FirstFoundUnitProvider <em>First Found Unit Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>First Found Unit Provider</em>'.
+	 * @see org.eclipse.b3.build.build.FirstFoundUnitProvider
+	 * @generated
+	 */
+	EClass getFirstFoundUnitProvider();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}'.
@@ -9047,91 +9051,6 @@ public interface B3BuildPackage extends EPackage {
 	EReference getProvidesPredicate_CapabilityPredicate();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryConfiguration <em>Repository Configuration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Repository Configuration</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryConfiguration
-	 * @generated
-	 */
-	EClass getRepositoryConfiguration();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryConfiguration#getCondExpr
-	 * <em>Cond Expr</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '<em>Cond Expr</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryConfiguration#getCondExpr()
-	 * @see #getRepositoryConfiguration()
-	 * @generated
-	 */
-	EReference getRepositoryConfiguration_CondExpr();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryConfiguration#getDocumentation <em>Documentation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Documentation</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryConfiguration#getDocumentation()
-	 * @see #getRepositoryConfiguration()
-	 * @generated
-	 */
-	EAttribute getRepositoryConfiguration_Documentation();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryDeclaration <em>Repository Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Repository Declaration</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryDeclaration
-	 * @generated
-	 */
-	EClass getRepositoryDeclaration();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getContextBlock
-	 * <em>Context Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '<em>Context Block</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryDeclaration#getContextBlock()
-	 * @see #getRepositoryDeclaration()
-	 * @generated
-	 */
-	EReference getRepositoryDeclaration_ContextBlock();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getLocation <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Location</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryDeclaration#getLocation()
-	 * @see #getRepositoryDeclaration()
-	 * @generated
-	 */
-	EAttribute getRepositoryDeclaration_Location();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryDeclaration#getResolverType
-	 * <em>Resolver Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '<em>Resolver Type</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryDeclaration#getResolverType()
-	 * @see #getRepositoryDeclaration()
-	 * @generated
-	 */
-	EReference getRepositoryDeclaration_ResolverType();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryHandler <em>Repository Handler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9205,6 +9124,18 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getRepositoryHandler_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getPassword <em>Password</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Password</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryHandler#getPassword()
+	 * @see #getRepositoryHandler()
+	 * @generated
+	 */
+	EAttribute getRepositoryHandler_Password();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getRemote <em>Remote</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9215,6 +9146,54 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRepositoryHandler_Remote();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getUser <em>User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>User</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryHandler#getUser()
+	 * @see #getRepositoryHandler()
+	 * @generated
+	 */
+	EAttribute getRepositoryHandler_User();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryUnitProvider <em>Repository Unit Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Repository Unit Provider</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryUnitProvider
+	 * @generated
+	 */
+	EClass getRepositoryUnitProvider();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getRepository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Repository</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryUnitProvider#getRepository()
+	 * @see #getRepositoryUnitProvider()
+	 * @generated
+	 */
+	EReference getRepositoryUnitProvider_Repository();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getRepositoryPathExpression
+	 * <em>Repository Path Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Repository Path Expression</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryUnitProvider#getRepositoryPathExpression()
+	 * @see #getRepositoryUnitProvider()
+	 * @generated
+	 */
+	EReference getRepositoryUnitProvider_RepositoryPathExpression();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RequiredCapability <em>Required Capability</em>}'.
@@ -9335,76 +9314,6 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getResolutionInfo_Status();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategy <em>Resolution Strategy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Resolution Strategy</em>'.
-	 * @see org.eclipse.b3.build.build.ResolutionStrategy
-	 * @generated
-	 */
-	EClass getResolutionStrategy();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.ResolutionStrategy#getRepositories
-	 * <em>Repositories</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Repositories</em>'.
-	 * @see org.eclipse.b3.build.build.ResolutionStrategy#getRepositories()
-	 * @see #getResolutionStrategy()
-	 * @generated
-	 */
-	EReference getResolutionStrategy_Repositories();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategyBest <em>Resolution Strategy Best</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Resolution Strategy Best</em>'.
-	 * @see org.eclipse.b3.build.build.ResolutionStrategyBest
-	 * @generated
-	 */
-	EClass getResolutionStrategyBest();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategyFirst <em>Resolution Strategy First</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Resolution Strategy First</em>'.
-	 * @see org.eclipse.b3.build.build.ResolutionStrategyFirst
-	 * @generated
-	 */
-	EClass getResolutionStrategyFirst();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionStrategySwitch <em>Resolution Strategy Switch</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Resolution Strategy Switch</em>'.
-	 * @see org.eclipse.b3.build.build.ResolutionStrategySwitch
-	 * @generated
-	 */
-	EClass getResolutionStrategySwitch();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.ResolutionStrategySwitch#getRepoSwitch
-	 * <em>Repo Switch</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '<em>Repo Switch</em>'.
-	 * @see org.eclipse.b3.build.build.ResolutionStrategySwitch#getRepoSwitch()
-	 * @see #getResolutionStrategySwitch()
-	 * @generated
-	 */
-	EReference getResolutionStrategySwitch_RepoSwitch();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SimpleRepository <em>Simple Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9439,27 +9348,28 @@ public interface B3BuildPackage extends EPackage {
 	EClass getSourcePredicate();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SwitchRepository <em>Switch Repository</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SwitchUnitProvider <em>Switch Unit Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Switch Repository</em>'.
-	 * @see org.eclipse.b3.build.build.SwitchRepository
+	 * @return the meta object for class '<em>Switch Unit Provider</em>'.
+	 * @see org.eclipse.b3.build.build.SwitchUnitProvider
 	 * @generated
 	 */
-	EClass getSwitchRepository();
+	EClass getSwitchUnitProvider();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.SwitchRepository#getRepoSwitch <em>Repo Switch</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.SwitchUnitProvider#getRepoSwitch <em>Repo Switch</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Repo Switch</em>'.
-	 * @see org.eclipse.b3.build.build.SwitchRepository#getRepoSwitch()
-	 * @see #getSwitchRepository()
+	 * @see org.eclipse.b3.build.build.SwitchUnitProvider#getRepoSwitch()
+	 * @see #getSwitchUnitProvider()
 	 * @generated
 	 */
-	EReference getSwitchRepository_RepoSwitch();
+	EReference getSwitchUnitProvider_RepoSwitch();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.Synchronization <em>Synchronization</em>}'.
@@ -9581,6 +9491,29 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUnitNamePredicate();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitProvider <em>Unit Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Unit Provider</em>'.
+	 * @see org.eclipse.b3.build.build.UnitProvider
+	 * @generated
+	 */
+	EClass getUnitProvider();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.UnitProvider#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see org.eclipse.b3.build.build.UnitProvider#getDocumentation()
+	 * @see #getUnitProvider()
+	 * @generated
+	 */
+	EAttribute getUnitProvider_Documentation();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitResolutionInfo <em>Unit Resolution Info</em>}'.

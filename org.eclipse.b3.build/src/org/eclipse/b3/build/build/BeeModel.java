@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.build.build.BeeModel#getBuildUnits <em>Build Units</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BeeModel#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BeeModel#getRepositories <em>Repositories</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BeeModel#getProvider <em>Provider</em>}</li>
  * </ul>
  * </p>
  * 
@@ -118,8 +119,24 @@ public interface BeeModel extends BChainedExpression {
 	EList<BPropertySet> getPropertySets();
 
 	/**
+	 * Returns the value of the '<em><b>Provider</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Provider</em>' containment reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Provider</em>' containment reference.
+	 * @see #setProvider(FirstFoundUnitProvider)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBeeModel_Provider()
+	 * @model containment="true"
+	 * @generated
+	 */
+	FirstFoundUnitProvider getProvider();
+
+	/**
 	 * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.build.RepositoryConfiguration}.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.RepositoryHandler}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more of a description here...
@@ -131,6 +148,18 @@ public interface BeeModel extends BChainedExpression {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RepositoryConfiguration> getRepositories();
+	EList<RepositoryHandler> getRepositories();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BeeModel#getProvider <em>Provider</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Provider</em>' containment reference.
+	 * @see #getProvider()
+	 * @generated
+	 */
+	void setProvider(FirstFoundUnitProvider value);
 
 } // BeeModel

@@ -58,6 +58,16 @@ public interface B3BuildFactory extends EFactory {
 	BeeModel createBeeModel();
 
 	/**
+	 * Returns a new object of class '<em>Best Found Unit Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Best Found Unit Provider</em>'.
+	 * @generated
+	 */
+	BestFoundUnitProvider createBestFoundUnitProvider();
+
+	/**
 	 * Returns a new object of class '<em>Branch</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,16 +228,6 @@ public interface B3BuildFactory extends EFactory {
 	CapabilityPredicate createCapabilityPredicate();
 
 	/**
-	 * Returns a new object of class '<em>Compound Best Found Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Compound Best Found Repository</em>'.
-	 * @generated
-	 */
-	CompoundBestFoundRepository createCompoundBestFoundRepository();
-
-	/**
 	 * Returns a new object of class '<em>Compound Build Result Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +266,16 @@ public interface B3BuildFactory extends EFactory {
 	 * @generated
 	 */
 	ContainerConfiguration createContainerConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Delegating Unit Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Delegating Unit Provider</em>'.
+	 * @generated
+	 */
+	DelegatingUnitProvider createDelegatingUnitProvider();
 
 	/**
 	 * Returns a new object of class '<em>Effective Builder Reference Facade</em>'.
@@ -326,6 +336,16 @@ public interface B3BuildFactory extends EFactory {
 	 * @generated
 	 */
 	ExecutionStackRepository createExecutionStackRepository();
+
+	/**
+	 * Returns a new object of class '<em>First Found Unit Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>First Found Unit Provider</em>'.
+	 * @generated
+	 */
+	FirstFoundUnitProvider createFirstFoundUnitProvider();
 
 	/**
 	 * Returns a new object of class '<em>Implements Predicate</em>'.
@@ -418,16 +438,6 @@ public interface B3BuildFactory extends EFactory {
 	ProvidesPredicate createProvidesPredicate();
 
 	/**
-	 * Returns a new object of class '<em>Repository Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Repository Declaration</em>'.
-	 * @generated
-	 */
-	RepositoryDeclaration createRepositoryDeclaration();
-
-	/**
 	 * Returns a new object of class '<em>Repository Handler</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -436,6 +446,16 @@ public interface B3BuildFactory extends EFactory {
 	 * @generated
 	 */
 	RepositoryHandler createRepositoryHandler();
+
+	/**
+	 * Returns a new object of class '<em>Repository Unit Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Repository Unit Provider</em>'.
+	 * @generated
+	 */
+	RepositoryUnitProvider createRepositoryUnitProvider();
 
 	/**
 	 * Returns a new object of class '<em>Required Capability</em>'.
@@ -468,36 +488,6 @@ public interface B3BuildFactory extends EFactory {
 	ResolutionInfo createResolutionInfo();
 
 	/**
-	 * Returns a new object of class '<em>Resolution Strategy Best</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Resolution Strategy Best</em>'.
-	 * @generated
-	 */
-	ResolutionStrategyBest createResolutionStrategyBest();
-
-	/**
-	 * Returns a new object of class '<em>Resolution Strategy First</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Resolution Strategy First</em>'.
-	 * @generated
-	 */
-	ResolutionStrategyFirst createResolutionStrategyFirst();
-
-	/**
-	 * Returns a new object of class '<em>Resolution Strategy Switch</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Resolution Strategy Switch</em>'.
-	 * @generated
-	 */
-	ResolutionStrategySwitch createResolutionStrategySwitch();
-
-	/**
 	 * Returns a new object of class '<em>Simple Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -518,14 +508,14 @@ public interface B3BuildFactory extends EFactory {
 	SourcePredicate createSourcePredicate();
 
 	/**
-	 * Returns a new object of class '<em>Switch Repository</em>'.
+	 * Returns a new object of class '<em>Switch Unit Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Switch Repository</em>'.
+	 * @return a new object of class '<em>Switch Unit Provider</em>'.
 	 * @generated
 	 */
-	SwitchRepository createSwitchRepository();
+	SwitchUnitProvider createSwitchUnitProvider();
 
 	/**
 	 * Returns a new object of class '<em>Synchronization</em>'.

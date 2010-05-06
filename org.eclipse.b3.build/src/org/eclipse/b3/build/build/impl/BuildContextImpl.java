@@ -27,18 +27,16 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.CompoundFirstFoundRepository;
+import org.eclipse.b3.build.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.build.IBuilder;
-import org.eclipse.b3.build.build.RepositoryConfiguration;
+import org.eclipse.b3.build.build.UnitProvider;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapter;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
-import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -95,28 +93,39 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 		// Define REPOSITORIES
 		// if unit defines repositories, define them in the outer context
 		//
-		EList<RepositoryConfiguration> reposDecls = beeModel.getRepositories();
-		if(reposDecls.size() > 0) {
-			// wrap in a first found
-			// TODO: Consider default repositories (workspace, target platform, etc)
-			// TODO: Control default repositories used via preferences
-			CompoundFirstFoundRepository firstFound = B3BuildFactory.eINSTANCE.createCompoundFirstFoundRepository();
-			EList<IBuildUnitRepository> repos = firstFound.getRepositories();
-			try {
-				for(RepositoryConfiguration config : reposDecls) {
-					repos.add((IBuildUnitRepository) config.evaluate(this));
-				}
+		FirstFoundUnitProvider up = beeModel.getProvider();
+		if(up != null) {
+			EList<UnitProvider> reposDecls = up.getProviders();
+			if(reposDecls.size() > 0) {
+				// wrap in a first found
+				// TODO: Consider default repositories (workspace, target platform, etc)
+				// TODO: Control default repositories used via preferences
+
+				// if evaluating this in root context, there may be a default already defined - check and
+				// reassign it.
+				if(this.containsValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES))
+					this.getLValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES).set(up);
+				else
+					this.defineValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, up, FirstFoundUnitProvider.class);
+
+				// CompoundFirstFoundRepository firstFound = B3BuildFactory.eINSTANCE.createCompoundFirstFoundRepository();
+				// EList<IBuildUnitRepository> repos = firstFound.getRepositories();
+				// try {
+				// for(UnitProvider config : reposDecls) {
+				// repos.add((IBuildUnitRepository) config.evaluate(this));
+				// }
+				// }
+				// catch(Throwable t) {
+				// throw new B3EngineException("Error while evaluating repositories - see details", t);
+				// }
+				// // if evaluating this in root context, there may be a default already defined - check and
+				// // reassign it.
+				// if(this.containsValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES))
+				// this.getLValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES).set(firstFound);
+				// else
+				// this.defineValue(
+				// B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, firstFound, CompoundFirstFoundRepository.class);
 			}
-			catch(Throwable t) {
-				throw new B3EngineException("Error while evaluating repositories - see details", t);
-			}
-			// if evaluating this in root context, there may be a default already defined - check and
-			// reassign it.
-			if(this.containsValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES))
-				this.getLValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES).set(firstFound);
-			else
-				this.defineValue(
-					B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, firstFound, CompoundFirstFoundRepository.class);
 		}
 		// Define all BUILD UNITS (currently only one - could easily have more than one)
 		for(BuildUnit u : beeModel.getBuildUnits())

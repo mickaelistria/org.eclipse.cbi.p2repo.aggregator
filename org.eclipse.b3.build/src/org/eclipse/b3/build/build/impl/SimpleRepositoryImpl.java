@@ -158,7 +158,8 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	 * BExecutionContext, org.eclipse.b3.build.build.RequiredCapability)
 	 */
 	@Override
-	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
+	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath)
+			throws Throwable {
 
 		// BRUTE FORCE IMPLMENTATION TODO: Optimize this
 		// This implementation create a new context for each bee model as the evaluation of capabilities

@@ -36,11 +36,14 @@
 				
 			<!-- the following fragment tries to use the Antlr Generator fragment which can be installed via update manager from http://download.itemis.com/updates/ -->
 			<!-- <fragment class="org.eclipse.xtext.generator.AntlrDelegatingFragment"/> -->
-			<fragment class="de.itemis.xtext.antlr.XtextAntlrGeneratorFragment">
-				<options backtrack="true" classSplitting="true"/>
-			   <!-- <options memoize="true" /> -->
-			</fragment>
-			
+<!--			<fragment class="de.itemis.xtext.antlr.XtextAntlrGeneratorFragment">
+				<options backtrack="true" classSplitting="true" />
+			</fragment> -->
+		
+			<!-- Overcome 65k limit of static initializer -->
+<fragment class="de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment">
+  <options backtrack="true" classSplitting="true"/>
+</fragment> 			
 			<!-- If you don't want to use the Antlr fragment for some reason, remove the antlr fragment and uncomment the packrat parser fragment below.
 			<fragment class="org.eclipse.xtext.generator.parser.PackratParserFragment"/>
 			 -->
@@ -53,7 +56,10 @@
 			
             
 			<!-- scoping API -->
+			<!-- scoping 0.8
 			<fragment class="org.eclipse.xtext.generator.scoping.JavaScopingFragment"/>
+			-->
+			<fragment class="org.eclipse.xtext.generator.scoping.ImportURIScopingFragment"/>
 			
 			<!-- formatter API -->
 			<fragment class="org.eclipse.xtext.generator.formatting.FormatterFragment"/>
@@ -70,7 +76,6 @@
 			<fragment class="org.eclipse.xtext.ui.generator.contentAssist.JavaBasedContentAssistFragment"/>
 			<fragment class="de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment">
 			   <options backtrack="true" classSplitting="true"/>
-			   <!-- <options memoize="true" /> -->
 			</fragment>
 			<!-- the following fragment tries to use the Antlr based content assist fragment which can be downloaded from http://www.itemis.com 
 			     and will be ignored if it's not available. -->

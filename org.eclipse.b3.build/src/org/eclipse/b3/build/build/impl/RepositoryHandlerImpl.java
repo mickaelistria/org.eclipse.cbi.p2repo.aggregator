@@ -16,10 +16,13 @@ import java.net.URI;
 
 import java.util.Collection;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.Branch;
+import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.RepositoryHandler;
 
+import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -47,6 +50,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl#getRemote <em>Remote</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl#getBranches <em>Branches</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl#getUser <em>User</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl#getPassword <em>Password</em>}</li>
  * </ul>
  * </p>
  * 
@@ -164,6 +169,50 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 	protected String documentation = DOCUMENTATION_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getUser() <em>User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getUser()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String USER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUser() <em>User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getUser()
+	 * @generated
+	 * @ordered
+	 */
+	protected String user = USER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPassword() <em>Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getPassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PASSWORD_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPassword() <em>Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getPassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected String password = PASSWORD_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -214,6 +263,10 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 				return getBranches();
 			case B3BuildPackage.REPOSITORY_HANDLER__DOCUMENTATION:
 				return getDocumentation();
+			case B3BuildPackage.REPOSITORY_HANDLER__USER:
+				return getUser();
+			case B3BuildPackage.REPOSITORY_HANDLER__PASSWORD:
+				return getPassword();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -264,6 +317,14 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 				return DOCUMENTATION_EDEFAULT == null
 						? documentation != null
 						: !DOCUMENTATION_EDEFAULT.equals(documentation);
+			case B3BuildPackage.REPOSITORY_HANDLER__USER:
+				return USER_EDEFAULT == null
+						? user != null
+						: !USER_EDEFAULT.equals(user);
+			case B3BuildPackage.REPOSITORY_HANDLER__PASSWORD:
+				return PASSWORD_EDEFAULT == null
+						? password != null
+						: !PASSWORD_EDEFAULT.equals(password);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -296,6 +357,12 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 				return;
 			case B3BuildPackage.REPOSITORY_HANDLER__DOCUMENTATION:
 				setDocumentation((String) newValue);
+				return;
+			case B3BuildPackage.REPOSITORY_HANDLER__USER:
+				setUser((String) newValue);
+				return;
+			case B3BuildPackage.REPOSITORY_HANDLER__PASSWORD:
+				setPassword((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -338,6 +405,12 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 				return;
 			case B3BuildPackage.REPOSITORY_HANDLER__DOCUMENTATION:
 				setDocumentation(DOCUMENTATION_EDEFAULT);
+				return;
+			case B3BuildPackage.REPOSITORY_HANDLER__USER:
+				setUser(USER_EDEFAULT);
+				return;
+			case B3BuildPackage.REPOSITORY_HANDLER__PASSWORD:
+				setPassword(PASSWORD_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -403,8 +476,41 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 	 * 
 	 * @generated
 	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public URI getRemote() {
 		return remote;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getUser() {
+		return user;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath)
+			throws Throwable {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -480,12 +586,40 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 	 * 
 	 * @generated
 	 */
+	public void setPassword(String newPassword) {
+		String oldPassword = password;
+		password = newPassword;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REPOSITORY_HANDLER__PASSWORD, oldPassword, password));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setRemote(URI newRemote) {
 		URI oldRemote = remote;
 		remote = newRemote;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.REPOSITORY_HANDLER__REMOTE, oldRemote, remote));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setUser(String newUser) {
+		String oldUser = user;
+		user = newUser;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REPOSITORY_HANDLER__USER, oldUser, user));
 	}
 
 	/**
@@ -508,6 +642,10 @@ public class RepositoryHandlerImpl extends EObjectImpl implements RepositoryHand
 		result.append(remote);
 		result.append(", documentation: ");
 		result.append(documentation);
+		result.append(", user: ");
+		result.append(user);
+		result.append(", password: ");
+		result.append(password);
 		result.append(')');
 		return result.toString();
 	}

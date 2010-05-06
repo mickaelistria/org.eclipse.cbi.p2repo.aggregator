@@ -196,12 +196,12 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createPathVector();
 			case B3BuildPackage.SYNCHRONIZATION:
 				return createSynchronization();
-			case B3BuildPackage.REPOSITORY_DECLARATION:
-				return createRepositoryDeclaration();
-			case B3BuildPackage.RESOLUTION_STRATEGY_FIRST:
-				return createResolutionStrategyFirst();
-			case B3BuildPackage.RESOLUTION_STRATEGY_BEST:
-				return createResolutionStrategyBest();
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER:
+				return createRepositoryUnitProvider();
+			case B3BuildPackage.FIRST_FOUND_UNIT_PROVIDER:
+				return createFirstFoundUnitProvider();
+			case B3BuildPackage.BEST_FOUND_UNIT_PROVIDER:
+				return createBestFoundUnitProvider();
 			case B3BuildPackage.CONTAINER_CONFIGURATION:
 				return createContainerConfiguration();
 			case B3BuildPackage.BUILD_CONTEXT:
@@ -266,22 +266,20 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createSourcePredicate();
 			case B3BuildPackage.COMPOUND_FIRST_FOUND_REPOSITORY:
 				return createCompoundFirstFoundRepository();
-			case B3BuildPackage.COMPOUND_BEST_FOUND_REPOSITORY:
-				return createCompoundBestFoundRepository();
 			case B3BuildPackage.EXECUTION_STACK_REPOSITORY:
 				return createExecutionStackRepository();
 			case B3BuildPackage.SIMPLE_REPOSITORY:
 				return createSimpleRepository();
 			case B3BuildPackage.UNIT_RESOLUTION_INFO:
 				return createUnitResolutionInfo();
-			case B3BuildPackage.RESOLUTION_STRATEGY_SWITCH:
-				return createResolutionStrategySwitch();
-			case B3BuildPackage.SWITCH_REPOSITORY:
-				return createSwitchRepository();
+			case B3BuildPackage.SWITCH_UNIT_PROVIDER:
+				return createSwitchUnitProvider();
 			case B3BuildPackage.REPOSITORY_HANDLER:
 				return createRepositoryHandler();
 			case B3BuildPackage.BRANCH:
 				return createBranch();
+			case B3BuildPackage.DELEGATING_UNIT_PROVIDER:
+				return createDelegatingUnitProvider();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -318,6 +316,17 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public BeeModel createBeeModel() {
 		BeeModelImpl beeModel = new BeeModelImpl();
 		return beeModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BestFoundUnitProvider createBestFoundUnitProvider() {
+		BestFoundUnitProviderImpl bestFoundUnitProvider = new BestFoundUnitProviderImpl();
+		return bestFoundUnitProvider;
 	}
 
 	/**
@@ -516,17 +525,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
-	public CompoundBestFoundRepository createCompoundBestFoundRepository() {
-		CompoundBestFoundRepositoryImpl compoundBestFoundRepository = new CompoundBestFoundRepositoryImpl();
-		return compoundBestFoundRepository;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public CompoundBuildResultReference createCompoundBuildResultReference() {
 		CompoundBuildResultReferenceImpl compoundBuildResultReference = new CompoundBuildResultReferenceImpl();
 		return compoundBuildResultReference;
@@ -563,6 +561,17 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public ContainerConfiguration createContainerConfiguration() {
 		ContainerConfigurationImpl containerConfiguration = new ContainerConfigurationImpl();
 		return containerConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public DelegatingUnitProvider createDelegatingUnitProvider() {
+		DelegatingUnitProviderImpl delegatingUnitProvider = new DelegatingUnitProviderImpl();
+		return delegatingUnitProvider;
 	}
 
 	/**
@@ -629,6 +638,17 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public ExecutionStackRepository createExecutionStackRepository() {
 		ExecutionStackRepositoryImpl executionStackRepository = new ExecutionStackRepositoryImpl();
 		return executionStackRepository;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public FirstFoundUnitProvider createFirstFoundUnitProvider() {
+		FirstFoundUnitProviderImpl firstFoundUnitProvider = new FirstFoundUnitProviderImpl();
+		return firstFoundUnitProvider;
 	}
 
 	/**
@@ -783,9 +803,9 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
-	public RepositoryDeclaration createRepositoryDeclaration() {
-		RepositoryDeclarationImpl repositoryDeclaration = new RepositoryDeclarationImpl();
-		return repositoryDeclaration;
+	public RepositoryHandler createRepositoryHandler() {
+		RepositoryHandlerImpl repositoryHandler = new RepositoryHandlerImpl();
+		return repositoryHandler;
 	}
 
 	/**
@@ -794,9 +814,9 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
-	public RepositoryHandler createRepositoryHandler() {
-		RepositoryHandlerImpl repositoryHandler = new RepositoryHandlerImpl();
-		return repositoryHandler;
+	public RepositoryUnitProvider createRepositoryUnitProvider() {
+		RepositoryUnitProviderImpl repositoryUnitProvider = new RepositoryUnitProviderImpl();
+		return repositoryUnitProvider;
 	}
 
 	/**
@@ -838,39 +858,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
-	public ResolutionStrategyBest createResolutionStrategyBest() {
-		ResolutionStrategyBestImpl resolutionStrategyBest = new ResolutionStrategyBestImpl();
-		return resolutionStrategyBest;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public ResolutionStrategyFirst createResolutionStrategyFirst() {
-		ResolutionStrategyFirstImpl resolutionStrategyFirst = new ResolutionStrategyFirstImpl();
-		return resolutionStrategyFirst;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public ResolutionStrategySwitch createResolutionStrategySwitch() {
-		ResolutionStrategySwitchImpl resolutionStrategySwitch = new ResolutionStrategySwitchImpl();
-		return resolutionStrategySwitch;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public SimpleRepository createSimpleRepository() {
 		SimpleRepositoryImpl simpleRepository = new SimpleRepositoryImpl();
 		return simpleRepository;
@@ -893,9 +880,9 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
-	public SwitchRepository createSwitchRepository() {
-		SwitchRepositoryImpl switchRepository = new SwitchRepositoryImpl();
-		return switchRepository;
+	public SwitchUnitProvider createSwitchUnitProvider() {
+		SwitchUnitProviderImpl switchUnitProvider = new SwitchUnitProviderImpl();
+		return switchUnitProvider;
 	}
 
 	/**

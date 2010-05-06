@@ -26,7 +26,7 @@ import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.xtext.parsetree.CompositeNode;
 import org.eclipse.xtext.parsetree.NodeAdapter;
 import org.eclipse.xtext.parsetree.NodeUtil;
-import org.eclipse.xtext.ui.common.editor.outline.ContentOutlineNode;
+import org.eclipse.xtext.ui.editor.outline.ContentOutlineNode;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
 public class ExecuteHandler extends AbstractHandler {

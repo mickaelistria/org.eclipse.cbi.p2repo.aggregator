@@ -17,8 +17,8 @@ import org.eclipse.xtext.parsetree.LeafNode;
 import org.eclipse.xtext.parsetree.NodeAdapter;
 import org.eclipse.xtext.parsetree.NodeUtil;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightedPositionAcceptor;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingCalculator;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 
 public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlightingCalculator {
 
@@ -57,6 +57,33 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 
 	public void highlightCapabilityPredicate(CapabilityPredicate cp, IHighlightedPositionAcceptor acceptor) {
 		highlightFirstFeature(cp, "versionRange", BeeLangHighlightConfiguration.VERSION_ID, acceptor);
+	}
+
+	// helper method that takes care of highlighting the first feature element
+	// of a semantic object using a given text style ID
+	private void highlightFirstFeature(EObject semobject, String featurename, String highlightID,
+			IHighlightedPositionAcceptor acceptor) {
+		// fetch the parse node for the entity
+		AbstractNode nodetohighlight = getFirstFeatureNode(semobject, featurename);
+		if(nodetohighlight == null) {
+			// TODO: WARNING - Could not find node
+			return;
+		}
+		acceptor.addPosition(nodetohighlight.getOffset(), nodetohighlight.getLength(), highlightID);
+	}
+
+	private void highlightObject(EObject semantic, String highlightID, IHighlightedPositionAcceptor acceptor) {
+		NodeAdapter adapter = NodeUtil.getNodeAdapter(semantic);
+		if(adapter == null) {
+			// TODO: WARNING - Could not find node
+			return;
+		}
+		CompositeNode node = adapter.getParserNode();
+		if(node == null) {
+			// TODO: WARNING - Could not find node
+			return;
+		}
+		acceptor.addPosition(node.getOffset(), node.getLength(), highlightID);
 	}
 
 	public void highlightPaths(PathVector v, IHighlightedPositionAcceptor acceptor) {
@@ -107,32 +134,5 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 			// DEBUG PRINT System.out.print("Highlight instance of: "+ o.getClass().getName() + "\n");
 		}
 
-	}
-
-	// helper method that takes care of highlighting the first feature element
-	// of a semantic object using a given text style ID
-	private void highlightFirstFeature(EObject semobject, String featurename, String highlightID,
-			IHighlightedPositionAcceptor acceptor) {
-		// fetch the parse node for the entity
-		AbstractNode nodetohighlight = getFirstFeatureNode(semobject, featurename);
-		if(nodetohighlight == null) {
-			// TODO: WARNING - Could not find node
-			return;
-		}
-		acceptor.addPosition(nodetohighlight.getOffset(), nodetohighlight.getLength(), highlightID);
-	}
-
-	private void highlightObject(EObject semantic, String highlightID, IHighlightedPositionAcceptor acceptor) {
-		NodeAdapter adapter = NodeUtil.getNodeAdapter(semantic);
-		if(adapter == null) {
-			// TODO: WARNING - Could not find node
-			return;
-		}
-		CompositeNode node = adapter.getParserNode();
-		if(node == null) {
-			// TODO: WARNING - Could not find node
-			return;
-		}
-		acceptor.addPosition(node.getOffset(), node.getLength(), highlightID);
 	}
 }

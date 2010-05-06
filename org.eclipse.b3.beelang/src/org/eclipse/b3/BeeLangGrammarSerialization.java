@@ -8,6 +8,17 @@ import org.eclipse.xtext.parsetree.reconstr.ITransientValueService;
 
 public class BeeLangGrammarSerialization implements ITransientValueService {
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.xtext.parsetree.reconstr.ITransientValueService#isCheckElementsIndividually(org.eclipse.emf.ecore.EObject,
+	 * org.eclipse.emf.ecore.EStructuralFeature)
+	 */
+	public boolean isCheckElementsIndividually(EObject owner, EStructuralFeature feature) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	public boolean isMixedList(EObject owner, EStructuralFeature feature) {
 		return false;
 	}

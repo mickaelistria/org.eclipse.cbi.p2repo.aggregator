@@ -61,7 +61,8 @@ public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implem
 	 * BExecutionContext, org.eclipse.b3.build.build.RequiredCapability)
 	 */
 	@Override
-	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
+	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath)
+			throws Throwable {
 		BuildContext bctx = ctx.getContext(BuildContext.class);
 		EffectiveUnitIterator uItor = new EffectiveUnitIterator(bctx);
 		while(uItor.hasNext()) {

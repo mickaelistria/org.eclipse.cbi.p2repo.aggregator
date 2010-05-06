@@ -14,7 +14,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.BuildUnitRepository;
-import org.eclipse.b3.build.build.EffectiveRequirementFacade;
+import org.eclipse.b3.build.build.RepositoryHandler;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -51,23 +51,35 @@ public abstract class BuildUnitRepositoryImpl extends EObjectImpl implements Bui
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This default implementation does nothing. Derived classes that needs to configure themselves from
+	 * the supplied data should do so. This empty method does not have to be called.
 	 * 
-	 * @generated NOT
+	 * @see org.eclipse.b3.build.core.IBuildUnitRepository#initialize(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 *      org.eclipse.b3.build.build.RepositoryHandler)
 	 */
-	public abstract BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable;
+	public void initialize(BExecutionContext ctx, RepositoryHandler handlerData) throws Throwable {
+		// This default implementation does nothing
+
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Default implementation that takes context and requirement from the effective requirement facade
-	 * and calls {@link BuildUnitRepositoryImpl #resolve(BExecutionContext, RequiredCapability) }.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
-	public BuildUnit resolve(EffectiveRequirementFacade effectiveRequirement) throws Throwable {
-		return resolve(effectiveRequirement.getContext(), effectiveRequirement.getRequirement());
-	}
+	public abstract BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath)
+			throws Throwable;
 
+	// /**
+	// * <!-- begin-user-doc -->
+	// * Default implementation that takes context and requirement from the effective requirement facade
+	// * and calls {@link BuildUnitRepositoryImpl #resolve(BExecutionContext, RequiredCapability) }.
+	// * <!-- end-user-doc -->
+	// *
+	// * @generated NOT
+	// */
+	// public BuildUnit resolve(EffectiveRequirementFacade effectiveRequirement) throws Throwable {
+	// return resolve(effectiveRequirement.getContext(), effectiveRequirement.getRequirement());
+	// }
 } // BuildUnitRepositoryImpl

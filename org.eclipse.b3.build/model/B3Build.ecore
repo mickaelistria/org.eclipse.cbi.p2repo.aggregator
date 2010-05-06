@@ -34,8 +34,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"
         defaultValueLiteral="resource:/"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resolutionConfig" upperBound="-1"
-        eType="#//RepositoryConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provider" eType="#//FirstFoundUnitProvider"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBuilder" abstract="true" interface="true"
       eSuperTypes="#//IProvidedCapabilityContainer ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IFunction">
@@ -227,26 +227,32 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="builderQueries" upperBound="-1"
         eType="#//BuilderQuery" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RepositoryConfiguration" abstract="true"
-      eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitProvider" abstract="true" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
+    <eOperations name="resolve" eType="#//BuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+      <eParameters name="requiredCapability" eType="#//RequiredCapability"/>
+    </eOperations>
+    <eOperations name="resolve" eType="#//BuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that matches the requirement, or null if no such unit can be found.&#xA;This method is the same as calling resolve(effective.getContext(), effective.getRequirement().&#xA;"/>
+      </eAnnotations>
+      <eParameters name="effectiveRequirement" eType="#//EffectiveRequirementFacade"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RepositoryDeclaration" eSuperTypes="#//RepositoryConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resolverType" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IType"
+  <eClassifiers xsi:type="ecore:EClass" name="RepositoryUnitProvider" eSuperTypes="#//UnitProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryPathExpression"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contextBlock" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repository" eType="#//RepositoryHandler"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResolutionStrategy" abstract="true"
-      eSuperTypes="#//RepositoryConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
-        eType="#//RepositoryConfiguration" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundUnitProvider" abstract="true"
+      eSuperTypes="#//UnitProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providers" upperBound="-1"
+        eType="#//UnitProvider" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResolutionStrategyFirst" eSuperTypes="#//ResolutionStrategy"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ResolutionStrategyBest" eSuperTypes="#//ResolutionStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FirstFoundUnitProvider" eSuperTypes="#//CompoundUnitProvider"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BestFoundUnitProvider" eSuperTypes="#//CompoundUnitProvider"/>
   <eClassifiers xsi:type="ecore:EClass" name="ContainerConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -466,7 +472,9 @@
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
-        eType="#//RepositoryConfiguration" containment="true"/>
+        eType="#//RepositoryHandler" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provider" eType="#//FirstFoundUnitProvider"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BeeHive">
     <eOperations name="getResolvedCapabilityContainer" eType="#//IProvidedCapabilityContainer">
@@ -534,12 +542,7 @@
     <eOperations name="resolve" eType="#//BuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
       <eParameters name="requiredCapability" eType="#//RequiredCapability"/>
-    </eOperations>
-    <eOperations name="resolve" eType="#//BuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that matches the requirement, or null if no such unit can be found.&#xA;This method is the same as calling resolve(effective.getContext(), effective.getRequirement().&#xA;"/>
-      </eAnnotations>
-      <eParameters name="effectiveRequirement" eType="#//EffectiveRequirementFacade"/>
+      <eParameters name="unitPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundBuildUnitRepository" abstract="true"
@@ -548,7 +551,6 @@
         eType="#//IBuildUnitRepository"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundFirstFoundRepository" eSuperTypes="#//CompoundBuildUnitRepository"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CompoundBestFoundRepository" eSuperTypes="#//CompoundBuildUnitRepository"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionStackRepository" eSuperTypes="#//BuildUnitRepository"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleRepository" eSuperTypes="#//BuildUnitRepository">
     <eStructuralFeatures xsi:type="ecore:EReference" name="beeModels" upperBound="-1"
@@ -562,19 +564,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="PathIterator" instanceClassName="org.eclipse.b3.build.core.PathIterator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ResolutionStrategySwitch" eSuperTypes="#//RepositoryConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="repoSwitch" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BSwitchExpression"
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchUnitProvider" eSuperTypes="#//UnitProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repoSwitch" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BSwitchExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SwitchRepository" eSuperTypes="#//BuildUnitRepository">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="repoSwitch" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BSwitchExpression"
-        containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The repoSwitch switches between instantiated repositories."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryHandler">
+    <eOperations name="resolve" eType="#//BuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+      <eParameters name="requiredCapability" eType="#//RequiredCapability"/>
+      <eParameters name="unitPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="handlerType" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -583,6 +583,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
         eType="#//Branch" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Branch">
     <eOperations name="getEffectiveUpdateStrategy" eType="#//UpdateStrategy">
@@ -620,5 +622,12 @@
     <eLiterals name="Tag" value="1"/>
     <eLiterals name="Timestamp" value="2"/>
     <eLiterals name="Revision" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DelegatingUnitProvider" eSuperTypes="#//UnitProvider">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A DelegatingUnitProvider is useful when setting up a structure of providers as it makes it possible to refer to a unit provider contained in a unit as the delegate is a non containment reference."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="delegate" lowerBound="1"
+        eType="#//UnitProvider"/>
   </eClassifiers>
 </ecore:EPackage>

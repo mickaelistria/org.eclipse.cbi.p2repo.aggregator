@@ -26,21 +26,20 @@ import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.Capability;
-import org.eclipse.b3.build.build.CompoundFirstFoundRepository;
 import org.eclipse.b3.build.build.ContainerConfiguration;
 import org.eclipse.b3.build.build.EffectiveCapabilityFacade;
 import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.EffectiveUnitFacade;
+import org.eclipse.b3.build.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
-import org.eclipse.b3.build.build.RepositoryConfiguration;
 import org.eclipse.b3.build.build.RepositoryHandler;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.Synchronization;
+import org.eclipse.b3.build.build.UnitProvider;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
-import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -76,7 +75,7 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getSourceLocation <em>Source Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getOutputLocation <em>Output Location</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getResolutionConfig <em>Resolution Config</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getProvider <em>Provider</em>}</li>
  * </ul>
  * </p>
  * 
@@ -294,15 +293,15 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	protected URI outputLocation = OUTPUT_LOCATION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getResolutionConfig() <em>Resolution Config</em>}' containment reference list.
+	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getResolutionConfig()
+	 * @see #getProvider()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RepositoryConfiguration> resolutionConfig;
+	protected FirstFoundUnitProvider provider;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -330,6 +329,26 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			ENotificationImpl notification = new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES, oldDefaultProperties,
 				newDefaultProperties);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetProvider(FirstFoundUnitProvider newProvider, NotificationChain msgs) {
+		FirstFoundUnitProvider oldProvider = provider;
+		provider = newProvider;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILD_UNIT__PROVIDER, oldProvider, newProvider);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -449,8 +468,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getSourceLocation();
 			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
 				return getOutputLocation();
-			case B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG:
-				return getResolutionConfig();
+			case B3BuildPackage.BUILD_UNIT__PROVIDER:
+				return getProvider();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -502,8 +521,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return ((InternalEList<?>) getContainers()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
 				return ((InternalEList<?>) getPropertySets()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG:
-				return ((InternalEList<?>) getResolutionConfig()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__PROVIDER:
+				return basicSetProvider(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -555,8 +574,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return OUTPUT_LOCATION_EDEFAULT == null
 						? outputLocation != null
 						: !OUTPUT_LOCATION_EDEFAULT.equals(outputLocation);
-			case B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG:
-				return resolutionConfig != null && !resolutionConfig.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__PROVIDER:
+				return provider != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -626,9 +645,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
 				setOutputLocation((URI) newValue);
 				return;
-			case B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG:
-				getResolutionConfig().clear();
-				getResolutionConfig().addAll((Collection<? extends RepositoryConfiguration>) newValue);
+			case B3BuildPackage.BUILD_UNIT__PROVIDER:
+				setProvider((FirstFoundUnitProvider) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -699,8 +717,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
 				setOutputLocation(OUTPUT_LOCATION_EDEFAULT);
 				return;
-			case B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG:
-				getResolutionConfig().clear();
+			case B3BuildPackage.BUILD_UNIT__PROVIDER:
+				setProvider((FirstFoundUnitProvider) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -799,21 +817,23 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		if(u.getDefaultProperties() != null)
 			u.getDefaultProperties().evaluateDefaults(outer, true);
 
-		// REPOSITORIES
-		// if unit defines repositories, define them in the outer context
+		// RESOLUTIONS
+		// if unit defines resolution strategy, define repository configuration in the outer context
 		//
-		EList<RepositoryConfiguration> reposDecls = u.getResolutionConfig();
-		if(reposDecls.size() > 0) {
-			// wrap in a first found
-			// TODO: Consider default repositories (workspace, target platform, etc)
-			// TODO: Control default repositories used via preferences
-			CompoundFirstFoundRepository firstFound = B3BuildFactory.eINSTANCE.createCompoundFirstFoundRepository();
-			EList<IBuildUnitRepository> repos = firstFound.getRepositories();
-			for(RepositoryConfiguration config : reposDecls) {
-				repos.add((IBuildUnitRepository) config.evaluate(outer));
+		FirstFoundUnitProvider up = u.getProvider();
+		if(up != null) {
+			EList<UnitProvider> reposDecls = up.getProviders();
+			if(reposDecls.size() > 0) {
+				// wrap in a first found
+				// TODO: Consider default repositories (workspace, target platform, etc)
+				// TODO: Control default repositories used via preferences
+				// CompoundFirstFoundRepository firstFound = B3BuildFactory.eINSTANCE.createCompoundFirstFoundRepository();
+				// EList<IBuildUnitRepository> repos = firstFound.getRepositories();
+				// for(UnitProvider config : reposDecls) {
+				// repos.add((IBuildUnitRepository) config.evaluate(outer));
+				// }
+				outer.defineValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, up, FirstFoundUnitProvider.class);
 			}
-			outer.defineValue(
-				B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, firstFound, CompoundFirstFoundRepository.class);
 		}
 
 		// remember the context use as parent for builder contexts
@@ -1005,6 +1025,16 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * 
 	 * @generated
 	 */
+	public FirstFoundUnitProvider getProvider() {
+		return provider;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EList<RepositoryHandler> getRepositories() {
 		if(repositories == null) {
 			repositories = new EObjectContainmentEList<RepositoryHandler>(
@@ -1025,20 +1055,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				RequiredCapability.class, this, B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES);
 		}
 		return requiredCapabilities;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<RepositoryConfiguration> getResolutionConfig() {
-		if(resolutionConfig == null) {
-			resolutionConfig = new EObjectContainmentEList<RepositoryConfiguration>(
-				RepositoryConfiguration.class, this, B3BuildPackage.BUILD_UNIT__RESOLUTION_CONFIG);
-		}
-		return resolutionConfig;
 	}
 
 	/**
@@ -1152,6 +1168,30 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION, oldOutputLocation, outputLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setProvider(FirstFoundUnitProvider newProvider) {
+		if(newProvider != provider) {
+			NotificationChain msgs = null;
+			if(provider != null)
+				msgs = ((InternalEObject) provider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.BUILD_UNIT__PROVIDER, null, msgs);
+			if(newProvider != null)
+				msgs = ((InternalEObject) newProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.BUILD_UNIT__PROVIDER, null, msgs);
+			msgs = basicSetProvider(newProvider, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILD_UNIT__PROVIDER, newProvider, newProvider));
 	}
 
 	/**

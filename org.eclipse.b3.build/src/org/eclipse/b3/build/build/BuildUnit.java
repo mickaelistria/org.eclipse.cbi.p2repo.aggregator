@@ -36,7 +36,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.BuildUnit#getResolutionConfig <em>Resolution Config</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getProvider <em>Provider</em>}</li>
  * </ul>
  * </p>
  * 
@@ -220,6 +220,22 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	EList<BPropertySet> getPropertySets();
 
 	/**
+	 * Returns the value of the '<em><b>Provider</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Provider</em>' containment reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Provider</em>' containment reference.
+	 * @see #setProvider(FirstFoundUnitProvider)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Provider()
+	 * @model containment="true"
+	 * @generated
+	 */
+	FirstFoundUnitProvider getProvider();
+
+	/**
 	 * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.build.build.RepositoryHandler}.
 	 * <!-- begin-user-doc -->
@@ -234,22 +250,6 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * @generated
 	 */
 	EList<RepositoryHandler> getRepositories();
-
-	/**
-	 * Returns the value of the '<em><b>Resolution Config</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.build.RepositoryConfiguration}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Resolution Config</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Resolution Config</em>' containment reference list.
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_ResolutionConfig()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<RepositoryConfiguration> getResolutionConfig();
 
 	/**
 	 * Returns the value of the '<em><b>Source Location</b></em>' attribute.
@@ -332,6 +332,18 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * @generated
 	 */
 	void setOutputLocation(URI value);
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getProvider <em>Provider</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Provider</em>' containment reference.
+	 * @see #getProvider()
+	 * @generated
+	 */
+	void setProvider(FirstFoundUnitProvider value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}' attribute.

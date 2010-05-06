@@ -38,37 +38,37 @@ public abstract class AbstractBeeLangRuntimeModule extends DefaultRuntimeModule 
 		return org.eclipse.b3.parseTreeConstruction.BeeLangParsetreeConstructor.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.XtextAntlrGeneratorFragment
+	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.antlr.IAntlrParser> bindIAntlrParser() {
 		return org.eclipse.b3.parser.antlr.BeeLangParser.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.XtextAntlrGeneratorFragment
+	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.ITokenToStringConverter> bindITokenToStringConverter() {
 		return org.eclipse.xtext.parser.antlr.AntlrTokenToStringConverter.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.XtextAntlrGeneratorFragment
+	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.antlr.IAntlrTokenFileProvider> bindIAntlrTokenFileProvider() {
 		return org.eclipse.b3.parser.antlr.BeeLangAntlrTokenFileProvider.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.XtextAntlrGeneratorFragment
+	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.antlr.Lexer> bindLexer() {
-		return org.eclipse.b3.parser.antlr.internal.InternalBeeLangLexer.class;
+		return org.eclipse.b3.parser.antlr.lexer.InternalBeeLangLexer.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.XtextAntlrGeneratorFragment
-	public com.google.inject.Provider<org.eclipse.b3.parser.antlr.internal.InternalBeeLangLexer> provideInternalBeeLangLexer() {
-		return org.eclipse.xtext.parser.antlr.LexerProvider.create(org.eclipse.b3.parser.antlr.internal.InternalBeeLangLexer.class);
+	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
+	public com.google.inject.Provider<org.eclipse.b3.parser.antlr.lexer.InternalBeeLangLexer> provideInternalBeeLangLexer() {
+		return org.eclipse.xtext.parser.antlr.LexerProvider.create(org.eclipse.b3.parser.antlr.lexer.InternalBeeLangLexer.class);
 	}
 
-	// contributed by de.itemis.xtext.antlr.XtextAntlrGeneratorFragment
+	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
 	public void configureRuntimeLexer(com.google.inject.Binder binder) {
-		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.parser.antlr.LexerBindings.RUNTIME)).to(org.eclipse.b3.parser.antlr.internal.InternalBeeLangLexer.class);
+		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.parser.antlr.LexerBindings.RUNTIME)).to(org.eclipse.b3.parser.antlr.lexer.InternalBeeLangLexer.class);
 	}
 
-	// contributed by de.itemis.xtext.antlr.XtextAntlrGeneratorFragment
+	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.antlr.ITokenDefProvider> bindITokenDefProvider() {
 		return org.eclipse.xtext.parser.antlr.AntlrTokenDefProvider.class;
 	}
@@ -78,22 +78,17 @@ public abstract class AbstractBeeLangRuntimeModule extends DefaultRuntimeModule 
 		return org.eclipse.b3.validation.BeeLangJavaValidator.class;
 	}
 
-	// contributed by org.eclipse.xtext.generator.exporting.SimpleNamesFragment
-	public Class<? extends org.eclipse.xtext.naming.IQualifiedNameProvider> bindIQualifiedNameProvider() {
-		return org.eclipse.xtext.naming.SimpleNameProvider.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.scoping.ImportURIScopingFragment
+	// contributed by org.eclipse.xtext.generator.scoping.AbstractScopingFragment
 	public Class<? extends org.eclipse.xtext.scoping.IScopeProvider> bindIScopeProvider() {
 		return org.eclipse.b3.scoping.BeeLangScopeProvider.class;
 	}
 
-	// contributed by org.eclipse.xtext.generator.scoping.ImportURIScopingFragment
+	// contributed by org.eclipse.xtext.generator.scoping.AbstractScopingFragment
 	public void configureIScopeProviderDelegate(com.google.inject.Binder binder) {
 		binder.bind(org.eclipse.xtext.scoping.IScopeProvider.class).annotatedWith(com.google.inject.name.Names.named("org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider.delegate")).to(org.eclipse.xtext.scoping.impl.SimpleLocalScopeProvider.class);
 	}
 
-	// contributed by org.eclipse.xtext.generator.scoping.ImportURIScopingFragment
+	// contributed by org.eclipse.xtext.generator.scoping.AbstractScopingFragment
 	public Class<? extends org.eclipse.xtext.scoping.IGlobalScopeProvider> bindIGlobalScopeProvider() {
 		return org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider.class;
 	}

@@ -14,6 +14,7 @@ import java.lang.reflect.Type;
 
 import java.net.URI;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -32,6 +33,8 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.build.build.RepositoryHandler#getRemote <em>Remote</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.RepositoryHandler#getBranches <em>Branches</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.RepositoryHandler#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.RepositoryHandler#getUser <em>User</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.RepositoryHandler#getPassword <em>Password</em>}</li>
  * </ul>
  * </p>
  * 
@@ -121,6 +124,22 @@ public interface RepositoryHandler extends EObject {
 	String getName();
 
 	/**
+	 * Returns the value of the '<em><b>Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Password</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Password</em>' attribute.
+	 * @see #setPassword(String)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepositoryHandler_Password()
+	 * @model
+	 * @generated
+	 */
+	String getPassword();
+
+	/**
 	 * Returns the value of the '<em><b>Remote</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -135,6 +154,31 @@ public interface RepositoryHandler extends EObject {
 	 * @generated
 	 */
 	URI getRemote();
+
+	/**
+	 * Returns the value of the '<em><b>User</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>User</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>User</em>' attribute.
+	 * @see #setUser(String)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepositoryHandler_User()
+	 * @model
+	 * @generated
+	 */
+	String getUser();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath) throws Throwable;
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryHandler#getDocumentation <em>Documentation</em>}' attribute.
@@ -185,6 +229,18 @@ public interface RepositoryHandler extends EObject {
 	void setName(String value);
 
 	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryHandler#getPassword <em>Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Password</em>' attribute.
+	 * @see #getPassword()
+	 * @generated
+	 */
+	void setPassword(String value);
+
+	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryHandler#getRemote <em>Remote</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,5 +251,17 @@ public interface RepositoryHandler extends EObject {
 	 * @generated
 	 */
 	void setRemote(URI value);
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryHandler#getUser <em>User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>User</em>' attribute.
+	 * @see #getUser()
+	 * @generated
+	 */
+	void setUser(String value);
 
 } // RepositoryHandler

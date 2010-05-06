@@ -17,12 +17,29 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.xtext.ui.core.DefaultLabelProvider;
+import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#labelProvider
  */
-public class BeeLangLabelProvider extends DefaultLabelProvider {
+public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
+	private String safeClassToString(Object o) {
+		return o == null
+				? "null"
+				: o.getClass().getName();
+	}
+
+	/*
+	 * String image(MyModel ele) {
+	 * return "MyModel.gif";
+	 * }
+	 */
+	private String safeToString(Object o) {
+		return (o == null)
+				? "null"
+				: o.toString();
+	}
+
 	String text(B3FunctionType ele) {
 		StringBuffer buf = new StringBuffer();
 		buf.append("type: (");
@@ -80,22 +97,5 @@ public class BeeLangLabelProvider extends DefaultLabelProvider {
 
 	String text(BVariableExpression ele) {
 		return "value of: " + ele.getName();
-	}
-
-	private String safeClassToString(Object o) {
-		return o == null
-				? "null"
-				: o.getClass().getName();
-	}
-
-	/*
-	 * String image(MyModel ele) {
-	 * return "MyModel.gif";
-	 * }
-	 */
-	private String safeToString(Object o) {
-		return (o == null)
-				? "null"
-				: o.toString();
 	}
 }

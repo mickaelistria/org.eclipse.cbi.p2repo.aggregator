@@ -12,42 +12,42 @@ package org.eclipse.b3.build.core;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.EffectiveRequirementFacade;
+import org.eclipse.b3.build.build.RepositoryHandler;
 import org.eclipse.b3.build.build.RequiredCapability;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Build Unit Repository</b></em>'.
- * <!-- end-user-doc -->
+ * This is the b3 main interface for a repository of Build Units.
+ * Instances of this interface are used to lookup build units.
+ * An implementor must have a default constructor.
+ * Note that long running tasks should pick up the progress monitor from the execution context.
  * 
- * 
- * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnitRepository()
- * @model abstract="true"
- * @generated
  */
 public interface IBuildUnitRepository {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Initializes a newly created build unit repository from a Repository Handler (which has all the required data
+	 * to make it possible to connect to a remote repository, perform local caching, etc.)
+	 * Note that a progress monitor is available in the ctx.
 	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 * @generated
+	 * @param ctx
+	 *            supplied primarily to enable picking up the relevant progress monitor
+	 * @param handlerData
+	 *            initialization data
+	 * @throws Throwable
 	 */
-	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable;
+	void initialize(BExecutionContext ctx, RepositoryHandler handlerData) throws Throwable;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that
-	 * matches the requirement, or null if no such unit can be found.
-	 * This method is the same as calling resolve(effective.getContext(), effective.getRequirement().
+	 * Returns a BuilUnit, or null if a build unit fulfilling the required capability can not be found.
+	 * The unitPath is a path from a 'root' where the caller believes that the build unit should be found.
+	 * The unitPath is relative to 'a branch'.
 	 * 
-	 * <!-- end-model-doc -->
-	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 * @generated
+	 * @param ctx
+	 *            supplied primarily to enable picking up the relevant progress monitor
+	 * @param requiredCapability
+	 *            contains all request details
+	 * @param unitPath
+	 *            relative path from a 'branch root' to repository 'file' representing the unit
 	 */
-	BuildUnit resolve(EffectiveRequirementFacade effectiveRequirement) throws Throwable;
+	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath) throws Throwable;
 
 } // BuildUnitRepository

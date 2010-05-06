@@ -33,21 +33,6 @@ public interface BuildUnitRepository extends EObject, IBuildUnitRepository {
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
-	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that matches the requirement, or null if
-	 * no such unit can be found.
-	 * This method is the same as calling resolve(effective.getContext(), effective.getRequirement().
-	 * 
-	 * <!-- end-model-doc -->
-	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 * @generated
-	 */
-	BuildUnit resolve(EffectiveRequirementFacade effectiveRequirement) throws Throwable;
+	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath) throws Throwable;
 
 } // BuildUnitRepository
