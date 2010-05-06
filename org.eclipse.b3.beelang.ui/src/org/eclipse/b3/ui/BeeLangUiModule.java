@@ -9,10 +9,12 @@ import org.eclipse.b3.coloring.BeeLangTokenToAttributeIdMapper;
 import org.eclipse.b3.outline.BeeLangOutlineNodeAdapterFactory;
 import org.eclipse.b3.ui.contentassist.BeeLangAutoEditStrategy;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.outline.actions.IContentOutlineNodeAdapterFactory;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
+import org.eclipse.xtext.ui.editor.validation.ValidatingEditorCallback;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -40,8 +42,11 @@ public class BeeLangUiModule extends org.eclipse.b3.ui.AbstractBeeLangUiModule {
 		return BeeLangSemanticHighlightingCalculator.class;
 	}
 
+	public Class<? extends IXtextEditorCallback> bindIXtextEditorCallback() {
+		return ValidatingEditorCallback.class;
+	}
+
 	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {
 		return BeeLangTokenToAttributeIdMapper.class;
 	}
-
 }
