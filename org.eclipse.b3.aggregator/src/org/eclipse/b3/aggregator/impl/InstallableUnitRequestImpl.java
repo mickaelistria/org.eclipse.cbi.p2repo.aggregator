@@ -669,8 +669,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		if(mdr == null || ((EObject) mdr).eIsProxy())
 			return null;
 
-		IQueryResult<IInstallableUnit> ius = mdr.query(QueryUtil.createCompoundQuery(
-			query, QueryUtil.createLatestIUQuery(), true), new NullProgressMonitor());
+		IQueryResult<IInstallableUnit> ius = mdr.query(QueryUtil.createLatestQuery(query), new NullProgressMonitor());
 
 		if(ius.isEmpty())
 			// TODO Why this? When does it happen that the latest IU query does not return a result?
