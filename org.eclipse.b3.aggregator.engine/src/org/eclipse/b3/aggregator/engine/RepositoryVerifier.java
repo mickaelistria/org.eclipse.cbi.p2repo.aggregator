@@ -73,14 +73,10 @@ public class RepositoryVerifier extends BuilderPhase {
 		return requestStatus.getExplanations();
 	}
 
-	private static IInstallableUnit[] getRootIUs(IMetadataRepository site, IProfile profile, String iuName,
-			Version version, IProgressMonitor monitor) throws CoreException {
+	private static IInstallableUnit[] getRootIUs(IMetadataRepository site, String iuName, Version version,
+			IProgressMonitor monitor) throws CoreException {
 		IQuery<IInstallableUnit> query = QueryUtil.createIUQuery(iuName, version);
-		IQueryResult<IInstallableUnit> roots = site.query(QueryUtil.createCompoundQuery(
-			query, QueryUtil.createLatestIUQuery(), true), monitor);
-
-		if(roots.isEmpty())
-			roots = profile.query(query, new NullProgressMonitor());
+		IQueryResult<IInstallableUnit> roots = site.query(query, monitor);
 
 		if(roots.isEmpty())
 			throw ExceptionUtils.fromMessage("Feature %s not found", iuName); //$NON-NLS-1$
@@ -151,8 +147,8 @@ public class RepositoryVerifier extends BuilderPhase {
 					profile = profileRegistry.addProfile(profileId, props);
 
 				IInstallableUnit[] rootArr = getRootIUs(
-					sourceRepo, profile, Builder.ALL_CONTRIBUTED_CONTENT_FEATURE,
-					Builder.ALL_CONTRIBUTED_CONTENT_VERSION, subMon.newChild(9));
+					sourceRepo, Builder.ALL_CONTRIBUTED_CONTENT_FEATURE, Builder.ALL_CONTRIBUTED_CONTENT_VERSION,
+					subMon.newChild(9));
 
 				// Add as root IU's to a request
 				ProfileChangeRequest request = new ProfileChangeRequest(profile);
