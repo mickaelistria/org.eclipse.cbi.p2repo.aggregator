@@ -42,8 +42,7 @@ public interface EnabledStatusProvider {
 	boolean isEnabled();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

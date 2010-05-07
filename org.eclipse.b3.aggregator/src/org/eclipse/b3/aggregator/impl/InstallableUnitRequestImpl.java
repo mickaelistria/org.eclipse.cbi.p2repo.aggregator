@@ -73,7 +73,7 @@ import org.eclipse.equinox.p2.query.QueryUtil;
  * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getVersionRange <em>Version Range</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getAvailableVersionsHeader <em>Available Versions Header</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getAvailableVersions <em>Available Versions </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getAvailableVersions <em>Available Versions</em>}</li>
  * </ul>
  * </p>
  * 
@@ -199,8 +199,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	protected VersionRange versionRange = VERSION_RANGE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAvailableVersionsHeader() <em>Available Versions Header</em>}' containment
-	 * reference.
+	 * The cached value of the '{@link #getAvailableVersionsHeader() <em>Available Versions Header</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

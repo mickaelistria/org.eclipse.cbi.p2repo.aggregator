@@ -87,8 +87,7 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	MavenItem map(String installableUnitID);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MavenMapping#getArtifactId <em>Artifact Id</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MavenMapping#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -110,8 +109,7 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	void setGroupId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MavenMapping#getNamePattern <em>Name Pattern</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MavenMapping#getNamePattern <em>Name Pattern</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

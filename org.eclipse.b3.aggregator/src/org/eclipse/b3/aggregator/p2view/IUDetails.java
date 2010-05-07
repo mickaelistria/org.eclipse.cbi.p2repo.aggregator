@@ -146,8 +146,7 @@ public interface IUDetails {
 	IUpdateDescriptor getUpdateDescriptor();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getCopyright <em>Copyright</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getCopyright <em>Copyright</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -158,8 +157,8 @@ public interface IUDetails {
 	void setCopyright(ICopyright value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicensesContainer
-	 * <em>Licenses Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicensesContainer <em>Licenses Container</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -171,8 +170,8 @@ public interface IUDetails {
 	void setLicensesContainer(Licenses value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getPropertiesContainer
-	 * <em>Properties Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getPropertiesContainer <em>Properties Container</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -195,8 +194,8 @@ public interface IUDetails {
 	void setProvidedCapabilitiesContainer(ProvidedCapabilities value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequirementsContainer
-	 * <em>Requirements Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequirementsContainer <em>Requirements Container</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -208,8 +207,8 @@ public interface IUDetails {
 	void setRequirementsContainer(Requirements value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getTouchpointsContainer
-	 * <em>Touchpoints Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getTouchpointsContainer <em>Touchpoints Container</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -220,8 +219,8 @@ public interface IUDetails {
 	void setTouchpointsContainer(Touchpoints value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getUpdateDescriptor
-	 * <em>Update Descriptor</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getUpdateDescriptor <em>Update Descriptor</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

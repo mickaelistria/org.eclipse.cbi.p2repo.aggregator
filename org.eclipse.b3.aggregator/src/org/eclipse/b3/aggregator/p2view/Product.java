@@ -99,8 +99,7 @@ public interface Product extends IUPresentationWithDetails {
 	Fragments getNotNullFragmentContainer();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Product#getBundleContainer
-	 * <em>Bundle Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Product#getBundleContainer <em>Bundle Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -111,8 +110,7 @@ public interface Product extends IUPresentationWithDetails {
 	void setBundleContainer(Bundles value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Product#getFeatureContainer
-	 * <em>Feature Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Product#getFeatureContainer <em>Feature Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -123,8 +121,8 @@ public interface Product extends IUPresentationWithDetails {
 	void setFeatureContainer(Features value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Product#getFragmentContainer
-	 * <em>Fragment Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Product#getFragmentContainer <em>Fragment Container</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

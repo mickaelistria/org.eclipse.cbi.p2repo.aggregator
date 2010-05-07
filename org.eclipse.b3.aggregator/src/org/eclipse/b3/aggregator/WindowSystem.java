@@ -54,7 +54,16 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COCOA(3, "Cocoa", "cocoa");
+	COCOA(3, "Cocoa", "cocoa"), /**
+	 * The '<em><b>Motif</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #MOTIF_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MOTIF(0, "Motif", "motif");
 
 	/**
 	 * The '<em><b>Win32</b></em>' literal value.
@@ -117,12 +126,27 @@ public enum WindowSystem implements Enumerator {
 	public static final int COCOA_VALUE = 3;
 
 	/**
+	 * The '<em><b>Motif</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Motif</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #MOTIF
+	 * @model name="Motif" literal="motif"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MOTIF_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Window System</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private static final WindowSystem[] VALUES_ARRAY = new WindowSystem[] { WIN32, GTK, CARBON, COCOA, };
+	private static final WindowSystem[] VALUES_ARRAY = new WindowSystem[] { WIN32, GTK, CARBON, COCOA, MOTIF, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Window System</b></em>' enumerators.

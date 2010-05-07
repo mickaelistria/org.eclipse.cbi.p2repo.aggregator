@@ -173,8 +173,7 @@ public interface Category extends IUPresentation {
 	boolean isNested();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getBundleContainer
-	 * <em>Bundle Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getBundleContainer <em>Bundle Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -185,8 +184,8 @@ public interface Category extends IUPresentation {
 	void setBundleContainer(Bundles value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getCategoryContainer
-	 * <em>Category Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getCategoryContainer <em>Category Container</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -197,8 +196,7 @@ public interface Category extends IUPresentation {
 	void setCategoryContainer(Categories value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getFeatureContainer
-	 * <em>Feature Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getFeatureContainer <em>Feature Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -209,8 +207,8 @@ public interface Category extends IUPresentation {
 	void setFeatureContainer(Features value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getFragmentContainer
-	 * <em>Fragment Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getFragmentContainer <em>Fragment Container</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -221,8 +219,7 @@ public interface Category extends IUPresentation {
 	void setFragmentContainer(Fragments value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getProductContainer
-	 * <em>Product Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getProductContainer <em>Product Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

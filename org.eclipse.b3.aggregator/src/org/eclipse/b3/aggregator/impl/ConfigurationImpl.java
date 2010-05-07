@@ -74,8 +74,7 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	protected static final OperatingSystem OPERATING_SYSTEM_EDEFAULT = OperatingSystem.WIN32;
 
 	/**
-	 * The offset of the flags representing the value of the '{@link #getOperatingSystem() <em>Operating System</em>}'
-	 * attribute.
+	 * The offset of the flags representing the value of the '{@link #getOperatingSystem() <em>Operating System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -84,8 +83,7 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	protected static final int OPERATING_SYSTEM_EFLAG_OFFSET = 1;
 
 	/**
-	 * The flags representing the default value of the '{@link #getOperatingSystem() <em>Operating System</em>}'
-	 * attribute.
+	 * The flags representing the default value of the '{@link #getOperatingSystem() <em>Operating System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -111,7 +109,7 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int OPERATING_SYSTEM_EFLAG = 0x3 << OPERATING_SYSTEM_EFLAG_OFFSET;
+	protected static final int OPERATING_SYSTEM_EFLAG = 0x7 << OPERATING_SYSTEM_EFLAG_OFFSET;
 
 	/**
 	 * The default value of the '{@link #getWindowSystem() <em>Window System</em>}' attribute.
@@ -125,14 +123,13 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	protected static final WindowSystem WINDOW_SYSTEM_EDEFAULT = WindowSystem.WIN32;
 
 	/**
-	 * The offset of the flags representing the value of the '{@link #getWindowSystem() <em>Window System</em>}'
-	 * attribute.
+	 * The offset of the flags representing the value of the '{@link #getWindowSystem() <em>Window System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int WINDOW_SYSTEM_EFLAG_OFFSET = 3;
+	protected static final int WINDOW_SYSTEM_EFLAG_OFFSET = 4;
 
 	/**
 	 * The flags representing the default value of the '{@link #getWindowSystem() <em>Window System</em>}' attribute.
@@ -161,7 +158,7 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int WINDOW_SYSTEM_EFLAG = 0x3 << WINDOW_SYSTEM_EFLAG_OFFSET;
+	protected static final int WINDOW_SYSTEM_EFLAG = 0x7 << WINDOW_SYSTEM_EFLAG_OFFSET;
 
 	/**
 	 * The default value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute.
@@ -175,14 +172,13 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	protected static final Architecture ARCHITECTURE_EDEFAULT = Architecture.X86;
 
 	/**
-	 * The offset of the flags representing the value of the '{@link #getArchitecture() <em>Architecture</em>}'
-	 * attribute.
+	 * The offset of the flags representing the value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ARCHITECTURE_EFLAG_OFFSET = 5;
+	protected static final int ARCHITECTURE_EFLAG_OFFSET = 7;
 
 	/**
 	 * The flags representing the default value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute.
@@ -210,7 +206,7 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ARCHITECTURE_EFLAG = 0x3 << ARCHITECTURE_EFLAG_OFFSET;
+	protected static final int ARCHITECTURE_EFLAG = 0x7 << ARCHITECTURE_EFLAG_OFFSET;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -42,8 +42,7 @@ public interface DescriptionProvider {
 	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.DescriptionProvider#getDescription <em>Description</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.DescriptionProvider#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

@@ -114,7 +114,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	boolean isLoaded();
 
 	/**
-	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList
 	 * <em>Installable Unit List</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -126,8 +126,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	void setInstallableUnitList(InstallableUnits value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded
-	 * <em>Loaded</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded <em>Loaded</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -138,7 +137,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	void setLoaded(boolean value);
 
 	/**
-	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository
 	 * <em>Metadata Repository</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -150,8 +149,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	void setMetadataRepository(MetadataRepository value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getName
-	 * <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -162,8 +160,8 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties
-	 * <em>Properties</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties <em>Properties</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

@@ -203,8 +203,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	protected static final PackedStrategy PACKED_STRATEGY_EDEFAULT = PackedStrategy.COPY;
 
 	/**
-	 * The offset of the flags representing the value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}'
-	 * attribute.
+	 * The offset of the flags representing the value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -213,8 +212,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	protected static final int PACKED_STRATEGY_EFLAG_OFFSET = 0;
 
 	/**
-	 * The flags representing the default value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}'
-	 * attribute.
+	 * The flags representing the default value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -336,8 +334,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	protected static final int MAVEN_RESULT_EFLAG = 1 << 7;
 
 	/**
-	 * The cached value of the '{@link #getValidationRepositories() <em>Validation Repositories</em>}' containment
-	 * reference list.
+	 * The cached value of the '{@link #getValidationRepositories() <em>Validation Repositories</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getValidationRepositories()

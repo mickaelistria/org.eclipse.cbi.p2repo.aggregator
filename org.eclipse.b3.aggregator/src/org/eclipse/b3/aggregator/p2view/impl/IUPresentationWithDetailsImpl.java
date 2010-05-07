@@ -33,15 +33,15 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getRequirementsContainer <em> Requirements Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getProvidedCapabilitiesContainer <em> Provided Capabilities
- * Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getRequirementsContainer <em>Requirements Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getProvidedCapabilitiesContainer <em>Provided Capabilities Container
+ * </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getPropertiesContainer <em>Properties Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getTouchpointsContainer <em> Touchpoints Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getTouchpointsContainer <em>Touchpoints Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getUpdateDescriptor <em>Update Descriptor</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getCopyright <em>Copyright</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getLicensesContainer <em>Licenses Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#isDetailsResolved <em>Details Resolved </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#isDetailsResolved <em>Details Resolved</em>}</li>
  * </ul>
  * </p>
  * 
@@ -49,8 +49,7 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
  */
 public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl implements IUPresentationWithDetails {
 	/**
-	 * The cached value of the '{@link #getRequirementsContainer() <em>Requirements Container</em>}' containment
-	 * reference.
+	 * The cached value of the '{@link #getRequirementsContainer() <em>Requirements Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -61,8 +60,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	protected Requirements requirementsContainer;
 
 	/**
-	 * The cached value of the '{@link #getProvidedCapabilitiesContainer() <em>Provided Capabilities Container</em>}'
-	 * containment reference.
+	 * The cached value of the '{@link #getProvidedCapabilitiesContainer() <em>Provided Capabilities Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getProvidedCapabilitiesContainer()

@@ -58,7 +58,25 @@ public enum Architecture implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IA64(3, "IA64", "ia64");
+	IA64(3, "IA64", "ia64"), /**
+	 * The '<em><b>IA64 32</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #IA64_32_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	IA64_32(4, "IA64_32", "ia64_32"), /**
+	 * The '<em><b>Sparc</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #SPARC_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SPARC(5, "Sparc", "sparc");
 
 	/**
 	 * The '<em><b>X86</b></em>' literal value.
@@ -121,12 +139,42 @@ public enum Architecture implements Enumerator {
 	public static final int IA64_VALUE = 3;
 
 	/**
+	 * The '<em><b>IA64 32</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>IA64 32</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #IA64_32
+	 * @model literal="ia64_32"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int IA64_32_VALUE = 4;
+
+	/**
+	 * The '<em><b>Sparc</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Sparc</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #SPARC
+	 * @model name="Sparc" literal="sparc"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SPARC_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Architecture</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private static final Architecture[] VALUES_ARRAY = new Architecture[] { X86, PPC, X86_64, IA64, };
+	private static final Architecture[] VALUES_ARRAY = new Architecture[] { X86, PPC, X86_64, IA64, IA64_32, SPARC, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Architecture</b></em>' enumerators.
@@ -154,6 +202,10 @@ public enum Architecture implements Enumerator {
 				return X86_64;
 			case IA64_VALUE:
 				return IA64;
+			case IA64_32_VALUE:
+				return IA64_32;
+			case SPARC_VALUE:
+				return SPARC;
 		}
 		return null;
 	}

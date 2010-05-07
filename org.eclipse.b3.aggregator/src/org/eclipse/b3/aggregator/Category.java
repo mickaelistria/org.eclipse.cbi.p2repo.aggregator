@@ -38,8 +38,7 @@ public interface Category extends MappedUnit {
 	String getLabelOverride();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Category#getLabelOverride <em>Label Override</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Category#getLabelOverride <em>Label Override</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

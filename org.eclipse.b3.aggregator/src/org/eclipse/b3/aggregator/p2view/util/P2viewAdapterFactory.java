@@ -293,8 +293,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.ChildrenProvider
-	 * <em>Children Provider</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.ChildrenProvider <em>Children Provider</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
@@ -375,8 +374,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.InstallableUnits
-	 * <em>Installable Units</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.InstallableUnits <em>Installable Units</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
@@ -390,8 +388,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability
-	 * <em>IProvided Capability</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability <em>IProvided Capability</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * 
@@ -404,8 +401,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IRequirement
-	 * <em>IRequirement</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IRequirement <em>IRequirement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -434,8 +430,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.IUPresentation
-	 * <em>IU Presentation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.IUPresentation <em>IU Presentation</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
@@ -477,7 +472,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Licenses <em>Licenses</em>} '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Licenses <em>Licenses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -492,7 +487,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView
 	 * <em>Metadata Repository Structured View</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null
 	 * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
@@ -604,8 +599,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Requirements
-	 * <em>Requirements</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Requirements <em>Requirements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -620,8 +614,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.RequirementWrapper
-	 * <em>Requirement Wrapper</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.RequirementWrapper <em>Requirement Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.

@@ -58,8 +58,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	protected static final VersionMatch VERSION_MATCH_EDEFAULT = VersionMatch.BELOW;
 
 	/**
-	 * The offset of the flags representing the value of the '{@link #getVersionMatch() <em>Version Match</em>}'
-	 * attribute.
+	 * The offset of the flags representing the value of the '{@link #getVersionMatch() <em>Version Match</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

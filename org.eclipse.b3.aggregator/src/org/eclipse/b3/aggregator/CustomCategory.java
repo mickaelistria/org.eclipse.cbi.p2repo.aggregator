@@ -46,8 +46,7 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	/**
 	 * Returns the value of the '<em><b>Features</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Feature}.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.Feature#getCategories
-	 * <em>Categories</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.Feature#getCategories <em>Categories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Features</em>' reference list isn't clear, there really should be more of a description here...
@@ -95,8 +94,7 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	String getLabel();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.CustomCategory#getDescription <em>Description</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.CustomCategory#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -107,8 +105,7 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	void setDescription(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.CustomCategory#getIdentifier <em>Identifier</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.CustomCategory#getIdentifier <em>Identifier</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

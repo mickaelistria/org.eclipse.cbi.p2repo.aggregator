@@ -94,8 +94,7 @@ public interface Configuration extends EnabledStatusProvider {
 	WindowSystem getWindowSystem();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Configuration#getArchitecture <em>Architecture</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Configuration#getArchitecture <em>Architecture</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -107,8 +106,7 @@ public interface Configuration extends EnabledStatusProvider {
 	void setArchitecture(Architecture value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Configuration#getOperatingSystem
-	 * <em>Operating System</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Configuration#getOperatingSystem <em>Operating System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -120,8 +118,7 @@ public interface Configuration extends EnabledStatusProvider {
 	void setOperatingSystem(OperatingSystem value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Configuration#getWindowSystem <em>Window System</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Configuration#getWindowSystem <em>Window System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

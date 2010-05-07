@@ -26,8 +26,7 @@ public interface Feature extends MappedUnit {
 	/**
 	 * Returns the value of the '<em><b>Categories</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.CustomCategory}.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.CustomCategory#getFeatures
-	 * <em>Features</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.CustomCategory#getFeatures <em>Features</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Categories</em>' reference list isn't clear, there really should be more of a description here...

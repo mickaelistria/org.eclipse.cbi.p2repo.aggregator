@@ -134,8 +134,7 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	void onRepositoryLoad();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getLocation
-	 * <em>Location</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getLocation <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -146,8 +145,8 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	void setLocation(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getMetadataRepository
-	 * <em>Metadata Repository</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getMetadataRepository <em>Metadata Repository</em>}'
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -158,8 +157,7 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	void setMetadataRepository(MetadataRepository value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getNature <em>Nature</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getNature <em>Nature</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

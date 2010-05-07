@@ -22,7 +22,7 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange <em>Version Range</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader <em>Available Versions Header </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader <em>Available Versions Header</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersions <em>Available Versions</em>}</li>
  * </ul>
  * </p>
@@ -50,7 +50,7 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 
 	/**
 	 * Returns the value of the '<em><b>Available Versions Header</b></em>' containment reference.
-	 * It is bidirectional and its opposite is ' {@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest
 	 * <em>Installable Unit Request</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -153,8 +153,8 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	void resolveAvailableVersions(boolean updateOnly);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader
-	 * <em>Available Versions Header</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader <em>Available Versions Header</em>}'
+	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -178,8 +178,7 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange
-	 * <em>Version Range</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

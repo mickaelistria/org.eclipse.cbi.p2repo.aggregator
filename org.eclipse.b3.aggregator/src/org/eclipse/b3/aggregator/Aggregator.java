@@ -95,8 +95,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	/**
 	 * Returns the value of the '<em><b>Contacts</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Contact}.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.Contact#getAggregator
-	 * <em>Aggregator</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.Contact#getAggregator <em>Aggregator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Contacts</em>' containment reference list isn't clear, there really should be more of a description here...
@@ -277,8 +276,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	boolean isSendmail();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#getBuildmaster <em>Buildmaster</em>}'
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#getBuildmaster <em>Buildmaster</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -311,8 +309,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	void setLabel(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#isMavenResult <em>Maven Result</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#isMavenResult <em>Maven Result</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -323,8 +320,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	void setMavenResult(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#getPackedStrategy <em>Packed Strategy</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#getPackedStrategy <em>Packed Strategy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getAvailableVersions <em>Available Versions</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest <em>Installable Unit Request </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest <em>Installable Unit Request</em>}</li>
  * </ul>
  * </p>
  * 
@@ -47,7 +47,7 @@ public interface AvailableVersionsHeader {
 
 	/**
 	 * Returns the value of the '<em><b>Installable Unit Request</b></em>' container reference.
-	 * It is bidirectional and its opposite is ' {@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader
 	 * <em>Available Versions Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>

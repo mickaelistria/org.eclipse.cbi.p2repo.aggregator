@@ -32,9 +32,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getChildren <em>Children</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getInstallableUnitList <em> Installable Unit List</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getProperties <em>Properties </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getMetadataRepository <em> Metadata Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getInstallableUnitList <em>Installable Unit List</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getProperties <em>Properties</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getMetadataRepository <em>Metadata Repository</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#isLoaded <em>Loaded</em>}</li>
  * </ul>
  * </p>

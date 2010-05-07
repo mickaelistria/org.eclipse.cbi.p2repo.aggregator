@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidConfigurationsRuleImpl#getValidConfigurations <em>Valid Configurations </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidConfigurationsRuleImpl#getValidConfigurations <em>Valid Configurations</em>}</li>
  * </ul>
  * </p>
  * 

@@ -179,8 +179,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	void removeUnit(MappedUnit unit);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MappedRepository#getCategoryPrefix
-	 * <em>Category Prefix</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MappedRepository#getCategoryPrefix <em>Category Prefix</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -191,8 +190,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	void setCategoryPrefix(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MappedRepository#isMirrorArtifacts
-	 * <em>Mirror Artifacts</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MappedRepository#isMirrorArtifacts <em>Mirror Artifacts</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

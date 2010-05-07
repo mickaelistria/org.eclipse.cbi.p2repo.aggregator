@@ -49,7 +49,34 @@ public enum OperatingSystem implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MAC_OSX(2, "MacOSX", "macosx");
+	MAC_OSX(2, "MacOSX", "macosx"), /**
+	 * The '<em><b>AIX</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #AIX_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	AIX(3, "AIX", "aix"), /**
+	 * The '<em><b>HPUX</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #HPUX_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	HPUX(4, "HPUX", "hpux"), /**
+	 * The '<em><b>Solaris</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #SOLARIS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SOLARIS(5, "Solaris", "solaris");
 
 	/**
 	 * The '<em><b>Win32</b></em>' literal value.
@@ -97,12 +124,58 @@ public enum OperatingSystem implements Enumerator {
 	public static final int MAC_OSX_VALUE = 2;
 
 	/**
+	 * The '<em><b>AIX</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>AIX</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #AIX
+	 * @model literal="aix"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int AIX_VALUE = 3;
+
+	/**
+	 * The '<em><b>HPUX</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>HPUX</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #HPUX
+	 * @model literal="hpux"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int HPUX_VALUE = 4;
+
+	/**
+	 * The '<em><b>Solaris</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Solaris</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #SOLARIS
+	 * @model name="Solaris" literal="solaris"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SOLARIS_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Operating System</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private static final OperatingSystem[] VALUES_ARRAY = new OperatingSystem[] { WIN32, LINUX, MAC_OSX, };
+	private static final OperatingSystem[] VALUES_ARRAY = new OperatingSystem[] {
+			WIN32, LINUX, MAC_OSX, AIX, HPUX, SOLARIS, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Operating System</b></em>' enumerators.
@@ -128,6 +201,12 @@ public enum OperatingSystem implements Enumerator {
 				return LINUX;
 			case MAC_OSX_VALUE:
 				return MAC_OSX;
+			case AIX_VALUE:
+				return AIX;
+			case HPUX_VALUE:
+				return HPUX;
+			case SOLARIS_VALUE:
+				return SOLARIS;
 		}
 		return null;
 	}

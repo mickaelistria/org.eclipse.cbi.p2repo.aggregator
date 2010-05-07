@@ -62,8 +62,7 @@ public interface Touchpoints {
 	ITouchpointType getTouchpointType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Touchpoints#getTouchpointType
-	 * <em>Touchpoint Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Touchpoints#getTouchpointType <em>Touchpoint Type</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

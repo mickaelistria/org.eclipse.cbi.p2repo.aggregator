@@ -125,18 +125,24 @@
     <eLiterals name="Win32" literal="win32"/>
     <eLiterals name="Linux" value="1" literal="linux"/>
     <eLiterals name="MacOSX" value="2" literal="macosx"/>
+    <eLiterals name="AIX" value="3" literal="aix"/>
+    <eLiterals name="HPUX" value="4" literal="hpux"/>
+    <eLiterals name="Solaris" value="5" literal="solaris"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="WindowSystem">
     <eLiterals name="Win32" literal="win32"/>
     <eLiterals name="GTK" value="1" literal="gtk"/>
     <eLiterals name="Carbon" value="2" literal="carbon"/>
     <eLiterals name="Cocoa" value="3" literal="cocoa"/>
+    <eLiterals name="Motif" literal="motif"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Architecture">
     <eLiterals name="X86" literal="x86"/>
     <eLiterals name="PPC" value="1" literal="ppc"/>
     <eLiterals name="X86_64" value="2" literal="x86_64"/>
     <eLiterals name="IA64" value="3" literal="ia64"/>
+    <eLiterals name="IA64_32" value="4" literal="ia64_32"/>
+    <eLiterals name="Sparc" value="5" literal="sparc"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PackedStrategy">
     <eLiterals name="Copy" literal="COPY"/>

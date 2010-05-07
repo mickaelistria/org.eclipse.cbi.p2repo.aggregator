@@ -398,8 +398,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	private boolean isInitialized = false;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
-	 * EPackage.Registry} by the package package URI value.
+	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+	 * package
+	 * package URI value.
 	 * <p>
 	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
 	 * package, or returns the registered package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2029,18 +2030,24 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.WIN32);
 		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.LINUX);
 		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.MAC_OSX);
+		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.AIX);
+		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.HPUX);
+		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.SOLARIS);
 
 		initEEnum(windowSystemEEnum, WindowSystem.class, "WindowSystem");
 		addEEnumLiteral(windowSystemEEnum, WindowSystem.WIN32);
 		addEEnumLiteral(windowSystemEEnum, WindowSystem.GTK);
 		addEEnumLiteral(windowSystemEEnum, WindowSystem.CARBON);
 		addEEnumLiteral(windowSystemEEnum, WindowSystem.COCOA);
+		addEEnumLiteral(windowSystemEEnum, WindowSystem.MOTIF);
 
 		initEEnum(architectureEEnum, Architecture.class, "Architecture");
 		addEEnumLiteral(architectureEEnum, Architecture.X86);
 		addEEnumLiteral(architectureEEnum, Architecture.PPC);
 		addEEnumLiteral(architectureEEnum, Architecture.X86_64);
 		addEEnumLiteral(architectureEEnum, Architecture.IA64);
+		addEEnumLiteral(architectureEEnum, Architecture.IA64_32);
+		addEEnumLiteral(architectureEEnum, Architecture.SPARC);
 
 		initEEnum(packedStrategyEEnum, PackedStrategy.class, "PackedStrategy");
 		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.COPY);

@@ -43,8 +43,8 @@ public interface IUPresentationWithDetails extends IUPresentation, IUDetails {
 	boolean isDetailsResolved();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails#isDetailsResolved
-	 * <em>Details Resolved</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails#isDetailsResolved <em>Details Resolved</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

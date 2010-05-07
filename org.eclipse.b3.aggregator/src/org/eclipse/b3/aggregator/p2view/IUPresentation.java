@@ -188,8 +188,7 @@ public interface IUPresentation {
 	Version getVersion();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getDescription
-	 * <em>Description</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -200,8 +199,7 @@ public interface IUPresentation {
 	void setDescription(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getFilter <em>Filter</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getFilter <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -224,8 +222,7 @@ public interface IUPresentation {
 	void setId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getInstallableUnit
-	 * <em>Installable Unit</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getInstallableUnit <em>Installable Unit</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -237,8 +234,7 @@ public interface IUPresentation {
 	void setInstallableUnit(IInstallableUnit value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getLabel <em>Label</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getLabel <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -260,8 +256,7 @@ public interface IUPresentation {
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getVersion <em>Version</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
