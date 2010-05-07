@@ -270,8 +270,7 @@ public class P2viewEditor extends MultiPageEditorPart implements IEditingDomainP
 	protected TreeViewer selectionViewer;
 
 	/**
-	 * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content
-	 * outline viewer.
+	 * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content outline viewer.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -287,8 +286,7 @@ public class P2viewEditor extends MultiPageEditorPart implements IEditingDomainP
 	protected ISelectionChangedListener selectionChangedListener;
 
 	/**
-	 * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to
-	 * this editor.
+	 * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to this editor.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1043,8 +1041,7 @@ public class P2viewEditor extends MultiPageEditorPart implements IEditingDomainP
 	}
 
 	/**
-	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus with contributions
-	 * from the Edit menu.
+	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus with contributions from the Edit menu.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
