@@ -88,7 +88,8 @@ public class MavenManager {
 					// ignore
 				}
 
-				if(qualifier != null && (qualifier.charAt(0) == 'R' || qualifier.charAt(0) == 'M'))
+				if(qualifier != null &&
+						(qualifier.length() > 0 && qualifier.charAt(0) == 'R' || qualifier.charAt(0) == 'M'))
 					continue;
 
 				return versions[idx];
