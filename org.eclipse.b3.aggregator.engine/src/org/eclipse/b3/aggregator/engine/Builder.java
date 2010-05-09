@@ -329,7 +329,7 @@ public class Builder extends AbstractCommand {
 	@Option(name = "--validationContributions", usage = "(Deprecated) A comma separated list of contributions with repositories that will be used for aggregation validation only rather than mirrored or referenced into the final repository.", metaVar = "<contributions>")
 	private String validationContributions;
 
-	@Option(name = "--mavenResult", usage = "(Deprecated) Tells the aggregator to generate a hybrid repository that is compatible with p2 and maven2")
+	@Option(name = "--mavenResult", usage = "(Deprecated) Tells the aggregator to generate a hybrid repository that is compatible with p2 and maven2.")
 	private Boolean mavenResult;
 
 	// End of deprecated options
