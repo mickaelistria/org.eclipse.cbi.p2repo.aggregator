@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -25,11 +26,16 @@ import org.apache.tools.ant.Project;
 import org.apache.tools.ant.util.DateUtils;
 import org.apache.tools.mail.MailMessage;
 import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
+import org.eclipse.b3.aggregator.CustomCategory;
+import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.MappedRepository;
+import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.PackedStrategy;
+import org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl;
 import org.eclipse.b3.aggregator.transformer.TransformationManager;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.cli.AbstractCommand;
@@ -319,6 +325,9 @@ public class Builder extends AbstractCommand {
 			+ "(through a composite repository) rather than mirrored into the final repository "
 			+ "(even if the repository is set to mirror artifacts by default)", metaVar = "<contributions>")
 	private String trustedContributions;
+
+	@Option(name = "--validationContributions", usage = "(Deprecated) A comma separated list of contributions with repositories that will be used for aggregation validation only rather than mirrored or referenced into the final repository ", metaVar = "<contributions>")
+	private String validationContributions;
 
 	@Option(name = "--mavenResult", usage = "(Deprecated) Tells the aggregator to generate a hybrid repository that is compatible with p2 and maven2")
 	private Boolean mavenResult;
@@ -930,8 +939,72 @@ public class Builder extends AbstractCommand {
 				}
 			}
 
+			if(trustedContributions != null) {
+				for(String contributionLabel : trustedContributions.split(",")) {
+					contributionLabel = StringUtils.trimmedOrNull(contributionLabel);
+					boolean found = false;
+
+					if(contributionLabel != null)
+						for(Contribution contribution : aggregator.getContributions()) {
+							if(contributionLabel.equals(contribution.getLabel())) {
+								for(MappedRepository repository : contribution.getRepositories(true))
+									repository.setMirrorArtifacts(false);
+								found = true;
+							}
+						}
+
+					if(!found)
+						throw ExceptionUtils.fromMessage("Unable to trust contribution " + contributionLabel +
+								": contribution does not exist");
+				}
+			}
+
+			if(validationContributions != null) {
+				for(String contributionLabel : validationContributions.split(",")) {
+					contributionLabel = StringUtils.trimmedOrNull(contributionLabel);
+					boolean found = false;
+					List<MappedUnit> removedMappings = new ArrayList<MappedUnit>();
+
+					if(contributionLabel != null) {
+						Iterator<Contribution> iterator = aggregator.getContributions().iterator();
+						while(iterator.hasNext()) {
+							Contribution contribution = iterator.next();
+
+							if(contributionLabel.equals(contribution.getLabel())) {
+								for(MappedRepository repository : contribution.getRepositories(true)) {
+									MetadataRepositoryReferenceImpl validationRepo = (MetadataRepositoryReferenceImpl) AggregatorFactory.eINSTANCE.createMetadataRepositoryReference();
+									validationRepo.setNature(repository.getNature());
+									validationRepo.setLocation(repository.getLocation());
+									aggregator.getValidationRepositories().add(validationRepo);
+
+									removedMappings.addAll(repository.getFeatures());
+								}
+								iterator.remove();
+								found = true;
+							}
+						}
+					}
+
+					if(!found)
+						throw ExceptionUtils.fromMessage("Unable to use contribution " + contributionLabel +
+								" for validation only: contribution does not exist");
+
+					for(CustomCategory customCategory : aggregator.getCustomCategories()) {
+						Iterator<Feature> iterator = customCategory.getFeatures().iterator();
+						while(iterator.hasNext()) {
+							Feature feature = iterator.next();
+							if(removedMappings.contains(feature))
+								iterator.remove();
+						}
+					}
+				}
+			}
+
 			if(mavenResult != null)
 				aggregator.setMavenResult(mavenResult.booleanValue());
+
+			if(trustedContributions != null && aggregator.isMavenResult())
+				throw ExceptionUtils.fromMessage("Options --trustedContributions cannot be used if maven result is required");
 
 			sendmail = aggregator.isSendmail();
 			buildLabel = aggregator.getLabel();
