@@ -348,6 +348,7 @@ public class Builder extends AbstractCommand {
 	private String subjectPrefix;
 
 	// Deprecated options
+
 	@Option(name = "--packedStrategy", usage = "(Deprecated) Controls how mirroring is done of packed artifacts found in the source repository."
 			+ "Defaults to the setting in the aggregation definition.")
 	private PackedStrategy packedStrategy;
