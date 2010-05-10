@@ -21,6 +21,7 @@ import java.util.Set;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.util.DateUtils;
@@ -79,11 +80,26 @@ import org.eclipse.equinox.p2.query.QueryUtil;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 import org.kohsuke.args4j.Argument;
+import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
+import org.kohsuke.args4j.OptionDef;
+import org.kohsuke.args4j.spi.OneArgumentOptionHandler;
+import org.kohsuke.args4j.spi.Setter;
 
 public class Builder extends AbstractCommand {
 	public enum ActionType {
 		CLEAN, VERIFY, BUILD, CLEAN_BUILD
+	}
+
+	public class PatternOptionHandler extends OneArgumentOptionHandler<Pattern> {
+		public PatternOptionHandler(CmdLineParser parser, OptionDef option, Setter<? super Pattern> setter) {
+			super(parser, option, setter);
+		}
+
+		@Override
+		protected Pattern parse(String argument) throws PatternSyntaxException {
+			return Pattern.compile(argument);
+		}
 	}
 
 	private static class EmailAddress {
@@ -332,6 +348,15 @@ public class Builder extends AbstractCommand {
 	@Option(name = "--mavenResult", usage = "(Deprecated) Tells the aggregator to generate a hybrid repository that is compatible with p2 and maven2.")
 	private Boolean mavenResult;
 
+	@Option(name = "--mirrorReferences", usage = "(Deprecated) Mirror all meta-data repository references from the contributed repositories.")
+	private boolean mirrorReferences = false;;
+
+	@Option(name = "--referenceIncludePattern", usage = "(Deprecated) Include only those references that matches the given regular expression pattern.", metaVar = "<regexp>", handler = PatternOptionHandler.class)
+	private Pattern referenceIncludePattern;
+
+	@Option(name = "--referenceExcludePattern", usage = "(Deprecated) Exclude all references that matches the given regular expression pattern. An exclusion takes precedence over an inclusion in case both patterns match a reference.", metaVar = "<regexp>", handler = PatternOptionHandler.class)
+	private Pattern referenceExcludePattern;
+
 	// End of deprecated options
 
 	@Argument
@@ -348,12 +373,6 @@ public class Builder extends AbstractCommand {
 	private String buildMasterName;
 
 	private List<IInstallableUnit> categoryIUs;
-
-	private boolean mirrorReferences = false;;
-
-	private Pattern referenceIncludePattern;
-
-	private Pattern referenceExcludePattern;
 
 	private ResourceSet resourceSet;
 
