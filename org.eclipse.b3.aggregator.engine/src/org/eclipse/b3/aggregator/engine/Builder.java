@@ -80,10 +80,12 @@ import org.eclipse.equinox.p2.query.QueryUtil;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 import org.kohsuke.args4j.Argument;
+import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
 import org.kohsuke.args4j.OptionDef;
-import org.kohsuke.args4j.spi.OneArgumentOptionHandler;
+import org.kohsuke.args4j.spi.OptionHandler;
+import org.kohsuke.args4j.spi.Parameters;
 import org.kohsuke.args4j.spi.Setter;
 
 public class Builder extends AbstractCommand {
@@ -91,14 +93,27 @@ public class Builder extends AbstractCommand {
 		CLEAN, VERIFY, BUILD, CLEAN_BUILD
 	}
 
-	public class PatternOptionHandler extends OneArgumentOptionHandler<Pattern> {
+	public static class PatternOptionHandler extends OptionHandler<Pattern> {
 		public PatternOptionHandler(CmdLineParser parser, OptionDef option, Setter<? super Pattern> setter) {
 			super(parser, option, setter);
 		}
 
 		@Override
-		protected Pattern parse(String argument) throws PatternSyntaxException {
-			return Pattern.compile(argument);
+		public String getDefaultMetaVariable() {
+			return "<regexp>";
+		}
+
+		@Override
+		public int parseArguments(Parameters params) throws CmdLineException {
+			String token = params.getParameter(0);
+			try {
+				Pattern value = Pattern.compile(token);
+				setter.addValue(value);
+			}
+			catch(PatternSyntaxException ex) {
+				throw new CmdLineException(owner, "");
+			}
+			return 1;
 		}
 	}
 
