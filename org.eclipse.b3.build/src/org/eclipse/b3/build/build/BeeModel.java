@@ -136,7 +136,7 @@ public interface BeeModel extends BChainedExpression {
 
 	/**
 	 * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.build.RepositoryHandler}.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.Repository}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more of a description here...
@@ -148,7 +148,7 @@ public interface BeeModel extends BChainedExpression {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RepositoryHandler> getRepositories();
+	EList<Repository> getRepositories();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.BeeModel#getProvider <em>Provider</em>}' containment reference.

@@ -368,8 +368,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseRepositoryHandler(RepositoryHandler object) {
-			return createRepositoryHandlerAdapter();
+		public Adapter caseRepoOption(RepoOption object) {
+			return createRepoOptionAdapter();
+		}
+
+		@Override
+		public Adapter caseRepository(Repository object) {
+			return createRepositoryAdapter();
 		}
 
 		@Override
@@ -1428,17 +1433,32 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.RepositoryHandler <em>Repository Handler</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.RepoOption <em>Repo Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.RepositoryHandler
+	 * @see org.eclipse.b3.build.build.RepoOption
 	 * @generated
 	 */
-	public Adapter createRepositoryHandlerAdapter() {
+	public Adapter createRepoOptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.Repository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.Repository
+	 * @generated
+	 */
+	public Adapter createRepositoryAdapter() {
 		return null;
 	}
 

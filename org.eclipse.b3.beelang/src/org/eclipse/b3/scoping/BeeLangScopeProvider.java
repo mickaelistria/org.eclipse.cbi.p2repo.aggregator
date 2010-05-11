@@ -13,7 +13,7 @@ import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
-import org.eclipse.b3.build.build.RepositoryHandler;
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.emf.common.util.EList;
@@ -125,11 +125,11 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		for(EObject c = ctx.eContainer(); c != null; c = c.eContainer())
 			if(c instanceof BuildUnit) {
-				for(RepositoryHandler repo : ((BuildUnit) c).getRepositories())
+				for(Repository repo : ((BuildUnit) c).getRepositories())
 					result.add(new EObjectDescription(repo.getName(), repo, null));
 			}
 			else if(c instanceof BeeModel) {
-				for(RepositoryHandler repo : ((BeeModel) c).getRepositories())
+				for(Repository repo : ((BeeModel) c).getRepositories())
 					result.add(new EObjectDescription(repo.getName(), repo, null));
 			}
 

@@ -60,7 +60,8 @@ import org.eclipse.b3.build.build.PathGroupPredicate;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.b3.build.build.ProvidesPredicate;
-import org.eclipse.b3.build.build.RepositoryHandler;
+import org.eclipse.b3.build.build.RepoOption;
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.RequiresPredicate;
@@ -347,7 +348,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	private EClass repositoryHandlerEClass = null;
+	private EClass repositoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -364,6 +365,14 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EClass delegatingUnitProviderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass repoOptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -828,8 +837,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEAttribute(unitProviderEClass, UNIT_PROVIDER__DOCUMENTATION);
 
 		repositoryUnitProviderEClass = createEClass(REPOSITORY_UNIT_PROVIDER);
-		createEReference(repositoryUnitProviderEClass, REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION);
 		createEReference(repositoryUnitProviderEClass, REPOSITORY_UNIT_PROVIDER__REPOSITORY);
+		createEReference(repositoryUnitProviderEClass, REPOSITORY_UNIT_PROVIDER__OPTIONS);
 
 		compoundUnitProviderEClass = createEClass(COMPOUND_UNIT_PROVIDER);
 		createEReference(compoundUnitProviderEClass, COMPOUND_UNIT_PROVIDER__PROVIDERS);
@@ -1006,15 +1015,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		switchUnitProviderEClass = createEClass(SWITCH_UNIT_PROVIDER);
 		createEReference(switchUnitProviderEClass, SWITCH_UNIT_PROVIDER__REPO_SWITCH);
 
-		repositoryHandlerEClass = createEClass(REPOSITORY_HANDLER);
-		createEReference(repositoryHandlerEClass, REPOSITORY_HANDLER__HANDLER_TYPE);
-		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__NAME);
-		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__LOCAL);
-		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__REMOTE);
-		createEReference(repositoryHandlerEClass, REPOSITORY_HANDLER__BRANCHES);
-		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__DOCUMENTATION);
-		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__USER);
-		createEAttribute(repositoryHandlerEClass, REPOSITORY_HANDLER__PASSWORD);
+		repositoryEClass = createEClass(REPOSITORY);
+		createEAttribute(repositoryEClass, REPOSITORY__NAME);
+		createEAttribute(repositoryEClass, REPOSITORY__LOCAL);
+		createEAttribute(repositoryEClass, REPOSITORY__REMOTE);
+		createEReference(repositoryEClass, REPOSITORY__BRANCHES);
+		createEAttribute(repositoryEClass, REPOSITORY__DOCUMENTATION);
+		createEAttribute(repositoryEClass, REPOSITORY__USER);
+		createEAttribute(repositoryEClass, REPOSITORY__PASSWORD);
+		createEAttribute(repositoryEClass, REPOSITORY__HANDLER_TYPE);
+		createEReference(repositoryEClass, REPOSITORY__OPTIONS);
 
 		branchEClass = createEClass(BRANCH);
 		createEAttribute(branchEClass, BRANCH__NAME);
@@ -1026,6 +1036,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		delegatingUnitProviderEClass = createEClass(DELEGATING_UNIT_PROVIDER);
 		createEReference(delegatingUnitProviderEClass, DELEGATING_UNIT_PROVIDER__DELEGATE);
+
+		repoOptionEClass = createEClass(REPO_OPTION);
+		createEAttribute(repoOptionEClass, REPO_OPTION__NAME);
+		createEReference(repoOptionEClass, REPO_OPTION__EXPR);
 
 		// Create enums
 		updateStrategyEEnum = createEEnum(UPDATE_STRATEGY);
@@ -2804,8 +2818,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EClass getRepositoryHandler() {
-		return repositoryHandlerEClass;
+	public EClass getRepoOption() {
+		return repoOptionEClass;
 	}
 
 	/**
@@ -2814,8 +2828,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EReference getRepositoryHandler_Branches() {
-		return (EReference) repositoryHandlerEClass.getEStructuralFeatures().get(4);
+	public EReference getRepoOption_Expr() {
+		return (EReference) repoOptionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2824,8 +2838,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepositoryHandler_Documentation() {
-		return (EAttribute) repositoryHandlerEClass.getEStructuralFeatures().get(5);
+	public EAttribute getRepoOption_Name() {
+		return (EAttribute) repoOptionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2834,8 +2848,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EReference getRepositoryHandler_HandlerType() {
-		return (EReference) repositoryHandlerEClass.getEStructuralFeatures().get(0);
+	public EClass getRepository() {
+		return repositoryEClass;
 	}
 
 	/**
@@ -2844,8 +2858,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepositoryHandler_Local() {
-		return (EAttribute) repositoryHandlerEClass.getEStructuralFeatures().get(2);
+	public EReference getRepository_Branches() {
+		return (EReference) repositoryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2854,8 +2868,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepositoryHandler_Name() {
-		return (EAttribute) repositoryHandlerEClass.getEStructuralFeatures().get(1);
+	public EAttribute getRepository_Documentation() {
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2864,8 +2878,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepositoryHandler_Password() {
-		return (EAttribute) repositoryHandlerEClass.getEStructuralFeatures().get(7);
+	public EAttribute getRepository_HandlerType() {
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2874,8 +2888,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepositoryHandler_Remote() {
-		return (EAttribute) repositoryHandlerEClass.getEStructuralFeatures().get(3);
+	public EAttribute getRepository_Local() {
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2884,8 +2898,48 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepositoryHandler_User() {
-		return (EAttribute) repositoryHandlerEClass.getEStructuralFeatures().get(6);
+	public EAttribute getRepository_Name() {
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getRepository_Options() {
+		return (EReference) repositoryEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getRepository_Password() {
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getRepository_Remote() {
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getRepository_User() {
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2904,7 +2958,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EReference getRepositoryUnitProvider_Repository() {
+	public EReference getRepositoryUnitProvider_Options() {
 		return (EReference) repositoryUnitProviderEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2914,7 +2968,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EReference getRepositoryUnitProvider_RepositoryPathExpression() {
+	public EReference getRepositoryUnitProvider_Repository() {
 		return (EReference) repositoryUnitProviderEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3383,9 +3437,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getBuildUnit_Repositories(), this.getRepositoryHandler(), null, "repositories", null, 0, -1,
-			BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			getBuildUnit_Repositories(), this.getRepository(), null, "repositories", null, 0, -1, BuildUnit.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getBuildUnit_Containers(), this.getContainerConfiguration(), null, "containers", null, 0, -1,
 			BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
@@ -3706,13 +3760,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			repositoryUnitProviderEClass, RepositoryUnitProvider.class, "RepositoryUnitProvider", !IS_ABSTRACT,
 			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getRepositoryUnitProvider_RepositoryPathExpression(), theB3backendPackage.getBExpression(), null,
-			"repositoryPathExpression", null, 0, 1, RepositoryUnitProvider.class, !IS_TRANSIENT, !IS_VOLATILE,
-			IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getRepositoryUnitProvider_Repository(), this.getRepositoryHandler(), null, "repository", null, 0, 1,
+			getRepositoryUnitProvider_Repository(), this.getRepository(), null, "repository", null, 0, 1,
 			RepositoryUnitProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getRepositoryUnitProvider_Options(), this.getRepoOption(), null, "options", null, 0, -1,
+			RepositoryUnitProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			compoundUnitProviderEClass, CompoundUnitProvider.class, "CompoundUnitProvider", IS_ABSTRACT, !IS_INTERFACE,
@@ -4121,7 +4175,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getBeeModel_Repositories(), this.getRepositoryHandler(), null, "repositories", null, 0, -1, BeeModel.class,
+			getBeeModel_Repositories(), this.getRepository(), null, "repositories", null, 0, -1, BeeModel.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 		initEReference(
@@ -4302,38 +4356,38 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
-			repositoryHandlerEClass, RepositoryHandler.class, "RepositoryHandler", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getRepositoryHandler_HandlerType(), theB3backendPackage.getIType(), null, "handlerType", null, 0, 1,
-			RepositoryHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getRepositoryHandler_Name(), ecorePackage.getEString(), "name", null, 0, 1, RepositoryHandler.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			getRepository_Name(), ecorePackage.getEString(), "name", null, 0, 1, Repository.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
-			getRepositoryHandler_Local(), theB3backendPackage.getURI(), "local", null, 0, 1, RepositoryHandler.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			getRepository_Local(), theB3backendPackage.getURI(), "local", null, 0, 1, Repository.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
-			getRepositoryHandler_Remote(), theB3backendPackage.getURI(), "remote", null, 0, 1, RepositoryHandler.class,
+			getRepository_Remote(), theB3backendPackage.getURI(), "remote", null, 0, 1, Repository.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getRepositoryHandler_Branches(), this.getBranch(), null, "branches", null, 0, -1, RepositoryHandler.class,
+			getRepository_Branches(), this.getBranch(), null, "branches", null, 0, -1, Repository.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			IS_ORDERED);
+		initEAttribute(
+			getRepository_Documentation(), ecorePackage.getEString(), "documentation", "", 0, 1, Repository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getRepository_User(), ecorePackage.getEString(), "user", null, 0, 1, Repository.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getRepository_Password(), ecorePackage.getEString(), "password", null, 0, 1, Repository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getRepository_HandlerType(), ecorePackage.getEString(), "handlerType", null, 0, 1, Repository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getRepository_Options(), this.getRepoOption(), null, "options", null, 0, -1, Repository.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getRepositoryHandler_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1,
-			RepositoryHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getRepositoryHandler_User(), ecorePackage.getEString(), "user", null, 0, 1, RepositoryHandler.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getRepositoryHandler_Password(), ecorePackage.getEString(), "password", null, 0, 1,
-			RepositoryHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(repositoryHandlerEClass, this.getBuildUnit(), "resolve", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(repositoryEClass, this.getBuildUnit(), "resolve", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRequiredCapability(), "requiredCapability", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "unitPath", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4371,6 +4425,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getDelegatingUnitProvider_Delegate(), this.getUnitProvider(), null, "delegate", null, 1, 1,
 			DelegatingUnitProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			repoOptionEClass, RepoOption.class, "RepoOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getRepoOption_Name(), ecorePackage.getEString(), "name", null, 0, 1, RepoOption.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getRepoOption_Expr(), theB3backendPackage.getBExpression(), null, "expr", null, 0, 1, RepoOption.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(updateStrategyEEnum, UpdateStrategy.class, "UpdateStrategy");

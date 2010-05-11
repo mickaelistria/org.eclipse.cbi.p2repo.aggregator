@@ -34,7 +34,7 @@ import org.eclipse.b3.build.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
-import org.eclipse.b3.build.build.RepositoryHandler;
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.Synchronization;
 import org.eclipse.b3.build.build.UnitProvider;
@@ -223,7 +223,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RepositoryHandler> repositories;
+	protected EList<Repository> repositories;
 
 	/**
 	 * The cached value of the '{@link #getContainers() <em>Containers</em>}' containment reference list.
@@ -629,7 +629,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return;
 			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
 				getRepositories().clear();
-				getRepositories().addAll((Collection<? extends RepositoryHandler>) newValue);
+				getRepositories().addAll((Collection<? extends Repository>) newValue);
 				return;
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
 				getContainers().clear();
@@ -1035,10 +1035,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * 
 	 * @generated
 	 */
-	public EList<RepositoryHandler> getRepositories() {
+	public EList<Repository> getRepositories() {
 		if(repositories == null) {
-			repositories = new EObjectContainmentEList<RepositoryHandler>(
-				RepositoryHandler.class, this, B3BuildPackage.BUILD_UNIT__REPOSITORIES);
+			repositories = new EObjectContainmentEList<Repository>(
+				Repository.class, this, B3BuildPackage.BUILD_UNIT__REPOSITORIES);
 		}
 		return repositories;
 	}

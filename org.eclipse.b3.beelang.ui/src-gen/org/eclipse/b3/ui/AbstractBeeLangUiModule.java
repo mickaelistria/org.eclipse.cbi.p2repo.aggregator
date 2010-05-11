@@ -10,6 +10,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 /**
  * Manual modifications go to {org.eclipse.b3.ui.BeeLangUiModule}
  */
+@SuppressWarnings("all")
 public abstract class AbstractBeeLangUiModule extends DefaultUiModule {
 	
 	public AbstractBeeLangUiModule(AbstractUIPlugin plugin) {
@@ -90,6 +91,11 @@ public abstract class AbstractBeeLangUiModule extends DefaultUiModule {
 	// contributed by de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment
 	public void configureContentAssistLexer(com.google.inject.Binder binder) {
 		binder.bind(org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.CONTENT_ASSIST)).to(org.eclipse.b3.ui.contentassist.antlr.internal.InternalBeeLangLexer.class);
+	}
+
+	// contributed by org.eclipse.xtext.ui.generator.quickfix.QuickfixProviderFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.quickfix.IssueResolutionProvider> bindIssueResolutionProvider() {
+		return org.eclipse.b3.ui.quickfix.BeeLangQuickfixProvider.class;
 	}
 
 

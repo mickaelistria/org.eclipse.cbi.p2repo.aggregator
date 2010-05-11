@@ -92,6 +92,9 @@
 			<fragment class="org.eclipse.xtext.ui.generator.projectWizard.SimpleProjectWizardFragment"
 				generatorProjectName="${projectName}.generator" modelFileExtension="b3"/>
 			-->
+			
+			<!-- Quick fix API -->
+			<fragment class="org.eclipse.xtext.ui.generator.quickfix.QuickfixProviderFragment" />
 		</language>
 	</component>
 </workflow>

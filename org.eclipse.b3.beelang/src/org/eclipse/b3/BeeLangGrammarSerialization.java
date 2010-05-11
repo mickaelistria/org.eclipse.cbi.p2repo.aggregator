@@ -15,13 +15,12 @@ public class BeeLangGrammarSerialization implements ITransientValueService {
 	 * org.eclipse.emf.ecore.EStructuralFeature)
 	 */
 	public boolean isCheckElementsIndividually(EObject owner, EStructuralFeature feature) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
-	public boolean isMixedList(EObject owner, EStructuralFeature feature) {
-		return false;
-	}
+	// public boolean isMixedList(EObject owner, EStructuralFeature feature) {
+	// return true;
+	// }
 
 	public boolean isTransient(EObject owner, EStructuralFeature feature, int index) {
 		if(!(owner instanceof BuildUnit))

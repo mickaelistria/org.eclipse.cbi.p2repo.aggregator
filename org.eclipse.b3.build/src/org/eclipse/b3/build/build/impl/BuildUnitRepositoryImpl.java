@@ -14,7 +14,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.BuildUnitRepository;
-import org.eclipse.b3.build.build.RepositoryHandler;
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -55,9 +55,9 @@ public abstract class BuildUnitRepositoryImpl extends EObjectImpl implements Bui
 	 * the supplied data should do so. This empty method does not have to be called.
 	 * 
 	 * @see org.eclipse.b3.build.core.IBuildUnitRepository#initialize(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
-	 *      org.eclipse.b3.build.build.RepositoryHandler)
+	 *      org.eclipse.b3.build.build.Repository)
 	 */
-	public void initialize(BExecutionContext ctx, RepositoryHandler handlerData) throws Throwable {
+	public void initialize(BExecutionContext ctx, Repository handlerData) throws Throwable {
 		// This default implementation does nothing
 
 	}

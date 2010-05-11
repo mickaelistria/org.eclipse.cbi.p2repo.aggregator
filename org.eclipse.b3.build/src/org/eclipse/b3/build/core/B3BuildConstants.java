@@ -12,11 +12,11 @@ import org.eclipse.b3.backend.core.B3BackendConstants;
 
 public interface B3BuildConstants extends B3BackendConstants {
 
-	public static final String REPOSITORIES_EXT_ID = "org.eclipse.b3.build.RepositoryScheme";
+	public static final String REPOSITORIES_EXT_ID = "org.eclipse.b3.build.RepositoryValidator";
 
-	public static final String REPOSITORIES_EXTATTR_REPOCLASS = "buildUnitRepositoryClass";
+	public static final String REPOSITORIES_EXTATTR_REPOTYPE = "name";
 
-	public static final String REPOSITORIES_EXTATTR_SCHEME = "scheme";
+	public static final String REPOSITORIES_EXTATTR_REPOVALIDATOR = "validator";
 
 	/**
 	 * Prefix for repository scheme meta class value name. Suffix with "." and the scheme name.

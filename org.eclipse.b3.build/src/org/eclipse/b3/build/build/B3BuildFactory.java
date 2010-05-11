@@ -438,14 +438,24 @@ public interface B3BuildFactory extends EFactory {
 	ProvidesPredicate createProvidesPredicate();
 
 	/**
-	 * Returns a new object of class '<em>Repository Handler</em>'.
+	 * Returns a new object of class '<em>Repo Option</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Repository Handler</em>'.
+	 * @return a new object of class '<em>Repo Option</em>'.
 	 * @generated
 	 */
-	RepositoryHandler createRepositoryHandler();
+	RepoOption createRepoOption();
+
+	/**
+	 * Returns a new object of class '<em>Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Repository</em>'.
+	 * @generated
+	 */
+	Repository createRepository();
 
 	/**
 	 * Returns a new object of class '<em>Repository Unit Provider</em>'.

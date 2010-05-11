@@ -25,7 +25,7 @@ import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildUnit;
 
 import org.eclipse.b3.build.build.FirstFoundUnitProvider;
-import org.eclipse.b3.build.build.RepositoryHandler;
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -122,7 +122,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RepositoryHandler> repositories;
+	protected EList<Repository> repositories;
 
 	/**
 	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' containment reference.
@@ -278,7 +278,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 				return;
 			case B3BuildPackage.BEE_MODEL__REPOSITORIES:
 				getRepositories().clear();
-				getRepositories().addAll((Collection<? extends RepositoryHandler>) newValue);
+				getRepositories().addAll((Collection<? extends Repository>) newValue);
 				return;
 			case B3BuildPackage.BEE_MODEL__PROVIDER:
 				setProvider((FirstFoundUnitProvider) newValue);
@@ -416,10 +416,10 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * 
 	 * @generated
 	 */
-	public EList<RepositoryHandler> getRepositories() {
+	public EList<Repository> getRepositories() {
 		if(repositories == null) {
-			repositories = new EObjectContainmentEList<RepositoryHandler>(
-				RepositoryHandler.class, this, B3BuildPackage.BEE_MODEL__REPOSITORIES);
+			repositories = new EObjectContainmentEList<Repository>(
+				Repository.class, this, B3BuildPackage.BEE_MODEL__REPOSITORIES);
 		}
 		return repositories;
 	}

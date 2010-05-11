@@ -62,7 +62,11 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 		return new AbstractNullSafeConverter<String>() {
 			@Override
 			protected String internalToString(String value) {
-				return '"' + Strings.convertToJavaString(value) + '"';
+				String converted = Strings.convertToJavaString(value, true);
+				converted = converted.substring(2, converted.length() - 2);
+				return "/**\n" + converted + (converted.length() > 0
+						? "\n"
+						: "") + "*/\n";
 			}
 
 			@Override
@@ -300,10 +304,14 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 		return new IValueConverter<URI>() {
 
 			public String toString(URI value) {
+				if(value == null)
+					return null;
 				return '"' + value.toString() + '"';
 			}
 
 			public URI toValue(String string, AbstractNode node) throws ValueConverterException {
+				if(string == null)
+					return null;
 				if(Strings.isEmpty(string))
 					throw new ValueConverterException("Can not convert empty string to URI", node, null);
 				try {

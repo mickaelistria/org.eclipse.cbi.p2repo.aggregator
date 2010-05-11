@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009, Cloudsmith Inc and others.
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,7 +30,7 @@ BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT) : {build::Be
 	|	('properties'  propertySets += PropertySet_Named)
 	|   (buildUnits += BuildUnit)
 	| 	(provider = TopLevelUnitProvider)
-	|   ('repositories' '{' (repositories += RepositoryHandler)* '}' )
+	|   ('repositories' '{' (repositories += Repository)* '}' )
 	)* 
 	 )
 	;
@@ -79,7 +79,7 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 			| (functions += Builder )			
 			| (functions += Function )			
 			//-- REPOSITORIES
-			| ('repositories' '{' (repositories += RepositoryHandler)* '}' )
+			| ('repositories' '{' (repositories += Repository)* '}' )
 			| (provider = TopLevelUnitProvider)
 			| ('properties'  propertySets += PropertySet_Named)
 			| ('containers' '{' containers += ContainerConfiguration* '}' )
@@ -304,17 +304,19 @@ BuilderInput returns build::BuilderInput : {build::BuilderInput}
 		'{' (prerequisites += Prerequisite)+ '}'
 	;
 	
-RepositoryHandler returns build::RepositoryHandler : {build::RepositoryHandler}
+Repository returns build::Repository : {build::Repository}
 	  (documentation = DOCUMENTATION)?
-	  handlerType = TypeRef
+	  handlerType = ID
 	  name = ID
-	  '{'// TODO: need to use "one of each" rule after switch to 1.0 of Xtext
-	  	(( ("local" '=' local = URI)
-	  	| ("remote" '=' remote = URI)
-//	  	| ("user" '=' user = STRING)
-//	  	| ("password" '=' password = STRING)
-	  	| ("branches" branches += Branch (',' branches += Branch)*)
-	  	) ';') *
+	  '{'
+	  	(
+	  	  ("remote" '=' remote = URI ';')?
+	  	& ("local" '=' local = URI ';')?
+	  	& ("user" '=' user = STRING ';')?
+	  	& ("password" '=' password = STRING ';')?
+	  	& ("branches" branches += Branch (',' branches += Branch)* ';')?
+	  	& ("options" '{' (options += RepoOption)* '}' )?
+	  	) 
 	  '}'
 	;
 enum BranchPointTypeLatest returns build::BranchPointType :  Latest="latest" ;
@@ -351,22 +353,26 @@ UnitProvider returns build::UnitProvider
 
 RepositoryUnitProvider returns build::RepositoryUnitProvider : {build::RepositoryUnitProvider}
 	(documentation = DOCUMENTATION)?
-	'repository' repository = [build::RepositoryHandler | ID] 
-		('{' "unit-path" '=' repositoryPathExpression = Expression ';' '}')?
+	'repository' repository = [build::Repository | ID] 
+		('{' (options += RepoOption)*  '}')?
 	;
+RepoOption returns build::RepoOption : {build::RepoOption}
+	name = ID '=' expr = Expression ';'
+	;
+	
 TopLevelUnitProvider returns build::FirstFoundUnitProvider : {build::FirstFoundUnitProvider}
 	(documentation = DOCUMENTATION)?
-	"resolution" '{' providers += UnitProvider (';' providers += UnitProvider)* '}'
+	"resolution" '{' providers += UnitProvider (providers += UnitProvider)* '}'
 	;
 	
 FirstFoundUnitProvider returns build::FirstFoundUnitProvider : {build::FirstFoundUnitProvider}
 	(documentation = DOCUMENTATION)?
-	 "select-first" '{' providers += UnitProvider (';' providers += UnitProvider)* '}'
+	 "select-first" '{' providers += UnitProvider (providers += UnitProvider)* '}'
 	;
 	
 BestFoundUnitProvider returns build::BestFoundUnitProvider : {build::BestFoundUnitProvider}
 	(documentation = DOCUMENTATION)?
-	"select-best" '{' providers += UnitProvider (';' providers += UnitProvider)* '}'
+	"select-best" '{' providers += UnitProvider (providers += UnitProvider)* '}'
 	;
 	
 SwitchUnitProvider returns build::SwitchUnitProvider : {build::SwitchUnitProvider}

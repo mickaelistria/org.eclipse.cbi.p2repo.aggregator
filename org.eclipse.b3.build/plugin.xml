@@ -11,12 +11,55 @@
 <plugin>
    <extension-point id="BuildUnitInterface" name="BuildUnitInterface" schema="schema/BuildUnitInterface.exsd"/>
    <extension-point id="RepositoryScheme" name="RepositoryScheme" schema="schema/RepositoryScheme.exsd"/>
+   <extension-point id="RepositoryValidator" name="RepositoryValidator" schema="schema/RepositoryValidator.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://b3build/1.0"
             class="org.eclipse.b3.build.build.B3BuildPackage"
             genModel="model/B3Build.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.b3.build.RepositoryValidator">
+      <repositoryValidator
+            name="p2"
+            validator="org.eclipse.b3.build.core.IdentityBasedRepositoryValidator">
+      </repositoryValidator>
+   </extension>
+   <extension
+         point="org.eclipse.b3.build.RepositoryValidator">
+      <repositoryValidator
+            name="cvs"
+            validator="org.eclipse.b3.build.core.SCMRepositoryValidator">
+      </repositoryValidator>
+   </extension>
+   <extension
+         point="org.eclipse.b3.build.RepositoryValidator">
+      <repositoryValidator
+            name="svn"
+            validator="org.eclipse.b3.build.core.SCMRepositoryValidator">
+      </repositoryValidator>
+   </extension>
+   <extension
+         point="org.eclipse.b3.build.RepositoryValidator">
+      <repositoryValidator
+            name="git"
+            validator="org.eclipse.b3.build.core.SCMRepositoryValidator">
+      </repositoryValidator>
+   </extension>
+   <extension
+         point="org.eclipse.b3.build.RepositoryValidator">
+      <repositoryValidator
+            name="maven1"
+            validator="org.eclipse.b3.build.core.IdentityBasedRepositoryValidator">
+      </repositoryValidator>
+   </extension>
+   <extension
+         point="org.eclipse.b3.build.RepositoryValidator">
+      <repositoryValidator
+            name="maven2"
+            validator="org.eclipse.b3.build.core.IdentityBasedRepositoryValidator">
+      </repositoryValidator>
    </extension>
 
 </plugin>

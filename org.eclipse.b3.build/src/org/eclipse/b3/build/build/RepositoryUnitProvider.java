@@ -10,7 +10,7 @@
  */
 package org.eclipse.b3.build.build;
 
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,8 +20,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getRepositoryPathExpression <em>Repository Path Expression</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getRepository <em>Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getOptions <em>Options</em>}</li>
  * </ul>
  * </p>
  * 
@@ -31,6 +31,22 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
  */
 public interface RepositoryUnitProvider extends UnitProvider {
 	/**
+	 * Returns the value of the '<em><b>Options</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.RepoOption}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Options</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Options</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepositoryUnitProvider_Options()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RepoOption> getOptions();
+
+	/**
 	 * Returns the value of the '<em><b>Repository</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -39,29 +55,12 @@ public interface RepositoryUnitProvider extends UnitProvider {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Repository</em>' reference.
-	 * @see #setRepository(RepositoryHandler)
+	 * @see #setRepository(Repository)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepositoryUnitProvider_Repository()
 	 * @model
 	 * @generated
 	 */
-	RepositoryHandler getRepository();
-
-	/**
-	 * Returns the value of the '<em><b>Repository Path Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Repository Path Expression</em>' containment reference isn't clear, there really should be more of a description
-	 * here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Repository Path Expression</em>' containment reference.
-	 * @see #setRepositoryPathExpression(BExpression)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepositoryUnitProvider_RepositoryPathExpression()
-	 * @model containment="true"
-	 * @generated
-	 */
-	BExpression getRepositoryPathExpression();
+	Repository getRepository();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getRepository <em>Repository</em>}' reference.
@@ -73,19 +72,6 @@ public interface RepositoryUnitProvider extends UnitProvider {
 	 * @see #getRepository()
 	 * @generated
 	 */
-	void setRepository(RepositoryHandler value);
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getRepositoryPathExpression
-	 * <em>Repository Path Expression</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Repository Path Expression</em>' containment reference.
-	 * @see #getRepositoryPathExpression()
-	 * @generated
-	 */
-	void setRepositoryPathExpression(BExpression value);
+	void setRepository(Repository value);
 
 } // RepositoryReference

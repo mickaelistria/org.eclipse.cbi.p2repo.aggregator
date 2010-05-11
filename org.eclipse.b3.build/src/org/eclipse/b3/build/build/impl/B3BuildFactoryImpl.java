@@ -274,12 +274,14 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createUnitResolutionInfo();
 			case B3BuildPackage.SWITCH_UNIT_PROVIDER:
 				return createSwitchUnitProvider();
-			case B3BuildPackage.REPOSITORY_HANDLER:
-				return createRepositoryHandler();
+			case B3BuildPackage.REPOSITORY:
+				return createRepository();
 			case B3BuildPackage.BRANCH:
 				return createBranch();
 			case B3BuildPackage.DELEGATING_UNIT_PROVIDER:
 				return createDelegatingUnitProvider();
+			case B3BuildPackage.REPO_OPTION:
+				return createRepoOption();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -803,9 +805,20 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
-	public RepositoryHandler createRepositoryHandler() {
-		RepositoryHandlerImpl repositoryHandler = new RepositoryHandlerImpl();
-		return repositoryHandler;
+	public RepoOption createRepoOption() {
+		RepoOptionImpl repoOption = new RepoOptionImpl();
+		return repoOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Repository createRepository() {
+		RepositoryImpl repository = new RepositoryImpl();
+		return repository;
 	}
 
 	/**

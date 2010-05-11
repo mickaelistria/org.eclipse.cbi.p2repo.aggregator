@@ -841,24 +841,15 @@ public interface B3BuildPackage extends EPackage {
 		EReference SWITCH_UNIT_PROVIDER__REPO_SWITCH = eINSTANCE.getSwitchUnitProvider_RepoSwitch();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl <em>Repository Handler</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryImpl <em>Repository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.build.build.impl.RepositoryHandlerImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryHandler()
+		 * @see org.eclipse.b3.build.build.impl.RepositoryImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepository()
 		 * @generated
 		 */
-		EClass REPOSITORY_HANDLER = eINSTANCE.getRepositoryHandler();
-
-		/**
-		 * The meta object literal for the '<em><b>Handler Type</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference REPOSITORY_HANDLER__HANDLER_TYPE = eINSTANCE.getRepositoryHandler_HandlerType();
+		EClass REPOSITORY = eINSTANCE.getRepository();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -867,7 +858,7 @@ public interface B3BuildPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EAttribute REPOSITORY_HANDLER__NAME = eINSTANCE.getRepositoryHandler_Name();
+		EAttribute REPOSITORY__NAME = eINSTANCE.getRepository_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Local</b></em>' attribute feature.
@@ -876,7 +867,7 @@ public interface B3BuildPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EAttribute REPOSITORY_HANDLER__LOCAL = eINSTANCE.getRepositoryHandler_Local();
+		EAttribute REPOSITORY__LOCAL = eINSTANCE.getRepository_Local();
 
 		/**
 		 * The meta object literal for the '<em><b>Remote</b></em>' attribute feature.
@@ -885,7 +876,7 @@ public interface B3BuildPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EAttribute REPOSITORY_HANDLER__REMOTE = eINSTANCE.getRepositoryHandler_Remote();
+		EAttribute REPOSITORY__REMOTE = eINSTANCE.getRepository_Remote();
 
 		/**
 		 * The meta object literal for the '<em><b>Branches</b></em>' containment reference list feature.
@@ -894,7 +885,7 @@ public interface B3BuildPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EReference REPOSITORY_HANDLER__BRANCHES = eINSTANCE.getRepositoryHandler_Branches();
+		EReference REPOSITORY__BRANCHES = eINSTANCE.getRepository_Branches();
 
 		/**
 		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
@@ -903,7 +894,7 @@ public interface B3BuildPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EAttribute REPOSITORY_HANDLER__DOCUMENTATION = eINSTANCE.getRepositoryHandler_Documentation();
+		EAttribute REPOSITORY__DOCUMENTATION = eINSTANCE.getRepository_Documentation();
 
 		/**
 		 * The meta object literal for the '<em><b>User</b></em>' attribute feature.
@@ -912,7 +903,7 @@ public interface B3BuildPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EAttribute REPOSITORY_HANDLER__USER = eINSTANCE.getRepositoryHandler_User();
+		EAttribute REPOSITORY__USER = eINSTANCE.getRepository_User();
 
 		/**
 		 * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
@@ -921,7 +912,25 @@ public interface B3BuildPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EAttribute REPOSITORY_HANDLER__PASSWORD = eINSTANCE.getRepositoryHandler_Password();
+		EAttribute REPOSITORY__PASSWORD = eINSTANCE.getRepository_Password();
+
+		/**
+		 * The meta object literal for the '<em><b>Handler Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute REPOSITORY__HANDLER_TYPE = eINSTANCE.getRepository_HandlerType();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPOSITORY__OPTIONS = eINSTANCE.getRepository_Options();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BranchImpl <em>Branch</em>}' class.
@@ -1008,6 +1017,35 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DELEGATING_UNIT_PROVIDER__DELEGATE = eINSTANCE.getDelegatingUnitProvider_Delegate();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepoOptionImpl <em>Repo Option</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.build.impl.RepoOptionImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepoOption()
+		 * @generated
+		 */
+		EClass REPO_OPTION = eINSTANCE.getRepoOption();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute REPO_OPTION__NAME = eINSTANCE.getRepoOption_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPO_OPTION__EXPR = eINSTANCE.getRepoOption_Expr();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}' enum.
@@ -1247,15 +1285,6 @@ public interface B3BuildPackage extends EPackage {
 		EClass REPOSITORY_UNIT_PROVIDER = eINSTANCE.getRepositoryUnitProvider();
 
 		/**
-		 * The meta object literal for the '<em><b>Repository Path Expression</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION = eINSTANCE.getRepositoryUnitProvider_RepositoryPathExpression();
-
-		/**
 		 * The meta object literal for the '<em><b>Repository</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1263,6 +1292,15 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REPOSITORY_UNIT_PROVIDER__REPOSITORY = eINSTANCE.getRepositoryUnitProvider_Repository();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPOSITORY_UNIT_PROVIDER__OPTIONS = eINSTANCE.getRepositoryUnitProvider_Options();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CompoundUnitProviderImpl <em>Compound Unit Provider</em>}' class.
@@ -3601,16 +3639,6 @@ public interface B3BuildPackage extends EPackage {
 	int REPOSITORY_UNIT_PROVIDER__DOCUMENTATION = UNIT_PROVIDER__DOCUMENTATION;
 
 	/**
-	 * The feature id for the '<em><b>Repository Path Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION = UNIT_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Repository</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3618,7 +3646,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_UNIT_PROVIDER__REPOSITORY = UNIT_PROVIDER_FEATURE_COUNT + 1;
+	int REPOSITORY_UNIT_PROVIDER__REPOSITORY = UNIT_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_UNIT_PROVIDER__OPTIONS = UNIT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Repository Unit Provider</em>' class.
@@ -6641,25 +6679,15 @@ public interface B3BuildPackage extends EPackage {
 	int SWITCH_UNIT_PROVIDER_FEATURE_COUNT = UNIT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryHandlerImpl <em>Repository Handler</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryImpl <em>Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.build.build.impl.RepositoryHandlerImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryHandler()
+	 * @see org.eclipse.b3.build.build.impl.RepositoryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepository()
 	 * @generated
 	 */
-	int REPOSITORY_HANDLER = 60;
-
-	/**
-	 * The feature id for the '<em><b>Handler Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_HANDLER__HANDLER_TYPE = 0;
+	int REPOSITORY = 60;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6669,7 +6697,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_HANDLER__NAME = 1;
+	int REPOSITORY__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Local</b></em>' attribute.
@@ -6679,7 +6707,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_HANDLER__LOCAL = 2;
+	int REPOSITORY__LOCAL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Remote</b></em>' attribute.
@@ -6689,7 +6717,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_HANDLER__REMOTE = 3;
+	int REPOSITORY__REMOTE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Branches</b></em>' containment reference list.
@@ -6699,7 +6727,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_HANDLER__BRANCHES = 4;
+	int REPOSITORY__BRANCHES = 3;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -6709,7 +6737,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_HANDLER__DOCUMENTATION = 5;
+	int REPOSITORY__DOCUMENTATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>User</b></em>' attribute.
@@ -6719,7 +6747,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_HANDLER__USER = 6;
+	int REPOSITORY__USER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Password</b></em>' attribute.
@@ -6729,17 +6757,37 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_HANDLER__PASSWORD = 7;
+	int REPOSITORY__PASSWORD = 6;
 
 	/**
-	 * The number of structural features of the '<em>Repository Handler</em>' class.
+	 * The feature id for the '<em><b>Handler Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_HANDLER_FEATURE_COUNT = 8;
+	int REPOSITORY__HANDLER_TYPE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__OPTIONS = 8;
+
+	/**
+	 * The number of structural features of the '<em>Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FEATURE_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BranchImpl <em>Branch</em>}' class.
@@ -6864,6 +6912,47 @@ public interface B3BuildPackage extends EPackage {
 	int DELEGATING_UNIT_PROVIDER_FEATURE_COUNT = UNIT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepoOptionImpl <em>Repo Option</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.build.build.impl.RepoOptionImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepoOption()
+	 * @generated
+	 */
+	int REPO_OPTION = 63;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPO_OPTION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPO_OPTION__EXPR = 1;
+
+	/**
+	 * The number of structural features of the '<em>Repo Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPO_OPTION_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6872,7 +6961,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUpdateStrategy()
 	 * @generated
 	 */
-	int UPDATE_STRATEGY = 63;
+	int UPDATE_STRATEGY = 64;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.BranchPointType <em>Branch Point Type</em>}' enum.
@@ -6883,7 +6972,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBranchPointType()
 	 * @generated
 	 */
-	int BRANCH_POINT_TYPE = 64;
+	int BRANCH_POINT_TYPE = 65;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -6894,7 +6983,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 65;
+	int VERSION_RANGE = 66;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -6905,7 +6994,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 66;
+	int VERSION = 67;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -6916,7 +7005,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 67;
+	int ISTATUS = 68;
 
 	/**
 	 * The meta object id for the '<em>Path Iterator</em>' data type.
@@ -6927,7 +7016,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathIterator()
 	 * @generated
 	 */
-	int PATH_ITERATOR = 68;
+	int PATH_ITERATOR = 69;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
@@ -9051,113 +9140,158 @@ public interface B3BuildPackage extends EPackage {
 	EReference getProvidesPredicate_CapabilityPredicate();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryHandler <em>Repository Handler</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepoOption <em>Repo Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Repository Handler</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryHandler
+	 * @return the meta object for class '<em>Repo Option</em>'.
+	 * @see org.eclipse.b3.build.build.RepoOption
 	 * @generated
 	 */
-	EClass getRepositoryHandler();
+	EClass getRepoOption();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.RepositoryHandler#getBranches <em>Branches</em>}
-	 * '.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepoOption#getExpr <em>Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Branches</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryHandler#getBranches()
-	 * @see #getRepositoryHandler()
+	 * @return the meta object for the containment reference '<em>Expr</em>'.
+	 * @see org.eclipse.b3.build.build.RepoOption#getExpr()
+	 * @see #getRepoOption()
 	 * @generated
 	 */
-	EReference getRepositoryHandler_Branches();
+	EReference getRepoOption_Expr();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getDocumentation <em>Documentation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Documentation</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryHandler#getDocumentation()
-	 * @see #getRepositoryHandler()
-	 * @generated
-	 */
-	EAttribute getRepositoryHandler_Documentation();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryHandler#getHandlerType
-	 * <em>Handler Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '<em>Handler Type</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryHandler#getHandlerType()
-	 * @see #getRepositoryHandler()
-	 * @generated
-	 */
-	EReference getRepositoryHandler_HandlerType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getLocal <em>Local</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Local</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryHandler#getLocal()
-	 * @see #getRepositoryHandler()
-	 * @generated
-	 */
-	EAttribute getRepositoryHandler_Local();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepoOption#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryHandler#getName()
-	 * @see #getRepositoryHandler()
+	 * @see org.eclipse.b3.build.build.RepoOption#getName()
+	 * @see #getRepoOption()
 	 * @generated
 	 */
-	EAttribute getRepositoryHandler_Name();
+	EAttribute getRepoOption_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getPassword <em>Password</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.Repository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Repository</em>'.
+	 * @see org.eclipse.b3.build.build.Repository
+	 * @generated
+	 */
+	EClass getRepository();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.Repository#getBranches <em>Branches</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Branches</em>'.
+	 * @see org.eclipse.b3.build.build.Repository#getBranches()
+	 * @see #getRepository()
+	 * @generated
+	 */
+	EReference getRepository_Branches();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Repository#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see org.eclipse.b3.build.build.Repository#getDocumentation()
+	 * @see #getRepository()
+	 * @generated
+	 */
+	EAttribute getRepository_Documentation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Repository#getHandlerType <em>Handler Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Handler Type</em>'.
+	 * @see org.eclipse.b3.build.build.Repository#getHandlerType()
+	 * @see #getRepository()
+	 * @generated
+	 */
+	EAttribute getRepository_HandlerType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Repository#getLocal <em>Local</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Local</em>'.
+	 * @see org.eclipse.b3.build.build.Repository#getLocal()
+	 * @see #getRepository()
+	 * @generated
+	 */
+	EAttribute getRepository_Local();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Repository#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.b3.build.build.Repository#getName()
+	 * @see #getRepository()
+	 * @generated
+	 */
+	EAttribute getRepository_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.Repository#getOptions <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Options</em>'.
+	 * @see org.eclipse.b3.build.build.Repository#getOptions()
+	 * @see #getRepository()
+	 * @generated
+	 */
+	EReference getRepository_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Repository#getPassword <em>Password</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Password</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryHandler#getPassword()
-	 * @see #getRepositoryHandler()
+	 * @see org.eclipse.b3.build.build.Repository#getPassword()
+	 * @see #getRepository()
 	 * @generated
 	 */
-	EAttribute getRepositoryHandler_Password();
+	EAttribute getRepository_Password();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getRemote <em>Remote</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Repository#getRemote <em>Remote</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Remote</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryHandler#getRemote()
-	 * @see #getRepositoryHandler()
+	 * @see org.eclipse.b3.build.build.Repository#getRemote()
+	 * @see #getRepository()
 	 * @generated
 	 */
-	EAttribute getRepositoryHandler_Remote();
+	EAttribute getRepository_Remote();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RepositoryHandler#getUser <em>User</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Repository#getUser <em>User</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>User</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryHandler#getUser()
-	 * @see #getRepositoryHandler()
+	 * @see org.eclipse.b3.build.build.Repository#getUser()
+	 * @see #getRepository()
 	 * @generated
 	 */
-	EAttribute getRepositoryHandler_User();
+	EAttribute getRepository_User();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryUnitProvider <em>Repository Unit Provider</em>}'.
@@ -9171,6 +9305,19 @@ public interface B3BuildPackage extends EPackage {
 	EClass getRepositoryUnitProvider();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getOptions
+	 * <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Options</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryUnitProvider#getOptions()
+	 * @see #getRepositoryUnitProvider()
+	 * @generated
+	 */
+	EReference getRepositoryUnitProvider_Options();
+
+	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getRepository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9181,19 +9328,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRepositoryUnitProvider_Repository();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getRepositoryPathExpression
-	 * <em>Repository Path Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '<em>Repository Path Expression</em>'.
-	 * @see org.eclipse.b3.build.build.RepositoryUnitProvider#getRepositoryPathExpression()
-	 * @see #getRepositoryUnitProvider()
-	 * @generated
-	 */
-	EReference getRepositoryUnitProvider_RepositoryPathExpression();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RequiredCapability <em>Required Capability</em>}'.

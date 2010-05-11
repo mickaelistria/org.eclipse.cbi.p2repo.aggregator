@@ -1,12 +1,8 @@
 package org.eclipse.b3.validation;
 
 import java.util.List;
+import java.util.Map;
 
-import org.eclipse.b3.build.build.B3BuildPackage;
-import org.eclipse.b3.build.build.Builder;
-import org.eclipse.b3.build.build.BuilderConcernContext;
-import org.eclipse.b3.build.build.PathVector;
-import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.backend.core.TypePattern;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -17,13 +13,27 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
+import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.Builder;
+import org.eclipse.b3.build.build.BuilderConcernContext;
+import org.eclipse.b3.build.build.PathVector;
+import org.eclipse.b3.build.build.RepoOption;
+import org.eclipse.b3.build.build.Repository;
+import org.eclipse.b3.build.build.RepositoryUnitProvider;
+import org.eclipse.b3.build.core.IRepositoryValidator;
+import org.eclipse.b3.build.core.PathIterator;
+import org.eclipse.b3.build.core.RepositoryValidation;
+import org.eclipse.b3.build.core.IRepositoryValidator.IOption;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.xtext.validation.Check;
 
 public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
+
+	public static final String ISSUE_REPOSITORY__NO_REMOTE = "No Remote URI";
+
+	public static final String ISSUE_REPO_OPTION__INVALID_OPTION = "Invalid Option";
 
 	/**
 	 * A proceed expression can only occur in expressions that are going to be used for weaving.
@@ -94,6 +104,80 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 		}
 		catch(Throwable t) {
 			error(t.getMessage(), pathVector, B3BuildPackage.PATH_VECTOR);
+		}
+	}
+
+	/**
+	 * Produce warnings:
+	 * - if a repository handler name is unknown to the configuration.
+	 * - if a repository option is for an unknown repository type
+	 * Produces errors:
+	 * - the remote URI of a repository is not set
+	 * - the option is not valid for the repository
+	 * 
+	 * @param repoHandler
+	 */
+	@Check
+	public void checkRepository(Repository repoHandler) {
+		if(!RepositoryValidation.isNameRegistered(repoHandler.getHandlerType()))
+			warning("The repository type '" + repoHandler.getHandlerType() +
+					"' is unknown to the b3 editing environment.", repoHandler, B3BuildPackage.REPOSITORY__HANDLER_TYPE);
+		if(repoHandler.getRemote() == null) {
+			error(
+				"The repository must have an URI declared as 'remote = <URI>'", repoHandler,
+				B3BuildPackage.REPOSITORY__HANDLER_TYPE, ISSUE_REPOSITORY__NO_REMOTE);
+		}
+	}
+
+	@Check
+	public void checkRepositoryOption(RepoOption option) {
+		EObject container = option.eContainer();
+		if(container instanceof Repository) {
+			Repository repo = (Repository) container;
+			IRepositoryValidator validator = RepositoryValidation.getValidator(repo.getHandlerType());
+			if(validator == null) {
+				warning(
+					"Unable to validate option for unknown repository type  '" + repo.getHandlerType(), option,
+					B3BuildPackage.REPO_OPTION__NAME);
+			}
+			else {
+				Map<String, IOption> optionData = validator.getRepositoryOptions();
+				IOption opt = optionData.get(option.getName());
+				if(opt == null)
+					error(
+						"The option '" + option.getName() + "' is not a valid option for repository type '" +
+								repo.getHandlerType() + "'.", option, B3BuildPackage.REPO_OPTION__NAME,
+						ISSUE_REPO_OPTION__INVALID_OPTION);
+				else {
+					// TODO: check type compatibility (complicated)
+				}
+			}
+		}
+		else if(container instanceof RepositoryUnitProvider) {
+			RepositoryUnitProvider provider = (RepositoryUnitProvider) container;
+			Repository repo = provider.getRepository();
+			IRepositoryValidator validator = repo != null
+					? RepositoryValidation.getValidator(repo.getHandlerType())
+					: null;
+			if(validator == null) {
+				warning(
+					"Unable to validate option for unknown repository type  '" + repo.getHandlerType(), option,
+					B3BuildPackage.REPO_OPTION__NAME);
+			}
+			else {
+				Map<String, IOption> optionData = validator.getResolverOptions();
+				IOption opt = optionData.get(option.getName());
+				if(opt == null)
+					error(
+						"The option '" + option.getName() +
+								"' is not a valid option for a resolver using a repository of type '" +
+								repo.getHandlerType() + "'.", option, B3BuildPackage.REPO_OPTION__NAME,
+						ISSUE_REPO_OPTION__INVALID_OPTION);
+				else {
+					// TODO: check type compatibility (complicated)
+				}
+			}
+
 		}
 	}
 

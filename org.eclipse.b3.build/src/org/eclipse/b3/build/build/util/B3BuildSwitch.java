@@ -1120,7 +1120,7 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Repository Handler</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Repo Option</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
@@ -1128,11 +1128,28 @@ public class B3BuildSwitch<T> {
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Repository Handler</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Repo Option</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRepositoryHandler(RepositoryHandler object) {
+	public T caseRepoOption(RepoOption object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRepository(Repository object) {
 		return null;
 	}
 
@@ -2027,9 +2044,9 @@ public class B3BuildSwitch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.REPOSITORY_HANDLER: {
-				RepositoryHandler repositoryHandler = (RepositoryHandler) theEObject;
-				T result = caseRepositoryHandler(repositoryHandler);
+			case B3BuildPackage.REPOSITORY: {
+				Repository repository = (Repository) theEObject;
+				T result = caseRepository(repository);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -2048,6 +2065,13 @@ public class B3BuildSwitch<T> {
 					result = caseUnitProvider(delegatingUnitProvider);
 				if(result == null)
 					result = caseBExpression(delegatingUnitProvider);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.REPO_OPTION: {
+				RepoOption repoOption = (RepoOption) theEObject;
+				T result = caseRepoOption(repoOption);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

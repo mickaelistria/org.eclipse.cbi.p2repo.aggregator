@@ -5,6 +5,8 @@ import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.CapabilityPredicate;
 import org.eclipse.b3.build.build.PathVector;
+import org.eclipse.b3.build.build.RepoOption;
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.VersionedCapability;
 import org.eclipse.emf.common.util.EList;
@@ -90,6 +92,14 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 		highlightObject(v, BeeLangHighlightConfiguration.PATH_ID, acceptor);
 	}
 
+	public void highlightRepoOption(RepoOption option, IHighlightedPositionAcceptor acceptor) {
+		highlightFirstFeature(option, "name", BeeLangHighlightConfiguration.KEYWORD_ID, acceptor);
+	}
+
+	public void highlightRepository(Repository repo, IHighlightedPositionAcceptor acceptor) {
+		highlightFirstFeature(repo, "handlerType", BeeLangHighlightConfiguration.KEYWORD_ID, acceptor);
+	}
+
 	public void highlightRequiredCapability(RequiredCapability rc, IHighlightedPositionAcceptor acceptor) {
 		highlightFirstFeature(rc, "versionRange", BeeLangHighlightConfiguration.VERSION_ID, acceptor);
 	}
@@ -130,9 +140,12 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 				highlightVersionedCapability((VersionedCapability) o, acceptor);
 			else if(o instanceof CapabilityPredicate)
 				highlightCapabilityPredicate((CapabilityPredicate) o, acceptor);
-
-			// DEBUG PRINT System.out.print("Highlight instance of: "+ o.getClass().getName() + "\n");
+			else if(o instanceof Repository)
+				highlightRepository((Repository) o, acceptor);
+			else if(o instanceof RepoOption)
+				highlightRepoOption((RepoOption) o, acceptor);
 		}
 
+		// DEBUG PRINT System.out.print("Highlight instance of: "+ o.getClass().getName() + "\n");
 	}
 }

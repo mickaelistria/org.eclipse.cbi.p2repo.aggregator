@@ -10,19 +10,23 @@
  */
 package org.eclipse.b3.build.build.impl;
 
-import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
+import java.util.Collection;
+
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.RepositoryHandler;
+import org.eclipse.b3.build.build.RepoOption;
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,25 +35,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getRepositoryPathExpression <em>Repository Path Expression</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getRepository <em>Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getOptions <em>Options</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
 public class RepositoryUnitProviderImpl extends UnitProviderImpl implements RepositoryUnitProvider {
-	/**
-	 * The cached value of the '{@link #getRepositoryPathExpression() <em>Repository Path Expression</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getRepositoryPathExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected BExpression repositoryPathExpression;
-
 	/**
 	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -59,7 +52,18 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 * @generated
 	 * @ordered
 	 */
-	protected RepositoryHandler repository;
+	protected Repository repository;
+
+	/**
+	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getOptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RepoOption> options;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,30 +81,8 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 * 
 	 * @generated
 	 */
-	public RepositoryHandler basicGetRepository() {
+	public Repository basicGetRepository() {
 		return repository;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NotificationChain basicSetRepositoryPathExpression(BExpression newRepositoryPathExpression,
-			NotificationChain msgs) {
-		BExpression oldRepositoryPathExpression = repositoryPathExpression;
-		repositoryPathExpression = newRepositoryPathExpression;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION,
-				oldRepositoryPathExpression, newRepositoryPathExpression);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
 	}
 
 	/**
@@ -112,12 +94,12 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION:
-				return getRepositoryPathExpression();
 			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY:
 				if(resolve)
 					return getRepository();
 				return basicGetRepository();
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__OPTIONS:
+				return getOptions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -131,8 +113,8 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION:
-				return basicSetRepositoryPathExpression(null, msgs);
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__OPTIONS:
+				return ((InternalEList<?>) getOptions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -146,10 +128,10 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION:
-				return repositoryPathExpression != null;
 			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY:
 				return repository != null;
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__OPTIONS:
+				return options != null && !options.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -160,14 +142,16 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION:
-				setRepositoryPathExpression((BExpression) newValue);
-				return;
 			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY:
-				setRepository((RepositoryHandler) newValue);
+				setRepository((Repository) newValue);
+				return;
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__OPTIONS:
+				getOptions().clear();
+				getOptions().addAll((Collection<? extends RepoOption>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -193,11 +177,11 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION:
-				setRepositoryPathExpression((BExpression) null);
-				return;
 			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY:
-				setRepository((RepositoryHandler) null);
+				setRepository((Repository) null);
+				return;
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__OPTIONS:
+				getOptions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -209,18 +193,12 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 * 
 	 * @generated
 	 */
-	public RepositoryHandler getRepository() {
-		if(repository != null && repository.eIsProxy()) {
-			InternalEObject oldRepository = (InternalEObject) repository;
-			repository = (RepositoryHandler) eResolveProxy(oldRepository);
-			if(repository != oldRepository) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY, oldRepository,
-						repository));
-			}
+	public EList<RepoOption> getOptions() {
+		if(options == null) {
+			options = new EObjectContainmentEList<RepoOption>(
+				RepoOption.class, this, B3BuildPackage.REPOSITORY_UNIT_PROVIDER__OPTIONS);
 		}
-		return repository;
+		return options;
 	}
 
 	/**
@@ -229,8 +207,18 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 * 
 	 * @generated
 	 */
-	public BExpression getRepositoryPathExpression() {
-		return repositoryPathExpression;
+	public Repository getRepository() {
+		if(repository != null && repository.eIsProxy()) {
+			InternalEObject oldRepository = (InternalEObject) repository;
+			repository = (Repository) eResolveProxy(oldRepository);
+			if(repository != oldRepository) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY, oldRepository,
+						repository));
+			}
+		}
+		return repository;
 	}
 
 	/*
@@ -242,14 +230,14 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	@Override
 	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
 		String repoPath = requiredCapability.getName();
-		if(getRepositoryPathExpression() != null) {
-			BExecutionContext ictx = ctx.createInnerContext();
-			ictx.defineFinalValue("request", requiredCapability, RequiredCapability.class);
-			Object pathObject = repositoryPathExpression.evaluate(ictx);
-			if(!(pathObject instanceof String))
-				throw new B3IncompatibleTypeException(String.class, pathObject.getClass());
-			repoPath = (String) pathObject;
-		}
+		// if(getRepositoryPathExpression() != null) {
+		// BExecutionContext ictx = ctx.createInnerContext();
+		// ictx.defineFinalValue("request", requiredCapability, RequiredCapability.class);
+		// Object pathObject = repositoryPathExpression.evaluate(ictx);
+		// if(!(pathObject instanceof String))
+		// throw new B3IncompatibleTypeException(String.class, pathObject.getClass());
+		// repoPath = (String) pathObject;
+		// }
 		return repository.resolve(ctx, requiredCapability, repoPath);
 	}
 
@@ -259,36 +247,11 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 * 
 	 * @generated
 	 */
-	public void setRepository(RepositoryHandler newRepository) {
-		RepositoryHandler oldRepository = repository;
+	public void setRepository(Repository newRepository) {
+		Repository oldRepository = repository;
 		repository = newRepository;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY, oldRepository, repository));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setRepositoryPathExpression(BExpression newRepositoryPathExpression) {
-		if(newRepositoryPathExpression != repositoryPathExpression) {
-			NotificationChain msgs = null;
-			if(repositoryPathExpression != null)
-				msgs = ((InternalEObject) repositoryPathExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION, null, msgs);
-			if(newRepositoryPathExpression != null)
-				msgs = ((InternalEObject) newRepositoryPathExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION, null, msgs);
-			msgs = basicSetRepositoryPathExpression(newRepositoryPathExpression, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY_PATH_EXPRESSION,
-				newRepositoryPathExpression, newRepositoryPathExpression));
 	}
 } // RepositoryReferenceImpl

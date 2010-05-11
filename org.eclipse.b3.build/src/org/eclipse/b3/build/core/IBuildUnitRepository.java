@@ -12,7 +12,7 @@ package org.eclipse.b3.build.core;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.RepositoryHandler;
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RequiredCapability;
 
 /**
@@ -34,7 +34,7 @@ public interface IBuildUnitRepository {
 	 *            initialization data
 	 * @throws Throwable
 	 */
-	void initialize(BExecutionContext ctx, RepositoryHandler handlerData) throws Throwable;
+	void initialize(BExecutionContext ctx, Repository handlerData) throws Throwable;
 
 	/**
 	 * Returns a BuilUnit, or null if a build unit fulfilling the required capability can not be found.
