@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
   <rm:locator pattern="^org\.eclipse\.b3(\..+)?" searchPathRef="b3"/>
-  <rm:locator pattern="^org\.slf4j\.extendable$" searchPathRef="buckminster"/>
   <rm:locator pattern="^com\.ibm\.icu\.base$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.maven(\..+)?" searchPathRef="m2eclipse"/>
   <rm:locator pattern="^org\.kohsuke(\..+)?" searchPathRef="orbit"/>
