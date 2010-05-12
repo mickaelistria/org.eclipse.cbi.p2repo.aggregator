@@ -96,4 +96,5 @@
   </rm:searchPath>
   <rm:property key="eclipse.download.prefix" value="http://download.eclipse.org"/>
   <rm:property key="eclipse.svn.prefix" value="http://dev.eclipse.org/svnroot"/>
+  <rm:property key="build.type" value="I"/>
 </rm:rmap>
