@@ -761,15 +761,15 @@ public interface B3BuildPackage extends EPackage {
 		EClass EXECUTION_STACK_REPOSITORY = eINSTANCE.getExecutionStackRepository();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SimpleRepositoryImpl <em>Simple Repository</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeModelRepositoryImpl <em>Bee Model Repository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.build.build.impl.SimpleRepositoryImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSimpleRepository()
+		 * @see org.eclipse.b3.build.build.impl.BeeModelRepositoryImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBeeModelRepository()
 		 * @generated
 		 */
-		EClass SIMPLE_REPOSITORY = eINSTANCE.getSimpleRepository();
+		EClass BEE_MODEL_REPOSITORY = eINSTANCE.getBeeModelRepository();
 
 		/**
 		 * The meta object literal for the '<em><b>Bee Models</b></em>' reference list feature.
@@ -778,7 +778,7 @@ public interface B3BuildPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EReference SIMPLE_REPOSITORY__BEE_MODELS = eINSTANCE.getSimpleRepository_BeeModels();
+		EReference BEE_MODEL_REPOSITORY__BEE_MODELS = eINSTANCE.getBeeModelRepository_BeeModels();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.core.IBuildUnitRepository <em>IBuild Unit Repository</em>}' class.
@@ -933,6 +933,15 @@ public interface B3BuildPackage extends EPackage {
 		EReference REPOSITORY__OPTIONS = eINSTANCE.getRepository_Options();
 
 		/**
+		 * The meta object literal for the '<em><b>Build Unit Repository</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPOSITORY__BUILD_UNIT_REPOSITORY = eINSTANCE.getRepository_BuildUnitRepository();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BranchImpl <em>Branch</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1046,6 +1055,36 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REPO_OPTION__EXPR = eINSTANCE.getRepoOption_Expr();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.UnitRepositoryDescriptionImpl <em>Unit Repository Description</em>}
+		 * ' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.build.impl.UnitRepositoryDescriptionImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitRepositoryDescription()
+		 * @generated
+		 */
+		EClass UNIT_REPOSITORY_DESCRIPTION = eINSTANCE.getUnitRepositoryDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Evaluated Options</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute UNIT_REPOSITORY_DESCRIPTION__EVALUATED_OPTIONS = eINSTANCE.getUnitRepositoryDescription_EvaluatedOptions();
+
+		/**
+		 * The meta object literal for the '<em><b>Repository</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference UNIT_REPOSITORY_DESCRIPTION__REPOSITORY = eINSTANCE.getUnitRepositoryDescription_Repository();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}' enum.
@@ -1301,6 +1340,15 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REPOSITORY_UNIT_PROVIDER__OPTIONS = eINSTANCE.getRepositoryUnitProvider_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Unit Repository</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPOSITORY_UNIT_PROVIDER__BUILD_UNIT_REPOSITORY = eINSTANCE.getRepositoryUnitProvider_BuildUnitRepository();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CompoundUnitProviderImpl <em>Compound Unit Provider</em>}' class.
@@ -3659,6 +3707,16 @@ public interface B3BuildPackage extends EPackage {
 	int REPOSITORY_UNIT_PROVIDER__OPTIONS = UNIT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Build Unit Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_UNIT_PROVIDER__BUILD_UNIT_REPOSITORY = UNIT_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Repository Unit Provider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3666,7 +3724,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_UNIT_PROVIDER_FEATURE_COUNT = UNIT_PROVIDER_FEATURE_COUNT + 2;
+	int REPOSITORY_UNIT_PROVIDER_FEATURE_COUNT = UNIT_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundUnitProviderImpl <em>Compound Unit Provider</em>}' class.
@@ -3890,6 +3948,16 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUILD_CONTEXT__PROGRESS_MONITOR = B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR;
+
+	/**
+	 * The feature id for the '<em><b>Injector</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT__INJECTOR = B3backendPackage.BEXECUTION_CONTEXT__INJECTOR;
 
 	/**
 	 * The number of structural features of the '<em>Build Context</em>' class.
@@ -6327,6 +6395,16 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_RESULT_CONTEXT__PROGRESS_MONITOR = B3backendPackage.BINNER_CONTEXT__PROGRESS_MONITOR;
 
 	/**
+	 * The feature id for the '<em><b>Injector</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT_CONTEXT__INJECTOR = B3backendPackage.BINNER_CONTEXT__INJECTOR;
+
+	/**
 	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6556,15 +6634,15 @@ public interface B3BuildPackage extends EPackage {
 	int EXECUTION_STACK_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SimpleRepositoryImpl <em>Simple Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BeeModelRepositoryImpl <em>Bee Model Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.build.build.impl.SimpleRepositoryImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSimpleRepository()
+	 * @see org.eclipse.b3.build.build.impl.BeeModelRepositoryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBeeModelRepository()
 	 * @generated
 	 */
-	int SIMPLE_REPOSITORY = 56;
+	int BEE_MODEL_REPOSITORY = 56;
 
 	/**
 	 * The feature id for the '<em><b>Bee Models</b></em>' reference list.
@@ -6574,17 +6652,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_REPOSITORY__BEE_MODELS = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
+	int BEE_MODEL_REPOSITORY__BEE_MODELS = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Simple Repository</em>' class.
+	 * The number of structural features of the '<em>Bee Model Repository</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 1;
+	int BEE_MODEL_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl <em>Unit Resolution Info</em>}' class.
@@ -6697,7 +6775,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__NAME = 0;
+	int REPOSITORY__NAME = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Local</b></em>' attribute.
@@ -6707,7 +6785,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__LOCAL = 1;
+	int REPOSITORY__LOCAL = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Remote</b></em>' attribute.
@@ -6717,7 +6795,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__REMOTE = 2;
+	int REPOSITORY__REMOTE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Branches</b></em>' containment reference list.
@@ -6727,7 +6805,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__BRANCHES = 3;
+	int REPOSITORY__BRANCHES = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -6737,7 +6815,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__DOCUMENTATION = 4;
+	int REPOSITORY__DOCUMENTATION = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>User</b></em>' attribute.
@@ -6747,7 +6825,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__USER = 5;
+	int REPOSITORY__USER = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Password</b></em>' attribute.
@@ -6757,7 +6835,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__PASSWORD = 6;
+	int REPOSITORY__PASSWORD = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Handler Type</b></em>' attribute.
@@ -6767,7 +6845,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__HANDLER_TYPE = 7;
+	int REPOSITORY__HANDLER_TYPE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -6777,7 +6855,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__OPTIONS = 8;
+	int REPOSITORY__OPTIONS = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Build Unit Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__BUILD_UNIT_REPOSITORY = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Repository</em>' class.
@@ -6787,7 +6875,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_FEATURE_COUNT = 9;
+	int REPOSITORY_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BranchImpl <em>Branch</em>}' class.
@@ -6953,6 +7041,47 @@ public interface B3BuildPackage extends EPackage {
 	int REPO_OPTION_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitRepositoryDescriptionImpl <em>Unit Repository Description</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.build.build.impl.UnitRepositoryDescriptionImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitRepositoryDescription()
+	 * @generated
+	 */
+	int UNIT_REPOSITORY_DESCRIPTION = 64;
+
+	/**
+	 * The feature id for the '<em><b>Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_REPOSITORY_DESCRIPTION__REPOSITORY = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Evaluated Options</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_REPOSITORY_DESCRIPTION__EVALUATED_OPTIONS = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Unit Repository Description</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_REPOSITORY_DESCRIPTION_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6961,7 +7090,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUpdateStrategy()
 	 * @generated
 	 */
-	int UPDATE_STRATEGY = 64;
+	int UPDATE_STRATEGY = 65;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.BranchPointType <em>Branch Point Type</em>}' enum.
@@ -6972,7 +7101,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBranchPointType()
 	 * @generated
 	 */
-	int BRANCH_POINT_TYPE = 65;
+	int BRANCH_POINT_TYPE = 66;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -6983,7 +7112,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 66;
+	int VERSION_RANGE = 67;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -6994,7 +7123,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 67;
+	int VERSION = 68;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -7005,7 +7134,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 68;
+	int ISTATUS = 69;
 
 	/**
 	 * The meta object id for the '<em>Path Iterator</em>' data type.
@@ -7016,7 +7145,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathIterator()
 	 * @generated
 	 */
-	int PATH_ITERATOR = 69;
+	int PATH_ITERATOR = 70;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
@@ -7193,6 +7322,29 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBeeModel_Repositories();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BeeModelRepository <em>Bee Model Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Bee Model Repository</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModelRepository
+	 * @generated
+	 */
+	EClass getBeeModelRepository();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BeeModelRepository#getBeeModels <em>Bee Models</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Bee Models</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModelRepository#getBeeModels()
+	 * @see #getBeeModelRepository()
+	 * @generated
+	 */
+	EReference getBeeModelRepository_BeeModels();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BestFoundUnitProvider <em>Best Found Unit Provider</em>}'.
@@ -9198,6 +9350,19 @@ public interface B3BuildPackage extends EPackage {
 	EReference getRepository_Branches();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.Repository#getBuildUnitRepository <em>Build Unit Repository</em>}
+	 * '.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Build Unit Repository</em>'.
+	 * @see org.eclipse.b3.build.build.Repository#getBuildUnitRepository()
+	 * @see #getRepository()
+	 * @generated
+	 */
+	EReference getRepository_BuildUnitRepository();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Repository#getDocumentation <em>Documentation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9303,6 +9468,19 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRepositoryUnitProvider();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getBuildUnitRepository
+	 * <em>Build Unit Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Build Unit Repository</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryUnitProvider#getBuildUnitRepository()
+	 * @see #getRepositoryUnitProvider()
+	 * @generated
+	 */
+	EReference getRepositoryUnitProvider_BuildUnitRepository();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getOptions
@@ -9446,29 +9624,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResolutionInfo_Status();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SimpleRepository <em>Simple Repository</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Simple Repository</em>'.
-	 * @see org.eclipse.b3.build.build.SimpleRepository
-	 * @generated
-	 */
-	EClass getSimpleRepository();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.SimpleRepository#getBeeModels <em>Bee Models</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the reference list '<em>Bee Models</em>'.
-	 * @see org.eclipse.b3.build.build.SimpleRepository#getBeeModels()
-	 * @see #getSimpleRepository()
-	 * @generated
-	 */
-	EReference getSimpleRepository_BeeModels();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SourcePredicate <em>Source Predicate</em>}'.
@@ -9648,6 +9803,42 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUnitProvider_Documentation();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitRepositoryDescription <em>Unit Repository Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Unit Repository Description</em>'.
+	 * @see org.eclipse.b3.build.build.UnitRepositoryDescription
+	 * @generated
+	 */
+	EClass getUnitRepositoryDescription();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.UnitRepositoryDescription#getEvaluatedOptions
+	 * <em>Evaluated Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Evaluated Options</em>'.
+	 * @see org.eclipse.b3.build.build.UnitRepositoryDescription#getEvaluatedOptions()
+	 * @see #getUnitRepositoryDescription()
+	 * @generated
+	 */
+	EAttribute getUnitRepositoryDescription_EvaluatedOptions();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.UnitRepositoryDescription#getRepository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Repository</em>'.
+	 * @see org.eclipse.b3.build.build.UnitRepositoryDescription#getRepository()
+	 * @see #getUnitRepositoryDescription()
+	 * @generated
+	 */
+	EReference getUnitRepositoryDescription_Repository();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitResolutionInfo <em>Unit Resolution Info</em>}'.

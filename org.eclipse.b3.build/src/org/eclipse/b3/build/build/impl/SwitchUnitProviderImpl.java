@@ -19,6 +19,7 @@ import org.eclipse.b3.build.build.BuildUnitRepository;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.SwitchUnitProvider;
 import org.eclipse.b3.build.build.UnitProvider;
+import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -217,7 +218,7 @@ public class SwitchUnitProviderImpl extends UnitProviderImpl implements SwitchUn
 	@Override
 	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
 		BExecutionContext ictx = ctx.createInnerContext();
-		ictx.defineFinalValue("request", requiredCapability, RequiredCapability.class);
+		ictx.defineFinalValue(B3BuildConstants.B3_VAR_REQUEST, requiredCapability, RequiredCapability.class);
 		Object repoObject = repoSwitch.evaluate(ictx);
 		// a null repo signals "not found"
 		if(repoObject == null)

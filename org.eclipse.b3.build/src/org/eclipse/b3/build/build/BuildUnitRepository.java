@@ -10,8 +10,8 @@
  */
 package org.eclipse.b3.build.build;
 
+import java.util.Map;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-
 import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.emf.ecore.EObject;
 
@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface BuildUnitRepository extends EObject, IBuildUnitRepository {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33,6 +34,16 @@ public interface BuildUnitRepository extends EObject, IBuildUnitRepository {
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
-	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath) throws Throwable;
+	void initialize(BExecutionContext ctx, Repository repository, Map<String, Object> options) throws Throwable;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, Map<String, Object> options)
+			throws Throwable;
 
 } // BuildUnitRepository

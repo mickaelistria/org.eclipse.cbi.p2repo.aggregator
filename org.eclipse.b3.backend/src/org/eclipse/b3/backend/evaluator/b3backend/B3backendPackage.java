@@ -125,6 +125,15 @@ public interface B3backendPackage extends EPackage {
 		EAttribute BEXECUTION_CONTEXT__PROGRESS_MONITOR = eINSTANCE.getBExecutionContext_ProgressMonitor();
 
 		/**
+		 * The meta object literal for the '<em><b>Injector</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BEXECUTION_CONTEXT__INJECTOR = eINSTANCE.getBExecutionContext_Injector();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl <em>BIf Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2655,6 +2664,17 @@ public interface B3backendPackage extends EPackage {
 		 */
 		EDataType CHAR_SEQUENCE = eINSTANCE.getCharSequence();
 
+		/**
+		 * The meta object literal for the '<em>Injector</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.google.inject.Injector
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getInjector()
+		 * @generated
+		 */
+		EDataType INJECTOR = eINSTANCE.getInjector();
+
 	}
 
 	/**
@@ -2826,6 +2846,16 @@ public interface B3backendPackage extends EPackage {
 	int BEXECUTION_CONTEXT__PROGRESS_MONITOR = ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Injector</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BEXECUTION_CONTEXT__INJECTOR = ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>BExecution Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2833,7 +2863,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT_FEATURE_COUNT = ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 5;
+	int BEXECUTION_CONTEXT_FEATURE_COUNT = ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl <em>BIf Expression</em>}' class.
@@ -4446,6 +4476,16 @@ public interface B3backendPackage extends EPackage {
 	int BSYSTEM_CONTEXT__PROGRESS_MONITOR = BEXECUTION_CONTEXT__PROGRESS_MONITOR;
 
 	/**
+	 * The feature id for the '<em><b>Injector</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BSYSTEM_CONTEXT__INJECTOR = BEXECUTION_CONTEXT__INJECTOR;
+
+	/**
 	 * The number of structural features of the '<em>BSystem Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4506,6 +4546,16 @@ public interface B3backendPackage extends EPackage {
 	int BCONTEXT__PROGRESS_MONITOR = BEXECUTION_CONTEXT__PROGRESS_MONITOR;
 
 	/**
+	 * The feature id for the '<em><b>Injector</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BCONTEXT__INJECTOR = BEXECUTION_CONTEXT__INJECTOR;
+
+	/**
 	 * The number of structural features of the '<em>BContext</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4564,6 +4614,16 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINNER_CONTEXT__PROGRESS_MONITOR = BEXECUTION_CONTEXT__PROGRESS_MONITOR;
+
+	/**
+	 * The feature id for the '<em><b>Injector</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BINNER_CONTEXT__INJECTOR = BEXECUTION_CONTEXT__INJECTOR;
 
 	/**
 	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
@@ -4634,6 +4694,16 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINVOCATION_CONTEXT__PROGRESS_MONITOR = BEXECUTION_CONTEXT__PROGRESS_MONITOR;
+
+	/**
+	 * The feature id for the '<em><b>Injector</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BINVOCATION_CONTEXT__INJECTOR = BEXECUTION_CONTEXT__INJECTOR;
 
 	/**
 	 * The feature id for the '<em><b>Expression Cache</b></em>' attribute.
@@ -6030,6 +6100,16 @@ public interface B3backendPackage extends EPackage {
 	int BINSTANCE_CONTEXT__PROGRESS_MONITOR = BINNER_CONTEXT__PROGRESS_MONITOR;
 
 	/**
+	 * The feature id for the '<em><b>Injector</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BINSTANCE_CONTEXT__INJECTOR = BINNER_CONTEXT__INJECTOR;
+
+	/**
 	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7145,6 +7225,16 @@ public interface B3backendPackage extends EPackage {
 	int BDELEGATING_CONTEXT__PROGRESS_MONITOR = BINNER_CONTEXT__PROGRESS_MONITOR;
 
 	/**
+	 * The feature id for the '<em><b>Injector</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BDELEGATING_CONTEXT__INJECTOR = BINNER_CONTEXT__INJECTOR;
+
+	/**
 	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7224,6 +7314,16 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BWRAPPING_CONTEXT__PROGRESS_MONITOR = BDELEGATING_CONTEXT__PROGRESS_MONITOR;
+
+	/**
+	 * The feature id for the '<em><b>Injector</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__INJECTOR = BDELEGATING_CONTEXT__INJECTOR;
 
 	/**
 	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
@@ -7843,6 +7943,17 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	int CHAR_SEQUENCE = 112;
+
+	/**
+	 * The meta object id for the '<em>Injector</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.google.inject.Injector
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getInjector()
+	 * @generated
+	 */
+	int INJECTOR = 113;
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -8879,6 +8990,18 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBExecutionContext_FuncStore();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getInjector <em>Injector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Injector</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getInjector()
+	 * @see #getBExecutionContext()
+	 * @generated
+	 */
+	EAttribute getBExecutionContext_Injector();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext
@@ -10751,6 +10874,18 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIGenericDeclaration();
+
+	/**
+	 * Returns the meta object for data type '{@link com.google.inject.Injector <em>Injector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>Injector</em>'.
+	 * @see com.google.inject.Injector
+	 * @model instanceClass="com.google.inject.Injector" serializeable="false"
+	 * @generated
+	 */
+	EDataType getInjector();
 
 	/**
 	 * Returns the meta object for class '{@link java.lang.reflect.ParameterizedType <em>IParameterized Type</em>}'.

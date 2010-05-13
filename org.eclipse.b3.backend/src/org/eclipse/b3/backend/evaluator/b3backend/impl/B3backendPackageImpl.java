@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+import com.google.inject.Injector;
 import java.lang.CharSequence;
 import java.lang.reflect.GenericDeclaration;
 import java.lang.reflect.Method;
@@ -1054,6 +1055,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	private EDataType injectorEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private static boolean isInited = false;
 
 	/**
@@ -1150,6 +1159,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bExecutionContextEClass, BEXECUTION_CONTEXT__FUNC_STORE);
 		createEReference(bExecutionContextEClass, BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS);
 		createEAttribute(bExecutionContextEClass, BEXECUTION_CONTEXT__PROGRESS_MONITOR);
+		createEAttribute(bExecutionContextEClass, BEXECUTION_CONTEXT__INJECTOR);
 
 		bIfExpressionEClass = createEClass(BIF_EXPRESSION);
 		createEReference(bIfExpressionEClass, BIF_EXPRESSION__CONDITION_EXPR);
@@ -1492,6 +1502,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		iProgressMonitorEDataType = createEDataType(IPROGRESS_MONITOR);
 		simplePatternEDataType = createEDataType(SIMPLE_PATTERN);
 		charSequenceEDataType = createEDataType(CHAR_SEQUENCE);
+		injectorEDataType = createEDataType(INJECTOR);
 	}
 
 	/**
@@ -2352,6 +2363,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EAttribute getBExecutionContext_FuncStore() {
 		return (EAttribute) bExecutionContextEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBExecutionContext_Injector() {
+		return (EAttribute) bExecutionContextEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3900,6 +3921,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	public EDataType getInjector() {
+		return injectorEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getIParameterizedType() {
 		return iParameterizedTypeEClass;
 	}
@@ -4252,8 +4283,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getBExecutionContext_ProgressMonitor(), this.getIProgressMonitor(), "progressMonitor", null, 0, 1,
-			BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			BExecutionContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBExecutionContext_Injector(), this.getInjector(), "injector", null, 0, 1, BExecutionContext.class,
+			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bExecutionContextEClass, null, "loadFunctions", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
@@ -5480,6 +5514,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			simplePatternEDataType, SimplePattern.class, "SimplePattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(
 			charSequenceEDataType, CharSequence.class, "CharSequence", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(injectorEDataType, Injector.class, "Injector", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

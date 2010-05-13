@@ -244,6 +244,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="repository" eType="#//Repository"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
         eType="#//RepoOption" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildUnitRepository" eType="#//IBuildUnitRepository"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundUnitProvider" abstract="true"
       eSuperTypes="#//UnitProvider">
@@ -266,7 +267,7 @@
       <eParameters name="unit" eType="#//BuildUnit"/>
       <eParameters name="isWeaving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eOperations name="defineBeeModel" eType="#//BuildContext" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3EngineException">
+    <eOperations name="defineBeeModel" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3EngineException">
       <eParameters name="beeModel" eType="#//BeeModel"/>
     </eOperations>
     <eOperations name="getEffectiveBuildUnit" eType="#//BuildUnit">
@@ -541,7 +542,22 @@
     <eOperations name="resolve" eType="#//BuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
       <eParameters name="requiredCapability" eType="#//RequiredCapability"/>
-      <eParameters name="unitPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="options">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="initialize" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+      <eParameters name="repository" eType="#//Repository"/>
+      <eParameters name="options">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundBuildUnitRepository" abstract="true"
@@ -551,7 +567,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundFirstFoundRepository" eSuperTypes="#//CompoundBuildUnitRepository"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionStackRepository" eSuperTypes="#//BuildUnitRepository"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleRepository" eSuperTypes="#//BuildUnitRepository">
+  <eClassifiers xsi:type="ecore:EClass" name="BeeModelRepository" eSuperTypes="#//BuildUnitRepository">
     <eStructuralFeatures xsi:type="ecore:EReference" name="beeModels" upperBound="-1"
         eType="#//BeeModel"/>
   </eClassifiers>
@@ -568,12 +584,7 @@
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BSwitchExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Repository">
-    <eOperations name="resolve" eType="#//BuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
-      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
-      <eParameters name="requiredCapability" eType="#//RequiredCapability"/>
-      <eParameters name="unitPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
+  <eClassifiers xsi:type="ecore:EClass" name="Repository" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="local" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="remote" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
@@ -586,6 +597,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="handlerType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
         eType="#//RepoOption" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildUnitRepository" eType="#//IBuildUnitRepository"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Branch">
     <eOperations name="getEffectiveUpdateStrategy" eType="#//UpdateStrategy">
@@ -635,5 +647,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitRepositoryDescription" eSuperTypes="#//BuildUnitRepository">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This BuildUnitRepository is an implementation intended to be used with repositories provided by other engines, testing purposes, and for instantiation of unknown repository types. It can be created by b3, but has no resolution capabilities. Instead it just contains the evaluated data from a Repository + RepoOptions configuration."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repository" eType="#//Repository"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="evaluatedOptions" transient="true">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

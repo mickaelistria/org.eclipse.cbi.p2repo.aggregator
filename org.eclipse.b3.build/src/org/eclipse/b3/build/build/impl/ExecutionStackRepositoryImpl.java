@@ -11,6 +11,7 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.util.Iterator;
+import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
@@ -19,6 +20,7 @@ import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.EffectiveCapabilityFacade;
 import org.eclipse.b3.build.build.ExecutionStackRepository;
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.core.EffectiveUnitIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -57,11 +59,22 @@ public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implem
 	/*
 	 * (non-Javadoc)
 	 * 
+	 * @see org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl#initialize(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 * org.eclipse.b3.build.build.Repository, java.util.Map)
+	 */
+	@Override
+	public void initialize(BExecutionContext ctx, Repository repository, Map<String, Object> options) throws Throwable {
+		// does nothing - initialization not needed
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl#resolve(org.eclipse.b3.backend.evaluator.b3backend.
 	 * BExecutionContext, org.eclipse.b3.build.build.RequiredCapability)
 	 */
 	@Override
-	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath)
+	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, Map<String, Object> options)
 			throws Throwable {
 		BuildContext bctx = ctx.getContext(BuildContext.class);
 		EffectiveUnitIterator uItor = new EffectiveUnitIterator(bctx);

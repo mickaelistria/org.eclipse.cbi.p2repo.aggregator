@@ -18,18 +18,17 @@ public interface B3BuildConstants extends B3BackendConstants {
 
 	public static final String REPOSITORIES_EXTATTR_REPOVALIDATOR = "validator";
 
-	/**
-	 * Prefix for repository scheme meta class value name. Suffix with "." and the scheme name.
-	 * The engine assigns these from an extension point.
-	 */
-	public static final String B3ENGINE_VAR_REPOSCHEMECLASS = "@reposcheme";
-
 	public static final String B3REPO_CREATE_CTX_ALIAS = "repository";
+
+	/**
+	 * Variable name for requests in repository switch and option evaluation.
+	 */
+	public static final String B3_VAR_REQUEST = "request";
 
 	/**
 	 * Variable name for the repository configuration to use when resolving requirements.
 	 */
-	public static final String B3ENGINE_VAR_REPOSITORIES = "@repositories";
+	public static final String B3ENGINE_VAR_UNITPROVIDERS = "@providers";
 
 	/**
 	 * Variable name for the resolution scope (used to associate resolutions with units and

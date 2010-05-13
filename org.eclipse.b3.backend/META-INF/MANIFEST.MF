@@ -15,7 +15,8 @@ Export-Package: org.eclipse.b3.backend.core,
  org.eclipse.b3.backend.evaluator.typesystem,
  org.eclipse.b3.backend.functions
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ com.google.inject;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.b3.provisional.core
 Bundle-Activator: org.eclipse.b3.backend.core.B3BackendActivator

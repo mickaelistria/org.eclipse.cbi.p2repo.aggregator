@@ -168,6 +168,23 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bee Model Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bee Model Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBeeModelRepository(BeeModelRepository object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Best Found Unit Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1222,23 +1239,6 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Simple Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Simple Repository</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSimpleRepository(SimpleRepository object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Source Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1337,6 +1337,23 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseUnitProvider(UnitProvider object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Repository Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Repository Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitRepositoryDescription(UnitRepositoryDescription object) {
 		return null;
 	}
 
@@ -2013,13 +2030,13 @@ public class B3BuildSwitch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.SIMPLE_REPOSITORY: {
-				SimpleRepository simpleRepository = (SimpleRepository) theEObject;
-				T result = caseSimpleRepository(simpleRepository);
+			case B3BuildPackage.BEE_MODEL_REPOSITORY: {
+				BeeModelRepository beeModelRepository = (BeeModelRepository) theEObject;
+				T result = caseBeeModelRepository(beeModelRepository);
 				if(result == null)
-					result = caseBuildUnitRepository(simpleRepository);
+					result = caseBuildUnitRepository(beeModelRepository);
 				if(result == null)
-					result = caseIBuildUnitRepository(simpleRepository);
+					result = caseIBuildUnitRepository(beeModelRepository);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -2048,6 +2065,8 @@ public class B3BuildSwitch<T> {
 				Repository repository = (Repository) theEObject;
 				T result = caseRepository(repository);
 				if(result == null)
+					result = caseBExpression(repository);
+				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -2072,6 +2091,17 @@ public class B3BuildSwitch<T> {
 			case B3BuildPackage.REPO_OPTION: {
 				RepoOption repoOption = (RepoOption) theEObject;
 				T result = caseRepoOption(repoOption);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.UNIT_REPOSITORY_DESCRIPTION: {
+				UnitRepositoryDescription unitRepositoryDescription = (UnitRepositoryDescription) theEObject;
+				T result = caseUnitRepositoryDescription(unitRepositoryDescription);
+				if(result == null)
+					result = caseBuildUnitRepository(unitRepositoryDescription);
+				if(result == null)
+					result = caseIBuildUnitRepository(unitRepositoryDescription);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

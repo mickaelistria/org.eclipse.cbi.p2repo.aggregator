@@ -11,15 +11,15 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.util.Collection;
+import java.util.Map;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.CompoundBuildUnitRepository;
-
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -147,4 +147,14 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 		return repositories;
 	}
 
+	/**
+	 * This default implementation does nothing.
+	 * 
+	 * @see org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl#initialize(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 *      org.eclipse.b3.build.build.Repository, java.util.Map)
+	 */
+	@Override
+	public void initialize(BExecutionContext ctx, Repository repository, Map<String, Object> options) throws Throwable {
+		// does nothing -
+	}
 } // CompoundBuildUnitRepositoryImpl

@@ -832,7 +832,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				// for(UnitProvider config : reposDecls) {
 				// repos.add((IBuildUnitRepository) config.evaluate(outer));
 				// }
-				outer.defineValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, up, FirstFoundUnitProvider.class);
+				outer.defineValue(B3BuildConstants.B3ENGINE_VAR_UNITPROVIDERS, up, FirstFoundUnitProvider.class);
 			}
 		}
 

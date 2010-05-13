@@ -63,6 +63,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import com.google.inject.Binder;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Module;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>BExecution Context</b></em>'.
@@ -75,6 +80,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getFuncStore <em>Func Store</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getEffectiveConcerns <em>Effective Concerns</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getProgressMonitor <em>Progress Monitor</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getInjector <em>Injector</em>}</li>
  * </ul>
  * </p>
  * 
@@ -362,6 +368,28 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @ordered
 	 */
 	protected IProgressMonitor progressMonitor = PROGRESS_MONITOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getInjector() <em>Injector</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getInjector()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Injector INJECTOR_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInjector() <em>Injector</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getInjector()
+	 * @generated
+	 * @ordered
+	 */
+	protected Injector injector = INJECTOR_EDEFAULT;
 
 	private boolean isWeaving = false; // TODO: add as parameter to defineFunction instead
 
@@ -656,6 +684,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				return getEffectiveConcerns();
 			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
 				return getProgressMonitor();
+			case B3backendPackage.BEXECUTION_CONTEXT__INJECTOR:
+				return getInjector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -685,6 +715,10 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				return PROGRESS_MONITOR_EDEFAULT == null
 						? progressMonitor != null
 						: !PROGRESS_MONITOR_EDEFAULT.equals(progressMonitor);
+			case B3backendPackage.BEXECUTION_CONTEXT__INJECTOR:
+				return INJECTOR_EDEFAULT == null
+						? injector != null
+						: !INJECTOR_EDEFAULT.equals(injector);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -714,6 +748,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				return;
 			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
 				setProgressMonitor((IProgressMonitor) newValue);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__INJECTOR:
+				setInjector((Injector) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -753,6 +790,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				return;
 			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
 				setProgressMonitor(PROGRESS_MONITOR_EDEFAULT);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__INJECTOR:
+				setInjector(INJECTOR_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -946,6 +986,29 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 */
 	public Iterator<IFunction> getFunctionIterator(Type type, Class<?> functionType) {
 		return getEffectiveFuncStore().getFunctionIterator(type, functionType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns the first found injector in this or parent context. If the top of the ancestor chain
+	 * is reached without finding an injector, an empty injector is created.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public Injector getInjector() {
+		if(injector != null)
+			return injector;
+		else if(getParentContext() != null)
+			return getParentContext().getInjector();
+		// create a null injector...
+		setInjector(Guice.createInjector(new Module() {
+			public void configure(Binder binder) {
+				// no bindings
+			}
+
+		}));
+		return injector;
 	}
 
 	/**
@@ -1288,6 +1351,20 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * 
 	 * @generated
 	 */
+	public void setInjector(Injector newInjector) {
+		Injector oldInjector = injector;
+		injector = newInjector;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__INJECTOR, oldInjector, injector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setParentContext(BExecutionContext newParentContext) {
 		BExecutionContext oldParentContext = parentContext;
 		parentContext = newParentContext;
@@ -1344,6 +1421,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		result.append(funcStore);
 		result.append(", progressMonitor: ");
 		result.append(progressMonitor);
+		result.append(", injector: ");
+		result.append(injector);
 		result.append(')');
 		return result.toString();
 	}

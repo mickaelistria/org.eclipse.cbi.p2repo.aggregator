@@ -10,6 +10,8 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.util.Map;
+
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
@@ -51,16 +53,13 @@ public abstract class BuildUnitRepositoryImpl extends EObjectImpl implements Bui
 	}
 
 	/**
-	 * This default implementation does nothing. Derived classes that needs to configure themselves from
-	 * the supplied data should do so. This empty method does not have to be called.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.build.core.IBuildUnitRepository#initialize(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
-	 *      org.eclipse.b3.build.build.Repository)
+	 * @generated NOT
 	 */
-	public void initialize(BExecutionContext ctx, Repository handlerData) throws Throwable {
-		// This default implementation does nothing
-
-	}
+	public abstract void initialize(BExecutionContext ctx, Repository repository, Map<String, Object> options)
+			throws Throwable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,18 +67,7 @@ public abstract class BuildUnitRepositoryImpl extends EObjectImpl implements Bui
 	 * 
 	 * @generated NOT
 	 */
-	public abstract BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath)
-			throws Throwable;
+	public abstract BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability,
+			Map<String, Object> options) throws Throwable;
 
-	// /**
-	// * <!-- begin-user-doc -->
-	// * Default implementation that takes context and requirement from the effective requirement facade
-	// * and calls {@link BuildUnitRepositoryImpl #resolve(BExecutionContext, RequiredCapability) }.
-	// * <!-- end-user-doc -->
-	// *
-	// * @generated NOT
-	// */
-	// public BuildUnit resolve(EffectiveRequirementFacade effectiveRequirement) throws Throwable {
-	// return resolve(effectiveRequirement.getContext(), effectiveRequirement.getRequirement());
-	// }
 } // BuildUnitRepositoryImpl

@@ -12,17 +12,19 @@ package org.eclipse.b3.build.build.impl;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
+import org.eclipse.b3.build.build.BeeModelRepository;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.EffectiveCapabilityFacade;
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RequiredCapability;
-import org.eclipse.b3.build.build.SimpleRepository;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -34,13 +36,13 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.SimpleRepositoryImpl#getBeeModels <em>Bee Models</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BeeModelRepositoryImpl#getBeeModels <em>Bee Models</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements SimpleRepository {
+public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements BeeModelRepository {
 	/**
 	 * The cached value of the '{@link #getBeeModels() <em>Bee Models</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -58,7 +60,7 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	 * 
 	 * @generated
 	 */
-	protected SimpleRepositoryImpl() {
+	protected BeeModelRepositoryImpl() {
 		super();
 	}
 
@@ -71,7 +73,7 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-			case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
+			case B3BuildPackage.BEE_MODEL_REPOSITORY__BEE_MODELS:
 				return getBeeModels();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -86,7 +88,7 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-			case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
+			case B3BuildPackage.BEE_MODEL_REPOSITORY__BEE_MODELS:
 				return beeModels != null && !beeModels.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -102,7 +104,7 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-			case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
+			case B3BuildPackage.BEE_MODEL_REPOSITORY__BEE_MODELS:
 				getBeeModels().clear();
 				getBeeModels().addAll((Collection<? extends BeeModel>) newValue);
 				return;
@@ -118,7 +120,7 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.SIMPLE_REPOSITORY;
+		return B3BuildPackage.Literals.BEE_MODEL_REPOSITORY;
 	}
 
 	/**
@@ -130,7 +132,7 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-			case B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS:
+			case B3BuildPackage.BEE_MODEL_REPOSITORY__BEE_MODELS:
 				getBeeModels().clear();
 				return;
 		}
@@ -146,9 +148,22 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	public EList<BeeModel> getBeeModels() {
 		if(beeModels == null) {
 			beeModels = new EObjectResolvingEList<BeeModel>(
-				BeeModel.class, this, B3BuildPackage.SIMPLE_REPOSITORY__BEE_MODELS);
+				BeeModel.class, this, B3BuildPackage.BEE_MODEL_REPOSITORY__BEE_MODELS);
 		}
 		return beeModels;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl#initialize(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 * org.eclipse.b3.build.build.Repository, java.util.Map)
+	 */
+	@Override
+	public void initialize(BExecutionContext ctx, Repository repository, Map<String, Object> options) throws Throwable {
+		// TODO: "Please implement this method - it should load a b3 model containing BuildUnits"
+		throw new UnsupportedOperationException(
+			"Please implement this method - it should load a b3 model containing BuildUnits");
 	}
 
 	/*
@@ -158,7 +173,7 @@ public class SimpleRepositoryImpl extends BuildUnitRepositoryImpl implements Sim
 	 * BExecutionContext, org.eclipse.b3.build.build.RequiredCapability)
 	 */
 	@Override
-	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath)
+	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, Map<String, Object> options)
 			throws Throwable {
 
 		// BRUTE FORCE IMPLMENTATION TODO: Optimize this

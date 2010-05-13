@@ -10,6 +10,8 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.util.Map;
+
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
@@ -57,11 +59,11 @@ public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositor
 	 * BExecutionContext, org.eclipse.b3.build.build.RequiredCapability)
 	 */
 	@Override
-	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath)
+	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, Map<String, Object> options)
 			throws Throwable {
 		BuildUnit result = null;
 		for(IBuildUnitRepository repo : getRepositories())
-			if((result = repo.resolve(ctx, requiredCapability, unitPath)) != null)
+			if((result = repo.resolve(ctx, requiredCapability, options)) != null)
 				return result;
 		return null;
 	}

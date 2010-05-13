@@ -9,12 +9,16 @@
 package org.eclipse.b3.build.core;
 
 import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.B3NoSuchVariableException;
 import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.build.DelegatingUnitProvider;
 import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.EffectiveUnitFacade;
+import org.eclipse.b3.build.build.FirstFoundUnitProvider;
+import org.eclipse.b3.build.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.ResolutionInfo;
 import org.eclipse.b3.build.build.UnitProvider;
@@ -98,6 +102,9 @@ public class SimpleResolver {
 		// Satisfy all requirements
 		//
 		MultiStatus ms = new MultiStatus(B3BuildActivator.instance.getBundle().getSymbolicName(), 0, "", null);
+		// create a stack provider (to be used in front of any defined providers)
+		final RepositoryUnitProvider stackProvider = B3BuildFactory.eINSTANCE.createRepositoryUnitProvider();
+		stackProvider.setBuildUnitRepository(B3BuildFactory.eINSTANCE.createExecutionStackRepository());
 
 		for(EffectiveRequirementFacade ereq : requiredCapabilities) {
 			RequiredCapability r = ereq.getRequirement();
@@ -106,12 +113,32 @@ public class SimpleResolver {
 			if(ri != null)
 				continue; // already processed and it has a status (ok, error, cancel)
 
-			// get the effective repositories to use for resolution
+			// get the effective unit providers to use for resolution
 			try {
-				UnitProvider repos = UnitProvider.class.cast(ereq.getContext().getValue(
-					B3BuildConstants.B3ENGINE_VAR_REPOSITORIES));
+				UnitProvider repos = null;
+				UnitProvider providerToUse = stackProvider;
+				try {
+					repos = UnitProvider.class.cast(ereq.getContext().getValue(
+						B3BuildConstants.B3ENGINE_VAR_UNITPROVIDERS));
+				}
+				catch(B3NoSuchVariableException e) {
+					// ignore - repos remain null
+				}
+				// if providers were configured, combine them with a first found using the stack
+				// if combination of multiple provider definitions should be performed, this is up
+				// to whoever assigns B3ENGINE_CAR_UNITPROVIDERS (i.e. delegate first, or last).
+				// 
+				if(repos != null) {
+					FirstFoundUnitProvider ff = B3BuildFactory.eINSTANCE.createFirstFoundUnitProvider();
+					EList<UnitProvider> plist = ff.getProviders();
+					plist.add(stackProvider);
+					DelegatingUnitProvider delegate = B3BuildFactory.eINSTANCE.createDelegatingUnitProvider();
+					delegate.setDelegate(repos);
+					plist.add(delegate);
+					providerToUse = ff;
+				}
 				// note effective requirement has reference to the context to use
-				BuildUnit result = repos.resolve(ereq);
+				BuildUnit result = providerToUse.resolve(ereq);
 				if(result == null) {
 					ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
 					ri.setStatus(new Status(
@@ -133,6 +160,8 @@ public class SimpleResolver {
 				ri.setStatus(new Status(
 					IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
 					"Resolution failed with exception", e));
+				// TODO: do something better than print stack trace
+				e.printStackTrace();
 				reqAdapter.setAssociatedInfo(this, ri);
 				ms.add(ri.getStatus());
 			}

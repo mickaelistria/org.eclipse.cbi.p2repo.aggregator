@@ -88,6 +88,11 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseBeeModelRepository(BeeModelRepository object) {
+			return createBeeModelRepositoryAdapter();
+		}
+
+		@Override
 		public Adapter caseBestFoundUnitProvider(BestFoundUnitProvider object) {
 			return createBestFoundUnitProviderAdapter();
 		}
@@ -398,11 +403,6 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseSimpleRepository(SimpleRepository object) {
-			return createSimpleRepositoryAdapter();
-		}
-
-		@Override
 		public Adapter caseSourcePredicate(SourcePredicate object) {
 			return createSourcePredicateAdapter();
 		}
@@ -430,6 +430,11 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseUnitProvider(UnitProvider object) {
 			return createUnitProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseUnitRepositoryDescription(UnitRepositoryDescription object) {
+			return createUnitRepositoryDescriptionAdapter();
 		}
 
 		@Override
@@ -565,6 +570,21 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBeeModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BeeModelRepository <em>Bee Model Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BeeModelRepository
+	 * @generated
+	 */
+	public Adapter createBeeModelRepositoryAdapter() {
 		return null;
 	}
 
@@ -1523,21 +1543,6 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.SimpleRepository <em>Simple Repository</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.SimpleRepository
-	 * @generated
-	 */
-	public Adapter createSimpleRepositoryAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.SourcePredicate <em>Source Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1624,6 +1629,22 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnitProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.UnitRepositoryDescription <em>Unit Repository Description</em>}
+	 * '.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.UnitRepositoryDescription
+	 * @generated
+	 */
+	public Adapter createUnitRepositoryDescriptionAdapter() {
 		return null;
 	}
 

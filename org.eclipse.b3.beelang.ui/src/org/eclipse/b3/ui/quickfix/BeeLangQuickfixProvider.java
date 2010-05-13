@@ -15,6 +15,12 @@ import org.eclipse.xtext.validation.Issue;
 public class BeeLangQuickfixProvider extends DefaultQuickfixProvider {
 	private final static String ISSUE_REPOSITORY__NO_REMOTE_FIX = "http://abc.org";
 
+	/**
+	 * Inserts a "remote = <URI>" into a Repository (using semantic insertion).
+	 * 
+	 * @param issue
+	 * @param acceptor
+	 */
 	@Fix(BeeLangJavaValidator.ISSUE_REPOSITORY__NO_REMOTE)
 	public void insertRemoteURI(final Issue issue, IssueResolutionAcceptor acceptor) {
 		acceptor.accept(

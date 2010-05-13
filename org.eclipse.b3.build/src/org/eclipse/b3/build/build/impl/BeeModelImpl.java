@@ -12,28 +12,31 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
-
 import java.util.Collection;
 
+import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BChainedExpressionImpl;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
+import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
-
 import org.eclipse.b3.build.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.build.Repository;
+import org.eclipse.b3.build.build.UnitProvider;
+import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -333,6 +336,78 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	}
 
 	/**
+	 * Evaluates the BeeModel.
+	 * Defines all imports.
+	 * Defines all functions.
+	 * Evaluates all repositories
+	 * Sets up resolution.
+	 * 
+	 * @param ctx
+	 *            Must be an instance of BuildContext
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BChainedExpressionImpl#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 */
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		// A BeeModel is a BChainedExpression, and can this contain any type of expression
+		// evaluate these first. Return value is ignored.
+		super.evaluate(ctx);
+
+		if(!(ctx instanceof BuildContext))
+			throw new B3InternalError("A BeeModel must be defined in a BuildContext - got a context of class: " +
+					ctx.getClass().toString());
+
+		BuildContext bctx = (BuildContext) ctx;
+
+		// Define all IMPORTS as constants
+		for(Type t : getImports()) {
+			if(t instanceof B3JavaImport) {
+				Class<?> x = TypeUtils.getRaw(t);
+				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+				metaClass.setInstanceClass(x);
+				bctx.defineValue(((B3JavaImport) t).getName(), x, metaClass);
+			}
+		}
+
+		// Define all FUNCTIONS
+		for(IFunction f : getFunctions())
+			bctx.defineFunction(f);
+
+		// Evaluate REPOSITORIES
+		// (This will create the repository impl instances
+		// Resolvers using the repositories links to the repository instances and will pick up
+		// the impl instances).
+		for(Repository r : getRepositories())
+			r.evaluate(bctx);
+
+		// Define PROVIDERS
+		// if model defines providers, define them in the outer context
+		//
+		FirstFoundUnitProvider up = getProvider();
+		if(up != null) {
+			EList<UnitProvider> reposDecls = up.getProviders();
+			if(reposDecls.size() > 0) {
+				// wrap in a first found
+				// TODO: Consider default repositories (workspace, target platform, etc)
+				// TODO: Control default repositories used via preferences
+
+				// if evaluating this in root context, there may be a default already defined - check and
+				// reassign it.
+				if(bctx.containsValue(B3BuildConstants.B3ENGINE_VAR_UNITPROVIDERS))
+					bctx.getLValue(B3BuildConstants.B3ENGINE_VAR_UNITPROVIDERS).set(up);
+				else
+					bctx.defineValue(B3BuildConstants.B3ENGINE_VAR_UNITPROVIDERS, up, FirstFoundUnitProvider.class);
+
+			}
+		}
+		// Define all BUILD UNITS (currently only one - could easily have more than one)
+		for(BuildUnit u : getBuildUnits())
+			if(u != null)
+				bctx.defineBuildUnit(u, false);
+
+		return this;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -357,6 +432,14 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 			concerns = new EObjectContainmentEList<BConcern>(BConcern.class, this, B3BuildPackage.BEE_MODEL__CONCERNS);
 		}
 		return concerns;
+	}
+
+	/**
+	 * Returns BeeModel.class
+	 */
+	@Override
+	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		return BeeModel.class;
 	}
 
 	/**
@@ -447,5 +530,4 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BEE_MODEL__PROVIDER, newProvider, newProvider));
 	}
-
 } // BeeModelImpl

@@ -11,6 +11,8 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
@@ -19,10 +21,13 @@ import org.eclipse.b3.build.build.RepoOption;
 import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.core.B3BuildConstants;
+import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -37,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getRepository <em>Repository</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getOptions <em>Options</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
  * </ul>
  * </p>
  * 
@@ -66,6 +72,17 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	protected EList<RepoOption> options;
 
 	/**
+	 * The cached value of the '{@link #getBuildUnitRepository() <em>Build Unit Repository</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getBuildUnitRepository()
+	 * @generated
+	 * @ordered
+	 */
+	protected IBuildUnitRepository buildUnitRepository;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -73,6 +90,16 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 */
 	protected RepositoryUnitProviderImpl() {
 		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IBuildUnitRepository basicGetBuildUnitRepository() {
+		return buildUnitRepository;
 	}
 
 	/**
@@ -100,6 +127,10 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 				return basicGetRepository();
 			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__OPTIONS:
 				return getOptions();
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__BUILD_UNIT_REPOSITORY:
+				if(resolve)
+					return getBuildUnitRepository();
+				return basicGetBuildUnitRepository();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -132,6 +163,8 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 				return repository != null;
 			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__OPTIONS:
 				return options != null && !options.isEmpty();
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__BUILD_UNIT_REPOSITORY:
+				return buildUnitRepository != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -152,6 +185,9 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__OPTIONS:
 				getOptions().clear();
 				getOptions().addAll((Collection<? extends RepoOption>) newValue);
+				return;
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__BUILD_UNIT_REPOSITORY:
+				setBuildUnitRepository((IBuildUnitRepository) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,8 +219,31 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__OPTIONS:
 				getOptions().clear();
 				return;
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__BUILD_UNIT_REPOSITORY:
+				setBuildUnitRepository((IBuildUnitRepository) null);
+				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IBuildUnitRepository getBuildUnitRepository() {
+		if(buildUnitRepository != null && ((EObject) buildUnitRepository).eIsProxy()) {
+			InternalEObject oldBuildUnitRepository = (InternalEObject) buildUnitRepository;
+			buildUnitRepository = (IBuildUnitRepository) eResolveProxy(oldBuildUnitRepository);
+			if(buildUnitRepository != oldBuildUnitRepository) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3BuildPackage.REPOSITORY_UNIT_PROVIDER__BUILD_UNIT_REPOSITORY,
+						oldBuildUnitRepository, buildUnitRepository));
+			}
+		}
+		return buildUnitRepository;
 	}
 
 	/**
@@ -229,16 +288,37 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 */
 	@Override
 	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
-		String repoPath = requiredCapability.getName();
-		// if(getRepositoryPathExpression() != null) {
-		// BExecutionContext ictx = ctx.createInnerContext();
-		// ictx.defineFinalValue("request", requiredCapability, RequiredCapability.class);
-		// Object pathObject = repositoryPathExpression.evaluate(ictx);
-		// if(!(pathObject instanceof String))
-		// throw new B3IncompatibleTypeException(String.class, pathObject.getClass());
-		// repoPath = (String) pathObject;
-		// }
-		return repository.resolve(ctx, requiredCapability, repoPath);
+		// Evaluate options in a map and pass to BuildUnitRepository
+		BExecutionContext ictx = ctx.createInnerContext();
+		ictx.defineFinalValue(B3BuildConstants.B3_VAR_REQUEST, requiredCapability, RequiredCapability.class);
+		EList<RepoOption> opts = getOptions();
+
+		// create a map for evaluated options, and populate it
+		Map<String, Object> evaluatedOptions = new HashMap<String, Object>(opts.size());
+		for(RepoOption o : opts)
+			evaluatedOptions.put(o.getName(), o.getExpr().evaluate(ctx));
+
+		// TODO: Better error handling, if BuildUnitRepository is null, mean that evaluation
+		// was not performed on the repository, or that the guice binding is wrong.
+		//
+		return (repository == null
+				? buildUnitRepository
+				: repository.getBuildUnitRepository()).resolve(ctx, requiredCapability, evaluatedOptions);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setBuildUnitRepository(IBuildUnitRepository newBuildUnitRepository) {
+		IBuildUnitRepository oldBuildUnitRepository = buildUnitRepository;
+		buildUnitRepository = newBuildUnitRepository;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REPOSITORY_UNIT_PROVIDER__BUILD_UNIT_REPOSITORY,
+				oldBuildUnitRepository, buildUnitRepository));
 	}
 
 	/**

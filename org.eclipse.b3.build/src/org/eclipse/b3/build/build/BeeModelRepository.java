@@ -20,15 +20,15 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.SimpleRepository#getBeeModels <em>Bee Models</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BeeModelRepository#getBeeModels <em>Bee Models</em>}</li>
  * </ul>
  * </p>
  * 
- * @see org.eclipse.b3.build.build.B3BuildPackage#getSimpleRepository()
+ * @see org.eclipse.b3.build.build.B3BuildPackage#getBeeModelRepository()
  * @model
  * @generated
  */
-public interface SimpleRepository extends BuildUnitRepository {
+public interface BeeModelRepository extends BuildUnitRepository {
 	/**
 	 * Returns the value of the '<em><b>Bee Models</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.b3.build.build.BeeModel}.
@@ -39,7 +39,7 @@ public interface SimpleRepository extends BuildUnitRepository {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Bee Models</em>' reference list.
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getSimpleRepository_BeeModels()
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBeeModelRepository_BeeModels()
 	 * @model
 	 * @generated
 	 */

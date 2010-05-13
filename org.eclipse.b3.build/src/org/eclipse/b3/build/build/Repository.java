@@ -12,10 +12,9 @@ package org.eclipse.b3.build.build;
 
 import java.net.URI;
 
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.build.build.Repository#getPassword <em>Password</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getHandlerType <em>Handler Type</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getOptions <em>Options</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.Repository#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
  * </ul>
  * </p>
  * 
@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Repository extends EObject {
+public interface Repository extends BExpression {
 	/**
 	 * Returns the value of the '<em><b>Branches</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.build.build.Branch}.
@@ -57,6 +57,22 @@ public interface Repository extends EObject {
 	 * @generated
 	 */
 	EList<Branch> getBranches();
+
+	/**
+	 * Returns the value of the '<em><b>Build Unit Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Build Unit Repository</em>' reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Build Unit Repository</em>' reference.
+	 * @see #setBuildUnitRepository(IBuildUnitRepository)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepository_BuildUnitRepository()
+	 * @model type="org.eclipse.b3.build.build.IBuildUnitRepository"
+	 * @generated
+	 */
+	IBuildUnitRepository getBuildUnitRepository();
 
 	/**
 	 * Returns the value of the '<em><b>Documentation</b></em>' attribute.
@@ -188,13 +204,16 @@ public interface Repository extends EObject {
 	String getUser();
 
 	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getBuildUnitRepository <em>Build Unit Repository</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @param value
+	 *            the new value of the '<em>Build Unit Repository</em>' reference.
+	 * @see #getBuildUnitRepository()
 	 * @generated
 	 */
-	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath) throws Throwable;
+	void setBuildUnitRepository(IBuildUnitRepository value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getDocumentation <em>Documentation</em>}' attribute.

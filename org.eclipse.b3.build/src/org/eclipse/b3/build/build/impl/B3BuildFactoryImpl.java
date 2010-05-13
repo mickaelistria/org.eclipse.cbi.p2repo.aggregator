@@ -268,8 +268,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createCompoundFirstFoundRepository();
 			case B3BuildPackage.EXECUTION_STACK_REPOSITORY:
 				return createExecutionStackRepository();
-			case B3BuildPackage.SIMPLE_REPOSITORY:
-				return createSimpleRepository();
+			case B3BuildPackage.BEE_MODEL_REPOSITORY:
+				return createBeeModelRepository();
 			case B3BuildPackage.UNIT_RESOLUTION_INFO:
 				return createUnitResolutionInfo();
 			case B3BuildPackage.SWITCH_UNIT_PROVIDER:
@@ -282,6 +282,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createDelegatingUnitProvider();
 			case B3BuildPackage.REPO_OPTION:
 				return createRepoOption();
+			case B3BuildPackage.UNIT_REPOSITORY_DESCRIPTION:
+				return createUnitRepositoryDescription();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -318,6 +320,17 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public BeeModel createBeeModel() {
 		BeeModelImpl beeModel = new BeeModelImpl();
 		return beeModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BeeModelRepository createBeeModelRepository() {
+		BeeModelRepositoryImpl beeModelRepository = new BeeModelRepositoryImpl();
+		return beeModelRepository;
 	}
 
 	/**
@@ -871,17 +884,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
-	public SimpleRepository createSimpleRepository() {
-		SimpleRepositoryImpl simpleRepository = new SimpleRepositoryImpl();
-		return simpleRepository;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public SourcePredicate createSourcePredicate() {
 		SourcePredicateImpl sourcePredicate = new SourcePredicateImpl();
 		return sourcePredicate;
@@ -929,6 +931,17 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public UnitNamePredicate createUnitNamePredicate() {
 		UnitNamePredicateImpl unitNamePredicate = new UnitNamePredicateImpl();
 		return unitNamePredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public UnitRepositoryDescription createUnitRepositoryDescription() {
+		UnitRepositoryDescriptionImpl unitRepositoryDescription = new UnitRepositoryDescriptionImpl();
+		return unitRepositoryDescription;
 	}
 
 	/**

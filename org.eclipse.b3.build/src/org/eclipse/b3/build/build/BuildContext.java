@@ -7,7 +7,6 @@
 package org.eclipse.b3.build.build;
 
 import org.eclipse.b3.backend.core.B3EngineException;
-
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 
 /**
@@ -28,7 +27,7 @@ public interface BuildContext extends BExecutionContext {
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
-	BuildContext defineBeeModel(BeeModel beeModel) throws B3EngineException;
+	void defineBeeModel(BeeModel beeModel) throws B3EngineException;
 
 	/**
 	 * <!-- begin-user-doc -->

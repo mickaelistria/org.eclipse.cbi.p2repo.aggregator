@@ -66,12 +66,13 @@ import org.eclipse.b3.build.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.RequiresPredicate;
 import org.eclipse.b3.build.build.UnitProvider;
+import org.eclipse.b3.build.build.UnitRepositoryDescription;
 import org.eclipse.b3.build.build.ResolutionInfo;
 import org.eclipse.b3.build.build.CompoundUnitProvider;
 import org.eclipse.b3.build.build.BestFoundUnitProvider;
 import org.eclipse.b3.build.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.build.SwitchUnitProvider;
-import org.eclipse.b3.build.build.SimpleRepository;
+import org.eclipse.b3.build.build.BeeModelRepository;
 import org.eclipse.b3.build.build.SourcePredicate;
 import org.eclipse.b3.build.build.Synchronization;
 import org.eclipse.b3.build.build.UnitConcernContext;
@@ -316,7 +317,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	private EClass simpleRepositoryEClass = null;
+	private EClass beeModelRepositoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -373,6 +374,14 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EClass repoOptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass unitRepositoryDescriptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -839,6 +848,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		repositoryUnitProviderEClass = createEClass(REPOSITORY_UNIT_PROVIDER);
 		createEReference(repositoryUnitProviderEClass, REPOSITORY_UNIT_PROVIDER__REPOSITORY);
 		createEReference(repositoryUnitProviderEClass, REPOSITORY_UNIT_PROVIDER__OPTIONS);
+		createEReference(repositoryUnitProviderEClass, REPOSITORY_UNIT_PROVIDER__BUILD_UNIT_REPOSITORY);
 
 		compoundUnitProviderEClass = createEClass(COMPOUND_UNIT_PROVIDER);
 		createEReference(compoundUnitProviderEClass, COMPOUND_UNIT_PROVIDER__PROVIDERS);
@@ -1003,8 +1013,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		executionStackRepositoryEClass = createEClass(EXECUTION_STACK_REPOSITORY);
 
-		simpleRepositoryEClass = createEClass(SIMPLE_REPOSITORY);
-		createEReference(simpleRepositoryEClass, SIMPLE_REPOSITORY__BEE_MODELS);
+		beeModelRepositoryEClass = createEClass(BEE_MODEL_REPOSITORY);
+		createEReference(beeModelRepositoryEClass, BEE_MODEL_REPOSITORY__BEE_MODELS);
 
 		iBuildUnitRepositoryEClass = createEClass(IBUILD_UNIT_REPOSITORY);
 
@@ -1025,6 +1035,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEAttribute(repositoryEClass, REPOSITORY__PASSWORD);
 		createEAttribute(repositoryEClass, REPOSITORY__HANDLER_TYPE);
 		createEReference(repositoryEClass, REPOSITORY__OPTIONS);
+		createEReference(repositoryEClass, REPOSITORY__BUILD_UNIT_REPOSITORY);
 
 		branchEClass = createEClass(BRANCH);
 		createEAttribute(branchEClass, BRANCH__NAME);
@@ -1040,6 +1051,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		repoOptionEClass = createEClass(REPO_OPTION);
 		createEAttribute(repoOptionEClass, REPO_OPTION__NAME);
 		createEReference(repoOptionEClass, REPO_OPTION__EXPR);
+
+		unitRepositoryDescriptionEClass = createEClass(UNIT_REPOSITORY_DESCRIPTION);
+		createEReference(unitRepositoryDescriptionEClass, UNIT_REPOSITORY_DESCRIPTION__REPOSITORY);
+		createEAttribute(unitRepositoryDescriptionEClass, UNIT_REPOSITORY_DESCRIPTION__EVALUATED_OPTIONS);
 
 		// Create enums
 		updateStrategyEEnum = createEEnum(UPDATE_STRATEGY);
@@ -1200,6 +1215,26 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EReference getBeeModel_Repositories() {
 		return (EReference) beeModelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getBeeModelRepository() {
+		return beeModelRepositoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getBeeModelRepository_BeeModels() {
+		return (EReference) beeModelRepositoryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2868,6 +2903,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EReference getRepository_BuildUnitRepository() {
+		return (EReference) repositoryEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EAttribute getRepository_Documentation() {
 		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(4);
 	}
@@ -2950,6 +2995,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EClass getRepositoryUnitProvider() {
 		return repositoryUnitProviderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getRepositoryUnitProvider_BuildUnitRepository() {
+		return (EReference) repositoryUnitProviderEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3070,26 +3125,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EAttribute getResolutionInfo_Status() {
 		return (EAttribute) resolutionInfoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EClass getSimpleRepository() {
-		return simpleRepositoryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getSimpleRepository_BeeModels() {
-		return (EReference) simpleRepositoryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3248,6 +3283,36 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getUnitRepositoryDescription() {
+		return unitRepositoryDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getUnitRepositoryDescription_EvaluatedOptions() {
+		return (EAttribute) unitRepositoryDescriptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getUnitRepositoryDescription_Repository() {
+		return (EReference) unitRepositoryDescriptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getUnitResolutionInfo() {
 		return unitResolutionInfoEClass;
 	}
@@ -3397,10 +3462,12 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		compoundBuildUnitRepositoryEClass.getESuperTypes().add(this.getBuildUnitRepository());
 		compoundFirstFoundRepositoryEClass.getESuperTypes().add(this.getCompoundBuildUnitRepository());
 		executionStackRepositoryEClass.getESuperTypes().add(this.getBuildUnitRepository());
-		simpleRepositoryEClass.getESuperTypes().add(this.getBuildUnitRepository());
+		beeModelRepositoryEClass.getESuperTypes().add(this.getBuildUnitRepository());
 		unitResolutionInfoEClass.getESuperTypes().add(this.getResolutionInfo());
 		switchUnitProviderEClass.getESuperTypes().add(this.getUnitProvider());
+		repositoryEClass.getESuperTypes().add(theB3backendPackage.getBExpression());
 		delegatingUnitProviderEClass.getESuperTypes().add(this.getUnitProvider());
+		unitRepositoryDescriptionEClass.getESuperTypes().add(this.getBuildUnitRepository());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -3767,6 +3834,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getRepositoryUnitProvider_Options(), this.getRepoOption(), null, "options", null, 0, -1,
 			RepositoryUnitProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getRepositoryUnitProvider_BuildUnitRepository(), this.getIBuildUnitRepository(), null,
+			"buildUnitRepository", null, 0, 1, RepositoryUnitProvider.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			compoundUnitProviderEClass, CompoundUnitProvider.class, "CompoundUnitProvider", IS_ABSTRACT, !IS_INTERFACE,
@@ -3813,7 +3884,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		addEParameter(op, ecorePackage.getEBoolean(), "isWeaving", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getB3EngineException());
 
-		op = addEOperation(buildContextEClass, this.getBuildContext(), "defineBeeModel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(buildContextEClass, null, "defineBeeModel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBeeModel(), "beeModel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getB3EngineException());
 
@@ -4304,7 +4375,23 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		op = addEOperation(buildUnitRepositoryEClass, this.getBuildUnit(), "resolve", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRequiredCapability(), "requiredCapability", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "unitPath", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "options", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theB3backendPackage.getThrowable());
+
+		op = addEOperation(buildUnitRepositoryEClass, null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRepository(), "repository", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "options", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getThrowable());
 
 		initEClass(
@@ -4324,11 +4411,11 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(
-			simpleRepositoryEClass, SimpleRepository.class, "SimpleRepository", !IS_ABSTRACT, !IS_INTERFACE,
+			beeModelRepositoryEClass, BeeModelRepository.class, "BeeModelRepository", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getSimpleRepository_BeeModels(), this.getBeeModel(), null, "beeModels", null, 0, -1,
-			SimpleRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			getBeeModelRepository_BeeModels(), this.getBeeModel(), null, "beeModels", null, 0, -1,
+			BeeModelRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
@@ -4386,12 +4473,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getRepository_Options(), this.getRepoOption(), null, "options", null, 0, -1, Repository.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
-
-		op = addEOperation(repositoryEClass, this.getBuildUnit(), "resolve", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getRequiredCapability(), "requiredCapability", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "unitPath", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, theB3backendPackage.getThrowable());
+		initEReference(
+			getRepository_BuildUnitRepository(), this.getIBuildUnitRepository(), null, "buildUnitRepository", null, 0,
+			1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
@@ -4435,6 +4520,23 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getRepoOption_Expr(), theB3backendPackage.getBExpression(), null, "expr", null, 0, 1, RepoOption.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			unitRepositoryDescriptionEClass, UnitRepositoryDescription.class, "UnitRepositoryDescription",
+			!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getUnitRepositoryDescription_Repository(), this.getRepository(), null, "repository", null, 0, 1,
+			UnitRepositoryDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEAttribute(
+			getUnitRepositoryDescription_EvaluatedOptions(), g1, "evaluatedOptions", null, 0, 1,
+			UnitRepositoryDescription.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(updateStrategyEEnum, UpdateStrategy.class, "UpdateStrategy");

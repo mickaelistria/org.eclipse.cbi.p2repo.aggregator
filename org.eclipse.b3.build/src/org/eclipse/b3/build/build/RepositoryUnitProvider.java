@@ -10,6 +10,7 @@
  */
 package org.eclipse.b3.build.build;
 
+import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -22,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  * <li>{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getRepository <em>Repository</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getOptions <em>Options</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
  * </ul>
  * </p>
  * 
@@ -30,6 +32,22 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface RepositoryUnitProvider extends UnitProvider {
+	/**
+	 * Returns the value of the '<em><b>Build Unit Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Build Unit Repository</em>' reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Build Unit Repository</em>' reference.
+	 * @see #setBuildUnitRepository(IBuildUnitRepository)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepositoryUnitProvider_BuildUnitRepository()
+	 * @model type="org.eclipse.b3.build.build.IBuildUnitRepository"
+	 * @generated
+	 */
+	IBuildUnitRepository getBuildUnitRepository();
+
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.build.build.RepoOption}.
@@ -61,6 +79,19 @@ public interface RepositoryUnitProvider extends UnitProvider {
 	 * @generated
 	 */
 	Repository getRepository();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getBuildUnitRepository <em>Build Unit Repository</em>}'
+	 * reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Build Unit Repository</em>' reference.
+	 * @see #getBuildUnitRepository()
+	 * @generated
+	 */
+	void setBuildUnitRepository(IBuildUnitRepository value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.RepositoryUnitProvider#getRepository <em>Repository</em>}' reference.

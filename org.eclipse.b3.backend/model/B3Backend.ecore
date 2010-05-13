@@ -106,7 +106,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="funcStore" eType="#//FuncStore"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="effectiveConcerns" upperBound="-1"
         eType="#//BConcern"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="progressMonitor" eType="#//IProgressMonitor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="progressMonitor" eType="#//IProgressMonitor"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="injector" eType="#//Injector"
+        transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BIfExpression" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditionExpr" eType="#//BExpression"
@@ -772,4 +775,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="SimplePattern" instanceClassName="org.eclipse.b3.backend.core.SimplePattern"/>
   <eClassifiers xsi:type="ecore:EDataType" name="CharSequence" instanceClassName="java.lang.CharSequence"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Injector" instanceClassName="com.google.inject.Injector"
+      serializable="false"/>
 </ecore:EPackage>

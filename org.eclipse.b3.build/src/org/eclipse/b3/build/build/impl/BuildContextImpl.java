@@ -11,33 +11,24 @@
 
 package org.eclipse.b3.build.build.impl;
 
-import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.B3WeavingFailedException;
 import org.eclipse.b3.backend.core.ParentContextIterator;
-import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
-import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.build.IBuilder;
-import org.eclipse.b3.build.build.UnitProvider;
-import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapter;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -73,69 +64,16 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 	 * @throws B3EngineException
 	 * @generated NOT
 	 */
-	public BuildContext defineBeeModel(BeeModel beeModel) throws B3EngineException {
+	public void defineBeeModel(BeeModel beeModel) throws B3EngineException {
 
-		// Define all IMPORTS as constants
-		for(Type t : beeModel.getImports()) {
-			if(t instanceof B3JavaImport) {
-				Class<?> x = TypeUtils.getRaw(t);
-				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-				metaClass.setInstanceClass(x);
-				defineValue(((B3JavaImport) t).getName(), x, metaClass);
-			}
+		try {
+			beeModel.evaluate(this);
+		}
+		catch(Throwable e) {
+			// TODO: Throwable is not good, use specific exception for BeeModelDefinition fail.
+			throw new B3InternalError("Loading of model failed", e);
 		}
 
-		// Define all FUNCTIONS
-		for(IFunction f : beeModel.getFunctions()) {
-			this.defineFunction(f);
-		}
-
-		// Define REPOSITORIES
-		// if unit defines repositories, define them in the outer context
-		//
-		FirstFoundUnitProvider up = beeModel.getProvider();
-		if(up != null) {
-			EList<UnitProvider> reposDecls = up.getProviders();
-			if(reposDecls.size() > 0) {
-				// wrap in a first found
-				// TODO: Consider default repositories (workspace, target platform, etc)
-				// TODO: Control default repositories used via preferences
-
-				// if evaluating this in root context, there may be a default already defined - check and
-				// reassign it.
-				if(this.containsValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES))
-					this.getLValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES).set(up);
-				else
-					this.defineValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, up, FirstFoundUnitProvider.class);
-
-				// CompoundFirstFoundRepository firstFound = B3BuildFactory.eINSTANCE.createCompoundFirstFoundRepository();
-				// EList<IBuildUnitRepository> repos = firstFound.getRepositories();
-				// try {
-				// for(UnitProvider config : reposDecls) {
-				// repos.add((IBuildUnitRepository) config.evaluate(this));
-				// }
-				// }
-				// catch(Throwable t) {
-				// throw new B3EngineException("Error while evaluating repositories - see details", t);
-				// }
-				// // if evaluating this in root context, there may be a default already defined - check and
-				// // reassign it.
-				// if(this.containsValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES))
-				// this.getLValue(B3BuildConstants.B3ENGINE_VAR_REPOSITORIES).set(firstFound);
-				// else
-				// this.defineValue(
-				// B3BuildConstants.B3ENGINE_VAR_REPOSITORIES, firstFound, CompoundFirstFoundRepository.class);
-			}
-		}
-		// Define all BUILD UNITS (currently only one - could easily have more than one)
-		for(BuildUnit u : beeModel.getBuildUnits())
-			if(u != null)
-				defineBuildUnit(u, false);
-
-		// Concerns, and defined property sets are only used via direct model references,
-		// so these are not defined in the context.
-
-		return this;
 	}
 
 	/**

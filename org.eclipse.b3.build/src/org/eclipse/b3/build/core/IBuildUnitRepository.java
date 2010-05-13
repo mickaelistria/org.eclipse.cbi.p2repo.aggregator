@@ -10,6 +10,8 @@
  */
 package org.eclipse.b3.build.core;
 
+import java.util.Map;
+
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Repository;
@@ -19,22 +21,29 @@ import org.eclipse.b3.build.build.RequiredCapability;
  * This is the b3 main interface for a repository of Build Units.
  * Instances of this interface are used to lookup build units.
  * An implementor must have a default constructor.
+ * After an instance has been constructed, it will receive a call to the initialize method with
+ * the data to use to set up processing.
+ * An implementation should do its initialization lazily on a call to resolve. BuildUnitRepository instances will be
+ * created even if they are never used.
  * Note that long running tasks should pick up the progress monitor from the execution context.
  * 
  */
 public interface IBuildUnitRepository {
 	/**
-	 * Initializes a newly created build unit repository from a Repository Handler (which has all the required data
-	 * to make it possible to connect to a remote repository, perform local caching, etc.)
+	 * Initializes a newly created build unit repository from a Repository (which has all the required data
+	 * to make it possible to connect to a remote repository, perform local caching, find branches, etc.).
+	 * 
 	 * Note that a progress monitor is available in the ctx.
 	 * 
 	 * @param ctx
 	 *            supplied primarily to enable picking up the relevant progress monitor
-	 * @param handlerData
+	 * @param repository
 	 *            initialization data
+	 * @param options
+	 *            named initialization data that is specific to a particular type of repository
 	 * @throws Throwable
 	 */
-	void initialize(BExecutionContext ctx, Repository handlerData) throws Throwable;
+	void initialize(BExecutionContext ctx, Repository repository, Map<String, Object> options) throws Throwable;
 
 	/**
 	 * Returns a BuilUnit, or null if a build unit fulfilling the required capability can not be found.
@@ -44,10 +53,11 @@ public interface IBuildUnitRepository {
 	 * @param ctx
 	 *            supplied primarily to enable picking up the relevant progress monitor
 	 * @param requiredCapability
-	 *            contains all request details
-	 * @param unitPath
-	 *            relative path from a 'branch root' to repository 'file' representing the unit
+	 *            contains the original request
+	 * @param options
+	 *            contains provider specific options (path from root, dual identifiers, etc)
 	 */
-	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, String unitPath) throws Throwable;
+	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, Map<String, Object> options)
+			throws Throwable;
 
 } // BuildUnitRepository

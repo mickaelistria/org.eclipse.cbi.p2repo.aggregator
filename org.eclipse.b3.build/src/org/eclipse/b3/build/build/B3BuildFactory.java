@@ -58,6 +58,16 @@ public interface B3BuildFactory extends EFactory {
 	BeeModel createBeeModel();
 
 	/**
+	 * Returns a new object of class '<em>Bee Model Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Bee Model Repository</em>'.
+	 * @generated
+	 */
+	BeeModelRepository createBeeModelRepository();
+
+	/**
 	 * Returns a new object of class '<em>Best Found Unit Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -498,16 +508,6 @@ public interface B3BuildFactory extends EFactory {
 	ResolutionInfo createResolutionInfo();
 
 	/**
-	 * Returns a new object of class '<em>Simple Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Simple Repository</em>'.
-	 * @generated
-	 */
-	SimpleRepository createSimpleRepository();
-
-	/**
 	 * Returns a new object of class '<em>Source Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -556,6 +556,16 @@ public interface B3BuildFactory extends EFactory {
 	 * @generated
 	 */
 	UnitNamePredicate createUnitNamePredicate();
+
+	/**
+	 * Returns a new object of class '<em>Unit Repository Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Unit Repository Description</em>'.
+	 * @generated
+	 */
+	UnitRepositoryDescription createUnitRepositoryDescription();
 
 	/**
 	 * Returns a new object of class '<em>Unit Resolution Info</em>'.
