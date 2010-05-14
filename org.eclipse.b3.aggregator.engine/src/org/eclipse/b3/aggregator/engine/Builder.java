@@ -885,9 +885,14 @@ public class Builder extends AbstractCommand {
 			// and now, wait until all the jobs are done (we need all repositories anyway)
 			for(MetadataRepositoryReference repo : repositoriesToLoad) {
 				MetadataRepository mdr;
-				if((mdr = repo.getMetadataRepository()) == null || ((EObject) mdr).eIsProxy())
-					throw ExceptionUtils.fromMessage(
-						"Unable to load repository %s:%s", repo.getNature(), repo.getLocation());
+				if((mdr = repo.getMetadataRepository()) == null || ((EObject) mdr).eIsProxy()) {
+					Contribution contrib = null;
+					if(repo instanceof MappedRepository)
+						contrib = (Contribution) ((EObject) repo).eContainer();
+					String msg = String.format("Unable to load repository %s:%s", repo.getNature(), repo.getLocation());
+					sendEmail(contrib, Collections.singletonList(msg));
+					throw ExceptionUtils.fromMessage(msg);
+				}
 			}
 		}
 		catch(CoreException e) {
