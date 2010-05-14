@@ -298,8 +298,11 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 		for(RepoOption o : opts)
 			evaluatedOptions.put(o.getName(), o.getExpr().evaluate(ctx));
 
-		// TODO: Better error handling, if BuildUnitRepository is null, mean that evaluation
-		// was not performed on the repository, or that the guice binding is wrong.
+		// TODO: Better error handling:
+		// If repository is null, buildUnitRepository *must* have been set manually.
+		// If repository is non-null, and it does not have a BuildUnitRepository - this means that evaluation
+		// was not performed on the repository, or that the guice binding was wrong and nothing was found
+		// the latter is most likely reported by guice).
 		//
 		return (repository == null
 				? buildUnitRepository
