@@ -38,5 +38,8 @@ public interface B3BuildConstants extends B3BackendConstants {
 	 */
 	public static final String B3_NS_BUILDUNIT = "org.eclipse.b3.ns.capability.buildunit";
 
+	/**
+	 * Guice Key to get custom resolution scope. (To enter/exit the scope).
+	 */
 	public static final Key<SharedScope> KEY_RESOLUTION_SCOPE = Key.get(SharedScope.class, Names.named("resolution"));
 }
