@@ -11,11 +11,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.beelang.ui.BeeLangConsoleUtils;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.B3BuildEngine;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.core.EffectiveUnitIterator;
-import org.eclipse.b3.build.core.SimpleResolver;
+import org.eclipse.b3.build.core.IBuildUnitResolver;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -66,12 +65,9 @@ public class ExecuteHandler extends AbstractHandler {
 					}
 					// If resolving, run a resolution
 					if(isPerformResolve()) {
-						// TODO: Make it possible to specify the resolver to use
-						SimpleResolver resolver = new SimpleResolver();
-						// bind the resolver, it is later looked up by build jobs to get the
-						// current resolutions of requirements
-						engine.getContext().defineValue(
-							B3BuildConstants.B3ENGINE_VAR_RESOLUTION_SCOPE, resolver, SimpleResolver.class);
+						IBuildUnitResolver resolver = engine.getContext().getInjector().getInstance(
+							IBuildUnitResolver.class);
+
 						IStatus status = resolver.resolveAll(engine.getBuildContext());
 						if(!status.isOK()) {
 							PrintStream b3ConsoleErrorStream = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);

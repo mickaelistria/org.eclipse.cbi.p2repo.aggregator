@@ -9,12 +9,11 @@
 package org.eclipse.b3.build.core;
 
 import org.eclipse.b3.backend.core.B3BackendModelProvider;
-import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.emf.ecore.EClass;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provider;
-import com.google.inject.name.Named;
+import com.google.inject.name.Names;
 
 /**
  * This Abstract Guice Module for B3 provides two convenience methods for binding to
@@ -31,8 +30,9 @@ import com.google.inject.name.Named;
  * <p/>
  * <p>
  * Which means that if a request is made to create an instance of IBuildUnitRepository and the request is made with an attribute annotation of
+ * 
  * @Named("*"), and there is no other binding for a particular name, then this binding will be used. See Guice documentation for more information.
- * </p>
+ *          </p>
  */
 public class AbstractB3Module extends AbstractModule {
 
@@ -51,10 +51,17 @@ public class AbstractB3Module extends AbstractModule {
 	 */
 	@Override
 	protected void configure() {
-		bind(IBuildUnitRepository.class).annotatedWith(Named.class).toProvider(
-			buildModelProvider(IBuildUnitRepository.class, B3BuildPackage.Literals.UNIT_REPOSITORY_DESCRIPTION));
-		// bind(IBuildUnitRepository.class).annotatedWith(Names.named("svn")).toProvider(
-		// B3Provider.buildModel(IBuildUnitRepository.class, B3BuildPackage.Literals.UNIT_REPOSITORY_DESCRIPTION));
+		ThreadScope threadScope = new ThreadScope();
+		SharedScope resolutionScope = new SharedScope();
+
+		// tell Guice about the ResolutionScoped scope
+		bindScope(ResolutionScoped.class, resolutionScope);
+
+		// todo - currently no Annotation bound to the ThreadScope
+
+		// make our scopes instance injectable
+		bind(ThreadScope.class).annotatedWith(Names.named("thread")).toInstance(threadScope);
+		bind(SharedScope.class).annotatedWith(Names.named("resolution")).toInstance(resolutionScope);
 
 	}
 }

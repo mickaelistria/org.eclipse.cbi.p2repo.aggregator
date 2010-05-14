@@ -19,7 +19,8 @@ Require-Bundle: org.eclipse.b3.beelang;visibility:=reexport,
  org.eclipse.b3.build,
  org.eclipse.xtext.ui.shared
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
+ J2SE-1.5
 Export-Package: org.eclipse.b3.ui.contentassist,
  org.eclipse.b3.ui.contentassist.antlr
 Bundle-Activator: org.eclipse.b3.ui.internal.BeeLangActivator

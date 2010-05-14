@@ -19,11 +19,11 @@ import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.IBuilder;
-import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.B3BuildEngine;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.core.EffectiveUnitIterator;
-import org.eclipse.b3.build.core.SimpleResolver;
+import org.eclipse.b3.build.core.IBuildUnitResolver;
+import org.eclipse.b3.build.core.SharedScope;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -38,9 +38,12 @@ import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.ParentRunner;
 import org.junit.runners.model.InitializationError;
+import org.junit.runners.model.Statement;
 import org.osgi.framework.BundleReference;
 
 import com.google.inject.Injector;
+import com.google.inject.Key;
+import com.google.inject.name.Names;
 
 /**
  * A factory class for building JUnit 4 runners capable of executing B3 language functions as JUnit tests. A separate
@@ -100,7 +103,6 @@ class JUnitB3FileRunnerFactory {
 	}
 
 	protected class JUnitB3FileRunner extends ParentRunner<JUnitB3FileRunner.TestFunctionDescriptor> {
-
 		protected class TestFunctionDescriptor {
 
 			protected String testFunctionName;
@@ -131,6 +133,8 @@ class JUnitB3FileRunnerFactory {
 
 		protected B3BuildEngine engine;
 
+		private SharedScope resolutionScope;
+
 		public JUnitB3FileRunner(String b3File) throws Exception {
 			super(definitionClass);
 
@@ -139,6 +143,38 @@ class JUnitB3FileRunnerFactory {
 					: b3File;
 
 			initializeFunctionTests();
+		}
+
+		private void afterChildren() throws Exception {
+			resolutionScope.exit();
+		}
+
+		private void beforeChildren() throws Exception {
+			resolutionScope = engine.getContext().getInjector().getInstance(
+				Key.get(SharedScope.class, Names.named("resolution")));
+			resolutionScope.enter();
+			IBuildUnitResolver resolver = engine.getContext().getInjector().getInstance(IBuildUnitResolver.class);
+			IStatus status = resolver.resolveAll(engine.getBuildContext());
+			if(!status.isOK()) {
+				throw new Exception(status.toString());
+			}
+
+		}
+
+		@Override
+		protected Statement childrenInvoker(final RunNotifier notifier) {
+			final Statement original = super.childrenInvoker(notifier);
+			Statement s = new Statement() {
+
+				@Override
+				public void evaluate() throws Throwable {
+					beforeChildren();
+					original.evaluate();
+					afterChildren();
+				}
+
+			};
+			return s;
 		}
 
 		@Override
@@ -188,6 +224,9 @@ class JUnitB3FileRunnerFactory {
 			argv.add(engine);
 			ctx.defineFinalValue("$test.engine", engine, B3BuildEngine.class);
 
+			// Questionable if this should be kept - it binds the names of all found units to
+			// properties named after the units.
+			//
 			EffectiveUnitIterator uItor = new EffectiveUnitIterator(engine.getBuildContext());
 			while(uItor.hasNext()) {
 				BuildUnit unit = uItor.next();
@@ -197,7 +236,9 @@ class JUnitB3FileRunnerFactory {
 			}
 			ctx.defineFinalValue("$test.argv", argv, List.class);
 
-			performResolution();
+			// TODO: This can not be performed like this as the result is only valid while the resolver is
+			// still alive.
+			// performResolution();
 
 			testFunctionDescriptors = new ArrayList<TestFunctionDescriptor>();
 
@@ -217,6 +258,14 @@ class JUnitB3FileRunnerFactory {
 				throw new Exception("No test functions");
 		}
 
+		// private void performResolution() throws Exception {
+		// IBuildUnitResolver resolver = engine.getContext().getInjector().getInstance(IBuildUnitResolver.class);
+		// IStatus status = resolver.resolveAll(engine.getBuildContext());
+		// if(!status.isOK()) {
+		// throw new Exception(status.toString());
+		// }
+		// }
+
 		@Override
 		protected void runChild(TestFunctionDescriptor child, RunNotifier notifier) {
 			Description testDescription = child.getDescription();
@@ -230,19 +279,6 @@ class JUnitB3FileRunnerFactory {
 			}
 			finally {
 				notifier.fireTestFinished(testDescription);
-			}
-		}
-
-		private void performResolution() throws Exception {
-			// If resolving, run a resolution
-			SimpleResolver resolver = new SimpleResolver();
-			// bind the resolver, it is later looked up by build jobs to get the
-			// current resolutions of requirements
-			engine.getContext().defineValue(
-				B3BuildConstants.B3ENGINE_VAR_RESOLUTION_SCOPE, resolver, SimpleResolver.class);
-			IStatus status = resolver.resolveAll(engine.getBuildContext());
-			if(!status.isOK()) {
-				throw new Exception(status.toString());
 			}
 		}
 
@@ -284,10 +320,6 @@ class JUnitB3FileRunnerFactory {
 				klass.getName());
 	}
 
-	public List<Runner> getB3FileRunners() {
-		return b3FileRunners;
-	}
-
 	protected Runner createB3FileRunner(String b3File) throws Exception {
 		return new JUnitB3FileRunner(b3File);
 	}
@@ -318,6 +350,10 @@ class JUnitB3FileRunnerFactory {
 		Injector beeLangInjector = new BeeLangStandaloneSetup().createInjectorAndDoEMFRegistration();
 
 		beeLangResourceSet = beeLangInjector.getProvider(XtextResourceSet.class).get();
+	}
+
+	public List<Runner> getB3FileRunners() {
+		return b3FileRunners;
 	}
 
 }

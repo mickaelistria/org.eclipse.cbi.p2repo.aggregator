@@ -35,8 +35,11 @@ import org.eclipse.emf.common.util.EList;
  * effective requirement's context's view of repository configuration.
  * 
  */
-public class SimpleResolver {
+public class SimpleResolver implements IBuildUnitResolver {
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveAll(org.eclipse.b3.build.build.BuildContext)
+	 */
 	public IStatus resolveAll(BuildContext ctx) {
 		EffectiveUnitIterator uItor = new EffectiveUnitIterator(ctx);
 		MultiStatus ms = new MultiStatus(B3BuildActivator.instance.getBundle().getSymbolicName(), 0, "", null);
@@ -45,6 +48,9 @@ public class SimpleResolver {
 		return ms;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveUnit(org.eclipse.b3.build.build.BuildUnit, org.eclipse.b3.build.build.BuildContext)
+	 */
 	public IStatus resolveUnit(BuildUnit unit, BuildContext ctx) {
 
 		// ALREADY RESOLVED

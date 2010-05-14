@@ -16,10 +16,10 @@ import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 
 /**
- * This Guice Module binds declarative unit providers for unknown repository types.
+ * This Guice Module is the default for a b3 build engine.
  * 
  */
-public class DeclarativeRepositoriesModule extends AbstractB3Module {
+public class DefaultB3Module extends AbstractB3Module {
 
 	/**
 	 * Binds a Repository named "b3" to an instance of {@link BeeModelRepository}.
@@ -50,6 +50,15 @@ public class DeclarativeRepositoriesModule extends AbstractB3Module {
 
 	}
 
+	/**
+	 * Binds IBuildUnitResolver to SimpleResolver (which resolves all defined build units defined on the stack).
+	 * The binding is made in ResolutionScoped - which means that such a scope must have been created and
+	 * entered (but not exited) before getting the instance.
+	 */
+	protected void bindBuildUnitResolver() {
+		bind(IBuildUnitResolver.class).to(SimpleResolver.class).in(ResolutionScoped.class);
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -57,7 +66,9 @@ public class DeclarativeRepositoriesModule extends AbstractB3Module {
 	 */
 	@Override
 	protected void configure() {
+		super.configure();
 		bindBuildUnitRepository_Default();
 		bindBuildUnitRepository_b3();
+		bindBuildUnitResolver();
 	}
 }

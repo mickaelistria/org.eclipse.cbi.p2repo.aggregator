@@ -6,7 +6,8 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
+ J2SE-1.5
 Export-Package: org.eclipse.b3.build.build,
  org.eclipse.b3.build.build.impl,
  org.eclipse.b3.build.build.util,
@@ -17,7 +18,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.b3.backend,
  org.objectweb.asm;bundle-version="3.1.0",
  org.eclipse.equinox.p2.metadata;bundle-version="2.0.0",
- com.google.inject;bundle-version="2.0.0"
+ com.google.inject;bundle-version="2.0.0",
+ com.google.collect;bundle-version="0.8.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.eclipse.b3.build.internal.B3BuildActivator
 Eclipse-RegisterBuddy: org.eclipse.b3.backend

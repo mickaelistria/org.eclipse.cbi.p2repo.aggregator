@@ -20,7 +20,7 @@ public class B3BuildEngine extends B3Engine {
 		// The DeclarativeRepositoriesModule will create UnitRepositoryDescriptor instances for
 		// all requests to create a IUnitRepository.
 		//
-		invocationContext.setInjector(Guice.createInjector(new DeclarativeRepositoriesModule()));
+		invocationContext.setInjector(Guice.createInjector(new DefaultB3Module()));
 
 		// defineRepositoryTypes(); // not needed, done with guice bindings
 

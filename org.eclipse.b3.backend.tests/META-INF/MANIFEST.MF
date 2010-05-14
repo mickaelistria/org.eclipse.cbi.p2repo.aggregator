@@ -6,7 +6,8 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
+ J2SE-1.5
 Export-Package: org.eclipse.b3.backend.evaluator.b3backend.tests
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.b3.backend;visibility:=reexport,
