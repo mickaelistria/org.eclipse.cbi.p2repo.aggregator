@@ -10,6 +10,9 @@ package org.eclipse.b3.build.core;
 
 import org.eclipse.b3.backend.core.B3BackendConstants;
 
+import com.google.inject.Key;
+import com.google.inject.name.Names;
+
 public interface B3BuildConstants extends B3BackendConstants {
 
 	public static final String REPOSITORIES_EXT_ID = "org.eclipse.b3.build.RepositoryValidator";
@@ -40,4 +43,6 @@ public interface B3BuildConstants extends B3BackendConstants {
 	 * Capability name space for build unit.
 	 */
 	public static final String B3_NS_BUILDUNIT = "org.eclipse.b3.ns.capability.buildunit";
+
+	public static final Key<SharedScope> KEY_RESOLUTION_SCOPE = Key.get(SharedScope.class, Names.named("resolution"));
 }

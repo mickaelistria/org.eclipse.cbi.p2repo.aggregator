@@ -19,6 +19,7 @@ import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.IBuilder;
+import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.B3BuildEngine;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.core.EffectiveUnitIterator;
@@ -42,8 +43,6 @@ import org.junit.runners.model.Statement;
 import org.osgi.framework.BundleReference;
 
 import com.google.inject.Injector;
-import com.google.inject.Key;
-import com.google.inject.name.Names;
 
 /**
  * A factory class for building JUnit 4 runners capable of executing B3 language functions as JUnit tests. A separate
@@ -150,8 +149,7 @@ class JUnitB3FileRunnerFactory {
 		}
 
 		private void beforeChildren() throws Exception {
-			resolutionScope = engine.getContext().getInjector().getInstance(
-				Key.get(SharedScope.class, Names.named("resolution")));
+			resolutionScope = engine.getContext().getInjector().getInstance(B3BuildConstants.KEY_RESOLUTION_SCOPE);
 			resolutionScope.enter();
 			IBuildUnitResolver resolver = engine.getContext().getInjector().getInstance(IBuildUnitResolver.class);
 			IStatus status = resolver.resolveAll(engine.getBuildContext());

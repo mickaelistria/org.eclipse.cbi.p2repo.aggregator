@@ -11,10 +11,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.beelang.ui.BeeLangConsoleUtils;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.B3BuildEngine;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.core.EffectiveUnitIterator;
 import org.eclipse.b3.build.core.IBuildUnitResolver;
+import org.eclipse.b3.build.core.SharedScope;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -63,8 +65,14 @@ public class ExecuteHandler extends AbstractHandler {
 						}
 
 					}
+					// get the resolution scope (in case a resolution is to be performed)
+					//
+					SharedScope resolutionScope = null;
 					// If resolving, run a resolution
 					if(isPerformResolve()) {
+						resolutionScope = engine.getContext().getInjector().getInstance(
+							B3BuildConstants.KEY_RESOLUTION_SCOPE);
+						resolutionScope.enter(); // !remember to call exit()
 						IBuildUnitResolver resolver = engine.getContext().getInjector().getInstance(
 							IBuildUnitResolver.class);
 
@@ -79,6 +87,9 @@ public class ExecuteHandler extends AbstractHandler {
 							}
 							finally {
 								b3ConsoleErrorStream.close();
+								if(resolutionScope != null) // in case the error has to do with resolution scope
+									resolutionScope.exit();
+								resolutionScope = null;
 							}
 
 						}
@@ -152,7 +163,11 @@ public class ExecuteHandler extends AbstractHandler {
 							b3ConsoleErrorStream.close();
 						}
 					}
-
+					finally {
+						if(resolutionScope != null)
+							resolutionScope.exit();
+						resolutionScope = null;
+					}
 					return null;
 				}
 			});
