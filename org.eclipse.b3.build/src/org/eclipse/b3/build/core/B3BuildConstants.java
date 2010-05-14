@@ -34,12 +34,6 @@ public interface B3BuildConstants extends B3BackendConstants {
 	public static final String B3ENGINE_VAR_UNITPROVIDERS = "@providers";
 
 	/**
-	 * Variable name for the resolution scope (used to associate resolutions with units and
-	 * requirements).
-	 */
-	public static final String B3ENGINE_VAR_RESOLUTION_SCOPE = "@resolution.scope";
-
-	/**
 	 * Capability name space for build unit.
 	 */
 	public static final String B3_NS_BUILDUNIT = "org.eclipse.b3.ns.capability.buildunit";

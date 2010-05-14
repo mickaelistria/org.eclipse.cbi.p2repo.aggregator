@@ -229,18 +229,10 @@ public class B3BuilderJob extends Job {
 				if(rq != null) {
 					// use the resolver as the resolution scope key
 					IBuildUnitResolver scopeKey = ctxToUse.getInjector().getInstance(IBuildUnitResolver.class);
-					// // the resolution is associated with a resoloution scope which is defined in the
-					// // execution context
-					// //
-					// Object resolutionScopeKey = null;
-					// try {
-					// resolutionScopeKey = ctxToUse.getValue(B3BuildConstants.B3ENGINE_VAR_RESOLUTION_SCOPE);
-					// }
-					// catch(B3EngineException e) {
-					// throw new B3NoResolutionScopeException();
-					// }
+
 					// get the resolution info
 					ResolutionInfo rinfo = ResolutionInfoAdapterFactory.eINSTANCE.adapt(rq).getAssociatedInfo(scopeKey);
+
 					// TODO: Should probably pass status to exception if info and status exist
 					if(rinfo == null || !rinfo.getStatus().isOK() || !(rinfo instanceof UnitResolutionInfo))
 						throw new B3UnresolvedRequirementException(unit, builder, rq);

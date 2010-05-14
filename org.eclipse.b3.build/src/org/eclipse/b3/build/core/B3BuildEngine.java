@@ -22,9 +22,6 @@ public class B3BuildEngine extends B3Engine {
 		//
 		invocationContext.setInjector(Guice.createInjector(new DefaultB3Module()));
 
-		// defineRepositoryTypes(); // not needed, done with guice bindings
-
-		// defineDefaultRepositories(); // not needed, done by resolver
 	}
 
 	// /**
