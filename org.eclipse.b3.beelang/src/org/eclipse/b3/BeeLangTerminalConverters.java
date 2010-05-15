@@ -312,8 +312,8 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 			public URI toValue(String string, AbstractNode node) throws ValueConverterException {
 				if(string == null)
 					return null;
-				if(Strings.isEmpty(string))
-					throw new ValueConverterException("Can not convert empty string to URI", node, null);
+				// if(Strings.isEmpty(string))
+				// throw new ValueConverterException("Can not convert empty string to URI", node, null);
 				try {
 					int truncate = string.startsWith("\"") && string.endsWith("\"")
 							? 1
