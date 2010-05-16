@@ -9,6 +9,7 @@
 package org.eclipse.b3.build.core;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.CoreException;
@@ -16,11 +17,22 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.InvalidRegistryObjectException;
 import org.eclipse.core.runtime.Platform;
 
+import com.google.common.collect.Lists;
+
 public class RepositoryValidation {
 	private static Map<String, IRepositoryValidator> validators;
 
 	public static IRepositoryValidator getValidator(String name) {
 		return validators.get(name);
+	}
+
+	/**
+	 * Returns a sorted list of valid repository names.
+	 */
+	public static List<String> getValidNames() {
+		if(validators == null)
+			loadValidNames();
+		return Lists.sortedCopy(validators.keySet());
 	}
 
 	public static boolean isNameRegistered(String name) {
