@@ -24,8 +24,7 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.b3.core,
  org.eclipse.b3.build,
  org.eclipse.equinox.p2.metadata;bundle-version="2.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
- J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,J2SE-1.5
 Export-Package: org.eclipse.b3,
  org.eclipse.b3.parseTreeConstruction,
  org.eclipse.b3.parser.antlr,

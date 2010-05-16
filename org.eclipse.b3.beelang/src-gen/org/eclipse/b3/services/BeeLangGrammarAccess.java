@@ -8814,7 +8814,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//BlockExpression
 		public RuleCall getFuncExprBlockExpressionParserRuleCall_23_0() { return cFuncExprBlockExpressionParserRuleCall_23_0; }
 
-		//// replaces the builder's funcExpression
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_24() { return cRightCurlyBracketKeyword_24; }
 	}
@@ -10328,6 +10327,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//BooleanLiteral
 		public RuleCall getBooleanLiteralParserRuleCall_0() { return cBooleanLiteralParserRuleCall_0; }
 
+		//// SEE ISSUE 297089 - must be placed before IntegerLiteral
 		//RealLiteral
 		public RuleCall getRealLiteralParserRuleCall_1() { return cRealLiteralParserRuleCall_1; }
 
