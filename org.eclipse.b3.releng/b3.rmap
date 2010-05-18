@@ -26,7 +26,7 @@
       <rm:uri format="http://download.itemis.com/updates/releases"/>
     </rm:provider>
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(|(build.type=M)(build.type=I))">
-      <rm:uri format="http://download.itemis.com/updates/milestones"/>
+      <rm:uri format="http://download.itemis.com/updates/nightly"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="emft">
