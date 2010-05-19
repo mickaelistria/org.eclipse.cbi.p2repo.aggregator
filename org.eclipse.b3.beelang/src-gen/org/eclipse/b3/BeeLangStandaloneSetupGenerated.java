@@ -44,5 +44,6 @@ public class BeeLangStandaloneSetupGenerated implements ISetup {
 
 
 
+
 	}
 }

@@ -13,6 +13,9 @@ public class AbstractBeeLangJavaValidator extends AbstractDeclarativeValidator {
 @Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/emf/2002/Ecore"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://b3backend/1.0"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://b3build/1.0"));
 		return result;
 	}
 

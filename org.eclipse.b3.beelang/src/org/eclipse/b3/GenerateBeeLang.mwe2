@@ -9,8 +9,9 @@ var file.extensions = "b3"
 var projectName = "org.eclipse.b3.beelang"
 var runtimeProject = "../${projectName}"
 
-var pluginURI = "platform:/plugin/org.eclipse.xtext.common.types/model"
-
+var javaTypesURI = "platform:/plugin/org.eclipse.xtext.common.types/model"
+var backendURI =   "platform:/plugin/org.eclipse.b3.backend/model"
+var buildURI =     "platform:/plugin/org.eclipse.b3.build/model/"
 
 Workflow {
 	
@@ -19,7 +20,7 @@ Workflow {
 		platformUri = "${runtimeProject}/.."
 	}
     bean = StandaloneSetup {
-    	registerGeneratedEPackage = "org.eclipse.emf.mwe.utils.StandaloneSetup"
+    	registerGeneratedEPackage = "org.eclipse.b3.build.build.B3BuildPackage"
 		platformUri = "${runtimeProject}/.."
 	}
 
@@ -47,15 +48,37 @@ Workflow {
 			// generates Java API for the generated EPackages 
 			fragment = ecore.EcoreGeneratorFragment {
 //				referencedGenModels = "uri to genmodel, uri to next genmodel"
-				referencedGenModels = "classpath:/model/JavaVMTypes.genmodel,platform:/resource/org.eclipse.b3.backend/model/B3Backend.genmodel,platform:/resource/org.eclipse.b3.build/model/B3Build.genmodel"
+				referencedGenModels = "classpath:/model/JavaVMTypes.genmodel,classpath:/model/B3Backend.genmodel,classpath:/model/B3Build.genmodel"
+				skipGenerate = true
+				// JavaVMTypes
 				saveMapping = {
         			from = "classpath:/model/JavaVMTypes.genmodel"
-        			to = "${pluginURI}/JavaVMTypes.genmodel"
+        			to = "${javaTypesURI}/JavaVMTypes.genmodel"
     			}
 				saveMapping = {
 					from = "classpath:/model/JavaVMTypes.ecore"
-					to = "${pluginURI}/JavaVMTypes.ecore"
+					to = "${javaTypesURI}/JavaVMTypes.ecore"
 				}
+				// Backend model
+				saveMapping = {
+        			from = "classpath:/model/B3Backend.genmodel"
+        			to = "${backendURI}/B3Backend.genmodel"
+    			}
+				saveMapping = {
+					from = "classpath:/model/B3Backend.ecore"
+					to = "${backendURI}/B3Backend.ecore"
+				}
+				// Build model
+				saveMapping = {
+        			from = "classpath:/model/B3Build.genmodel"
+        			to = "${buildURI}/B3Build.genmodel"
+    			}
+				saveMapping = {
+					from = "classpath:/model/B3Build.ecore"
+					to = "${buildURI}/B3Build.ecore"
+				}
+
+	
 			}
 			
 			fragment = types.TypesGeneratorFragment{}
@@ -71,19 +94,21 @@ Workflow {
 			/* 
 			 * The antlr parser generator fragment.
 			 * If you don't already have it get it from http://download.itemis.com/updates/
+			 * Use extended fragement to enable backtracking of lexer
 			 */ 
-			fragment = de.itemis.xtext.antlr.XtextAntlrGeneratorFragment {
+			fragment = de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment {
 				options = {
 					backtrack = true
 					classSplitting = true
+					// backtrackLexer = true
 				}
 			}
 
 			// java-based API for validation 
 			fragment = validation.JavaValidatorFragment {
 				composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
-				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
-//				registerForImportedPackages = true
+//				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+				registerForImportedPackages = true
 			}
             
 			// scoping and exporting API (legacy in b3)
@@ -113,10 +138,12 @@ Workflow {
 			fragment = contentAssist.JavaBasedContentAssistFragment {}
 
 			// generates a more lightweight Antlr parser and lexer for tailored content assist  
-			fragment =  de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment {
+//			fragment =  de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment { // no lexer backtracking
+			fragment = de.itemis.xtext.antlr.ex.ca.ContentAssistParserGeneratorFragment	{
 				options = {
 					backtrack = true
 					classSplitting = true
+					// backtrackLexer = true
 				}
 			}
 
