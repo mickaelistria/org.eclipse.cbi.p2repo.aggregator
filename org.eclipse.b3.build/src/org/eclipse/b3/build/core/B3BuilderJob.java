@@ -30,6 +30,7 @@ import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.ResolutionInfo;
 import org.eclipse.b3.build.build.UnitResolutionInfo;
 import org.eclipse.b3.build.internal.B3BuildActivator;
+import org.eclipse.b3.build.repository.IBuildUnitResolver;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;

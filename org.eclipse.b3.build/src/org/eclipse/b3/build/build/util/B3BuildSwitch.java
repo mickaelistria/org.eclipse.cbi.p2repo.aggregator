@@ -24,7 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.b3.build.build.*;
 
-import org.eclipse.b3.build.core.IBuildUnitRepository;
+import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 

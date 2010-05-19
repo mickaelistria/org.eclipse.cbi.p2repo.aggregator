@@ -18,9 +18,7 @@ import java.util.regex.PatternSyntaxException;
 
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
-import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
-import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.conversion.IValueConverter;
 import org.eclipse.xtext.conversion.ValueConverter;
 import org.eclipse.xtext.conversion.ValueConverterException;
@@ -29,14 +27,21 @@ import org.eclipse.xtext.conversion.impl.AbstractNullSafeConverter;
 import org.eclipse.xtext.parsetree.AbstractNode;
 import org.eclipse.xtext.util.Strings;
 
-import com.google.inject.Inject;
-
 /**
  * Converters for BeeLang terminals.
  */
 public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverterService {
 
-	private Grammar grammar;
+	// private Grammar grammar;
+	// @Override
+	// protected Grammar getGrammar() {
+	// return grammar;
+	// }
+	// @Override
+	// @Inject
+	// public void setGrammar(IGrammarAccess grammarAccess) {
+	// this.grammar = grammarAccess.getGrammar();
+	// }
 
 	@ValueConverter(rule = "BooleanValue")
 	public IValueConverter<Boolean> BooleanValue() {
@@ -100,11 +105,6 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 				return Strings.convertFromJavaString(buf.toString(), true);
 			}
 		};
-	}
-
-	@Override
-	protected Grammar getGrammar() {
-		return grammar;
 	}
 
 	@ValueConverter(rule = "ID")
@@ -276,12 +276,6 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 			}
 
 		};
-	}
-
-	@Override
-	@Inject
-	public void setGrammar(IGrammarAccess grammarAccess) {
-		this.grammar = grammarAccess.getGrammar();
 	}
 
 	@ValueConverter(rule = "STRING")

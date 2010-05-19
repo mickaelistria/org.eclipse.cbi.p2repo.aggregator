@@ -75,7 +75,7 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getSourceLocation <em>Source Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getOutputLocation <em>Output Location</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getProvider <em>Provider</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getProviders <em>Providers</em>}</li>
  * </ul>
  * </p>
  * 
@@ -293,15 +293,15 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	protected URI outputLocation = OUTPUT_LOCATION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' containment reference.
+	 * The cached value of the '{@link #getProviders() <em>Providers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getProvider()
+	 * @see #getProviders()
 	 * @generated
 	 * @ordered
 	 */
-	protected FirstFoundUnitProvider provider;
+	protected EList<FirstFoundUnitProvider> providers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -329,26 +329,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			ENotificationImpl notification = new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES, oldDefaultProperties,
 				newDefaultProperties);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NotificationChain basicSetProvider(FirstFoundUnitProvider newProvider, NotificationChain msgs) {
-		FirstFoundUnitProvider oldProvider = provider;
-		provider = newProvider;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.BUILD_UNIT__PROVIDER, oldProvider, newProvider);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -468,8 +448,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getSourceLocation();
 			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
 				return getOutputLocation();
-			case B3BuildPackage.BUILD_UNIT__PROVIDER:
-				return getProvider();
+			case B3BuildPackage.BUILD_UNIT__PROVIDERS:
+				return getProviders();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -521,8 +501,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return ((InternalEList<?>) getContainers()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
 				return ((InternalEList<?>) getPropertySets()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILD_UNIT__PROVIDER:
-				return basicSetProvider(null, msgs);
+			case B3BuildPackage.BUILD_UNIT__PROVIDERS:
+				return ((InternalEList<?>) getProviders()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -574,8 +554,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return OUTPUT_LOCATION_EDEFAULT == null
 						? outputLocation != null
 						: !OUTPUT_LOCATION_EDEFAULT.equals(outputLocation);
-			case B3BuildPackage.BUILD_UNIT__PROVIDER:
-				return provider != null;
+			case B3BuildPackage.BUILD_UNIT__PROVIDERS:
+				return providers != null && !providers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -645,8 +625,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
 				setOutputLocation((URI) newValue);
 				return;
-			case B3BuildPackage.BUILD_UNIT__PROVIDER:
-				setProvider((FirstFoundUnitProvider) newValue);
+			case B3BuildPackage.BUILD_UNIT__PROVIDERS:
+				getProviders().clear();
+				getProviders().addAll((Collection<? extends FirstFoundUnitProvider>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -717,8 +698,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
 				setOutputLocation(OUTPUT_LOCATION_EDEFAULT);
 				return;
-			case B3BuildPackage.BUILD_UNIT__PROVIDER:
-				setProvider((FirstFoundUnitProvider) null);
+			case B3BuildPackage.BUILD_UNIT__PROVIDERS:
+				getProviders().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -820,7 +801,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		// RESOLUTIONS
 		// if unit defines resolution strategy, define repository configuration in the outer context
 		//
-		FirstFoundUnitProvider up = u.getProvider();
+		FirstFoundUnitProvider up = u.getUnitProvider();
 		if(up != null) {
 			EList<UnitProvider> reposDecls = up.getProviders();
 			if(reposDecls.size() > 0) {
@@ -1025,8 +1006,12 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * 
 	 * @generated
 	 */
-	public FirstFoundUnitProvider getProvider() {
-		return provider;
+	public EList<FirstFoundUnitProvider> getProviders() {
+		if(providers == null) {
+			providers = new EObjectContainmentEList<FirstFoundUnitProvider>(
+				FirstFoundUnitProvider.class, this, B3BuildPackage.BUILD_UNIT__PROVIDERS);
+		}
+		return providers;
 	}
 
 	/**
@@ -1105,6 +1090,18 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @generated NOT
+	 */
+	public FirstFoundUnitProvider getUnitProvider() {
+		return getProviders().size() > 0
+				? getProviders().get(0)
+				: null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDefaultProperties(BPropertySet newDefaultProperties) {
@@ -1168,30 +1165,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION, oldOutputLocation, outputLocation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setProvider(FirstFoundUnitProvider newProvider) {
-		if(newProvider != provider) {
-			NotificationChain msgs = null;
-			if(provider != null)
-				msgs = ((InternalEObject) provider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3BuildPackage.BUILD_UNIT__PROVIDER, null, msgs);
-			if(newProvider != null)
-				msgs = ((InternalEObject) newProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3BuildPackage.BUILD_UNIT__PROVIDER, null, msgs);
-			msgs = basicSetProvider(newProvider, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.BUILD_UNIT__PROVIDER, newProvider, newProvider));
 	}
 
 	/**

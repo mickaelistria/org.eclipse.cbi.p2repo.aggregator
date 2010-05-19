@@ -121,7 +121,7 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 		return new SimpleScope(result);
 	}
 
-	IScope scope_RepositoryHandler(RepositoryUnitProvider ctx, EReference ref) {
+	IScope scope_Repository(RepositoryUnitProvider ctx, EReference ref) {
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		for(EObject c = ctx.eContainer(); c != null; c = c.eContainer())
 			if(c instanceof BuildUnit) {

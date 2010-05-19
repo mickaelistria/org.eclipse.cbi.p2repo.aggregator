@@ -17,7 +17,7 @@ import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.CompoundFirstFoundRepository;
 import org.eclipse.b3.build.build.RequiredCapability;
-import org.eclipse.b3.build.core.IBuildUnitRepository;
+import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.ecore.EClass;
 
 /**

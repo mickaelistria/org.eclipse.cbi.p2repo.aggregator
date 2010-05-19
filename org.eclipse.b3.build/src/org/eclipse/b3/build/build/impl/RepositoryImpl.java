@@ -11,7 +11,6 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
-import java.net.URI;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +21,7 @@ import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.Branch;
 import org.eclipse.b3.build.build.RepoOption;
 import org.eclipse.b3.build.build.Repository;
-import org.eclipse.b3.build.core.IBuildUnitRepository;
+import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -45,12 +44,9 @@ import com.google.inject.name.Names;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getLocal <em>Local</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getRemote <em>Remote</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getAddress <em>Address</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getBranches <em>Branches</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getDocumentation <em>Documentation</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getUser <em>User</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getPassword <em>Password</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getHandlerType <em>Handler Type</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getOptions <em>Options</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
@@ -83,48 +79,26 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLocal() <em>Local</em>}' attribute.
+	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getLocal()
+	 * @see #getAddress()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final URI LOCAL_EDEFAULT = null;
+	protected static final String ADDRESS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLocal() <em>Local</em>}' attribute.
+	 * The cached value of the '{@link #getAddress() <em>Address</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getLocal()
+	 * @see #getAddress()
 	 * @generated
 	 * @ordered
 	 */
-	protected URI local = LOCAL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getRemote() <em>Remote</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getRemote()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final URI REMOTE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRemote() <em>Remote</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getRemote()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI remote = REMOTE_EDEFAULT;
+	protected String address = ADDRESS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getBranches() <em>Branches</em>}' containment reference list.
@@ -158,50 +132,6 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * @ordered
 	 */
 	protected String documentation = DOCUMENTATION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getUser() <em>User</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getUser()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String USER_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUser() <em>User</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getUser()
-	 * @generated
-	 * @ordered
-	 */
-	protected String user = USER_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPassword() <em>Password</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getPassword()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PASSWORD_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPassword() <em>Password</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getPassword()
-	 * @generated
-	 * @ordered
-	 */
-	protected String password = PASSWORD_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getHandlerType() <em>Handler Type</em>}' attribute.
@@ -278,18 +208,12 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 		switch(featureID) {
 			case B3BuildPackage.REPOSITORY__NAME:
 				return getName();
-			case B3BuildPackage.REPOSITORY__LOCAL:
-				return getLocal();
-			case B3BuildPackage.REPOSITORY__REMOTE:
-				return getRemote();
+			case B3BuildPackage.REPOSITORY__ADDRESS:
+				return getAddress();
 			case B3BuildPackage.REPOSITORY__BRANCHES:
 				return getBranches();
 			case B3BuildPackage.REPOSITORY__DOCUMENTATION:
 				return getDocumentation();
-			case B3BuildPackage.REPOSITORY__USER:
-				return getUser();
-			case B3BuildPackage.REPOSITORY__PASSWORD:
-				return getPassword();
 			case B3BuildPackage.REPOSITORY__HANDLER_TYPE:
 				return getHandlerType();
 			case B3BuildPackage.REPOSITORY__OPTIONS:
@@ -332,28 +256,16 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 				return NAME_EDEFAULT == null
 						? name != null
 						: !NAME_EDEFAULT.equals(name);
-			case B3BuildPackage.REPOSITORY__LOCAL:
-				return LOCAL_EDEFAULT == null
-						? local != null
-						: !LOCAL_EDEFAULT.equals(local);
-			case B3BuildPackage.REPOSITORY__REMOTE:
-				return REMOTE_EDEFAULT == null
-						? remote != null
-						: !REMOTE_EDEFAULT.equals(remote);
+			case B3BuildPackage.REPOSITORY__ADDRESS:
+				return ADDRESS_EDEFAULT == null
+						? address != null
+						: !ADDRESS_EDEFAULT.equals(address);
 			case B3BuildPackage.REPOSITORY__BRANCHES:
 				return branches != null && !branches.isEmpty();
 			case B3BuildPackage.REPOSITORY__DOCUMENTATION:
 				return DOCUMENTATION_EDEFAULT == null
 						? documentation != null
 						: !DOCUMENTATION_EDEFAULT.equals(documentation);
-			case B3BuildPackage.REPOSITORY__USER:
-				return USER_EDEFAULT == null
-						? user != null
-						: !USER_EDEFAULT.equals(user);
-			case B3BuildPackage.REPOSITORY__PASSWORD:
-				return PASSWORD_EDEFAULT == null
-						? password != null
-						: !PASSWORD_EDEFAULT.equals(password);
 			case B3BuildPackage.REPOSITORY__HANDLER_TYPE:
 				return HANDLER_TYPE_EDEFAULT == null
 						? handlerType != null
@@ -379,11 +291,8 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 			case B3BuildPackage.REPOSITORY__NAME:
 				setName((String) newValue);
 				return;
-			case B3BuildPackage.REPOSITORY__LOCAL:
-				setLocal((URI) newValue);
-				return;
-			case B3BuildPackage.REPOSITORY__REMOTE:
-				setRemote((URI) newValue);
+			case B3BuildPackage.REPOSITORY__ADDRESS:
+				setAddress((String) newValue);
 				return;
 			case B3BuildPackage.REPOSITORY__BRANCHES:
 				getBranches().clear();
@@ -391,12 +300,6 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 				return;
 			case B3BuildPackage.REPOSITORY__DOCUMENTATION:
 				setDocumentation((String) newValue);
-				return;
-			case B3BuildPackage.REPOSITORY__USER:
-				setUser((String) newValue);
-				return;
-			case B3BuildPackage.REPOSITORY__PASSWORD:
-				setPassword((String) newValue);
 				return;
 			case B3BuildPackage.REPOSITORY__HANDLER_TYPE:
 				setHandlerType((String) newValue);
@@ -435,23 +338,14 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 			case B3BuildPackage.REPOSITORY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case B3BuildPackage.REPOSITORY__LOCAL:
-				setLocal(LOCAL_EDEFAULT);
-				return;
-			case B3BuildPackage.REPOSITORY__REMOTE:
-				setRemote(REMOTE_EDEFAULT);
+			case B3BuildPackage.REPOSITORY__ADDRESS:
+				setAddress(ADDRESS_EDEFAULT);
 				return;
 			case B3BuildPackage.REPOSITORY__BRANCHES:
 				getBranches().clear();
 				return;
 			case B3BuildPackage.REPOSITORY__DOCUMENTATION:
 				setDocumentation(DOCUMENTATION_EDEFAULT);
-				return;
-			case B3BuildPackage.REPOSITORY__USER:
-				setUser(USER_EDEFAULT);
-				return;
-			case B3BuildPackage.REPOSITORY__PASSWORD:
-				setPassword(PASSWORD_EDEFAULT);
 				return;
 			case B3BuildPackage.REPOSITORY__HANDLER_TYPE:
 				setHandlerType(HANDLER_TYPE_EDEFAULT);
@@ -488,6 +382,16 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 		result.initialize(ctx, this, evaluatedOptions);
 		setBuildUnitRepository(result);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getAddress() {
+		return address;
 	}
 
 	/**
@@ -560,16 +464,6 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * 
 	 * @generated
 	 */
-	public URI getLocal() {
-		return local;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public String getName() {
 		return name;
 	}
@@ -594,28 +488,12 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * 
 	 * @generated
 	 */
-	public String getPassword() {
-		return password;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public URI getRemote() {
-		return remote;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public String getUser() {
-		return user;
+	public void setAddress(String newAddress) {
+		String oldAddress = address;
+		address = newAddress;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REPOSITORY__ADDRESS, oldAddress, address));
 	}
 
 	/**
@@ -667,64 +545,11 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * 
 	 * @generated
 	 */
-	public void setLocal(URI newLocal) {
-		URI oldLocal = local;
-		local = newLocal;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY__LOCAL, oldLocal, local));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setPassword(String newPassword) {
-		String oldPassword = password;
-		password = newPassword;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.REPOSITORY__PASSWORD, oldPassword, password));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setRemote(URI newRemote) {
-		URI oldRemote = remote;
-		remote = newRemote;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY__REMOTE, oldRemote, remote));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setUser(String newUser) {
-		String oldUser = user;
-		user = newUser;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY__USER, oldUser, user));
 	}
 
 	/**
@@ -741,16 +566,10 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", local: ");
-		result.append(local);
-		result.append(", remote: ");
-		result.append(remote);
+		result.append(", address: ");
+		result.append(address);
 		result.append(", documentation: ");
 		result.append(documentation);
-		result.append(", user: ");
-		result.append(user);
-		result.append(", password: ");
-		result.append(password);
 		result.append(", handlerType: ");
 		result.append(handlerType);
 		result.append(')');

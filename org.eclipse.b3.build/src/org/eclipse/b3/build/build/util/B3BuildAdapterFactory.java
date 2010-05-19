@@ -22,7 +22,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.b3.build.build.*;
 
-import org.eclipse.b3.build.core.IBuildUnitRepository;
+import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -1225,14 +1225,14 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.core.IBuildUnitRepository <em>IBuild Unit Repository</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.repository.IBuildUnitRepository <em>IBuild Unit Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.core.IBuildUnitRepository
+	 * @see org.eclipse.b3.build.repository.IBuildUnitRepository
 	 * @generated
 	 */
 	public Adapter createIBuildUnitRepositoryAdapter() {

@@ -63,7 +63,7 @@
                   
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.b3.build.core.IRepositoryValidator"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.b3.build.repository.IRepositoryValidator"/>
                </appInfo>
             </annotation>
          </attribute>

@@ -24,6 +24,7 @@ import org.eclipse.b3.build.build.ResolutionInfo;
 import org.eclipse.b3.build.build.UnitProvider;
 import org.eclipse.b3.build.build.UnitResolutionInfo;
 import org.eclipse.b3.build.internal.B3BuildActivator;
+import org.eclipse.b3.build.repository.IBuildUnitResolver;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
@@ -37,7 +38,9 @@ import org.eclipse.emf.common.util.EList;
  */
 public class SimpleResolver implements IBuildUnitResolver {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveAll(org.eclipse.b3.build.build.BuildContext)
 	 */
 	public IStatus resolveAll(BuildContext ctx) {
@@ -48,7 +51,9 @@ public class SimpleResolver implements IBuildUnitResolver {
 		return ms;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveUnit(org.eclipse.b3.build.build.BuildUnit, org.eclipse.b3.build.build.BuildContext)
 	 */
 	public IStatus resolveUnit(BuildUnit unit, BuildContext ctx) {
@@ -133,7 +138,7 @@ public class SimpleResolver implements IBuildUnitResolver {
 				// if providers were configured, combine them with a first found using the stack
 				// if combination of multiple provider definitions should be performed, this is up
 				// to whoever assigns B3ENGINE_CAR_UNITPROVIDERS (i.e. delegate first, or last).
-				// 
+				//
 				if(repos != null) {
 					FirstFoundUnitProvider ff = B3BuildFactory.eINSTANCE.createFirstFoundUnitProvider();
 					EList<UnitProvider> plist = ff.getProviders();

@@ -10,10 +10,8 @@
  */
 package org.eclipse.b3.build.build;
 
-import java.net.URI;
-
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-import org.eclipse.b3.build.core.IBuildUnitRepository;
+import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -25,12 +23,9 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.build.build.Repository#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.Repository#getLocal <em>Local</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.Repository#getRemote <em>Remote</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.Repository#getAddress <em>Address</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getBranches <em>Branches</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getDocumentation <em>Documentation</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.Repository#getUser <em>User</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.Repository#getPassword <em>Password</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getHandlerType <em>Handler Type</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getOptions <em>Options</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
@@ -42,6 +37,22 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Repository extends BExpression {
+	/**
+	 * Returns the value of the '<em><b>Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Address</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Address</em>' attribute.
+	 * @see #setAddress(String)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepository_Address()
+	 * @model
+	 * @generated
+	 */
+	String getAddress();
+
 	/**
 	 * Returns the value of the '<em><b>Branches</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.build.build.Branch}.
@@ -108,22 +119,6 @@ public interface Repository extends BExpression {
 	String getHandlerType();
 
 	/**
-	 * Returns the value of the '<em><b>Local</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Local</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Local</em>' attribute.
-	 * @see #setLocal(URI)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepository_Local()
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
-	 * @generated
-	 */
-	URI getLocal();
-
-	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -156,52 +151,16 @@ public interface Repository extends BExpression {
 	EList<RepoOption> getOptions();
 
 	/**
-	 * Returns the value of the '<em><b>Password</b></em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getAddress <em>Address</em>}' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Password</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Password</em>' attribute.
-	 * @see #setPassword(String)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepository_Password()
-	 * @model
+	 * @param value
+	 *            the new value of the '<em>Address</em>' attribute.
+	 * @see #getAddress()
 	 * @generated
 	 */
-	String getPassword();
-
-	/**
-	 * Returns the value of the '<em><b>Remote</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Remote</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Remote</em>' attribute.
-	 * @see #setRemote(URI)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepository_Remote()
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
-	 * @generated
-	 */
-	URI getRemote();
-
-	/**
-	 * Returns the value of the '<em><b>User</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>User</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>User</em>' attribute.
-	 * @see #setUser(String)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepository_User()
-	 * @model
-	 * @generated
-	 */
-	String getUser();
+	void setAddress(String value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getBuildUnitRepository <em>Build Unit Repository</em>}' reference.
@@ -240,18 +199,6 @@ public interface Repository extends BExpression {
 	void setHandlerType(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getLocal <em>Local</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Local</em>' attribute.
-	 * @see #getLocal()
-	 * @generated
-	 */
-	void setLocal(URI value);
-
-	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -262,41 +209,5 @@ public interface Repository extends BExpression {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getPassword <em>Password</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Password</em>' attribute.
-	 * @see #getPassword()
-	 * @generated
-	 */
-	void setPassword(String value);
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getRemote <em>Remote</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Remote</em>' attribute.
-	 * @see #getRemote()
-	 * @generated
-	 */
-	void setRemote(URI value);
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getUser <em>User</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>User</em>' attribute.
-	 * @see #getUser()
-	 * @generated
-	 */
-	void setUser(String value);
 
 } // RepositoryHandler

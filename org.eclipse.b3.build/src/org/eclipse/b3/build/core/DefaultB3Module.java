@@ -11,6 +11,8 @@ package org.eclipse.b3.build.core;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModelRepository;
 import org.eclipse.b3.build.build.UnitRepositoryDescription;
+import org.eclipse.b3.build.repository.IBuildUnitRepository;
+import org.eclipse.b3.build.repository.IBuildUnitResolver;
 
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;

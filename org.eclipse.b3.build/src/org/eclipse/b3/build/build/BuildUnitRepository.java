@@ -12,7 +12,7 @@ package org.eclipse.b3.build.build;
 
 import java.util.Map;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.build.core.IBuildUnitRepository;
+import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.ecore.EObject;
 
 /**

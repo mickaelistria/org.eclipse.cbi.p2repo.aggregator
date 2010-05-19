@@ -10,7 +10,7 @@
  */
 package org.eclipse.b3.build.build;
 
-import org.eclipse.b3.build.core.IBuildUnitRepository;
+import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -32,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
 public interface CompoundBuildUnitRepository extends BuildUnitRepository {
 	/**
 	 * Returns the value of the '<em><b>Repositories</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.core.IBuildUnitRepository}.
+	 * The list contents are of type {@link org.eclipse.b3.build.repository.IBuildUnitRepository}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Repositories</em>' reference list isn't clear, there really should be more of a description here...

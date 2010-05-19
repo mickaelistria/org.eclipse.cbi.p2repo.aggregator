@@ -32,12 +32,10 @@ import org.eclipse.b3.build.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.UnitProvider;
 import org.eclipse.b3.build.core.B3BuildConstants;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -54,7 +52,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getBuildUnits <em>Build Units</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getRepositories <em>Repositories</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getProvider <em>Provider</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getProviders <em>Providers</em>}</li>
  * </ul>
  * </p>
  * 
@@ -128,15 +126,15 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	protected EList<Repository> repositories;
 
 	/**
-	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' containment reference.
+	 * The cached value of the '{@link #getProviders() <em>Providers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getProvider()
+	 * @see #getProviders()
 	 * @generated
 	 * @ordered
 	 */
-	protected FirstFoundUnitProvider provider;
+	protected EList<FirstFoundUnitProvider> providers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,26 +144,6 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 */
 	protected BeeModelImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NotificationChain basicSetProvider(FirstFoundUnitProvider newProvider, NotificationChain msgs) {
-		FirstFoundUnitProvider oldProvider = provider;
-		provider = newProvider;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.BEE_MODEL__PROVIDER, oldProvider, newProvider);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
 	}
 
 	/**
@@ -189,8 +167,8 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 				return getPropertySets();
 			case B3BuildPackage.BEE_MODEL__REPOSITORIES:
 				return getRepositories();
-			case B3BuildPackage.BEE_MODEL__PROVIDER:
-				return getProvider();
+			case B3BuildPackage.BEE_MODEL__PROVIDERS:
+				return getProviders();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,8 +194,8 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 				return ((InternalEList<?>) getPropertySets()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BEE_MODEL__REPOSITORIES:
 				return ((InternalEList<?>) getRepositories()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BEE_MODEL__PROVIDER:
-				return basicSetProvider(null, msgs);
+			case B3BuildPackage.BEE_MODEL__PROVIDERS:
+				return ((InternalEList<?>) getProviders()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -243,8 +221,8 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 				return propertySets != null && !propertySets.isEmpty();
 			case B3BuildPackage.BEE_MODEL__REPOSITORIES:
 				return repositories != null && !repositories.isEmpty();
-			case B3BuildPackage.BEE_MODEL__PROVIDER:
-				return provider != null;
+			case B3BuildPackage.BEE_MODEL__PROVIDERS:
+				return providers != null && !providers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -283,8 +261,9 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 				getRepositories().clear();
 				getRepositories().addAll((Collection<? extends Repository>) newValue);
 				return;
-			case B3BuildPackage.BEE_MODEL__PROVIDER:
-				setProvider((FirstFoundUnitProvider) newValue);
+			case B3BuildPackage.BEE_MODEL__PROVIDERS:
+				getProviders().clear();
+				getProviders().addAll((Collection<? extends FirstFoundUnitProvider>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -328,8 +307,8 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 			case B3BuildPackage.BEE_MODEL__REPOSITORIES:
 				getRepositories().clear();
 				return;
-			case B3BuildPackage.BEE_MODEL__PROVIDER:
-				setProvider((FirstFoundUnitProvider) null);
+			case B3BuildPackage.BEE_MODEL__PROVIDERS:
+				getProviders().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -382,7 +361,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 		// Define PROVIDERS
 		// if model defines providers, define them in the outer context
 		//
-		FirstFoundUnitProvider up = getProvider();
+		FirstFoundUnitProvider up = getUnitProvider();
 		if(up != null) {
 			EList<UnitProvider> reposDecls = up.getProviders();
 			if(reposDecls.size() > 0) {
@@ -489,8 +468,12 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * 
 	 * @generated
 	 */
-	public FirstFoundUnitProvider getProvider() {
-		return provider;
+	public EList<FirstFoundUnitProvider> getProviders() {
+		if(providers == null) {
+			providers = new EObjectContainmentEList<FirstFoundUnitProvider>(
+				FirstFoundUnitProvider.class, this, B3BuildPackage.BEE_MODEL__PROVIDERS);
+		}
+		return providers;
 	}
 
 	/**
@@ -511,23 +494,11 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
-	public void setProvider(FirstFoundUnitProvider newProvider) {
-		if(newProvider != provider) {
-			NotificationChain msgs = null;
-			if(provider != null)
-				msgs = ((InternalEObject) provider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3BuildPackage.BEE_MODEL__PROVIDER, null, msgs);
-			if(newProvider != null)
-				msgs = ((InternalEObject) newProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3BuildPackage.BEE_MODEL__PROVIDER, null, msgs);
-			msgs = basicSetProvider(newProvider, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.BEE_MODEL__PROVIDER, newProvider, newProvider));
+	public FirstFoundUnitProvider getUnitProvider() {
+		return getProviders().size() > 0
+				? getProviders().get(0)
+				: null;
 	}
 } // BeeModelImpl

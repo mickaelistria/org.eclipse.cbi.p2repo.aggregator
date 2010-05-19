@@ -36,7 +36,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.BuildUnit#getProvider <em>Provider</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getProviders <em>Providers</em>}</li>
  * </ul>
  * </p>
  * 
@@ -220,20 +220,20 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	EList<BPropertySet> getPropertySets();
 
 	/**
-	 * Returns the value of the '<em><b>Provider</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Providers</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.FirstFoundUnitProvider}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provider</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Providers</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Provider</em>' containment reference.
-	 * @see #setProvider(FirstFoundUnitProvider)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Provider()
+	 * @return the value of the '<em>Providers</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Providers()
 	 * @model containment="true"
 	 * @generated
 	 */
-	FirstFoundUnitProvider getProvider();
+	EList<FirstFoundUnitProvider> getProviders();
 
 	/**
 	 * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.
@@ -285,6 +285,18 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	EList<Synchronization> getSynchronizations();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns the first (and only allowed) provider from the reference "providers".
+	 * <!-- end-model-doc -->
+	 * 
+	 * @model kind="operation"
+	 * @generated
+	 */
+	FirstFoundUnitProvider getUnitProvider();
+
+	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getDefaultProperties <em>Default Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -332,18 +344,6 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * @generated
 	 */
 	void setOutputLocation(URI value);
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getProvider <em>Provider</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Provider</em>' containment reference.
-	 * @see #getProvider()
-	 * @generated
-	 */
-	void setProvider(FirstFoundUnitProvider value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}' attribute.

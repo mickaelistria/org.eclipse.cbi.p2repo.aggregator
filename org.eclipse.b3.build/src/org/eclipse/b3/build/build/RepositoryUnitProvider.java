@@ -10,7 +10,7 @@
  */
 package org.eclipse.b3.build.build;
 
-import org.eclipse.b3.build.core.IBuildUnitRepository;
+import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.common.util.EList;
 
 /**

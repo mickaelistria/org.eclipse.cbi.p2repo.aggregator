@@ -23,42 +23,42 @@
          point="org.eclipse.b3.build.RepositoryValidator">
       <repositoryValidator
             name="p2"
-            validator="org.eclipse.b3.build.core.IdentityBasedRepositoryValidator">
+            validator="org.eclipse.b3.build.repository.IdentityBasedRepositoryValidator">
       </repositoryValidator>
    </extension>
    <extension
          point="org.eclipse.b3.build.RepositoryValidator">
       <repositoryValidator
             name="cvs"
-            validator="org.eclipse.b3.build.core.SCMRepositoryValidator">
+            validator="org.eclipse.b3.build.repository.SCMRepositoryValidator">
       </repositoryValidator>
    </extension>
    <extension
          point="org.eclipse.b3.build.RepositoryValidator">
       <repositoryValidator
             name="svn"
-            validator="org.eclipse.b3.build.core.SCMRepositoryValidator">
+            validator="org.eclipse.b3.build.repository.SCMRepositoryValidator">
       </repositoryValidator>
    </extension>
    <extension
          point="org.eclipse.b3.build.RepositoryValidator">
       <repositoryValidator
             name="git"
-            validator="org.eclipse.b3.build.core.SCMRepositoryValidator">
+            validator="org.eclipse.b3.build.repository.SCMRepositoryValidator">
       </repositoryValidator>
    </extension>
    <extension
          point="org.eclipse.b3.build.RepositoryValidator">
       <repositoryValidator
             name="maven1"
-            validator="org.eclipse.b3.build.core.IdentityBasedRepositoryValidator">
+            validator="org.eclipse.b3.build.repository.IdentityBasedRepositoryValidator">
       </repositoryValidator>
    </extension>
    <extension
          point="org.eclipse.b3.build.RepositoryValidator">
       <repositoryValidator
             name="maven2"
-            validator="org.eclipse.b3.build.core.IdentityBasedRepositoryValidator">
+            validator="org.eclipse.b3.build.repository.IdentityBasedRepositoryValidator">
       </repositoryValidator>
    </extension>
 

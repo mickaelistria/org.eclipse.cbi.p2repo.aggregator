@@ -14,16 +14,19 @@ import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BeeModel;
+import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderConcernContext;
+import org.eclipse.b3.build.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.build.RepoOption;
 import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RepositoryUnitProvider;
-import org.eclipse.b3.build.core.IRepositoryValidator;
 import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.build.core.RepositoryValidation;
-import org.eclipse.b3.build.core.IRepositoryValidator.IOption;
+import org.eclipse.b3.build.repository.IRepositoryValidator;
+import org.eclipse.b3.build.repository.IRepositoryValidator.IOption;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -31,9 +34,28 @@ import org.eclipse.xtext.validation.Check;
 
 public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 
-	public static final String ISSUE_REPOSITORY__NO_REMOTE = "No Remote URI";
+	// TODO: make an interface out of the fixable issue codes
+	//
+	public static final String ISSUE_REPOSITORY__NO_CONNECTION = "No Connection URI";
 
 	public static final String ISSUE_REPO_OPTION__INVALID_OPTION = "Invalid Option";
+
+	public static final String ISSUE_BUILD_UNIT__MULTIPLE_RESOLUTIONS = "Multiple resolutions";
+
+	public static final String ISSUE_BEEMODEL__MULTIPLE_RESOLUTIONS = "Multiple resolutions";
+
+	@Check
+	public void checkBeeModel(BeeModel beeModel) {
+		// mark all but the first repository as being in error.
+		int count = 0;
+		for(FirstFoundUnitProvider provider : beeModel.getProviders()) {
+			count++;
+			if(count > 1)
+				error(
+					"A build unit may only have one 'resolution' declaration.", provider,
+					B3BuildPackage.BEE_MODEL__PROVIDERS, ISSUE_BEEMODEL__MULTIPLE_RESOLUTIONS);
+		}
+	}
 
 	/**
 	 * A proceed expression can only occur in expressions that are going to be used for weaving.
@@ -59,6 +81,19 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 			error(
 				"A builder must have one of: input, source, output or expression returning BuildResult.", builder,
 				B3BuildPackage.BUILDER__NAME);
+		}
+	}
+
+	@Check
+	public void checkBuildUnit(BuildUnit buildUnit) {
+		// mark all but the first repository as being in error.
+		int count = 0;
+		for(FirstFoundUnitProvider provider : buildUnit.getProviders()) {
+			count++;
+			if(count > 1)
+				error(
+					"A build unit may only have one 'resolution' declaration.", provider,
+					B3BuildPackage.BUILD_UNIT__PROVIDERS, ISSUE_BUILD_UNIT__MULTIPLE_RESOLUTIONS);
 		}
 	}
 
@@ -122,10 +157,10 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 		if(!RepositoryValidation.isNameRegistered(repoHandler.getHandlerType()))
 			warning("The repository type '" + repoHandler.getHandlerType() +
 					"' is unknown to the b3 editing environment.", repoHandler, B3BuildPackage.REPOSITORY__HANDLER_TYPE);
-		if(repoHandler.getRemote() == null) {
+		if(repoHandler.getAddress() == null) {
 			error(
-				"The repository must have an URI declared as 'remote = <URI>'", repoHandler,
-				B3BuildPackage.REPOSITORY__HANDLER_TYPE, ISSUE_REPOSITORY__NO_REMOTE);
+				"The repository must have a declared address as 'address = \"URIorRepoSpecificAddress\"", repoHandler,
+				B3BuildPackage.REPOSITORY__HANDLER_TYPE, ISSUE_REPOSITORY__NO_CONNECTION);
 		}
 	}
 
@@ -141,8 +176,8 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 					B3BuildPackage.REPO_OPTION__NAME);
 			}
 			else {
-				Map<String, IOption> optionData = validator.getRepositoryOptions();
-				IOption opt = optionData.get(option.getName());
+				Map<String, IOption<Repository>> optionData = validator.getRepositoryOptions();
+				IOption<Repository> opt = optionData.get(option.getName());
 				if(opt == null)
 					error(
 						"The option '" + option.getName() + "' is not a valid option for repository type '" +
@@ -165,8 +200,8 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 					B3BuildPackage.REPO_OPTION__NAME);
 			}
 			else {
-				Map<String, IOption> optionData = validator.getResolverOptions();
-				IOption opt = optionData.get(option.getName());
+				Map<String, IOption<RepositoryUnitProvider>> optionData = validator.getResolverOptions();
+				IOption<RepositoryUnitProvider> opt = optionData.get(option.getName());
 				if(opt == null)
 					error(
 						"The option '" + option.getName() +
