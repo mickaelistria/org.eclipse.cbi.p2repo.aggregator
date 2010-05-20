@@ -10,6 +10,7 @@
  */
 package org.eclipse.b3.build.build;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 
 import org.eclipse.emf.common.util.EList;
@@ -27,9 +28,10 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.build.build.Branch#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Branch#getUpdateStrategy <em>Update Strategy</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Branch#getBranchPointType <em>Branch Point Type</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.Branch#getBranchPoint <em>Branch Point</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Branch#getInclude <em>Include</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Branch#getExclude <em>Exclude</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.Branch#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.Branch#getBranchPoint <em>Branch Point</em>}</li>
  * </ul>
  * </p>
  * 
@@ -39,20 +41,17 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Branch extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Branch Point</b></em>' attribute.
+	 * Returns the value of the '<em><b>Branch Point</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The branch point data - a tag name, a timestamp or revision.
-	 * <!-- end-model-doc -->
 	 * 
-	 * @return the value of the '<em>Branch Point</em>' attribute.
-	 * @see #setBranchPoint(String)
+	 * @return the value of the '<em>Branch Point</em>' containment reference.
+	 * @see #setBranchPoint(BExpression)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBranch_BranchPoint()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getBranchPoint();
+	BExpression getBranchPoint();
 
 	/**
 	 * Returns the value of the '<em><b>Branch Point Type</b></em>' attribute.
@@ -72,6 +71,23 @@ public interface Branch extends EObject {
 	 * @generated
 	 */
 	BranchPointType getBranchPointType();
+
+	/**
+	 * Returns the value of the '<em><b>Documentation</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Documentation</em>' attribute.
+	 * @see #setDocumentation(String)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBranch_Documentation()
+	 * @model default=""
+	 * @generated
+	 */
+	String getDocumentation();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,16 +169,16 @@ public interface Branch extends EObject {
 	UpdateStrategy getUpdateStrategy();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.Branch#getBranchPoint <em>Branch Point</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.Branch#getBranchPoint <em>Branch Point</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Branch Point</em>' attribute.
+	 *            the new value of the '<em>Branch Point</em>' containment reference.
 	 * @see #getBranchPoint()
 	 * @generated
 	 */
-	void setBranchPoint(String value);
+	void setBranchPoint(BExpression value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.Branch#getBranchPointType <em>Branch Point Type</em>}' attribute.
@@ -176,6 +192,18 @@ public interface Branch extends EObject {
 	 * @generated
 	 */
 	void setBranchPointType(BranchPointType value);
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.Branch#getDocumentation <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Documentation</em>' attribute.
+	 * @see #getDocumentation()
+	 * @generated
+	 */
+	void setDocumentation(String value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.Branch#getName <em>Name</em>}' attribute.

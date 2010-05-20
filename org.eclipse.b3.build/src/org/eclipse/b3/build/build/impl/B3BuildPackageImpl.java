@@ -1027,20 +1027,21 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		repositoryEClass = createEClass(REPOSITORY);
 		createEAttribute(repositoryEClass, REPOSITORY__NAME);
-		createEAttribute(repositoryEClass, REPOSITORY__ADDRESS);
 		createEReference(repositoryEClass, REPOSITORY__BRANCHES);
 		createEAttribute(repositoryEClass, REPOSITORY__DOCUMENTATION);
 		createEAttribute(repositoryEClass, REPOSITORY__HANDLER_TYPE);
 		createEReference(repositoryEClass, REPOSITORY__OPTIONS);
 		createEReference(repositoryEClass, REPOSITORY__BUILD_UNIT_REPOSITORY);
+		createEReference(repositoryEClass, REPOSITORY__ADDRESS);
 
 		branchEClass = createEClass(BRANCH);
 		createEAttribute(branchEClass, BRANCH__NAME);
 		createEAttribute(branchEClass, BRANCH__UPDATE_STRATEGY);
 		createEAttribute(branchEClass, BRANCH__BRANCH_POINT_TYPE);
-		createEAttribute(branchEClass, BRANCH__BRANCH_POINT);
 		createEReference(branchEClass, BRANCH__INCLUDE);
 		createEReference(branchEClass, BRANCH__EXCLUDE);
+		createEAttribute(branchEClass, BRANCH__DOCUMENTATION);
+		createEReference(branchEClass, BRANCH__BRANCH_POINT);
 
 		delegatingUnitProviderEClass = createEClass(DELEGATING_UNIT_PROVIDER);
 		createEReference(delegatingUnitProviderEClass, DELEGATING_UNIT_PROVIDER__DELEGATE);
@@ -1260,8 +1261,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBranch_BranchPoint() {
-		return (EAttribute) branchEClass.getEStructuralFeatures().get(3);
+	public EReference getBranch_BranchPoint() {
+		return (EReference) branchEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1280,8 +1281,18 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EAttribute getBranch_Documentation() {
+		return (EAttribute) branchEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EReference getBranch_Exclude() {
-		return (EReference) branchEClass.getEStructuralFeatures().get(5);
+		return (EReference) branchEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1291,7 +1302,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	public EReference getBranch_Include() {
-		return (EReference) branchEClass.getEStructuralFeatures().get(4);
+		return (EReference) branchEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2890,27 +2901,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepository_Address() {
-		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getRepository_Branches() {
-		return (EReference) repositoryEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getRepository_BuildUnitRepository() {
+	public EReference getRepository_Address() {
 		return (EReference) repositoryEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -2920,8 +2911,28 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EReference getRepository_Branches() {
+		return (EReference) repositoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getRepository_BuildUnitRepository() {
+		return (EReference) repositoryEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EAttribute getRepository_Documentation() {
-		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2931,7 +2942,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	public EAttribute getRepository_HandlerType() {
-		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(4);
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2951,7 +2962,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	public EReference getRepository_Options() {
-		return (EReference) repositoryEClass.getEStructuralFeatures().get(5);
+		return (EReference) repositoryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -4418,9 +4429,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEAttribute(
 			getRepository_Name(), ecorePackage.getEString(), "name", null, 0, 1, Repository.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getRepository_Address(), ecorePackage.getEString(), "address", null, 0, 1, Repository.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getRepository_Branches(), this.getBranch(), null, "branches", null, 0, -1, Repository.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
@@ -4439,6 +4447,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getRepository_BuildUnitRepository(), this.getIBuildUnitRepository(), null, "buildUnitRepository", null, 0,
 			1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getRepository_Address(), theB3backendPackage.getBExpression(), null, "address", null, 0, 1,
+			Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
@@ -4451,9 +4463,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEAttribute(
 			getBranch_BranchPointType(), this.getBranchPointType(), "branchPointType", "Latest", 1, 1, Branch.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBranch_BranchPoint(), ecorePackage.getEString(), "branchPoint", null, 0, 1, Branch.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getBranch_Include(), theB3backendPackage.getBNamePredicate(), null, "include", null, 0, -1, Branch.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
@@ -4462,6 +4471,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getBranch_Exclude(), theB3backendPackage.getBNamePredicate(), null, "exclude", null, 0, -1, Branch.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBranch_Documentation(), ecorePackage.getEString(), "documentation", "", 0, 1, Branch.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getBranch_BranchPoint(), theB3backendPackage.getBExpression(), null, "branchPoint", null, 0, 1,
+			Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(branchEClass, this.getUpdateStrategy(), "getEffectiveUpdateStrategy", 0, 1, IS_UNIQUE, IS_ORDERED);
 

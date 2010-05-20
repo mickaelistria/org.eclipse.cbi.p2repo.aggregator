@@ -13,9 +13,16 @@ package org.eclipse.b3;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import org.eclipse.b3.backend.core.SimplePattern;
+import org.eclipse.b3.validation.FixableTimestampException;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.xtext.GrammarUtil;
@@ -31,17 +38,6 @@ import org.eclipse.xtext.util.Strings;
  * Converters for BeeLang terminals.
  */
 public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverterService {
-
-	// private Grammar grammar;
-	// @Override
-	// protected Grammar getGrammar() {
-	// return grammar;
-	// }
-	// @Override
-	// @Inject
-	// public void setGrammar(IGrammarAccess grammarAccess) {
-	// this.grammar = grammarAccess.getGrammar();
-	// }
 
 	@ValueConverter(rule = "BooleanValue")
 	public IValueConverter<Boolean> BooleanValue() {
@@ -278,6 +274,27 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 		};
 	}
 
+	@ValueConverter(rule = "SIMPLE_PATTERN")
+	public IValueConverter<SimplePattern> SimplePattern() {
+		return new IValueConverter<SimplePattern>() {
+			public String toString(SimplePattern value) {
+				return value.toString();
+			}
+
+			public SimplePattern toValue(String string, AbstractNode node) {
+				if(Strings.isEmpty(string))
+					throw new ValueConverterException(
+						"Could not convert empty string to simple pattern expression", node, null);
+				try {
+					return SimplePattern.compile(string);
+				}
+				catch(IllegalArgumentException e) {
+					throw new ValueConverterException("Simple pattern syntax error: " + e.getMessage(), node, null);
+				}
+			}
+		};
+	}
+
 	@ValueConverter(rule = "STRING")
 	public IValueConverter<String> STRING() {
 		return new AbstractNullSafeConverter<String>() {
@@ -289,6 +306,57 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 			@Override
 			protected String internalToValue(String string, AbstractNode node) {
 				return Strings.convertFromJavaString(string.substring(1, string.length() - 1), true);
+			}
+		};
+	}
+
+	@ValueConverter(rule = "TIMESTAMP")
+	public IValueConverter<java.util.Date> TimestampValue() {
+		return new AbstractNullSafeConverter<Date>() {
+
+			@Override
+			protected String internalToString(Date value) {
+				SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMddHHmmssZ");
+				fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
+				return '"' + fmt.format(value) + '"';
+			}
+
+			@Override
+			protected Date internalToValue(String string, AbstractNode node) throws ValueConverterException {
+				string = string.substring(1, string.length() - 1);
+
+				// First choice, if a timestamp string, use it.
+				try {
+					// Allow non UTC strings since they are fully qualified with offset and can thus
+					// be parsed by anyone.
+					SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMddHHmmssZ");
+					fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
+					return fmt.parse(string);
+				}
+				catch(ParseException e) {
+					// ignore and try timestamp format
+				}
+				// Second choice - if using java default for the locale
+				// Needs special processing as it probably does not contain TZ in the string)
+				try {
+					// try the default locale style of Date Time and see if it parses
+					DateFormat.getDateTimeInstance().parse(string);
+					// if this parsed, it is not likely that the default is the full
+					// format with timezone offset, so flag this as a special error :)
+					// that is fixable
+					// Although simple, it makes sense from a user perspective, a time in
+					// local format can be entered and transformed to a timestamp.
+					throw new ValueConverterException("Not in timestamp format", node, new FixableTimestampException());
+				}
+				catch(ParseException e) {
+					DateFormat fmt = DateFormat.getDateTimeInstance();
+					String defaultFormat = (fmt instanceof SimpleDateFormat)
+							? ((SimpleDateFormat) fmt).toLocalizedPattern()
+							: "Default format for the locale";
+					throw new ValueConverterException("Not in valid format: Use 'yyyyMMddHHmmssZ' or " + defaultFormat +
+							"Parse error:" + e.getMessage(), node, null);
+
+				}
 			}
 		};
 	}

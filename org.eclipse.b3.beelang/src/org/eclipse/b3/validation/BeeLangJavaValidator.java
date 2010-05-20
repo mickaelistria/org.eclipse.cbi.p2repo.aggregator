@@ -15,6 +15,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
+import org.eclipse.b3.build.build.Branch;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderConcernContext;
@@ -32,17 +33,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.Check;
 
-public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
-
-	// TODO: make an interface out of the fixable issue codes
-	//
-	public static final String ISSUE_REPOSITORY__NO_CONNECTION = "No Connection URI";
-
-	public static final String ISSUE_REPO_OPTION__INVALID_OPTION = "Invalid Option";
-
-	public static final String ISSUE_BUILD_UNIT__MULTIPLE_RESOLUTIONS = "Multiple resolutions";
-
-	public static final String ISSUE_BEEMODEL__MULTIPLE_RESOLUTIONS = "Multiple resolutions";
+public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implements IBeeLangDiagnostic {
 
 	@Check
 	public void checkBeeModel(BeeModel beeModel) {
@@ -72,6 +63,11 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 		error(
 			"A proceed expression can only appear inside a function or builder context in a concern", proceed,
 			B3backendPackage.BPROCEED_EXPRESSION);
+	}
+
+	@Check
+	public void checkBranch(Branch branch) {
+		// TODO
 	}
 
 	@Check

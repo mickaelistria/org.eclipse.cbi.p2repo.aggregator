@@ -12,6 +12,7 @@ package org.eclipse.b3.build.build.impl;
 
 import java.util.Collection;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
@@ -43,9 +44,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.build.build.impl.BranchImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BranchImpl#getUpdateStrategy <em>Update Strategy</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BranchImpl#getBranchPointType <em>Branch Point Type</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BranchImpl#getBranchPoint <em>Branch Point</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BranchImpl#getInclude <em>Include</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BranchImpl#getExclude <em>Exclude</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BranchImpl#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BranchImpl#getBranchPoint <em>Branch Point</em>}</li>
  * </ul>
  * </p>
  * 
@@ -119,28 +121,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	protected BranchPointType branchPointType = BRANCH_POINT_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBranchPoint() <em>Branch Point</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getBranchPoint()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String BRANCH_POINT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getBranchPoint() <em>Branch Point</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getBranchPoint()
-	 * @generated
-	 * @ordered
-	 */
-	protected String branchPoint = BRANCH_POINT_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getInclude() <em>Include</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -163,6 +143,39 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	protected EList<BNamePredicate> exclude;
 
 	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBranchPoint() <em>Branch Point</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getBranchPoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected BExpression branchPoint;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -170,6 +183,26 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 */
 	protected BranchImpl() {
 		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetBranchPoint(BExpression newBranchPoint, NotificationChain msgs) {
+		BExpression oldBranchPoint = branchPoint;
+		branchPoint = newBranchPoint;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BRANCH__BRANCH_POINT, oldBranchPoint, newBranchPoint);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -187,12 +220,14 @@ public class BranchImpl extends EObjectImpl implements Branch {
 				return getUpdateStrategy();
 			case B3BuildPackage.BRANCH__BRANCH_POINT_TYPE:
 				return getBranchPointType();
-			case B3BuildPackage.BRANCH__BRANCH_POINT:
-				return getBranchPoint();
 			case B3BuildPackage.BRANCH__INCLUDE:
 				return getInclude();
 			case B3BuildPackage.BRANCH__EXCLUDE:
 				return getExclude();
+			case B3BuildPackage.BRANCH__DOCUMENTATION:
+				return getDocumentation();
+			case B3BuildPackage.BRANCH__BRANCH_POINT:
+				return getBranchPoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +245,8 @@ public class BranchImpl extends EObjectImpl implements Branch {
 				return ((InternalEList<?>) getInclude()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BRANCH__EXCLUDE:
 				return ((InternalEList<?>) getExclude()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BRANCH__BRANCH_POINT:
+				return basicSetBranchPoint(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -231,14 +268,16 @@ public class BranchImpl extends EObjectImpl implements Branch {
 				return updateStrategy != UPDATE_STRATEGY_EDEFAULT;
 			case B3BuildPackage.BRANCH__BRANCH_POINT_TYPE:
 				return branchPointType != BRANCH_POINT_TYPE_EDEFAULT;
-			case B3BuildPackage.BRANCH__BRANCH_POINT:
-				return BRANCH_POINT_EDEFAULT == null
-						? branchPoint != null
-						: !BRANCH_POINT_EDEFAULT.equals(branchPoint);
 			case B3BuildPackage.BRANCH__INCLUDE:
 				return include != null && !include.isEmpty();
 			case B3BuildPackage.BRANCH__EXCLUDE:
 				return exclude != null && !exclude.isEmpty();
+			case B3BuildPackage.BRANCH__DOCUMENTATION:
+				return DOCUMENTATION_EDEFAULT == null
+						? documentation != null
+						: !DOCUMENTATION_EDEFAULT.equals(documentation);
+			case B3BuildPackage.BRANCH__BRANCH_POINT:
+				return branchPoint != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -262,9 +301,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 			case B3BuildPackage.BRANCH__BRANCH_POINT_TYPE:
 				setBranchPointType((BranchPointType) newValue);
 				return;
-			case B3BuildPackage.BRANCH__BRANCH_POINT:
-				setBranchPoint((String) newValue);
-				return;
 			case B3BuildPackage.BRANCH__INCLUDE:
 				getInclude().clear();
 				getInclude().addAll((Collection<? extends BNamePredicate>) newValue);
@@ -272,6 +308,12 @@ public class BranchImpl extends EObjectImpl implements Branch {
 			case B3BuildPackage.BRANCH__EXCLUDE:
 				getExclude().clear();
 				getExclude().addAll((Collection<? extends BNamePredicate>) newValue);
+				return;
+			case B3BuildPackage.BRANCH__DOCUMENTATION:
+				setDocumentation((String) newValue);
+				return;
+			case B3BuildPackage.BRANCH__BRANCH_POINT:
+				setBranchPoint((BExpression) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -306,14 +348,17 @@ public class BranchImpl extends EObjectImpl implements Branch {
 			case B3BuildPackage.BRANCH__BRANCH_POINT_TYPE:
 				setBranchPointType(BRANCH_POINT_TYPE_EDEFAULT);
 				return;
-			case B3BuildPackage.BRANCH__BRANCH_POINT:
-				setBranchPoint(BRANCH_POINT_EDEFAULT);
-				return;
 			case B3BuildPackage.BRANCH__INCLUDE:
 				getInclude().clear();
 				return;
 			case B3BuildPackage.BRANCH__EXCLUDE:
 				getExclude().clear();
+				return;
+			case B3BuildPackage.BRANCH__DOCUMENTATION:
+				setDocumentation(DOCUMENTATION_EDEFAULT);
+				return;
+			case B3BuildPackage.BRANCH__BRANCH_POINT:
+				setBranchPoint((BExpression) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -325,7 +370,7 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * 
 	 * @generated
 	 */
-	public String getBranchPoint() {
+	public BExpression getBranchPoint() {
 		return branchPoint;
 	}
 
@@ -337,6 +382,16 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 */
 	public BranchPointType getBranchPointType() {
 		return branchPointType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getDocumentation() {
+		return documentation;
 	}
 
 	/**
@@ -405,12 +460,22 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * 
 	 * @generated
 	 */
-	public void setBranchPoint(String newBranchPoint) {
-		String oldBranchPoint = branchPoint;
-		branchPoint = newBranchPoint;
-		if(eNotificationRequired())
+	public void setBranchPoint(BExpression newBranchPoint) {
+		if(newBranchPoint != branchPoint) {
+			NotificationChain msgs = null;
+			if(branchPoint != null)
+				msgs = ((InternalEObject) branchPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.BRANCH__BRANCH_POINT, null, msgs);
+			if(newBranchPoint != null)
+				msgs = ((InternalEObject) newBranchPoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.BRANCH__BRANCH_POINT, null, msgs);
+			msgs = basicSetBranchPoint(newBranchPoint, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.BRANCH__BRANCH_POINT, oldBranchPoint, branchPoint));
+				this, Notification.SET, B3BuildPackage.BRANCH__BRANCH_POINT, newBranchPoint, newBranchPoint));
 	}
 
 	/**
@@ -427,6 +492,20 @@ public class BranchImpl extends EObjectImpl implements Branch {
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BRANCH__BRANCH_POINT_TYPE, oldBranchPointType, branchPointType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BRANCH__DOCUMENTATION, oldDocumentation, documentation));
 	}
 
 	/**
@@ -476,8 +555,8 @@ public class BranchImpl extends EObjectImpl implements Branch {
 		result.append(updateStrategy);
 		result.append(", branchPointType: ");
 		result.append(branchPointType);
-		result.append(", branchPoint: ");
-		result.append(branchPoint);
+		result.append(", documentation: ");
+		result.append(documentation);
 		result.append(')');
 		return result.toString();
 	}

@@ -30,7 +30,7 @@ BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT) : {build::Be
 	|	('properties'  propertySets += PropertySet_Named)
 	|   (buildUnits += BuildUnit)
 	| 	(providers += TopLevelUnitProvider)
-	|   ('repositories' '{' (repositories += Repository)* '}' )
+	|   (repositories += Repository)
 	)* 
 	 )
 	;
@@ -79,7 +79,7 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 			| (functions += Builder )			
 			| (functions += Function )			
 			//-- REPOSITORIES
-			| ('repositories' '{' (repositories += Repository)* '}' )
+			| (repositories += Repository)
 			| (providers += TopLevelUnitProvider)
 			| ('properties'  propertySets += PropertySet_Named)
 			| ('containers' '{' containers += ContainerConfiguration* '}' )
@@ -194,6 +194,12 @@ ConditionalPathVector returns build::ConditionalPathVector : {build::Conditional
 	| 	(("when" '(' condExpr=Expression ')')? pathVectors += (BasePathVector | UnbasedPathVector) )
 	;
 
+// a path as a string (i.e. ID, QID, "..." or /QID/..
+PathString 
+	: STRING
+	| ('/')? QID ('/' QID)* ('/')? 
+	;
+	
 // A path can be written without quotes if it consists of safe chars 
 Path returns be::URI hidden()
 	: STRING
@@ -305,23 +311,20 @@ BuilderInput returns build::BuilderInput : {build::BuilderInput}
 	;
 	
 Repository returns build::Repository : {build::Repository}
-	  (documentation = DOCUMENTATION)?
-	  handlerType = ID
-	  name = ID
-	  '{'
-	  	(
-	  	  ("connection" ':' address = STRING ';')?
-//	  	& ("local" ':' local = URI ';')?
-//	  	& ("user" ':' user = STRING ';')?
-//	  	& ("password" ':' password = STRING ';')?
-	  	& ("branches" ((':' branches += Branch)|('[' branches += Branch (',' branches += Branch)* ']')) ';')?
-	  	& ("options" '{' (options += RepoOption)* '}' )?
-	  	) 
-	  '}'
+	(documentation = DOCUMENTATION)?
+	"repository" handlerType = ID name = ID
+		((':' "connection" ':' address = Expression ';')
+		|('{'
+			("connection" ':' address = Expression ';')?
+			(options += RepoOption)*
+			("branches" ':' '[' (branches += Branch) (',' branches += Branch)* ']' ';')?
+	  	  '}')
+	  	 )
 	;
+	  	  
 enum BranchPointTypeLatest returns build::BranchPointType :  Latest="latest" ;
-enum BranchPointTypeNamed returns build::BranchPointType : Revision="revision" | Tag="tag" ;
-enum BranchPointTypeTs returns build::BranchPointType : Timestamp="timestamp" ;
+enum BranchPointTypeOther returns build::BranchPointType : Revision="revision" | Tag="tag" | Timestamp = "timestamp";
+//enum BranchPointTypeTs returns build::BranchPointType : Timestamp="timestamp" ;
 enum UpdateStrategy returns build::UpdateStrategy : 
 	  FailModified = "fail-modified"
 	| KeepModified = "keep-modified"
@@ -331,24 +334,25 @@ enum UpdateStrategy returns build::UpdateStrategy :
 	| BranchPointDefault = "default"
 ;
 	
-Branch returns build::Branch : {build::Branch} 
+//		  | (branchPointType = BranchPointTypeTs branchPointTs = TIMESTAMP ';') 
+
+Branch returns build::Branch : {build::Branch}
+  	(documentation = DOCUMENTATION)?
+	"branch"
 	name = EscapedQualifiedName
-	('{'
-		( (branchPointType = BranchPointTypeLatest ';') 
-		| (branchPointType = BranchPointTypeNamed ':' branchPoint = EscapedQualifiedName ';')
-		| (branchPointType = BranchPointTypeTs ':' branchPoint = STRING ';') // TODO: DATE
-		)?
-		("update-policy" ':' updateStrategy = UpdateStrategy ';')?
-		("include" 
-			 ((':' include += NamePredicate) 
-			|('['  include += NamePredicate (',' include += NamePredicate)* ']' ))
-			 ';') ?
-		("exclude" 
-			 ((':' exclude += NamePredicate) 
-			|('['  exclude += NamePredicate (',' exclude += NamePredicate)* ']' ))
-			 ';') ?
-	'}')?
-;
+	'{'	(
+		  ( (branchPointType = BranchPointTypeLatest ';') 
+		  | (branchPointType = BranchPointTypeOther ':' branchPoint = Expression ';')
+		  )?
+		& ("update-policy" ':' updateStrategy = UpdateStrategy ';')?
+		& ("exclude" ':' '[' (exclude += NamePredicate) (',' exclude += NamePredicate)* ']' ';')?
+		& ("include" ':' '[' (include += NamePredicate) (',' include += NamePredicate)* ']' ';')?
+		)
+	'}'
+	;
+// Branches and revisions have string form (they can be very long), and can be a string or INT/HEX
+// The physical type of a revision is determined by a repository type.
+BranchPointString : EscapedQualifiedName | INT | HEX ;
 	
 UnitProvider returns build::UnitProvider 
 	: FirstFoundUnitProvider
@@ -624,7 +628,6 @@ PrimaryExpression returns be::BExpression
 	| ThrowExpression
 	| TryCatchExpression
 	| ProceedExpression
-	| WildcardExpression
 	| WithExpression
 	| WithContextExpression
 	;
@@ -881,13 +884,13 @@ InputPredicate returns build::InputPredicate: {build::InputPredicate}
 SourcePredicate returns build::SourcePredicate : {build::SourcePredicate}
 	  pathVector = BasePathPredicate
 	| pathVector = PathPredicate
-	| pathPattern = RegexpLiteral
+	| pathPattern = PatternLiteral
 	;
 
 OutputPredicate returns build::OutputPredicate : {build::OutputPredicate}
 	  pathVector = BasePathPredicate
 	| pathVector = PathPredicate
-	| pathPattern = RegexpLiteral
+	| pathPattern = PatternLiteral
 	;
 	
 BasePathPredicate returns build::PathVector : {build::PathVector}
@@ -904,9 +907,16 @@ CapabilityPredicate returns build::CapabilityPredicate : {build::CapabilityPredi
 	;
 	 
 NamePredicate returns be::BNamePredicate : {be::BNamePredicate}
-	(name=EscapedQualifiedName  | namePattern = RegexpLiteral | namePattern = WildcardExpression)
+	(name=EscapedQualifiedName  | namePattern = PatternLiteral)
 	;
 	
+//NamePredicateFull returns be::BNamePredicate : {be::BNamePredicate}
+//		("name" ':' name = PathString)
+//	| 	("pattern" ':' namePattern = RegexpLiteral)
+//	|	("pattern" ':' namePattern = WildcardExpression)
+//	|	("pattern" ':' namePattern = SimplePatternLiteral)
+//	;
+
 BuilderOrExpression returns be::BExpression :
 	BuilderAndExpression ({be::BOrExpression.leftExpr=current} "||" rightExpr=BuilderAndExpression)*
 	;
@@ -934,12 +944,17 @@ GroupedBuilderPrimaryExpression returns be::BExpression : '(' BuilderOrExpressio
 					
 Literal returns be::BExpression
 	: ValueLiteral
-	| RegexpLiteral
+	| PatternLiteral
 	| LiteralMap
 	| LiteralList
 	| LiteralFunction
 	;
-	
+PatternLiteral returns be::BPatternLiteralExpression 
+	: RegexpLiteral
+	| SimplePatternLiteral
+	| WildcardExpression
+	;
+		
 LiteralList returns  be::BExpression
 	: {be::BLiteralListExpression} '[' ('<' entryType=TypeRef '>')? entries += Expression (',' entries += Expression)*  ']' 
 	| {be::BLiteralListExpression} '[''<' entryType=TypeRef '>' ']' 
@@ -1030,7 +1045,12 @@ RealLiteral	returns  be::BExpression : {be::BLiteralExpression}
 RegexpLiteral returns be::BRegularExpression : {be::BRegularExpression}
 	pattern = REGULAR_EXPR
 	;
-
+	
+SimplePatternLiteral returns be::BSimplePatternExpression : {be::BSimplePatternExpression}
+	pattern = SIMPLE_PATTERN
+	;
+	
+	
 // Note: NullLiteral has a java null value as its value
 NullLiteral	returns  be::BExpression : {be::BLiteralExpression} 
 	"null"
@@ -1084,8 +1104,11 @@ CapabilityName 	: EscapedQualifiedName ;
 enum Visibility 	returns be::Visibility : public | private ;
 enum ExecutionMode 	returns be::ExecutionMode: parallel | sequential ;
 
+// RULE 'TERMINALS'
 
-// Version, and VersionRange
+TIMESTAMP returns ecore::EDate : STRING ;
+
+// Version, and VersionRange use these
 // TODO: uncertain if the set of allowed chars is definitive.
 //
 Separator : '.' | '-' | '!' | '@' | '$' | '%' | '&' |'+' | '=' | '*' | '<' | '>' | ':' | '?';
@@ -1106,7 +1129,11 @@ terminal REGULAR_EXPR returns be::RegexpPattern
 	: "~/" ( '\\' (!('\t'|'\r'|'\n'))
 			| (!('\\'|'/'|' '|'\t'|'\r'|'\n')))* "/" ('u'|'m'|'i'|'c'|'d')*
 			;
-
+			
+terminal SIMPLE_PATTERN returns be::SimplePattern
+	: '~' STRING
+	;
+	
 // JS String support escaped b,t,n,f,r, and u HEX*4, x HEX*2, and (deprecated (0-7)), 
 // A string converter may need to handle the u, x, and octal escapes.
 // Regular java string handles XXXX , and gives syntax error if

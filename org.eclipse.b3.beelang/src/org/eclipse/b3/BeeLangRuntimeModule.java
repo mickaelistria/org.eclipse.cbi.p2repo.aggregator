@@ -12,12 +12,18 @@
 
 package org.eclipse.b3;
 
+import org.eclipse.b3.validation.BeeLangSyntaxErrorMessageProvider;
 import org.eclipse.xtext.conversion.IValueConverterService;
+import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
 
 /**
  * Use this class to register components to be used within the IDE.
  */
 public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeModule {
+
+	public Class<? extends ISyntaxErrorMessageProvider> bindISyntaxErrorMessageProvider() {
+		return BeeLangSyntaxErrorMessageProvider.class;
+	}
 
 	// add transient value serialization service to enable skipping values that are transient from
 	// a grammar perspective

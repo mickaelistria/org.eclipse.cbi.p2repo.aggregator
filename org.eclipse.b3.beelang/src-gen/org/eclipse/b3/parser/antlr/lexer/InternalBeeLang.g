@@ -16,21 +16,21 @@ import org.eclipse.xtext.parser.antlr.Lexer;
 
 
 
-KEYWORD_129 : 'postinputcondition';
+KEYWORD_128 : 'postinputcondition';
 
-KEYWORD_128 : 'replace-modified';
+KEYWORD_127 : 'replace-modified';
 
-KEYWORD_127 : 'merge-modified';
+KEYWORD_126 : 'merge-modified';
 
-KEYWORD_122 : 'fail-modified';
+KEYWORD_121 : 'fail-modified';
 
-KEYWORD_123 : 'keep-modified';
+KEYWORD_122 : 'keep-modified';
 
-KEYWORD_124 : 'postcondition';
+KEYWORD_123 : 'postcondition';
 
-KEYWORD_125 : 'select-switch';
+KEYWORD_124 : 'select-switch';
 
-KEYWORD_126 : 'update-policy';
+KEYWORD_125 : 'update-policy';
 
 KEYWORD_115 : 'max-required';
 
@@ -38,13 +38,11 @@ KEYWORD_116 : 'min-required';
 
 KEYWORD_117 : 'precondition';
 
-KEYWORD_118 : 'repositories';
+KEYWORD_118 : 'requires-max';
 
-KEYWORD_119 : 'requires-max';
+KEYWORD_119 : 'requires-min';
 
-KEYWORD_120 : 'requires-min';
-
-KEYWORD_121 : 'select-first';
+KEYWORD_120 : 'select-first';
 
 KEYWORD_113 : 'annotations';
 
@@ -88,25 +86,23 @@ KEYWORD_99 : 'requires';
 
 KEYWORD_100 : 'revision';
 
-KEYWORD_81 : 'builder';
+KEYWORD_82 : 'builder';
 
-KEYWORD_82 : 'concern';
+KEYWORD_83 : 'concern';
 
-KEYWORD_83 : 'context';
+KEYWORD_84 : 'context';
 
-KEYWORD_84 : 'default';
+KEYWORD_85 : 'default';
 
-KEYWORD_85 : 'exclude';
+KEYWORD_86 : 'exclude';
 
-KEYWORD_86 : 'extends';
+KEYWORD_87 : 'extends';
 
-KEYWORD_87 : 'finally';
+KEYWORD_88 : 'finally';
 
-KEYWORD_88 : 'include';
+KEYWORD_89 : 'include';
 
-KEYWORD_89 : 'mutable';
-
-KEYWORD_90 : 'options';
+KEYWORD_90 : 'mutable';
 
 KEYWORD_91 : 'private';
 
@@ -114,25 +110,27 @@ KEYWORD_92 : 'proceed';
 
 KEYWORD_93 : 'version';
 
-KEYWORD_71 : 'cached';
+KEYWORD_71 : 'branch';
 
-KEYWORD_72 : 'elseif';
+KEYWORD_72 : 'cached';
 
-KEYWORD_73 : 'endtry';
+KEYWORD_73 : 'elseif';
 
-KEYWORD_74 : 'greedy';
+KEYWORD_74 : 'endtry';
 
-KEYWORD_75 : 'import';
+KEYWORD_75 : 'greedy';
 
-KEYWORD_76 : 'latest';
+KEYWORD_76 : 'import';
 
-KEYWORD_77 : 'output';
+KEYWORD_77 : 'latest';
 
-KEYWORD_78 : 'public';
+KEYWORD_78 : 'output';
 
-KEYWORD_79 : 'source';
+KEYWORD_79 : 'public';
 
-KEYWORD_80 : 'switch';
+KEYWORD_80 : 'source';
+
+KEYWORD_81 : 'switch';
 
 KEYWORD_63 : 'agent';
 
@@ -281,6 +279,8 @@ RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;
 RULE_PID : '$' RULE_ID ('.' RULE_ID)*;
 
 RULE_REGULAR_EXPR : '~/' ('\\' ~(('\t'|'\r'|'\n'))|~(('\\'|'/'|' '|'\t'|'\r'|'\n')))* '/' ('u'|'m'|'i'|'c'|'d')*;
+
+RULE_SIMPLE_PATTERN : '~' RULE_STRING;
 
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|'\''|'\\')|~(('\\'|'"'|'\r'|'\n')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|'\''|'\\')|~(('\\'|'\''|'\r'|'\n')))* '\'');
 

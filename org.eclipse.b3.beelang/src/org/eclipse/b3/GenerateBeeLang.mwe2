@@ -100,7 +100,7 @@ Workflow {
 				options = {
 					backtrack = true
 					classSplitting = true
-					// backtrackLexer = true
+//					backtrackLexer = true
 				}
 			}
 
@@ -143,7 +143,7 @@ Workflow {
 				options = {
 					backtrack = true
 					classSplitting = true
-					// backtrackLexer = true
+//					backtrackLexer = true
 				}
 			}
 

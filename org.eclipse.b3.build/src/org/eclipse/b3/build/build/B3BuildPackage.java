@@ -861,13 +861,13 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute REPOSITORY__NAME = eINSTANCE.getRepository_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Address</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Address</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EAttribute REPOSITORY__ADDRESS = eINSTANCE.getRepository_Address();
+		EReference REPOSITORY__ADDRESS = eINSTANCE.getRepository_Address();
 
 		/**
 		 * The meta object literal for the '<em><b>Branches</b></em>' containment reference list feature.
@@ -953,13 +953,13 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute BRANCH__BRANCH_POINT_TYPE = eINSTANCE.getBranch_BranchPointType();
 
 		/**
-		 * The meta object literal for the '<em><b>Branch Point</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Branch Point</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EAttribute BRANCH__BRANCH_POINT = eINSTANCE.getBranch_BranchPoint();
+		EReference BRANCH__BRANCH_POINT = eINSTANCE.getBranch_BranchPoint();
 
 		/**
 		 * The meta object literal for the '<em><b>Include</b></em>' containment reference list feature.
@@ -978,6 +978,15 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BRANCH__EXCLUDE = eINSTANCE.getBranch_Exclude();
+
+		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BRANCH__DOCUMENTATION = eINSTANCE.getBranch_Documentation();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.DelegatingUnitProviderImpl <em>Delegating Unit Provider</em>}'
@@ -6751,16 +6760,6 @@ public interface B3BuildPackage extends EPackage {
 	int REPOSITORY__NAME = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Address</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY__ADDRESS = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Branches</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6768,7 +6767,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__BRANCHES = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
+	int REPOSITORY__BRANCHES = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -6778,7 +6777,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__DOCUMENTATION = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 3;
+	int REPOSITORY__DOCUMENTATION = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Handler Type</b></em>' attribute.
@@ -6788,7 +6787,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__HANDLER_TYPE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 4;
+	int REPOSITORY__HANDLER_TYPE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -6798,7 +6797,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__OPTIONS = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 5;
+	int REPOSITORY__OPTIONS = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Build Unit Repository</b></em>' reference.
@@ -6808,7 +6807,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__BUILD_UNIT_REPOSITORY = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 6;
+	int REPOSITORY__BUILD_UNIT_REPOSITORY = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Address</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__ADDRESS = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Repository</em>' class.
@@ -6862,16 +6871,6 @@ public interface B3BuildPackage extends EPackage {
 	int BRANCH__BRANCH_POINT_TYPE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Branch Point</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH__BRANCH_POINT = 3;
-
-	/**
 	 * The feature id for the '<em><b>Include</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6879,7 +6878,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__INCLUDE = 4;
+	int BRANCH__INCLUDE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Exclude</b></em>' containment reference list.
@@ -6889,7 +6888,27 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__EXCLUDE = 5;
+	int BRANCH__EXCLUDE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__DOCUMENTATION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Branch Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__BRANCH_POINT = 6;
 
 	/**
 	 * The number of structural features of the '<em>Branch</em>' class.
@@ -6899,7 +6918,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH_FEATURE_COUNT = 6;
+	int BRANCH_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.DelegatingUnitProviderImpl <em>Delegating Unit Provider</em>}' class.
@@ -7312,16 +7331,16 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBranch();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getBranchPoint <em>Branch Point</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Branch#getBranchPoint <em>Branch Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the attribute '<em>Branch Point</em>'.
+	 * @return the meta object for the containment reference '<em>Branch Point</em>'.
 	 * @see org.eclipse.b3.build.build.Branch#getBranchPoint()
 	 * @see #getBranch()
 	 * @generated
 	 */
-	EAttribute getBranch_BranchPoint();
+	EReference getBranch_BranchPoint();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getBranchPointType <em>Branch Point Type</em>}'.
@@ -7334,6 +7353,18 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBranch_BranchPointType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getDocumentation()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EAttribute getBranch_Documentation();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.Branch#getExclude <em>Exclude</em>}'.
@@ -9281,16 +9312,16 @@ public interface B3BuildPackage extends EPackage {
 	EClass getRepository();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Repository#getAddress <em>Address</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Repository#getAddress <em>Address</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the attribute '<em>Address</em>'.
+	 * @return the meta object for the containment reference '<em>Address</em>'.
 	 * @see org.eclipse.b3.build.build.Repository#getAddress()
 	 * @see #getRepository()
 	 * @generated
 	 */
-	EAttribute getRepository_Address();
+	EReference getRepository_Address();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.Repository#getBranches <em>Branches</em>}'.

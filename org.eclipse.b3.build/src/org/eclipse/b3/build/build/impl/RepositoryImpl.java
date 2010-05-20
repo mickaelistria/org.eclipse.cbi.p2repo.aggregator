@@ -12,6 +12,7 @@ package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
 import java.util.Collection;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,12 +45,12 @@ import com.google.inject.name.Names;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getAddress <em>Address</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getBranches <em>Branches</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getDocumentation <em>Documentation</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getHandlerType <em>Handler Type</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getOptions <em>Options</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.RepositoryImpl#getAddress <em>Address</em>}</li>
  * </ul>
  * </p>
  * 
@@ -77,28 +78,6 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getAddress()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ADDRESS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getAddress() <em>Address</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getAddress()
-	 * @generated
-	 * @ordered
-	 */
-	protected String address = ADDRESS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getBranches() <em>Branches</em>}' containment reference list.
@@ -178,6 +157,17 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	protected IBuildUnitRepository buildUnitRepository;
 
 	/**
+	 * The cached value of the '{@link #getAddress() <em>Address</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getAddress()
+	 * @generated
+	 * @ordered
+	 */
+	protected BExpression address;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -203,13 +193,31 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * 
 	 * @generated
 	 */
+	public NotificationChain basicSetAddress(BExpression newAddress, NotificationChain msgs) {
+		BExpression oldAddress = address;
+		address = newAddress;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.REPOSITORY__ADDRESS, oldAddress, newAddress);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
 			case B3BuildPackage.REPOSITORY__NAME:
 				return getName();
-			case B3BuildPackage.REPOSITORY__ADDRESS:
-				return getAddress();
 			case B3BuildPackage.REPOSITORY__BRANCHES:
 				return getBranches();
 			case B3BuildPackage.REPOSITORY__DOCUMENTATION:
@@ -222,6 +230,8 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 				if(resolve)
 					return getBuildUnitRepository();
 				return basicGetBuildUnitRepository();
+			case B3BuildPackage.REPOSITORY__ADDRESS:
+				return getAddress();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -239,6 +249,8 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 				return ((InternalEList<?>) getBranches()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.REPOSITORY__OPTIONS:
 				return ((InternalEList<?>) getOptions()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.REPOSITORY__ADDRESS:
+				return basicSetAddress(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -256,10 +268,6 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 				return NAME_EDEFAULT == null
 						? name != null
 						: !NAME_EDEFAULT.equals(name);
-			case B3BuildPackage.REPOSITORY__ADDRESS:
-				return ADDRESS_EDEFAULT == null
-						? address != null
-						: !ADDRESS_EDEFAULT.equals(address);
 			case B3BuildPackage.REPOSITORY__BRANCHES:
 				return branches != null && !branches.isEmpty();
 			case B3BuildPackage.REPOSITORY__DOCUMENTATION:
@@ -274,6 +282,8 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 				return options != null && !options.isEmpty();
 			case B3BuildPackage.REPOSITORY__BUILD_UNIT_REPOSITORY:
 				return buildUnitRepository != null;
+			case B3BuildPackage.REPOSITORY__ADDRESS:
+				return address != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -291,9 +301,6 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 			case B3BuildPackage.REPOSITORY__NAME:
 				setName((String) newValue);
 				return;
-			case B3BuildPackage.REPOSITORY__ADDRESS:
-				setAddress((String) newValue);
-				return;
 			case B3BuildPackage.REPOSITORY__BRANCHES:
 				getBranches().clear();
 				getBranches().addAll((Collection<? extends Branch>) newValue);
@@ -310,6 +317,9 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 				return;
 			case B3BuildPackage.REPOSITORY__BUILD_UNIT_REPOSITORY:
 				setBuildUnitRepository((IBuildUnitRepository) newValue);
+				return;
+			case B3BuildPackage.REPOSITORY__ADDRESS:
+				setAddress((BExpression) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -338,9 +348,6 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 			case B3BuildPackage.REPOSITORY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case B3BuildPackage.REPOSITORY__ADDRESS:
-				setAddress(ADDRESS_EDEFAULT);
-				return;
 			case B3BuildPackage.REPOSITORY__BRANCHES:
 				getBranches().clear();
 				return;
@@ -355,6 +362,9 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 				return;
 			case B3BuildPackage.REPOSITORY__BUILD_UNIT_REPOSITORY:
 				setBuildUnitRepository((IBuildUnitRepository) null);
+				return;
+			case B3BuildPackage.REPOSITORY__ADDRESS:
+				setAddress((BExpression) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -390,7 +400,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * 
 	 * @generated
 	 */
-	public String getAddress() {
+	public BExpression getAddress() {
 		return address;
 	}
 
@@ -488,12 +498,22 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * 
 	 * @generated
 	 */
-	public void setAddress(String newAddress) {
-		String oldAddress = address;
-		address = newAddress;
-		if(eNotificationRequired())
+	public void setAddress(BExpression newAddress) {
+		if(newAddress != address) {
+			NotificationChain msgs = null;
+			if(address != null)
+				msgs = ((InternalEObject) address).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.REPOSITORY__ADDRESS, null, msgs);
+			if(newAddress != null)
+				msgs = ((InternalEObject) newAddress).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.REPOSITORY__ADDRESS, null, msgs);
+			msgs = basicSetAddress(newAddress, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.REPOSITORY__ADDRESS, oldAddress, address));
+				this, Notification.SET, B3BuildPackage.REPOSITORY__ADDRESS, newAddress, newAddress));
 	}
 
 	/**
@@ -566,8 +586,6 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", address: ");
-		result.append(address);
 		result.append(", documentation: ");
 		result.append(documentation);
 		result.append(", handlerType: ");

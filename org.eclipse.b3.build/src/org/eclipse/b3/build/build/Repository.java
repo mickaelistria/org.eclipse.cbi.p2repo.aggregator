@@ -23,12 +23,12 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.build.build.Repository#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.Repository#getAddress <em>Address</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getBranches <em>Branches</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getDocumentation <em>Documentation</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getHandlerType <em>Handler Type</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getOptions <em>Options</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Repository#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.Repository#getAddress <em>Address</em>}</li>
  * </ul>
  * </p>
  * 
@@ -38,20 +38,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Repository extends BExpression {
 	/**
-	 * Returns the value of the '<em><b>Address</b></em>' attribute.
+	 * Returns the value of the '<em><b>Address</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Address</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Address</em>' attribute.
-	 * @see #setAddress(String)
+	 * @return the value of the '<em>Address</em>' containment reference.
+	 * @see #setAddress(BExpression)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepository_Address()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getAddress();
+	BExpression getAddress();
 
 	/**
 	 * Returns the value of the '<em><b>Branches</b></em>' containment reference list.
@@ -151,16 +151,16 @@ public interface Repository extends BExpression {
 	EList<RepoOption> getOptions();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getAddress <em>Address</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getAddress <em>Address</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Address</em>' attribute.
+	 *            the new value of the '<em>Address</em>' containment reference.
 	 * @see #getAddress()
 	 * @generated
 	 */
-	void setAddress(String value);
+	void setAddress(BExpression value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.Repository#getBuildUnitRepository <em>Build Unit Repository</em>}' reference.
