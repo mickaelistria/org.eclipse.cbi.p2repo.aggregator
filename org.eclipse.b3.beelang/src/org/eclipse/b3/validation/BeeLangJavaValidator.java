@@ -67,7 +67,8 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 
 	@Check
 	public void checkBranch(Branch branch) {
-		// TODO
+		// If branchpoint type is timestamp
+		// If branchpoint type is other
 	}
 
 	@Check
@@ -153,10 +154,11 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		if(!RepositoryValidation.isNameRegistered(repoHandler.getHandlerType()))
 			warning("The repository type '" + repoHandler.getHandlerType() +
 					"' is unknown to the b3 editing environment.", repoHandler, B3BuildPackage.REPOSITORY__HANDLER_TYPE);
+		// TODO: currently all repoHandlers require an address, but there could be those that do not, make it optional
 		if(repoHandler.getAddress() == null) {
 			error(
-				"The repository must have a declared address as 'address = \"URIorRepoSpecificAddress\"", repoHandler,
-				B3BuildPackage.REPOSITORY__HANDLER_TYPE, ISSUE_REPOSITORY__NO_CONNECTION);
+				"The repository must have a 'connection'", repoHandler, B3BuildPackage.REPOSITORY__HANDLER_TYPE,
+				ISSUE_REPOSITORY__NO_CONNECTION);
 		}
 	}
 

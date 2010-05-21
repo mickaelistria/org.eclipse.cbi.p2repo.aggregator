@@ -80,6 +80,7 @@ import org.eclipse.b3.build.build.UnitNamePredicate;
 import org.eclipse.b3.build.build.UnitResolutionInfo;
 import org.eclipse.b3.build.build.UpdateStrategy;
 import org.eclipse.b3.build.build.VersionedCapability;
+import org.eclipse.b3.build.build.util.B3BuildValidator;
 import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.core.runtime.IStatus;
@@ -91,6 +92,7 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
@@ -134,6 +136,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		// Initialize created meta-data
 		theB3BuildPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put(theB3BuildPackage, new EValidator.Descriptor() {
+			public EValidator getEValidator() {
+				return B3BuildValidator.INSTANCE;
+			}
+		});
 
 		// Mark meta-data to indicate it can't be changed
 		theB3BuildPackage.freeze();
@@ -4480,6 +4489,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(branchEClass, this.getUpdateStrategy(), "getEffectiveUpdateStrategy", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(branchEClass, ecorePackage.getEBoolean(), "hasValidState", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "map", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			delegatingUnitProviderEClass, DelegatingUnitProvider.class, "DelegatingUnitProvider", !IS_ABSTRACT,

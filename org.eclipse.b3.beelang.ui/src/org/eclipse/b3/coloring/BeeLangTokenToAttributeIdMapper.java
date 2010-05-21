@@ -22,6 +22,9 @@ public class BeeLangTokenToAttributeIdMapper extends DefaultAntlrTokenToAttribut
 		if("RULE_REGULAR_EXPR".equals(tokenName)) {
 			return BeeLangHighlightConfiguration.REGEXP_ID;
 		}
+		if("RULE_SIMPLE_PATTERN".equals(tokenName)) {
+			return BeeLangHighlightConfiguration.REGEXP_ID;
+		}
 
 		if("RULE_HEX".equals(tokenName)) {
 			return DefaultHighlightingConfiguration.NUMBER_ID;

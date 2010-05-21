@@ -6612,12 +6612,12 @@ ruleBranch returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getBranchAccess().getUnorderedGroup_5(), 0);
 	 				}
-					(((
+					((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getBranchPointTypeBranchPointTypeLatestEnumRuleCall_5_0_0_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getBranchPointTypeBranchPointTypeOtherEnumRuleCall_5_0_0_0(), currentNode); 
 	    }
-		lv_branchPointType_6_0=ruleBranchPointTypeLatest		{
+		lv_branchPointType_6_0=ruleBranchPointTypeOther		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBranchRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6627,36 +6627,6 @@ ruleBranch returns [EObject current=null]
 	       			$current, 
 	       			"branchPointType",
 	        		lv_branchPointType_6_0, 
-	        		"BranchPointTypeLatest", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-)
-	KEYWORD_15 
-    {
-        createLeafNode(grammarAccess.getBranchAccess().getSemicolonKeyword_5_0_0_1(), null); 
-    }
-)
-    |((
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getBranchPointTypeBranchPointTypeOtherEnumRuleCall_5_0_1_0_0(), currentNode); 
-	    }
-		lv_branchPointType_8_0=ruleBranchPointTypeOther		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getBranchRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"branchPointType",
-	        		lv_branchPointType_8_0, 
 	        		"BranchPointTypeOther", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6669,14 +6639,14 @@ ruleBranch returns [EObject current=null]
 )
 	KEYWORD_14 
     {
-        createLeafNode(grammarAccess.getBranchAccess().getColonKeyword_5_0_1_1(), null); 
+        createLeafNode(grammarAccess.getBranchAccess().getColonKeyword_5_0_1(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getBranchPointExpressionParserRuleCall_5_0_1_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getBranchPointExpressionParserRuleCall_5_0_2_0(), currentNode); 
 	    }
-		lv_branchPoint_10_0=ruleExpression		{
+		lv_branchPoint_8_0=ruleExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBranchRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6685,7 +6655,7 @@ ruleBranch returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"branchPoint",
-	        		lv_branchPoint_10_0, 
+	        		lv_branchPoint_8_0, 
 	        		"Expression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6698,9 +6668,9 @@ ruleBranch returns [EObject current=null]
 )
 	KEYWORD_15 
     {
-        createLeafNode(grammarAccess.getBranchAccess().getSemicolonKeyword_5_0_1_3(), null); 
+        createLeafNode(grammarAccess.getBranchAccess().getSemicolonKeyword_5_0_3(), null); 
     }
-))
+)
 					{ 
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getBranchAccess().getUnorderedGroup_5());
 	 				}
@@ -6727,7 +6697,7 @@ ruleBranch returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getUpdateStrategyUpdateStrategyEnumRuleCall_5_1_2_0(), currentNode); 
 	    }
-		lv_updateStrategy_14_0=ruleUpdateStrategy		{
+		lv_updateStrategy_12_0=ruleUpdateStrategy		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBranchRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6736,7 +6706,7 @@ ruleBranch returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"updateStrategy",
-	        		lv_updateStrategy_14_0, 
+	        		lv_updateStrategy_12_0, 
 	        		"UpdateStrategy", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6783,7 +6753,7 @@ ruleBranch returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getExcludeNamePredicateParserRuleCall_5_2_3_0(), currentNode); 
 	    }
-		lv_exclude_19_0=ruleNamePredicate		{
+		lv_exclude_17_0=ruleNamePredicate		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBranchRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6792,7 +6762,7 @@ ruleBranch returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"exclude",
-	        		lv_exclude_19_0, 
+	        		lv_exclude_17_0, 
 	        		"NamePredicate", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6812,7 +6782,7 @@ ruleBranch returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getExcludeNamePredicateParserRuleCall_5_2_4_1_0(), currentNode); 
 	    }
-		lv_exclude_21_0=ruleNamePredicate		{
+		lv_exclude_19_0=ruleNamePredicate		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBranchRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6821,7 +6791,7 @@ ruleBranch returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"exclude",
-	        		lv_exclude_21_0, 
+	        		lv_exclude_19_0, 
 	        		"NamePredicate", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6873,7 +6843,7 @@ ruleBranch returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getIncludeNamePredicateParserRuleCall_5_3_3_0(), currentNode); 
 	    }
-		lv_include_27_0=ruleNamePredicate		{
+		lv_include_25_0=ruleNamePredicate		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBranchRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6882,7 +6852,7 @@ ruleBranch returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"include",
-	        		lv_include_27_0, 
+	        		lv_include_25_0, 
 	        		"NamePredicate", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6902,7 +6872,7 @@ ruleBranch returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getIncludeNamePredicateParserRuleCall_5_3_4_1_0(), currentNode); 
 	    }
-		lv_include_29_0=ruleNamePredicate		{
+		lv_include_27_0=ruleNamePredicate		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBranchRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6911,7 +6881,7 @@ ruleBranch returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"include",
-	        		lv_include_29_0, 
+	        		lv_include_27_0, 
 	        		"NamePredicate", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -21302,43 +21272,34 @@ finally {
 
 
 
-// Rule BranchPointTypeLatest
-ruleBranchPointTypeLatest returns [Enumerator current=null] 
-    @init { setCurrentLookahead(); resetLookahead(); }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-(    KEYWORD_77
-	{
-        $current = grammarAccess.getBranchPointTypeLatestAccess().getLatestEnumLiteralDeclaration().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getBranchPointTypeLatestAccess().getLatestEnumLiteralDeclaration(), null); 
-    }
-);
-
-
-
 // Rule BranchPointTypeOther
 ruleBranchPointTypeOther returns [Enumerator current=null] 
     @init { setCurrentLookahead(); resetLookahead(); }
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-((    KEYWORD_100
+((    KEYWORD_77
 	{
-        $current = grammarAccess.getBranchPointTypeOtherAccess().getRevisionEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getBranchPointTypeOtherAccess().getRevisionEnumLiteralDeclaration_0(), null); 
+        $current = grammarAccess.getBranchPointTypeOtherAccess().getLatestEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getBranchPointTypeOtherAccess().getLatestEnumLiteralDeclaration_0(), null); 
+    }
+)
+    |(    KEYWORD_100
+	{
+        $current = grammarAccess.getBranchPointTypeOtherAccess().getRevisionEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getBranchPointTypeOtherAccess().getRevisionEnumLiteralDeclaration_1(), null); 
     }
 )
     |(    KEYWORD_50
 	{
-        $current = grammarAccess.getBranchPointTypeOtherAccess().getTagEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getBranchPointTypeOtherAccess().getTagEnumLiteralDeclaration_1(), null); 
+        $current = grammarAccess.getBranchPointTypeOtherAccess().getTagEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getBranchPointTypeOtherAccess().getTagEnumLiteralDeclaration_2(), null); 
     }
 )
     |(    KEYWORD_104
 	{
-        $current = grammarAccess.getBranchPointTypeOtherAccess().getTimestampEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getBranchPointTypeOtherAccess().getTimestampEnumLiteralDeclaration_2(), null); 
+        $current = grammarAccess.getBranchPointTypeOtherAccess().getTimestampEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getBranchPointTypeOtherAccess().getTimestampEnumLiteralDeclaration_3(), null); 
     }
 ));
 

@@ -11,27 +11,28 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
-
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.Branch;
 import org.eclipse.b3.build.build.BranchPointType;
 import org.eclipse.b3.build.build.UpdateStrategy;
-
+import org.eclipse.b3.build.build.util.B3BuildValidator;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -452,6 +453,31 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 */
 	public UpdateStrategy getUpdateStrategy() {
 		return updateStrategy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean hasValidState(DiagnosticChain chain, Map<Object, Object> map) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		if(getBranchPointType() == BranchPointType.LATEST && getBranchPoint() != null) {
+			if(chain != null) {
+				chain.add(new BasicDiagnostic(Diagnostic.ERROR, B3BuildValidator.DIAGNOSTIC_SOURCE, //
+				B3BuildValidator.BRANCH__HAS_VALID_STATE, //
+					EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", //
+						new Object[] { //
+						"hasValidState", EObjectValidator.getObjectLabel(this, map) //
+						}), //
+					new Object[] { this }));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**

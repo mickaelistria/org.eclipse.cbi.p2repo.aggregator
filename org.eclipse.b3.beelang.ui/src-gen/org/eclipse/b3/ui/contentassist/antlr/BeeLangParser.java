@@ -63,7 +63,6 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFirstParameterAccess().getAlternatives(), "rule__FirstParameter__Alternatives");
 					put(grammarAccess.getParameterDeclarationAccess().getNameAlternatives_1_1_0(), "rule__ParameterDeclaration__NameAlternatives_1_1_0");
 					put(grammarAccess.getRepositoryAccess().getAlternatives_5(), "rule__Repository__Alternatives_5");
-					put(grammarAccess.getBranchAccess().getAlternatives_5_0(), "rule__Branch__Alternatives_5_0");
 					put(grammarAccess.getBranchPointStringAccess().getAlternatives(), "rule__BranchPointString__Alternatives");
 					put(grammarAccess.getUnitProviderAccess().getAlternatives(), "rule__UnitProvider__Alternatives");
 					put(grammarAccess.getRepositorySelectCaseAccess().getAlternatives_1(), "rule__RepositorySelectCase__Alternatives_1");
@@ -288,8 +287,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRepositoryAccess().getGroup_5_1_3(), "rule__Repository__Group_5_1_3__0");
 					put(grammarAccess.getRepositoryAccess().getGroup_5_1_3_4(), "rule__Repository__Group_5_1_3_4__0");
 					put(grammarAccess.getBranchAccess().getGroup(), "rule__Branch__Group__0");
-					put(grammarAccess.getBranchAccess().getGroup_5_0_0(), "rule__Branch__Group_5_0_0__0");
-					put(grammarAccess.getBranchAccess().getGroup_5_0_1(), "rule__Branch__Group_5_0_1__0");
+					put(grammarAccess.getBranchAccess().getGroup_5_0(), "rule__Branch__Group_5_0__0");
 					put(grammarAccess.getBranchAccess().getGroup_5_1(), "rule__Branch__Group_5_1__0");
 					put(grammarAccess.getBranchAccess().getGroup_5_2(), "rule__Branch__Group_5_2__0");
 					put(grammarAccess.getBranchAccess().getGroup_5_2_4(), "rule__Branch__Group_5_2_4__0");
@@ -694,9 +692,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRepositoryAccess().getBranchesAssignment_5_1_3_4_1(), "rule__Repository__BranchesAssignment_5_1_3_4_1");
 					put(grammarAccess.getBranchAccess().getDocumentationAssignment_1(), "rule__Branch__DocumentationAssignment_1");
 					put(grammarAccess.getBranchAccess().getNameAssignment_3(), "rule__Branch__NameAssignment_3");
-					put(grammarAccess.getBranchAccess().getBranchPointTypeAssignment_5_0_0_0(), "rule__Branch__BranchPointTypeAssignment_5_0_0_0");
-					put(grammarAccess.getBranchAccess().getBranchPointTypeAssignment_5_0_1_0(), "rule__Branch__BranchPointTypeAssignment_5_0_1_0");
-					put(grammarAccess.getBranchAccess().getBranchPointAssignment_5_0_1_2(), "rule__Branch__BranchPointAssignment_5_0_1_2");
+					put(grammarAccess.getBranchAccess().getBranchPointTypeAssignment_5_0_0(), "rule__Branch__BranchPointTypeAssignment_5_0_0");
+					put(grammarAccess.getBranchAccess().getBranchPointAssignment_5_0_2(), "rule__Branch__BranchPointAssignment_5_0_2");
 					put(grammarAccess.getBranchAccess().getUpdateStrategyAssignment_5_1_2(), "rule__Branch__UpdateStrategyAssignment_5_1_2");
 					put(grammarAccess.getBranchAccess().getExcludeAssignment_5_2_3(), "rule__Branch__ExcludeAssignment_5_2_3");
 					put(grammarAccess.getBranchAccess().getExcludeAssignment_5_2_4_1(), "rule__Branch__ExcludeAssignment_5_2_4_1");

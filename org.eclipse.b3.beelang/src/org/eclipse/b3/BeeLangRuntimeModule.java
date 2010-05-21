@@ -12,14 +12,20 @@
 
 package org.eclipse.b3;
 
+import org.eclipse.b3.validation.BeeLangDiagnosticsConverter;
 import org.eclipse.b3.validation.BeeLangSyntaxErrorMessageProvider;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
+import org.eclipse.xtext.validation.IDiagnosticConverter;
 
 /**
  * Use this class to register components to be used within the IDE.
  */
 public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeModule {
+
+	public Class<? extends IDiagnosticConverter> bindIDiagnosticConverter() {
+		return BeeLangDiagnosticsConverter.class;
+	}
 
 	public Class<? extends ISyntaxErrorMessageProvider> bindISyntaxErrorMessageProvider() {
 		return BeeLangSyntaxErrorMessageProvider.class;
@@ -36,5 +42,4 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 	public Class<? extends IValueConverterService> bindIValueConverterService() {
 		return BeeLangTerminalConverters.class;
 	}
-
 }

@@ -10,9 +10,11 @@
  */
 package org.eclipse.b3.build.build;
 
+import java.util.Map;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -167,6 +169,15 @@ public interface Branch extends EObject {
 	 * @generated
 	 */
 	UpdateStrategy getUpdateStrategy();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	boolean hasValidState(DiagnosticChain chain, Map<Object, Object> map);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.Branch#getBranchPoint <em>Branch Point</em>}' containment reference.

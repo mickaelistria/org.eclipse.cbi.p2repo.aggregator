@@ -3460,18 +3460,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEscapedQualifiedNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final UnorderedGroup cUnorderedGroup_5 = (UnorderedGroup)cGroup.eContents().get(5);
-		private final Alternatives cAlternatives_5_0 = (Alternatives)cUnorderedGroup_5.eContents().get(0);
-		private final Group cGroup_5_0_0 = (Group)cAlternatives_5_0.eContents().get(0);
-		private final Assignment cBranchPointTypeAssignment_5_0_0_0 = (Assignment)cGroup_5_0_0.eContents().get(0);
-		private final RuleCall cBranchPointTypeBranchPointTypeLatestEnumRuleCall_5_0_0_0_0 = (RuleCall)cBranchPointTypeAssignment_5_0_0_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5_0_0_1 = (Keyword)cGroup_5_0_0.eContents().get(1);
-		private final Group cGroup_5_0_1 = (Group)cAlternatives_5_0.eContents().get(1);
-		private final Assignment cBranchPointTypeAssignment_5_0_1_0 = (Assignment)cGroup_5_0_1.eContents().get(0);
-		private final RuleCall cBranchPointTypeBranchPointTypeOtherEnumRuleCall_5_0_1_0_0 = (RuleCall)cBranchPointTypeAssignment_5_0_1_0.eContents().get(0);
-		private final Keyword cColonKeyword_5_0_1_1 = (Keyword)cGroup_5_0_1.eContents().get(1);
-		private final Assignment cBranchPointAssignment_5_0_1_2 = (Assignment)cGroup_5_0_1.eContents().get(2);
-		private final RuleCall cBranchPointExpressionParserRuleCall_5_0_1_2_0 = (RuleCall)cBranchPointAssignment_5_0_1_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5_0_1_3 = (Keyword)cGroup_5_0_1.eContents().get(3);
+		private final Group cGroup_5_0 = (Group)cUnorderedGroup_5.eContents().get(0);
+		private final Assignment cBranchPointTypeAssignment_5_0_0 = (Assignment)cGroup_5_0.eContents().get(0);
+		private final RuleCall cBranchPointTypeBranchPointTypeOtherEnumRuleCall_5_0_0_0 = (RuleCall)cBranchPointTypeAssignment_5_0_0.eContents().get(0);
+		private final Keyword cColonKeyword_5_0_1 = (Keyword)cGroup_5_0.eContents().get(1);
+		private final Assignment cBranchPointAssignment_5_0_2 = (Assignment)cGroup_5_0.eContents().get(2);
+		private final RuleCall cBranchPointExpressionParserRuleCall_5_0_2_0 = (RuleCall)cBranchPointAssignment_5_0_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5_0_3 = (Keyword)cGroup_5_0.eContents().get(3);
 		private final Group cGroup_5_1 = (Group)cUnorderedGroup_5.eContents().get(1);
 		private final Keyword cUpdatePolicyKeyword_5_1_0 = (Keyword)cGroup_5_1.eContents().get(0);
 		private final Keyword cColonKeyword_5_1_1 = (Keyword)cGroup_5_1.eContents().get(1);
@@ -3507,15 +3502,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		////		  | (branchPointType = BranchPointTypeTs branchPointTs = TIMESTAMP ';') 
 		//Branch returns build::Branch:
 		//	{build::Branch} documentation=DOCUMENTATION? "branch" name=EscapedQualifiedName "{"
-		//	((branchPointType=BranchPointTypeLatest ";" | branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? &
-		//	("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
+		//	((branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? //(branchPointType = BranchPointTypeLatest ';') |
+		//	& ("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
 		//	exclude+=NamePredicate)* "]" ";")? & ("include" ":" "[" include+=NamePredicate ("," include+=NamePredicate)* "]"
 		//	";")?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//{build::Branch} documentation=DOCUMENTATION? "branch" name=EscapedQualifiedName "{"
-		//((branchPointType=BranchPointTypeLatest ";" | branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? &
-		//("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
+		//((branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? //(branchPointType = BranchPointTypeLatest ';') |
+		//& ("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
 		//exclude+=NamePredicate)* "]" ";")? & ("include" ":" "[" include+=NamePredicate ("," include+=NamePredicate)* "]" ";")?)
 		//"}"
 		public Group getGroup() { return cGroup; }
@@ -3541,46 +3536,31 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 
-		//(branchPointType=BranchPointTypeLatest ";" | branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? &
-		//("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
+		//(branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? //(branchPointType = BranchPointTypeLatest ';') |
+		//& ("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
 		//exclude+=NamePredicate)* "]" ";")? & ("include" ":" "[" include+=NamePredicate ("," include+=NamePredicate)* "]" ";")?
 		public UnorderedGroup getUnorderedGroup_5() { return cUnorderedGroup_5; }
 
-		//(branchPointType=BranchPointTypeLatest ";" | branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")?
-		public Alternatives getAlternatives_5_0() { return cAlternatives_5_0; }
-
-		//branchPointType=BranchPointTypeLatest ";"
-		public Group getGroup_5_0_0() { return cGroup_5_0_0; }
-
-		//branchPointType=BranchPointTypeLatest
-		public Assignment getBranchPointTypeAssignment_5_0_0_0() { return cBranchPointTypeAssignment_5_0_0_0; }
-
-		//BranchPointTypeLatest
-		public RuleCall getBranchPointTypeBranchPointTypeLatestEnumRuleCall_5_0_0_0_0() { return cBranchPointTypeBranchPointTypeLatestEnumRuleCall_5_0_0_0_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_5_0_0_1() { return cSemicolonKeyword_5_0_0_1; }
-
-		//branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";"
-		public Group getGroup_5_0_1() { return cGroup_5_0_1; }
+		//(branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")?
+		public Group getGroup_5_0() { return cGroup_5_0; }
 
 		//branchPointType=BranchPointTypeOther
-		public Assignment getBranchPointTypeAssignment_5_0_1_0() { return cBranchPointTypeAssignment_5_0_1_0; }
+		public Assignment getBranchPointTypeAssignment_5_0_0() { return cBranchPointTypeAssignment_5_0_0; }
 
 		//BranchPointTypeOther
-		public RuleCall getBranchPointTypeBranchPointTypeOtherEnumRuleCall_5_0_1_0_0() { return cBranchPointTypeBranchPointTypeOtherEnumRuleCall_5_0_1_0_0; }
+		public RuleCall getBranchPointTypeBranchPointTypeOtherEnumRuleCall_5_0_0_0() { return cBranchPointTypeBranchPointTypeOtherEnumRuleCall_5_0_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_5_0_1_1() { return cColonKeyword_5_0_1_1; }
+		public Keyword getColonKeyword_5_0_1() { return cColonKeyword_5_0_1; }
 
 		//branchPoint=Expression
-		public Assignment getBranchPointAssignment_5_0_1_2() { return cBranchPointAssignment_5_0_1_2; }
+		public Assignment getBranchPointAssignment_5_0_2() { return cBranchPointAssignment_5_0_2; }
 
 		//Expression
-		public RuleCall getBranchPointExpressionParserRuleCall_5_0_1_2_0() { return cBranchPointExpressionParserRuleCall_5_0_1_2_0; }
+		public RuleCall getBranchPointExpressionParserRuleCall_5_0_2_0() { return cBranchPointExpressionParserRuleCall_5_0_2_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_5_0_1_3() { return cSemicolonKeyword_5_0_1_3; }
+		public Keyword getSemicolonKeyword_5_0_3() { return cSemicolonKeyword_5_0_3; }
 
 		//("update-policy" ":" updateStrategy=UpdateStrategy ";")?
 		public Group getGroup_5_1() { return cGroup_5_1; }
@@ -10788,56 +10768,50 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	public class BranchPointTypeLatestElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BranchPointTypeLatest");
-		private final EnumLiteralDeclaration cLatestEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
-		private final Keyword cLatestLatestKeyword_0 = (Keyword)cLatestEnumLiteralDeclaration.eContents().get(0);
-		
-		//enum BranchPointTypeLatest returns build::BranchPointType:
-		//	Latest="latest";
-		public EnumRule getRule() { return rule; }
-
-		//Latest="latest"
-		public EnumLiteralDeclaration getLatestEnumLiteralDeclaration() { return cLatestEnumLiteralDeclaration; }
-
-		//"latest"
-		public Keyword getLatestLatestKeyword_0() { return cLatestLatestKeyword_0; }
-	}
-
 	public class BranchPointTypeOtherElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BranchPointTypeOther");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cRevisionEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cRevisionRevisionKeyword_0_0 = (Keyword)cRevisionEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cTagEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cTagTagKeyword_1_0 = (Keyword)cTagEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cTimestampEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cTimestampTimestampKeyword_2_0 = (Keyword)cTimestampEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cLatestEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cLatestLatestKeyword_0_0 = (Keyword)cLatestEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cRevisionEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cRevisionRevisionKeyword_1_0 = (Keyword)cRevisionEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cTagEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cTagTagKeyword_2_0 = (Keyword)cTagEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cTimestampEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cTimestampTimestampKeyword_3_0 = (Keyword)cTimestampEnumLiteralDeclaration_3.eContents().get(0);
 		
+		//// TODO: HACK	  	  
+		////enum BranchPointTypeLatest returns build::BranchPointType :  Latest="latest" ;
 		//enum BranchPointTypeOther returns build::BranchPointType:
-		//	Revision="revision" | Tag="tag" | Timestamp="timestamp";
+		//	Latest="latest" | Revision="revision" | Tag="tag" | Timestamp="timestamp";
 		public EnumRule getRule() { return rule; }
 
-		//Revision="revision" | Tag="tag" | Timestamp="timestamp"
+		//Latest="latest" | Revision="revision" | Tag="tag" | Timestamp="timestamp"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//Latest="latest"
+		public EnumLiteralDeclaration getLatestEnumLiteralDeclaration_0() { return cLatestEnumLiteralDeclaration_0; }
+
+		//"latest"
+		public Keyword getLatestLatestKeyword_0_0() { return cLatestLatestKeyword_0_0; }
+
 		//Revision="revision"
-		public EnumLiteralDeclaration getRevisionEnumLiteralDeclaration_0() { return cRevisionEnumLiteralDeclaration_0; }
+		public EnumLiteralDeclaration getRevisionEnumLiteralDeclaration_1() { return cRevisionEnumLiteralDeclaration_1; }
 
 		//"revision"
-		public Keyword getRevisionRevisionKeyword_0_0() { return cRevisionRevisionKeyword_0_0; }
+		public Keyword getRevisionRevisionKeyword_1_0() { return cRevisionRevisionKeyword_1_0; }
 
 		//Tag="tag"
-		public EnumLiteralDeclaration getTagEnumLiteralDeclaration_1() { return cTagEnumLiteralDeclaration_1; }
+		public EnumLiteralDeclaration getTagEnumLiteralDeclaration_2() { return cTagEnumLiteralDeclaration_2; }
 
 		//"tag"
-		public Keyword getTagTagKeyword_1_0() { return cTagTagKeyword_1_0; }
+		public Keyword getTagTagKeyword_2_0() { return cTagTagKeyword_2_0; }
 
 		//Timestamp="timestamp"
-		public EnumLiteralDeclaration getTimestampEnumLiteralDeclaration_2() { return cTimestampEnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getTimestampEnumLiteralDeclaration_3() { return cTimestampEnumLiteralDeclaration_3; }
 
 		//"timestamp"
-		public Keyword getTimestampTimestampKeyword_2_0() { return cTimestampTimestampKeyword_2_0; }
+		public Keyword getTimestampTimestampKeyword_3_0() { return cTimestampTimestampKeyword_3_0; }
 	}
 
 	public class UpdateStrategyElements extends AbstractEnumRuleElementFinder {
@@ -10999,7 +10973,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private KeywordParameterNameElements pKeywordParameterName;
 	private BuilderInputElements pBuilderInput;
 	private RepositoryElements pRepository;
-	private BranchPointTypeLatestElements unknownRuleBranchPointTypeLatest;
 	private BranchPointTypeOtherElements unknownRuleBranchPointTypeOther;
 	private UpdateStrategyElements unknownRuleUpdateStrategy;
 	private BranchElements pBranch;
@@ -11642,18 +11615,10 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getRepositoryAccess().getRule();
 	}
 
-	//enum BranchPointTypeLatest returns build::BranchPointType:
-	//	Latest="latest";
-	public BranchPointTypeLatestElements getBranchPointTypeLatestAccess() {
-		return (unknownRuleBranchPointTypeLatest != null) ? unknownRuleBranchPointTypeLatest : (unknownRuleBranchPointTypeLatest = new BranchPointTypeLatestElements());
-	}
-	
-	public EnumRule getBranchPointTypeLatestRule() {
-		return getBranchPointTypeLatestAccess().getRule();
-	}
-
+	//// TODO: HACK	  	  
+	////enum BranchPointTypeLatest returns build::BranchPointType :  Latest="latest" ;
 	//enum BranchPointTypeOther returns build::BranchPointType:
-	//	Revision="revision" | Tag="tag" | Timestamp="timestamp";
+	//	Latest="latest" | Revision="revision" | Tag="tag" | Timestamp="timestamp";
 	public BranchPointTypeOtherElements getBranchPointTypeOtherAccess() {
 		return (unknownRuleBranchPointTypeOther != null) ? unknownRuleBranchPointTypeOther : (unknownRuleBranchPointTypeOther = new BranchPointTypeOtherElements());
 	}
@@ -11677,8 +11642,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	////		  | (branchPointType = BranchPointTypeTs branchPointTs = TIMESTAMP ';') 
 	//Branch returns build::Branch:
 	//	{build::Branch} documentation=DOCUMENTATION? "branch" name=EscapedQualifiedName "{"
-	//	((branchPointType=BranchPointTypeLatest ";" | branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? &
-	//	("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
+	//	((branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? //(branchPointType = BranchPointTypeLatest ';') |
+	//	& ("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
 	//	exclude+=NamePredicate)* "]" ";")? & ("include" ":" "[" include+=NamePredicate ("," include+=NamePredicate)* "]"
 	//	";")?) "}";
 	public BranchElements getBranchAccess() {
