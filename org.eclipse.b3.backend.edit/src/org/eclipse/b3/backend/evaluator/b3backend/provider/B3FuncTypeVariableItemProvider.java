@@ -73,8 +73,10 @@ public class B3FuncTypeVariableItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addBoundsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3FuncTypeVariable_bounds_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3FuncTypeVariable_bounds_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_B3FuncTypeVariable_bounds_feature",
 				"_UI_B3FuncTypeVariable_type"), B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE__BOUNDS, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -89,8 +91,10 @@ public class B3FuncTypeVariableItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3FuncTypeVariable_name_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3FuncTypeVariable_name_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_B3FuncTypeVariable_name_feature",
 				"_UI_B3FuncTypeVariable_type"), B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE__NAME, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

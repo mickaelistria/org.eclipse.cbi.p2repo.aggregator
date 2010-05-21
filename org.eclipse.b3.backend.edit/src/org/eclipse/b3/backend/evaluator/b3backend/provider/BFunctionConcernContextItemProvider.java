@@ -72,8 +72,10 @@ public class BFunctionConcernContextItemProvider extends BConcernContextItemProv
 	 */
 	protected void addMatchParametersPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BFunctionConcernContext_matchParameters_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BFunctionConcernContext_matchParameters_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BFunctionConcernContext_matchParameters_feature",
 				"_UI_BFunctionConcernContext_type"),
 			B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS, true, false, false,
@@ -89,8 +91,10 @@ public class BFunctionConcernContextItemProvider extends BConcernContextItemProv
 	 */
 	protected void addVarArgsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BFunctionConcernContext_varArgs_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BFunctionConcernContext_varArgs_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BFunctionConcernContext_varArgs_feature",
 				"_UI_BFunctionConcernContext_type"), B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__VAR_ARGS,
 			true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));

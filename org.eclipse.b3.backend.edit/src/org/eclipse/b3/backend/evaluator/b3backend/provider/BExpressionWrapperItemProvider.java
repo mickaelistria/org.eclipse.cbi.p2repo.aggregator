@@ -65,8 +65,10 @@ public class BExpressionWrapperItemProvider extends BExpressionItemProvider impl
 	 */
 	protected void addOriginalPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BExpressionWrapper_original_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BExpressionWrapper_original_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BExpressionWrapper_original_feature",
 				"_UI_BExpressionWrapper_type"), B3backendPackage.Literals.BEXPRESSION_WRAPPER__ORIGINAL, true, false,
 			true, null, null, null));

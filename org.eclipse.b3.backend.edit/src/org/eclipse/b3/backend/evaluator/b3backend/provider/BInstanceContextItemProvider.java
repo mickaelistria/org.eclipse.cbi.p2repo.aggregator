@@ -70,8 +70,10 @@ public class BInstanceContextItemProvider extends BInnerContextItemProvider impl
 	 */
 	protected void addInstancePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BInstanceContext_instance_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BInstanceContext_instance_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BInstanceContext_instance_feature",
 				"_UI_BInstanceContext_type"), B3backendPackage.Literals.BINSTANCE_CONTEXT__INSTANCE, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

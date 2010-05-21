@@ -90,7 +90,7 @@ public class B3backendExample {
 				File file = new File(args[i]);
 				URI uri = file.isFile()
 						? URI.createFileURI(file.getAbsolutePath())
-						: URI.createURI(args[0]);
+						: URI.createURI(args[i]);
 
 				try {
 					// Demand load resource for this file.

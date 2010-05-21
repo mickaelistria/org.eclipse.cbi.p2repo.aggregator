@@ -67,8 +67,10 @@ public class BExecutionContextItemProvider extends ItemProviderAdapter implement
 	 */
 	protected void addEffectiveConcernsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BExecutionContext_effectiveConcerns_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BExecutionContext_effectiveConcerns_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_effectiveConcerns_feature",
 				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS, true,
 			false, true, null, null, null));
@@ -83,8 +85,10 @@ public class BExecutionContextItemProvider extends ItemProviderAdapter implement
 	 */
 	protected void addFuncStorePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BExecutionContext_funcStore_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BExecutionContext_funcStore_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_funcStore_feature",
 				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__FUNC_STORE, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -99,8 +103,10 @@ public class BExecutionContextItemProvider extends ItemProviderAdapter implement
 	 */
 	protected void addInjectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BExecutionContext_injector_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BExecutionContext_injector_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_injector_feature",
 				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__INJECTOR, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -115,8 +121,10 @@ public class BExecutionContextItemProvider extends ItemProviderAdapter implement
 	 */
 	protected void addProgressMonitorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BExecutionContext_progressMonitor_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BExecutionContext_progressMonitor_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_progressMonitor_feature",
 				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__PROGRESS_MONITOR, true,
 			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -131,8 +139,10 @@ public class BExecutionContextItemProvider extends ItemProviderAdapter implement
 	 */
 	protected void addValueMapPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BExecutionContext_valueMap_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BExecutionContext_valueMap_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BExecutionContext_valueMap_feature",
 				"_UI_BExecutionContext_type"), B3backendPackage.Literals.BEXECUTION_CONTEXT__VALUE_MAP, false, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

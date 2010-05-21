@@ -73,8 +73,10 @@ public class BParameterPredicateItemProvider extends ItemProviderAdapter impleme
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BParameterPredicate_name_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BParameterPredicate_name_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BParameterPredicate_name_feature",
 				"_UI_BParameterPredicate_type"), B3backendPackage.Literals.BPARAMETER_PREDICATE__NAME, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -89,8 +91,10 @@ public class BParameterPredicateItemProvider extends ItemProviderAdapter impleme
 	 */
 	protected void addTypePredicateOpPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BParameterPredicate_typePredicateOp_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BParameterPredicate_typePredicateOp_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BParameterPredicate_typePredicateOp_feature",
 				"_UI_BParameterPredicate_type"), B3backendPackage.Literals.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP,
 			true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

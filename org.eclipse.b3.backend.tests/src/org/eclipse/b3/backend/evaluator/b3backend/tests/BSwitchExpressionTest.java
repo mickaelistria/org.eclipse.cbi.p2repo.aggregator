@@ -23,6 +23,14 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BSwitch Expression</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ * <li>
+ * {@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#hasUnreachableCase(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+ * <em>Has Unreachable Case</em>}</li>
+ * </ul>
+ * </p>
  * 
  * @generated
  */
@@ -214,5 +222,22 @@ public class BSwitchExpressionTest extends BExpressionTest {
 	@Override
 	public void testGetLValue__BExecutionContext() {
 		super.assertLValShouldFail();
+	}
+
+	/**
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#hasUnreachableCase(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * <em>Has Unreachable Case</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#hasUnreachableCase(org.eclipse.emf.common.util.DiagnosticChain,
+	 *      java.util.Map)
+	 * @generated
+	 */
+	public void testHasUnreachableCase__DiagnosticChain_Map() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 } // BSwitchExpressionTest

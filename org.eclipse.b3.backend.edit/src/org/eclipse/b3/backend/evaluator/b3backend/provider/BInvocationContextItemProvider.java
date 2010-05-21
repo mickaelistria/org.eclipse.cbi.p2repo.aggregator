@@ -65,8 +65,10 @@ public class BInvocationContextItemProvider extends BExecutionContextItemProvide
 	 */
 	protected void addExpressionCachePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BInvocationContext_expressionCache_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BInvocationContext_expressionCache_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BInvocationContext_expressionCache_feature",
 				"_UI_BInvocationContext_type"), B3backendPackage.Literals.BINVOCATION_CONTEXT__EXPRESSION_CACHE, true,
 			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

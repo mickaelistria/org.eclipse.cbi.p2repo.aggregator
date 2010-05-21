@@ -64,8 +64,10 @@ public class BLiteralMapExpressionItemProvider extends BExpressionItemProvider i
 	 */
 	protected void addKeyTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BLiteralMapExpression_keyType_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BLiteralMapExpression_keyType_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BLiteralMapExpression_keyType_feature",
 				"_UI_BLiteralMapExpression_type"), B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION__KEY_TYPE, true,
 			false, false, null, null, null));
@@ -80,8 +82,10 @@ public class BLiteralMapExpressionItemProvider extends BExpressionItemProvider i
 	 */
 	protected void addValueTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BLiteralMapExpression_valueType_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BLiteralMapExpression_valueType_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BLiteralMapExpression_valueType_feature",
 				"_UI_BLiteralMapExpression_type"), B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, true,
 			false, false, null, null, null));

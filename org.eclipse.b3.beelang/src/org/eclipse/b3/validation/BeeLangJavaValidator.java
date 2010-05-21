@@ -7,11 +7,8 @@ import org.eclipse.b3.backend.core.TypePattern;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCase;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
@@ -28,7 +25,6 @@ import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.build.core.RepositoryValidation;
 import org.eclipse.b3.build.repository.IRepositoryValidator;
 import org.eclipse.b3.build.repository.IRepositoryValidator.IOption;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.Check;
@@ -216,20 +212,20 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 
 	@Check
 	public void checkUnreachableCase(BCase caseExpr) {
-		BExpression condExpr = caseExpr.getConditionExpr();
-		if(!(condExpr == null || condExpr instanceof BLiteralAny))
-			return;
-		// a null case or a case with a Literal Any requires that the case is placed last!
-		EObject container = caseExpr.eContainer();
-		if(container instanceof BSwitchExpression) {
-			EList<BCase> cl = ((BSwitchExpression) container).getCaseList();
-			int idx = cl.indexOf(caseExpr);
-			if(idx != cl.size() - 1)
-				error("A default case must be placed last in a list of cases", caseExpr,
-				// TODO: THIS IS NOT RIGHT - BUT ERROR MARKER APPEARS ON WRONG LINE WHEN THE condExpr == null
-				B3backendPackage.BCASE__THEN_EXPR);
-
-		}
+		// BExpression condExpr = caseExpr.getConditionExpr();
+		// if(!(condExpr == null || condExpr instanceof BLiteralAny))
+		// return;
+		// // a null case or a case with a Literal Any requires that the case is placed last!
+		// EObject container = caseExpr.eContainer();
+		// if(container instanceof BSwitchExpression) {
+		// EList<BCase> cl = ((BSwitchExpression) container).getCaseList();
+		// int idx = cl.indexOf(caseExpr);
+		// if(idx != cl.size() - 1)
+		// error("A default case must be placed last in a list of cases", caseExpr,
+		// // TODO: THIS IS NOT RIGHT - BUT ERROR MARKER APPEARS ON WRONG LINE WHEN THE condExpr == null
+		// B3backendPackage.BCASE__THEN_EXPR);
+		//
+		// }
 	}
 
 	@Check

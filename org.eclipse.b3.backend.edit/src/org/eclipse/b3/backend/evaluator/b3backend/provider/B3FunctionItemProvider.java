@@ -61,8 +61,8 @@ public class B3FunctionItemProvider extends BFunctionItemProvider implements IEd
 	protected void addFuncExprPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3Function_funcExpr_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_B3Function_funcExpr_feature", "_UI_B3Function_type"),
+			getString("_UI_B3Function_funcExpr_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_B3Function_funcExpr_feature", "_UI_B3Function_type"),
 			B3backendPackage.Literals.B3_FUNCTION__FUNC_EXPR, true, false, true, null, null, null));
 	}
 

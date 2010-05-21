@@ -72,8 +72,8 @@ public class BConcernItemProvider extends BAdviceItemProvider implements IEditin
 	protected void addDocumentationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BConcern_documentation_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BConcern_documentation_feature", "_UI_BConcern_type"),
+			getString("_UI_BConcern_documentation_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BConcern_documentation_feature", "_UI_BConcern_type"),
 			B3backendPackage.Literals.BCONCERN__DOCUMENTATION, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -88,8 +88,8 @@ public class BConcernItemProvider extends BAdviceItemProvider implements IEditin
 	protected void addSuperConcernsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BConcern_superConcerns_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BConcern_superConcerns_feature", "_UI_BConcern_type"),
+			getString("_UI_BConcern_superConcerns_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BConcern_superConcerns_feature", "_UI_BConcern_type"),
 			B3backendPackage.Literals.BCONCERN__SUPER_CONCERNS, true, false, true, null, null, null));
 	}
 

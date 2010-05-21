@@ -69,8 +69,10 @@ public class BSimplePatternExpressionItemProvider extends BPatternLiteralExpress
 	 */
 	protected void addPatternPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BSimplePatternExpression_pattern_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BSimplePatternExpression_pattern_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BSimplePatternExpression_pattern_feature",
 				"_UI_BSimplePatternExpression_type"), B3backendPackage.Literals.BSIMPLE_PATTERN_EXPRESSION__PATTERN,
 			true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

@@ -71,8 +71,8 @@ public class BDefValueItemProvider extends BExpressionItemProvider implements IE
 	protected void addFinalPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BDefValue_final_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BDefValue_final_feature", "_UI_BDefValue_type"),
+			getString("_UI_BDefValue_final_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BDefValue_final_feature", "_UI_BDefValue_type"),
 			B3backendPackage.Literals.BDEF_VALUE__FINAL, true, false, false,
 			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
@@ -87,8 +87,8 @@ public class BDefValueItemProvider extends BExpressionItemProvider implements IE
 	protected void addImmutablePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BDefValue_immutable_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BDefValue_immutable_feature", "_UI_BDefValue_type"),
+			getString("_UI_BDefValue_immutable_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BDefValue_immutable_feature", "_UI_BDefValue_type"),
 			B3backendPackage.Literals.BDEF_VALUE__IMMUTABLE, true, false, false,
 			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
@@ -103,8 +103,8 @@ public class BDefValueItemProvider extends BExpressionItemProvider implements IE
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BDefValue_name_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BDefValue_name_feature", "_UI_BDefValue_type"),
+			getString("_UI_BDefValue_name_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BDefValue_name_feature", "_UI_BDefValue_type"),
 			B3backendPackage.Literals.BDEF_VALUE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));
 	}

@@ -68,9 +68,10 @@ public class BDefPropertyItemProvider extends BDefValueItemProvider implements I
 	 */
 	protected void addMutablePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BDefProperty_mutable_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BDefProperty_mutable_feature", "_UI_BDefProperty_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BDefProperty_mutable_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BDefProperty_mutable_feature", "_UI_BDefProperty_type"),
 			B3backendPackage.Literals.BDEF_PROPERTY__MUTABLE, true, false, false,
 			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}

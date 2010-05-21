@@ -65,8 +65,10 @@ public class BCreateExpressionItemProvider extends BParameterizedExpressionItemP
 	 */
 	protected void addAliasPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BCreateExpression_alias_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BCreateExpression_alias_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BCreateExpression_alias_feature",
 				"_UI_BCreateExpression_type"), B3backendPackage.Literals.BCREATE_EXPRESSION__ALIAS, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

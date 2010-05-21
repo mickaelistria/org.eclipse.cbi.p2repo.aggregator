@@ -71,8 +71,10 @@ public class B3FunctionTypeItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addFunctionTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3FunctionType_functionType_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3FunctionType_functionType_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_B3FunctionType_functionType_feature",
 				"_UI_B3FunctionType_type"), B3backendPackage.Literals.B3_FUNCTION_TYPE__FUNCTION_TYPE, true, false,
 			true, null, null, null));
@@ -87,8 +89,10 @@ public class B3FunctionTypeItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addParameterTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3FunctionType_parameterTypes_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3FunctionType_parameterTypes_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_B3FunctionType_parameterTypes_feature",
 				"_UI_B3FunctionType_type"), B3backendPackage.Literals.B3_FUNCTION_TYPE__PARAMETER_TYPES, true, false,
 			true, null, null, null));
@@ -103,8 +107,10 @@ public class B3FunctionTypeItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addReturnTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3FunctionType_returnType_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3FunctionType_returnType_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_B3FunctionType_returnType_feature",
 				"_UI_B3FunctionType_type"), B3backendPackage.Literals.B3_FUNCTION_TYPE__RETURN_TYPE, true, false, true,
 			null, null, null));
@@ -119,8 +125,10 @@ public class B3FunctionTypeItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addTypeCalculatorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3FunctionType_typeCalculator_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3FunctionType_typeCalculator_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_B3FunctionType_typeCalculator_feature",
 				"_UI_B3FunctionType_type"), B3backendPackage.Literals.B3_FUNCTION_TYPE__TYPE_CALCULATOR, true, false,
 			true, null, null, null));
@@ -135,8 +143,10 @@ public class B3FunctionTypeItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addVarArgsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3FunctionType_varArgs_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3FunctionType_varArgs_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_B3FunctionType_varArgs_feature", "_UI_B3FunctionType_type"),
 			B3backendPackage.Literals.B3_FUNCTION_TYPE__VAR_ARGS, true, false, false,
 			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));

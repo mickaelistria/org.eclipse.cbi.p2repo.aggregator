@@ -6,8 +6,11 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.BCase;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.build.build.Repository;
+import org.eclipse.b3.validation.B3BackendIssues;
 import org.eclipse.b3.validation.BeeLangJavaValidator;
 import org.eclipse.b3.validation.IBeeLangDiagnostic;
 import org.eclipse.emf.ecore.EObject;
@@ -54,6 +57,20 @@ public class BeeLangQuickfixProvider extends DefaultQuickfixProvider {
 	// });
 	// }
 
+	@Fix(B3BackendIssues.ISSUE__BSWITCH_EXPRESSION__HAS_UNREACHABLE_CASE__OFFENDER)
+	public void moveDefaultCaseLast(final Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(
+			issue, "Move case", "Offending case is moved to the last position", "", new ISemanticModification() {
+
+				public void apply(EObject element, IModificationContext context) throws Exception {
+					BCase bcase = (BCase) element;
+					BSwitchExpression switchExpr = (BSwitchExpression) bcase.eContainer();
+					switchExpr.getCaseList().move(switchExpr.getCaseList().size() - 1, bcase);
+				}
+			});
+
+	}
+
 	@Fix(IBeeLangDiagnostic.ISSUE_TIMESTAMP__NON_UTC)
 	public void transformDate(final Issue issue, IssueResolutionAcceptor acceptor) {
 		acceptor.accept(
@@ -78,5 +95,4 @@ public class BeeLangQuickfixProvider extends DefaultQuickfixProvider {
 				}
 			});
 	}
-
 }

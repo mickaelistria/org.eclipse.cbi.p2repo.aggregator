@@ -71,8 +71,10 @@ public class BConcernContextItemProvider extends BExpressionItemProvider impleme
 	 */
 	protected void addDocumentationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BConcernContext_documentation_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BConcernContext_documentation_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BConcernContext_documentation_feature",
 				"_UI_BConcernContext_type"), B3backendPackage.Literals.BCONCERN_CONTEXT__DOCUMENTATION, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

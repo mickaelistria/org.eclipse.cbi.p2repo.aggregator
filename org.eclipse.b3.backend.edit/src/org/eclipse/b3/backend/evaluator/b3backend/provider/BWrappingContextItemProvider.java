@@ -68,8 +68,10 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 */
 	protected void addFunctionWrapperPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BWrappingContext_functionWrapper_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWrappingContext_functionWrapper_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BWrappingContext_functionWrapper_feature",
 				"_UI_BWrappingContext_type"), B3backendPackage.Literals.BWRAPPING_CONTEXT__FUNCTION_WRAPPER, true,
 			false, true, null, null, null));
@@ -84,8 +86,10 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 */
 	protected void addParametersPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BWrappingContext_parameters_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWrappingContext_parameters_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BWrappingContext_parameters_feature",
 				"_UI_BWrappingContext_type"), B3backendPackage.Literals.BWRAPPING_CONTEXT__PARAMETERS, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -100,8 +104,10 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 */
 	protected void addParameterTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BWrappingContext_parameterTypes_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWrappingContext_parameterTypes_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BWrappingContext_parameterTypes_feature",
 				"_UI_BWrappingContext_type"), B3backendPackage.Literals.BWRAPPING_CONTEXT__PARAMETER_TYPES, true,
 			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -116,8 +122,10 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 */
 	protected void addVarargsNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BWrappingContext_varargsName_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWrappingContext_varargsName_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BWrappingContext_varargsName_feature",
 				"_UI_BWrappingContext_type"), B3backendPackage.Literals.BWRAPPING_CONTEXT__VARARGS_NAME, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -132,8 +140,10 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 */
 	protected void addWrappedContextPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BWrappingContext_wrappedContext_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWrappingContext_wrappedContext_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BWrappingContext_wrappedContext_feature",
 				"_UI_BWrappingContext_type"), B3backendPackage.Literals.BWRAPPING_CONTEXT__WRAPPED_CONTEXT, true,
 			false, true, null, null, null));

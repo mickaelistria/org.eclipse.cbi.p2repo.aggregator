@@ -71,9 +71,10 @@ public class BPropertySetItemProvider extends BAdviceItemProvider implements IEd
 	 */
 	protected void addExtendsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BPropertySet_extends_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BPropertySet_extends_feature", "_UI_BPropertySet_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BPropertySet_extends_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BPropertySet_extends_feature", "_UI_BPropertySet_type"),
 			B3backendPackage.Literals.BPROPERTY_SET__EXTENDS, true, false, true, null, null, null));
 	}
 
@@ -86,8 +87,10 @@ public class BPropertySetItemProvider extends BAdviceItemProvider implements IEd
 	 */
 	protected void addPropertiesFilePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BPropertySet_propertiesFile_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BPropertySet_propertiesFile_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BPropertySet_propertiesFile_feature",
 				"_UI_BPropertySet_type"), B3backendPackage.Literals.BPROPERTY_SET__PROPERTIES_FILE, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

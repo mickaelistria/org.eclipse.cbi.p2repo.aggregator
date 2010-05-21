@@ -6,6 +6,8 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -65,6 +67,15 @@ public interface BSwitchExpression extends BExpression {
 	 * @generated
 	 */
 	BExpression getSwitchExpression();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	boolean hasUnreachableCase(DiagnosticChain chain, Map<Object, Object> map);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#getSwitchExpression <em>Switch Expression</em>}'

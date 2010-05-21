@@ -10,20 +10,28 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCase;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.util.B3backendValidator;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -262,6 +270,54 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	 */
 	public BExpression getSwitchExpression() {
 		return switchExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean hasUnreachableCase(DiagnosticChain chain, Map<Object, Object> map) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		BExpression expr = null;
+		EList<BCase> cl = getCaseList();
+		int counter = -1;
+		for(BCase bcase : cl) {
+			counter++;
+			if((expr = bcase.getConditionExpr()) == null || expr instanceof BLiteralAny)
+				break;
+		}
+		// counter is now index in case list of default or Any case
+		// if there are additional cases after this, they are unreachable
+		if(counter < cl.size() - 1) {
+			if(chain != null) {
+				// add an 'unreachable' for each unreachable case
+				for(int at = counter + 1; at < cl.size(); at++) {
+					BCase bcase = cl.get(at);
+					chain.add(new BasicDiagnostic(
+						Diagnostic.ERROR, B3backendValidator.DIAGNOSTIC_SOURCE,
+						B3backendValidator.BSWITCH_EXPRESSION__HAS_UNREACHABLE_CASE, EcorePlugin.INSTANCE.getString(
+							"_UI_GenericInvariant_diagnostic",
+							new Object[] { "hasUnreachableCase", EObjectValidator.getObjectLabel(bcase, map) }),
+						new Object[] { bcase, B3backendPackage.BCASE__THEN_EXPR }));
+				}
+				// add an 'offender' strike for causing case
+				BCase bcase = cl.get(counter);
+				chain.add(new BasicDiagnostic(
+					Diagnostic.ERROR, B3backendValidator.DIAGNOSTIC_SOURCE,
+					B3backendValidator.BSWITCH_EXPRESSION__HAS_UNREACHABLE_CASE__OFFENDER,
+					EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+							"hasUnreachableCase", EObjectValidator.getObjectLabel(bcase, map) }), new Object[] {
+							bcase, B3backendPackage.BCASE__THEN_EXPR }));
+
+			}
+			return false;
+		}
+		return true;
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

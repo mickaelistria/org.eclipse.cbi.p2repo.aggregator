@@ -62,8 +62,10 @@ public class BInnerContextItemProvider extends BExecutionContextItemProvider imp
 	 */
 	protected void addOuterContextPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BInnerContext_outerContext_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BInnerContext_outerContext_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BInnerContext_outerContext_feature",
 				"_UI_BInnerContext_type"), B3backendPackage.Literals.BINNER_CONTEXT__OUTER_CONTEXT, true, false, true,
 			null, null, null));

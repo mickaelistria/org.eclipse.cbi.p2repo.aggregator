@@ -58,8 +58,10 @@ public class BAtExpressionItemProvider extends BExpressionItemProvider implement
 	 */
 	protected void addIndexExprPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BAtExpression_indexExpr_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BAtExpression_indexExpr_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BAtExpression_indexExpr_feature", "_UI_BAtExpression_type"),
 			B3backendPackage.Literals.BAT_EXPRESSION__INDEX_EXPR, true, false, true, null, null, null));
 	}
@@ -73,8 +75,10 @@ public class BAtExpressionItemProvider extends BExpressionItemProvider implement
 	 */
 	protected void addObjExprPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BAtExpression_objExpr_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BAtExpression_objExpr_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BAtExpression_objExpr_feature", "_UI_BAtExpression_type"),
 			B3backendPackage.Literals.BAT_EXPRESSION__OBJ_EXPR, true, false, true, null, null, null));
 	}

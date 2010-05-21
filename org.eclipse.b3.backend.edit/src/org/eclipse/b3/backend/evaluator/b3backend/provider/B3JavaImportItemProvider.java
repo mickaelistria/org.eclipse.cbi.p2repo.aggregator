@@ -72,8 +72,8 @@ public class B3JavaImportItemProvider extends ItemProviderAdapter implements IEd
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3JavaImport_name_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_B3JavaImport_name_feature", "_UI_B3JavaImport_type"),
+			getString("_UI_B3JavaImport_name_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_B3JavaImport_name_feature", "_UI_B3JavaImport_type"),
 			B3backendPackage.Literals.B3_JAVA_IMPORT__NAME, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -105,8 +105,10 @@ public class B3JavaImportItemProvider extends ItemProviderAdapter implements IEd
 	 */
 	protected void addReexportPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3JavaImport_reexport_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3JavaImport_reexport_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_B3JavaImport_reexport_feature", "_UI_B3JavaImport_type"),
 			B3backendPackage.Literals.B3_JAVA_IMPORT__REEXPORT, true, false, false,
 			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
@@ -122,8 +124,8 @@ public class B3JavaImportItemProvider extends ItemProviderAdapter implements IEd
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3JavaImport_type_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_B3JavaImport_type_feature", "_UI_B3JavaImport_type"),
+			getString("_UI_B3JavaImport_type_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_B3JavaImport_type_feature", "_UI_B3JavaImport_type"),
 			B3backendPackage.Literals.B3_JAVA_IMPORT__TYPE, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}

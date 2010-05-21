@@ -69,8 +69,8 @@ public class BAdviceItemProvider extends BExpressionItemProvider implements IEdi
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BAdvice_name_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BAdvice_name_feature", "_UI_BAdvice_type"),
+			getString("_UI_BAdvice_name_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BAdvice_name_feature", "_UI_BAdvice_type"),
 			B3backendPackage.Literals.BADVICE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));
 	}

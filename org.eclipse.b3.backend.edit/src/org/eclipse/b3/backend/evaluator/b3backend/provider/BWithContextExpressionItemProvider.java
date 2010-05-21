@@ -69,8 +69,10 @@ public class BWithContextExpressionItemProvider extends BExpressionItemProvider 
 	 */
 	protected void addAliasPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BWithContextExpression_alias_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWithContextExpression_alias_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BWithContextExpression_alias_feature",
 				"_UI_BWithContextExpression_type"), B3backendPackage.Literals.BWITH_CONTEXT_EXPRESSION__ALIAS, true,
 			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

@@ -64,8 +64,10 @@ public class BLiteralListExpressionItemProvider extends BExpressionItemProvider 
 	 */
 	protected void addEntryTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BLiteralListExpression_entryType_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BLiteralListExpression_entryType_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BLiteralListExpression_entryType_feature",
 				"_UI_BLiteralListExpression_type"), B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE,
 			true, false, true, null, null, null));

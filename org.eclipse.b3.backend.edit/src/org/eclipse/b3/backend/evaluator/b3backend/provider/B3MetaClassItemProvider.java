@@ -71,8 +71,10 @@ public class B3MetaClassItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	protected void addInstanceClassPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3MetaClass_instanceClass_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3MetaClass_instanceClass_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_B3MetaClass_instanceClass_feature", "_UI_B3MetaClass_type"),
 			B3backendPackage.Literals.B3_META_CLASS__INSTANCE_CLASS, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

@@ -66,8 +66,10 @@ public class BCallExpressionItemProvider extends BParameterizedExpressionItemPro
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BCallExpression_name_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BCallExpression_name_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BCallExpression_name_feature", "_UI_BCallExpression_type"),
 			B3backendPackage.Literals.BCALL_EXPRESSION__NAME, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

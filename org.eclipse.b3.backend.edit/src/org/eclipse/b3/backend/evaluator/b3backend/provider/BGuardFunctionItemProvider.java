@@ -65,8 +65,10 @@ public class BGuardFunctionItemProvider extends BGuardItemProvider implements IE
 	 */
 	protected void addFuncPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BGuardFunction_func_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BGuardFunction_func_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BGuardFunction_func_feature", "_UI_BGuardFunction_type"),
 			B3backendPackage.Literals.BGUARD_FUNCTION__FUNC, true, false, true, null, null, null));
 	}

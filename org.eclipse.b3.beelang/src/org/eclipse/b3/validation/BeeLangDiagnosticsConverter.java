@@ -8,6 +8,7 @@
 
 package org.eclipse.b3.validation;
 
+import org.eclipse.b3.backend.evaluator.b3backend.util.B3backendValidator;
 import org.eclipse.b3.build.build.util.B3BuildValidator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -26,12 +27,25 @@ import org.eclipse.xtext.validation.Issue.Severity;
  * 
  */
 public class BeeLangDiagnosticsConverter extends DiagnosticConverterImpl {
+	public static interface IModelDiagnosticsConverterHelper {
+		public Pair<String, String> getIdAndMessage(String source, int code, String defaultMessage);
+	}
+
+	public void convertB3BackendValidatorDiagnostic(org.eclipse.emf.common.util.Diagnostic diagnostic,
+			IDiagnosticConverter.Acceptor acceptor) {
+		convertModelValidatorDiagnostic(B3BackendIssues.instance, diagnostic, acceptor);
+	}
 
 	public void convertB3BuildValidatorDiagnostic(org.eclipse.emf.common.util.Diagnostic diagnostic,
 			IDiagnosticConverter.Acceptor acceptor) {
+		convertModelValidatorDiagnostic(B3BuildIssues.instance, diagnostic, acceptor);
+	}
+
+	private void convertModelValidatorDiagnostic(IModelDiagnosticsConverterHelper helper,
+			org.eclipse.emf.common.util.Diagnostic diagnostic, IDiagnosticConverter.Acceptor acceptor) {
 		IssueImpl issue = convertToIssue(diagnostic, acceptor);
 
-		Pair<String, String> info = B3BuildIssues.getIdAndMessage(
+		Pair<String, String> info = helper.getIdAndMessage(
 			diagnostic.getSource(), diagnostic.getCode(), diagnostic.getMessage());
 		issue.setCode(info.getFirst());
 		issue.setMessage(info.getSecond());
@@ -91,6 +105,8 @@ public class BeeLangDiagnosticsConverter extends DiagnosticConverterImpl {
 		// TODO: add the same for b3backend validation source
 		if(diagnostic.getSource().equals(B3BuildValidator.DIAGNOSTIC_SOURCE))
 			convertB3BuildValidatorDiagnostic(diagnostic, acceptor);
+		if(diagnostic.getSource().equals(B3backendValidator.DIAGNOSTIC_SOURCE))
+			convertB3BackendValidatorDiagnostic(diagnostic, acceptor);
 		else
 			super.convertValidatorDiagnostic(diagnostic, acceptor);
 	}

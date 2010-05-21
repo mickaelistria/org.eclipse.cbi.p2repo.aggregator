@@ -66,8 +66,10 @@ public class BTypeCalculatorFunctionItemProvider extends BTypeCalculatorItemProv
 	 */
 	protected void addFuncPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BTypeCalculatorFunction_func_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BTypeCalculatorFunction_func_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BTypeCalculatorFunction_func_feature",
 				"_UI_BTypeCalculatorFunction_type"), B3backendPackage.Literals.BTYPE_CALCULATOR_FUNCTION__FUNC, true,
 			false, true, null, null, null));

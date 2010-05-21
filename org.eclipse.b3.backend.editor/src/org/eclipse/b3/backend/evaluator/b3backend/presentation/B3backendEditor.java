@@ -604,8 +604,8 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 						if(delta.getResource().getType() == IResource.FILE) {
 							if(delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED &&
 									delta.getFlags() != IResourceDelta.MARKERS) {
-								Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(
-									delta.getFullPath().toString(), true), false);
+								Resource resource = resourceSet.getResource(
+									URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
 								if(resource != null) {
 									if(delta.getKind() == IResourceDelta.REMOVED) {
 										removedResources.add(resource);
@@ -792,8 +792,8 @@ public class B3backendEditor extends MultiPageEditorPart implements IEditingDoma
 
 				selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 				selectionViewer.setInput(editingDomain.getResourceSet());
-				selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(
-					0)), true);
+				selectionViewer.setSelection(
+					new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 				viewerPane.setTitle(editingDomain.getResourceSet());
 
 				new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);

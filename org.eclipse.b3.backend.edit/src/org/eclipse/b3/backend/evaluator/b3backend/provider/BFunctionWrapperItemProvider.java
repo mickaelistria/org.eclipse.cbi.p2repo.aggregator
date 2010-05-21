@@ -71,8 +71,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addAroundExprPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BFunctionWrapper_aroundExpr_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BFunctionWrapper_aroundExpr_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BFunctionWrapper_aroundExpr_feature",
 				"_UI_BFunctionWrapper_type"), B3backendPackage.Literals.BFUNCTION_WRAPPER__AROUND_EXPR, true, false,
 			true, null, null, null));
@@ -87,9 +89,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addClassFunctionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_classFunction_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IFunction_classFunction_feature", "_UI_IFunction_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IFunction_classFunction_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IFunction_classFunction_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__CLASS_FUNCTION, true, false, false,
 			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
@@ -104,8 +107,8 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	protected void addClosurePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_closure_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IFunction_closure_feature", "_UI_IFunction_type"),
+			getString("_UI_IFunction_closure_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IFunction_closure_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__CLOSURE, true, false, true, null, null, null));
 	}
 
@@ -118,9 +121,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addDocumentationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_documentation_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IFunction_documentation_feature", "_UI_IFunction_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IFunction_documentation_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IFunction_documentation_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__DOCUMENTATION, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -134,8 +138,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addExceptionTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_exceptionTypes_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IFunction_exceptionTypes_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IFunction_exceptionTypes_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__EXCEPTION_TYPES, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -150,9 +156,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addExecutionModePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_executionMode_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IFunction_executionMode_feature", "_UI_IFunction_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IFunction_executionMode_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IFunction_executionMode_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__EXECUTION_MODE, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -167,8 +174,8 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	protected void addFinalPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_final_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IFunction_final_feature", "_UI_IFunction_type"),
+			getString("_UI_IFunction_final_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IFunction_final_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__FINAL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 			null, null));
 	}
@@ -183,8 +190,8 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_name_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IFunction_name_feature", "_UI_IFunction_type"),
+			getString("_UI_IFunction_name_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IFunction_name_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));
 	}
@@ -198,8 +205,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addOriginalPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BFunctionWrapper_original_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BFunctionWrapper_original_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BFunctionWrapper_original_feature",
 				"_UI_BFunctionWrapper_type"), B3backendPackage.Literals.BFUNCTION_WRAPPER__ORIGINAL, true, false, true,
 			null, null, null));
@@ -214,8 +223,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addParameterMapPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BFunctionWrapper_parameterMap_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BFunctionWrapper_parameterMap_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BFunctionWrapper_parameterMap_feature",
 				"_UI_BFunctionWrapper_type"), B3backendPackage.Literals.BFUNCTION_WRAPPER__PARAMETER_MAP, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -230,8 +241,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addParameterNamesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_parameterNames_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IFunction_parameterNames_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IFunction_parameterNames_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__PARAMETER_NAMES, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -246,8 +259,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addParameterTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_parameterTypes_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IFunction_parameterTypes_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IFunction_parameterTypes_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__PARAMETER_TYPES, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -262,8 +277,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addTypeParametersPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_typeParameters_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IFunction_typeParameters_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IFunction_typeParameters_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__TYPE_PARAMETERS, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -278,8 +295,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addVarargArrayTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_varargArrayType_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IFunction_varargArrayType_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IFunction_varargArrayType_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__VARARG_ARRAY_TYPE, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -294,8 +313,10 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	 */
 	protected void addVarargsNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BFunctionWrapper_varargsName_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BFunctionWrapper_varargsName_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BFunctionWrapper_varargsName_feature",
 				"_UI_BFunctionWrapper_type"), B3backendPackage.Literals.BFUNCTION_WRAPPER__VARARGS_NAME, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -311,8 +332,8 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	protected void addVarArgsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_varArgs_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IFunction_varArgs_feature", "_UI_IFunction_type"),
+			getString("_UI_IFunction_varArgs_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IFunction_varArgs_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__VAR_ARGS, true, false, false,
 			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
@@ -327,8 +348,8 @@ public class BFunctionWrapperItemProvider extends BExpressionItemProvider implem
 	protected void addVisibilityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IFunction_visibility_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IFunction_visibility_feature", "_UI_IFunction_type"),
+			getString("_UI_IFunction_visibility_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IFunction_visibility_feature", "_UI_IFunction_type"),
 			B3backendPackage.Literals.IFUNCTION__VISIBILITY, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}

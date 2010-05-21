@@ -62,8 +62,10 @@ public class BJavaFunctionItemProvider extends BFunctionItemProvider implements 
 	 */
 	protected void addCallTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BJavaFunction_callType_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BJavaFunction_callType_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BJavaFunction_callType_feature", "_UI_BJavaFunction_type"),
 			B3backendPackage.Literals.BJAVA_FUNCTION__CALL_TYPE, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -78,8 +80,10 @@ public class BJavaFunctionItemProvider extends BFunctionItemProvider implements 
 	 */
 	protected void addMethodPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BJavaFunction_method_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BJavaFunction_method_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BJavaFunction_method_feature", "_UI_BJavaFunction_type"),
 			B3backendPackage.Literals.BJAVA_FUNCTION__METHOD, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

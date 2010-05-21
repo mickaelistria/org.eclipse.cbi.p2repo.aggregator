@@ -62,8 +62,10 @@ public class BLiteralExpressionItemProvider extends BExpressionItemProvider impl
 	 */
 	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BLiteralExpression_value_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BLiteralExpression_value_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BLiteralExpression_value_feature",
 				"_UI_BLiteralExpression_type"), B3backendPackage.Literals.BLITERAL_EXPRESSION__VALUE, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

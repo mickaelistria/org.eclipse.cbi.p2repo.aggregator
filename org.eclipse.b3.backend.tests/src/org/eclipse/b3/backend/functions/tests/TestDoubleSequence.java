@@ -62,8 +62,8 @@ public class TestDoubleSequence extends TestCase {
 		DoubleSequence seq = new DoubleSequence(1.0, 9.0, 1.0, false, false);
 		assertEquals("Should have iterated over 2 to 8", 35.0, computeSum(seq));
 		assertEquals(
-			"testing includeFrom method", 35.0, computeSum(new DoubleSequence(1.0, 9.0).includeTo(false).includeFrom(
-				false)));
+			"testing includeFrom method", 35.0,
+			computeSum(new DoubleSequence(1.0, 9.0).includeTo(false).includeFrom(false)));
 
 	}
 }

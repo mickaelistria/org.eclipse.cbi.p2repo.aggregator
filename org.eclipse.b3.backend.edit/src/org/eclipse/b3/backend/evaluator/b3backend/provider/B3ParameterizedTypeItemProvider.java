@@ -72,8 +72,10 @@ public class B3ParameterizedTypeItemProvider extends ItemProviderAdapter impleme
 	 */
 	protected void addActualArgumentsListPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3ParameterizedType_actualArgumentsList_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3ParameterizedType_actualArgumentsList_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_B3ParameterizedType_actualArgumentsList_feature",
 				"_UI_B3ParameterizedType_type"),
 			B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST, true, false, true, null, null, null));
@@ -88,8 +90,10 @@ public class B3ParameterizedTypeItemProvider extends ItemProviderAdapter impleme
 	 */
 	protected void addRawTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_B3ParameterizedType_rawType_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_B3ParameterizedType_rawType_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_B3ParameterizedType_rawType_feature",
 				"_UI_B3ParameterizedType_type"), B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__RAW_TYPE, true,
 			false, true, null, null, null));

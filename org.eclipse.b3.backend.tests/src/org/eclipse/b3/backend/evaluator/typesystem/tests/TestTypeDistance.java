@@ -21,8 +21,10 @@ public class TestTypeDistance extends TestCase {
 
 	public void test_ManyNumbers() {
 		TypeDistance t = new TypeDistance();
-		assertEquals(Number.class, t.getMostSpecificCommonType(new Type[] {
-				Integer.class, Double.class, Short.class, Long.class, Double.class, BigInteger.class }));
+		assertEquals(
+			Number.class,
+			t.getMostSpecificCommonType(new Type[] {
+					Integer.class, Double.class, Short.class, Long.class, Double.class, BigInteger.class }));
 	}
 
 	public void test_NumberDouble() {

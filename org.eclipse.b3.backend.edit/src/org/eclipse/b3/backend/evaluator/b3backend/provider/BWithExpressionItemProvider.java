@@ -70,8 +70,10 @@ public class BWithExpressionItemProvider extends BExpressionItemProvider impleme
 	 */
 	protected void addReferencedAdvicePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BWithExpression_referencedAdvice_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWithExpression_referencedAdvice_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BWithExpression_referencedAdvice_feature",
 				"_UI_BWithExpression_type"), B3backendPackage.Literals.BWITH_EXPRESSION__REFERENCED_ADVICE, true,
 			false, true, null, null, null));

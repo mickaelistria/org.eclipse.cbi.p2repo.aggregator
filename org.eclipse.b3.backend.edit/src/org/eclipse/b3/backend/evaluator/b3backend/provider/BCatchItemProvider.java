@@ -69,8 +69,8 @@ public class BCatchItemProvider extends ItemProviderAdapter implements IEditingD
 	protected void addExceptionTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BCatch_exceptionType_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BCatch_exceptionType_feature", "_UI_BCatch_type"),
+			getString("_UI_BCatch_exceptionType_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BCatch_exceptionType_feature", "_UI_BCatch_type"),
 			B3backendPackage.Literals.BCATCH__EXCEPTION_TYPE, true, false, true, null, null, null));
 	}
 
@@ -84,8 +84,8 @@ public class BCatchItemProvider extends ItemProviderAdapter implements IEditingD
 	protected void addVarnamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BCatch_varname_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_BCatch_varname_feature", "_UI_BCatch_type"),
+			getString("_UI_BCatch_varname_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BCatch_varname_feature", "_UI_BCatch_type"),
 			B3backendPackage.Literals.BCATCH__VARNAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));
 	}

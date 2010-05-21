@@ -73,8 +73,10 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	 */
 	protected void addFinalPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BParameterDeclaration_final_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BParameterDeclaration_final_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_final_feature",
 				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__FINAL, true,
 			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
@@ -89,8 +91,10 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	 */
 	protected void addImmutablePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BParameterDeclaration_immutable_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BParameterDeclaration_immutable_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_immutable_feature",
 				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__IMMUTABLE, true,
 			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
@@ -105,8 +109,10 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BParameterDeclaration_name_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BParameterDeclaration_name_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_name_feature",
 				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__NAME, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

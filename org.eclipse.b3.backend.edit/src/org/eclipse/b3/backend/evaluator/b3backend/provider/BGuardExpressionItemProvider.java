@@ -58,8 +58,10 @@ public class BGuardExpressionItemProvider extends BGuardItemProvider implements 
 	 */
 	protected void addGuardExprPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BGuardExpression_guardExpr_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BGuardExpression_guardExpr_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BGuardExpression_guardExpr_feature",
 				"_UI_BGuardExpression_type"), B3backendPackage.Literals.BGUARD_EXPRESSION__GUARD_EXPR, true, false,
 			true, null, null, null));

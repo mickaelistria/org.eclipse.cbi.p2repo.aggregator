@@ -63,8 +63,10 @@ public class BBinaryOpExpressionItemProvider extends BBinaryExpressionItemProvid
 	 */
 	protected void addFunctionNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_BBinaryOpExpression_functionName_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BBinaryOpExpression_functionName_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_BBinaryOpExpression_functionName_feature",
 				"_UI_BBinaryOpExpression_type"), B3backendPackage.Literals.BBINARY_OP_EXPRESSION__FUNCTION_NAME, true,
 			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
