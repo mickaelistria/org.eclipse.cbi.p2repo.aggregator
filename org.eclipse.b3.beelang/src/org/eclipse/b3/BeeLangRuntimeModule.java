@@ -12,9 +12,11 @@
 
 package org.eclipse.b3;
 
+import org.eclipse.b3.formatting.BeeLangFormatter;
 import org.eclipse.b3.validation.BeeLangDiagnosticsConverter;
 import org.eclipse.b3.validation.BeeLangSyntaxErrorMessageProvider;
 import org.eclipse.xtext.conversion.IValueConverterService;
+import org.eclipse.xtext.formatting.IFormatter;
 import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
 import org.eclipse.xtext.validation.IDiagnosticConverter;
 
@@ -25,6 +27,16 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 
 	public Class<? extends IDiagnosticConverter> bindIDiagnosticConverter() {
 		return BeeLangDiagnosticsConverter.class;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.AbstractBeeLangRuntimeModule#bindIFormatter()
+	 */
+	@Override
+	public Class<? extends IFormatter> bindIFormatter() {
+		return BeeLangFormatter.class;
 	}
 
 	public Class<? extends ISyntaxErrorMessageProvider> bindISyntaxErrorMessageProvider() {
