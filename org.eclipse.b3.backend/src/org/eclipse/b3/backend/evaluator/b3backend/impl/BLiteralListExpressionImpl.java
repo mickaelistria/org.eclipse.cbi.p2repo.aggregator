@@ -217,9 +217,10 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 		for(BExpression expr : entries) {
 			Object result = expr.evaluate(ctx);
 			if(!TypeUtils.isAssignableFrom(t, expr.getDeclaredType(ctx))) // result.getClass()))
-				throw BackendHelper.createException(expr, "List creation error for index {0}. "
-						+ "A List<{1}>, does not accept an instance of type {2}.", new Object[] {
-						counter, t, result.getClass() });
+				throw BackendHelper.createException(
+					expr, "List creation error for index {0}. "
+							+ "A List<{1}>, does not accept an instance of type {2}.", new Object[] {
+							counter, t, result.getClass() });
 			list.add(result);
 			counter++;
 		}
