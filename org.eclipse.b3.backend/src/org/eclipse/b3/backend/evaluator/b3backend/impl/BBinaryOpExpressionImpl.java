@@ -150,14 +150,14 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		return ctx.callFunction(
-			functionName, new Object[] { leftExpr.evaluate(ctx), rightExpr.evaluate(ctx) }, new Type[] {
-					leftExpr.getDeclaredType(ctx), rightExpr.getDeclaredType(ctx) });
+			functionName, new Object[] { leftExpr.evaluate(ctx), rightExpr.evaluate(ctx) },
+			new Type[] { leftExpr.getDeclaredType(ctx), rightExpr.getDeclaredType(ctx) });
 	}
 
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return ctx.getDeclaredFunctionType(functionName, new Type[] {
-				leftExpr.getDeclaredType(ctx), rightExpr.getDeclaredType(ctx) });
+		return ctx.getDeclaredFunctionType(
+			functionName, new Type[] { leftExpr.getDeclaredType(ctx), rightExpr.getDeclaredType(ctx) });
 	}
 
 	/**
