@@ -4,6 +4,7 @@
 package org.eclipse.b3.formatting;
 
 import org.eclipse.b3.services.BeeLangGrammarAccess;
+import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
 
@@ -22,6 +23,20 @@ public class BeeLangFormatter extends AbstractDeclarativeFormatter {
 		BeeLangGrammarAccess f = (BeeLangGrammarAccess) getGrammarAccess();
 
 		c.setAutoLinewrap(120);
+		for(Keyword k : f.findKeywords(";", ","))
+			c.setNoSpace().before(k);
+		for(Keyword k : f.findKeywords(";"))
+			c.setLinewrap().after(k);
+
+		// Blocks
+		c.setIndentation(
+			f.getBlockExpressionAccess().getLeftCurlyBracketKeyword_1(),
+			f.getBlockExpressionAccess().getRightCurlyBracketKeyword_3());
+		c.setLinewrap().after(f.getBlockExpressionAccess().getLeftCurlyBracketKeyword_1());
+		// c.setLinewrap().after(f.getBlockExpressionAccess().getSemicolonKeyword_2_1());
+		// c.setNoSpace().before(f.getBlockExpressionAccess().getSemicolonKeyword_2_1());
+		c.setLinewrap().after(f.getBlockExpressionAccess().getRightCurlyBracketKeyword_3());
+		c.setLinewrap().before(f.getBlockExpressionAccess().getRightCurlyBracketKeyword_3());
 
 		// SWITCH
 		c.setIndentation(
@@ -30,14 +45,31 @@ public class BeeLangFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap().before(f.getCaseAccess().getDefaultKeyword_1_1());
 		c.setLinewrap().before(f.getSwitchExpressionAccess().getEndswitchKeyword_4());
 
-		// Blocks
+		// REPOSITORY
 		c.setIndentation(
-			f.getBlockExpressionAccess().getLeftCurlyBracketKeyword_1(),
-			f.getBlockExpressionAccess().getRightCurlyBracketKeyword_3());
-		c.setLinewrap().after(f.getBlockExpressionAccess().getLeftCurlyBracketKeyword_1());
-		c.setLinewrap().after(f.getBlockExpressionAccess().getSemicolonKeyword_2_1());
-		c.setNoSpace().before(f.getBlockExpressionAccess().getSemicolonKeyword_2_1());
-		c.setLinewrap().after(f.getBlockExpressionAccess().getRightCurlyBracketKeyword_3());
-		c.setLinewrap().before(f.getBlockExpressionAccess().getRightCurlyBracketKeyword_3());
+			f.getRepositoryAccess().getLeftCurlyBracketKeyword_5_1_0(),
+			f.getRepositoryAccess().getRightCurlyBracketKeyword_5_1_4());
+		c.setLinewrap().after(f.getRepositoryAccess().getLeftCurlyBracketKeyword_5_1_0());
+		c.setLinewrap().after(f.getRepositoryAccess().getRightCurlyBracketKeyword_5_1_4());
+		// bracket for branches
+		c.setIndentation(
+			f.getRepositoryAccess().getLeftSquareBracketKeyword_5_1_3_2(),
+			f.getRepositoryAccess().getRightSquareBracketKeyword_5_1_3_5());
+		c.setLinewrap().after(f.getRepositoryAccess().getLeftSquareBracketKeyword_5_1_3_2());
+		c.setLinewrap().after(f.getRepositoryAccess().getCommaKeyword_5_1_3_4_0());
+
+		// BRANCHES
+		c.setIndentation(
+			f.getBranchAccess().getLeftCurlyBracketKeyword_4(), f.getBranchAccess().getRightCurlyBracketKeyword_6());
+		c.setLinewrap().after(f.getBranchAccess().getLeftCurlyBracketKeyword_4());
+
+		// includes and excludes lists
+		c.setIndentation(
+			f.getBranchAccess().getLeftSquareBracketKeyword_5_2_2(),
+			f.getBranchAccess().getRightSquareBracketKeyword_5_2_5());
+		c.setIndentation(
+			f.getBranchAccess().getLeftSquareBracketKeyword_5_3_2(),
+			f.getBranchAccess().getRightSquareBracketKeyword_5_3_5());
+
 	}
 }

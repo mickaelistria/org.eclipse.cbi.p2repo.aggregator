@@ -8,6 +8,9 @@
 
 package org.eclipse.b3.validation;
 
+import static org.eclipse.b3.build.build.util.B3BuildValidator.BRANCH__HAS_EXPRESSION_TIMESTAMP;
+import static org.eclipse.b3.build.build.util.B3BuildValidator.BRANCH__HAS_INVALID_TIMESTAMP;
+import static org.eclipse.b3.build.build.util.B3BuildValidator.BRANCH__HAS_TRANSFORMABLE_TIMESTAMP;
 import static org.eclipse.b3.build.build.util.B3BuildValidator.BRANCH__HAS_VALID_STATE;
 import static org.eclipse.b3.build.build.util.B3BuildValidator.DIAGNOSTIC_SOURCE;
 
@@ -28,6 +31,13 @@ public class B3BuildIssues implements IModelDiagnosticsConverterHelper {
 	// repeat this formula for every issue that should have a safe quick fix id
 	public static final String ISSUE__BUILD_BRANCH__HAS_VALID_STATE = PREFIX + BRANCH__HAS_VALID_STATE;
 
+	public static final String ISSUE__BRANCH__HAS_EXPRESSION_TIMESTAMP = PREFIX + BRANCH__HAS_EXPRESSION_TIMESTAMP;
+
+	public static final String ISSUE__BRANCH__HAS_TRANSFORMABLE_TIMESTAMP = PREFIX +
+			BRANCH__HAS_TRANSFORMABLE_TIMESTAMP;
+
+	public static final String ISSUE__BRANCH__BRANCH__HAS_INVALID_TIMESTAMP = PREFIX + BRANCH__HAS_INVALID_TIMESTAMP;
+
 	public static String convertSourceToIssueId(String source, int code) {
 		return source + "__" + Integer.toString(code);
 	}
@@ -47,8 +57,14 @@ public class B3BuildIssues implements IModelDiagnosticsConverterHelper {
 	public Pair<String, String> getIdAndMessage(String source, int code, String defaultMessage) {
 		switch(code) {
 			// Add message translation as needed
-			case BRANCH__HAS_VALID_STATE:
+			case BRANCH__HAS_VALID_STATE: // TODO: change the code for latest with details
 				return createResult(source, code, "No branch point detail allowed when type is 'latest'");
+			case BRANCH__HAS_EXPRESSION_TIMESTAMP:
+				return createResult(source, code, "Can not be validated until runtime");
+			case BRANCH__HAS_INVALID_TIMESTAMP:
+				return createResult(source, code, "Has invalid timestamp format or data type");
+			case BRANCH__HAS_TRANSFORMABLE_TIMESTAMP:
+				return createResult(source, code, "Date/Time is not in valid timestamp format");
 		}
 		return createResult(source, code, defaultMessage);
 	}

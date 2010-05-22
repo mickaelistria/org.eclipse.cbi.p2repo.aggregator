@@ -1,11 +1,13 @@
 package org.eclipse.b3.coloring;
 
+import org.eclipse.b3.services.BeeLangGrammarAccess;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.DefaultAntlrTokenToAttributeIdMapper;
 
 public class BeeLangTokenToAttributeIdMapper extends DefaultAntlrTokenToAttributeIdMapper {
 	@Override
 	protected String calculateId(String tokenName, int tokenType) {
+		BeeLangGrammarAccess ga;
 		// DEBUG PRINT System.out.print("Highlight id for token: "+tokenName+"\n");
 
 		// treat, 'true', 'false', and 'null' differently

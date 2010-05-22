@@ -10,10 +10,15 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Map;
+import java.util.TimeZone;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.Branch;
@@ -462,9 +467,10 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * @generated NOT
 	 */
 	public boolean hasValidState(DiagnosticChain chain, Map<Object, Object> map) {
-		// TODO: implement this method
+		// TODO: refactor this method into private sub validators
 		// -> specify the condition that violates the invariant
 		// -> verify the details of the diagnostic, including severity and message
+		boolean result = true;
 		if(getBranchPointType() == BranchPointType.LATEST && getBranchPoint() != null) {
 			if(chain != null) {
 				chain.add(new BasicDiagnostic(Diagnostic.ERROR, B3BuildValidator.DIAGNOSTIC_SOURCE, //
@@ -475,9 +481,112 @@ public class BranchImpl extends EObjectImpl implements Branch {
 						}), //
 					new Object[] { this }));
 			}
-			return false;
+			result &= false;
 		}
-		return true;
+		// -- Validate time stamp
+		// TODO: check that a valid TS does not have trailing text (the parser just skips extra chars).
+		// TODO: add support for more formats (long, short, day (no time) etc. and provide matching quick fix
+		VALIDATE_TIMESTAMP: if(getBranchPointType() == BranchPointType.TIMESTAMP) {
+			// get date format for message
+			final DateFormat defFmt = DateFormat.getDateTimeInstance();
+			final String defaultFormat = (defFmt instanceof SimpleDateFormat)
+					? ((SimpleDateFormat) defFmt).toLocalizedPattern()
+					: ""; // should not really be possible.
+			// get date formats supported for conversion (passed as diagnostic data)
+			final String[] defaultFormats = new String[] { defaultFormat };
+			final BExpression expr = getBranchPoint();
+			if(expr == null) {
+				if(chain != null) {
+					chain.add(new BasicDiagnostic(Diagnostic.ERROR, B3BuildValidator.DIAGNOSTIC_SOURCE, //
+					B3BuildValidator.BRANCH__HAS_NO_TIMESTAMP, //
+						EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", //
+							new Object[] { //
+							"hasNoTimestampExpression", EObjectValidator.getObjectLabel(this, map) //
+							}), //
+						new Object[] { this, B3BuildPackage.BRANCH__BRANCH_POINT, defaultFormats }));
+				}
+				result &= false;
+			}
+			else if(expr instanceof BLiteralExpression) {
+				// TODO: should check if it is a constant expression instead, and do constant evaluation
+				final BLiteralExpression litExpr = (BLiteralExpression) expr;
+				if(!(litExpr.getValue() instanceof String)) {
+					if(chain != null) {
+						chain.add(new BasicDiagnostic(Diagnostic.ERROR, B3BuildValidator.DIAGNOSTIC_SOURCE, //
+						B3BuildValidator.BRANCH__HAS_INVALID_TIMESTAMP, //
+							EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", //
+								new Object[] { //
+								"hasInvalidTimestamp", EObjectValidator.getObjectLabel(this, map) //
+								}), //
+							new Object[] { this, B3BuildPackage.BRANCH__BRANCH_POINT, defaultFormats }));
+					}
+					result &= false;
+					break VALIDATE_TIMESTAMP;
+
+				}
+				final String dateString = (String) litExpr.getValue();
+				// first choice - try the wanted format
+				try {
+					SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMddHHmmssZ");
+					fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
+					fmt.parse(dateString);
+					break VALIDATE_TIMESTAMP;
+				}
+				catch(ParseException e) {
+					// ignore and try timestamp format
+				}
+				// Second choice - if using java default for the locale
+				// Needs special processing as it probably does not contain TZ in the string)
+				try {
+					// try the default locale style of Date Time and see if it parses
+					defFmt.parse(dateString);
+					// if this parsed, it is not likely that the default is the full
+					// format with timezone offset, so flag this as a special error :)
+					// that is fixable
+					// Although simple, it makes sense from a user perspective, a time in
+					// local format can be entered and transformed to a timestamp.
+					if(chain != null) {
+						chain.add(new BasicDiagnostic(Diagnostic.ERROR, B3BuildValidator.DIAGNOSTIC_SOURCE, //
+						B3BuildValidator.BRANCH__HAS_TRANSFORMABLE_TIMESTAMP, //
+							EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", //
+								new Object[] { "hasTransformableTimestamp", EObjectValidator.getObjectLabel(this, map) //
+								}), //
+							new Object[] { this, B3BuildPackage.BRANCH__BRANCH_POINT, defaultFormats }));
+					}
+					result &= false;
+				}
+				catch(ParseException e) {
+					if(chain != null) {
+						chain.add(new BasicDiagnostic(Diagnostic.ERROR, B3BuildValidator.DIAGNOSTIC_SOURCE, //
+						B3BuildValidator.BRANCH__HAS_INVALID_TIMESTAMP, //
+							EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", //
+								new Object[] { //
+								"hasInvalidTimestamp", EObjectValidator.getObjectLabel(this, map) //
+								}), //
+							new Object[] { this, B3BuildPackage.BRANCH__BRANCH_POINT, defaultFormats }));
+					}
+					result &= false;
+
+					// throw new ValueConverterException("Not in valid format: Use 'yyyyMMddHHmmssZ' or " + defaultFormat +
+					// "Parse error:" + e.getMessage(), node, null);
+				}
+			} // end literal string test
+			else {
+				// this is an expression that must wait until runtime - issue a warning
+				// TODO: Validate type - must result in a String at least (possibly a date)
+				if(chain != null) {
+					chain.add(new BasicDiagnostic(Diagnostic.WARNING, B3BuildValidator.DIAGNOSTIC_SOURCE, //
+					B3BuildValidator.BRANCH__HAS_EXPRESSION_TIMESTAMP, //
+						EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", //
+							new Object[] { //
+							"hasExpressionTimestamp - validate in runtime", EObjectValidator.getObjectLabel(this, map) //
+							}), //
+						new Object[] { this, B3BuildPackage.BRANCH__BRANCH_POINT, defaultFormats }));
+				}
+
+			}
+		} // end timestamp check
+		return result;
 	}
 
 	/**

@@ -110,7 +110,7 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 			SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMddHHmmssZ");
 			String now = fmt.format(new Date());
 			completionProposal = createCompletionProposal(
-				"\"" + now + "\"", new StyledString("Timestamp (example)"), context);
+				"\"" + now + "\"", new StyledString("Timestamp — (now)"), context);
 			acceptor.accept(completionProposal);
 		}
 		super.completeBranch_BranchPoint(model, assignment, context, acceptor);

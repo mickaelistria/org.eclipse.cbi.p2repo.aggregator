@@ -138,14 +138,25 @@ public class B3BuildValidator extends EObjectValidator {
 	 */
 	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
 
+	public static final int NON_GENERATED_DIAGNOSTIC_CODE_COUNT = 4;
+
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
-	protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
+	protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT +
+			NON_GENERATED_DIAGNOSTIC_CODE_COUNT;
+
+	public static final int BRANCH__HAS_NO_TIMESTAMP = GENERATED_DIAGNOSTIC_CODE_COUNT + 1;
+
+	public static final int BRANCH__HAS_INVALID_TIMESTAMP = GENERATED_DIAGNOSTIC_CODE_COUNT + 2;
+
+	public static final int BRANCH__HAS_TRANSFORMABLE_TIMESTAMP = GENERATED_DIAGNOSTIC_CODE_COUNT + 3;
+
+	public static final int BRANCH__HAS_EXPRESSION_TIMESTAMP = GENERATED_DIAGNOSTIC_CODE_COUNT + 4;
 
 	/**
 	 * Creates an instance of the switch.

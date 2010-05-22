@@ -105,7 +105,7 @@ public class BeeLangDiagnosticsConverter extends DiagnosticConverterImpl {
 		// TODO: add the same for b3backend validation source
 		if(diagnostic.getSource().equals(B3BuildValidator.DIAGNOSTIC_SOURCE))
 			convertB3BuildValidatorDiagnostic(diagnostic, acceptor);
-		if(diagnostic.getSource().equals(B3backendValidator.DIAGNOSTIC_SOURCE))
+		else if(diagnostic.getSource().equals(B3backendValidator.DIAGNOSTIC_SOURCE))
 			convertB3BackendValidatorDiagnostic(diagnostic, acceptor);
 		else
 			super.convertValidatorDiagnostic(diagnostic, acceptor);

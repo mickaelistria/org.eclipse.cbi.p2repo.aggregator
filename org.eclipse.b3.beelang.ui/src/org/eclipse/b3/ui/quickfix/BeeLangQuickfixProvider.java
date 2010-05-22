@@ -11,8 +11,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.validation.B3BackendIssues;
+import org.eclipse.b3.validation.B3BuildIssues;
 import org.eclipse.b3.validation.BeeLangJavaValidator;
-import org.eclipse.b3.validation.IBeeLangDiagnostic;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.edit.IModification;
@@ -71,7 +71,7 @@ public class BeeLangQuickfixProvider extends DefaultQuickfixProvider {
 
 	}
 
-	@Fix(IBeeLangDiagnostic.ISSUE_TIMESTAMP__NON_UTC)
+	@Fix(B3BuildIssues.ISSUE__BRANCH__HAS_TRANSFORMABLE_TIMESTAMP)
 	public void transformDate(final Issue issue, IssueResolutionAcceptor acceptor) {
 		acceptor.accept(
 			issue, "Convert to timestamp", "Converts the valid Date/Time to a fully specified time", null,

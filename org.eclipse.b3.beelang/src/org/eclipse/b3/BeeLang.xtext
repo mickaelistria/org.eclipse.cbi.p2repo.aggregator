@@ -321,8 +321,7 @@ Repository returns build::Repository : {build::Repository}
 	  	  '}')
 	  	 )
 	;
-// TODO: HACK	  	  
-//enum BranchPointTypeLatest returns build::BranchPointType :  Latest="latest" ;
+enum BranchPointTypeLatest returns build::BranchPointType :  Latest="latest" ;
 enum BranchPointTypeOther returns build::BranchPointType : Latest="latest" | Revision="revision" | Tag="tag" | Timestamp = "timestamp";
 //enum BranchPointTypeTs returns build::BranchPointType : Timestamp="timestamp" ;
 enum UpdateStrategy returns build::UpdateStrategy : 
@@ -341,7 +340,7 @@ Branch returns build::Branch : {build::Branch}
 	"branch"
 	name = EscapedQualifiedName
 	'{'	(
-		  ( //(branchPointType = BranchPointTypeLatest ';') |
+		  ( (branchPointType = BranchPointTypeLatest ';') |
 		   (branchPointType = BranchPointTypeOther ':' branchPoint = Expression ';')
 		  )?
 		& ("update-policy" ':' updateStrategy = UpdateStrategy ';')?
