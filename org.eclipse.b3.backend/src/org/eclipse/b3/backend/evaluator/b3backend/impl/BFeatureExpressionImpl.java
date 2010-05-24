@@ -227,20 +227,18 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 					objExpr, "feature ''{0}'' is not a feature of the lhs expression", new Object[] { featureName });
 			return eLhs.eGet(feature);
 		}
-		else {
-			// use pojo reflection
-			PojoFeatureLValue resultingLValue = new PojoFeatureLValue(lhs, featureName);
-			Object result = null;
-			try {
-				if(resultingLValue.isGetable())
-					result = resultingLValue.get();
-			}
-			catch(Throwable e) {
-				throw BackendHelper.createException(
-					objExpr, e, "failed to get feature ''{0}'' from lhs expression", new Object[] { featureName });
-			}
-			return result;
+		// use pojo reflection
+		PojoFeatureLValue resultingLValue = new PojoFeatureLValue(lhs, featureName);
+		Object result = null;
+		try {
+			if(resultingLValue.isGetable())
+				result = resultingLValue.get();
 		}
+		catch(Throwable e) {
+			throw BackendHelper.createException(
+				objExpr, e, "failed to get feature ''{0}'' from lhs expression", new Object[] { featureName });
+		}
+		return result;
 	}
 
 	@Override
