@@ -4,8 +4,6 @@ import java.util.Map;
 import java.util.LinkedHashMap;
 import java.lang.Object;
 
-function Integer foo (Integer a) { a+1; }
-function Integer bar (...Integer several) { several[1]=222; several[0]; }
 
 concern aMatterOfTaste {
 	context function foo (Integer b) {
@@ -34,6 +32,9 @@ concern MakeMapReturnDummy {
 		endif;
 	}
 }
+function Integer foo (Integer a) { a+1; }
+function Integer bar (...Integer several) { several[1]=222; several[0]; }
+
 function main(List args) {
 	testWeavingVarargs();
 	testWeaving();
