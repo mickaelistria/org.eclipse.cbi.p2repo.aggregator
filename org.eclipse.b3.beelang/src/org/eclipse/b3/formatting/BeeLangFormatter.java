@@ -22,11 +22,23 @@ public class BeeLangFormatter extends AbstractDeclarativeFormatter {
 	protected void configureFormatting(FormattingConfig c) {
 		BeeLangGrammarAccess f = (BeeLangGrammarAccess) getGrammarAccess();
 
+		// GENERAL
 		c.setAutoLinewrap(120);
-		for(Keyword k : f.findKeywords(";", ","))
-			c.setNoSpace().before(k);
-		for(Keyword k : f.findKeywords(";"))
-			c.setLinewrap().after(k);
+
+		// ; and , rules
+		for(Keyword k : f.findKeywords(";", ",", ".", "(", ")")) {
+			if(";".contains(k.getValue()))
+				c.setLinewrap().after(k);
+			if(";,)".contains(k.getValue()))
+				c.setNoSpace().before(k);
+			else if(".".contains(k.getValue()))
+				c.setNoSpace().around(k);
+			else if("(".contains(k.getValue()))
+				c.setNoSpace().after(k);
+		}
+
+		// Documentation
+		c.setLinewrap().around(f.getDOCUMENTATIONRule());
 
 		// Blocks
 		c.setIndentation(
@@ -56,7 +68,9 @@ public class BeeLangFormatter extends AbstractDeclarativeFormatter {
 			f.getRepositoryAccess().getLeftSquareBracketKeyword_5_1_3_2(),
 			f.getRepositoryAccess().getRightSquareBracketKeyword_5_1_3_5());
 		c.setLinewrap().after(f.getRepositoryAccess().getLeftSquareBracketKeyword_5_1_3_2());
+		c.setLinewrap().before(f.getRepositoryAccess().getRightSquareBracketKeyword_5_1_3_5());
 		c.setLinewrap().after(f.getRepositoryAccess().getCommaKeyword_5_1_3_4_0());
+		c.setLinewrap(2).after(f.getRepositoryRule());
 
 		// BRANCHES
 		c.setIndentation(
@@ -71,5 +85,43 @@ public class BeeLangFormatter extends AbstractDeclarativeFormatter {
 			f.getBranchAccess().getLeftSquareBracketKeyword_5_3_2(),
 			f.getBranchAccess().getRightSquareBracketKeyword_5_3_5());
 
+		// RESOLUTION
+		c.setIndentation(
+			f.getTopLevelUnitProviderAccess().getLeftSquareBracketKeyword_4(),
+			f.getTopLevelUnitProviderAccess().getRightSquareBracketKeyword_7());
+		c.setLinewrap().after(f.getTopLevelUnitProviderAccess().getLeftSquareBracketKeyword_4());
+		c.setLinewrap().after(f.getTopLevelUnitProviderAccess().getCommaKeyword_6_0());
+		c.setLinewrap().before(f.getTopLevelUnitProviderAccess().getRightSquareBracketKeyword_7());
+		c.setLinewrap(2).after(f.getTopLevelUnitProviderRule());
+
+		// UNIT PROVIDERS
+		// repository unit
+		c.setIndentation(
+			f.getRepositoryUnitProviderAccess().getLeftCurlyBracketKeyword_4_0(),
+			f.getRepositoryUnitProviderAccess().getRightCurlyBracketKeyword_4_2());
+		c.setLinewrap().after(f.getRepositoryUnitProviderAccess().getLeftCurlyBracketKeyword_4_0());
+		c.setLinewrap().before(f.getRepositoryUnitProviderAccess().getRightCurlyBracketKeyword_4_2());
+		// firstfound
+		c.setIndentation(
+			f.getFirstFoundUnitProviderAccess().getLeftSquareBracketKeyword_4(),
+			f.getFirstFoundUnitProviderAccess().getRightSquareBracketKeyword_7());
+		c.setLinewrap().bounds(
+			f.getFirstFoundUnitProviderAccess().getLeftSquareBracketKeyword_4(),
+			f.getFirstFoundUnitProviderAccess().getRightSquareBracketKeyword_7());
+		c.setLinewrap().after(f.getFirstFoundUnitProviderAccess().getCommaKeyword_6_0());
+
+		// best found
+		c.setIndentation(
+			f.getBestFoundUnitProviderAccess().getLeftSquareBracketKeyword_4(),
+			f.getBestFoundUnitProviderAccess().getRightSquareBracketKeyword_7());
+		c.setLinewrap().bounds(
+			f.getBestFoundUnitProviderAccess().getLeftSquareBracketKeyword_4(),
+			f.getBestFoundUnitProviderAccess().getRightSquareBracketKeyword_7());
+		c.setLinewrap().after(f.getBestFoundUnitProviderAccess().getCommaKeyword_6_0());
+
+		// BUILD UNIT
+
+		// FUNCTION
+		c.setLinewrap(2).after(f.getFunctionRule());
 	}
 }

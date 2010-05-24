@@ -59,7 +59,7 @@ public interface BFeatureExpression extends BExpression {
 	 * @return the value of the '<em>Obj Expr</em>' containment reference.
 	 * @see #setObjExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFeatureExpression_ObjExpr()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	BExpression getObjExpr();

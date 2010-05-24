@@ -8,6 +8,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.core.B3BackendConstants;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.BackendHelper;
 import org.eclipse.b3.backend.evaluator.EcoreFeatureLValue;
@@ -217,7 +218,9 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 	 */
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Object lhs = objExpr.evaluate(ctx);
+		Object lhs = objExpr == null
+				? ctx.getValue(B3BackendConstants.B3BACKEND_THIS)
+				: objExpr.evaluate(ctx);
 		// for Ecore
 		if(lhs instanceof EObject) {
 			EObject eLhs = (EObject) lhs;
@@ -258,7 +261,9 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 
 	@Override
 	public LValue getLValue(BExecutionContext ctx) throws Throwable {
-		Object lhs = objExpr.evaluate(ctx);
+		Object lhs = objExpr == null
+				? ctx.getValue(B3BackendConstants.B3BACKEND_THIS)
+				: objExpr.evaluate(ctx);
 		// for Ecore
 		if(lhs instanceof EObject) {
 			EObject eLhs = (EObject) lhs;
@@ -268,9 +273,7 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 					objExpr, "feature ''{0}'' is not a feature of the lhs expression", new Object[] { featureName });
 			return new EcoreFeatureLValue((EObject) lhs, feature);
 		}
-		else {
-			return new PojoFeatureLValue(lhs, featureName);
-		}
+		return new PojoFeatureLValue(lhs, featureName);
 	}
 
 	/**

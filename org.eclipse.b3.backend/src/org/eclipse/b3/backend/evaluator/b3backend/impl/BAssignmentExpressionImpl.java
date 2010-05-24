@@ -12,7 +12,6 @@ import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -67,7 +66,7 @@ public class BAssignmentExpressionImpl extends BBinaryOpExpressionImpl implement
 		if(lval.getDeclaredType() == null)
 			lval.setDeclaredType(rightExpr.getDeclaredType(ctx));
 		// straight assignment
-		if(functionName == null || "".equals(functionName) || "=".equals(functionName))
+		if(functionName == null || "".equals(functionName) || "=:".contains(functionName))
 			return lval.set(r);
 		Object[] params = new Object[] { lval.get(), rightExpr.evaluate(ctx) };
 		Type[] types = new Type[] { lval.getDeclaredType(), rightExpr.getDeclaredType(ctx) };

@@ -9,6 +9,7 @@ Require-Bundle: org.eclipse.b3.beelang.junit,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
  J2SE-1.5
-Export-Package: org.eclipse.b3.beelang.tests.buildunittypes
+Export-Package: org.eclipse.b3.beelang.tests.buildunittypes,
+ org.eclipse.b3.beelang.tests.testmaterial
 Eclipse-RegisterBuddy: org.eclipse.b3.backend
 Bundle-Vendor: %providerName

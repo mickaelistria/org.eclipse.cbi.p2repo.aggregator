@@ -4595,7 +4595,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			bFeatureExpressionEClass, BFeatureExpression.class, "BFeatureExpression", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getBFeatureExpression_ObjExpr(), this.getBExpression(), null, "objExpr", null, 1, 1,
+			getBFeatureExpression_ObjExpr(), this.getBExpression(), null, "objExpr", null, 0, 1,
 			BFeatureExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(

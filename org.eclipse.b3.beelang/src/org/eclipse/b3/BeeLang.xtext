@@ -27,7 +27,7 @@ BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT) : {build::Be
 	((imports += Import)* 
 	(	(functions += Function) 
 	| 	(concerns += Concern_Named)
-	|	('properties'  propertySets += PropertySet_Named)
+	|	(propertySets += PropertySet_Named)
 	|   (buildUnits += BuildUnit)
 	| 	(providers += TopLevelUnitProvider)
 	|   (repositories += Repository)
@@ -54,60 +54,59 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 		('implements' implements += SimpleTypeRef (',' implements+=SimpleTypeRef)*)? 
 	'{'
 		//-- PROPERTIES
-		// goes first, because they may be used in the other clauses. TODO: can probably be relaxed
-		// since linking will find them anyway.
-		//
-		('default' 'properties'  defaultProperties = PropertySetDefault)?
+		(defaultProperties = PropertySetDefault)?
 		//--LOCATIONS
-		('source' '=' sourceLocation = Path ';')?
-		('output' '=' outputLocation = Path ';')?
+		( ('source' ':' sourceLocation = Path ';')?
+		& ('output' ':' outputLocation = Path ';')?
+		& ('provides' ':' (providedCapabilities += ProvidedCapability) ';')*
+		& ('requires' ':' (requiredCapabilities += AliasedRequiredCapability) ';')*
+		& ('requires' 'env' ':' (metaRequiredCapabilities += RequiredCapability) ';')*
+		& (functions += Builder )*
+		& (functions += Function )*
+		& (providers += TopLevelUnitProvider)?
+		& (concerns += Concern_Named)*
+		& (propertySets += PropertySet_Named)*
+		& (containers += ContainerConfiguration ';' )*
+		& (synchronizations += Synchronization )*
+		& (repositories += Repository)*
+		)
 		
-		( 	//-- PROVIDES
-			  ('provides' '{' (providedCapabilities += ProvidedCapability ';')+ '}')
-			| ('provides' providedCapabilities += ProvidedCapability ';')
-			//-- REQUIRES & META REQUIRES
-			| ('requires' '{' (requiredCapabilities += AliasedRequiredCapability ';')+ '}')
-			| ('requires' requiredCapabilities += AliasedRequiredCapability ';')
-			| ('requires' 'env' '{' (metaRequiredCapabilities += RequiredCapability ';')+ '}' )
-			| ('requires' 'env' metaRequiredCapabilities += RequiredCapability ';')
-			//--CONCERNS
-			| (concerns += Concern_Named)
-			//--SYNCHRONIZE
-			| ('sequential' '{' (synchronizations += Synchronization )+  '}' )
-			| ('sequential' synchronizations += Synchronization  )
-			//--BUILDERS & FUNCTIONS
-			| (functions += Builder )			
-			| (functions += Function )			
-			//-- REPOSITORIES
-			| (repositories += Repository)
-			| (providers += TopLevelUnitProvider)
-			| ('properties'  propertySets += PropertySet_Named)
-			| ('containers' '{' containers += ContainerConfiguration* '}' )
-		)*
 	'}';
 
 ProvidedCapability returns build::VersionedCapability : {build::VersionedCapability}
-	('when' '(' condExpr=Expression ')')?  
-	nameSpace=InterfaceName '/' name=CapabilityName 
-	('/' version=VersionLiteral)?  
+	((nameSpace=InterfaceName) | "unit") name=CapabilityName 
+		('{'
+		( ('when' ':' condExpr = Expression ';')?  
+		& ("version" ':' version = VersionLiteral ';')?
+	  	)
+	'}')?
 	;
-
 // Capability required by a unit - always refers to capabilities with at least ns/name
 // or the keyword "unit" instead of the namespace for buildunits
 AliasedRequiredCapability returns build::RequiredCapability : {build::AliasedRequiredCapability} 
-	('when' '(' condExpr=Expression ')')?  
-	(greedy ?= "greedy")? ("requires-min" min = IntValue)? ("requires-max" max  = IntValue)?  
-	((nameSpace=InterfaceName) | "unit") '/' name=CapabilityName 
-	('/' versionRange=VersionRangeLiteral)?  ("as" alias = ID)?
+	((nameSpace=InterfaceName) | "unit") name=CapabilityName ("as" alias = ID)?
+	('{'
+		( ('when' ':' condExpr=Expression ';')?  
+		& (greedy ?= "greedy" ';')? 
+		& ("requires-min" ':' min = IntValue ';' )? 
+		& ("requires-max" ':' max  = IntValue ';')?
+		& ("version" ':' versionRange = VersionRangeLiteral ';')?
+	  	)
+	'}')
 	;
 	
 // Capability required by a unit - always refers to capabilities with at least ns/name
 // or the keyword "unit" instead of the namespace for buildunits
 RequiredCapability returns build::RequiredCapability : {build::RequiredCapability} 
-	('when' '(' condExpr=Expression ')')?
-	(greedy ?= "greedy")? ("min-required" min = IntValue)? ("max-required" max  = IntValue)?  	  
-	((nameSpace=InterfaceName) | "unit") '/' name=CapabilityName 
-	('/' versionRange=VersionRangeLiteral)?  
+	((nameSpace=InterfaceName) | "unit") name=CapabilityName
+	('{'
+		( ('when' ':' condExpr=Expression ';')?  
+		& (greedy ?= "greedy" ';')? 
+		& ("requires-min" ':' min = IntValue ';' )? 
+		& ("requires-max" ':' max  = IntValue ';')?
+		& ("version" ':' versionRange = VersionRangeLiteral ';')?
+	  	)
+	'}')
 	;
 	
 // Capability required by a unit - always refers to capabilities with at least ns/name
@@ -120,23 +119,38 @@ RequiredCapability_Unfiltered returns build::RequiredCapability : {build::Requir
 	
 // A named sequence of property statements
 PropertySet_Named returns be::BPropertySet : {be::BPropertySet} 
-	name = ID (("extends" extends=[be::BPropertySet | QIDREF])? '{' (operations += PropertyOperation )* '}' )
-	| (propertiesFile = URI ';')
-	| (extends = [be::BPropertySet | QIDREF] ';')
+	"properties" name = ID ("extends" extends=[be::BPropertySet | QIDREF])? 
+	(('{' (operations += PropertyOperation )* '}' )
+	|(':' "load-from" ':' propertiesFile = URI ';')
+	)
 	;
 
-// Sequence of possibly filtered property statements	
+// Sequence of possibly filtered property statements
 PropertySet returns be::BPropertySet :  {be::BPropertySet}
-	  (("extends" extends=[be::BPropertySet | QIDREF])?  '{' (operations += PropertyOperation )*  '}')
-	| (propertiesFile = URI ';')
-	| (extends = [be::BPropertySet | QIDREF] ';')
+	"properties" ("extends" extends=[be::BPropertySet | QIDREF])? 
+	(('{' (operations += PropertyOperation )* '}' )
+	|(':' "load-from" ':' propertiesFile = URI ';')
+	)
+	;
+	
+AnnotationSet returns be::BPropertySet: PropertySet_noKw ;
+
+// Sequence of possibly filtered property statements (same as property set but withput kw)
+PropertySet_noKw returns be::BPropertySet :  {be::BPropertySet}
+	("extends" extends=[be::BPropertySet | QIDREF])? 
+	(('{' (operations += PropertyOperation )* '}' )
+	|(':' "load-from" ':' propertiesFile = URI ';')
+	)
 	;
 	
 // Sequence of possibly filtered property statements (with default semantics)	
+// - no loading from file = meaningsless as only declared properties can be references,
+// they would need  to be in a different default set, or declared (in which case defaults are not
+// really needed
+// 
 PropertySetDefault returns be::BPropertySet :  {be::BDefaultPropertySet}
-	  (("extends" extends=[be::BPropertySet | QIDREF])?  '{' (operations += PropertyOperation )*  '}')
-	| (propertiesFile = URI ';')
-	| (extends = [be::BPropertySet | QIDREF] ';')
+	"default" "properties" ("extends" extends=[be::BPropertySet | QIDREF])?
+	'{' (operations += PropertyOperation )*  '}'
 	;
 
 // For model generation, to get supertype correct
@@ -165,11 +179,11 @@ PropertyVarDeclaration returns be::BDefProperty : {be::BDefProperty}
 	;
 	
 PropertySetOperation returns be::BPropertyOperation : {be::BPropertySetOperation} 
-	propertySet = PropertySet
+	propertySet = PropertySet_noKw
 	;
 
 Synchronization returns build::Synchronization : {build::Synchronization}
-	(builderQueries += BuilderQuery)(',' builderQueries += BuilderQuery)* ';'
+	"sequential" ':''[' (builderQueries += BuilderQuery)(',' builderQueries += BuilderQuery)* ']' ';'
 	;
 	
 BuilderQuery returns build::BuilderQuery : {build::BuilderQuery}
@@ -178,7 +192,7 @@ BuilderQuery returns build::BuilderQuery : {build::BuilderQuery}
 	;
 	
 PathGroup returns build::PathGroup: {build::PathGroup}
-	pathVectors += ConditionalPathVector+ ('annotations' annotations = PropertySet)?
+	pathVectors += ConditionalPathVector+ ('annotations' annotations = AnnotationSet)?
 	;
 
 BasePathVector returns build::PathVector : {build::PathVector}
@@ -218,8 +232,8 @@ WithClause returns be::BWithExpression : {be::BWithExpression}
 		"with"
 		( referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* )? 
 //		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
-		( ( "properties" propertySets += PropertySet )
-		| ( "default" "properties" propertySets += PropertySetDefault)
+		( ( propertySets += PropertySet )
+		| ( propertySets += PropertySetDefault)
 		| ( "concern" concerns += Concern_Anonymous )
 		)*
 		;
@@ -269,12 +283,12 @@ Builder returns build::Builder : {build::Builder}
 		| 	(    varArgs?="..." parameters += ParameterDeclaration))
 	')' )?
 	("when" guard = GuardExpression)?
-	('provides' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)*  )?
+	('provides' ':' '[' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)* ']' )?
 	("precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
 	("postinputcondition" ((':' postinputcondExpr = Expression ';' )|( postinputcondExpr = BlockExpression)))?
 	("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 	 '{'
-		('default' 'properties' defaultProperties = PropertySetDefault)?
+		(defaultProperties = PropertySetDefault)?
 	     ( input = BuilderInput )? 
 	     ( "source" '{' source = PathGroup '}' )?
 	     ( "output" '{' output = PathGroup '}' )? 
@@ -371,17 +385,17 @@ RepoOption returns build::RepoOption : {build::RepoOption}
 	
 TopLevelUnitProvider returns build::FirstFoundUnitProvider : {build::FirstFoundUnitProvider}
 	(documentation = DOCUMENTATION)?
-	"resolution" '{' providers += UnitProvider (providers += UnitProvider)* '}'
+	"resolution" ':' '[' providers += UnitProvider (',' providers += UnitProvider)* ']' ';'
 	;
 	
 FirstFoundUnitProvider returns build::FirstFoundUnitProvider : {build::FirstFoundUnitProvider}
 	(documentation = DOCUMENTATION)?
-	 "select-first" '{' providers += UnitProvider (providers += UnitProvider)* '}'
+	 "select-first" ':' '[' providers += UnitProvider (',' providers += UnitProvider)* ']' 
 	;
 	
 BestFoundUnitProvider returns build::BestFoundUnitProvider : {build::BestFoundUnitProvider}
 	(documentation = DOCUMENTATION)?
-	"select-best" '{' providers += UnitProvider (providers += UnitProvider)* '}'
+	"select-best" ':' '[' providers += UnitProvider (',' providers += UnitProvider)* ']'
 	;
 	
 SwitchUnitProvider returns build::SwitchUnitProvider : {build::SwitchUnitProvider}
@@ -394,12 +408,12 @@ SelectSwitchExpression returns be::BSwitchExpression : {be::BSwitchExpression}
 	;
 			
 RepositorySelectCase returns be::BCase : {be::BCase} 
-	(("case" conditionExpr=Expression) | "default") ":" thenExpr = UnitProvider
+	(("case" conditionExpr=Expression) | "default") ':' thenExpr = UnitProvider
 	;
 	
 ContainerConfiguration returns build::ContainerConfiguration: {build::ContainerConfiguration} 
 	(documentation=DOCUMENTATION)? 
-	"container" name=ID "agent" agentType=TypeRef (contextBlock = BlockExpression)? 
+	"container" agentType=TypeRef name=ID ((contextBlock = BlockExpression) | ';') 
 	;
 	
 URI returns be::URI : 
@@ -410,8 +424,8 @@ Concern_Named returns be::BConcern : {be::BConcern}
 	(documentation = DOCUMENTATION)? "concern" name=ID
 	("extends" superConcerns += [be::BConcern | ID] (',' superConcerns += [be::BConcern | ID])*)? 
 	'{' (
-			("properties" propertySets += PropertySet) 
-		|	("default" "properties" propertySets += PropertySetDefault) 
+			(propertySets += PropertySet) 
+		|	(propertySets += PropertySetDefault) 
 		| 	(functions+=Function)
 		| 	(functions+=Builder)
 		|	(contexts += BuildConcernContext)
@@ -422,8 +436,8 @@ Concern_Named returns be::BConcern : {be::BConcern}
 Concern_Anonymous returns be::BConcern : {be::BConcern}
 	("extends" superConcerns+= [be::BConcern | ID] (',' superConcerns += [be::BConcern | ID])*)? 
 	'{' (
-			("properties" propertySets += PropertySet) 
-		|	("default" "properties" propertySets += PropertySetDefault) 			
+			(propertySets += PropertySet) 
+		|	(propertySets += PropertySetDefault) 			
 		| 	(functions+=Function)
 		| 	(functions+=Builder)
 		|	(contexts += BuildConcernContext)		
@@ -636,8 +650,8 @@ WithExpression returns be::BWithExpression : {be::BWithExpression}
 		'with'
 		( referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* )? 
 //		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
-		( ( 'properties' propertySets += PropertySet )
-		| ( "default" "properties" propertySets += PropertySetDefault ) 
+		( ( propertySets += PropertySet )
+		| ( propertySets += PropertySetDefault ) 
 		| ( 'concern' concerns += Concern_Anonymous )
 		)*
 		( (':' funcExpr = Expression ) | ('{' funcExpr = BlockExpressionWithoutBrackets '}' ) )
@@ -722,9 +736,19 @@ ConstructorCallExpression returns be::BExpression : {be::BCreateExpression}
 	"new" typeExpr=LiteralType 
 	('(' (parameterList=ParameterList)? ')')?
 	("as" alias=ID)? 
-	(contextBlock = BlockExpression)?
+	(contextBlock = InitializationBlockExpression)?
+	;
+InitializationBlockExpression returns be::BExpression : {be::BChainedExpression}
+	'{'  expressions += InitializationExpression ';' '}'
 	;
 
+InitializationExpression returns be::BExpression : {be::BAssignmentExpression}
+	leftExpr = FeatureOfThis functionName=":" rightExpr = Expression
+	;
+FeatureOfThis returns be::BExpression : {be::BFeatureExpression}
+	// TODO: objExpr = null, means use "this" (cheat)
+	featureName = ID 
+	; 
 // Used in a concern to describe pointcuts/advice for units and/or builders
 BuildConcernContext returns be::BConcernContext : 
 	  UnitConcernContext
@@ -765,17 +789,18 @@ UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContex
 	'{'
 	( (functions += Builder)
 	| (builderContexts += BuilderConcernContext)
-	| ('+' 'requires' '{' (requiredCapabilities += AliasedRequiredCapability ';')+ '}')
-	| ('+' 'requires' requiredCapabilities += AliasedRequiredCapability ';')
+	| ('+' 'requires' ':' requiredCapabilities += AliasedRequiredCapability ';')
 	| ('-' requiresRemovals += RequiresPredicate ';')
-	| ('+' 'provides' '{' (providedCapabilities += ProvidedCapability ';')+ '}')
-	| ('+' 'provides' providedCapabilities += ProvidedCapability ';')
+	| ('+' 'provides' ':' providedCapabilities += ProvidedCapability ';')
 	| ('-' providesRemovals += ProvidesPredicate ';')
-	| ("source" '=' sourceLocation = URI ';')		
-	| ("output" '=' outputLocation = URI ';')		
+	| ("source" ':' sourceLocation = URI ';')		
+	| ("output" ':' outputLocation = URI ';')		
 	)*
-	('-' "default" "properties" defaultPropertiesRemovals += PID (',' defaultPropertiesRemovals += PID)* ';')?
-	('+' "default" "properties" defaultPropertiesAdditions = PropertySetDefault )?
+	// TODO - this is sort of bogus, can not remove a default property, changing the default is the same as
+	// specifying the value of a property... If introducing new functions those functions may need to see
+	// different properties, and those may need to be default - rethink
+	('-'  defaultPropertiesRemovals += PID (',' defaultPropertiesRemovals += PID)* ';')?
+	('+'  defaultPropertiesAdditions = PropertySetDefault )?
 	
 	'}'
 	;
@@ -791,8 +816,8 @@ BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConc
    		)? matchParameters ?= ')' )?
   
 	query = BuilderOrExpression 
-	'{' ( ('-' "provides" providesRemovals += ProvidesPredicate ';')
-		| ('+' "provides" providedCapabilities += ProvidedCapability ';')
+	'{' ( ('-' "provides" ':' providesRemovals += ProvidesPredicate ';')
+		| ('+' "provides" ':' providedCapabilities += ProvidedCapability ';')
 		)*
 		
 		('-' removePreCondition ?="precondition" ';' )?
@@ -801,9 +826,9 @@ BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConc
 		('+' "postinputcondition" ((':' postinputcondExpr = Expression ';' )|( postinputcondExpr = BlockExpression)))?
 		('-' removePostCondition ?="postcondition" ';')?
 		('+' "postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
-		
-		('-' "default" "properties" defaultPropertiesRemovals += PID (',' defaultPropertiesRemovals += PID)* ';')?
-		('+' "default" "properties" defaultPropertiesAdditions = PropertySetDefault )?
+		// TODO: rethink advice of default properties
+		('-' defaultPropertiesRemovals += PID (',' defaultPropertiesRemovals += PID)* ';')?
+		('+' defaultPropertiesAdditions = PropertySetDefault )?
 		
 		( ('+' "input" inputAdditions += Prerequisite) 
 		| ('-' inputRemovals += InputPredicate ';')
@@ -812,12 +837,12 @@ BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConc
 		( ('+' "source" sourceAdditions += ConditionalPathVector)
 		| ('-' "source" sourceRemovals += SourcePredicate ';'))*
 		('-' "annotations" "source" sourceAnnotationsRemovals += PID (',' outputAnnotationsRemovals += PID)* ';')?
-		('+' "annotations" "source" sourceAnnotationAdditions = PropertySet )?
+		('+' "annotations" "source" sourceAnnotationAdditions = AnnotationSet )?
 		
 		( ('+' "output" outputAdditions += ConditionalPathVector)
 		| ('-' "output" outputRemovals += OutputPredicate ';'))*
 		('-' "annotations" "output" outputAnnotationsRemovals += PID (',' outputAnnotationsRemovals += PID)* ';')?
-		('+' "annotations" "output" outputAnnotationAdditions = PropertySet )?
+		('+' "annotations" "output" outputAnnotationAdditions = AnnotationSet )?
 		
 		(funcExpr = BlockExpression)? // replaces the builder's funcExpression
 	'}'
@@ -909,13 +934,6 @@ NamePredicate returns be::BNamePredicate : {be::BNamePredicate}
 	(name=EscapedQualifiedName  | namePattern = PatternLiteral)
 	;
 	
-//NamePredicateFull returns be::BNamePredicate : {be::BNamePredicate}
-//		("name" ':' name = PathString)
-//	| 	("pattern" ':' namePattern = RegexpLiteral)
-//	|	("pattern" ':' namePattern = WildcardExpression)
-//	|	("pattern" ':' namePattern = SimplePatternLiteral)
-//	;
-
 BuilderOrExpression returns be::BExpression :
 	BuilderAndExpression ({be::BOrExpression.leftExpr=current} "||" rightExpr=BuilderAndExpression)*
 	;

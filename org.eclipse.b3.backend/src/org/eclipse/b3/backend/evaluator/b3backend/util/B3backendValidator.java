@@ -126,6 +126,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import com.google.inject.Injector;
+import java.lang.CharSequence;
 
 /**
  * <!-- begin-user-doc -->
@@ -199,8 +200,7 @@ public class B3backendValidator extends EObjectValidator {
 	 * 
 	 * @generated
 	 */
-	protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT +
-			HANDWRITTEN_DIAGNOSTIC_CODE_COUNT;
+	protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
 	/**
 	 * Creates an instance of the switch.
