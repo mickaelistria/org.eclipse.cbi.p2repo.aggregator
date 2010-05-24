@@ -20,86 +20,91 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BeeModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBeeModelAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cImportsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cImportsImportParserRuleCall_1_0_0 = (RuleCall)cImportsAssignment_1_0.eContents().get(0);
-		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
-		private final Assignment cFunctionsAssignment_1_1_0 = (Assignment)cAlternatives_1_1.eContents().get(0);
-		private final RuleCall cFunctionsFunctionParserRuleCall_1_1_0_0 = (RuleCall)cFunctionsAssignment_1_1_0.eContents().get(0);
-		private final Assignment cConcernsAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
-		private final RuleCall cConcernsConcern_NamedParserRuleCall_1_1_1_0 = (RuleCall)cConcernsAssignment_1_1_1.eContents().get(0);
-		private final Assignment cPropertySetsAssignment_1_1_2 = (Assignment)cAlternatives_1_1.eContents().get(2);
-		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_1_1_2_0 = (RuleCall)cPropertySetsAssignment_1_1_2.eContents().get(0);
-		private final Assignment cBuildUnitsAssignment_1_1_3 = (Assignment)cAlternatives_1_1.eContents().get(3);
-		private final RuleCall cBuildUnitsBuildUnitParserRuleCall_1_1_3_0 = (RuleCall)cBuildUnitsAssignment_1_1_3.eContents().get(0);
-		private final Assignment cProvidersAssignment_1_1_4 = (Assignment)cAlternatives_1_1.eContents().get(4);
-		private final RuleCall cProvidersTopLevelUnitProviderParserRuleCall_1_1_4_0 = (RuleCall)cProvidersAssignment_1_1_4.eContents().get(0);
-		private final Assignment cRepositoriesAssignment_1_1_5 = (Assignment)cAlternatives_1_1.eContents().get(5);
-		private final RuleCall cRepositoriesRepositoryParserRuleCall_1_1_5_0 = (RuleCall)cRepositoriesAssignment_1_1_5.eContents().get(0);
+		private final Assignment cImportsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cImportsImportParserRuleCall_1_0 = (RuleCall)cImportsAssignment_1.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_2 = (UnorderedGroup)cGroup.eContents().get(2);
+		private final Assignment cFunctionsAssignment_2_0 = (Assignment)cUnorderedGroup_2.eContents().get(0);
+		private final RuleCall cFunctionsFunctionParserRuleCall_2_0_0 = (RuleCall)cFunctionsAssignment_2_0.eContents().get(0);
+		private final Assignment cConcernsAssignment_2_1 = (Assignment)cUnorderedGroup_2.eContents().get(1);
+		private final RuleCall cConcernsConcern_NamedParserRuleCall_2_1_0 = (RuleCall)cConcernsAssignment_2_1.eContents().get(0);
+		private final Assignment cPropertySetsAssignment_2_2 = (Assignment)cUnorderedGroup_2.eContents().get(2);
+		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_2_2_0 = (RuleCall)cPropertySetsAssignment_2_2.eContents().get(0);
+		private final Assignment cBuildUnitsAssignment_2_3 = (Assignment)cUnorderedGroup_2.eContents().get(3);
+		private final RuleCall cBuildUnitsBuildUnitParserRuleCall_2_3_0 = (RuleCall)cBuildUnitsAssignment_2_3.eContents().get(0);
+		private final Assignment cProvidersAssignment_2_4 = (Assignment)cUnorderedGroup_2.eContents().get(4);
+		private final RuleCall cProvidersTopLevelUnitProviderParserRuleCall_2_4_0 = (RuleCall)cProvidersAssignment_2_4.eContents().get(0);
+		private final Assignment cRepositoriesAssignment_2_5 = (Assignment)cUnorderedGroup_2.eContents().get(5);
+		private final RuleCall cRepositoriesRepositoryParserRuleCall_2_5_0 = (RuleCall)cRepositoriesAssignment_2_5.eContents().get(0);
+		private final Assignment cDefaultPropertiesAssignment_2_6 = (Assignment)cUnorderedGroup_2.eContents().get(6);
+		private final RuleCall cDefaultPropertiesPropertySetDefaultParserRuleCall_2_6_0 = (RuleCall)cDefaultPropertiesAssignment_2_6.eContents().get(0);
 		
 		//// uncomments if things are needed that should not be in backend or build
 		////generate beeLang "http://www.eclipse.org/b3/BeeLang"
 		//BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT):
-		//	{build::BeeModel} (imports+=Import* (functions+=Function | concerns+=Concern_Named | propertySets+=PropertySet_Named |
-		//	buildUnits+=BuildUnit | providers+=TopLevelUnitProvider | repositories+=Repository)*);
+		//	{build::BeeModel} imports+=Import* (functions+=Function* & concerns+=Concern_Named* & propertySets+=PropertySet_Named*
+		//	& buildUnits+=BuildUnit* & providers+=TopLevelUnitProvider? & repositories+=Repository* &
+		//	defaultProperties=PropertySetDefault?);
 		public ParserRule getRule() { return rule; }
 
-		//{build::BeeModel} (imports+=Import* (functions+=Function | concerns+=Concern_Named | propertySets+=PropertySet_Named |
-		//buildUnits+=BuildUnit | providers+=TopLevelUnitProvider | repositories+=Repository)*)
+		//{build::BeeModel} imports+=Import* (functions+=Function* & concerns+=Concern_Named* & propertySets+=PropertySet_Named* &
+		//buildUnits+=BuildUnit* & providers+=TopLevelUnitProvider? & repositories+=Repository* &
+		//defaultProperties=PropertySetDefault?)
 		public Group getGroup() { return cGroup; }
 
 		//{build::BeeModel}
 		public Action getBeeModelAction_0() { return cBeeModelAction_0; }
 
-		//imports+=Import* (functions+=Function | concerns+=Concern_Named | propertySets+=PropertySet_Named |
-		//buildUnits+=BuildUnit | providers+=TopLevelUnitProvider | repositories+=Repository)*
-		public Group getGroup_1() { return cGroup_1; }
-
 		//imports+=Import*
-		public Assignment getImportsAssignment_1_0() { return cImportsAssignment_1_0; }
+		public Assignment getImportsAssignment_1() { return cImportsAssignment_1; }
 
 		//Import
-		public RuleCall getImportsImportParserRuleCall_1_0_0() { return cImportsImportParserRuleCall_1_0_0; }
+		public RuleCall getImportsImportParserRuleCall_1_0() { return cImportsImportParserRuleCall_1_0; }
 
-		//(functions+=Function | concerns+=Concern_Named | propertySets+=PropertySet_Named | buildUnits+=BuildUnit |
-		//providers+=TopLevelUnitProvider | repositories+=Repository)*
-		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+		//functions+=Function* & concerns+=Concern_Named* & propertySets+=PropertySet_Named* & buildUnits+=BuildUnit* &
+		//providers+=TopLevelUnitProvider? & repositories+=Repository* & defaultProperties=PropertySetDefault?
+		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
 
-		//functions+=Function
-		public Assignment getFunctionsAssignment_1_1_0() { return cFunctionsAssignment_1_1_0; }
+		//functions+=Function*
+		public Assignment getFunctionsAssignment_2_0() { return cFunctionsAssignment_2_0; }
 
 		//Function
-		public RuleCall getFunctionsFunctionParserRuleCall_1_1_0_0() { return cFunctionsFunctionParserRuleCall_1_1_0_0; }
+		public RuleCall getFunctionsFunctionParserRuleCall_2_0_0() { return cFunctionsFunctionParserRuleCall_2_0_0; }
 
-		//concerns+=Concern_Named
-		public Assignment getConcernsAssignment_1_1_1() { return cConcernsAssignment_1_1_1; }
+		//concerns+=Concern_Named*
+		public Assignment getConcernsAssignment_2_1() { return cConcernsAssignment_2_1; }
 
 		//Concern_Named
-		public RuleCall getConcernsConcern_NamedParserRuleCall_1_1_1_0() { return cConcernsConcern_NamedParserRuleCall_1_1_1_0; }
+		public RuleCall getConcernsConcern_NamedParserRuleCall_2_1_0() { return cConcernsConcern_NamedParserRuleCall_2_1_0; }
 
-		//propertySets+=PropertySet_Named
-		public Assignment getPropertySetsAssignment_1_1_2() { return cPropertySetsAssignment_1_1_2; }
+		//propertySets+=PropertySet_Named*
+		public Assignment getPropertySetsAssignment_2_2() { return cPropertySetsAssignment_2_2; }
 
 		//PropertySet_Named
-		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_1_1_2_0() { return cPropertySetsPropertySet_NamedParserRuleCall_1_1_2_0; }
+		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_2_2_0() { return cPropertySetsPropertySet_NamedParserRuleCall_2_2_0; }
 
-		//buildUnits+=BuildUnit
-		public Assignment getBuildUnitsAssignment_1_1_3() { return cBuildUnitsAssignment_1_1_3; }
+		//buildUnits+=BuildUnit*
+		public Assignment getBuildUnitsAssignment_2_3() { return cBuildUnitsAssignment_2_3; }
 
 		//BuildUnit
-		public RuleCall getBuildUnitsBuildUnitParserRuleCall_1_1_3_0() { return cBuildUnitsBuildUnitParserRuleCall_1_1_3_0; }
+		public RuleCall getBuildUnitsBuildUnitParserRuleCall_2_3_0() { return cBuildUnitsBuildUnitParserRuleCall_2_3_0; }
 
-		//providers+=TopLevelUnitProvider
-		public Assignment getProvidersAssignment_1_1_4() { return cProvidersAssignment_1_1_4; }
+		//providers+=TopLevelUnitProvider?
+		public Assignment getProvidersAssignment_2_4() { return cProvidersAssignment_2_4; }
 
 		//TopLevelUnitProvider
-		public RuleCall getProvidersTopLevelUnitProviderParserRuleCall_1_1_4_0() { return cProvidersTopLevelUnitProviderParserRuleCall_1_1_4_0; }
+		public RuleCall getProvidersTopLevelUnitProviderParserRuleCall_2_4_0() { return cProvidersTopLevelUnitProviderParserRuleCall_2_4_0; }
 
-		//repositories+=Repository
-		public Assignment getRepositoriesAssignment_1_1_5() { return cRepositoriesAssignment_1_1_5; }
+		//repositories+=Repository*
+		public Assignment getRepositoriesAssignment_2_5() { return cRepositoriesAssignment_2_5; }
 
 		//Repository
-		public RuleCall getRepositoriesRepositoryParserRuleCall_1_1_5_0() { return cRepositoriesRepositoryParserRuleCall_1_1_5_0; }
+		public RuleCall getRepositoriesRepositoryParserRuleCall_2_5_0() { return cRepositoriesRepositoryParserRuleCall_2_5_0; }
+
+		//defaultProperties=PropertySetDefault?
+		public Assignment getDefaultPropertiesAssignment_2_6() { return cDefaultPropertiesAssignment_2_6; }
+
+		//PropertySetDefault
+		public RuleCall getDefaultPropertiesPropertySetDefaultParserRuleCall_2_6_0() { return cDefaultPropertiesPropertySetDefaultParserRuleCall_2_6_0; }
 	}
 
 	public class ImportElements extends AbstractParserRuleElementFinder {
@@ -182,59 +187,59 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cImplementsAssignment_6_2_1 = (Assignment)cGroup_6_2.eContents().get(1);
 		private final RuleCall cImplementsSimpleTypeRefParserRuleCall_6_2_1_0 = (RuleCall)cImplementsAssignment_6_2_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cDefaultPropertiesAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cDefaultPropertiesPropertySetDefaultParserRuleCall_8_0 = (RuleCall)cDefaultPropertiesAssignment_8.eContents().get(0);
-		private final UnorderedGroup cUnorderedGroup_9 = (UnorderedGroup)cGroup.eContents().get(9);
-		private final Group cGroup_9_0 = (Group)cUnorderedGroup_9.eContents().get(0);
-		private final Keyword cSourceKeyword_9_0_0 = (Keyword)cGroup_9_0.eContents().get(0);
-		private final Keyword cColonKeyword_9_0_1 = (Keyword)cGroup_9_0.eContents().get(1);
-		private final Assignment cSourceLocationAssignment_9_0_2 = (Assignment)cGroup_9_0.eContents().get(2);
-		private final RuleCall cSourceLocationPathParserRuleCall_9_0_2_0 = (RuleCall)cSourceLocationAssignment_9_0_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_0_3 = (Keyword)cGroup_9_0.eContents().get(3);
-		private final Group cGroup_9_1 = (Group)cUnorderedGroup_9.eContents().get(1);
-		private final Keyword cOutputKeyword_9_1_0 = (Keyword)cGroup_9_1.eContents().get(0);
-		private final Keyword cColonKeyword_9_1_1 = (Keyword)cGroup_9_1.eContents().get(1);
-		private final Assignment cOutputLocationAssignment_9_1_2 = (Assignment)cGroup_9_1.eContents().get(2);
-		private final RuleCall cOutputLocationPathParserRuleCall_9_1_2_0 = (RuleCall)cOutputLocationAssignment_9_1_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_1_3 = (Keyword)cGroup_9_1.eContents().get(3);
-		private final Group cGroup_9_2 = (Group)cUnorderedGroup_9.eContents().get(2);
-		private final Keyword cProvidesKeyword_9_2_0 = (Keyword)cGroup_9_2.eContents().get(0);
-		private final Keyword cColonKeyword_9_2_1 = (Keyword)cGroup_9_2.eContents().get(1);
-		private final Assignment cProvidedCapabilitiesAssignment_9_2_2 = (Assignment)cGroup_9_2.eContents().get(2);
-		private final RuleCall cProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_2_2_0 = (RuleCall)cProvidedCapabilitiesAssignment_9_2_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_2_3 = (Keyword)cGroup_9_2.eContents().get(3);
-		private final Group cGroup_9_3 = (Group)cUnorderedGroup_9.eContents().get(3);
-		private final Keyword cRequiresKeyword_9_3_0 = (Keyword)cGroup_9_3.eContents().get(0);
-		private final Keyword cColonKeyword_9_3_1 = (Keyword)cGroup_9_3.eContents().get(1);
-		private final Assignment cRequiredCapabilitiesAssignment_9_3_2 = (Assignment)cGroup_9_3.eContents().get(2);
-		private final RuleCall cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_3_2_0 = (RuleCall)cRequiredCapabilitiesAssignment_9_3_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_3_3 = (Keyword)cGroup_9_3.eContents().get(3);
-		private final Group cGroup_9_4 = (Group)cUnorderedGroup_9.eContents().get(4);
-		private final Keyword cRequiresKeyword_9_4_0 = (Keyword)cGroup_9_4.eContents().get(0);
-		private final Keyword cEnvKeyword_9_4_1 = (Keyword)cGroup_9_4.eContents().get(1);
-		private final Keyword cColonKeyword_9_4_2 = (Keyword)cGroup_9_4.eContents().get(2);
-		private final Assignment cMetaRequiredCapabilitiesAssignment_9_4_3 = (Assignment)cGroup_9_4.eContents().get(3);
-		private final RuleCall cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_4_3_0 = (RuleCall)cMetaRequiredCapabilitiesAssignment_9_4_3.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_4_4 = (Keyword)cGroup_9_4.eContents().get(4);
-		private final Assignment cFunctionsAssignment_9_5 = (Assignment)cUnorderedGroup_9.eContents().get(5);
-		private final RuleCall cFunctionsBuilderParserRuleCall_9_5_0 = (RuleCall)cFunctionsAssignment_9_5.eContents().get(0);
-		private final Assignment cFunctionsAssignment_9_6 = (Assignment)cUnorderedGroup_9.eContents().get(6);
-		private final RuleCall cFunctionsFunctionParserRuleCall_9_6_0 = (RuleCall)cFunctionsAssignment_9_6.eContents().get(0);
-		private final Assignment cProvidersAssignment_9_7 = (Assignment)cUnorderedGroup_9.eContents().get(7);
-		private final RuleCall cProvidersTopLevelUnitProviderParserRuleCall_9_7_0 = (RuleCall)cProvidersAssignment_9_7.eContents().get(0);
-		private final Assignment cConcernsAssignment_9_8 = (Assignment)cUnorderedGroup_9.eContents().get(8);
-		private final RuleCall cConcernsConcern_NamedParserRuleCall_9_8_0 = (RuleCall)cConcernsAssignment_9_8.eContents().get(0);
-		private final Assignment cPropertySetsAssignment_9_9 = (Assignment)cUnorderedGroup_9.eContents().get(9);
-		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_9_9_0 = (RuleCall)cPropertySetsAssignment_9_9.eContents().get(0);
-		private final Group cGroup_9_10 = (Group)cUnorderedGroup_9.eContents().get(10);
-		private final Assignment cContainersAssignment_9_10_0 = (Assignment)cGroup_9_10.eContents().get(0);
-		private final RuleCall cContainersContainerConfigurationParserRuleCall_9_10_0_0 = (RuleCall)cContainersAssignment_9_10_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_10_1 = (Keyword)cGroup_9_10.eContents().get(1);
-		private final Assignment cSynchronizationsAssignment_9_11 = (Assignment)cUnorderedGroup_9.eContents().get(11);
-		private final RuleCall cSynchronizationsSynchronizationParserRuleCall_9_11_0 = (RuleCall)cSynchronizationsAssignment_9_11.eContents().get(0);
-		private final Assignment cRepositoriesAssignment_9_12 = (Assignment)cUnorderedGroup_9.eContents().get(12);
-		private final RuleCall cRepositoriesRepositoryParserRuleCall_9_12_0 = (RuleCall)cRepositoriesAssignment_9_12.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final UnorderedGroup cUnorderedGroup_8 = (UnorderedGroup)cGroup.eContents().get(8);
+		private final Group cGroup_8_0 = (Group)cUnorderedGroup_8.eContents().get(0);
+		private final Keyword cSourceKeyword_8_0_0 = (Keyword)cGroup_8_0.eContents().get(0);
+		private final Keyword cColonKeyword_8_0_1 = (Keyword)cGroup_8_0.eContents().get(1);
+		private final Assignment cSourceLocationAssignment_8_0_2 = (Assignment)cGroup_8_0.eContents().get(2);
+		private final RuleCall cSourceLocationPathParserRuleCall_8_0_2_0 = (RuleCall)cSourceLocationAssignment_8_0_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_8_0_3 = (Keyword)cGroup_8_0.eContents().get(3);
+		private final Group cGroup_8_1 = (Group)cUnorderedGroup_8.eContents().get(1);
+		private final Keyword cOutputKeyword_8_1_0 = (Keyword)cGroup_8_1.eContents().get(0);
+		private final Keyword cColonKeyword_8_1_1 = (Keyword)cGroup_8_1.eContents().get(1);
+		private final Assignment cOutputLocationAssignment_8_1_2 = (Assignment)cGroup_8_1.eContents().get(2);
+		private final RuleCall cOutputLocationPathParserRuleCall_8_1_2_0 = (RuleCall)cOutputLocationAssignment_8_1_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_8_1_3 = (Keyword)cGroup_8_1.eContents().get(3);
+		private final Group cGroup_8_2 = (Group)cUnorderedGroup_8.eContents().get(2);
+		private final Keyword cProvidesKeyword_8_2_0 = (Keyword)cGroup_8_2.eContents().get(0);
+		private final Keyword cColonKeyword_8_2_1 = (Keyword)cGroup_8_2.eContents().get(1);
+		private final Assignment cProvidedCapabilitiesAssignment_8_2_2 = (Assignment)cGroup_8_2.eContents().get(2);
+		private final RuleCall cProvidedCapabilitiesProvidedCapabilityParserRuleCall_8_2_2_0 = (RuleCall)cProvidedCapabilitiesAssignment_8_2_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_8_2_3 = (Keyword)cGroup_8_2.eContents().get(3);
+		private final Group cGroup_8_3 = (Group)cUnorderedGroup_8.eContents().get(3);
+		private final Keyword cRequiresKeyword_8_3_0 = (Keyword)cGroup_8_3.eContents().get(0);
+		private final Keyword cColonKeyword_8_3_1 = (Keyword)cGroup_8_3.eContents().get(1);
+		private final Assignment cRequiredCapabilitiesAssignment_8_3_2 = (Assignment)cGroup_8_3.eContents().get(2);
+		private final RuleCall cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_8_3_2_0 = (RuleCall)cRequiredCapabilitiesAssignment_8_3_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_8_3_3 = (Keyword)cGroup_8_3.eContents().get(3);
+		private final Group cGroup_8_4 = (Group)cUnorderedGroup_8.eContents().get(4);
+		private final Keyword cRequiresKeyword_8_4_0 = (Keyword)cGroup_8_4.eContents().get(0);
+		private final Keyword cEnvKeyword_8_4_1 = (Keyword)cGroup_8_4.eContents().get(1);
+		private final Keyword cColonKeyword_8_4_2 = (Keyword)cGroup_8_4.eContents().get(2);
+		private final Assignment cMetaRequiredCapabilitiesAssignment_8_4_3 = (Assignment)cGroup_8_4.eContents().get(3);
+		private final RuleCall cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_8_4_3_0 = (RuleCall)cMetaRequiredCapabilitiesAssignment_8_4_3.eContents().get(0);
+		private final Keyword cSemicolonKeyword_8_4_4 = (Keyword)cGroup_8_4.eContents().get(4);
+		private final Assignment cFunctionsAssignment_8_5 = (Assignment)cUnorderedGroup_8.eContents().get(5);
+		private final RuleCall cFunctionsBuilderParserRuleCall_8_5_0 = (RuleCall)cFunctionsAssignment_8_5.eContents().get(0);
+		private final Assignment cFunctionsAssignment_8_6 = (Assignment)cUnorderedGroup_8.eContents().get(6);
+		private final RuleCall cFunctionsFunctionParserRuleCall_8_6_0 = (RuleCall)cFunctionsAssignment_8_6.eContents().get(0);
+		private final Assignment cProvidersAssignment_8_7 = (Assignment)cUnorderedGroup_8.eContents().get(7);
+		private final RuleCall cProvidersTopLevelUnitProviderParserRuleCall_8_7_0 = (RuleCall)cProvidersAssignment_8_7.eContents().get(0);
+		private final Assignment cConcernsAssignment_8_8 = (Assignment)cUnorderedGroup_8.eContents().get(8);
+		private final RuleCall cConcernsConcern_NamedParserRuleCall_8_8_0 = (RuleCall)cConcernsAssignment_8_8.eContents().get(0);
+		private final Assignment cPropertySetsAssignment_8_9 = (Assignment)cUnorderedGroup_8.eContents().get(9);
+		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_8_9_0 = (RuleCall)cPropertySetsAssignment_8_9.eContents().get(0);
+		private final Group cGroup_8_10 = (Group)cUnorderedGroup_8.eContents().get(10);
+		private final Assignment cContainersAssignment_8_10_0 = (Assignment)cGroup_8_10.eContents().get(0);
+		private final RuleCall cContainersContainerConfigurationParserRuleCall_8_10_0_0 = (RuleCall)cContainersAssignment_8_10_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_8_10_1 = (Keyword)cGroup_8_10.eContents().get(1);
+		private final Assignment cSynchronizationsAssignment_8_11 = (Assignment)cUnorderedGroup_8.eContents().get(11);
+		private final RuleCall cSynchronizationsSynchronizationParserRuleCall_8_11_0 = (RuleCall)cSynchronizationsAssignment_8_11.eContents().get(0);
+		private final Assignment cRepositoriesAssignment_8_12 = (Assignment)cUnorderedGroup_8.eContents().get(12);
+		private final RuleCall cRepositoriesRepositoryParserRuleCall_8_12_0 = (RuleCall)cRepositoriesAssignment_8_12.eContents().get(0);
+		private final Assignment cDefaultPropertiesAssignment_8_13 = (Assignment)cUnorderedGroup_8.eContents().get(13);
+		private final RuleCall cDefaultPropertiesPropertySetDefaultParserRuleCall_8_13_0 = (RuleCall)cDefaultPropertiesAssignment_8_13.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//// Wanted later 
 		////Import : (reexport ?='reexport')? 
@@ -244,23 +249,23 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		////NativeImporter 	: uriString = STRING ;
 		//BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT):
 		//	{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=UnitName? ("version"
-		//	version=VersionLiteral)? ("implements" implements+=SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" //-- PROPERTIES
-		//	defaultProperties=PropertySetDefault? //--LOCATIONS
-		//	(("source" ":" sourceLocation=Path ";")? & ("output" ":" outputLocation=Path ";")? & ("provides" ":"
+		//	version=VersionLiteral)? ("implements" implements+=SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" (("source" ":"
+		//	sourceLocation=Path ";")? & ("output" ":" outputLocation=Path ";")? & ("provides" ":"
 		//	providedCapabilities+=ProvidedCapability ";")* & ("requires" ":" requiredCapabilities+=AliasedRequiredCapability ";")*
 		//	& ("requires" "env" ":" metaRequiredCapabilities+=RequiredCapability ";")* & functions+=Builder* &
 		//	functions+=Function* & providers+=TopLevelUnitProvider? & concerns+=Concern_Named* & propertySets+=PropertySet_Named*
-		//	& (containers+=ContainerConfiguration ";")* & synchronizations+=Synchronization* & repositories+=Repository*) "}";
+		//	& (containers+=ContainerConfiguration ";")* & synchronizations+=Synchronization* & repositories+=Repository* &
+		//	defaultProperties=PropertySetDefault?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=UnitName? ("version"
-		//version=VersionLiteral)? ("implements" implements+=SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" //-- PROPERTIES
-		//defaultProperties=PropertySetDefault? //--LOCATIONS
-		//(("source" ":" sourceLocation=Path ";")? & ("output" ":" outputLocation=Path ";")? & ("provides" ":"
+		//version=VersionLiteral)? ("implements" implements+=SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" (("source" ":"
+		//sourceLocation=Path ";")? & ("output" ":" outputLocation=Path ";")? & ("provides" ":"
 		//providedCapabilities+=ProvidedCapability ";")* & ("requires" ":" requiredCapabilities+=AliasedRequiredCapability ";")*
 		//& ("requires" "env" ":" metaRequiredCapabilities+=RequiredCapability ";")* & functions+=Builder* & functions+=Function*
 		//& providers+=TopLevelUnitProvider? & concerns+=Concern_Named* & propertySets+=PropertySet_Named* &
-		//(containers+=ContainerConfiguration ";")* & synchronizations+=Synchronization* & repositories+=Repository*) "}"
+		//(containers+=ContainerConfiguration ";")* & synchronizations+=Synchronization* & repositories+=Repository* &
+		//defaultProperties=PropertySetDefault?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//{build::BuildUnit}
@@ -326,168 +331,169 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
 
-		//defaultProperties=PropertySetDefault?
-		public Assignment getDefaultPropertiesAssignment_8() { return cDefaultPropertiesAssignment_8; }
-
-		//PropertySetDefault
-		public RuleCall getDefaultPropertiesPropertySetDefaultParserRuleCall_8_0() { return cDefaultPropertiesPropertySetDefaultParserRuleCall_8_0; }
-
 		//("source" ":" sourceLocation=Path ";")? & ("output" ":" outputLocation=Path ";")? & ("provides" ":"
 		//providedCapabilities+=ProvidedCapability ";")* & ("requires" ":" requiredCapabilities+=AliasedRequiredCapability ";")*
 		//& ("requires" "env" ":" metaRequiredCapabilities+=RequiredCapability ";")* & functions+=Builder* & functions+=Function*
 		//& providers+=TopLevelUnitProvider? & concerns+=Concern_Named* & propertySets+=PropertySet_Named* &
-		//(containers+=ContainerConfiguration ";")* & synchronizations+=Synchronization* & repositories+=Repository*
-		public UnorderedGroup getUnorderedGroup_9() { return cUnorderedGroup_9; }
+		//(containers+=ContainerConfiguration ";")* & synchronizations+=Synchronization* & repositories+=Repository* &
+		//defaultProperties=PropertySetDefault?
+		public UnorderedGroup getUnorderedGroup_8() { return cUnorderedGroup_8; }
 
 		//("source" ":" sourceLocation=Path ";")?
-		public Group getGroup_9_0() { return cGroup_9_0; }
+		public Group getGroup_8_0() { return cGroup_8_0; }
 
 		//"source"
-		public Keyword getSourceKeyword_9_0_0() { return cSourceKeyword_9_0_0; }
+		public Keyword getSourceKeyword_8_0_0() { return cSourceKeyword_8_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_9_0_1() { return cColonKeyword_9_0_1; }
+		public Keyword getColonKeyword_8_0_1() { return cColonKeyword_8_0_1; }
 
 		//sourceLocation=Path
-		public Assignment getSourceLocationAssignment_9_0_2() { return cSourceLocationAssignment_9_0_2; }
+		public Assignment getSourceLocationAssignment_8_0_2() { return cSourceLocationAssignment_8_0_2; }
 
 		//Path
-		public RuleCall getSourceLocationPathParserRuleCall_9_0_2_0() { return cSourceLocationPathParserRuleCall_9_0_2_0; }
+		public RuleCall getSourceLocationPathParserRuleCall_8_0_2_0() { return cSourceLocationPathParserRuleCall_8_0_2_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_0_3() { return cSemicolonKeyword_9_0_3; }
+		public Keyword getSemicolonKeyword_8_0_3() { return cSemicolonKeyword_8_0_3; }
 
 		//("output" ":" outputLocation=Path ";")?
-		public Group getGroup_9_1() { return cGroup_9_1; }
+		public Group getGroup_8_1() { return cGroup_8_1; }
 
 		//"output"
-		public Keyword getOutputKeyword_9_1_0() { return cOutputKeyword_9_1_0; }
+		public Keyword getOutputKeyword_8_1_0() { return cOutputKeyword_8_1_0; }
 
 		//":"
-		public Keyword getColonKeyword_9_1_1() { return cColonKeyword_9_1_1; }
+		public Keyword getColonKeyword_8_1_1() { return cColonKeyword_8_1_1; }
 
 		//outputLocation=Path
-		public Assignment getOutputLocationAssignment_9_1_2() { return cOutputLocationAssignment_9_1_2; }
+		public Assignment getOutputLocationAssignment_8_1_2() { return cOutputLocationAssignment_8_1_2; }
 
 		//Path
-		public RuleCall getOutputLocationPathParserRuleCall_9_1_2_0() { return cOutputLocationPathParserRuleCall_9_1_2_0; }
+		public RuleCall getOutputLocationPathParserRuleCall_8_1_2_0() { return cOutputLocationPathParserRuleCall_8_1_2_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_1_3() { return cSemicolonKeyword_9_1_3; }
+		public Keyword getSemicolonKeyword_8_1_3() { return cSemicolonKeyword_8_1_3; }
 
 		//("provides" ":" providedCapabilities+=ProvidedCapability ";")*
-		public Group getGroup_9_2() { return cGroup_9_2; }
+		public Group getGroup_8_2() { return cGroup_8_2; }
 
 		//"provides"
-		public Keyword getProvidesKeyword_9_2_0() { return cProvidesKeyword_9_2_0; }
+		public Keyword getProvidesKeyword_8_2_0() { return cProvidesKeyword_8_2_0; }
 
 		//":"
-		public Keyword getColonKeyword_9_2_1() { return cColonKeyword_9_2_1; }
+		public Keyword getColonKeyword_8_2_1() { return cColonKeyword_8_2_1; }
 
 		//providedCapabilities+=ProvidedCapability
-		public Assignment getProvidedCapabilitiesAssignment_9_2_2() { return cProvidedCapabilitiesAssignment_9_2_2; }
+		public Assignment getProvidedCapabilitiesAssignment_8_2_2() { return cProvidedCapabilitiesAssignment_8_2_2; }
 
 		//ProvidedCapability
-		public RuleCall getProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_2_2_0() { return cProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_2_2_0; }
+		public RuleCall getProvidedCapabilitiesProvidedCapabilityParserRuleCall_8_2_2_0() { return cProvidedCapabilitiesProvidedCapabilityParserRuleCall_8_2_2_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_2_3() { return cSemicolonKeyword_9_2_3; }
+		public Keyword getSemicolonKeyword_8_2_3() { return cSemicolonKeyword_8_2_3; }
 
 		//("requires" ":" requiredCapabilities+=AliasedRequiredCapability ";")*
-		public Group getGroup_9_3() { return cGroup_9_3; }
+		public Group getGroup_8_3() { return cGroup_8_3; }
 
 		//"requires"
-		public Keyword getRequiresKeyword_9_3_0() { return cRequiresKeyword_9_3_0; }
+		public Keyword getRequiresKeyword_8_3_0() { return cRequiresKeyword_8_3_0; }
 
 		//":"
-		public Keyword getColonKeyword_9_3_1() { return cColonKeyword_9_3_1; }
+		public Keyword getColonKeyword_8_3_1() { return cColonKeyword_8_3_1; }
 
 		//requiredCapabilities+=AliasedRequiredCapability
-		public Assignment getRequiredCapabilitiesAssignment_9_3_2() { return cRequiredCapabilitiesAssignment_9_3_2; }
+		public Assignment getRequiredCapabilitiesAssignment_8_3_2() { return cRequiredCapabilitiesAssignment_8_3_2; }
 
 		//AliasedRequiredCapability
-		public RuleCall getRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_3_2_0() { return cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_3_2_0; }
+		public RuleCall getRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_8_3_2_0() { return cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_8_3_2_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_3_3() { return cSemicolonKeyword_9_3_3; }
+		public Keyword getSemicolonKeyword_8_3_3() { return cSemicolonKeyword_8_3_3; }
 
 		//("requires" "env" ":" metaRequiredCapabilities+=RequiredCapability ";")*
-		public Group getGroup_9_4() { return cGroup_9_4; }
+		public Group getGroup_8_4() { return cGroup_8_4; }
 
 		//"requires"
-		public Keyword getRequiresKeyword_9_4_0() { return cRequiresKeyword_9_4_0; }
+		public Keyword getRequiresKeyword_8_4_0() { return cRequiresKeyword_8_4_0; }
 
 		//"env"
-		public Keyword getEnvKeyword_9_4_1() { return cEnvKeyword_9_4_1; }
+		public Keyword getEnvKeyword_8_4_1() { return cEnvKeyword_8_4_1; }
 
 		//":"
-		public Keyword getColonKeyword_9_4_2() { return cColonKeyword_9_4_2; }
+		public Keyword getColonKeyword_8_4_2() { return cColonKeyword_8_4_2; }
 
 		//metaRequiredCapabilities+=RequiredCapability
-		public Assignment getMetaRequiredCapabilitiesAssignment_9_4_3() { return cMetaRequiredCapabilitiesAssignment_9_4_3; }
+		public Assignment getMetaRequiredCapabilitiesAssignment_8_4_3() { return cMetaRequiredCapabilitiesAssignment_8_4_3; }
 
 		//RequiredCapability
-		public RuleCall getMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_4_3_0() { return cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_4_3_0; }
+		public RuleCall getMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_8_4_3_0() { return cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_8_4_3_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_4_4() { return cSemicolonKeyword_9_4_4; }
+		public Keyword getSemicolonKeyword_8_4_4() { return cSemicolonKeyword_8_4_4; }
 
 		//functions+=Builder*
-		public Assignment getFunctionsAssignment_9_5() { return cFunctionsAssignment_9_5; }
+		public Assignment getFunctionsAssignment_8_5() { return cFunctionsAssignment_8_5; }
 
 		//Builder
-		public RuleCall getFunctionsBuilderParserRuleCall_9_5_0() { return cFunctionsBuilderParserRuleCall_9_5_0; }
+		public RuleCall getFunctionsBuilderParserRuleCall_8_5_0() { return cFunctionsBuilderParserRuleCall_8_5_0; }
 
 		//functions+=Function*
-		public Assignment getFunctionsAssignment_9_6() { return cFunctionsAssignment_9_6; }
+		public Assignment getFunctionsAssignment_8_6() { return cFunctionsAssignment_8_6; }
 
 		//Function
-		public RuleCall getFunctionsFunctionParserRuleCall_9_6_0() { return cFunctionsFunctionParserRuleCall_9_6_0; }
+		public RuleCall getFunctionsFunctionParserRuleCall_8_6_0() { return cFunctionsFunctionParserRuleCall_8_6_0; }
 
 		//providers+=TopLevelUnitProvider?
-		public Assignment getProvidersAssignment_9_7() { return cProvidersAssignment_9_7; }
+		public Assignment getProvidersAssignment_8_7() { return cProvidersAssignment_8_7; }
 
 		//TopLevelUnitProvider
-		public RuleCall getProvidersTopLevelUnitProviderParserRuleCall_9_7_0() { return cProvidersTopLevelUnitProviderParserRuleCall_9_7_0; }
+		public RuleCall getProvidersTopLevelUnitProviderParserRuleCall_8_7_0() { return cProvidersTopLevelUnitProviderParserRuleCall_8_7_0; }
 
 		//concerns+=Concern_Named*
-		public Assignment getConcernsAssignment_9_8() { return cConcernsAssignment_9_8; }
+		public Assignment getConcernsAssignment_8_8() { return cConcernsAssignment_8_8; }
 
 		//Concern_Named
-		public RuleCall getConcernsConcern_NamedParserRuleCall_9_8_0() { return cConcernsConcern_NamedParserRuleCall_9_8_0; }
+		public RuleCall getConcernsConcern_NamedParserRuleCall_8_8_0() { return cConcernsConcern_NamedParserRuleCall_8_8_0; }
 
 		//propertySets+=PropertySet_Named*
-		public Assignment getPropertySetsAssignment_9_9() { return cPropertySetsAssignment_9_9; }
+		public Assignment getPropertySetsAssignment_8_9() { return cPropertySetsAssignment_8_9; }
 
 		//PropertySet_Named
-		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_9_9_0() { return cPropertySetsPropertySet_NamedParserRuleCall_9_9_0; }
+		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_8_9_0() { return cPropertySetsPropertySet_NamedParserRuleCall_8_9_0; }
 
 		//(containers+=ContainerConfiguration ";")*
-		public Group getGroup_9_10() { return cGroup_9_10; }
+		public Group getGroup_8_10() { return cGroup_8_10; }
 
 		//containers+=ContainerConfiguration
-		public Assignment getContainersAssignment_9_10_0() { return cContainersAssignment_9_10_0; }
+		public Assignment getContainersAssignment_8_10_0() { return cContainersAssignment_8_10_0; }
 
 		//ContainerConfiguration
-		public RuleCall getContainersContainerConfigurationParserRuleCall_9_10_0_0() { return cContainersContainerConfigurationParserRuleCall_9_10_0_0; }
+		public RuleCall getContainersContainerConfigurationParserRuleCall_8_10_0_0() { return cContainersContainerConfigurationParserRuleCall_8_10_0_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_10_1() { return cSemicolonKeyword_9_10_1; }
+		public Keyword getSemicolonKeyword_8_10_1() { return cSemicolonKeyword_8_10_1; }
 
 		//synchronizations+=Synchronization*
-		public Assignment getSynchronizationsAssignment_9_11() { return cSynchronizationsAssignment_9_11; }
+		public Assignment getSynchronizationsAssignment_8_11() { return cSynchronizationsAssignment_8_11; }
 
 		//Synchronization
-		public RuleCall getSynchronizationsSynchronizationParserRuleCall_9_11_0() { return cSynchronizationsSynchronizationParserRuleCall_9_11_0; }
+		public RuleCall getSynchronizationsSynchronizationParserRuleCall_8_11_0() { return cSynchronizationsSynchronizationParserRuleCall_8_11_0; }
 
 		//repositories+=Repository*
-		public Assignment getRepositoriesAssignment_9_12() { return cRepositoriesAssignment_9_12; }
+		public Assignment getRepositoriesAssignment_8_12() { return cRepositoriesAssignment_8_12; }
 
 		//Repository
-		public RuleCall getRepositoriesRepositoryParserRuleCall_9_12_0() { return cRepositoriesRepositoryParserRuleCall_9_12_0; }
+		public RuleCall getRepositoriesRepositoryParserRuleCall_8_12_0() { return cRepositoriesRepositoryParserRuleCall_8_12_0; }
+
+		//defaultProperties=PropertySetDefault?
+		public Assignment getDefaultPropertiesAssignment_8_13() { return cDefaultPropertiesAssignment_8_13; }
+
+		//PropertySetDefault
+		public RuleCall getDefaultPropertiesPropertySetDefaultParserRuleCall_8_13_0() { return cDefaultPropertiesPropertySetDefaultParserRuleCall_8_13_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 
 	public class ProvidedCapabilityElements extends AbstractParserRuleElementFinder {
@@ -11162,8 +11168,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//// uncomments if things are needed that should not be in backend or build
 	////generate beeLang "http://www.eclipse.org/b3/BeeLang"
 	//BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT):
-	//	{build::BeeModel} (imports+=Import* (functions+=Function | concerns+=Concern_Named | propertySets+=PropertySet_Named |
-	//	buildUnits+=BuildUnit | providers+=TopLevelUnitProvider | repositories+=Repository)*);
+	//	{build::BeeModel} imports+=Import* (functions+=Function* & concerns+=Concern_Named* & propertySets+=PropertySet_Named*
+	//	& buildUnits+=BuildUnit* & providers+=TopLevelUnitProvider? & repositories+=Repository* &
+	//	defaultProperties=PropertySetDefault?);
 	public BeeModelElements getBeeModelAccess() {
 		return (pBeeModel != null) ? pBeeModel : (pBeeModel = new BeeModelElements());
 	}
@@ -11190,13 +11197,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	////NativeImporter 	: uriString = STRING ;
 	//BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT):
 	//	{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=UnitName? ("version"
-	//	version=VersionLiteral)? ("implements" implements+=SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" //-- PROPERTIES
-	//	defaultProperties=PropertySetDefault? //--LOCATIONS
-	//	(("source" ":" sourceLocation=Path ";")? & ("output" ":" outputLocation=Path ";")? & ("provides" ":"
+	//	version=VersionLiteral)? ("implements" implements+=SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" (("source" ":"
+	//	sourceLocation=Path ";")? & ("output" ":" outputLocation=Path ";")? & ("provides" ":"
 	//	providedCapabilities+=ProvidedCapability ";")* & ("requires" ":" requiredCapabilities+=AliasedRequiredCapability ";")*
 	//	& ("requires" "env" ":" metaRequiredCapabilities+=RequiredCapability ";")* & functions+=Builder* &
 	//	functions+=Function* & providers+=TopLevelUnitProvider? & concerns+=Concern_Named* & propertySets+=PropertySet_Named*
-	//	& (containers+=ContainerConfiguration ";")* & synchronizations+=Synchronization* & repositories+=Repository*) "}";
+	//	& (containers+=ContainerConfiguration ";")* & synchronizations+=Synchronization* & repositories+=Repository* &
+	//	defaultProperties=PropertySetDefault?) "}";
 	public BuildUnitElements getBuildUnitAccess() {
 		return (pBuildUnit != null) ? pBuildUnit : (pBuildUnit = new BuildUnitElements());
 	}

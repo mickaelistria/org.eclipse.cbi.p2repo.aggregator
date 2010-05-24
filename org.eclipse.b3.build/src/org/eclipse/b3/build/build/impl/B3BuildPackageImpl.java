@@ -974,6 +974,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(beeModelEClass, BEE_MODEL__PROPERTY_SETS);
 		createEReference(beeModelEClass, BEE_MODEL__REPOSITORIES);
 		createEReference(beeModelEClass, BEE_MODEL__PROVIDERS);
+		createEReference(beeModelEClass, BEE_MODEL__DEFAULT_PROPERTIES);
 
 		beeHiveEClass = createEClass(BEE_HIVE);
 		createEReference(beeHiveEClass, BEE_HIVE__BEE_MODELS);
@@ -1172,6 +1173,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EReference getBeeModel_Concerns() {
 		return (EReference) beeModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getBeeModel_DefaultProperties() {
+		return (EReference) beeModelEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -4242,6 +4253,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getBeeModel_Providers(), this.getFirstFoundUnitProvider(), null, "providers", null, 0, -1, BeeModel.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getBeeModel_DefaultProperties(), theB3backendPackage.getBPropertySet(), null, "defaultProperties", null, 0,
+			1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(beeModelEClass, this.getFirstFoundUnitProvider(), "getUnitProvider", 0, 1, IS_UNIQUE, IS_ORDERED);
 

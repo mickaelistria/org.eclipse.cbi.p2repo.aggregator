@@ -379,7 +379,7 @@ public class B3BuildValidator extends EObjectValidator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateBeeModel(BeeModel beeModel, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		// return validate_EveryDefaultConstraint(beeModel, diagnostics, context);

@@ -485,6 +485,8 @@
         eType="#//Repository" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providers" upperBound="-1"
         eType="#//FirstFoundUnitProvider" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultProperties" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BeeHive">
     <eOperations name="getResolvedCapabilityContainer" eType="#//IProvidedCapabilityContainer">

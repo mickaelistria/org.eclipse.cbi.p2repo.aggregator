@@ -32,10 +32,12 @@ import org.eclipse.b3.build.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.UnitProvider;
 import org.eclipse.b3.build.core.B3BuildConstants;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -53,6 +55,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getRepositories <em>Repositories</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getProviders <em>Providers</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getDefaultProperties <em>Default Properties</em>}</li>
  * </ul>
  * </p>
  * 
@@ -137,6 +140,17 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	protected EList<FirstFoundUnitProvider> providers;
 
 	/**
+	 * The cached value of the '{@link #getDefaultProperties() <em>Default Properties</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getDefaultProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected BPropertySet defaultProperties;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -144,6 +158,27 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 */
 	protected BeeModelImpl() {
 		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetDefaultProperties(BPropertySet newDefaultProperties, NotificationChain msgs) {
+		BPropertySet oldDefaultProperties = defaultProperties;
+		defaultProperties = newDefaultProperties;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BEE_MODEL__DEFAULT_PROPERTIES, oldDefaultProperties,
+				newDefaultProperties);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -169,6 +204,8 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 				return getRepositories();
 			case B3BuildPackage.BEE_MODEL__PROVIDERS:
 				return getProviders();
+			case B3BuildPackage.BEE_MODEL__DEFAULT_PROPERTIES:
+				return getDefaultProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -196,6 +233,8 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 				return ((InternalEList<?>) getRepositories()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BEE_MODEL__PROVIDERS:
 				return ((InternalEList<?>) getProviders()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BEE_MODEL__DEFAULT_PROPERTIES:
+				return basicSetDefaultProperties(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -223,6 +262,8 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 				return repositories != null && !repositories.isEmpty();
 			case B3BuildPackage.BEE_MODEL__PROVIDERS:
 				return providers != null && !providers.isEmpty();
+			case B3BuildPackage.BEE_MODEL__DEFAULT_PROPERTIES:
+				return defaultProperties != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -264,6 +305,9 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 			case B3BuildPackage.BEE_MODEL__PROVIDERS:
 				getProviders().clear();
 				getProviders().addAll((Collection<? extends FirstFoundUnitProvider>) newValue);
+				return;
+			case B3BuildPackage.BEE_MODEL__DEFAULT_PROPERTIES:
+				setDefaultProperties((BPropertySet) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -310,6 +354,9 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 			case B3BuildPackage.BEE_MODEL__PROVIDERS:
 				getProviders().clear();
 				return;
+			case B3BuildPackage.BEE_MODEL__DEFAULT_PROPERTIES:
+				setDefaultProperties((BPropertySet) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -350,6 +397,10 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 		// Define all FUNCTIONS
 		for(IFunction f : getFunctions())
 			bctx.defineFunction(f);
+
+		// Evaluate default properties
+		if(getDefaultProperties() != null)
+			getDefaultProperties().evaluateDefaults(ctx, true);
 
 		// Evaluate REPOSITORIES
 		// (This will create the repository impl instances
@@ -419,6 +470,16 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		return BeeModel.class;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BPropertySet getDefaultProperties() {
+		return defaultProperties;
 	}
 
 	/**
@@ -500,5 +561,30 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 		return getProviders().size() > 0
 				? getProviders().get(0)
 				: null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setDefaultProperties(BPropertySet newDefaultProperties) {
+		if(newDefaultProperties != defaultProperties) {
+			NotificationChain msgs = null;
+			if(defaultProperties != null)
+				msgs = ((InternalEObject) defaultProperties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.BEE_MODEL__DEFAULT_PROPERTIES, null, msgs);
+			if(newDefaultProperties != null)
+				msgs = ((InternalEObject) newDefaultProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.BEE_MODEL__DEFAULT_PROPERTIES, null, msgs);
+			msgs = basicSetDefaultProperties(newDefaultProperties, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BEE_MODEL__DEFAULT_PROPERTIES, newDefaultProperties,
+				newDefaultProperties));
 	}
 } // BeeModelImpl

@@ -24,15 +24,15 @@ import "platform:/resource/org.eclipse.b3.build/model/B3Build.ecore" as build
 //generate beeLang "http://www.eclipse.org/b3/BeeLang"
 
 BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT) : {build::BeeModel}
-	((imports += Import)* 
-	(	(functions += Function) 
-	| 	(concerns += Concern_Named)
-	|	(propertySets += PropertySet_Named)
-	|   (buildUnits += BuildUnit)
-	| 	(providers += TopLevelUnitProvider)
-	|   (repositories += Repository)
-	)* 
-	 )
+	(imports += Import)* 
+	( (functions += Function)* 
+	& (concerns += Concern_Named)*
+	& (propertySets += PropertySet_Named)*
+	& (buildUnits += BuildUnit)*
+	& (providers += TopLevelUnitProvider)?
+	& (repositories += Repository)*
+	& (defaultProperties = PropertySetDefault)?
+	) 
 	;
 
 Import returns be::IType : {be::B3JavaImport}
@@ -53,9 +53,6 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 	'unit' (name=UnitName)? ('version' version = VersionLiteral)?
 		('implements' implements += SimpleTypeRef (',' implements+=SimpleTypeRef)*)? 
 	'{'
-		//-- PROPERTIES
-		(defaultProperties = PropertySetDefault)?
-		//--LOCATIONS
 		( ('source' ':' sourceLocation = Path ';')?
 		& ('output' ':' outputLocation = Path ';')?
 		& ('provides' ':' (providedCapabilities += ProvidedCapability) ';')*
@@ -69,6 +66,7 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 		& (containers += ContainerConfiguration ';' )*
 		& (synchronizations += Synchronization )*
 		& (repositories += Repository)*
+		& (defaultProperties = PropertySetDefault)?
 		)
 		
 	'}';

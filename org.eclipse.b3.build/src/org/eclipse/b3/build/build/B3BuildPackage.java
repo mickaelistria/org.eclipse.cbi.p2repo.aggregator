@@ -437,6 +437,15 @@ public interface B3BuildPackage extends EPackage {
 		EReference BEE_MODEL__PROVIDERS = eINSTANCE.getBeeModel_Providers();
 
 		/**
+		 * The meta object literal for the '<em><b>Default Properties</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference BEE_MODEL__DEFAULT_PROPERTIES = eINSTANCE.getBeeModel_DefaultProperties();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeHiveImpl <em>Bee Hive</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5936,6 +5945,16 @@ public interface B3BuildPackage extends EPackage {
 	int BEE_MODEL__PROVIDERS = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_MODEL__DEFAULT_PROPERTIES = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Bee Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5943,7 +5962,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEE_MODEL_FEATURE_COUNT = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 7;
+	int BEE_MODEL_FEATURE_COUNT = B3backendPackage.BCHAINED_EXPRESSION_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BeeHiveImpl <em>Bee Hive</em>}' class.
@@ -7223,6 +7242,19 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBeeModel_Concerns();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BeeModel#getDefaultProperties
+	 * <em>Default Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Default Properties</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModel#getDefaultProperties()
+	 * @see #getBeeModel()
+	 * @generated
+	 */
+	EReference getBeeModel_DefaultProperties();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getFunctions <em>Functions</em>}'.

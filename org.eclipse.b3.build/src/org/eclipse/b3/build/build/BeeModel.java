@@ -30,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.build.build.BeeModel#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BeeModel#getRepositories <em>Repositories</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.BeeModel#getProviders <em>Providers</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BeeModel#getDefaultProperties <em>Default Properties</em>}</li>
  * </ul>
  * </p>
  * 
@@ -69,6 +70,22 @@ public interface BeeModel extends BChainedExpression {
 	 * @generated
 	 */
 	EList<BConcern> getConcerns();
+
+	/**
+	 * Returns the value of the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Properties</em>' containment reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Default Properties</em>' containment reference.
+	 * @see #setDefaultProperties(BPropertySet)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBeeModel_DefaultProperties()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BPropertySet getDefaultProperties();
 
 	/**
 	 * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
@@ -161,5 +178,17 @@ public interface BeeModel extends BChainedExpression {
 	 * @generated
 	 */
 	FirstFoundUnitProvider getUnitProvider();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BeeModel#getDefaultProperties <em>Default Properties</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Default Properties</em>' containment reference.
+	 * @see #getDefaultProperties()
+	 * @generated
+	 */
+	void setDefaultProperties(BPropertySet value);
 
 } // BeeModel
