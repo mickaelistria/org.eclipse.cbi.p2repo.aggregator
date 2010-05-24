@@ -34,7 +34,7 @@ function testNewWithConstructorBlock() {
 		// only looks for the declared types in the method signature...
 		// it should search for the best method !!
 		// See: https://bugs.eclipse.org/bugs/show_bug.cgi?id=297661
-		Object key = 'dear tester';
+		Object key : 'dear tester';
 		Object value = 'have a cigar';
 		theMap.put(key, value);
 		assertFalse("instance value 'empty' should be false", this.empty);
