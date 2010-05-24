@@ -4,6 +4,7 @@ import java.lang.StringBuffer;
 import java.util.HashMap;
 import java.lang.Float;
 import java.lang.Object;
+import org.eclipse.b3.beelang.tests.testmaterial.Person;
 
 function main(List argv) {
 	testNew();
@@ -28,15 +29,11 @@ function testNew() {
 	assertType("A hashmap should have been created", HashMap, hm);
 }
 function testNewWithConstructorBlock() {
-	var hm = new HashMap as theMap {
-		assertTrue("access to instance context 'empty'", this.empty);
-		// TODO: This stupid construction is required because the system context
-		// only looks for the declared types in the method signature...
-		// it should search for the best method !!
-		// See: https://bugs.eclipse.org/bugs/show_bug.cgi?id=297661
-		Object key : 'dear tester';
-		Object value = 'have a cigar';
-		theMap.put(key, value);
-		assertFalse("instance value 'empty' should be false", this.empty);
+	var a = "";
+	var hm = new Person  {
+		name : a = "fjodor";
+
 		};
+	assertEquals("The name of the person should have been set", "fjodor", hm.name);
+	assertEquals("The name of the var a should have been set", "fjodor", a);
 }
