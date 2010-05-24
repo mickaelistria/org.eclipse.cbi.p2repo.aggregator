@@ -1,0 +1,6 @@
+import java.util.List;
+import java.lang.Integer;
+
+function main(List argv) {
+	[<Integer> 1, 2, 3, 4 ].collect(Integer x | x * 2);
+}

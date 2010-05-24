@@ -2,9 +2,9 @@ import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
 
 unit orange version 1.0.0 implements Fruit {
 	
-	provides food.nutrition.vitamin/C;
+	provides : food.nutrition.vitamin C;
 	
-	builder peel provides gastronomy.taste/zest {
+	builder peel provides : [ gastronomy.taste zest ] {
 		output { orangepeel.txt; }
 	}
 	builder seeds {

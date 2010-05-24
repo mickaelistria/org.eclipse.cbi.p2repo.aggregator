@@ -1,0 +1,95 @@
+import java.util.List;
+import java.lang.Iterable;
+import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
+import org.eclipse.b3.build.build.BuildUnit;
+
+/**
+ * Runs test in the IDE.
+ */
+function main(List argv) {
+	testBuildingFruitSallad();
+}
+
+/**
+* Tests that a fruitsallad can be build - i.e, that its prerequisites in input has
+* been resolved, the builders are found, exectuted, returns a result that is merged
+* as expected.
+*/
+function testBuildingFruitSallad() {
+	var engine = $test.engine;
+	var sallad = $test.fruitsallad;
+	var x = sallad.make();
+	x.schedule();
+	x.join();
+	var r = x.getBuildResult();
+	 
+	r.getPathIterator().toList().collect(x|x.toString()+"\n");
+}
+
+unit fruitsallad version 1.0.0 {
+	builder make {
+		input {
+			unit/apple/1.0.0 #pulp;
+			unit/banana/1.0.0 #pulp;
+			unit/orange/1.0.0 #pulp;
+			gastronomy.taste/zestyPeel#peel;
+		}
+	}
+}
+/**
+* A Fruit with the simplest form of builders (source).
+*/
+unit apple version 1.0.0  implements Fruit {
+	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/";
+	builder peel {
+		source { applepeel.txt; }
+	}
+	builder seeds {
+		source { appleseeds.txt; }
+	}
+	builder pulp {
+		source { applepulp.txt; }
+	}
+}
+
+/**
+* A Fruit with the simplest form of builders (source).
+* Has some extra provided capabilities.
+*/
+unit banana version 1.0.0 implements Fruit {
+	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/banana/";
+	
+	provides food.nutrition.vitamin/B6;
+	provides food.nutrition.vitamin/C;
+	provides food.nutrition.mineral/potassium;
+	
+	builder peel {
+		source { bananapeel.txt; }
+	}
+	builder seeds {
+		source { bananaseeds.txt; }
+	}
+	builder pulp {
+		source { bananapulp.txt; }
+	}
+}
+
+/**
+* A Fruit with the simplest form of builders (source).
+* Has some extra provided capabilities, and a capability provided by a builder.
+*/
+unit orange version 1.0.0 implements Fruit {
+	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/";
+	
+	provides food.nutrition.vitamin/C;
+	
+	builder peel provides gastronomy.taste/zestyPeel {
+		source { orangepeel.txt; }
+	}
+	builder seeds {
+		source { orangeseeds.txt; }
+	}
+	builder pulp {
+		source { orangepulp.txt; }
+	}
+}

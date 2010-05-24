@@ -115,27 +115,45 @@ concern TestingBuilderContextBody {
 }
 concern TestingUnitContextBody {
 	context unit _ {
-		+ requires foo/bar/1.0.0;
-		+ requires { a/b; c/d; e/f; }
-		+ requires when($a.b.c == "green") something/green/[1.0.0,2.0.0] as greenStuff;
+		+ requires : foo bar { version : 1.0.0; };
+		+ requires : a b {}; // NO {} 
+		+ requires : c d {}; 
+		+ requires : e f {};
+		+ requires : something green as greenStuff {version : [1.0.0,2.0.0]; when : $a.b.c == "green";}; 
 		- requires _/missspelled;
 		
 		// can find the "greenStuff" declared above
 		builder foo { input { greenStuff#files; } }
 	}
 }
+	repository cvs TestRepo {
+			connection : "http://abc.org" ; 
+			local : "file://aLocalURL/"; 
+			user : "hello";
+			password : "hush-hush";
+		}
+
 // Define a unit
 unit aTestUnit version 1.0.0 {
-	source = "resource:/a.b.c/src/";
-	output = "output:/a.b.c/";
+	source : "resource:/a.b.c/src/";
+	output : "output:/a.b.c/";
 		
-	provides food.nutrition.vitamin/B6;
-	provides food.nutrition.vitamin/C;
-	provides food.nutrition.mineral/potassium;
+	provides : food.nutrition.vitamin B6;
+	provides : food.nutrition.mineral potassium;
+	provides : food.nutrition.vitamin C;
 	
-	resolution {
-		select-switch request.name case "a" : repository TestRepo case _ : repository TestRepo endswitch
-	}
+	repository cvs TestRepo {
+			connection : "http://abc.org" ; 
+			local : "file://aLocalURL/"; 
+			user : "hello";
+			password : "hush-hush";
+		}
+	resolution : [
+		select-switch request.name 
+			case "a" : 	repository TestRepo { path : "foo"; }
+			case _ : 	repository TestRepo
+			endswitch
+	];
 	
 	builder peel {
 		output { bananapeel.txt; }

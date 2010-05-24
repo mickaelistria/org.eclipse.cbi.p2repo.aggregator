@@ -1,15 +1,11 @@
-import java.util.List;
 
-function main(List argv) {
-	true;
-}
 unit fruitsallad version 1.0.0 {
 	builder make {
 		input {
-			unit/apple/1.0.0#dice;
-			unit/banana/1.0.0#dice;
-			unit/orange/1.0.0#dice;
-			gastronomy.taste/zest#peel;
+			unit/apple/1.0.0 # dice;
+			unit/banana/1.0.0 # dice;
+			unit/orange/1.0.0 # dice;
+			gastronomy.taste/zest # peel;
 		}
 	}
 }

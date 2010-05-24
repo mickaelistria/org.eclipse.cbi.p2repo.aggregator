@@ -18,7 +18,7 @@ concern FruitProcessing {
  * Runs test in the IDE.
  */
 function main(List argv) {
-//	testBuildingFruitSallad();
+	testBuildingFruitSallad();
 	testFruitWaste();
 	testRunBuildersAndMergeResult();
 }
@@ -106,7 +106,7 @@ function testFruitWaste() {
 * the current execution context). 
 */
 unit fruitsallad version 1.0.0 {
-	resolution { repository TestRepo }
+//	resolution { repository TestRepo }
 	builder make {
 		input {
 			unit/apple/1.0.0#pulp;
@@ -121,7 +121,7 @@ unit fruitsallad version 1.0.0 {
 * A Fruit with the simplest form of builders (source).
 */
 unit apple version 1.0.0  implements Fruit {
-	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/";
+	source : "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/";
 	builder peel {
 		source { applepeel.txt; }
 	}
@@ -138,11 +138,11 @@ unit apple version 1.0.0  implements Fruit {
 * Has some extra provided capabilities.
 */
 unit banana version 1.0.0 implements Fruit {
-	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/banana/";
+	source : "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/banana/";
 	
-	provides food.nutrition.vitamin/B6;
-	provides food.nutrition.vitamin/C;
-	provides food.nutrition.mineral/potassium;
+	provides : food.nutrition.vitamin B6;
+	provides : food.nutrition.vitamin C;
+	provides : food.nutrition.mineral potassium;
 	
 	builder peel {
 		source { bananapeel.txt; }
@@ -160,11 +160,11 @@ unit banana version 1.0.0 implements Fruit {
 * Has some extra provided capabilities, and a capability provided by a builder.
 */
 unit orange version 1.0.0 implements Fruit {
-	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/";
+	source : "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/";
 	
-	provides food.nutrition.vitamin/C;
+	provides : food.nutrition.vitamin C;
 	
-	builder peel provides gastronomy.taste/zestyPeel {
+	builder peel provides :[ gastronomy.taste zestyPeel] {
 		source { orangepeel.txt; }
 	}
 	builder seeds {
