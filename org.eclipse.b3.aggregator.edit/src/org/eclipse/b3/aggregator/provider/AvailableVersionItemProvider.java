@@ -180,8 +180,10 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_AvailableVersion_filter_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_AvailableVersion_filter_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_filter_feature",
 				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__FILTER, false, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -196,8 +198,10 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 */
 	protected void addVersionMatchPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_AvailableVersion_versionMatch_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_AvailableVersion_versionMatch_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_versionMatch_feature",
 				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION_MATCH, false,
 			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -212,8 +216,10 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_AvailableVersion_version_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_AvailableVersion_version_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_version_feature",
 				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION, false, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

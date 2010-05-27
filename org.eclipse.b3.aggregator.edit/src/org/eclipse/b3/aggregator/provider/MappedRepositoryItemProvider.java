@@ -177,8 +177,10 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 */
 	protected void addCategoryPrefixPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MappedRepository_categoryPrefix_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MappedRepository_categoryPrefix_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_MappedRepository_categoryPrefix_feature",
 				"_UI_MappedRepository_type"), AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORY_PREFIX, true,
 			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -192,8 +194,10 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_DescriptionProvider_description_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_DescriptionProvider_description_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
 				"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true,
 			true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -207,8 +211,10 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 */
 	protected void addMirrorArtifactsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MappedRepository_mirrorArtifacts_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MappedRepository_mirrorArtifacts_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_MappedRepository_mirrorArtifacts_feature",
 				"_UI_MappedRepository_type"), AggregatorPackage.Literals.MAPPED_REPOSITORY__MIRROR_ARTIFACTS, true,
 			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
@@ -377,8 +383,8 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 						category, IEditingDomainItemProvider.class);
 
 					Command cmd = editingDomainItemProvider.createCommand(
-						category, domain, RemoveCommand.class, new CommandParameter(
-							category, null, Collections.singleton(removedFeature)));
+						category, domain, RemoveCommand.class,
+						new CommandParameter(category, null, Collections.singleton(removedFeature)));
 					commands.add(cmd);
 				}
 			}

@@ -63,7 +63,7 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MOTIF(0, "Motif", "motif");
+	MOTIF(4, "Motif", "motif");
 
 	/**
 	 * The '<em><b>Win32</b></em>' literal value.
@@ -138,7 +138,7 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MOTIF_VALUE = 0;
+	public static final int MOTIF_VALUE = 4;
 
 	/**
 	 * An array of all the '<em><b>Window System</b></em>' enumerators.
@@ -174,6 +174,8 @@ public enum WindowSystem implements Enumerator {
 				return CARBON;
 			case COCOA_VALUE:
 				return COCOA;
+			case MOTIF_VALUE:
+				return MOTIF;
 		}
 		return null;
 	}

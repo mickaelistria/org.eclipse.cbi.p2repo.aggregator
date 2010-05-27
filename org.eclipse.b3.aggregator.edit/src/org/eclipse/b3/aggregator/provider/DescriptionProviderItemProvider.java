@@ -130,8 +130,10 @@ public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapt
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_DescriptionProvider_description_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_DescriptionProvider_description_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
 				"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true,
 			true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

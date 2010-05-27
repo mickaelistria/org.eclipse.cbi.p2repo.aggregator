@@ -134,7 +134,7 @@
     <eLiterals name="GTK" value="1" literal="gtk"/>
     <eLiterals name="Carbon" value="2" literal="carbon"/>
     <eLiterals name="Cocoa" value="3" literal="cocoa"/>
-    <eLiterals name="Motif" literal="motif"/>
+    <eLiterals name="Motif" value="4" literal="motif"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Architecture">
     <eLiterals name="X86" literal="x86"/>
@@ -143,6 +143,9 @@
     <eLiterals name="IA64" value="3" literal="ia64"/>
     <eLiterals name="IA64_32" value="4" literal="ia64_32"/>
     <eLiterals name="Sparc" value="5" literal="sparc"/>
+    <eLiterals name="PPC64" value="6" literal="ppc64"/>
+    <eLiterals name="S360" value="7" literal="s360"/>
+    <eLiterals name="S360X" value="8" literal="s360x"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PackedStrategy">
     <eLiterals name="Copy" literal="COPY"/>

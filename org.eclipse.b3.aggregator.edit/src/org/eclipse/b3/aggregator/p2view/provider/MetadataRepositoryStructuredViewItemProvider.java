@@ -186,8 +186,10 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 */
 	protected void addInstallableUnitListPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MetadataRepositoryStructuredView_installableUnitList_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MetadataRepositoryStructuredView_installableUnitList_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description",
 				"_UI_MetadataRepositoryStructuredView_installableUnitList_feature",
 				"_UI_MetadataRepositoryStructuredView_type"),
@@ -203,8 +205,10 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 */
 	protected void addLoadedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MetadataRepositoryStructuredView_loaded_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MetadataRepositoryStructuredView_loaded_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_loaded_feature",
 				"_UI_MetadataRepositoryStructuredView_type"),
 			P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED, false, false, false,
@@ -219,8 +223,10 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MetadataRepositoryStructuredView_name_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MetadataRepositoryStructuredView_name_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_name_feature",
 				"_UI_MetadataRepositoryStructuredView_type"),
 			P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME, false, false, false,
@@ -235,8 +241,10 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 */
 	protected void addPropertiesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MetadataRepositoryStructuredView_properties_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MetadataRepositoryStructuredView_properties_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_properties_feature",
 				"_UI_MetadataRepositoryStructuredView_type"),
 			P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, false, false, true, null, null,

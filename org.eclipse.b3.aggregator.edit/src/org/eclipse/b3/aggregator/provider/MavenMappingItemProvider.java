@@ -158,8 +158,10 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	protected void addArtifactIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MavenMapping_artifactId_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MavenMapping_artifactId_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_MavenMapping_artifactId_feature", "_UI_MavenMapping_type"),
 			AggregatorPackage.Literals.MAVEN_MAPPING__ARTIFACT_ID, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -173,9 +175,10 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	protected void addGroupIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MavenMapping_groupId_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_MavenMapping_groupId_feature", "_UI_MavenMapping_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MavenMapping_groupId_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_MavenMapping_groupId_feature", "_UI_MavenMapping_type"),
 			AggregatorPackage.Literals.MAVEN_MAPPING__GROUP_ID, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -188,8 +191,10 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	protected void addNamePatternPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MavenMapping_namePattern_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MavenMapping_namePattern_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_MavenMapping_namePattern_feature", "_UI_MavenMapping_type"),
 			AggregatorPackage.Literals.MAVEN_MAPPING__NAME_PATTERN, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

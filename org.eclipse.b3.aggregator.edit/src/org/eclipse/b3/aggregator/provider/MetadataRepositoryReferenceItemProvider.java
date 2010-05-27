@@ -90,10 +90,12 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage(
-			"full/obj16/MetadataRepositoryReference" + (((MetadataRepositoryReference) object).isBranchEnabled()
-					? ""
-					: "Disabled")));
+		return overlayImage(
+			object,
+			getResourceLocator().getImage(
+				"full/obj16/MetadataRepositoryReference" + (((MetadataRepositoryReference) object).isBranchEnabled()
+						? ""
+						: "Disabled")));
 
 	}
 
@@ -296,8 +298,10 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_EnabledStatusProvider_enabled_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_EnabledStatusProvider_enabled_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
 				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true,
 			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
@@ -311,8 +315,10 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MetadataRepositoryReference_location_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MetadataRepositoryReference_location_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_location_feature",
 				"_UI_MetadataRepositoryReference_type"),
 			AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__LOCATION, true, false, false,

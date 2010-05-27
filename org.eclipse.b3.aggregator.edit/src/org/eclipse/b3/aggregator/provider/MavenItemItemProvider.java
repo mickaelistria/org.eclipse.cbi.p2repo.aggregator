@@ -133,8 +133,8 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter impleme
 	protected void addArtifactIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MavenItem_artifactId_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_MavenItem_artifactId_feature", "_UI_MavenItem_type"),
+			getString("_UI_MavenItem_artifactId_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_MavenItem_artifactId_feature", "_UI_MavenItem_type"),
 			AggregatorPackage.Literals.MAVEN_ITEM__ARTIFACT_ID, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -148,8 +148,8 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter impleme
 	protected void addGroupIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MavenItem_groupId_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_MavenItem_groupId_feature", "_UI_MavenItem_type"),
+			getString("_UI_MavenItem_groupId_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_MavenItem_groupId_feature", "_UI_MavenItem_type"),
 			AggregatorPackage.Literals.MAVEN_ITEM__GROUP_ID, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}

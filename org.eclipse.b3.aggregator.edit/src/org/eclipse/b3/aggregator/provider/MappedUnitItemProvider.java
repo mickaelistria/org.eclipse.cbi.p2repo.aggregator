@@ -152,8 +152,10 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider i
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_EnabledStatusProvider_enabled_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_EnabledStatusProvider_enabled_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
 				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true,
 			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
@@ -167,8 +169,10 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider i
 	 */
 	protected void addValidConfigurationsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MappedUnit_validConfigurations_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MappedUnit_validConfigurations_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_MappedUnit_validConfigurations_feature",
 				"_UI_MappedUnit_type"), AggregatorPackage.Literals.MAPPED_UNIT__VALID_CONFIGURATIONS, true, false,
 			true, null, null, null));

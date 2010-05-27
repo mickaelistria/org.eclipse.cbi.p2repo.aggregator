@@ -153,8 +153,8 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	protected void addCopyrightPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IUDetails_copyright_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IUDetails_copyright_feature", "_UI_IUDetails_type"),
+			getString("_UI_IUDetails_copyright_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IUDetails_copyright_feature", "_UI_IUDetails_type"),
 			P2viewPackage.Literals.IU_DETAILS__COPYRIGHT, false, false, true, null, null, null));
 	}
 
@@ -166,8 +166,10 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	 */
 	protected void addUpdateDescriptorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IUDetails_updateDescriptor_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IUDetails_updateDescriptor_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IUDetails_updateDescriptor_feature", "_UI_IUDetails_type"),
 			P2viewPackage.Literals.IU_DETAILS__UPDATE_DESCRIPTOR, false, false, true, null, null, null));
 	}

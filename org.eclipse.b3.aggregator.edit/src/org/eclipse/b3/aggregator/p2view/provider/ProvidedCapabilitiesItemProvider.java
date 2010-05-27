@@ -139,8 +139,10 @@ public class ProvidedCapabilitiesItemProvider extends AggregatorItemProviderAdap
 	 */
 	protected void addProvidedCapabilitiesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_ProvidedCapabilities_providedCapabilities_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_ProvidedCapabilities_providedCapabilities_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_ProvidedCapabilities_providedCapabilities_feature",
 				"_UI_ProvidedCapabilities_type"), P2viewPackage.Literals.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES,
 			false, false, true, null, null, null));

@@ -188,9 +188,10 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	 */
 	protected void addBuildmasterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Aggregator_buildmaster_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Aggregator_buildmaster_feature", "_UI_Aggregator_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_Aggregator_buildmaster_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Aggregator_buildmaster_feature", "_UI_Aggregator_type"),
 			AggregatorPackage.Literals.AGGREGATOR__BUILDMASTER, true, false, false, null, null, null));
 	}
 
@@ -203,8 +204,8 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	protected void addBuildRootPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Aggregator_buildRoot_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Aggregator_buildRoot_feature", "_UI_Aggregator_type"),
+			getString("_UI_Aggregator_buildRoot_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Aggregator_buildRoot_feature", "_UI_Aggregator_type"),
 			AggregatorPackage.Literals.AGGREGATOR__BUILD_ROOT, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -218,8 +219,8 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	protected void addLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Aggregator_label_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Aggregator_label_feature", "_UI_Aggregator_type"),
+			getString("_UI_Aggregator_label_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Aggregator_label_feature", "_UI_Aggregator_type"),
 			AggregatorPackage.Literals.AGGREGATOR__LABEL, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -232,8 +233,10 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	 */
 	protected void addMavenMappingsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Aggregator_mavenMappings_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_Aggregator_mavenMappings_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_Aggregator_mavenMappings_feature", "_UI_Aggregator_type"),
 			AggregatorPackage.Literals.AGGREGATOR__MAVEN_MAPPINGS, true, false, true, null, null, null));
 	}
@@ -246,9 +249,10 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	 */
 	protected void addMavenResultPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Aggregator_mavenResult_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Aggregator_mavenResult_feature", "_UI_Aggregator_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_Aggregator_mavenResult_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Aggregator_mavenResult_feature", "_UI_Aggregator_type"),
 			AggregatorPackage.Literals.AGGREGATOR__MAVEN_RESULT, true, false, false,
 			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
@@ -261,8 +265,10 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	 */
 	protected void addPackedStrategyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Aggregator_packedStrategy_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_Aggregator_packedStrategy_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_Aggregator_packedStrategy_feature", "_UI_Aggregator_type"),
 			AggregatorPackage.Literals.AGGREGATOR__PACKED_STRATEGY, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -277,8 +283,8 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	protected void addSendmailPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Aggregator_sendmail_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Aggregator_sendmail_feature", "_UI_Aggregator_type"),
+			getString("_UI_Aggregator_sendmail_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Aggregator_sendmail_feature", "_UI_Aggregator_type"),
 			AggregatorPackage.Literals.AGGREGATOR__SENDMAIL, true, false, false,
 			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
@@ -292,8 +298,8 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Aggregator_type_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Aggregator_type_feature", "_UI_Aggregator_type"),
+			getString("_UI_Aggregator_type_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Aggregator_type_feature", "_UI_Aggregator_type"),
 			AggregatorPackage.Literals.AGGREGATOR__TYPE, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}

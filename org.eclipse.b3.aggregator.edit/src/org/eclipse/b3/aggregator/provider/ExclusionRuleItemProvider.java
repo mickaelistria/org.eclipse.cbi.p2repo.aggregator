@@ -51,10 +51,12 @@ public class ExclusionRuleItemProvider extends MapRuleItemProvider implements IE
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage(
-			"full/obj16/ExclusionRule" + (!((ExclusionRule) object).isBranchDisabledOrMappedRepositoryBroken()
-					? ""
-					: "Disabled")));
+		return overlayImage(
+			object,
+			getResourceLocator().getImage(
+				"full/obj16/ExclusionRule" + (!((ExclusionRule) object).isBranchDisabledOrMappedRepositoryBroken()
+						? ""
+						: "Disabled")));
 	}
 
 	/**

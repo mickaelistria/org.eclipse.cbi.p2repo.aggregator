@@ -702,8 +702,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						if(delta.getResource().getType() == IResource.FILE) {
 							if(delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED &&
 									delta.getFlags() != IResourceDelta.MARKERS) {
-								Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(
-									delta.getFullPath().toString(), true), false);
+								Resource resource = resourceSet.getResource(
+									URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
 								if(resource != null) {
 									if(delta.getKind() == IResourceDelta.REMOVED) {
 										removedResources.add(resource);

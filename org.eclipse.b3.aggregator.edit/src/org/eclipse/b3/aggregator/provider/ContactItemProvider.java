@@ -131,8 +131,8 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	protected void addEmailPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Contact_email_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Contact_email_feature", "_UI_Contact_type"),
+			getString("_UI_Contact_email_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Contact_email_feature", "_UI_Contact_type"),
 			AggregatorPackage.Literals.CONTACT__EMAIL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));
 	}
@@ -146,8 +146,8 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Contact_name_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Contact_name_feature", "_UI_Contact_type"),
+			getString("_UI_Contact_name_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Contact_name_feature", "_UI_Contact_type"),
 			AggregatorPackage.Literals.CONTACT__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));
 	}

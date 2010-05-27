@@ -568,8 +568,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					else if(foundIUs.size() == 1 && foundIUs.values().size() == 1) {
 						TwoColumnMatrix<IUPresentation, Object[]> foundIU = foundIUs.values().iterator().next();
 
-						viewer.setSelection(new TreeSelection(
-							new TreePath(foundIU.getValue(0)).createChildPath(foundIU.getKey(0))), true);
+						viewer.setSelection(
+							new TreeSelection(new TreePath(foundIU.getValue(0)).createChildPath(foundIU.getKey(0))),
+							true);
 					}
 					else {
 

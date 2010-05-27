@@ -55,10 +55,12 @@ public class FeatureItemProvider extends MappedUnitItemProvider implements IEdit
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage(
-			"full/obj16/Feature" + (!((Feature) object).isBranchDisabledOrMappedRepositoryBroken()
-					? ""
-					: "Disabled")));
+		return overlayImage(
+			object,
+			getResourceLocator().getImage(
+				"full/obj16/Feature" + (!((Feature) object).isBranchDisabledOrMappedRepositoryBroken()
+						? ""
+						: "Disabled")));
 	}
 
 	/**
@@ -113,8 +115,8 @@ public class FeatureItemProvider extends MappedUnitItemProvider implements IEdit
 	protected void addCategoriesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Feature_categories_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Feature_categories_feature", "_UI_Feature_type"),
+			getString("_UI_Feature_categories_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Feature_categories_feature", "_UI_Feature_type"),
 			AggregatorPackage.Literals.FEATURE__CATEGORIES, true, false, true, null, null, null));
 	}
 

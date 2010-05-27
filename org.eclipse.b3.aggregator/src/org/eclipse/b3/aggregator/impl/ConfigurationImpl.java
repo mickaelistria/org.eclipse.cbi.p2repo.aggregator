@@ -206,7 +206,7 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ARCHITECTURE_EFLAG = 0x7 << ARCHITECTURE_EFLAG_OFFSET;
+	protected static final int ARCHITECTURE_EFLAG = 0xf << ARCHITECTURE_EFLAG_OFFSET;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

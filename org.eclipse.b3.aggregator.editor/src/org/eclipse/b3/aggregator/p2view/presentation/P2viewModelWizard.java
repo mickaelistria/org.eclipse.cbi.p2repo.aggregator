@@ -562,8 +562,9 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 			// Open an editor on the new file.
 			//
 			try {
-				page.openEditor(new FileEditorInput(modelFile), workbench.getEditorRegistry().getDefaultEditor(
-					modelFile.getFullPath().toString()).getId());
+				page.openEditor(
+					new FileEditorInput(modelFile),
+					workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
 			}
 			catch(PartInitException exception) {
 				MessageDialog.openError(

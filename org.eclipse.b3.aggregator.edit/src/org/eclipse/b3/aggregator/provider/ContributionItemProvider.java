@@ -154,8 +154,8 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage(
-			"full/obj16/Contribution" + (((Contribution) object).isEnabled()
+		return overlayImage(
+			object, getResourceLocator().getImage("full/obj16/Contribution" + (((Contribution) object).isEnabled()
 					? ""
 					: "Disabled")));
 	}
@@ -344,8 +344,10 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	protected void addContactsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Contribution_contacts_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_Contribution_contacts_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_Contribution_contacts_feature", "_UI_Contribution_type"),
 			AggregatorPackage.Literals.CONTRIBUTION__CONTACTS, true, false, false, null, null, null));
 	}
@@ -358,8 +360,10 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_DescriptionProvider_description_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_DescriptionProvider_description_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
 				"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true,
 			true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -373,8 +377,10 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_EnabledStatusProvider_enabled_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_EnabledStatusProvider_enabled_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
 				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true,
 			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
@@ -389,8 +395,8 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	protected void addLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Contribution_label_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Contribution_label_feature", "_UI_Contribution_type"),
+			getString("_UI_Contribution_label_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Contribution_label_feature", "_UI_Contribution_type"),
 			AggregatorPackage.Literals.CONTRIBUTION__LABEL, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}

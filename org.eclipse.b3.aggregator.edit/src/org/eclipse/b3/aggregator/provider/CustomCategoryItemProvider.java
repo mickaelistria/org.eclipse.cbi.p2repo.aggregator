@@ -164,8 +164,10 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_CustomCategory_description_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_CustomCategory_description_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_CustomCategory_description_feature",
 				"_UI_CustomCategory_type"), AggregatorPackage.Literals.CUSTOM_CATEGORY__DESCRIPTION, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -195,8 +197,10 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	protected void addIdentifierPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_CustomCategory_identifier_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_CustomCategory_identifier_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_CustomCategory_identifier_feature",
 				"_UI_CustomCategory_type"), AggregatorPackage.Literals.CUSTOM_CATEGORY__IDENTIFIER, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -210,8 +214,10 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_CustomCategory_label_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_CustomCategory_label_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_CustomCategory_label_feature", "_UI_CustomCategory_type"),
 			AggregatorPackage.Literals.CUSTOM_CATEGORY__LABEL, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
