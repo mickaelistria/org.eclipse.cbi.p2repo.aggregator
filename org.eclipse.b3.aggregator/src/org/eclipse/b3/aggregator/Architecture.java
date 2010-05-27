@@ -86,24 +86,24 @@ public enum Architecture implements Enumerator {
 	 * @ordered
 	 */
 	PPC64(6, "PPC64", "ppc64"), /**
-	 * The '<em><b>S360</b></em>' literal object.
+	 * The '<em><b>S390</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #S360_VALUE
+	 * @see #S390_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	S360(7, "S360", "s360"), /**
-	 * The '<em><b>S360X</b></em>' literal object.
+	S390(7, "S390", "s390"), /**
+	 * The '<em><b>S390X</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #S360X_VALUE
+	 * @see #S390X_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	S360X(8, "S360X", "s360x");
+	S390X(8, "S390X", "s390x");
 
 	/**
 	 * The '<em><b>X86</b></em>' literal value.
@@ -211,34 +211,34 @@ public enum Architecture implements Enumerator {
 	public static final int PPC64_VALUE = 6;
 
 	/**
-	 * The '<em><b>S360</b></em>' literal value.
+	 * The '<em><b>S390</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>S360</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * If the meaning of '<em><b>S390</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #S360
-	 * @model literal="s360"
+	 * @see #S390
+	 * @model literal="s390"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int S360_VALUE = 7;
+	public static final int S390_VALUE = 7;
 
 	/**
-	 * The '<em><b>S360X</b></em>' literal value.
+	 * The '<em><b>S390X</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>S360X</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * If the meaning of '<em><b>S390X</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #S360X
-	 * @model literal="s360x"
+	 * @see #S390X
+	 * @model literal="s390x"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int S360X_VALUE = 8;
+	public static final int S390X_VALUE = 8;
 
 	/**
 	 * An array of all the '<em><b>Architecture</b></em>' enumerators.
@@ -247,7 +247,7 @@ public enum Architecture implements Enumerator {
 	 * @generated
 	 */
 	private static final Architecture[] VALUES_ARRAY = new Architecture[] {
-			X86, PPC, X86_64, IA64, IA64_32, SPARC, PPC64, S360, S360X, };
+			X86, PPC, X86_64, IA64, IA64_32, SPARC, PPC64, S390, S390X, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Architecture</b></em>' enumerators.
@@ -281,10 +281,10 @@ public enum Architecture implements Enumerator {
 				return SPARC;
 			case PPC64_VALUE:
 				return PPC64;
-			case S360_VALUE:
-				return S360;
-			case S360X_VALUE:
-				return S360X;
+			case S390_VALUE:
+				return S390;
+			case S390X_VALUE:
+				return S390X;
 		}
 		return null;
 	}

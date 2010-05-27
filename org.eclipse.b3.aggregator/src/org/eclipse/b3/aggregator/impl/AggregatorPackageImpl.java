@@ -2049,8 +2049,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(architectureEEnum, Architecture.IA64_32);
 		addEEnumLiteral(architectureEEnum, Architecture.SPARC);
 		addEEnumLiteral(architectureEEnum, Architecture.PPC64);
-		addEEnumLiteral(architectureEEnum, Architecture.S360);
-		addEEnumLiteral(architectureEEnum, Architecture.S360X);
+		addEEnumLiteral(architectureEEnum, Architecture.S390);
+		addEEnumLiteral(architectureEEnum, Architecture.S390X);
 
 		initEEnum(packedStrategyEEnum, PackedStrategy.class, "PackedStrategy");
 		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.COPY);

@@ -119,8 +119,8 @@
     <eLiterals name="ppc64" value="3" literal="ppc64"/>
     <eLiterals name="sparc" value="4" literal="sparc"/>
     <eLiterals name="ia64_32" value="5" literal="ia64_32"/>
-    <eLiterals name="s360" value="6" literal="s360"/>
-    <eLiterals name="s360x" value="7" literal="s360x"/>
+    <eLiterals name="s390" value="6" literal="s390"/>
+    <eLiterals name="s390x" value="7" literal="s390x"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ArchiveFormat">
     <eLiterals name="zip"/>

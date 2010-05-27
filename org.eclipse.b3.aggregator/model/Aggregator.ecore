@@ -144,8 +144,8 @@
     <eLiterals name="IA64_32" value="4" literal="ia64_32"/>
     <eLiterals name="Sparc" value="5" literal="sparc"/>
     <eLiterals name="PPC64" value="6" literal="ppc64"/>
-    <eLiterals name="S360" value="7" literal="s360"/>
-    <eLiterals name="S360X" value="8" literal="s360x"/>
+    <eLiterals name="S390" value="7" literal="s390"/>
+    <eLiterals name="S390X" value="8" literal="s390x"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PackedStrategy">
     <eLiterals name="Copy" literal="COPY"/>
