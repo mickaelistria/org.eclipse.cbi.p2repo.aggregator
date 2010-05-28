@@ -44,8 +44,7 @@ public interface P2Package extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IArtifactKey <em>IArtifact Key</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IArtifactKey <em>IArtifact Key</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -83,8 +82,7 @@ public interface P2Package extends EPackage {
 		EAttribute IARTIFACT_KEY__VERSION = eINSTANCE.getIArtifactKey_Version();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.ICopyright <em>ICopyright</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.ICopyright <em>ICopyright</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -113,8 +111,7 @@ public interface P2Package extends EPackage {
 		EAttribute ICOPYRIGHT__BODY = eINSTANCE.getICopyright_Body();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit
-		 * <em>IInstallable Unit</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit <em>IInstallable Unit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -242,8 +239,8 @@ public interface P2Package extends EPackage {
 		EAttribute IINSTALLABLE_UNIT__SINGLETON = eINSTANCE.getIInstallableUnit_Singleton();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitFragment
-		 * <em>IInstallable Unit Fragment</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitFragment <em>IInstallable Unit Fragment</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -252,6 +249,44 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EClass IINSTALLABLE_UNIT_FRAGMENT = eINSTANCE.getIInstallableUnitFragment();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitPatch <em>IInstallable Unit Patch</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitPatch
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnitPatch()
+		 * @generated
+		 */
+		EClass IINSTALLABLE_UNIT_PATCH = eINSTANCE.getIInstallableUnitPatch();
+
+		/**
+		 * The meta object literal for the '<em><b>Requirements Change</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference IINSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE = eINSTANCE.getIInstallableUnitPatch_RequirementsChange();
+
+		/**
+		 * The meta object literal for the '<em><b>Life Cycle</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE = eINSTANCE.getIInstallableUnitPatch_LifeCycle();
+
+		/**
+		 * The meta object literal for the '<em><b>Applies To</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference IINSTALLABLE_UNIT_PATCH__APPLIES_TO = eINSTANCE.getIInstallableUnitPatch_AppliesTo();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.ILicense <em>ILicense</em>}' class.
@@ -292,8 +327,7 @@ public interface P2Package extends EPackage {
 		EAttribute ILICENSE__UUID = eINSTANCE.getILicense_UUID();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability
-		 * <em>IProvided Capability</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability <em>IProvided Capability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -331,8 +365,7 @@ public interface P2Package extends EPackage {
 		EAttribute IPROVIDED_CAPABILITY__VERSION = eINSTANCE.getIProvidedCapability_Version();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IRequirement <em>IRequirement</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IRequirement <em>IRequirement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -397,8 +430,7 @@ public interface P2Package extends EPackage {
 		EAttribute IREQUIREMENT__DESCRIPTION = eINSTANCE.getIRequirement_Description();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability
-		 * <em>IRequired Capability</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability <em>IRequired Capability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -436,8 +468,36 @@ public interface P2Package extends EPackage {
 		EAttribute IREQUIRED_CAPABILITY__RANGE = eINSTANCE.getIRequiredCapability_Range();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointData
-		 * <em>ITouchpoint Data</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IRequirementChange <em>IRequirement Change</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.equinox.p2.metadata.IRequirementChange
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequirementChange()
+		 * @generated
+		 */
+		EClass IREQUIREMENT_CHANGE = eINSTANCE.getIRequirementChange();
+
+		/**
+		 * The meta object literal for the '<em><b>Apply On</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference IREQUIREMENT_CHANGE__APPLY_ON = eINSTANCE.getIRequirementChange_ApplyOn();
+
+		/**
+		 * The meta object literal for the '<em><b>New Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference IREQUIREMENT_CHANGE__NEW_VALUE = eINSTANCE.getIRequirementChange_NewValue();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointData <em>ITouchpoint Data</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -448,8 +508,7 @@ public interface P2Package extends EPackage {
 		EClass ITOUCHPOINT_DATA = eINSTANCE.getITouchpointData();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction
-		 * <em>ITouchpoint Instruction</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction <em>ITouchpoint Instruction</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -478,8 +537,7 @@ public interface P2Package extends EPackage {
 		EAttribute ITOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE = eINSTANCE.getITouchpointInstruction_ImportAttribute();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointType
-		 * <em>ITouchpoint Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointType <em>ITouchpoint Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -508,8 +566,7 @@ public interface P2Package extends EPackage {
 		EAttribute ITOUCHPOINT_TYPE__VERSION = eINSTANCE.getITouchpointType_Version();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IVersionedId <em>IVersioned Id</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IVersionedId <em>IVersioned Id</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -538,8 +595,7 @@ public interface P2Package extends EPackage {
 		EAttribute IVERSIONED_ID__VERSION = eINSTANCE.getIVersionedId_Version();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor
-		 * <em>IUpdate Descriptor</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor <em>IUpdate Descriptor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -599,8 +655,7 @@ public interface P2Package extends EPackage {
 		EClass COPYRIGHT = eINSTANCE.getCopyright();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.MetadataRepositoryImpl
-		 * <em>Metadata Repository</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.MetadataRepositoryImpl <em>Metadata Repository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -638,7 +693,7 @@ public interface P2Package extends EPackage {
 		EReference METADATA_REPOSITORY__PROPERTY_MAP = eINSTANCE.getMetadataRepository_PropertyMap();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.InstallableUnitImpl <em>Installable Unit</em>} ' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.InstallableUnitImpl <em>Installable Unit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -658,8 +713,7 @@ public interface P2Package extends EPackage {
 		EReference INSTALLABLE_UNIT__PROPERTY_MAP = eINSTANCE.getInstallableUnit_PropertyMap();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl
-		 * <em>Installable Unit Fragment</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl <em>Installable Unit Fragment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -668,6 +722,17 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EClass INSTALLABLE_UNIT_FRAGMENT = eINSTANCE.getInstallableUnitFragment();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.InstallableUnitPatchImpl <em>Installable Unit Patch</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.InstallableUnitPatchImpl
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstallableUnitPatch()
+		 * @generated
+		 */
+		EClass INSTALLABLE_UNIT_PATCH = eINSTANCE.getInstallableUnitPatch();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.LicenseImpl <em>License</em>}' class.
@@ -681,8 +746,7 @@ public interface P2Package extends EPackage {
 		EClass LICENSE = eINSTANCE.getLicense();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.ProvidedCapabilityImpl
-		 * <em>Provided Capability</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.ProvidedCapabilityImpl <em>Provided Capability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -693,8 +757,7 @@ public interface P2Package extends EPackage {
 		EClass PROVIDED_CAPABILITY = eINSTANCE.getProvidedCapability();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.RequiredCapabilityImpl
-		 * <em>Required Capability</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.RequiredCapabilityImpl <em>Required Capability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -716,8 +779,18 @@ public interface P2Package extends EPackage {
 		EClass REQUIREMENT = eINSTANCE.getRequirement();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.TouchpointDataImpl <em>Touchpoint Data</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.RequirementChangeImpl <em>Requirement Change</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.RequirementChangeImpl
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRequirementChange()
+		 * @generated
+		 */
+		EClass REQUIREMENT_CHANGE = eINSTANCE.getRequirementChange();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.TouchpointDataImpl <em>Touchpoint Data</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -737,8 +810,7 @@ public interface P2Package extends EPackage {
 		EReference TOUCHPOINT_DATA__INSTRUCTION_MAP = eINSTANCE.getTouchpointData_InstructionMap();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.TouchpointInstructionImpl
-		 * <em>Touchpoint Instruction</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.TouchpointInstructionImpl <em>Touchpoint Instruction</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -749,8 +821,7 @@ public interface P2Package extends EPackage {
 		EClass TOUCHPOINT_INSTRUCTION = eINSTANCE.getTouchpointInstruction();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.TouchpointTypeImpl <em>Touchpoint Type</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.TouchpointTypeImpl <em>Touchpoint Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -761,8 +832,7 @@ public interface P2Package extends EPackage {
 		EClass TOUCHPOINT_TYPE = eINSTANCE.getTouchpointType();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.UpdateDescriptorImpl
-		 * <em>Update Descriptor</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.UpdateDescriptorImpl <em>Update Descriptor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -802,8 +872,7 @@ public interface P2Package extends EPackage {
 		EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.InstructionMapImpl <em>Instruction Map</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.InstructionMapImpl <em>Instruction Map</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -843,8 +912,8 @@ public interface P2Package extends EPackage {
 		EClass IQUERYABLE = eINSTANCE.getIQueryable();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository
-		 * <em>IMetadata Repository</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository <em>IMetadata Repository</em>}'
+		 * class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -855,8 +924,7 @@ public interface P2Package extends EPackage {
 		EClass IMETADATA_REPOSITORY = eINSTANCE.getIMetadataRepository();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.IRepository <em>IRepository</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.IRepository <em>IRepository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -930,8 +998,7 @@ public interface P2Package extends EPackage {
 		EAttribute IREPOSITORY__MODIFIABLE = eINSTANCE.getIRepository_Modifiable();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.IRepositoryReference
-		 * <em>IRepository Reference</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.IRepositoryReference <em>IRepository Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -942,8 +1009,7 @@ public interface P2Package extends EPackage {
 		EClass IREPOSITORY_REFERENCE = eINSTANCE.getIRepositoryReference();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.RepositoryReferenceImpl
-		 * <em>Repository Reference</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.RepositoryReferenceImpl <em>Repository Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -1093,6 +1159,16 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EDataType ITOUCHPOINT_DATA_ARRAY = eINSTANCE.getITouchpointDataArray();
+
+		/**
+		 * The meta object literal for the '<em>IRequirement Array Array</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequirementArrayArray()
+		 * @generated
+		 */
+		EDataType IREQUIREMENT_ARRAY_ARRAY = eINSTANCE.getIRequirementArrayArray();
 
 		/**
 		 * The meta object literal for the '<em>String Array</em>' data type.
@@ -1374,7 +1450,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIVersionedId()
 	 * @generated
 	 */
-	int IVERSIONED_ID = 11;
+	int IVERSIONED_ID = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1407,8 +1483,7 @@ public interface P2Package extends EPackage {
 	int IVERSIONED_ID_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit <em>IInstallable Unit</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit <em>IInstallable Unit</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1579,8 +1654,7 @@ public interface P2Package extends EPackage {
 	int IINSTALLABLE_UNIT_FEATURE_COUNT = IVERSIONED_ID_FEATURE_COUNT + 13;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitFragment
-	 * <em>IInstallable Unit Fragment</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitFragment <em>IInstallable Unit Fragment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1751,6 +1825,207 @@ public interface P2Package extends EPackage {
 	int IINSTALLABLE_UNIT_FRAGMENT_FEATURE_COUNT = IINSTALLABLE_UNIT_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitPatch <em>IInstallable Unit Patch</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitPatch
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnitPatch()
+	 * @generated
+	 */
+	int IINSTALLABLE_UNIT_PATCH = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__ID = IINSTALLABLE_UNIT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__VERSION = IINSTALLABLE_UNIT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__ARTIFACTS = IINSTALLABLE_UNIT__ARTIFACTS;
+
+	/**
+	 * The feature id for the '<em><b>Copyright</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__COPYRIGHT = IINSTALLABLE_UNIT__COPYRIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__FILTER = IINSTALLABLE_UNIT__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Fragments</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__FRAGMENTS = IINSTALLABLE_UNIT__FRAGMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Licenses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__LICENSES = IINSTALLABLE_UNIT__LICENSES;
+
+	/**
+	 * The feature id for the '<em><b>Meta Requirements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__META_REQUIREMENTS = IINSTALLABLE_UNIT__META_REQUIREMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__PROVIDED_CAPABILITIES = IINSTALLABLE_UNIT__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__REQUIREMENTS = IINSTALLABLE_UNIT__REQUIREMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Touchpoint Data</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__TOUCHPOINT_DATA = IINSTALLABLE_UNIT__TOUCHPOINT_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Touchpoint Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__TOUCHPOINT_TYPE = IINSTALLABLE_UNIT__TOUCHPOINT_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Update Descriptor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__UPDATE_DESCRIPTOR = IINSTALLABLE_UNIT__UPDATE_DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Resolved</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__RESOLVED = IINSTALLABLE_UNIT__RESOLVED;
+
+	/**
+	 * The feature id for the '<em><b>Singleton</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__SINGLETON = IINSTALLABLE_UNIT__SINGLETON;
+
+	/**
+	 * The feature id for the '<em><b>Requirements Change</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE = IINSTALLABLE_UNIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Life Cycle</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE = IINSTALLABLE_UNIT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Applies To</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH__APPLIES_TO = IINSTALLABLE_UNIT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>IInstallable Unit Patch</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IINSTALLABLE_UNIT_PATCH_FEATURE_COUNT = IINSTALLABLE_UNIT_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ILicense <em>ILicense</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1759,7 +2034,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getILicense()
 	 * @generated
 	 */
-	int ILICENSE = 4;
+	int ILICENSE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -1802,8 +2077,7 @@ public interface P2Package extends EPackage {
 	int ILICENSE_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability
-	 * <em>IProvided Capability</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability <em>IProvided Capability</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1811,7 +2085,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProvidedCapability()
 	 * @generated
 	 */
-	int IPROVIDED_CAPABILITY = 5;
+	int IPROVIDED_CAPABILITY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1862,7 +2136,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequirement()
 	 * @generated
 	 */
-	int IREQUIREMENT = 6;
+	int IREQUIREMENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -1935,8 +2209,7 @@ public interface P2Package extends EPackage {
 	int IREQUIREMENT_FEATURE_COUNT = 6;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability
-	 * <em>IRequired Capability</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability <em>IRequired Capability</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1944,7 +2217,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequiredCapability()
 	 * @generated
 	 */
-	int IREQUIRED_CAPABILITY = 7;
+	int IREQUIRED_CAPABILITY = 8;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -2047,8 +2320,48 @@ public interface P2Package extends EPackage {
 	int IREQUIRED_CAPABILITY_FEATURE_COUNT = IREQUIREMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointData <em>ITouchpoint Data</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IRequirementChange <em>IRequirement Change</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IRequirementChange
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequirementChange()
+	 * @generated
+	 */
+	int IREQUIREMENT_CHANGE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Apply On</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT_CHANGE__APPLY_ON = 0;
+
+	/**
+	 * The feature id for the '<em><b>New Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT_CHANGE__NEW_VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>IRequirement Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT_CHANGE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointData <em>ITouchpoint Data</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2056,7 +2369,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointData()
 	 * @generated
 	 */
-	int ITOUCHPOINT_DATA = 8;
+	int ITOUCHPOINT_DATA = 10;
 
 	/**
 	 * The number of structural features of the '<em>ITouchpoint Data</em>' class.
@@ -2069,8 +2382,7 @@ public interface P2Package extends EPackage {
 	int ITOUCHPOINT_DATA_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction
-	 * <em>ITouchpoint Instruction</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction <em>ITouchpoint Instruction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2078,7 +2390,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointInstruction()
 	 * @generated
 	 */
-	int ITOUCHPOINT_INSTRUCTION = 9;
+	int ITOUCHPOINT_INSTRUCTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' attribute.
@@ -2111,8 +2423,7 @@ public interface P2Package extends EPackage {
 	int ITOUCHPOINT_INSTRUCTION_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointType <em>ITouchpoint Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointType <em>ITouchpoint Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2120,7 +2431,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointType()
 	 * @generated
 	 */
-	int ITOUCHPOINT_TYPE = 10;
+	int ITOUCHPOINT_TYPE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2153,7 +2464,7 @@ public interface P2Package extends EPackage {
 	int ITOUCHPOINT_TYPE_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor <em>IUpdate Descriptor</em>} ' class.
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor <em>IUpdate Descriptor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2161,7 +2472,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIUpdateDescriptor()
 	 * @generated
 	 */
-	int IUPDATE_DESCRIPTOR = 12;
+	int IUPDATE_DESCRIPTOR = 14;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2212,7 +2523,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getArtifactKey()
 	 * @generated
 	 */
-	int ARTIFACT_KEY = 13;
+	int ARTIFACT_KEY = 15;
 
 	/**
 	 * The feature id for the '<em><b>Classifier</b></em>' attribute.
@@ -2263,7 +2574,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getCopyright()
 	 * @generated
 	 */
-	int COPYRIGHT = 14;
+	int COPYRIGHT = 16;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -2304,7 +2615,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIAdaptable()
 	 * @generated
 	 */
-	int IADAPTABLE = 33;
+	int IADAPTABLE = 37;
 
 	/**
 	 * The number of structural features of the '<em>IAdaptable</em>' class.
@@ -2325,7 +2636,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRepository()
 	 * @generated
 	 */
-	int IREPOSITORY = 30;
+	int IREPOSITORY = 34;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -2408,8 +2719,7 @@ public interface P2Package extends EPackage {
 	int IREPOSITORY_FEATURE_COUNT = IADAPTABLE_FEATURE_COUNT + 7;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository
-	 * <em>IMetadata Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository <em>IMetadata Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2417,7 +2727,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIMetadataRepository()
 	 * @generated
 	 */
-	int IMETADATA_REPOSITORY = 29;
+	int IMETADATA_REPOSITORY = 33;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -2500,8 +2810,7 @@ public interface P2Package extends EPackage {
 	int IMETADATA_REPOSITORY_FEATURE_COUNT = IREPOSITORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.MetadataRepositoryImpl <em>Metadata Repository</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.MetadataRepositoryImpl <em>Metadata Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2509,7 +2818,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getMetadataRepository()
 	 * @generated
 	 */
-	int METADATA_REPOSITORY = 15;
+	int METADATA_REPOSITORY = 17;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -2630,7 +2939,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstallableUnit()
 	 * @generated
 	 */
-	int INSTALLABLE_UNIT = 16;
+	int INSTALLABLE_UNIT = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2803,8 +3112,7 @@ public interface P2Package extends EPackage {
 	int INSTALLABLE_UNIT_FEATURE_COUNT = IINSTALLABLE_UNIT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl
-	 * <em>Installable Unit Fragment</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl <em>Installable Unit Fragment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -2812,7 +3120,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstallableUnitFragment()
 	 * @generated
 	 */
-	int INSTALLABLE_UNIT_FRAGMENT = 17;
+	int INSTALLABLE_UNIT_FRAGMENT = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2985,6 +3293,217 @@ public interface P2Package extends EPackage {
 	int INSTALLABLE_UNIT_FRAGMENT_FEATURE_COUNT = INSTALLABLE_UNIT_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.InstallableUnitPatchImpl <em>Installable Unit Patch</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.InstallableUnitPatchImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstallableUnitPatch()
+	 * @generated
+	 */
+	int INSTALLABLE_UNIT_PATCH = 20;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__ID = INSTALLABLE_UNIT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__VERSION = INSTALLABLE_UNIT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__ARTIFACTS = INSTALLABLE_UNIT__ARTIFACTS;
+
+	/**
+	 * The feature id for the '<em><b>Copyright</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__COPYRIGHT = INSTALLABLE_UNIT__COPYRIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__FILTER = INSTALLABLE_UNIT__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Fragments</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__FRAGMENTS = INSTALLABLE_UNIT__FRAGMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Licenses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__LICENSES = INSTALLABLE_UNIT__LICENSES;
+
+	/**
+	 * The feature id for the '<em><b>Meta Requirements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__META_REQUIREMENTS = INSTALLABLE_UNIT__META_REQUIREMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__PROVIDED_CAPABILITIES = INSTALLABLE_UNIT__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__REQUIREMENTS = INSTALLABLE_UNIT__REQUIREMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Touchpoint Data</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__TOUCHPOINT_DATA = INSTALLABLE_UNIT__TOUCHPOINT_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Touchpoint Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__TOUCHPOINT_TYPE = INSTALLABLE_UNIT__TOUCHPOINT_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Update Descriptor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__UPDATE_DESCRIPTOR = INSTALLABLE_UNIT__UPDATE_DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Resolved</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__RESOLVED = INSTALLABLE_UNIT__RESOLVED;
+
+	/**
+	 * The feature id for the '<em><b>Singleton</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__SINGLETON = INSTALLABLE_UNIT__SINGLETON;
+
+	/**
+	 * The feature id for the '<em><b>Property Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__PROPERTY_MAP = INSTALLABLE_UNIT__PROPERTY_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Requirements Change</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE = INSTALLABLE_UNIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Life Cycle</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__LIFE_CYCLE = INSTALLABLE_UNIT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Applies To</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH__APPLIES_TO = INSTALLABLE_UNIT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Installable Unit Patch</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_PATCH_FEATURE_COUNT = INSTALLABLE_UNIT_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.LicenseImpl <em>License</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2993,7 +3512,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getLicense()
 	 * @generated
 	 */
-	int LICENSE = 18;
+	int LICENSE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -3036,8 +3555,7 @@ public interface P2Package extends EPackage {
 	int LICENSE_FEATURE_COUNT = ILICENSE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.ProvidedCapabilityImpl <em>Provided Capability</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.ProvidedCapabilityImpl <em>Provided Capability</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3045,7 +3563,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getProvidedCapability()
 	 * @generated
 	 */
-	int PROVIDED_CAPABILITY = 19;
+	int PROVIDED_CAPABILITY = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3096,7 +3614,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRequirement()
 	 * @generated
 	 */
-	int REQUIREMENT = 21;
+	int REQUIREMENT = 24;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -3169,8 +3687,7 @@ public interface P2Package extends EPackage {
 	int REQUIREMENT_FEATURE_COUNT = IREQUIREMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RequiredCapabilityImpl <em>Required Capability</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RequiredCapabilityImpl <em>Required Capability</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3178,7 +3695,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRequiredCapability()
 	 * @generated
 	 */
-	int REQUIRED_CAPABILITY = 20;
+	int REQUIRED_CAPABILITY = 23;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -3281,6 +3798,47 @@ public interface P2Package extends EPackage {
 	int REQUIRED_CAPABILITY_FEATURE_COUNT = REQUIREMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RequirementChangeImpl <em>Requirement Change</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.RequirementChangeImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRequirementChange()
+	 * @generated
+	 */
+	int REQUIREMENT_CHANGE = 25;
+
+	/**
+	 * The feature id for the '<em><b>Apply On</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_CHANGE__APPLY_ON = IREQUIREMENT_CHANGE__APPLY_ON;
+
+	/**
+	 * The feature id for the '<em><b>New Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_CHANGE__NEW_VALUE = IREQUIREMENT_CHANGE__NEW_VALUE;
+
+	/**
+	 * The number of structural features of the '<em>Requirement Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_CHANGE_FEATURE_COUNT = IREQUIREMENT_CHANGE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.TouchpointDataImpl <em>Touchpoint Data</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3289,7 +3847,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getTouchpointData()
 	 * @generated
 	 */
-	int TOUCHPOINT_DATA = 22;
+	int TOUCHPOINT_DATA = 26;
 
 	/**
 	 * The feature id for the '<em><b>Instruction Map</b></em>' map.
@@ -3312,8 +3870,7 @@ public interface P2Package extends EPackage {
 	int TOUCHPOINT_DATA_FEATURE_COUNT = ITOUCHPOINT_DATA_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.TouchpointInstructionImpl
-	 * <em>Touchpoint Instruction</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.TouchpointInstructionImpl <em>Touchpoint Instruction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3321,7 +3878,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getTouchpointInstruction()
 	 * @generated
 	 */
-	int TOUCHPOINT_INSTRUCTION = 23;
+	int TOUCHPOINT_INSTRUCTION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' attribute.
@@ -3362,7 +3919,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getTouchpointType()
 	 * @generated
 	 */
-	int TOUCHPOINT_TYPE = 24;
+	int TOUCHPOINT_TYPE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3395,8 +3952,7 @@ public interface P2Package extends EPackage {
 	int TOUCHPOINT_TYPE_FEATURE_COUNT = ITOUCHPOINT_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.UpdateDescriptorImpl <em>Update Descriptor</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.UpdateDescriptorImpl <em>Update Descriptor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3404,7 +3960,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getUpdateDescriptor()
 	 * @generated
 	 */
-	int UPDATE_DESCRIPTOR = 25;
+	int UPDATE_DESCRIPTOR = 29;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3455,7 +4011,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getProperty()
 	 * @generated
 	 */
-	int PROPERTY = 26;
+	int PROPERTY = 30;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -3496,7 +4052,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstructionMap()
 	 * @generated
 	 */
-	int INSTRUCTION_MAP = 27;
+	int INSTRUCTION_MAP = 31;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -3537,7 +4093,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIQueryable()
 	 * @generated
 	 */
-	int IQUERYABLE = 28;
+	int IQUERYABLE = 32;
 
 	/**
 	 * The number of structural features of the '<em>IQueryable</em>' class.
@@ -3550,8 +4106,7 @@ public interface P2Package extends EPackage {
 	int IQUERYABLE_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.IRepositoryReference
-	 * <em>IRepository Reference</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.IRepositoryReference <em>IRepository Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3559,7 +4114,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRepositoryReference()
 	 * @generated
 	 */
-	int IREPOSITORY_REFERENCE = 31;
+	int IREPOSITORY_REFERENCE = 35;
 
 	/**
 	 * The number of structural features of the '<em>IRepository Reference</em>' class.
@@ -3572,8 +4127,7 @@ public interface P2Package extends EPackage {
 	int IREPOSITORY_REFERENCE_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RepositoryReferenceImpl <em>Repository Reference</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RepositoryReferenceImpl <em>Repository Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3581,7 +4135,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRepositoryReference()
 	 * @generated
 	 */
-	int REPOSITORY_REFERENCE = 32;
+	int REPOSITORY_REFERENCE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -3642,7 +4196,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getComparable()
 	 * @generated
 	 */
-	int COMPARABLE = 34;
+	int COMPARABLE = 38;
 
 	/**
 	 * The number of structural features of the '<em>Comparable</em>' class.
@@ -3663,7 +4217,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 35;
+	int VERSION = 39;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -3674,7 +4228,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 36;
+	int VERSION_RANGE = 40;
 
 	/**
 	 * The meta object id for the '<em>IInstallable Unit Array</em>' data type.
@@ -3684,7 +4238,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnitArray()
 	 * @generated
 	 */
-	int IINSTALLABLE_UNIT_ARRAY = 37;
+	int IINSTALLABLE_UNIT_ARRAY = 41;
 
 	/**
 	 * The meta object id for the '<em>Collection</em>' data type.
@@ -3695,7 +4249,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getCollection()
 	 * @generated
 	 */
-	int COLLECTION = 38;
+	int COLLECTION = 42;
 
 	/**
 	 * The meta object id for the '<em>IProvided Capability Array</em>' data type.
@@ -3705,7 +4259,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProvidedCapabilityArray()
 	 * @generated
 	 */
-	int IPROVIDED_CAPABILITY_ARRAY = 39;
+	int IPROVIDED_CAPABILITY_ARRAY = 43;
 
 	/**
 	 * The meta object id for the '<em>IInstallable Unit Fragment Array</em>' data type.
@@ -3715,7 +4269,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnitFragmentArray()
 	 * @generated
 	 */
-	int IINSTALLABLE_UNIT_FRAGMENT_ARRAY = 40;
+	int IINSTALLABLE_UNIT_FRAGMENT_ARRAY = 44;
 
 	/**
 	 * The meta object id for the '<em>IArtifact Key Array</em>' data type.
@@ -3725,7 +4279,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIArtifactKeyArray()
 	 * @generated
 	 */
-	int IARTIFACT_KEY_ARRAY = 41;
+	int IARTIFACT_KEY_ARRAY = 45;
 
 	/**
 	 * The meta object id for the '<em>ITouchpoint Data Array</em>' data type.
@@ -3735,7 +4289,17 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointDataArray()
 	 * @generated
 	 */
-	int ITOUCHPOINT_DATA_ARRAY = 42;
+	int ITOUCHPOINT_DATA_ARRAY = 46;
+
+	/**
+	 * The meta object id for the '<em>IRequirement Array Array</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequirementArrayArray()
+	 * @generated
+	 */
+	int IREQUIREMENT_ARRAY_ARRAY = 47;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -3745,7 +4309,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 43;
+	int STRING_ARRAY = 48;
 
 	/**
 	 * The meta object id for the '<em>Untyped Map</em>' data type.
@@ -3756,7 +4320,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getUntypedMap()
 	 * @generated
 	 */
-	int UNTYPED_MAP = 44;
+	int UNTYPED_MAP = 49;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -3767,7 +4331,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 45;
+	int MAP = 50;
 
 	/**
 	 * The meta object id for the '<em>ILicense Array</em>' data type.
@@ -3777,7 +4341,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getILicenseArray()
 	 * @generated
 	 */
-	int ILICENSE_ARRAY = 46;
+	int ILICENSE_ARRAY = 51;
 
 	/**
 	 * The meta object id for the '<em>IQuery Result</em>' data type.
@@ -3788,7 +4352,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIQueryResult()
 	 * @generated
 	 */
-	int IQUERY_RESULT = 47;
+	int IQUERY_RESULT = 52;
 
 	/**
 	 * The meta object id for the '<em>IQuery</em>' data type.
@@ -3799,7 +4363,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIQuery()
 	 * @generated
 	 */
-	int IQUERY = 48;
+	int IQUERY = 53;
 
 	/**
 	 * The meta object id for the '<em>Collector</em>' data type.
@@ -3810,7 +4374,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getCollector()
 	 * @generated
 	 */
-	int COLLECTOR = 49;
+	int COLLECTOR = 54;
 
 	/**
 	 * The meta object id for the '<em>IProgress Monitor</em>' data type.
@@ -3821,7 +4385,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProgressMonitor()
 	 * @generated
 	 */
-	int IPROGRESS_MONITOR = 50;
+	int IPROGRESS_MONITOR = 55;
 
 	/**
 	 * The meta object id for the '<em>IRunnable With Progress</em>' data type.
@@ -3832,7 +4396,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRunnableWithProgress()
 	 * @generated
 	 */
-	int IRUNNABLE_WITH_PROGRESS = 51;
+	int IRUNNABLE_WITH_PROGRESS = 56;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -3843,7 +4407,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 52;
+	int ISTATUS = 57;
 
 	/**
 	 * The meta object id for the '<em>IMatch Expression</em>' data type.
@@ -3854,7 +4418,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIMatchExpression()
 	 * @generated
 	 */
-	int IMATCH_EXPRESSION = 53;
+	int IMATCH_EXPRESSION = 58;
 
 	/**
 	 * The meta object id for the '<em>IProvisioning Agent</em>' data type.
@@ -3865,7 +4429,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProvisioningAgent()
 	 * @generated
 	 */
-	int IPROVISIONING_AGENT = 54;
+	int IPROVISIONING_AGENT = 59;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -3876,7 +4440,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 55;
+	int URI = 60;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.p2.ArtifactKey <em>Artifact Key</em>}'.
@@ -3961,8 +4525,7 @@ public interface P2Package extends EPackage {
 	EClass getIArtifactKey();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IArtifactKey#getClassifier
-	 * <em>Classifier</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IArtifactKey#getClassifier <em>Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3974,7 +4537,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIArtifactKey_Classifier();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IArtifactKey#getId <em>Id</em>} '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IArtifactKey#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3986,8 +4549,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIArtifactKey_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IArtifactKey#getVersion
-	 * <em>Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IArtifactKey#getVersion <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4022,8 +4584,7 @@ public interface P2Package extends EPackage {
 	EClass getICopyright();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ICopyright#getBody
-	 * <em>Body</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ICopyright#getBody <em>Body</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4035,8 +4596,7 @@ public interface P2Package extends EPackage {
 	EAttribute getICopyright_Body();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ICopyright#getLocation
-	 * <em>Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ICopyright#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4048,22 +4608,20 @@ public interface P2Package extends EPackage {
 	EAttribute getICopyright_Location();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit
-	 * <em>IInstallable Unit</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit <em>IInstallable Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>IInstallable Unit</em>'.
 	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnit
 	 * @model instanceClass="org.eclipse.equinox.p2.metadata.IInstallableUnit"
-	 * 
 	 *        superTypes="org.eclipse.b3.p2.IVersionedId org.eclipse.b3.p2.Comparable<org.eclipse.b3.p2.IInstallableUnit>"
 	 * @generated
 	 */
 	EClass getIInstallableUnit();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getArtifacts
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getArtifacts
 	 * <em>Artifacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4076,8 +4634,8 @@ public interface P2Package extends EPackage {
 	EReference getIInstallableUnit_Artifacts();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getCopyright
-	 * <em>Copyright</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getCopyright <em>Copyright</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4089,8 +4647,7 @@ public interface P2Package extends EPackage {
 	EReference getIInstallableUnit_Copyright();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getFilter
-	 * <em>Filter</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getFilter <em>Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4102,7 +4659,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIInstallableUnit_Filter();
 
 	/**
-	 * Returns the meta object for the reference list ' {@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getFragments <em>Fragments</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getFragments <em>Fragments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4114,7 +4671,7 @@ public interface P2Package extends EPackage {
 	EReference getIInstallableUnit_Fragments();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getLicenses
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getLicenses
 	 * <em>Licenses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4127,7 +4684,7 @@ public interface P2Package extends EPackage {
 	EReference getIInstallableUnit_Licenses();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getMetaRequirements
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getMetaRequirements
 	 * <em>Meta Requirements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4140,7 +4697,7 @@ public interface P2Package extends EPackage {
 	EReference getIInstallableUnit_MetaRequirements();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getProvidedCapabilities
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getProvidedCapabilities
 	 * <em>Provided Capabilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4153,7 +4710,7 @@ public interface P2Package extends EPackage {
 	EReference getIInstallableUnit_ProvidedCapabilities();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getRequirements
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getRequirements
 	 * <em>Requirements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4166,8 +4723,7 @@ public interface P2Package extends EPackage {
 	EReference getIInstallableUnit_Requirements();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#isResolved
-	 * <em>Resolved</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#isResolved <em>Resolved</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4179,8 +4735,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIInstallableUnit_Resolved();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#isSingleton
-	 * <em>Singleton</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#isSingleton <em>Singleton</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4192,7 +4747,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIInstallableUnit_Singleton();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getTouchpointData
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getTouchpointData
 	 * <em>Touchpoint Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4205,7 +4760,7 @@ public interface P2Package extends EPackage {
 	EReference getIInstallableUnit_TouchpointData();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getTouchpointType
+	 * Returns the meta object for the containment reference '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getTouchpointType
 	 * <em>Touchpoint Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4218,7 +4773,7 @@ public interface P2Package extends EPackage {
 	EReference getIInstallableUnit_TouchpointType();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getUpdateDescriptor
+	 * Returns the meta object for the containment reference '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit#getUpdateDescriptor
 	 * <em>Update Descriptor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4242,15 +4797,13 @@ public interface P2Package extends EPackage {
 	EDataType getIInstallableUnitArray();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitFragment
-	 * <em>IInstallable Unit Fragment</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitFragment <em>IInstallable Unit Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>IInstallable Unit Fragment</em>'.
 	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitFragment
-	 * @model instanceClass="org.eclipse.equinox.p2.metadata.IInstallableUnitFragment"
-	 *        superTypes="org.eclipse.b3.p2.IInstallableUnit"
+	 * @model instanceClass="org.eclipse.equinox.p2.metadata.IInstallableUnitFragment" superTypes="org.eclipse.b3.p2.IInstallableUnit"
 	 * @generated
 	 */
 	EClass getIInstallableUnitFragment();
@@ -4267,6 +4820,57 @@ public interface P2Package extends EPackage {
 	EDataType getIInstallableUnitFragmentArray();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitPatch <em>IInstallable Unit Patch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IInstallable Unit Patch</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitPatch
+	 * @model instanceClass="org.eclipse.equinox.p2.metadata.IInstallableUnitPatch" superTypes="org.eclipse.b3.p2.IInstallableUnit"
+	 * @generated
+	 */
+	EClass getIInstallableUnitPatch();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitPatch#getAppliesTo
+	 * <em>Applies To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Applies To</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitPatch#getAppliesTo()
+	 * @see #getIInstallableUnitPatch()
+	 * @generated
+	 */
+	EReference getIInstallableUnitPatch_AppliesTo();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitPatch#getLifeCycle
+	 * <em>Life Cycle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Life Cycle</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitPatch#getLifeCycle()
+	 * @see #getIInstallableUnitPatch()
+	 * @generated
+	 */
+	EReference getIInstallableUnitPatch_LifeCycle();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitPatch#getRequirementsChange
+	 * <em>Requirements Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Requirements Change</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitPatch#getRequirementsChange()
+	 * @see #getIInstallableUnitPatch()
+	 * @generated
+	 */
+	EReference getIInstallableUnitPatch_RequirementsChange();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.ILicense <em>ILicense</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4279,7 +4883,7 @@ public interface P2Package extends EPackage {
 	EClass getILicense();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ILicense#getBody <em>Body</em>} '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ILicense#getBody <em>Body</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4291,8 +4895,7 @@ public interface P2Package extends EPackage {
 	EAttribute getILicense_Body();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ILicense#getLocation
-	 * <em>Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ILicense#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4304,7 +4907,7 @@ public interface P2Package extends EPackage {
 	EAttribute getILicense_Location();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ILicense#getUUID <em>UUID</em>} '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ILicense#getUUID <em>UUID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4327,8 +4930,7 @@ public interface P2Package extends EPackage {
 	EDataType getILicenseArray();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.expression.IMatchExpression
-	 * <em>IMatch Expression</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.expression.IMatchExpression <em>IMatch Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4340,8 +4942,7 @@ public interface P2Package extends EPackage {
 	EDataType getIMatchExpression();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository
-	 * <em>IMetadata Repository</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository <em>IMetadata Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4365,8 +4966,7 @@ public interface P2Package extends EPackage {
 	EClass getInstallableUnit();
 
 	/**
-	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.InstallableUnit#getPropertyMap
-	 * <em>Property Map</em>}'.
+	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.InstallableUnit#getPropertyMap <em>Property Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4378,8 +4978,7 @@ public interface P2Package extends EPackage {
 	EReference getInstallableUnit_PropertyMap();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.InstallableUnitFragment
-	 * <em>Installable Unit Fragment</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.InstallableUnitFragment <em>Installable Unit Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4388,6 +4987,17 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EClass getInstallableUnitFragment();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.InstallableUnitPatch <em>Installable Unit Patch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Installable Unit Patch</em>'.
+	 * @see org.eclipse.b3.p2.InstallableUnitPatch
+	 * @generated
+	 */
+	EClass getInstallableUnitPatch();
 
 	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Instruction Map</em>}'.
@@ -4427,8 +5037,7 @@ public interface P2Package extends EPackage {
 	EReference getInstructionMap_Value();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.core.runtime.IProgressMonitor
-	 * <em>IProgress Monitor</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.core.runtime.IProgressMonitor <em>IProgress Monitor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4440,8 +5049,7 @@ public interface P2Package extends EPackage {
 	EDataType getIProgressMonitor();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability
-	 * <em>IProvided Capability</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability <em>IProvided Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4453,8 +5061,7 @@ public interface P2Package extends EPackage {
 	EClass getIProvidedCapability();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability#getName
-	 * <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4466,7 +5073,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIProvidedCapability_Name();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.equinox.p2.metadata.IProvidedCapability#getNamespace <em>Namespace</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability#getNamespace <em>Namespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4478,8 +5085,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIProvidedCapability_Namespace();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability#getVersion
-	 * <em>Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability#getVersion <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4502,8 +5108,7 @@ public interface P2Package extends EPackage {
 	EDataType getIProvidedCapabilityArray();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.core.IProvisioningAgent
-	 * <em>IProvisioning Agent</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.core.IProvisioningAgent <em>IProvisioning Agent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4564,8 +5169,7 @@ public interface P2Package extends EPackage {
 	EClass getIRepository();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getDescription
-	 * <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4577,8 +5181,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRepository_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getLocation
-	 * <em>Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4590,8 +5193,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRepository_Location();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#isModifiable
-	 * <em>Modifiable</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#isModifiable <em>Modifiable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4603,8 +5205,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRepository_Modifiable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getName
-	 * <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4616,8 +5217,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRepository_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getProvider
-	 * <em>Provider</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4629,8 +5229,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRepository_Provider();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getType
-	 * <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4642,8 +5241,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRepository_Type();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getVersion
-	 * <em>Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getVersion <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4655,8 +5253,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRepository_Version();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.repository.IRepositoryReference
-	 * <em>IRepository Reference</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.repository.IRepositoryReference <em>IRepository Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4668,21 +5265,19 @@ public interface P2Package extends EPackage {
 	EClass getIRepositoryReference();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability
-	 * <em>IRequired Capability</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability <em>IRequired Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>IRequired Capability</em>'.
 	 * @see org.eclipse.equinox.internal.p2.metadata.IRequiredCapability
-	 * @model instanceClass="org.eclipse.equinox.internal.p2.metadata.IRequiredCapability"
-	 *        superTypes="org.eclipse.b3.p2.IRequirement"
+	 * @model instanceClass="org.eclipse.equinox.internal.p2.metadata.IRequiredCapability" superTypes="org.eclipse.b3.p2.IRequirement"
 	 * @generated
 	 */
 	EClass getIRequiredCapability();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4694,8 +5289,8 @@ public interface P2Package extends EPackage {
 	EAttribute getIRequiredCapability_Name();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability#getNamespace
-	 * <em>Namespace</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability#getNamespace <em>Namespace</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4707,7 +5302,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRequiredCapability_Namespace();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability#getRange <em>Range</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability#getRange <em>Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4731,8 +5326,7 @@ public interface P2Package extends EPackage {
 	EClass getIRequirement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getDescription
-	 * <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4744,8 +5338,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRequirement_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getFilter
-	 * <em>Filter</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getFilter <em>Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4757,8 +5350,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRequirement_Filter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#isGreedy
-	 * <em>Greedy</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#isGreedy <em>Greedy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4770,8 +5362,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRequirement_Greedy();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getMatches
-	 * <em>Matches</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getMatches <em>Matches</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4783,8 +5374,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRequirement_Matches();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getMax
-	 * <em>Max</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getMax <em>Max</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4796,8 +5386,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIRequirement_Max();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getMin
-	 * <em>Min</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getMin <em>Min</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4809,8 +5398,56 @@ public interface P2Package extends EPackage {
 	EAttribute getIRequirement_Min();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.repository.IRunnableWithProgress
-	 * <em>IRunnable With Progress</em>}'.
+	 * Returns the meta object for data type '<em>IRequirement Array Array</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IRequirement Array Array</em>'.
+	 * @model instanceClass="org.eclipse.equinox.p2.metadata.IRequirement[][]"
+	 * @generated
+	 */
+	EDataType getIRequirementArrayArray();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IRequirementChange <em>IRequirement Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IRequirement Change</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.IRequirementChange
+	 * @model instanceClass="org.eclipse.equinox.p2.metadata.IRequirementChange"
+	 * @generated
+	 */
+	EClass getIRequirementChange();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.equinox.p2.metadata.IRequirementChange#getApplyOn <em>Apply On</em>}
+	 * '.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Apply On</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.IRequirementChange#getApplyOn()
+	 * @see #getIRequirementChange()
+	 * @generated
+	 */
+	EReference getIRequirementChange_ApplyOn();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.equinox.p2.metadata.IRequirementChange#getNewValue
+	 * <em>New Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>New Value</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.IRequirementChange#getNewValue()
+	 * @see #getIRequirementChange()
+	 * @generated
+	 */
+	EReference getIRequirementChange_NewValue();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.repository.IRunnableWithProgress <em>IRunnable With Progress</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4834,8 +5471,7 @@ public interface P2Package extends EPackage {
 	EDataType getIStatus();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.ITouchpointData
-	 * <em>ITouchpoint Data</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.ITouchpointData <em>ITouchpoint Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4858,8 +5494,7 @@ public interface P2Package extends EPackage {
 	EDataType getITouchpointDataArray();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction
-	 * <em>ITouchpoint Instruction</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction <em>ITouchpoint Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4871,8 +5506,7 @@ public interface P2Package extends EPackage {
 	EClass getITouchpointInstruction();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction#getBody
-	 * <em>Body</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction#getBody <em>Body</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4884,7 +5518,7 @@ public interface P2Package extends EPackage {
 	EAttribute getITouchpointInstruction_Body();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction#getImportAttribute
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction#getImportAttribute
 	 * <em>Import Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4897,8 +5531,7 @@ public interface P2Package extends EPackage {
 	EAttribute getITouchpointInstruction_ImportAttribute();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.ITouchpointType
-	 * <em>ITouchpoint Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.ITouchpointType <em>ITouchpoint Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4910,8 +5543,7 @@ public interface P2Package extends EPackage {
 	EClass getITouchpointType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ITouchpointType#getId
-	 * <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ITouchpointType#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4923,8 +5555,7 @@ public interface P2Package extends EPackage {
 	EAttribute getITouchpointType_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ITouchpointType#getVersion
-	 * <em>Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.ITouchpointType#getVersion <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4936,8 +5567,7 @@ public interface P2Package extends EPackage {
 	EAttribute getITouchpointType_Version();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor
-	 * <em>IUpdate Descriptor</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor <em>IUpdate Descriptor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4949,7 +5579,7 @@ public interface P2Package extends EPackage {
 	EClass getIUpdateDescriptor();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4961,8 +5591,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIUpdateDescriptor_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor#getLocation
-	 * <em>Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4974,8 +5603,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIUpdateDescriptor_Location();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor#getSeverity
-	 * <em>Severity</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor#getSeverity <em>Severity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -4999,7 +5627,7 @@ public interface P2Package extends EPackage {
 	EClass getIVersionedId();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IVersionedId#getId <em>Id</em>} '.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IVersionedId#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5011,8 +5639,7 @@ public interface P2Package extends EPackage {
 	EAttribute getIVersionedId_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IVersionedId#getVersion
-	 * <em>Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IVersionedId#getVersion <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5058,7 +5685,7 @@ public interface P2Package extends EPackage {
 	EClass getMetadataRepository();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.MetadataRepository#getInstallableUnits
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.p2.MetadataRepository#getInstallableUnits
 	 * <em>Installable Units</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5071,8 +5698,7 @@ public interface P2Package extends EPackage {
 	EReference getMetadataRepository_InstallableUnits();
 
 	/**
-	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.MetadataRepository#getPropertyMap
-	 * <em>Property Map</em>}'.
+	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.MetadataRepository#getPropertyMap <em>Property Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5084,7 +5710,7 @@ public interface P2Package extends EPackage {
 	EReference getMetadataRepository_PropertyMap();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.MetadataRepository#getReferences <em>References</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.p2.MetadataRepository#getReferences <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5165,8 +5791,7 @@ public interface P2Package extends EPackage {
 	EClass getRepositoryReference();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.RepositoryReference#getLocation
-	 * <em>Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.RepositoryReference#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5178,8 +5803,7 @@ public interface P2Package extends EPackage {
 	EAttribute getRepositoryReference_Location();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.RepositoryReference#getNickname
-	 * <em>Nickname</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.RepositoryReference#getNickname <em>Nickname</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5191,8 +5815,7 @@ public interface P2Package extends EPackage {
 	EAttribute getRepositoryReference_Nickname();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.RepositoryReference#getOptions
-	 * <em>Options</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.RepositoryReference#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5238,6 +5861,17 @@ public interface P2Package extends EPackage {
 	EClass getRequirement();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.RequirementChange <em>Requirement Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Requirement Change</em>'.
+	 * @see org.eclipse.b3.p2.RequirementChange
+	 * @generated
+	 */
+	EClass getRequirementChange();
+
+	/**
 	 * Returns the meta object for data type '<em>String Array</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5260,8 +5894,7 @@ public interface P2Package extends EPackage {
 	EClass getTouchpointData();
 
 	/**
-	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.TouchpointData#getInstructionMap
-	 * <em>Instruction Map</em>}'.
+	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.TouchpointData#getInstructionMap <em>Instruction Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5273,8 +5906,7 @@ public interface P2Package extends EPackage {
 	EReference getTouchpointData_InstructionMap();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.TouchpointInstruction
-	 * <em>Touchpoint Instruction</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.TouchpointInstruction <em>Touchpoint Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -5343,8 +5975,7 @@ public interface P2Package extends EPackage {
 	EDataType getVersion();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.VersionRange
-	 * <em>Version Range</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.VersionRange <em>Version Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

@@ -196,8 +196,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	protected EList<IRequirement> metaRequirements;
 
 	/**
-	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference
-	 * list.
+	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

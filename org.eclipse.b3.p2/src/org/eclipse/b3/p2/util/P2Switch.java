@@ -13,6 +13,7 @@ import org.eclipse.b3.p2.ArtifactKey;
 import org.eclipse.b3.p2.Copyright;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.InstallableUnitFragment;
+import org.eclipse.b3.p2.InstallableUnitPatch;
 import org.eclipse.b3.p2.License;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Package;
@@ -20,6 +21,7 @@ import org.eclipse.b3.p2.ProvidedCapability;
 import org.eclipse.b3.p2.RepositoryReference;
 import org.eclipse.b3.p2.RequiredCapability;
 import org.eclipse.b3.p2.Requirement;
+import org.eclipse.b3.p2.RequirementChange;
 import org.eclipse.b3.p2.TouchpointData;
 import org.eclipse.b3.p2.TouchpointInstruction;
 import org.eclipse.b3.p2.TouchpointType;
@@ -35,9 +37,11 @@ import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IInstallableUnitFragment;
+import org.eclipse.equinox.p2.metadata.IInstallableUnitPatch;
 import org.eclipse.equinox.p2.metadata.ILicense;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.IRequirementChange;
 import org.eclipse.equinox.p2.metadata.ITouchpointData;
 import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
@@ -225,6 +229,23 @@ public class P2Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IInstallable Unit Patch</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IInstallable Unit Patch</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIInstallableUnitPatch(IInstallableUnitPatch object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>ILicense</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -289,6 +310,23 @@ public class P2Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseInstallableUnitFragment(InstallableUnitFragment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Installable Unit Patch</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Installable Unit Patch</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseInstallableUnitPatch(InstallableUnitPatch object) {
 		return null;
 	}
 
@@ -408,6 +446,23 @@ public class P2Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseIRequirement(IRequirement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IRequirement Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IRequirement Change</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIRequirementChange(IRequirementChange object) {
 		return null;
 	}
 
@@ -616,6 +671,23 @@ public class P2Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Requirement Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Requirement Change</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseRequirementChange(RequirementChange object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Touchpoint Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -701,8 +773,7 @@ public class P2Switch<T1> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that
-	 * result.
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -714,8 +785,7 @@ public class P2Switch<T1> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that
-	 * result.
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -735,8 +805,7 @@ public class P2Switch<T1> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that
-	 * result.
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -808,6 +877,23 @@ public class P2Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
+			case P2Package.INSTALLABLE_UNIT_PATCH: {
+				InstallableUnitPatch installableUnitPatch = (InstallableUnitPatch) theEObject;
+				T1 result = caseInstallableUnitPatch(installableUnitPatch);
+				if(result == null)
+					result = caseInstallableUnit(installableUnitPatch);
+				if(result == null)
+					result = caseIInstallableUnitPatch(installableUnitPatch);
+				if(result == null)
+					result = caseIInstallableUnit(installableUnitPatch);
+				if(result == null)
+					result = caseIVersionedId(installableUnitPatch);
+				if(result == null)
+					result = caseComparable(installableUnitPatch);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
 			case P2Package.LICENSE: {
 				License license = (License) theEObject;
 				T1 result = caseLicense(license);
@@ -844,6 +930,15 @@ public class P2Switch<T1> {
 				T1 result = caseRequirement(requirement);
 				if(result == null)
 					result = caseIRequirement(requirement);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.REQUIREMENT_CHANGE: {
+				RequirementChange requirementChange = (RequirementChange) theEObject;
+				T1 result = caseRequirementChange(requirementChange);
+				if(result == null)
+					result = caseIRequirementChange(requirementChange);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

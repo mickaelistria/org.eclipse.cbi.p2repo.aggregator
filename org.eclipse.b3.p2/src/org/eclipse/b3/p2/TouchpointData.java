@@ -40,9 +40,7 @@ public interface TouchpointData extends ITouchpointData {
 	 * 
 	 * @return the value of the '<em>Instruction Map</em>' map.
 	 * @see org.eclipse.b3.p2.P2Package#getTouchpointData_InstructionMap()
-	 * @model mapType=
-	 * 
-	 *        "org.eclipse.b3.p2.InstructionMap<org.eclipse.emf.ecore.EString, org.eclipse.b3.p2.ITouchpointInstruction>"
+	 * @model mapType="org.eclipse.b3.p2.InstructionMap<org.eclipse.emf.ecore.EString, org.eclipse.b3.p2.ITouchpointInstruction>"
 	 * @generated
 	 */
 	EMap<String, ITouchpointInstruction> getInstructionMap();

@@ -75,6 +75,15 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IInstallableUnitFragment" instanceClassName="org.eclipse.equinox.p2.metadata.IInstallableUnitFragment"
       abstract="true" interface="true" eSuperTypes="#//IInstallableUnit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IInstallableUnitPatch" instanceClassName="org.eclipse.equinox.p2.metadata.IInstallableUnitPatch"
+      abstract="true" interface="true" eSuperTypes="#//IInstallableUnit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirementsChange" upperBound="-1"
+        eType="#//IRequirementChange" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeCycle" eType="#//IRequirement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appliesTo" upperBound="-1"
+        eType="#//IRequirement" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ILicense" instanceClassName="org.eclipse.equinox.p2.metadata.ILicense"
       abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//URI"/>
@@ -112,6 +121,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" eType="#//VersionRange"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IRequirementChange" instanceClassName="org.eclipse.equinox.p2.metadata.IRequirementChange"
+      abstract="true" interface="true">
+    <eOperations name="applyOn" eType="#//IRequiredCapability"/>
+    <eOperations name="newValue" eType="#//IRequiredCapability"/>
+    <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="toMatch" eType="#//IRequiredCapability"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applyOn" eType="#//IRequiredCapability"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newValue" eType="#//IRequiredCapability"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ITouchpointData" instanceClassName="org.eclipse.equinox.p2.metadata.ITouchpointData"
       abstract="true" interface="true">
@@ -178,10 +199,14 @@
       </eGenericType>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InstallableUnitPatch" eSuperTypes="#//InstallableUnit #//IInstallableUnitPatch">
+    <eOperations name="getApplicabilityScope" eType="#//IRequirementArrayArray"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="License" eSuperTypes="#//ILicense"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProvidedCapability" eSuperTypes="#//IProvidedCapability"/>
   <eClassifiers xsi:type="ecore:EClass" name="RequiredCapability" eSuperTypes="#//Requirement #//IRequiredCapability"/>
   <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//IRequirement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RequirementChange" eSuperTypes="#//IRequirementChange"/>
   <eClassifiers xsi:type="ecore:EClass" name="TouchpointData" eSuperTypes="#//ITouchpointData">
     <eStructuralFeatures xsi:type="ecore:EReference" name="instructionMap" upperBound="-1"
         eType="#//InstructionMap" containment="true"/>
@@ -208,6 +233,7 @@
   <eClassifiers xsi:type="ecore:EDataType" name="IInstallableUnitFragmentArray" instanceClassName="org.eclipse.equinox.p2.metadata.IInstallableUnitFragment[]"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IArtifactKeyArray" instanceClassName="org.eclipse.equinox.p2.metadata.IArtifactKey[]"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ITouchpointDataArray" instanceClassName="org.eclipse.equinox.p2.metadata.ITouchpointData[]"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="IRequirementArrayArray" instanceClassName="org.eclipse.equinox.p2.metadata.IRequirement[][]"/>
   <eClassifiers xsi:type="ecore:EDataType" name="StringArray" instanceClassName="java.lang.String[]"/>
   <eClassifiers xsi:type="ecore:EDataType" name="UntypedMap" instanceClassName="java.util.Map"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Map" instanceClassName="java.util.Map">

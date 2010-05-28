@@ -68,6 +68,16 @@ public interface P2Factory extends EFactory {
 	InstallableUnitFragment createInstallableUnitFragment();
 
 	/**
+	 * Returns a new object of class '<em>Installable Unit Patch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Installable Unit Patch</em>'.
+	 * @generated
+	 */
+	InstallableUnitPatch createInstallableUnitPatch();
+
+	/**
 	 * Returns a new object of class '<em>License</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,6 +143,16 @@ public interface P2Factory extends EFactory {
 	 * @generated
 	 */
 	Requirement createRequirement();
+
+	/**
+	 * Returns a new object of class '<em>Requirement Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Requirement Change</em>'.
+	 * @generated
+	 */
+	RequirementChange createRequirementChange();
 
 	/**
 	 * Returns a new object of class '<em>Touchpoint Data</em>'.

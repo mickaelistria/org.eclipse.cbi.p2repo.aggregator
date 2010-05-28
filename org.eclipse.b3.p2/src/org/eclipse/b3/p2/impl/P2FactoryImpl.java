@@ -15,6 +15,7 @@ import org.eclipse.b3.p2.ArtifactKey;
 import org.eclipse.b3.p2.Copyright;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.InstallableUnitFragment;
+import org.eclipse.b3.p2.InstallableUnitPatch;
 import org.eclipse.b3.p2.License;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
@@ -23,6 +24,7 @@ import org.eclipse.b3.p2.ProvidedCapability;
 import org.eclipse.b3.p2.RepositoryReference;
 import org.eclipse.b3.p2.RequiredCapability;
 import org.eclipse.b3.p2.Requirement;
+import org.eclipse.b3.p2.RequirementChange;
 import org.eclipse.b3.p2.TouchpointData;
 import org.eclipse.b3.p2.TouchpointInstruction;
 import org.eclipse.b3.p2.TouchpointType;
@@ -41,6 +43,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IInstallableUnitFragment;
 import org.eclipse.equinox.p2.metadata.ILicense;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.ITouchpointData;
 import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.Version;
@@ -200,6 +203,16 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 * 
 	 * @generated
 	 */
+	public String convertIRequirementArrayArrayToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public String convertIRunnableWithProgressToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
@@ -269,6 +282,8 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 				return convertIArtifactKeyArrayToString(eDataType, instanceValue);
 			case P2Package.ITOUCHPOINT_DATA_ARRAY:
 				return convertITouchpointDataArrayToString(eDataType, instanceValue);
+			case P2Package.IREQUIREMENT_ARRAY_ARRAY:
+				return convertIRequirementArrayArrayToString(eDataType, instanceValue);
 			case P2Package.STRING_ARRAY:
 				return convertStringArrayToString(eDataType, instanceValue);
 			case P2Package.UNTYPED_MAP:
@@ -354,6 +369,8 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 				return (EObject) createInstallableUnit();
 			case P2Package.INSTALLABLE_UNIT_FRAGMENT:
 				return (EObject) createInstallableUnitFragment();
+			case P2Package.INSTALLABLE_UNIT_PATCH:
+				return (EObject) createInstallableUnitPatch();
 			case P2Package.LICENSE:
 				return (EObject) createLicense();
 			case P2Package.PROVIDED_CAPABILITY:
@@ -362,6 +379,8 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 				return (EObject) createRequiredCapability();
 			case P2Package.REQUIREMENT:
 				return (EObject) createRequirement();
+			case P2Package.REQUIREMENT_CHANGE:
+				return (EObject) createRequirementChange();
 			case P2Package.TOUCHPOINT_DATA:
 				return (EObject) createTouchpointData();
 			case P2Package.TOUCHPOINT_INSTRUCTION:
@@ -438,6 +457,8 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 				return createIArtifactKeyArrayFromString(eDataType, initialValue);
 			case P2Package.ITOUCHPOINT_DATA_ARRAY:
 				return createITouchpointDataArrayFromString(eDataType, initialValue);
+			case P2Package.IREQUIREMENT_ARRAY_ARRAY:
+				return createIRequirementArrayArrayFromString(eDataType, initialValue);
 			case P2Package.STRING_ARRAY:
 				return createStringArrayFromString(eDataType, initialValue);
 			case P2Package.UNTYPED_MAP:
@@ -543,6 +564,17 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 * 
 	 * @generated
 	 */
+	public InstallableUnitPatch createInstallableUnitPatch() {
+		InstallableUnitPatchImpl installableUnitPatch = new InstallableUnitPatchImpl();
+		return installableUnitPatch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public Map.Entry<String, ITouchpointInstruction> createInstructionMap() {
 		InstructionMapImpl instructionMap = new InstructionMapImpl();
 		return instructionMap;
@@ -576,6 +608,16 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 */
 	public IQueryResult<?> createIQueryResultFromString(EDataType eDataType, String initialValue) {
 		return (IQueryResult<?>) super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IRequirement[][] createIRequirementArrayArrayFromString(EDataType eDataType, String initialValue) {
+		return (IRequirement[][]) super.createFromString(initialValue);
 	}
 
 	/**
@@ -707,6 +749,17 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	public Requirement createRequirement() {
 		RequirementImpl requirement = new RequirementImpl();
 		return requirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public RequirementChange createRequirementChange() {
+		RequirementChangeImpl requirementChange = new RequirementChangeImpl();
+		return requirementChange;
 	}
 
 	/**

@@ -15,6 +15,7 @@ import org.eclipse.b3.p2.ArtifactKey;
 import org.eclipse.b3.p2.Copyright;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.InstallableUnitFragment;
+import org.eclipse.b3.p2.InstallableUnitPatch;
 import org.eclipse.b3.p2.License;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
@@ -23,6 +24,7 @@ import org.eclipse.b3.p2.ProvidedCapability;
 import org.eclipse.b3.p2.RepositoryReference;
 import org.eclipse.b3.p2.RequiredCapability;
 import org.eclipse.b3.p2.Requirement;
+import org.eclipse.b3.p2.RequirementChange;
 import org.eclipse.b3.p2.TouchpointData;
 import org.eclipse.b3.p2.TouchpointInstruction;
 import org.eclipse.b3.p2.TouchpointType;
@@ -46,9 +48,11 @@ import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IInstallableUnitFragment;
+import org.eclipse.equinox.p2.metadata.IInstallableUnitPatch;
 import org.eclipse.equinox.p2.metadata.ILicense;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.IRequirementChange;
 import org.eclipse.equinox.p2.metadata.ITouchpointData;
 import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
@@ -112,6 +116,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
+	private EClass iInstallableUnitPatchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private EClass iLicenseEClass = null;
 
 	/**
@@ -137,6 +149,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	private EClass iRequiredCapabilityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iRequirementChangeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,6 +244,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
+	private EClass installableUnitPatchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private EClass licenseEClass = null;
 
 	/**
@@ -249,6 +277,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	private EClass requirementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass requirementChangeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -424,6 +460,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
+	private EDataType iRequirementArrayArrayEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private EDataType stringArrayEDataType = null;
 
 	/**
@@ -587,8 +631,8 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	private boolean isInitialized = false;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
-	 * EPackage.Registry} by the package
+	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+	 * package
 	 * package URI value.
 	 * <p>
 	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
@@ -643,6 +687,11 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		iInstallableUnitFragmentEClass = createEClass(IINSTALLABLE_UNIT_FRAGMENT);
 
+		iInstallableUnitPatchEClass = createEClass(IINSTALLABLE_UNIT_PATCH);
+		createEReference(iInstallableUnitPatchEClass, IINSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE);
+		createEReference(iInstallableUnitPatchEClass, IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE);
+		createEReference(iInstallableUnitPatchEClass, IINSTALLABLE_UNIT_PATCH__APPLIES_TO);
+
 		iLicenseEClass = createEClass(ILICENSE);
 		createEAttribute(iLicenseEClass, ILICENSE__LOCATION);
 		createEAttribute(iLicenseEClass, ILICENSE__BODY);
@@ -665,6 +714,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		createEAttribute(iRequiredCapabilityEClass, IREQUIRED_CAPABILITY__NAME);
 		createEAttribute(iRequiredCapabilityEClass, IREQUIRED_CAPABILITY__NAMESPACE);
 		createEAttribute(iRequiredCapabilityEClass, IREQUIRED_CAPABILITY__RANGE);
+
+		iRequirementChangeEClass = createEClass(IREQUIREMENT_CHANGE);
+		createEReference(iRequirementChangeEClass, IREQUIREMENT_CHANGE__APPLY_ON);
+		createEReference(iRequirementChangeEClass, IREQUIREMENT_CHANGE__NEW_VALUE);
 
 		iTouchpointDataEClass = createEClass(ITOUCHPOINT_DATA);
 
@@ -699,6 +752,8 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		installableUnitFragmentEClass = createEClass(INSTALLABLE_UNIT_FRAGMENT);
 
+		installableUnitPatchEClass = createEClass(INSTALLABLE_UNIT_PATCH);
+
 		licenseEClass = createEClass(LICENSE);
 
 		providedCapabilityEClass = createEClass(PROVIDED_CAPABILITY);
@@ -706,6 +761,8 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		requiredCapabilityEClass = createEClass(REQUIRED_CAPABILITY);
 
 		requirementEClass = createEClass(REQUIREMENT);
+
+		requirementChangeEClass = createEClass(REQUIREMENT_CHANGE);
 
 		touchpointDataEClass = createEClass(TOUCHPOINT_DATA);
 		createEReference(touchpointDataEClass, TOUCHPOINT_DATA__INSTRUCTION_MAP);
@@ -758,6 +815,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		iInstallableUnitFragmentArrayEDataType = createEDataType(IINSTALLABLE_UNIT_FRAGMENT_ARRAY);
 		iArtifactKeyArrayEDataType = createEDataType(IARTIFACT_KEY_ARRAY);
 		iTouchpointDataArrayEDataType = createEDataType(ITOUCHPOINT_DATA_ARRAY);
+		iRequirementArrayArrayEDataType = createEDataType(IREQUIREMENT_ARRAY_ARRAY);
 		stringArrayEDataType = createEDataType(STRING_ARRAY);
 		untypedMapEDataType = createEDataType(UNTYPED_MAP);
 		mapEDataType = createEDataType(MAP);
@@ -1089,6 +1147,46 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
+	public EClass getIInstallableUnitPatch() {
+		return iInstallableUnitPatchEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getIInstallableUnitPatch_AppliesTo() {
+		return (EReference) iInstallableUnitPatchEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getIInstallableUnitPatch_LifeCycle() {
+		return (EReference) iInstallableUnitPatchEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getIInstallableUnitPatch_RequirementsChange() {
+		return (EReference) iInstallableUnitPatchEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getILicense() {
 		return iLicenseEClass;
 	}
@@ -1181,6 +1279,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 */
 	public EClass getInstallableUnitFragment() {
 		return installableUnitFragmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getInstallableUnitPatch() {
+		return installableUnitPatchEClass;
 	}
 
 	/**
@@ -1511,6 +1619,46 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 */
 	public EAttribute getIRequirement_Min() {
 		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getIRequirementArrayArray() {
+		return iRequirementArrayArrayEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getIRequirementChange() {
+		return iRequirementChangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getIRequirementChange_ApplyOn() {
+		return (EReference) iRequirementChangeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getIRequirementChange_NewValue() {
+		return (EReference) iRequirementChangeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1869,6 +2017,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
+	public EClass getRequirementChange() {
+		return requirementChangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EDataType getStringArray() {
 		return stringArrayEDataType;
 	}
@@ -2005,6 +2163,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		g1.getETypeArguments().add(g2);
 		iInstallableUnitEClass.getEGenericSuperTypes().add(g1);
 		iInstallableUnitFragmentEClass.getESuperTypes().add(this.getIInstallableUnit());
+		iInstallableUnitPatchEClass.getESuperTypes().add(this.getIInstallableUnit());
 		iRequiredCapabilityEClass.getESuperTypes().add(this.getIRequirement());
 		artifactKeyEClass.getESuperTypes().add(this.getIArtifactKey());
 		copyrightEClass.getESuperTypes().add(this.getICopyright());
@@ -2012,11 +2171,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		installableUnitEClass.getESuperTypes().add(this.getIInstallableUnit());
 		installableUnitFragmentEClass.getESuperTypes().add(this.getInstallableUnit());
 		installableUnitFragmentEClass.getESuperTypes().add(this.getIInstallableUnitFragment());
+		installableUnitPatchEClass.getESuperTypes().add(this.getInstallableUnit());
+		installableUnitPatchEClass.getESuperTypes().add(this.getIInstallableUnitPatch());
 		licenseEClass.getESuperTypes().add(this.getILicense());
 		providedCapabilityEClass.getESuperTypes().add(this.getIProvidedCapability());
 		requiredCapabilityEClass.getESuperTypes().add(this.getRequirement());
 		requiredCapabilityEClass.getESuperTypes().add(this.getIRequiredCapability());
 		requirementEClass.getESuperTypes().add(this.getIRequirement());
+		requirementChangeEClass.getESuperTypes().add(this.getIRequirementChange());
 		touchpointDataEClass.getESuperTypes().add(this.getITouchpointData());
 		touchpointInstructionEClass.getESuperTypes().add(this.getITouchpointInstruction());
 		touchpointTypeEClass.getESuperTypes().add(this.getITouchpointType());
@@ -2148,6 +2310,22 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 			iInstallableUnitFragmentEClass, IInstallableUnitFragment.class, "IInstallableUnitFragment", IS_ABSTRACT,
 			IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(
+			iInstallableUnitPatchEClass, IInstallableUnitPatch.class, "IInstallableUnitPatch", IS_ABSTRACT,
+			IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getIInstallableUnitPatch_RequirementsChange(), this.getIRequirementChange(), null, "requirementsChange",
+			null, 0, -1, IInstallableUnitPatch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIInstallableUnitPatch_LifeCycle(), this.getIRequirement(), null, "lifeCycle", null, 0, 1,
+			IInstallableUnitPatch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIInstallableUnitPatch_AppliesTo(), this.getIRequirement(), null, "appliesTo", null, 0, -1,
+			IInstallableUnitPatch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(iLicenseEClass, ILicense.class, "ILicense", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getILicense_Location(), this.getURI(), "location", null, 0, 1, ILicense.class, !IS_TRANSIENT, !IS_VOLATILE,
@@ -2217,6 +2395,25 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		initEAttribute(
 			getIRequiredCapability_Range(), this.getVersionRange(), "range", null, 0, 1, IRequiredCapability.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			iRequirementChangeEClass, IRequirementChange.class, "IRequirementChange", IS_ABSTRACT, IS_INTERFACE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getIRequirementChange_ApplyOn(), this.getIRequiredCapability(), null, "applyOn", null, 0, 1,
+			IRequirementChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIRequirementChange_NewValue(), this.getIRequiredCapability(), null, "newValue", null, 0, 1,
+			IRequirementChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(iRequirementChangeEClass, this.getIRequiredCapability(), "applyOn", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(iRequirementChangeEClass, this.getIRequiredCapability(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iRequirementChangeEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIRequiredCapability(), "toMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			iTouchpointDataEClass, ITouchpointData.class, "ITouchpointData", IS_ABSTRACT, IS_INTERFACE,
@@ -2335,6 +2532,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
+		initEClass(
+			installableUnitPatchEClass, InstallableUnitPatch.class, "InstallableUnitPatch", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(
+			installableUnitPatchEClass, this.getIRequirementArrayArray(), "getApplicabilityScope", 0, 1, IS_UNIQUE,
+			IS_ORDERED);
+
 		initEClass(licenseEClass, License.class, "License", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(
@@ -2347,6 +2552,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		initEClass(
 			requirementEClass, Requirement.class, "Requirement", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			requirementChangeEClass, RequirementChange.class, "RequirementChange", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(
@@ -2536,6 +2745,9 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 			!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(
 			iTouchpointDataArrayEDataType, ITouchpointData[].class, "ITouchpointDataArray", IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iRequirementArrayArrayEDataType, IRequirement[][].class, "IRequirementArrayArray", IS_SERIALIZABLE,
 			!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(
 			stringArrayEDataType, String[].class, "StringArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

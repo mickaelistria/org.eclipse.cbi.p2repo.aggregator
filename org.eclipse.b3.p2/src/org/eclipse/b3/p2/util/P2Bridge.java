@@ -32,10 +32,12 @@ import org.eclipse.b3.p2.impl.ArtifactKeyImpl;
 import org.eclipse.b3.p2.impl.CopyrightImpl;
 import org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl;
 import org.eclipse.b3.p2.impl.InstallableUnitImpl;
+import org.eclipse.b3.p2.impl.InstallableUnitPatchImpl;
 import org.eclipse.b3.p2.impl.LicenseImpl;
 import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.b3.p2.impl.ProvidedCapabilityImpl;
 import org.eclipse.b3.p2.impl.RequiredCapabilityImpl;
+import org.eclipse.b3.p2.impl.RequirementChangeImpl;
 import org.eclipse.b3.p2.impl.RequirementImpl;
 import org.eclipse.b3.p2.impl.TouchpointInstructionImpl;
 import org.eclipse.b3.p2.impl.TouchpointTypeImpl;
@@ -49,9 +51,11 @@ import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IInstallableUnitFragment;
+import org.eclipse.equinox.p2.metadata.IInstallableUnitPatch;
 import org.eclipse.equinox.p2.metadata.ILicense;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.IRequirementChange;
 import org.eclipse.equinox.p2.metadata.ITouchpointData;
 import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
@@ -125,6 +129,24 @@ public class P2Bridge {
 			for(IRequirement host : ((IInstallableUnitFragment) iu).getHost())
 				mhosts.add(importToModel(host));
 			miu = miuf;
+		}
+		else if(iu instanceof IInstallableUnitPatch) {
+			IInstallableUnitPatch iup = (IInstallableUnitPatch) iu;
+			InstallableUnitPatchImpl miup = (InstallableUnitPatchImpl) factory.createInstallableUnitPatch();
+
+			IRequirement[][] scope = iup.getApplicabilityScope();
+			if(scope != null) {
+				List<IRequirement> appliesTo = miup.getAppliesTo();
+				for(IRequirement[] rqs : scope)
+					for(IRequirement rq : rqs)
+						appliesTo.add(importToModel(rq));
+			}
+			miup.setLifeCycle(importToModel(iup.getLifeCycle()));
+
+			List<IRequirementChange> mrqChanges = miup.getRequirementsChange();
+			for(IRequirementChange rqChange : iup.getRequirementsChange())
+				mrqChanges.add(importToModel(rqChange));
+			miu = miup;
 		}
 		else
 			miu = (InstallableUnitImpl) factory.createInstallableUnit();
@@ -248,6 +270,15 @@ public class P2Bridge {
 		mreq.setDescription(req.getDescription());
 
 		return mreq;
+	}
+
+	public static IRequirementChange importToModel(IRequirementChange rqChange) {
+		if(rqChange == null)
+			return null;
+		RequirementChangeImpl mrqc = (RequirementChangeImpl) P2Factory.eINSTANCE.createRequirementChange();
+		mrqc.setApplyOn((IRequiredCapability) importToModel(rqChange.applyOn()));
+		mrqc.setNewValue((IRequiredCapability) importToModel(rqChange.newValue()));
+		return mrqc;
 	}
 
 	public static TouchpointData importToModel(ITouchpointData ptd) {
