@@ -136,8 +136,8 @@ public class PropertyItemProvider extends ItemProviderAdapter implements IEditin
 	protected void addKeyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Property_key_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Property_key_feature", "_UI_Property_type"),
+			getString("_UI_Property_key_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Property_key_feature", "_UI_Property_type"),
 			P2Package.Literals.PROPERTY__KEY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
 			null));
 	}
@@ -152,8 +152,8 @@ public class PropertyItemProvider extends ItemProviderAdapter implements IEditin
 	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Property_value_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_Property_value_feature", "_UI_Property_type"),
+			getString("_UI_Property_value_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Property_value_feature", "_UI_Property_type"),
 			P2Package.Literals.PROPERTY__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
 			null));
 	}

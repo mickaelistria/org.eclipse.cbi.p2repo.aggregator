@@ -137,8 +137,10 @@ public class TouchpointTypeItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_ITouchpointType_id_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_ITouchpointType_id_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_ITouchpointType_id_feature", "_UI_ITouchpointType_type"),
 			P2Package.Literals.ITOUCHPOINT_TYPE__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));

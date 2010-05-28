@@ -11,36 +11,33 @@ package org.eclipse.b3.p2.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.b3.p2.InstallableUnitPatch;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
-import org.eclipse.b3.p2.TouchpointData;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.p2.TouchpointData} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.p2.InstallableUnitPatch} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 
  * @generated
  */
-public class TouchpointDataItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class InstallableUnitPatchItemProvider extends InstallableUnitItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -48,7 +45,7 @@ public class TouchpointDataItemProvider extends ItemProviderAdapter implements I
 	 * 
 	 * @generated
 	 */
-	public TouchpointDataItemProvider(AdapterFactory adapterFactory) {
+	public InstallableUnitPatchItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -65,13 +62,39 @@ public class TouchpointDataItemProvider extends ItemProviderAdapter implements I
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(P2Package.Literals.TOUCHPOINT_DATA__INSTRUCTION_MAP);
+			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE);
+			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE);
+			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT_PATCH__APPLIES_TO);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * This returns TouchpointData.gif.
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS ||
+				childFeature == P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS ||
+				childFeature == P2Package.Literals.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE ||
+				childFeature == P2Package.Literals.IINSTALLABLE_UNIT_PATCH__APPLIES_TO;
+
+		if(qualify) {
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
+	}
+
+	/**
+	 * This returns InstallableUnitPatch.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -79,7 +102,7 @@ public class TouchpointDataItemProvider extends ItemProviderAdapter implements I
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TouchpointData"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InstallableUnitPatch"));
 	}
 
 	/**
@@ -94,21 +117,8 @@ public class TouchpointDataItemProvider extends ItemProviderAdapter implements I
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInstructionMapPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return P2EditPlugin.INSTANCE;
 	}
 
 	/**
@@ -120,7 +130,10 @@ public class TouchpointDataItemProvider extends ItemProviderAdapter implements I
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_TouchpointData_type");
+		String label = ((InstallableUnitPatch) object).getId();
+		return label == null || label.length() == 0
+				? getString("_UI_InstallableUnitPatch_type")
+				: getString("_UI_InstallableUnitPatch_type") + " " + label;
 	}
 
 	/**
@@ -135,30 +148,14 @@ public class TouchpointDataItemProvider extends ItemProviderAdapter implements I
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(TouchpointData.class)) {
-			case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
+		switch(notification.getFeatureID(InstallableUnitPatch.class)) {
+			case P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE:
+			case P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE:
+			case P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Instruction Map feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addInstructionMapPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_TouchpointData_instructionMap_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_TouchpointData_instructionMap_feature",
-				"_UI_TouchpointData_type"), P2Package.Literals.TOUCHPOINT_DATA__INSTRUCTION_MAP, false, false, false,
-			null, null, null));
 	}
 
 	/**
@@ -174,8 +171,20 @@ public class TouchpointDataItemProvider extends ItemProviderAdapter implements I
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.TOUCHPOINT_DATA__INSTRUCTION_MAP,
-			P2Factory.eINSTANCE.create(P2Package.Literals.INSTRUCTION_MAP)));
+			P2Package.Literals.IINSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE,
+			P2Factory.eINSTANCE.createRequirementChange()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE, P2Factory.eINSTANCE.createRequirement()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE, P2Factory.eINSTANCE.createRequiredCapability()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT_PATCH__APPLIES_TO, P2Factory.eINSTANCE.createRequirement()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT_PATCH__APPLIES_TO, P2Factory.eINSTANCE.createRequiredCapability()));
 	}
 
 	/**

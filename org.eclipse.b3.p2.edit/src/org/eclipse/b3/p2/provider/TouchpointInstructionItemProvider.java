@@ -137,8 +137,10 @@ public class TouchpointInstructionItemProvider extends ItemProviderAdapter imple
 	 */
 	protected void addBodyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_ITouchpointInstruction_body_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_ITouchpointInstruction_body_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_ITouchpointInstruction_body_feature",
 				"_UI_ITouchpointInstruction_type"), P2Package.Literals.ITOUCHPOINT_INSTRUCTION__BODY, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -153,8 +155,10 @@ public class TouchpointInstructionItemProvider extends ItemProviderAdapter imple
 	 */
 	protected void addImportAttributePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_ITouchpointInstruction_importAttribute_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_ITouchpointInstruction_importAttribute_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_ITouchpointInstruction_importAttribute_feature",
 				"_UI_ITouchpointInstruction_type"), P2Package.Literals.ITOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE, true,
 			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

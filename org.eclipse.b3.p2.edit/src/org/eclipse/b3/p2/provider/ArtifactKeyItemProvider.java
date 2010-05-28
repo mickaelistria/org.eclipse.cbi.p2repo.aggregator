@@ -139,8 +139,10 @@ public class ArtifactKeyItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	protected void addClassifierPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IArtifactKey_classifier_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IArtifactKey_classifier_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IArtifactKey_classifier_feature", "_UI_IArtifactKey_type"),
 			P2Package.Literals.IARTIFACT_KEY__CLASSIFIER, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -156,8 +158,8 @@ public class ArtifactKeyItemProvider extends ItemProviderAdapter implements IEdi
 	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IArtifactKey_id_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IArtifactKey_id_feature", "_UI_IArtifactKey_type"),
+			getString("_UI_IArtifactKey_id_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IArtifactKey_id_feature", "_UI_IArtifactKey_type"),
 			P2Package.Literals.IARTIFACT_KEY__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
 			null));
 	}
@@ -171,9 +173,10 @@ public class ArtifactKeyItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IArtifactKey_version_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IArtifactKey_version_feature", "_UI_IArtifactKey_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IArtifactKey_version_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IArtifactKey_version_feature", "_UI_IArtifactKey_type"),
 			P2Package.Literals.IARTIFACT_KEY__VERSION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));
 	}

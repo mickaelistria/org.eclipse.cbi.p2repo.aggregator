@@ -157,9 +157,10 @@ public class InstructionMapItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addKeyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_InstructionMap_key_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_InstructionMap_key_feature", "_UI_InstructionMap_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_InstructionMap_key_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_InstructionMap_key_feature", "_UI_InstructionMap_type"),
 			P2Package.Literals.INSTRUCTION_MAP__KEY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));
 	}

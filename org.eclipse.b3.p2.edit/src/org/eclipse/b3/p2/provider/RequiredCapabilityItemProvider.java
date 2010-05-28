@@ -122,8 +122,10 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IRequiredCapability_name_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IRequiredCapability_name_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_name_feature",
 				"_UI_IRequiredCapability_type"), P2Package.Literals.IREQUIRED_CAPABILITY__NAME, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -138,8 +140,10 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 */
 	protected void addNamespacePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IRequiredCapability_namespace_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IRequiredCapability_namespace_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_namespace_feature",
 				"_UI_IRequiredCapability_type"), P2Package.Literals.IREQUIRED_CAPABILITY__NAMESPACE, true, false,
 			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -154,8 +158,10 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 */
 	protected void addRangePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IRequiredCapability_range_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IRequiredCapability_range_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_range_feature",
 				"_UI_IRequiredCapability_type"), P2Package.Literals.IREQUIRED_CAPABILITY__RANGE, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));

@@ -238,8 +238,10 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IInstallableUnit_filter_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IInstallableUnit_filter_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_filter_feature",
 				"_UI_IInstallableUnit_type"), P2Package.Literals.IINSTALLABLE_UNIT__FILTER, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -255,8 +257,8 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IVersionedId_id_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IVersionedId_id_feature", "_UI_IVersionedId_type"),
+			getString("_UI_IVersionedId_id_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IVersionedId_id_feature", "_UI_IVersionedId_type"),
 			P2Package.Literals.IVERSIONED_ID__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
 			null));
 	}
@@ -270,8 +272,10 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 */
 	protected void addResolvedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IInstallableUnit_resolved_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IInstallableUnit_resolved_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_resolved_feature",
 				"_UI_IInstallableUnit_type"), P2Package.Literals.IINSTALLABLE_UNIT__RESOLVED, true, false, false,
 			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
@@ -286,8 +290,10 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 */
 	protected void addSingletonPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IInstallableUnit_singleton_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IInstallableUnit_singleton_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_singleton_feature",
 				"_UI_IInstallableUnit_type"), P2Package.Literals.IINSTALLABLE_UNIT__SINGLETON, true, false, false,
 			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
@@ -302,9 +308,10 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IVersionedId_version_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IVersionedId_version_feature", "_UI_IVersionedId_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IVersionedId_version_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IVersionedId_version_feature", "_UI_IVersionedId_type"),
 			P2Package.Literals.IVERSIONED_ID__VERSION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));
 	}

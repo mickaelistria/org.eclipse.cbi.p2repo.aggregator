@@ -139,8 +139,10 @@ public class UpdateDescriptorItemProvider extends ItemProviderAdapter implements
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IUpdateDescriptor_description_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IUpdateDescriptor_description_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IUpdateDescriptor_description_feature",
 				"_UI_IUpdateDescriptor_type"), P2Package.Literals.IUPDATE_DESCRIPTOR__DESCRIPTION, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -155,8 +157,10 @@ public class UpdateDescriptorItemProvider extends ItemProviderAdapter implements
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IUpdateDescriptor_location_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IUpdateDescriptor_location_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IUpdateDescriptor_location_feature",
 				"_UI_IUpdateDescriptor_type"), P2Package.Literals.IUPDATE_DESCRIPTOR__LOCATION, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -171,8 +175,10 @@ public class UpdateDescriptorItemProvider extends ItemProviderAdapter implements
 	 */
 	protected void addSeverityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IUpdateDescriptor_severity_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IUpdateDescriptor_severity_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IUpdateDescriptor_severity_feature",
 				"_UI_IUpdateDescriptor_type"), P2Package.Literals.IUPDATE_DESCRIPTOR__SEVERITY, true, false, false,
 			ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));

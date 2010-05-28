@@ -150,8 +150,10 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IRequirement_description_feature"), getString(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IRequirement_description_feature"),
+			getString(
 				"_UI_PropertyDescriptor_description", "_UI_IRequirement_description_feature", "_UI_IRequirement_type"),
 			P2Package.Literals.IREQUIREMENT__DESCRIPTION, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -166,9 +168,10 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IRequirement_filter_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IRequirement_filter_feature", "_UI_IRequirement_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IRequirement_filter_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_filter_feature", "_UI_IRequirement_type"),
 			P2Package.Literals.IREQUIREMENT__FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));
 	}
@@ -182,9 +185,10 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	protected void addGreedyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IRequirement_greedy_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IRequirement_greedy_feature", "_UI_IRequirement_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IRequirement_greedy_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_greedy_feature", "_UI_IRequirement_type"),
 			P2Package.Literals.IREQUIREMENT__GREEDY, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 			null, null));
 	}
@@ -198,9 +202,10 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	protected void addMatchesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IRequirement_matches_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IRequirement_matches_feature", "_UI_IRequirement_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IRequirement_matches_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_matches_feature", "_UI_IRequirement_type"),
 			P2Package.Literals.IREQUIREMENT__MATCHES, false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 			null, null));
 	}
@@ -215,8 +220,8 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	protected void addMaxPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IRequirement_max_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IRequirement_max_feature", "_UI_IRequirement_type"),
+			getString("_UI_IRequirement_max_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_max_feature", "_UI_IRequirement_type"),
 			P2Package.Literals.IREQUIREMENT__MAX, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 			null, null));
 	}
@@ -231,8 +236,8 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	protected void addMinPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IRequirement_min_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_IRequirement_min_feature", "_UI_IRequirement_type"),
+			getString("_UI_IRequirement_min_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_min_feature", "_UI_IRequirement_type"),
 			P2Package.Literals.IREQUIREMENT__MIN, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 			null, null));
 	}
