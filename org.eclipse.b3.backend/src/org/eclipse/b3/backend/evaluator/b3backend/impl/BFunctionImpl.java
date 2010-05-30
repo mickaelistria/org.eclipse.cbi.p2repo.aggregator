@@ -506,13 +506,13 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 *             if the operation was canceled
 	 * @generated NOT
 	 */
-	public Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+	public Object call(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		if(ctx.getProgressMonitor().isCanceled())
 			throw new OperationCanceledException();
 		Throwable lastError = null;
 		try {
-			ctx = prepareCall(ctx, parameters, types);
-			return internalCall(ctx, parameters, types);
+			ctx = prepareCall(ctx, params, types);
+			return internalCall(ctx, params, types);
 		}
 		catch(B3NoSuchFunctionSignatureException e) {
 			lastError = e;
@@ -1264,61 +1264,60 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * 
 	 * @generated NOT
 	 */
-	public BExecutionContext prepareCall(BExecutionContext octx, Object[] parameters, Type[] types) throws Throwable {
+	public BExecutionContext prepareCall(BExecutionContext octx, Object[] params, Type[] types) throws Throwable {
 		Type[] functionParameterTypes = getParameterTypes();
 		if(functionParameterTypes.length > 0) { // if function takes no parameters, there is no binding to be done
 			int limit = functionParameterTypes.length - 1; // bind all but the last defined parameter
-			if(parameters.length < limit)
+			if(params.length < limit)
 				throw new IllegalArgumentException("B3 Function '" + getName() + "' " +
 						"called with too few arguments. Expected: " + functionParameterTypes.length + " but got: " +
-						parameters.length);
+						params.length);
 			String[] functionParameterNames = getParameterNames();
 			for(int i = 0; i < limit; i++) {
 				// check type compatibility
-				Object o = parameters[i];
+				Object o = params[i];
 				Type t = o instanceof BFunction
 						? ((BFunction) o).getSignature()
 						: o.getClass();
 
 				if(!(TypeUtils.isAssignableFrom(functionParameterTypes[i], t)))
 					throw new B3IncompatibleTypeException(
-						functionParameterNames[i], functionParameterTypes[i], parameters[i].getClass());
+						functionParameterNames[i], functionParameterTypes[i], params[i].getClass());
 				// ok, define it
-				octx.defineVariableValue(functionParameterNames[i], parameters[i], functionParameterTypes[i]);
+				octx.defineVariableValue(functionParameterNames[i], params[i], functionParameterTypes[i]);
 			}
 			if(!isVarArgs()) { // if not varargs, bind the last defined parameter
-				if(parameters.length < functionParameterTypes.length)
+				if(params.length < functionParameterTypes.length)
 					throw new IllegalArgumentException("B3 Function '" + getName() + "' " +
 							"called with too few arguments. Expected: " + functionParameterTypes.length + " but got: " +
-							parameters.length);
+							params.length);
 				// check type compatibility
-				Object o = parameters[limit];
+				Object o = params[limit];
 				if(o != null) {
 					Type t = o instanceof BFunction
 							? ((BFunction) o).getSignature()
 							: o.getClass();
 					if(!TypeUtils.isAssignableFrom(functionParameterTypes[limit], t))
 						throw new B3IncompatibleTypeException(
-							functionParameterNames[limit], functionParameterTypes[limit], parameters[limit].getClass());
+							functionParameterNames[limit], functionParameterTypes[limit], params[limit].getClass());
 				}
 				// ok
-				octx.defineVariableValue(
-					functionParameterNames[limit], parameters[limit], functionParameterTypes[limit]);
+				octx.defineVariableValue(functionParameterNames[limit], params[limit], functionParameterTypes[limit]);
 			}
 			else {
 				// varargs call, create a list and stuff any remaining parameters there
 				List<Object> varargs = new ArrayList<Object>();
 				Type varargsType = functionParameterTypes[limit];
-				for(int i = limit; i < parameters.length; i++) {
-					Object o = parameters[i];
+				for(int i = limit; i < params.length; i++) {
+					Object o = params[i];
 					Type t = o instanceof BFunction
 							? ((BFunction) o).getSignature()
 							: o.getClass();
 
 					if(!TypeUtils.isAssignableFrom(varargsType, t))
 						throw new B3IncompatibleTypeException(
-							functionParameterNames[limit], varargsType, parameters[i].getClass());
-					varargs.add(parameters[i]);
+							functionParameterNames[limit], varargsType, params[i].getClass());
+					varargs.add(params[i]);
 				}
 				B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
 				pt.setRawType(List.class);
