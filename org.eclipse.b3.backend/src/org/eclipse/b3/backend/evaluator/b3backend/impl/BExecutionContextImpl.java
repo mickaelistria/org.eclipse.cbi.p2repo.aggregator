@@ -424,6 +424,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		// if("addedLater".equals(functionName)) {
 		// functionName = functionName + ""; // dummy for debugging
 		// }
+		if(functionName == null)
+			throw new B3InternalError("BExecutionContext error - can not callFunction with null function name!");
 		B3FuncStore fStore = getEffectiveFuncStore();
 		if(fStore == null)
 			throw new B3InternalError("Could not find an effective function store - engine/context setup is broken!");
