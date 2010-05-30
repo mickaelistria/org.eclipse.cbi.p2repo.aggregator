@@ -12,10 +12,10 @@ concern aMatterOfTaste {
 	}
 	context function bar(...Integer wrappedSeveral) {
 		wrappedSeveral[0] = 666;
-		var result = proceed;
+		var r = proceed;
 		var a = wrappedSeveral[1];
 		assertEquals("modified parameters should work in varargs", 222, a);
-		result;
+		r;
 	}
 	context function addedLater(Integer a) {
 		a = 10;
@@ -24,11 +24,11 @@ concern aMatterOfTaste {
 }
 concern MakeMapReturnDummy {
 	context function get(LinkedHashMap map, Object key) {
-		var result = proceed;
-		if result == null then
+		var r = proceed;
+		if r == null then
 			"dummy"
 		else
-			result
+			r
 		endif;
 	}
 }
