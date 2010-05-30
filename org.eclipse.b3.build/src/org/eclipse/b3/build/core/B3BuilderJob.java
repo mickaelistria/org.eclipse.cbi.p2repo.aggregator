@@ -246,6 +246,13 @@ public class B3BuilderJob extends Job {
 
 				values[0] = unitToUse;
 				types[0] = unitToUse.getClass();
+				if(builderName == null) {
+					// TODO: call the builder that provided the capability
+					// - to make these calls typesafe (and with parameter validation), there must be some declaration that
+					// the resolution of a requirement is made by a builder with a particular signature.
+					throw new UnsupportedOperationException(
+						"Calling builder that provided a capability is not yet implemented!");
+				}
 				Object buildJobObject = ctxToUse.callFunction(builderName, values, types);
 				if(!(buildJobObject instanceof B3BuilderJob))
 					throw new B3InternalError("Builder did not return a B3BuilderJob: " + builderName);
