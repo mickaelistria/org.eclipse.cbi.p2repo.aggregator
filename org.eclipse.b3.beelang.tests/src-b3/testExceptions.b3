@@ -9,23 +9,22 @@ function main(List argv) {
 	testTryCatch();
 	testFinally();
 }
-
 function testTryCatch() {
 	// catch an exception out of several possible, try same catch with different exceptions
-	var result = try illegalArgThrower() catch IllegalArgumentException e: true catch Exception e: false endtry;
-	assertTrue("should have caught IllegalArgumentException", result);
-	result = try illegalArgThrower() catch Exception e: false  catch IllegalArgumentException e: true endtry;
-	assertFalse("should have caught Exception", result);
-	result = try illegalArgThrower() catch NullPointerException e: false  catch IllegalArgumentException e: true endtry;
-	assertTrue("should have caught IllegalArgumentException", result);
+	var r = try illegalArgThrower() catch IllegalArgumentException e: true catch Exception e: false endtry;
+	assertTrue("should have caught IllegalArgumentException", r);
+	r = try illegalArgThrower() catch Exception e: false  catch IllegalArgumentException e: true endtry;
+	assertFalse("should have caught Exception", r);
+	r = try illegalArgThrower() catch NullPointerException e: false  catch IllegalArgumentException e: true endtry;
+	assertTrue("should have caught IllegalArgumentException", r);
 }
 function testFinally() {
 	// test that finally is evaluated no matter what
 	Boolean flag = false; 
-	var result = try illegalArgThrower() catch IllegalArgumentException e: true finally flag = true endtry;
+	var r = try illegalArgThrower() catch IllegalArgumentException e: true finally flag = true endtry;
 	assertTrue("finally should have been triggered", flag);
 	flag = false;
-	result = try true catch IllegalArgumentException e: true finally flag = true endtry;
+	r = try true catch IllegalArgumentException e: true finally flag = true endtry;
 	assertTrue("finally should have been triggered", flag);
 }
 
