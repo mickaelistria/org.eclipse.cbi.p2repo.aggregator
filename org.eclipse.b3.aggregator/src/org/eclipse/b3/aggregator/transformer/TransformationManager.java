@@ -20,6 +20,7 @@ import java.util.Set;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
+import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -27,6 +28,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
@@ -68,12 +70,11 @@ public class TransformationManager {
 				if(requiredTargetNS.equals(trgtNS)) {
 					return newTransformerSequence;
 				}
-				else {
-					List<IConfigurationElement> result = resolveTransformationSequence(
-						transformations, trgtNS, requiredTargetNS, newTransformerSequence);
-					if(result != null)
-						return result;
-				}
+
+				List<IConfigurationElement> result = resolveTransformationSequence(
+					transformations, trgtNS, requiredTargetNS, newTransformerSequence);
+				if(result != null)
+					return result;
 			}
 		}
 
@@ -212,6 +213,12 @@ public class TransformationManager {
 
 				res01 = rs01.getResource(srcResourceURI, true);
 				rs01.getResources().add(res01);
+				for(Diagnostic diag : res01.getErrors()) {
+					System.out.println("ERROR: " + diag.getMessage());
+				}
+				for(Diagnostic diag : res01.getWarnings()) {
+					System.out.println("WARNING: " + diag.getMessage());
+				}
 			}
 			else {
 				ecoreRs01 = ecoreRs02;
@@ -252,6 +259,16 @@ public class TransformationManager {
 
 			transformer.initTransformer(res01, res02, package02, context);
 			transformer.startTransformation();
+
+			if(transformer.getResourceErrors().size() > 0) {
+				StringBuilder msg = new StringBuilder();
+				for(Diagnostic diag : transformer.getResourceErrors()) {
+					msg.append(diag.getMessage());
+					msg.append('\n');
+				}
+
+				throw ExceptionUtils.fromMessage(msg.toString());
+			}
 		}
 
 		return res02;

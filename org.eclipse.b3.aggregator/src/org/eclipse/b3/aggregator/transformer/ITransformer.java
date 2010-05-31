@@ -8,10 +8,12 @@
 
 package org.eclipse.b3.aggregator.transformer;
 
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 
 /**
  * Transforms source resource to target resource
@@ -19,6 +21,13 @@ import org.eclipse.emf.ecore.resource.Resource;
  * @author Karel Brezina
  */
 public interface ITransformer {
+
+	/**
+	 * Returns resource errors.
+	 * 
+	 * @return Returns a list of resource errors.
+	 */
+	List<Diagnostic> getResourceErrors();
 
 	/**
 	 * Initialize transformer
