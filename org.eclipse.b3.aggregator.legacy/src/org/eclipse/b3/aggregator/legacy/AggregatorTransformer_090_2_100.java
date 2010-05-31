@@ -61,7 +61,7 @@ public class AggregatorTransformer_090_2_100 extends ResourceTransformer {
 	}
 
 	@Override
-	protected void transform(EObject srcEObject, TreePath trgtParentTreePath) {
+	protected void doTransform(EObject srcEObject, TreePath trgtParentTreePath) {
 		EClass scrEClass = srcEObject.eClass();
 
 		if(FEATURE_NODE.equals(scrEClass.getName()))

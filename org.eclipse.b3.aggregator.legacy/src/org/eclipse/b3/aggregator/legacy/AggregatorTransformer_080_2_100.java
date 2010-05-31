@@ -148,7 +148,7 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 	private EReference srcIURepoRef;
 
 	@Override
-	protected void transform(EObject srcEObject, TreePath trgtParentTreePath) {
+	protected void doTransform(EObject srcEObject, TreePath trgtParentTreePath) {
 		EClass scrEClass = srcEObject.eClass();
 
 		if(BUILD_NODE.equals(scrEClass.getName()))
@@ -172,7 +172,7 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 	}
 
 	@Override
-	protected void transformRef(EObject srcEObject) {
+	protected void doTransformRef(EObject srcEObject) {
 		transformCategoryRef();
 	}
 

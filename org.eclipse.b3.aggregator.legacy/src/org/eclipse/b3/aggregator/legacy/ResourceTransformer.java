@@ -8,9 +8,12 @@
 
 package org.eclipse.b3.aggregator.legacy;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.b3.aggregator.transformer.ITransformer;
 import org.eclipse.emf.ecore.EAttribute;
@@ -23,6 +26,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 
 /**
  * Transforms scrResource to trgtResource using the same node, attribute and reference names. Extend this class if there
@@ -53,6 +57,14 @@ public class ResourceTransformer implements ITransformer {
 
 	protected Map<String, Object> context;
 
+	private Set<Resource> checkedResources = new HashSet<Resource>();
+
+	private List<Diagnostic> resourceErrors = new ArrayList<Diagnostic>();
+
+	public List<Diagnostic> getResourceErrors() {
+		return resourceErrors;
+	}
+
 	public void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage,
 			Map<String, Object> context) {
 		this.srcResource = srcResource;
@@ -69,12 +81,22 @@ public class ResourceTransformer implements ITransformer {
 	/**
 	 * Starts transformation
 	 */
-	public void startTransformation() {
+	public final void startTransformation() {
 		for(EObject srcEObject : srcResource.getContents())
 			transform(srcEObject, new TreePath(trgtResource));
 
 		for(EObject srcEObject : srcResource.getContents())
 			transformRef(srcEObject);
+	}
+
+	public final void transform(EObject srcEObject, TreePath treePath) {
+		checkResource(srcEObject);
+		doTransform(srcEObject, treePath);
+	}
+
+	public final void transformRef(EObject srcEObject) {
+		checkResource(srcEObject);
+		doTransformRef(srcEObject);
 	}
 
 	protected void copyAttributes(EObject srcEObject, EObject trgtEObject) {
@@ -133,16 +155,6 @@ public class ResourceTransformer implements ITransformer {
 		return trgtEObject;
 	}
 
-	protected Object getValue(EObject eobject, String featureName) {
-		EStructuralFeature feature = eobject.eClass().getEStructuralFeature(featureName);
-
-		if(feature == null)
-			throw new IllegalArgumentException(featureName + " is not a valid feature in " +
-					eobject.eClass().getName() + " EClass");
-
-		return eobject.eGet(feature);
-	}
-
 	/**
 	 * Transforms srcEObject
 	 * 
@@ -151,7 +163,7 @@ public class ResourceTransformer implements ITransformer {
 	 *            tree path in the target structure
 	 */
 	@SuppressWarnings("unchecked")
-	protected void transform(EObject srcEObject, TreePath trgtParentTreePath) {
+	protected void doTransform(EObject srcEObject, TreePath trgtParentTreePath) {
 		EClass scrEClass = srcEObject.eClass();
 		EObject trgtEObject = createTrgtEObject(scrEClass.getName(), srcEObject);
 
@@ -188,7 +200,7 @@ public class ResourceTransformer implements ITransformer {
 	 * @param srcEObject
 	 */
 	@SuppressWarnings("unchecked")
-	protected void transformRef(EObject srcEObject) {
+	protected void doTransformRef(EObject srcEObject) {
 		EClass scrEClass = srcEObject.eClass();
 
 		EObject trgtEObject = transformationMapping.get(srcEObject);
@@ -235,5 +247,21 @@ public class ResourceTransformer implements ITransformer {
 				for(EObject srcChild : (List<EObject>) srcERefValue)
 					transformRef(srcChild);
 		}
+	}
+
+	protected Object getValue(EObject eobject, String featureName) {
+		EStructuralFeature feature = eobject.eClass().getEStructuralFeature(featureName);
+
+		if(feature == null)
+			throw new IllegalArgumentException(featureName + " is not a valid feature in " +
+					eobject.eClass().getName() + " EClass");
+
+		return eobject.eGet(feature);
+	}
+
+	private void checkResource(EObject srcEObject) {
+		Resource res = srcEObject.eResource();
+		if(checkedResources.add(res))
+			resourceErrors.addAll(res.getErrors());
 	}
 }
