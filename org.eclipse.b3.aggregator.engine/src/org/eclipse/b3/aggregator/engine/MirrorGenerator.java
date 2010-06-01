@@ -208,8 +208,9 @@ public class MirrorGenerator extends BuilderPhase {
 							LogUtils.debug("    unpacking optimized artifact");
 						}
 
-						unpackToSibling(dest, getArtifactDescriptor(dest, key, true), createDestinationDescriptor(
-							key, false), isVerify, MonitorUtils.subMonitor(monitor, 20));
+						unpackToSibling(
+							dest, getArtifactDescriptor(dest, key, true), createDestinationDescriptor(key, false),
+							isVerify, MonitorUtils.subMonitor(monitor, 20));
 				}
 			}
 			catch(CoreException e) {
@@ -519,7 +520,7 @@ public class MirrorGenerator extends BuilderPhase {
 						List<MavenMapping> allMavenMappings = contrib.getAllMavenMappings();
 						if(iusToMirror != null)
 							for(IInstallableUnit iu : iusToMirror)
-								iusToMaven.add(new InstallableUnitMapping(iu, allMavenMappings));
+								iusToMaven.add(new InstallableUnitMapping(contrib, iu, allMavenMappings));
 
 						MonitorUtils.worked(contribMonitor, 100);
 					}
@@ -683,8 +684,9 @@ public class MirrorGenerator extends BuilderPhase {
 						String msg = format("Mirroring meta-data from from %s", childMdr.getLocation());
 						LogUtils.info(msg);
 						contribMonitor.subTask(msg);
-						mirror(iusToMirror, childMdr, aggregateMdr, contribMonitor.newChild(
-							5, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
+						mirror(
+							iusToMirror, childMdr, aggregateMdr,
+							contribMonitor.newChild(5, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
 						aggregatedMdrIsEmpty = false;
 					}
 					else
@@ -694,8 +696,9 @@ public class MirrorGenerator extends BuilderPhase {
 						String msg = format("Mirroring artifacts from from %s", childMdr.getLocation());
 						LogUtils.info(msg);
 						contribMonitor.subTask(msg);
-						IArtifactRepository childAr = getArtifactRepository(repo, contribMonitor.newChild(
-							1, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
+						IArtifactRepository childAr = getArtifactRepository(
+							repo,
+							contribMonitor.newChild(1, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
 						mirror(
 							keysToMirror,
 							tempAr,
@@ -724,11 +727,8 @@ public class MirrorGenerator extends BuilderPhase {
 
 			// @fmtOff
 			for(String fileName : new String[] {
-					"compositeArtifacts.jar",
-					"compositeContent.jar",
-					"content.jar",
-					"artifacts.jar" }) {
-			// @fmtOn
+					"compositeArtifacts.jar", "compositeContent.jar", "content.jar", "artifacts.jar" }) {
+				// @fmtOn
 				File file = new File(destination, fileName);
 				if(file.exists() && !file.delete())
 					throw ExceptionUtils.fromMessage("Unable to remove %s", file.getAbsolutePath());
@@ -750,11 +750,18 @@ public class MirrorGenerator extends BuilderPhase {
 			}
 
 			if(mavenHelper != null) {
-
 				LogUtils.info("Adding maven metadata");
+				Map<Contribution, List<String>> errors = new HashMap<Contribution, List<String>>();
+
 				MavenManager.saveMetadata(
 					org.eclipse.emf.common.util.URI.createFileURI(aggregateDestination.getAbsolutePath()),
-					mavenHelper.getTop());
+					mavenHelper.getTop(), errors);
+
+				if(errors.size() > 0) {
+					artifactErrors = true;
+					for(Map.Entry<Contribution, List<String>> entry : errors.entrySet())
+						builder.sendEmail(entry.getKey(), entry.getValue());
+				}
 
 				IMaven2Indexer indexer = IndexerUtils.getIndexer("nexus");
 				if(indexer != null) {
