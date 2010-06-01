@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.aggregator.AggregatorFactory;
+import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MavenItem;
 import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.StatusCode;
@@ -100,15 +101,18 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	private IArtifactKey mainArtifact;
 
+	private Contribution contribution;
+
 	public InstallableUnitMapping() {
 		this((String) null);
 	}
 
-	public InstallableUnitMapping(IInstallableUnit iu) {
-		this(iu, Collections.<MavenMapping> emptyList());
+	public InstallableUnitMapping(Contribution contribution, IInstallableUnit iu) {
+		this(contribution, iu, Collections.<MavenMapping> emptyList());
 	}
 
-	public InstallableUnitMapping(IInstallableUnit iu, List<MavenMapping> mappings) {
+	public InstallableUnitMapping(Contribution contribution, IInstallableUnit iu, List<MavenMapping> mappings) {
+		this.contribution = contribution;
 		this.mappings = new ArrayList<MavenMapping>(mappings.size() + 1);
 		this.mappings.addAll(mappings);
 		this.mappings.add(MavenMapping.DEFAULT_MAPPING);
@@ -138,7 +142,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 					sibling.overrideId(genId);
 					sibling.overrideArtifacts(Collections.singletonList(artifact));
 
-					siblings.add(new InstallableUnitMapping(sibling));
+					siblings.add(new InstallableUnitMapping(contribution, sibling));
 				}
 
 				proxy.overrideRequirements(dependencies);
@@ -311,6 +315,10 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	public List<InstallableUnitMapping> getChildren() {
 		return children;
+	}
+
+	public final Contribution getContribution() {
+		return contribution;
 	}
 
 	public ICopyright getCopyright() {

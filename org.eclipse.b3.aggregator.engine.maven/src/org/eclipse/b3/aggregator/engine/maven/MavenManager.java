@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.p2.maven.MavenMetadata;
 import org.eclipse.b3.p2.maven.metadata.MetaData;
 import org.eclipse.b3.p2.maven.metadata.MetadataFactory;
@@ -161,12 +162,13 @@ public class MavenManager {
 		return new MavenRepositoryHelper(top, mappingRulesList.toArray(new String[mappingRulesList.size()][]));
 	}
 
-	public static void saveMetadata(URI root, InstallableUnitMapping iu) throws CoreException {
+	public static void saveMetadata(URI root, InstallableUnitMapping iu, Map<Contribution, List<String>> errors)
+			throws CoreException {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		URIConverter uriConverter = resourceSet.getURIConverter();
 		Map<String, MavenMetadataHelper> metadataCollector = new HashMap<String, MavenMetadataHelper>();
 
-		savePOMs(root, iu, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector);
+		savePOMs(root, iu, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, errors);
 		saveXMLs(root, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector);
 	}
 
@@ -239,15 +241,32 @@ public class MavenManager {
 	}
 
 	private static void savePOMs(URI root, InstallableUnitMapping iu, URIConverter uriConverter,
-			MessageDigest[] digests, Map<String, MavenMetadataHelper> metadataCollector) throws CoreException {
+			MessageDigest[] digests, Map<String, MavenMetadataHelper> metadataCollector,
+			Map<Contribution, List<String>> errors) throws CoreException {
 		if(!iu.isTransient()) {
 			URI pomUri = createPomURI(root, iu);
 			iu.asPOM().save(pomUri);
 			createCheckSum(pomUri, uriConverter, digests);
 
 			URI artifactUri = createArtifactURI(root, iu);
-			if(artifactUri != null)
-				createCheckSum(artifactUri, uriConverter, digests);
+			if(artifactUri != null) {
+				try {
+					createCheckSum(artifactUri, uriConverter, digests);
+				}
+				catch(CoreException e) {
+					Contribution contrib = iu.getContribution();
+					List<String> contribErrors = errors.get(contrib);
+					if(contribErrors == null)
+						errors.put(contrib, contribErrors = new ArrayList<String>());
+					StringBuilder msg = new StringBuilder(e.getMessage());
+					if(e.getCause() != null) {
+						msg.append(':');
+						msg.append(' ');
+						msg.append(e.getCause().toString());
+					}
+					contribErrors.add(msg.toString());
+				}
+			}
 
 			String key = iu.map().getGroupId() + "/" + iu.map().getArtifactId();
 			MavenMetadataHelper md = metadataCollector.get(key);
@@ -258,7 +277,7 @@ public class MavenManager {
 		}
 
 		for(InstallableUnitMapping child : iu.getChildren())
-			savePOMs(root, child, uriConverter, digests, metadataCollector);
+			savePOMs(root, child, uriConverter, digests, metadataCollector, errors);
 	}
 
 	private static void saveXMLs(URI root, URIConverter uriConverter, MessageDigest[] digests,
