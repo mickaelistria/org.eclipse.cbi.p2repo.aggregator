@@ -29,6 +29,7 @@ import org.eclipse.b3.p2.maven.util.DigestUtil;
 import org.eclipse.b3.p2.maven.util.VersionUtil;
 import org.eclipse.b3.p2.util.IUUtils;
 import org.eclipse.b3.util.ExceptionUtils;
+import org.eclipse.b3.util.LogUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -258,13 +259,15 @@ public class MavenManager {
 					List<String> contribErrors = errors.get(contrib);
 					if(contribErrors == null)
 						errors.put(contrib, contribErrors = new ArrayList<String>());
-					StringBuilder msg = new StringBuilder(e.getMessage());
+					StringBuilder msgBuilder = new StringBuilder(e.getMessage());
 					if(e.getCause() != null) {
-						msg.append(':');
-						msg.append(' ');
-						msg.append(e.getCause().toString());
+						msgBuilder.append(':');
+						msgBuilder.append(' ');
+						msgBuilder.append(e.getCause().toString());
 					}
-					contribErrors.add(msg.toString());
+					String msg = msgBuilder.toString();
+					LogUtils.error(msg);
+					contribErrors.add(msg);
 				}
 			}
 
