@@ -144,6 +144,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 						allIUs = ResourceUtils.getMetadataRepository(repository).getInstallableUnits();
 					}
 					catch(CoreException e) {
+						LogUtils.error(e, e.getMessage());
 						errors.add(e.getMessage());
 						continue;
 					}
@@ -212,7 +213,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 				for(RepositoryRequirement req : rcSet)
 					rcList.add(req.requirement);
 
-			iu.setRequiredCapabilities(rcList.toArray(new IRequirement[rcList.size()]));
+			iu.setRequirements(rcList.toArray(new IRequirement[rcList.size()]));
 
 			InstallableUnitDescription pdePlatform = new MetadataFactory.InstallableUnitDescription();
 			pdePlatform.setId(Builder.PDE_TARGET_PLATFORM_NAME);

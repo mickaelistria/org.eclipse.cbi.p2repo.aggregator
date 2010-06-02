@@ -162,8 +162,8 @@ public class RepositoryVerifier extends BuilderPhase {
 					hadPartials = false;
 					ProvisioningContext context = createContext(repoLocation);
 					ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(
-						request, context, subMon.newChild(80, SubMonitor.SUPPRESS_BEGINTASK |
-								SubMonitor.SUPPRESS_SETTASKNAME));
+						request, context,
+						subMon.newChild(80, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
 
 					IStatus status = plan.getStatus();
 					if(status.getSeverity() == IStatus.ERROR) {
@@ -521,7 +521,9 @@ public class RepositoryVerifier extends BuilderPhase {
 		Set<Explanation> explanations = getExplanations(requestStatus);
 		Map<String, Contribution> contribs = new HashMap<String, Contribution>();
 		for(Explanation explanation : explanations) {
-			errors.add(explanation.toString());
+			String msg = explanation.toString();
+			LogUtils.error(msg);
+			errors.add(msg);
 			if(explanation instanceof Singleton) {
 				// A singleton is always a leaf problem. Add contributions
 				// if we can find any. They are all culprits

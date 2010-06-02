@@ -242,9 +242,9 @@ public class MirrorGenerator extends BuilderPhase {
 				}
 			}
 			catch(CoreException e) {
+				LogUtils.error(e, e.getMessage());
 				errors.add(Builder.getExceptionMessages(e));
 				dest.removeDescriptor(key);
-				LogUtils.error(e, e.getMessage());
 			}
 		}
 		MonitorUtils.done(monitor);
@@ -517,9 +517,11 @@ public class MirrorGenerator extends BuilderPhase {
 					MonitorUtils.begin(contribMonitor, repos.size() * 100);
 					for(MappedRepository repo : repos) {
 						if(!repo.isMirrorArtifacts()) {
-							errors.add(String.format(
+							String msg = String.format(
 								"Repository %s must be set to mirror artifacts if maven result is required",
-								repo.getLocation()));
+								repo.getLocation());
+							LogUtils.error(msg);
+							errors.add(msg);
 							MonitorUtils.worked(contribMonitor, 100);
 							continue;
 						}
@@ -545,6 +547,8 @@ public class MirrorGenerator extends BuilderPhase {
 					if(errors.size() > 0) {
 						artifactErrors = true;
 						builder.sendEmail(contrib, errors);
+
+						throw ExceptionUtils.fromMessage("All repositories must be set to mirror artifacts if maven result is required");
 					}
 					MonitorUtils.done(contribMonitor);
 				}
@@ -575,7 +579,6 @@ public class MirrorGenerator extends BuilderPhase {
 				for(Contribution contrib : contribs) {
 					SubMonitor contribMonitor = childMonitor.newChild(10);
 					List<MappedRepository> repos = contrib.getRepositories(true);
-					List<String> errors = new ArrayList<String>();
 					MonitorUtils.begin(contribMonitor, repos.size() * 100);
 					for(MappedRepository repo : repos) {
 						int ticksRemaining = 100;
@@ -639,10 +642,6 @@ public class MirrorGenerator extends BuilderPhase {
 						}
 
 						MonitorUtils.worked(contribMonitor, ticksRemaining);
-					}
-					if(errors.size() > 0) {
-						artifactErrors = true;
-						builder.sendEmail(contrib, errors);
 					}
 					MonitorUtils.done(contribMonitor);
 				}

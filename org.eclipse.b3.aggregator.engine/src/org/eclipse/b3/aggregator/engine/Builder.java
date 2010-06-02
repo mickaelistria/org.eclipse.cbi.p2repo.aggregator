@@ -401,6 +401,8 @@ public class Builder extends AbstractCommand {
 
 	private IProvisioningAgent provisioningAgent;
 
+	private boolean fromIDE;
+
 	/**
 	 * Prevent that the {@link IInstallableUnit} identified by <code>versionedName</code> is mapped from <code>repository</code>.
 	 * 
@@ -524,6 +526,7 @@ public class Builder extends AbstractCommand {
 	 * @param monitor
 	 */
 	public int run(boolean fromIDE, IProgressMonitor monitor) throws Exception {
+		this.fromIDE = fromIDE;
 		int ticks;
 		switch(action) {
 			case CLEAN:
@@ -881,6 +884,7 @@ public class Builder extends AbstractCommand {
 		}
 
 		try {
+			Map<Contribution, List<String>> errors = new HashMap<Contribution, List<String>>();
 			// and now, wait until all the jobs are done (we need all repositories anyway)
 			for(MetadataRepositoryReference repo : repositoriesToLoad) {
 				MetadataRepository mdr;
@@ -889,9 +893,22 @@ public class Builder extends AbstractCommand {
 					if(repo instanceof MappedRepository)
 						contrib = (Contribution) ((EObject) repo).eContainer();
 					String msg = String.format("Unable to load repository %s:%s", repo.getNature(), repo.getLocation());
-					sendEmail(contrib, Collections.singletonList(msg));
-					throw ExceptionUtils.fromMessage(msg);
+					LogUtils.error(msg);
+
+					if(fromIDE)
+						throw ExceptionUtils.fromMessage(msg);
+
+					List<String> contribErrors = errors.get(contrib);
+					if(contribErrors == null)
+						errors.put(contrib, contribErrors = new ArrayList<String>());
+					contribErrors.add(msg);
 				}
+			}
+
+			if(errors.size() > 0) {
+				for(Map.Entry<Contribution, List<String>> entry : errors.entrySet())
+					sendEmail(entry.getKey(), entry.getValue());
+				throw ExceptionUtils.fromMessage("Not all repositories could be loaded (see log for details)");
 			}
 		}
 		catch(CoreException e) {
