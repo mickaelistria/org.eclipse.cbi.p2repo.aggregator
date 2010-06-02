@@ -9,6 +9,7 @@
 package org.eclipse.b3.util;
 
 import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -22,7 +23,7 @@ public class IOUtils {
 	/**
 	 * @param is
 	 */
-	public static void close(InputStream is) {
+	public static void close(Closeable is) {
 		if(is != null)
 			try {
 				is.close();
