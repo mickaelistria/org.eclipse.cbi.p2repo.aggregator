@@ -96,6 +96,9 @@ public class MirrorGenerator extends BuilderPhase {
 			File destination = fbTarget.getArtifactFile(new ArtifactDescriptor(artifactKey));
 			OutputStream out = null;
 			try {
+				if(!destination.getParentFile().mkdirs())
+					throw new IOException("Unable to create path " + destination.getParentFile().getAbsolutePath());
+
 				out = new BufferedOutputStream(new FileOutputStream(destination));
 				IStatus status = sourceRepository.getArtifact(optimizedDescriptor, out, monitor);
 				if(!status.isOK()) {
@@ -105,6 +108,7 @@ public class MirrorGenerator extends BuilderPhase {
 			}
 			catch(IOException e) {
 				setResult(new Status(IStatus.ERROR, Engine.PLUGIN_ID, e.getMessage(), e));
+				return;
 			}
 			finally {
 				IOUtils.close(out);
