@@ -2,17 +2,19 @@ import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
 
 unit banana version 1.0.0 implements Fruit {
 	
-	provides food.nutrition.vitamin/B6;
-	provides food.nutrition.vitamin/C;
-	provides food.nutrition.mineral/potassium;
+	provides : [ 
+		capability { name-space: food.nutrition.vitamin; name : "B6"; },
+		capability { name-space: food.nutrition.vitamin; name : "C"; },
+		capability { name-space: food.nutrition.mineral; name: "potassium"; } 
+	];
 	
 	builder peel {
-		output { bananapeel.txt; }
+		output : [bananapeel.txt];
 	}
 	builder seeds {
-		output { bananaseeds.txt; }
+		output : [bananaseeds.txt];
 	}
 	builder pulp {
-		output { bananapulp.txt; }
+		output : [bananapulp.txt];
 	}
 }

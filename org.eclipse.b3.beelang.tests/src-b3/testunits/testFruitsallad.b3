@@ -1,17 +1,16 @@
-import java.util.List;
 import java.lang.Iterable;
+import java.util.List;
 import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.beelang.tests.repo.TestRepo;
+
 /**
 * Used to advice 'Fruit' that the waste (seeds and peel) can be built.
 */
 concern FruitProcessing {
-	builder waste(Fruit unit ) {
-		input { 
-			unit#peel; 
-			unit#seeds; }
-		}
+	builder waste(Fruit unit ) { 
+		input : [ unit.peel() , unit.seeds() ];
+	}
 }
 
 /**
@@ -31,8 +30,8 @@ function main(List argv) {
 function testBuildingFruitSallad() {
 	var engine = $test.engine;
 	var sallad = $test.fruitsallad;
-	assertEquals("The fruitsallad unit is found", "fruitsallad", sallad.name);
-	assertEquals("The fruitsallad unit is found", "fruitsallad", ($test.fruitsallad).name);
+	assertEquals("The fruitsallad unit is found", "fruitsallad", sallad.^name);
+	assertEquals("The fruitsallad unit is found", "fruitsallad", ($test.fruitsallad).^name);
 	var e = sallad.getEffectiveFacade(engine.getBuildContext());
 	var x = sallad.make();
 	x.schedule();
@@ -106,14 +105,15 @@ function testFruitWaste() {
 * the current execution context). 
 */
 unit fruitsallad version 1.0.0 {
-//	resolution { repository TestRepo }
+	requires :  unit  { name : "apple"; version : [1.0.0,2.0.0]; } as theBigApple;
 	builder make {
-		input {
-			unit/apple/1.0.0#pulp;
-			unit/banana/1.0.0#pulp;
-			unit/orange/1.0.0#pulp;
-			gastronomy.taste/zestyPeel#peel;
-		}
+	
+		input : [
+			theBigApple.pulp(), // indirect requirement
+			unit  { name: "banana"; version : 1.0.0; }.pulp(),
+			unit  { name: "orange"; version : 1.0.0; }.pulp(),
+			capability { name-space: gastronomy.taste; name: "zestyPeel";}.peel()
+		];
 	}
 }
 
@@ -123,13 +123,13 @@ unit fruitsallad version 1.0.0 {
 unit apple version 1.0.0  implements Fruit {
 	source : "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/";
 	builder peel {
-		source { applepeel.txt; }
+		source : [ applepeel.txt ];
 	}
 	builder seeds {
-		source { appleseeds.txt; }
+		source : [ appleseeds.txt ];
 	}
 	builder pulp {
-		source { applepulp.txt; }
+		source : [ applepulp.txt ];
 	}
 }
 
@@ -140,18 +140,18 @@ unit apple version 1.0.0  implements Fruit {
 unit banana version 1.0.0 implements Fruit {
 	source : "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/banana/";
 	
-	provides : food.nutrition.vitamin B6;
-	provides : food.nutrition.vitamin C;
-	provides : food.nutrition.mineral potassium;
+//	provides : food.nutrition.vitamin B6;
+//	provides : food.nutrition.vitamin C;
+//	provides : food.nutrition.mineral potassium;
 	
 	builder peel {
-		source { bananapeel.txt; }
+		source : [ bananapeel.txt ];
 	}
 	builder seeds {
-		source { bananaseeds.txt; }
+		source : [ bananaseeds.txt ];
 	}
 	builder pulp {
-		source { bananapulp.txt; }
+		source :[ bananapulp.txt ];
 	}
 }
 
@@ -162,15 +162,16 @@ unit banana version 1.0.0 implements Fruit {
 unit orange version 1.0.0 implements Fruit {
 	source : "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/";
 	
-	provides : food.nutrition.vitamin C;
+	provides : capability {name-space: food.nutrition.vitamin; name : "C";};
 	
-	builder peel provides :[ gastronomy.taste zestyPeel] {
-		source { orangepeel.txt; }
+	builder peel {
+		provides :  capability {name-space: gastronomy.taste; name: "zestyPeel"; };
+		source : [ orangepeel.txt ];
 	}
 	builder seeds {
-		source { orangeseeds.txt; }
+		source : [ orangeseeds.txt ];
 	}
 	builder pulp {
-		source { orangepulp.txt; }
+		source : [ orangepulp.txt ];
 	}
 }

@@ -2,12 +2,14 @@ import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
 
 unit apple version 1.0.0  implements Fruit {
 	builder peel {
-		output { applepeel.txt; }
+	source : [  foo.txt ];
+	output : [ foo.txt ];
+	result : { a++ +1; } ;	
 	}
 	builder seeds {
-		output { appleseeds.txt; }
+		output :  [ appleseeds.txt ]; 
 	}
 	builder pulp {
-		output { applepulp.txt; }
+		output : [ applepulp.txt ];
 	}
 }
