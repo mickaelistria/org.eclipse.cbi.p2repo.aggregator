@@ -23,9 +23,9 @@ function testWithAlias() {
 function testPerson() {
 	Person p = new Person();
 	with context p {
-		this.name = "John";
+		this.^name = "John";
 		this.familyName = "Smith";
 	};
-	assertEquals("Name should be set to John", "John", p.name);
+	assertEquals("Name should be set to John", "John", p.^name);
 	assertEquals("Family name should be set to Smith", "Smith", p.familyName);
 }
