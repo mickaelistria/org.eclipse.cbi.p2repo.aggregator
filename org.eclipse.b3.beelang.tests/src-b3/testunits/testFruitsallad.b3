@@ -30,8 +30,8 @@ function main(List argv) {
 function testBuildingFruitSallad() {
 	var engine = ${test.engine};
 	var sallad = ${test.fruitsallad};
-	assertEquals("The fruitsallad unit is found", "fruitsallad", sallad.^name);
-	assertEquals("The fruitsallad unit is found", "fruitsallad", ${test.fruitsallad}.^name);
+	assertEquals("The fruitsallad unit is found", "fruitsallad", sallad.name);
+	assertEquals("The fruitsallad unit is found", "fruitsallad", ${test.fruitsallad}.name);
 	var e = sallad.getEffectiveFacade(engine.getBuildContext());
 	var x = sallad.make();
 	x.schedule();
