@@ -165,7 +165,7 @@ concern TestingBuilderContextBody {
 		modify-selected: {
 			input : {
 				// adds a dependency to a/b/1.0.0 and calls its foo builder with arguments
-				+ when ($this.property.is.set) 
+				+ when (${this.property.is.set}) 
 					capability { 
 						name-space : a; 
 						name :"b"; 
@@ -180,15 +180,15 @@ concern TestingBuilderContextBody {
 			source : {
 				- source ~= a/b ;
 				+ x/y [a,b,c] ;
-				- annotations  ~= [$a.b, $a.c]; // TODO
-				+ annotations  : { $a = 1; $b = 2; } // TODO
+				- annotations  ~= [${a.b}, ${a.c}]; // TODO
+				+ annotations  : { ${a} = 1; ${b} = 2; } // TODO
 			};
 			output : {
 				+ "http://somewhere.com/a/base%20Path" [ subpathA, subpathB/c];
 				- output ~= ~/\/a\/b.*/;
 				- output ~= /a/basePath [subpathX];	
-				- annotations ~= [$a.b, $a.c]; // TODO
-				+ annotations : { $a = 1; $b = 2; } // TODO
+				- annotations ~= [${a.b}, ${a.c}]; // TODO
+				+ annotations : { ${a} = 1; ${b} = 2; } // TODO
 			}; 
 		};
 	}
@@ -205,7 +205,7 @@ concern TestingUnitContextBody {
 				name-space : something; 
 				name : "green" ;
 				version : [1.0.0,2.0.0]; 
-				when : $a.b.c == "green";
+				when : ${a.b.c} == "green";
 				} as greenStuff ; 
 			- requires ~= capability { name-space ~= _; name == "mipspelled"; };
 			};
