@@ -30,10 +30,10 @@ function testNew() {
 }
 function testNewWithConstructorBlock() {
 	var a = "";
-	var hm = new Person  {
-		name : a = "fjodor";
-
+	var hm = new Person  as apa {
+		^name : a = "fjodor";
 		};
-	assertEquals("The name of the person should have been set", "fjodor", hm.name);
+
+		assertEquals("The name of the person should have been set", "fjodor", hm.^name);
 	assertEquals("The name of the var a should have been set", "fjodor", a);
 }
