@@ -119,6 +119,16 @@ public class SimpleResolver implements IBuildUnitResolver {
 
 		for(EffectiveRequirementFacade ereq : requiredCapabilities) {
 			RequiredCapability r = ereq.getRequirement();
+
+			if(r == null) {
+				// bad model state (should have been caught by validation).
+				ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
+				ri.setStatus(new Status(
+					IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
+					"Unit contains null requirement"));
+				unitAdapter.setAssociatedInfo(this, ri);
+				return ri.getStatus();
+			}
 			ResolutionInfoAdapter reqAdapter = ResolutionInfoAdapterFactory.eINSTANCE.adapt(r);
 			ri = reqAdapter.getAssociatedInfo(this);
 			if(ri != null)

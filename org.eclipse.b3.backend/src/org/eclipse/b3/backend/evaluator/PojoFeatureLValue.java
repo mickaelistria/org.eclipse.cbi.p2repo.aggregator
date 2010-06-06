@@ -21,24 +21,27 @@ public class PojoFeatureLValue implements LValue {
 
 	private String featureName;
 
-	public PojoFeatureLValue(Object lhs, String featureName) {
-		this.lhs = lhs;
+	/**
+	 ** TODO: this produces a PojoLValue that has a null reference to an instance
+	 * This constructor is only used to find the types of the LValue operation.
+	 */
+	public PojoFeatureLValue(Class<?> clazz, String featureName) {
 		this.featureName = featureName;
 		String beanFeature = BackendHelper.getGetter(featureName);
 		getter = null;
 		try {
-			getter = lhs.getClass().getMethod(beanFeature);
+			getter = clazz.getMethod(beanFeature);
 		}
 		catch(NoSuchMethodException e) { /* ignore */
 		}
 		beanFeature = BackendHelper.getIsGetter(featureName);
 		try {
-			getter = lhs.getClass().getMethod(beanFeature);
+			getter = clazz.getMethod(beanFeature);
 		}
 		catch(NoSuchMethodException e) { /* ignore */
 		}
 		try {
-			getter = lhs.getClass().getMethod(featureName);
+			getter = clazz.getMethod(featureName);
 		}
 		catch(NoSuchMethodException e) { /* ignore */
 		}
@@ -48,10 +51,16 @@ public class PojoFeatureLValue implements LValue {
 		if(getter == null)
 			return;
 		try {
-			setter = lhs.getClass().getMethod(beanFeature, getter.getReturnType());
+			setter = clazz.getMethod(beanFeature, getter.getReturnType());
 		}
 		catch(NoSuchMethodException e) { /* ignore */
 		}
+
+	}
+
+	public PojoFeatureLValue(Object lhs, String featureName) {
+		this(lhs.getClass(), featureName);
+		this.lhs = lhs;
 	}
 
 	public Object get() throws B3EngineException {

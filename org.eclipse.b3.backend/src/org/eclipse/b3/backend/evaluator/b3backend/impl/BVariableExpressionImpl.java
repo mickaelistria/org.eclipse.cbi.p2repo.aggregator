@@ -14,10 +14,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 
+import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -28,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BVariableExpressionImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BVariableExpressionImpl#getNamedValue <em>Named Value</em>}</li>
  * </ul>
  * </p>
  * 
@@ -65,6 +68,17 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getNamedValue() <em>Named Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getNamedValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected INamedValue namedValue;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -80,11 +94,25 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	 * 
 	 * @generated
 	 */
+	public INamedValue basicGetNamedValue() {
+		return namedValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
 			case B3backendPackage.BVARIABLE_EXPRESSION__NAME:
 				return getName();
+			case B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE:
+				if(resolve)
+					return getNamedValue();
+				return basicGetNamedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -102,6 +130,8 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 				return NAME_EDEFAULT == null
 						? name != null
 						: !NAME_EDEFAULT.equals(name);
+			case B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE:
+				return namedValue != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -117,6 +147,9 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 		switch(featureID) {
 			case B3backendPackage.BVARIABLE_EXPRESSION__NAME:
 				setName((String) newValue);
+				return;
+			case B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE:
+				setNamedValue((INamedValue) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -144,6 +177,9 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 		switch(featureID) {
 			case B3backendPackage.BVARIABLE_EXPRESSION__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE:
+				setNamedValue((INamedValue) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -180,12 +216,46 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	 * 
 	 * @generated
 	 */
+	public INamedValue getNamedValue() {
+		if(namedValue != null && namedValue.eIsProxy()) {
+			InternalEObject oldNamedValue = (InternalEObject) namedValue;
+			namedValue = (INamedValue) eResolveProxy(oldNamedValue);
+			if(namedValue != oldNamedValue) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE, oldNamedValue,
+						namedValue));
+			}
+		}
+		return namedValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BVARIABLE_EXPRESSION__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setNamedValue(INamedValue newNamedValue) {
+		INamedValue oldNamedValue = namedValue;
+		namedValue = newNamedValue;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE, oldNamedValue, namedValue));
 	}
 
 	/**

@@ -87,9 +87,9 @@ public class ExecuteHandler extends AbstractHandler {
 							}
 							finally {
 								b3ConsoleErrorStream.close();
-								if(resolutionScope != null) // in case the error has to do with resolution scope
-									resolutionScope.exit();
-								resolutionScope = null;
+								// if(resolutionScope != null) // in case the error has to do with resolution scope
+								// resolutionScope.exit();
+								// resolutionScope = null;
 							}
 
 						}

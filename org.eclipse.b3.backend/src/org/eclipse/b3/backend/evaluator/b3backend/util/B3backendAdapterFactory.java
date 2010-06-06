@@ -86,6 +86,11 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseB3Type(B3Type object) {
+			return createB3TypeAdapter();
+		}
+
+		@Override
 		public Adapter caseB3WildcardType(B3WildcardType object) {
 			return createB3WildcardTypeAdapter();
 		}
@@ -291,11 +296,6 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseBLineReference(BLineReference object) {
-			return createBLineReferenceAdapter();
-		}
-
-		@Override
 		public Adapter caseBLiteralAny(BLiteralAny object) {
 			return createBLiteralAnyAdapter();
 		}
@@ -481,6 +481,11 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseINamedValue(INamedValue object) {
+			return createINamedValueAdapter();
+		}
+
+		@Override
 		public Adapter caseIParameterizedType(ParameterizedType object) {
 			return createIParameterizedTypeAdapter();
 		}
@@ -628,6 +633,21 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createB3ParameterizedTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3Type <em>B3 Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3Type
+	 * @generated
+	 */
+	public Adapter createB3TypeAdapter() {
 		return null;
 	}
 
@@ -1264,21 +1284,6 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLineReference <em>BLine Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLineReference
-	 * @generated
-	 */
-	public Adapter createBLineReferenceAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny <em>BLiteral Any</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1863,6 +1868,21 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIGenericDeclarationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.INamedValue <em>INamed Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.INamedValue
+	 * @generated
+	 */
+	public Adapter createINamedValueAdapter() {
 		return null;
 	}
 

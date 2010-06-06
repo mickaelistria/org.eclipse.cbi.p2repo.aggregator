@@ -36,7 +36,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BLiteralTypeItemProvider extends BExpressionItemProvider implements IEditingDomainItemProvider,
@@ -44,7 +43,6 @@ public class BLiteralTypeItemProvider extends BExpressionItemProvider implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -53,7 +51,6 @@ public class BLiteralTypeItemProvider extends BExpressionItemProvider implements
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BLiteralTypeItemProvider(AdapterFactory adapterFactory) {
@@ -65,36 +62,46 @@ public class BLiteralTypeItemProvider extends BExpressionItemProvider implements
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BLITERAL_TYPE__TYPE, B3backendFactory.eINSTANCE.createB3FunctionType()));
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3FunctionType()));
 
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BLITERAL_TYPE__TYPE, B3backendFactory.eINSTANCE.createB3ParameterizedType()));
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3ParameterizedType()));
 
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BLITERAL_TYPE__TYPE, B3backendFactory.eINSTANCE.createB3WildcardType()));
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3WildcardType()));
 
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BLITERAL_TYPE__TYPE, B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
 
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BLITERAL_TYPE__TYPE, B3backendFactory.eINSTANCE.createB3JavaImport()));
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3JavaImport()));
 
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BLITERAL_TYPE__TYPE, B3backendFactory.eINSTANCE.createB3MetaClass()));
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3MetaClass()));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -111,12 +118,11 @@ public class BLiteralTypeItemProvider extends BExpressionItemProvider implements
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(B3backendPackage.Literals.BLITERAL_TYPE__TYPE);
 		}
@@ -127,7 +133,6 @@ public class BLiteralTypeItemProvider extends BExpressionItemProvider implements
 	 * This returns BLiteralType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -139,12 +144,11 @@ public class BLiteralTypeItemProvider extends BExpressionItemProvider implements
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -155,7 +159,6 @@ public class BLiteralTypeItemProvider extends BExpressionItemProvider implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -168,14 +171,13 @@ public class BLiteralTypeItemProvider extends BExpressionItemProvider implements
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(BLiteralType.class)) {
+		switch (notification.getFeatureID(BLiteralType.class)) {
 			case B3backendPackage.BLITERAL_TYPE__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

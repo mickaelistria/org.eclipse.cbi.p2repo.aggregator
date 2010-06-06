@@ -386,8 +386,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch(eClass.getClassifierID()) {
-			case B3backendPackage.BLINE_REFERENCE:
-				return createBLineReference();
 			case B3backendPackage.BIF_EXPRESSION:
 				return createBIfExpression();
 			case B3backendPackage.BSWITCH_EXPRESSION:
@@ -532,6 +530,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createBPatternLiteralExpression();
 			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION:
 				return createBSimplePatternExpression();
+			case B3backendPackage.B3_TYPE:
+				return createB3Type();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -621,6 +621,17 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public B3ParameterizedType createB3ParameterizedType() {
 		B3ParameterizedTypeImpl b3ParameterizedType = new B3ParameterizedTypeImpl();
 		return b3ParameterizedType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public B3Type createB3Type() {
+		B3TypeImpl b3Type = new B3TypeImpl();
+		return b3Type;
 	}
 
 	/**
@@ -1009,17 +1020,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BJavaFunction createBJavaFunction() {
 		BJavaFunctionImpl bJavaFunction = new BJavaFunctionImpl();
 		return bJavaFunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public BLineReference createBLineReference() {
-		BLineReferenceImpl bLineReference = new BLineReferenceImpl();
-		return bLineReference;
 	}
 
 	/**

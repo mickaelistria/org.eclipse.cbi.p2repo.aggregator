@@ -61,5 +61,12 @@
             validator="org.eclipse.b3.build.repository.IdentityBasedRepositoryValidator">
       </repositoryValidator>
    </extension>
+   <extension
+         point="org.eclipse.emf.ecore.protocol_parser">
+      <parser
+            class="org.eclipse.b3.build.engine.B3BuildEngineResourceFactory"
+            protocolName="b3engine">
+      </parser>
+   </extension>
 
 </plugin>

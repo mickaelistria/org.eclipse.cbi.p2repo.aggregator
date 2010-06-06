@@ -40,7 +40,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BParameterDeclarationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -48,7 +47,6 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -57,7 +55,6 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BParameterDeclarationItemProvider(AdapterFactory adapterFactory) {
@@ -68,93 +65,66 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	 * This adds a property descriptor for the Final feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addFinalPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_BParameterDeclaration_final_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_final_feature",
-				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__FINAL, true,
-			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BParameterDeclaration_final_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_final_feature", "_UI_BParameterDeclaration_type"),
+				 B3backendPackage.Literals.BPARAMETER_DECLARATION__FINAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Immutable feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addImmutablePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_BParameterDeclaration_immutable_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_immutable_feature",
-				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__IMMUTABLE, true,
-			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BParameterDeclaration_immutable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_immutable_feature", "_UI_BParameterDeclaration_type"),
+				 B3backendPackage.Literals.BPARAMETER_DECLARATION__IMMUTABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_BParameterDeclaration_name_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_name_feature",
-				"_UI_BParameterDeclaration_type"), B3backendPackage.Literals.BPARAMETER_DECLARATION__NAME, true, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3FunctionType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE,
-			B3backendFactory.eINSTANCE.createB3ParameterizedType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3WildcardType()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE,
-			B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3JavaImport()));
-
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE, B3backendFactory.eINSTANCE.createB3MetaClass()));
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.INAMED_VALUE__TYPE);
+		}
+		return childrenFeatures;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -166,28 +136,73 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_INamedValue_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_INamedValue_name_feature", "_UI_INamedValue_type"),
+				 B3backendPackage.Literals.INAMED_VALUE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE);
-		}
-		return childrenFeatures;
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.INAMED_VALUE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3FunctionType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.INAMED_VALUE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3ParameterizedType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.INAMED_VALUE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3WildcardType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.INAMED_VALUE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.INAMED_VALUE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.INAMED_VALUE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3MetaClass()));
 	}
 
 	/**
 	 * This returns BParameterDeclaration.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -199,12 +214,11 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
@@ -218,7 +232,6 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -230,15 +243,14 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BParameterDeclaration) object).getName();
-		return label == null || label.length() == 0
-				? getString("_UI_BParameterDeclaration_type")
-				: getString("_UI_BParameterDeclaration_type") + " " + label;
+		String label = ((BParameterDeclaration)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BParameterDeclaration_type") :
+			getString("_UI_BParameterDeclaration_type") + " " + label;
 	}
 
 	/**
@@ -246,14 +258,13 @@ public class BParameterDeclarationItemProvider extends ItemProviderAdapter imple
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(BParameterDeclaration.class)) {
+		switch (notification.getFeatureID(BParameterDeclaration.class)) {
 			case B3backendPackage.BPARAMETER_DECLARATION__NAME:
 			case B3backendPackage.BPARAMETER_DECLARATION__FINAL:
 			case B3backendPackage.BPARAMETER_DECLARATION__IMMUTABLE:

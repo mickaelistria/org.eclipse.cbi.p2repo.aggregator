@@ -18,12 +18,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -294,6 +291,7 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	/**
 	 * <!-- begin-user-doc -->
 	 * Parameter type defaults to Object.class
+	 * TODO: THIS IS A REALLY STUPID TYPE INFERENCE
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -372,18 +370,34 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Type may be a non EObject - in which case eInverseRemove, and eInverseAdd are not called.
+	 * Protects against non EObject Type instances.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
 	public void setType(Type newType) {
+		if(!(newType instanceof EObject)) {
+			B3ParameterizedType wrappedType = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+			wrappedType.setRawType(newType);
+			newType = wrappedType;
+		}
+		setTypeGen(newType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Type may be a non EObject - in which case eInverseRemove, and eInverseAdd are not called.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setTypeGen(Type newType) {
 		if(newType != type) {
 			NotificationChain msgs = null;
-			if(type != null && type instanceof EObject)
+			if(type != null)
 				msgs = ((InternalEObject) type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
 						B3backendPackage.BPARAMETER_DECLARATION__TYPE, null, msgs);
-			if(newType != null && newType instanceof EObject)
+			if(newType != null)
 				msgs = ((InternalEObject) newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
 						B3backendPackage.BPARAMETER_DECLARATION__TYPE, null, msgs);
 			msgs = basicSetType(newType, msgs);

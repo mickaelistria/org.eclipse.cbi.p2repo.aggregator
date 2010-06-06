@@ -21,18 +21,18 @@ import "platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore" as be
 import "platform:/resource/org.eclipse.b3.build/model/B3Build.ecore" as build
 
 // uncomments if things are needed that should not be in backend or build
-//generate beeLang "http://www.eclipse.org/b3/BeeLang"
+// generate beeLang "http://www.eclipse.org/b3/BeeLang"
 
 BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT) : {build::BeeModel}
 	(imports += Import)* 
-	( (functions += Function)* 
-	& (concerns += Concern_Named)*
-	& (propertySets += PropertySet_Named)*
-	& (buildUnits += BuildUnit)*
-	& (providers += TopLevelUnitProvider)?
-	& (repositories += Repository)*
-	& (defaultProperties = PropertySetDefault)?
-	) 
+	( (functions += Function)  //* 
+	| (concerns += Concern_Named) //*
+	| (propertySets += PropertySet_Named) //*
+	| (buildUnits += BuildUnit) //*
+	| (providers += TopLevelUnitProvider) //?
+	| (repositories += Repository) //*
+	| (defaultProperties = PropertySetDefault) //?
+	)* 
 	;
 
 Import returns be::IType : {be::B3JavaImport}
@@ -53,66 +53,92 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 	'unit' (name=UnitName)? ('version' version = VersionLiteral)?
 		('implements' implements += SimpleTypeRef (',' implements+=SimpleTypeRef)*)? 
 	'{'
-		( ('source' ':' sourceLocation = Path ';')?
-		& ('output' ':' outputLocation = Path ';')?
-		& ('provides' ':' (providedCapabilities += ProvidedCapability) ';')*
-		& ('requires' ':' (requiredCapabilities += AliasedRequiredCapability) ';')*
-		& ('requires' 'env' ':' (metaRequiredCapabilities += RequiredCapability) ';')*
-		& (functions += Builder )*
-		& (functions += Function )*
-		& (providers += TopLevelUnitProvider)?
-		& (concerns += Concern_Named)*
-		& (propertySets += PropertySet_Named)*
-		& (containers += ContainerConfiguration ';' )*
-		& (synchronizations += Synchronization )*
-		& (repositories += Repository)*
-		& (defaultProperties = PropertySetDefault)?
-		)
+		( ('source' ':' sourceLocation = Path ';') //?
+		| ('output' ':' outputLocation = Path ';') //?
+		| ('provides' ':' (
+			('[' providedCapabilities += ProvidedCapability 
+				(',' providedCapabilities += ProvidedCapability)* ']') 
+			| providedCapabilities += ProvidedCapability ) 
+			';') //?
+		| ('requires' ':' (
+			( '[' requiredCapabilities += AliasedRequiredCapability 
+				(',' requiredCapabilities += AliasedRequiredCapability)* ']')
+			| requiredCapabilities += AliasedRequiredCapability) 
+			';') //?
+		| ('requires' 'env' ':' (
+			('[' metaRequiredCapabilities += RequiredCapability 
+				(',' metaRequiredCapabilities += RequiredCapability)* ']')
+			| metaRequiredCapabilities += RequiredCapability) 
+			';') //?
+		| ((functions += Builder ) | (functions += Function )) //*
+		| (providers += TopLevelUnitProvider) //?
+		| (concerns += Concern_Named) //*
+		| (propertySets += PropertySet_Named) //*
+		| (containers += ContainerConfiguration ';' ) //*
+		| (synchronizations += Synchronization ) //*
+		| (repositories += Repository) //*
+		| (defaultProperties = PropertySetDefault) //?
+		)*
 		
 	'}';
 
 ProvidedCapability returns build::VersionedCapability : {build::VersionedCapability}
-	((nameSpace=InterfaceName) | "unit") name=CapabilityName 
+	("unit" | "capability")
 		('{'
-		( ('when' ':' condExpr = Expression ';')?  
+		( ('when' ':' condExpr = Expression ';')?
+		& ("name" ':' name = STRING ';')?		  
+		& ("name-space" ':' nameSpace = CapabilityInterface ';')?
 		& ("version" ':' version = VersionLiteral ';')?
 	  	)
-	'}')?
+	'}')
 	;
+	
 // Capability required by a unit - always refers to capabilities with at least ns/name
 // or the keyword "unit" instead of the namespace for buildunits
 AliasedRequiredCapability returns build::RequiredCapability : {build::AliasedRequiredCapability} 
-	((nameSpace=InterfaceName) | "unit") name=CapabilityName ("as" alias = ID)?
+	("unit" | "capability") 
 	('{'
 		( ('when' ':' condExpr=Expression ';')?  
+		& ("name" ':' name = STRING ';')?
+		& ("name-space" ':' nameSpace = CapabilityInterface ';')?
 		& (greedy ?= "greedy" ';')? 
 		& ("requires-min" ':' min = IntValue ';' )? 
 		& ("requires-max" ':' max  = IntValue ';')?
 		& ("version" ':' versionRange = VersionRangeLiteral ';')?
 	  	)
-	'}')
+	'}') ("as" alias = ID)?
 	;
 	
 // Capability required by a unit - always refers to capabilities with at least ns/name
 // or the keyword "unit" instead of the namespace for buildunits
 RequiredCapability returns build::RequiredCapability : {build::RequiredCapability} 
-	((nameSpace=InterfaceName) | "unit") name=CapabilityName
+	("unit" | "capability")
 	('{'
 		( ('when' ':' condExpr=Expression ';')?  
+		& ("name" ':' name = STRING ';')?
+		& ("name-space" ':' nameSpace = CapabilityInterface ';')?
 		& (greedy ?= "greedy" ';')? 
 		& ("requires-min" ':' min = IntValue ';' )? 
 		& ("requires-max" ':' max  = IntValue ';')?
 		& ("version" ':' versionRange = VersionRangeLiteral ';')?
 	  	)
-	'}')
+	'}') 
 	;
 	
 // Capability required by a unit - always refers to capabilities with at least ns/name
-// or the keyword "unit" instead of the namespace for buildunits
+// (can not refer to "unit")
+// TODO: Interface should be a proper java interface
 RequiredCapability_Unfiltered returns build::RequiredCapability : {build::RequiredCapability}
-	(greedy ?= "greedy")? ("min-required" min = IntValue)? ("max-required" max  = IntValue)? 
-	((nameSpace=InterfaceName) | "unit") '/' name=CapabilityName 
-	('/' versionRange=VersionRangeLiteral)?  
+	("unit"|"capability")
+	('{'
+		( (greedy ?= "greedy" ';')? 
+		& ("name" ':' name = STRING ';')?
+		& ("name-space" ':' nameSpace = CapabilityInterface ';')?
+		& ("requires-min" ':' min = IntValue ';' )? 
+		& ("requires-max" ':' max  = IntValue ';')?
+		& ("version" ':' versionRange = VersionRangeLiteral ';')?
+	  	)
+	'}') 
 	;
 	
 // A named sequence of property statements
@@ -145,13 +171,25 @@ PropertySet_noKw returns be::BPropertySet :  {be::BPropertySet}
 // - no loading from file = meaningsless as only declared properties can be references,
 // they would need  to be in a different default set, or declared (in which case defaults are not
 // really needed
-// 
+// - only extension of other default sets
+// - default sets can not have conditional declaration of properties
+// TODO: only allowed to extend another default property set
 PropertySetDefault returns be::BPropertySet :  {be::BDefaultPropertySet}
-	"default" "properties" ("extends" extends=[be::BPropertySet | QIDREF])?
-	'{' (operations += PropertyOperation )*  '}'
+	"default-properties" ("extends" extends=[be::BPropertySet | QIDREF])?
+	'{' (operations += PropertyOperationDefault )*  '}'
+	;
+	
+// TODO: only allowed to extend another default property set
+PropertySetDefault_noKw returns be::BPropertySet :  {be::BPropertySet}
+	("extends" extends=[be::BPropertySet | QIDREF])? 
+	'{' (operations += PropertyOperation )* '}'
 	;
 
-// For model generation, to get supertype correct
+PropertyOperationDefault returns be::BPropertyOperation
+	: PropertyDefinitionOperation 
+	| PropertySetOperationDefault
+	;
+
 PropertyOperation returns be::BPropertyOperation
 	: ConditionalPropertyOperation 
 	| PropertyDefinitionOperation 
@@ -162,6 +200,7 @@ ConditionalPropertyOperation returns be::BPropertyOperation : {be::BConditionalP
 	'when' '(' condExpr=Expression ')' 
 		(body=PropertyDefinitionOperation | body=PropertySetOperation) 
 	;
+	
 PropertyDefinitionOperation returns be::BPropertyOperation : {be::BPropertyDefinitionOperation}
 	(definition = PropertyValDeclaration | definition = PropertyVarDeclaration)
 	;
@@ -179,6 +218,9 @@ PropertyVarDeclaration returns be::BDefProperty : {be::BDefProperty}
 PropertySetOperation returns be::BPropertyOperation : {be::BPropertySetOperation} 
 	propertySet = PropertySet_noKw
 	;
+PropertySetOperationDefault returns be::BPropertyOperation : {be::BPropertySetOperation} 
+	propertySet = PropertySetDefault_noKw
+	;
 
 Synchronization returns build::Synchronization : {build::Synchronization}
 	"sequential" ':''[' (builderQueries += BuilderQuery)(',' builderQueries += BuilderQuery)* ']' ';'
@@ -188,29 +230,36 @@ BuilderQuery returns build::BuilderQuery : {build::BuilderQuery}
 	("unit" unitQuery = UnitOrExpression)?
 	("builder" builderQueries += BuilderOrExpression)(',' builderQueries += BuilderOrExpression)*
 	;
-	
+
+// one path vector, or [ , separated list of path vectors + annotation ]	
 PathGroup returns build::PathGroup: {build::PathGroup}
-	pathVectors += ConditionalPathVector+ ('annotations' annotations = AnnotationSet)?
+	('[' (pathVectors += ConditionalPathVector 
+		(',' pathVectors += ConditionalPathVector)* )?
+		('annotations' annotations = AnnotationSet)?
+	 ']') | (pathVectors += ConditionalPathVector)
 	;
+	
+PathVector returns build::PathVector: (BasePathVector | UnbasedPathVector) ;
 
 BasePathVector returns build::PathVector : {build::PathVector}
-	basePath=Path '[' ( paths+=Path (',' paths+=Path)*)? ']' ';'
+	basePath=Path '[' ( paths+=Path (',' paths+=Path)*)? ']' //';'
 	;
 
 UnbasedPathVector returns build::PathVector : {build::PathVector}
-	paths+=Path (',' paths+=Path)* ';'
+	paths+=Path // (',' paths+=Path)* ';'
 	;
 	
 ConditionalPathVector returns build::ConditionalPathVector : {build::ConditionalPathVector}
-		("when" '(' condExpr=Expression ')' '{' (pathVectors += (BasePathVector | UnbasedPathVector))* '}' )
-	| 	(("when" '(' condExpr=Expression ')')? pathVectors += (BasePathVector | UnbasedPathVector) )
+		("when" '(' condExpr=Expression ')' 
+			'[' pathVectors += PathVector (',' pathVectors += PathVector)* ']' )
+	| 	(("when" '(' condExpr=Expression ')')? pathVectors += PathVector )
 	;
 
-// a path as a string (i.e. ID, QID, "..." or /QID/..
-PathString 
-	: STRING
-	| ('/')? QID ('/' QID)* ('/')? 
-	;
+//// a path as a string (i.e. ID, QID, "..." or /QID/..
+//PathString 
+//	: STRING
+//	| ('/')? QID ('/' QID)* ('/')? 
+//	;
 	
 // A path can be written without quotes if it consists of safe chars 
 Path returns be::URI hidden()
@@ -222,14 +271,13 @@ Prerequisite returns build::Prerequisite : {build::Prerequisite}
 	('when' '(' condExpr=Expression ')' )?
 	(withExpr = WithClause ':')?
 	buildResult=BuildResultReference
-	("as" alias=ID)? ';'
+	("as" alias=ID)? // ';'
 	;
 
 // Validation checks that there is at least one of references, properties or concern.
 WithClause returns be::BWithExpression : {be::BWithExpression}
 		"with"
 		( referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* )? 
-//		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
 		( ( propertySets += PropertySet )
 		| ( propertySets += PropertySetDefault)
 		| ( "concern" concerns += Concern_Anonymous )
@@ -245,24 +293,25 @@ BuildResultReference returns build::BuildResultReference
 
 // A reference to a builder in the same unit
 UnitBuildResultReference returns build::BuildResultReference : {build::BuilderReference} 
-	("unit")? '#' builderName=BuilderName ('(' parameters = ParameterList ')')? ; 
+	"unit" '.' builderName=BuilderName ('(' parameters = ParameterList? ')') ; 
 
 // A reference to a builder in a unit providing a capability (or if build name is omitted to the
 // builder that provides the capability in that unit).
 CapabilityBuildResultReference returns build::BuildResultReference : {build::BuilderReference}
-	requiredCapability = RequiredCapability_Unfiltered ('#' builderName=BuilderName) ?
-	('(' parameters = ParameterList ')')?	 
+	requiredCapability = RequiredCapability_Unfiltered ('.' builderName=BuilderName)?
+	('(' parameters = ParameterList? ')')	 
 	;
 	
 // A reference to a builder in a unit providing a referenced capability (or if build name is omitted to the
 // builder that provides the capability in that unit).
+// TODO: validate that a referenced capability of unit has builderName set
 IndirectCapabilityBuildResultReference returns build::BuildResultReference : {build::BuilderReference}
-	requiredCapabilityReference = [build::AliasedRequiredCapability | ID] ('#' builderName=BuilderName) ?
-	('(' parameters = ParameterList ')')?	 
+	requiredCapabilityReference = [build::AliasedRequiredCapability | ID] ('.' builderName=BuilderName) ?
+	('(' parameters = ParameterList? ')')	 
 	;
 
 CompoundBuildResultReference returns build::BuildResultReference : {build::CompoundBuildResultReference}
-	'{' (prerequisites += Prerequisite)* '}'
+	'[' (prerequisites += Prerequisite (',' prerequisites += Prerequisite)*)? ']'
 	;
 	
 Builder returns build::Builder : {build::Builder}
@@ -270,30 +319,38 @@ Builder returns build::Builder : {build::Builder}
 	(visibility = Visibility)?
     (executionMode = ExecutionMode)?
   	(final ?= "final")?
-//	(cached ?= "cached")?
     "builder"
 	name=BuilderName
 	('(' 
-		
+		// first parameter is always "unit", but is implied to "this unit" if builder is specified in
+		// a build unit
+		// TODO: validation and relevant content proposal
 		(( ((explicitUnitType = TypeRef "unit") | (parameters += ParameterDeclaration))
 			(',' parameters += ParameterDeclaration)* 
 			(',' varArgs?="..." parameters += ParameterDeclaration)?)
-		| 	(    varArgs?="..." parameters += ParameterDeclaration))
+		| 	(    varArgs?="..." parameters += ParameterDeclaration))?
 	')' )?
-	("when" guard = GuardExpression)?
-	('provides' ':' '[' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)* ']' )?
-	("precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
-	("postinputcondition" ((':' postinputcondExpr = Expression ';' )|( postinputcondExpr = BlockExpression)))?
-	("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
+	(guard = GuardExpression)?
+	(precondExpr = PreCondition)?
+	(postcondExpr = PostCondition)?
 	 '{'
-		(defaultProperties = PropertySetDefault)?
-	     ( input = BuilderInput )? 
-	     ( "source" '{' source = PathGroup '}' )?
-	     ( "output" '{' output = PathGroup '}' )? 
-	     (funcExpr = BlockExpressionWithoutBrackets)?
+		(('provides' ':' ( ('[' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)* 
+			        	    ']'
+			        	  ) |  (providedCapabilities += ProvidedCapability) 
+			        	 )';')?
+		& (defaultProperties = PropertySetDefault)?
+		)?
+	     ("input" ':' '[' input = BuilderInput? ']' ';' (postinputcondExpr = PostInputCondition)? )? 
+	     ("source" ':' source = PathGroup ';' )?
+	     ("output" ':' output = PathGroup ';' )? 
+	     ("result" ':' funcExpr = Expression ';')?
 	 '}'
 	;
 
+PreCondition returns be::BExpression :  "@precondition" ':' Expression ';' ;
+PostCondition returns be::BExpression : "@postcondition" ':' Expression ';' ;
+PostInputCondition returns be::BExpression : "@postinputcondition" ':' Expression ';' ;
+	
 ParameterList returns be::BParameterList : {be::BParameterList} 
 	parameters += FirstParameter ("," parameters += FirstParameter)*
 	;
@@ -318,8 +375,7 @@ ParameterDeclaration returns be::BParameterDeclaration : {be::BParameterDeclarat
 KeywordParameterName : "unit";
 
 BuilderInput returns build::BuilderInput : {build::BuilderInput}
-	"input"
-		'{' (prerequisites += Prerequisite)+ '}'
+	prerequisites += Prerequisite (',' prerequisites += Prerequisite)*
 	;
 	
 Repository returns build::Repository : {build::Repository}
@@ -455,13 +511,13 @@ Function returns be::B3Function : {be::B3Function}
    		(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters += ParameterDeclaration)?)
    		| (varArgs ?= "..." parameters += ParameterDeclaration)
    		)? ')' )?
-   	("when" guard = GuardExpression)?
+   	(guard = GuardExpression)?
    	((':' funcExpr=Expression ';') | (funcExpr=BlockExpression))
 	;
 	
-GuardExpression returns be::BGuardExpression : {be::BGuardExpression}
-	(':' guardExpr = Expression ';') | (guardExpr = BlockExpression)
-	;
+GuardExpression returns be::BGuardExpression : {be::BGuardExpression} 
+	"@callguard" ':' guardExpr = Expression ';' ;
+	
 //TypeParamDeclaration 
 //	: ID ( ("extends" type+= TypeRef ('&' type+=TypeRef)*) | ("super" superType=TypeRef))?
 //	;
@@ -676,7 +732,7 @@ TryCatchExpression returns be::BExpression : {be::BTryExpression}
 	;
 		
 CatchBlock	returns be::BCatch  : {be::BCatch} 
-	"catch" exceptionType=TypeRef varname=ID ':' catchExpr=Expression 
+	"catch" type=TypeRef name=ID ':' catchExpr=Expression 
 	;
 	
 SwitchExpression returns be::BExpression : {be::BSwitchExpression}
@@ -713,7 +769,7 @@ VariableValue returns  be::BExpression : {be::BVariableExpression}
 	;
 	
 KeywordVariables returns  be::BExpression : {be::BVariableExpression} 
-	name = ("input" | "output" | "source" | "properties" | "builder" | "unit" | "this"
+	name = ("input" | "output" | "source" | "result" | "properties" | "builder" | "unit" | "this"
 //		| "local" | "remote" | "user" | "password"
 		)
 	;
@@ -733,11 +789,11 @@ OperationCall returns be::BCallExpression : {be::BCallNamedFunction}
 ConstructorCallExpression returns be::BExpression : {be::BCreateExpression} 
 	"new" typeExpr=LiteralType 
 	('(' (parameterList=ParameterList)? ')')?
-	("as" alias=ID)? 
+	("as" name=ID)? 
 	(contextBlock = InitializationBlockExpression)?
 	;
 InitializationBlockExpression returns be::BExpression : {be::BChainedExpression}
-	'{'  expressions += InitializationExpression ';' '}'
+	'{'  (expressions += InitializationExpression ';')* '}'
 	;
 
 InitializationExpression returns be::BExpression : {be::BAssignmentExpression}
@@ -783,66 +839,87 @@ TypePredicateOp : '?' | '*' | '+' ;
 // Advice for units consists of Builders, and advice for Builders
 UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContext}
 	(documentation = DOCUMENTATION) ?
-	"context" "unit" query = UnitOrExpression
+	"unit-context"
 	'{'
-	( (functions += Builder)
-	| (builderContexts += BuilderConcernContext)
-	| ('+' 'requires' ':' requiredCapabilities += AliasedRequiredCapability ';')
-	| ('-' requiresRemovals += RequiresPredicate ';')
-	| ('+' 'provides' ':' providedCapabilities += ProvidedCapability ';')
-	| ('-' providesRemovals += ProvidesPredicate ';')
-	| ("source" ':' sourceLocation = URI ';')		
-	| ("output" ':' outputLocation = URI ';')		
-	)*
+		"select-units" ':'  query = UnitOrExpression ';'
+		"modify-selected" ':' '{'
+			("source" ':' sourceLocation = URI ';')?	
+			("output" ':' outputLocation = URI ';')?	
+			("provides" ':' '{'
+				( ('-' providesRemovals += ProvidesPredicate ';')
+				| ('+' providedCapabilities += ProvidedCapability ';')
+			)* '}' ';')?
+			("requires" ':' '{'
+				( ('-' requiresRemovals += RequiresPredicate ';')
+				| ('+' requiredCapabilities += AliasedRequiredCapability ';')
+			)* '}' ';')?
+
+			( (functions += Builder)
+			| (builderContexts += BuilderConcernContext)
+			)*
 	// TODO - this is sort of bogus, can not remove a default property, changing the default is the same as
 	// specifying the value of a property... If introducing new functions those functions may need to see
 	// different properties, and those may need to be default - rethink
 	('-'  defaultPropertiesRemovals += PID (',' defaultPropertiesRemovals += PID)* ';')?
 	('+'  defaultPropertiesAdditions = PropertySetDefault )?
-	
+	'}' ';'
 	'}'
 	;
 	
 // Advice for Builders	
 BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConcernContext}
 	(documentation = DOCUMENTATION) ?
-	"context" "builder"
-	 	('(' (
-   		(parameters += ParameterPredicate (',' parameters += ParameterPredicate)* 
-   		   (',' varArgs ?= "..." parameters += ParameterVarargsPredicate)?)
-   		|  (    varArgs ?= "..." parameters += ParameterVarargsPredicate)
-   		)? matchParameters ?= ')' )?
-  
-	query = BuilderOrExpression 
-	'{' ( ('-' "provides" ':' providesRemovals += ProvidesPredicate ';')
-		| ('+' "provides" ':' providedCapabilities += ProvidedCapability ';')
-		)*
-		
-		('-' removePreCondition ?="precondition" ';' )?
-		('+' "precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
-		('-' removePostInputCondition ?="postinputcondition" ';')?
-		('+' "postinputcondition" ((':' postinputcondExpr = Expression ';' )|( postinputcondExpr = BlockExpression)))?
-		('-' removePostCondition ?="postcondition" ';')?
-		('+' "postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
-		// TODO: rethink advice of default properties
-		('-' defaultPropertiesRemovals += PID (',' defaultPropertiesRemovals += PID)* ';')?
-		('+' defaultPropertiesAdditions = PropertySetDefault )?
-		
-		( ('+' "input" inputAdditions += Prerequisite) 
-		| ('-' inputRemovals += InputPredicate ';')
-		)*
+	"builder-context" '{' 
+		"select-builders" ':' query = BuilderOrExpression ';'
+	 	("having-parameters" matchParameters ?= ':' '(' 
+	   		((parameters += ParameterPredicate (',' parameters += ParameterPredicate)* 
+	   		   (',' varArgs ?= "..." parameters += ParameterVarargsPredicate)?)
+	   		|  (    varArgs ?= "..." parameters += ParameterVarargsPredicate)
+	   		)? ')' ';' )?
+  		"modify-selected" ':' '{'
+  			("conditions" ':' '{' 			
+				('-' removePreCondition ?="precondition" ';' )?
+				('+' "precondition" ':' precondExpr = Expression ';' )?
+				('-' removePostInputCondition ?="postinputcondition" ';')?
+				('+' "postinputcondition" ':' postinputcondExpr = Expression ';' )?
+				('-' removePostCondition ?="postcondition" ';')?
+				('+' "postcondition" ':' postcondExpr = Expression ';' )?
+			'}' ';')?
 
-		( ('+' "source" sourceAdditions += ConditionalPathVector)
-		| ('-' "source" sourceRemovals += SourcePredicate ';'))*
-		('-' "annotations" "source" sourceAnnotationsRemovals += PID (',' outputAnnotationsRemovals += PID)* ';')?
-		('+' "annotations" "source" sourceAnnotationAdditions = AnnotationSet )?
-		
-		( ('+' "output" outputAdditions += ConditionalPathVector)
-		| ('-' "output" outputRemovals += OutputPredicate ';'))*
-		('-' "annotations" "output" outputAnnotationsRemovals += PID (',' outputAnnotationsRemovals += PID)* ';')?
-		('+' "annotations" "output" outputAnnotationAdditions = AnnotationSet )?
-		
-		(funcExpr = BlockExpression)? // replaces the builder's funcExpression
+			("provides" ':' '{'
+				( ('-' providesRemovals += ProvidesPredicate ';')
+				| ('+' providedCapabilities += ProvidedCapability ';')
+			)* '}' ';')?
+
+				// TODO: rethink advice of default properties
+				('-' defaultPropertiesRemovals += PID (',' defaultPropertiesRemovals += PID)* ';')?
+				('+' defaultPropertiesAdditions = PropertySetDefault )?
+			
+			("input" ':' '{'
+				( ('+' inputAdditions += Prerequisite ';') 
+				| ('-' inputRemovals += InputPredicate ';')
+			)* '}' ';')?
+	
+			("source" ':' '{'
+				( ('+' sourceAdditions += ConditionalPathVector ';')
+				| ('-' "source" '~=' sourceRemovals += SourcePredicate ';')
+				)* 
+				// TODO : rethink advice of annotations
+				('-' "annotations" '~=' '[' sourceAnnotationsRemovals += PID (',' outputAnnotationsRemovals += PID)* ']' ';')?
+				('+' "annotations" ':' sourceAnnotationAdditions = AnnotationSet )?
+			'}' ';')?
+			
+			("output" ':' '{'
+				( ('+' outputAdditions += ConditionalPathVector ';')
+				| ('-' "output" '~=' outputRemovals += OutputPredicate ';')
+				)* 
+				// TODO : rethink advice of annotations
+				('-' "annotations" '~=' '[' outputAnnotationsRemovals += PID (',' outputAnnotationsRemovals += PID)* ']' ';')?
+				('+' "annotations" ':' outputAnnotationAdditions = AnnotationSet )?
+			'}' ';')?
+						
+			("result" ':' funcExpr = Expression ';')? // replaces the builder's funcExpression
+		'}' ';'
 	'}'
 	;
 
@@ -874,33 +951,36 @@ GroupedUnitPrimaryExpression returns be::BExpression : '(' UnitOrExpression ')' 
 
 	
 RequiresPredicate returns build::RequiresPredicate : {build::RequiresPredicate}
-	"requires" (meta ?= "env")? capabilityPredicate = CapabilityPredicate 
+	"requires" (meta ?= "env")?  "~=" capabilityPredicate = CapabilityPredicate 
 	;
 	
 ImplementsPredcicate returns be::BExpression: {build::ImplementsPredicate}
-	"implements" type = TypeRef 
+	"implements" "==" type = TypeRef 
 	;
 	
 ProvidesPredicate returns build::ProvidesPredicate : {build::ProvidesPredicate}
-	"provides" capabilityPredicate = CapabilityPredicate 
+	"provides"  "~=" capabilityPredicate = CapabilityPredicate 
 	;
 	
 UnitNamePredicate returns build::CapabilityPredicate : {build::UnitNamePredicate}
-	namePredicate = NamePredicate
-	('/' versionRange = VersionRangeLiteral)?
+	"unit" "~=" '{' 
+		("name"  namePredicate = QualifiedNamePredicate ';')
+		("version" '~=' versionRange=VersionRangeLiteral ';')?
+	'}' 
 	;
-	
+
 BuilderNamePredicate returns build::BuilderNamePredicate : {build::BuilderNamePredicate}
-	namePredicate = NamePredicate
+	"builder" "~=" '{' ("name"  namePredicate = QualifiedNamePredicate ';') '}'
 	;
 	
 InputPredicate returns build::InputPredicate: {build::InputPredicate}
-	"input"
+	"input" "~=" '{'
 	( (capabilityPredicate = CapabilityPredicate)
 	| (capabilityPredicate = UnitNamePredicate)
 	| ("unit")?
 	)
-	'#' builderPredicate = NamePredicate
+	"builder" builderPredicate = QualifiedNamePredicate ';'
+	'}'
 	;
 	
 SourcePredicate returns build::SourcePredicate : {build::SourcePredicate}
@@ -918,18 +998,25 @@ OutputPredicate returns build::OutputPredicate : {build::OutputPredicate}
 BasePathPredicate returns build::PathVector : {build::PathVector}
 	basePath = Path '[' paths += Path (',' paths += Path)* ']'
 	;
+	
 PathPredicate returns build::PathVector : {build::PathVector}
 	paths += Path (',' paths += Path)*
 	;
 
 CapabilityPredicate returns build::CapabilityPredicate : {build::CapabilityPredicate} 
-	nameSpacePredicate = NamePredicate
-	'/' namePredicate = NamePredicate
-	('/' versionRange=VersionRangeLiteral)? 
+	"capability" '{' 
+		("name-space"  nameSpacePredicate = QualifiedNamePredicate ';')
+		("name"  namePredicate = QualifiedNamePredicate ';')
+		("version" '~=' versionRange=VersionRangeLiteral ';')?
+	'}' 
 	;
-	 
+
+QualifiedNamePredicate	 returns be::BNamePredicate : {be::BNamePredicate}
+	('==' name=EscapedQualifiedName)  | ('~=' namePattern = PatternLiteral)
+	;
+
 NamePredicate returns be::BNamePredicate : {be::BNamePredicate}
-	(name=EscapedQualifiedName  | namePattern = PatternLiteral)
+	(name=EscapedQualifiedName)  | (namePattern = PatternLiteral)
 	;
 	
 BuilderOrExpression returns be::BExpression :
@@ -1012,7 +1099,7 @@ OneOrManyExpressions returns be::BExpression
 	;
 	
 BlockExpressionWithoutBrackets returns be::BExpression : {be::BChainedExpression} 
-	(expressions += TopLevelExpression ';')+ 
+	(expressions += TopLevelExpression ';')* // should be +, but produces markers that are no good 
 	;
 	
 MapEntry returns be::BMapEntry: {be::BMapEntry} 
@@ -1023,7 +1110,7 @@ KeyLiteral returns be::BExpression : {be::BLiteralExpression}
 	value = (ID|PID|STRING) 
 	;
 
-LiteralType returns be::BExpression : {be::BLiteralType} 
+LiteralType returns be::BLiteralType : {be::BLiteralType} 
 	type=TypeRef 
 	;
 
@@ -1109,12 +1196,12 @@ QID hidden(): ID (INT|HEX|ID)* ('.' ID (INT|HEX|ID)*)* ;
 
 // Allows a qualified name, or a string to be used as a name
 EscapedQualifiedName:  STRING | QID;
-InterfaceName	: QID ;
+CapabilityInterface	: QID | "unit";
 
 // Aliases that help with unified naming (good for experiments - the indirection can be removed later)
 UnitName 		: EscapedQualifiedName ;
 BuilderName 	: EscapedQualifiedName ;
-CapabilityName 	: EscapedQualifiedName ;
+CapabilityName 	: STRING ; // although nice to just write a.b.c it clashes with a.b.c.builder()
 
 enum Visibility 	returns be::Visibility : public | private ;
 enum ExecutionMode 	returns be::ExecutionMode: parallel | sequential ;
@@ -1126,8 +1213,8 @@ TIMESTAMP returns ecore::EDate : STRING ;
 // Version, and VersionRange use these
 // TODO: uncertain if the set of allowed chars is definitive.
 //
-Separator : '.' | '-' | '!' | '@' | '$' | '%' | '&' |'+' | '=' | '*' | '<' | '>' | ':' | '?';
-AlfanumSym : (ID | INT | HEX | EXT_INT) (Separator|ID|INT|HEX |EXT_INT)* ;
+Separator :  '-' | '!' | '@' | '$' | '%' | '&' |'+' | '=' | '*' | '<' | '>' | ':' | '?';
+AlfanumSym hidden() : (ID | INT | HEX | EXT_INT) ('.'?(Separator|ID|INT|HEX |EXT_INT))* ;
 
 // --TERMINALS
 // (NOTE: Does not use standard terminals to have full control).

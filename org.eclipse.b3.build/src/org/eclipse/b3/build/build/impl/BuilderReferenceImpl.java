@@ -13,7 +13,6 @@ import java.util.List;
 import org.eclipse.b3.backend.core.SingletonIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
-
 import org.eclipse.b3.build.build.AliasedRequiredCapability;
 import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
@@ -23,15 +22,12 @@ import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
 import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.b3.build.build.RequiredCapability;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreEList;
 
@@ -354,7 +350,10 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 		EffectiveRequirementFacade facade = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
 		Iterator<EffectiveRequirementFacade> result = new SingletonIterator<EffectiveRequirementFacade>(facade);
 		facade.setContext(ctx);
-		facade.setRequirement(getRequiredCapability());
+		RequiredCapability rc = getRequiredCapability();
+		if(rc == null)
+			rc = getRequiredCapabilityReference();
+		facade.setRequirement(rc);
 		return result;
 	}
 

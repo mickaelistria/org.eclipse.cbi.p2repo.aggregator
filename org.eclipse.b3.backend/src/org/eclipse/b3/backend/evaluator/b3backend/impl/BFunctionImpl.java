@@ -1509,19 +1509,26 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	}
 
 	/**
+	 * @generated NOT
+	 */
+	public void setReturnType(Type newReturnType) {
+		setReturnTypeGen(TypeUtils.coerceToEObjectType(newReturnType));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * This method may be called with non EObject implementations of Type.
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
-	public void setReturnType(Type newReturnType) {
+	public void setReturnTypeGen(Type newReturnType) {
 		if(newReturnType != returnType) {
 			NotificationChain msgs = null;
-			if(returnType != null && returnType instanceof EObject)
+			if(returnType != null)
 				msgs = ((InternalEObject) returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
 						B3backendPackage.BFUNCTION__RETURN_TYPE, null, msgs);
-			if(newReturnType != null && newReturnType instanceof EObject)
+			if(newReturnType != null)
 				msgs = ((InternalEObject) newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
 						B3backendPackage.BFUNCTION__RETURN_TYPE, null, msgs);
 			msgs = basicSetReturnType(newReturnType, msgs);

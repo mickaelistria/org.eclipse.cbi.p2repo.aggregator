@@ -20,6 +20,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.emf.ecore.EObject;
 
 public class TypeUtils {
 
@@ -526,7 +530,6 @@ public class TypeUtils {
 	 * map of possible automatic coercions for all appropriate types
 	 */
 	private static final Map<Type, Set<Type>> coerceMap = new HashMap<Type, Set<Type>>();
-
 	static {
 		Class<?> objectTypeClasses[][] = {
 				{ Void.class, Boolean.class, Double.class }, { Float.class }, { Long.class }, { Integer.class },
@@ -551,6 +554,14 @@ public class TypeUtils {
 
 			previousCoerceTypeSet = coerceTypeSet;
 		}
+	}
+
+	public static Type coerceToEObjectType(Type aType) {
+		if(aType == null || aType instanceof EObject)
+			return aType;
+		B3Type t = B3backendFactory.eINSTANCE.createB3Type();
+		t.setRawType(aType);
+		return t;
 	}
 
 	// /**
@@ -742,6 +753,8 @@ public class TypeUtils {
 	public static Class<?> getRaw(Type t) {
 		if(t instanceof Class<?>)
 			return (Class<?>) t;
+		if(t instanceof B3Type)
+			return getRaw(((B3Type) t).getRawType());
 		if(t instanceof ParameterizedType)
 			return getRaw(((ParameterizedType) t).getRawType());
 		if(t instanceof GenericArrayType)
@@ -749,8 +762,12 @@ public class TypeUtils {
 			return getRaw((GenericArrayType) t); // optimization
 		if(t instanceof B3JavaImport)
 			return getRaw(((B3JavaImport) t).getType());
-		if(t instanceof B3FunctionType)
-			return getRaw(((B3FunctionType) t).getFunctionType()); // i.e. what type of function this is B3, or Java
+		if(t instanceof B3FunctionType) {
+			Type u = ((B3FunctionType) t).getFunctionType();
+			return u == null
+					? BFunction.class
+					: getRaw(u); // i.e. what type of function this is B3, or Java
+		}
 		if(t instanceof B3MetaClass)
 			return ((B3MetaClass) t).getInstanceClass();
 		if(t instanceof TypeVariable<?>)

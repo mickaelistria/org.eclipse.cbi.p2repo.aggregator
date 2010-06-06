@@ -28,6 +28,7 @@ import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.core.SimplePattern;
 import org.eclipse.b3.backend.core.ValueMap;
+import org.eclipse.b3.backend.evaluator.b3backend.*;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -77,7 +78,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
-import org.eclipse.b3.backend.evaluator.b3backend.BLineReference;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
@@ -252,8 +252,6 @@ public class B3backendValidator extends EObjectValidator {
 		switch(classifierID) {
 			case B3backendPackage.BEXPRESSION:
 				return validateBExpression((BExpression) value, diagnostics, context);
-			case B3backendPackage.BLINE_REFERENCE:
-				return validateBLineReference((BLineReference) value, diagnostics, context);
 			case B3backendPackage.BEXECUTION_CONTEXT:
 				return validateBExecutionContext((BExecutionContext) value, diagnostics, context);
 			case B3backendPackage.BIF_EXPRESSION:
@@ -431,6 +429,10 @@ public class B3backendValidator extends EObjectValidator {
 				return validateBPatternLiteralExpression((BPatternLiteralExpression) value, diagnostics, context);
 			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION:
 				return validateBSimplePatternExpression((BSimplePatternExpression) value, diagnostics, context);
+			case B3backendPackage.INAMED_VALUE:
+				return validateINamedValue((INamedValue) value, diagnostics, context);
+			case B3backendPackage.B3_TYPE:
+				return validateB3Type((B3Type) value, diagnostics, context);
 			case B3backendPackage.VISIBILITY:
 				return validateVisibility((Visibility) value, diagnostics, context);
 			case B3backendPackage.EXECUTION_MODE:
@@ -579,6 +581,16 @@ public class B3backendValidator extends EObjectValidator {
 	public boolean validateB3ParameterizedType(B3ParameterizedType b3ParameterizedType, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(b3ParameterizedType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateB3Type(B3Type b3Type, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(b3Type, diagnostics, context);
 	}
 
 	/**
@@ -1032,17 +1044,6 @@ public class B3backendValidator extends EObjectValidator {
 	public boolean validateBJavaFunction(BJavaFunction bJavaFunction, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bJavaFunction, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public boolean validateBLineReference(BLineReference bLineReference, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(bLineReference, diagnostics, context);
 	}
 
 	/**
@@ -1520,6 +1521,16 @@ public class B3backendValidator extends EObjectValidator {
 	public boolean validateIGenericDeclaration(GenericDeclaration iGenericDeclaration, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint((EObject) iGenericDeclaration, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateINamedValue(INamedValue iNamedValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(iNamedValue, diagnostics, context);
 	}
 
 	/**

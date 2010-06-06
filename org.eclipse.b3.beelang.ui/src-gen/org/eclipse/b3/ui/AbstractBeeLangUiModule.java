@@ -58,27 +58,27 @@ public abstract class AbstractBeeLangUiModule extends DefaultUiModule {
 		return org.eclipse.xtext.ui.editor.contentassist.FQNPrefixMatcher.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public Class<? extends org.eclipse.jface.text.rules.ITokenScanner> bindITokenScanner() {
 		return org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AntlrTokenScanner.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.IProposalConflictHelper> bindIProposalConflictHelper() {
 		return org.eclipse.xtext.ui.editor.contentassist.antlr.AntlrProposalConflictHelper.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.IDamagerRepairer> bindIDamagerRepairer() {
 		return org.eclipse.xtext.ui.editor.XtextDamagerRepairer.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public void configureHighlightingLexer(com.google.inject.Binder binder) {
-		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.HIGHLIGHTING)).to(org.eclipse.b3.parser.antlr.lexer.InternalBeeLangLexer.class);
+		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.HIGHLIGHTING)).to(org.eclipse.b3.parser.antlr.internal.InternalBeeLangLexer.class);
 	}
 
-	// contributed by de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public void configureHighlightingTokenDefProvider(com.google.inject.Binder binder) {
 		binder.bind(org.eclipse.xtext.parser.antlr.ITokenDefProvider.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.HIGHLIGHTING)).to(org.eclipse.xtext.parser.antlr.AntlrTokenDefProvider.class);
 	}
@@ -123,22 +123,22 @@ public abstract class AbstractBeeLangUiModule extends DefaultUiModule {
 		return org.eclipse.b3.ui.contentassist.BeeLangProposalProvider.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.ex.ca.ContentAssistParserGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.ca.ContentAssistParserGeneratorFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext.Factory> bindContentAssistContext$Factory() {
 		return org.eclipse.xtext.ui.editor.contentassist.antlr.ParserBasedContentAssistContextFactory.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.ex.ca.ContentAssistParserGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.ca.ContentAssistParserGeneratorFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.antlr.IContentAssistParser> bindIContentAssistParser() {
 		return org.eclipse.b3.ui.contentassist.antlr.BeeLangParser.class;
 	}
 
-	// contributed by de.itemis.xtext.antlr.ex.ca.ContentAssistParserGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.ca.ContentAssistParserGeneratorFragment
 	public void configureContentAssistLexerProvider(com.google.inject.Binder binder) {
 		binder.bind(org.eclipse.b3.ui.contentassist.antlr.lexer.InternalBeeLangLexer.class).toProvider(org.eclipse.xtext.parser.antlr.LexerProvider.create(org.eclipse.b3.ui.contentassist.antlr.lexer.InternalBeeLangLexer.class));
 	}
 
-	// contributed by de.itemis.xtext.antlr.ex.ca.ContentAssistParserGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.ca.ContentAssistParserGeneratorFragment
 	public void configureContentAssistLexer(com.google.inject.Binder binder) {
 		binder.bind(org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.CONTENT_ASSIST)).to(org.eclipse.b3.ui.contentassist.antlr.lexer.InternalBeeLangLexer.class);
 	}

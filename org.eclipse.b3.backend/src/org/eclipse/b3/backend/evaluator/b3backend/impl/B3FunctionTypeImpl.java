@@ -10,27 +10,20 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
-
 import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -293,6 +286,9 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * @generated NOT
 	 */
 	public Type getFunctionType() {
+		// Must set a default of BFunction as this may not always be known.
+		// if(functionType == null)
+		// setFunctionType(BFunction.class);
 		if(functionType != null && functionType instanceof EObject && ((EObject) functionType).eIsProxy()) {
 			InternalEObject oldFunctionType = (InternalEObject) functionType;
 			functionType = (Type) eResolveProxy(oldFunctionType);
@@ -303,9 +299,6 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 						functionType));
 			}
 		}
-		// Must set a default of BFunction as this may not always be known.
-		if(functionType == null)
-			functionType = BFunction.class;
 		return functionType;
 	}
 
@@ -343,10 +336,10 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * The generated version casts the return type to EObject. It may be just a java.lang.reflect imlementation.
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	public Type getReturnType() {
-		if(returnType != null && returnType instanceof EObject && ((EObject) returnType).eIsProxy()) {
+		if(returnType != null && ((EObject) returnType).eIsProxy()) {
 			InternalEObject oldReturnType = (InternalEObject) returnType;
 			returnType = (Type) eResolveProxy(oldReturnType);
 			if(returnType != oldReturnType) {
@@ -430,18 +423,33 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	}
 
 	/**
+	 * @generated NOT
+	 */
+	public void setFunctionType(Type newFunctionType) {
+		setFunctionTypeGen(TypeUtils.coerceToEObjectType(newFunctionType));
+
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * functionType may not be an EObject, if not, no notification is generated.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public void setFunctionType(Type newFunctionType) {
+	public void setFunctionTypeGen(Type newFunctionType) {
 		Type oldFunctionType = functionType;
 		functionType = newFunctionType;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, oldFunctionType, functionType));
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public void setReturnType(Type newReturnType) {
+		setReturnTypeGen(TypeUtils.coerceToEObjectType(newReturnType));
 	}
 
 	/**
@@ -451,7 +459,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * 
 	 * @generated
 	 */
-	public void setReturnType(Type newReturnType) {
+	public void setReturnTypeGen(Type newReturnType) {
 		Type oldReturnType = returnType;
 		returnType = newReturnType;
 		if(eNotificationRequired())

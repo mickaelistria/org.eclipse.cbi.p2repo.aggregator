@@ -166,6 +166,23 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>B3 Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>B3 Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseB3Type(B3Type object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>B3 Wildcard Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -863,23 +880,6 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>BLine Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>BLine Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBLineReference(BLineReference object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BLiteral Any</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1509,6 +1509,23 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INamed Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INamed Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINamedValue(INamedValue object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IParameterized Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1659,13 +1676,6 @@ public class B3backendSwitch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case B3backendPackage.BLINE_REFERENCE: {
-				BLineReference bLineReference = (BLineReference) theEObject;
-				T result = caseBLineReference(bLineReference);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
 			case B3backendPackage.BEXECUTION_CONTEXT: {
 				BExecutionContext bExecutionContext = (BExecutionContext) theEObject;
 				T result = caseBExecutionContext(bExecutionContext);
@@ -1712,6 +1722,8 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.BCATCH: {
 				BCatch bCatch = (BCatch) theEObject;
 				T result = caseBCatch(bCatch);
+				if(result == null)
+					result = caseINamedValue(bCatch);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -1920,6 +1932,8 @@ public class B3backendSwitch<T> {
 				if(result == null)
 					result = caseBParameterizedExpression(bCreateExpression);
 				if(result == null)
+					result = caseINamedValue(bCreateExpression);
+				if(result == null)
 					result = caseBExpression(bCreateExpression);
 				if(result == null)
 					result = defaultCase(theEObject);
@@ -2065,6 +2079,8 @@ public class B3backendSwitch<T> {
 				if(result == null)
 					result = caseBExpression(bDefValue);
 				if(result == null)
+					result = caseINamedValue(bDefValue);
+				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -2096,6 +2112,8 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.BPARAMETER_DECLARATION: {
 				BParameterDeclaration bParameterDeclaration = (BParameterDeclaration) theEObject;
 				T result = caseBParameterDeclaration(bParameterDeclaration);
+				if(result == null)
+					result = caseINamedValue(bParameterDeclaration);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -2205,6 +2223,8 @@ public class B3backendSwitch<T> {
 					result = caseBDefValue(bDefProperty);
 				if(result == null)
 					result = caseBExpression(bDefProperty);
+				if(result == null)
+					result = caseINamedValue(bDefProperty);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -2505,6 +2525,22 @@ public class B3backendSwitch<T> {
 					result = caseBPatternLiteralExpression(bSimplePatternExpression);
 				if(result == null)
 					result = caseBExpression(bSimplePatternExpression);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.INAMED_VALUE: {
+				INamedValue iNamedValue = (INamedValue) theEObject;
+				T result = caseINamedValue(iNamedValue);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.B3_TYPE: {
+				B3Type b3Type = (B3Type) theEObject;
+				T result = caseB3Type(b3Type);
+				if(result == null)
+					result = caseIType(b3Type);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

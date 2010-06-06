@@ -23,7 +23,6 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BTry Expression</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BTryExpressionTest extends BExpressionTest {
@@ -31,7 +30,6 @@ public class BTryExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -39,7 +37,6 @@ public class BTryExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -50,7 +47,6 @@ public class BTryExpressionTest extends BExpressionTest {
 	 * Constructs a new BTry Expression test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BTryExpressionTest(String name) {
@@ -61,18 +57,16 @@ public class BTryExpressionTest extends BExpressionTest {
 	 * Returns the fixture for this BTry Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected BTryExpression getFixture() {
-		return (BTryExpression) fixture;
+		return (BTryExpression)fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -84,7 +78,6 @@ public class BTryExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -109,8 +102,8 @@ public class BTryExpressionTest extends BExpressionTest {
 			EList<BCatch> catchBlocks = eTry.getCatchBlocks();
 			BCatch catcher = b3.createBCatch();
 			catchBlocks.add(catcher);
-			catcher.setExceptionType(Throwable.class);
-			catcher.setVarname("e");
+			catcher.setType(Throwable.class);
+			catcher.setName("e");
 			BVariableExpression catchExpr = b3.createBVariableExpression();
 			catchExpr.setName("e");
 			catcher.setCatchExpr(catchExpr);
@@ -169,8 +162,8 @@ public class BTryExpressionTest extends BExpressionTest {
 			{
 				BCatch catcher = b3.createBCatch();
 				catchBlocks.add(catcher);
-				catcher.setExceptionType(Throwable.class);
-				catcher.setVarname("e");
+				catcher.setType(Throwable.class);
+				catcher.setName("e");
 				BVariableExpression catchExpr = b3.createBVariableExpression();
 				catchExpr.setName("anInt");
 				catcher.setCatchExpr(catchExpr);
@@ -179,8 +172,8 @@ public class BTryExpressionTest extends BExpressionTest {
 			{
 				BCatch catcher = b3.createBCatch();
 				catchBlocks.add(catcher);
-				catcher.setExceptionType(Exception.class);
-				catcher.setVarname("e");
+				catcher.setType(Exception.class);
+				catcher.setName("e");
 				BVariableExpression catchExpr = b3.createBVariableExpression();
 				catchExpr.setName("aDouble");
 				catcher.setCatchExpr(catchExpr);

@@ -96,7 +96,9 @@ Workflow {
 			 * If you don't already have it get it from http://download.itemis.com/updates/
 			 * Use extended fragement to enable backtracking of lexer
 			 */ 
-			fragment = de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment {
+//			fragment = org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment {
+			fragment = org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment {
+//			fragment = de.itemis.xtext.antlr.ex.rt.AntlrGeneratorFragment {
 				options = {
 					backtrack = true
 					classSplitting = true
@@ -139,7 +141,7 @@ Workflow {
 
 			// generates a more lightweight Antlr parser and lexer for tailored content assist  
 //			fragment =  de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment { // no lexer backtracking
-			fragment = de.itemis.xtext.antlr.ex.ca.ContentAssistParserGeneratorFragment	{
+			fragment = org.eclipse.xtext.generator.parser.antlr.ex.ca.ContentAssistParserGeneratorFragment	{
 				options = {
 					backtrack = true
 					classSplitting = true

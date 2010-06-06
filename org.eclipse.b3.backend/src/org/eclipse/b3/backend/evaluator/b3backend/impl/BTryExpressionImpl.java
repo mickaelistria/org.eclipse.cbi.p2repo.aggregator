@@ -260,10 +260,10 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 		catch(Throwable t) {
 			// select catch block, or if exception uncaught, re-throw
 			for(BCatch catchBlock : catchBlocks) {
-				if(TypeUtils.isAssignableFrom(catchBlock.getExceptionType(), t.getClass())) {
+				if(TypeUtils.isAssignableFrom(catchBlock.getType(), t.getClass())) {
 					BExecutionContext inner = ctx.createInnerContext();
 					try {
-						inner.defineValue(catchBlock.getVarname(), t, catchBlock.getExceptionType());
+						inner.defineValue(catchBlock.getName(), t, catchBlock.getType());
 					}
 					catch(B3EngineException e) {
 						throw BackendHelper.createException(this, e, "Could not create closure to evaluate catch.");
@@ -304,7 +304,7 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 		int counter = 1;
 		for(BCatch catchBlock : catchBlocks) {
 			BExecutionContext inner = ctx.createInnerContext();
-			inner.defineValue(catchBlock.getVarname(), catchBlock.getExceptionType(), null);
+			inner.defineValue(catchBlock.getName(), catchBlock.getType(), null);
 			types[counter++] = catchBlock.getDeclaredType(inner);
 		}
 		return TypeUtils.getCommonSuperType(types);

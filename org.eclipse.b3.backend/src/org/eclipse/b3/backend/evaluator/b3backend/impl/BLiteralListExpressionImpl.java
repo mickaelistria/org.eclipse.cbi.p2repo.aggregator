@@ -23,7 +23,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -293,19 +292,27 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	}
 
 	/**
+	 * @generated NOT
+	 */
+	public void setEntryType(Type newEntryType) {
+		setEntryTypeGen(TypeUtils.coerceToEObjectType(newEntryType));
+
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * entryType may not be an EObject. If it is not, then no notification is generated on change.
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
-	public void setEntryType(Type newEntryType) {
+	public void setEntryTypeGen(Type newEntryType) {
 		if(newEntryType != entryType) {
 			NotificationChain msgs = null;
-			if(entryType != null && entryType instanceof EObject)
+			if(entryType != null)
 				msgs = ((InternalEObject) entryType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
 						B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
-			if(newEntryType != null && newEntryType instanceof EObject)
+			if(newEntryType != null)
 				msgs = ((InternalEObject) newEntryType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
 						B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
 			msgs = basicSetEntryType(newEntryType, msgs);

@@ -15,16 +15,16 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -37,10 +37,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl#getType <em>Type</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl#isFinal <em>Final</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl#isImmutable <em>Immutable</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl#getValueExpr <em>Value Expr</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  * 
@@ -76,6 +76,17 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type type;
 
 	/**
 	 * The default value of the '{@link #isFinal() <em>Final</em>}' attribute.
@@ -131,17 +142,6 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * @ordered
 	 */
 	protected BExpression valueExpr;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -200,18 +200,60 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if(baseClass == INamedValue.class) {
+			switch(derivedFeatureID) {
+				case B3backendPackage.BDEF_VALUE__NAME:
+					return B3backendPackage.INAMED_VALUE__NAME;
+				case B3backendPackage.BDEF_VALUE__TYPE:
+					return B3backendPackage.INAMED_VALUE__TYPE;
+				default:
+					return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if(baseClass == INamedValue.class) {
+			switch(baseFeatureID) {
+				case B3backendPackage.INAMED_VALUE__NAME:
+					return B3backendPackage.BDEF_VALUE__NAME;
+				case B3backendPackage.INAMED_VALUE__TYPE:
+					return B3backendPackage.BDEF_VALUE__TYPE;
+				default:
+					return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
 			case B3backendPackage.BDEF_VALUE__NAME:
 				return getName();
+			case B3backendPackage.BDEF_VALUE__TYPE:
+				return getType();
 			case B3backendPackage.BDEF_VALUE__FINAL:
 				return isFinal();
 			case B3backendPackage.BDEF_VALUE__IMMUTABLE:
 				return isImmutable();
 			case B3backendPackage.BDEF_VALUE__VALUE_EXPR:
 				return getValueExpr();
-			case B3backendPackage.BDEF_VALUE__TYPE:
-				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -225,10 +267,10 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-			case B3backendPackage.BDEF_VALUE__VALUE_EXPR:
-				return basicSetValueExpr(null, msgs);
 			case B3backendPackage.BDEF_VALUE__TYPE:
 				return basicSetType(null, msgs);
+			case B3backendPackage.BDEF_VALUE__VALUE_EXPR:
+				return basicSetValueExpr(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -246,14 +288,14 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 				return NAME_EDEFAULT == null
 						? name != null
 						: !NAME_EDEFAULT.equals(name);
+			case B3backendPackage.BDEF_VALUE__TYPE:
+				return type != null;
 			case B3backendPackage.BDEF_VALUE__FINAL:
 				return final_ != FINAL_EDEFAULT;
 			case B3backendPackage.BDEF_VALUE__IMMUTABLE:
 				return immutable != IMMUTABLE_EDEFAULT;
 			case B3backendPackage.BDEF_VALUE__VALUE_EXPR:
 				return valueExpr != null;
-			case B3backendPackage.BDEF_VALUE__TYPE:
-				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -270,6 +312,9 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 			case B3backendPackage.BDEF_VALUE__NAME:
 				setName((String) newValue);
 				return;
+			case B3backendPackage.BDEF_VALUE__TYPE:
+				setType((Type) newValue);
+				return;
 			case B3backendPackage.BDEF_VALUE__FINAL:
 				setFinal((Boolean) newValue);
 				return;
@@ -278,9 +323,6 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 				return;
 			case B3backendPackage.BDEF_VALUE__VALUE_EXPR:
 				setValueExpr((BExpression) newValue);
-				return;
-			case B3backendPackage.BDEF_VALUE__TYPE:
-				setType((Type) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -309,6 +351,9 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 			case B3backendPackage.BDEF_VALUE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case B3backendPackage.BDEF_VALUE__TYPE:
+				setType((Type) null);
+				return;
 			case B3backendPackage.BDEF_VALUE__FINAL:
 				setFinal(FINAL_EDEFAULT);
 				return;
@@ -317,9 +362,6 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 				return;
 			case B3backendPackage.BDEF_VALUE__VALUE_EXPR:
 				setValueExpr((BExpression) null);
-				return;
-			case B3backendPackage.BDEF_VALUE__TYPE:
-				setType((Type) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -455,12 +497,27 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * @generated NOT
 	 */
 	public void setType(Type newType) {
+		if(!(newType instanceof EObject)) {
+			B3ParameterizedType wrappedType = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+			wrappedType.setRawType(newType);
+			newType = wrappedType;
+		}
+		setTypeGen(newType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setTypeGen(Type newType) {
 		if(newType != type) {
 			NotificationChain msgs = null;
-			if(type != null && type instanceof EObject)
+			if(type != null)
 				msgs = ((InternalEObject) type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
 						B3backendPackage.BDEF_VALUE__TYPE, null, msgs);
-			if(newType != null && newType instanceof EObject)
+			if(newType != null)
 				msgs = ((InternalEObject) newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
 						B3backendPackage.BDEF_VALUE__TYPE, null, msgs);
 			msgs = basicSetType(newType, msgs);

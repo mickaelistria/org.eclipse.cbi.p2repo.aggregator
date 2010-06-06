@@ -15,15 +15,37 @@ package org.eclipse.b3;
 import org.eclipse.b3.formatting.BeeLangFormatter;
 import org.eclipse.b3.validation.BeeLangDiagnosticsConverter;
 import org.eclipse.b3.validation.BeeLangSyntaxErrorMessageProvider;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.formatting.IFormatter;
 import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
+import org.eclipse.xtext.resource.SynchronizedXtextResourceSet;
+import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.validation.IDiagnosticConverter;
+
+import com.google.inject.Provider;
 
 /**
  * Use this class to register components to be used within the IDE.
  */
 public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeModule {
+
+	/**
+	 * Override the binding of the XtextResourceSetProvider with an implementation
+	 * that adds the "b3engine:/" resource
+	 * 
+	 */
+	public static class XtextResourceSetProvider implements Provider<XtextResourceSet> {
+		@Override
+		public XtextResourceSet get() {
+			SynchronizedXtextResourceSet rs = new SynchronizedXtextResourceSet();
+			URI uri = URI.createURI("b3engine:/default");
+			Resource r = rs.getResource(uri, true);
+			// rs.getResources().add(r);
+			return rs;
+		}
+	}
 
 	public Class<? extends IDiagnosticConverter> bindIDiagnosticConverter() {
 		return BeeLangDiagnosticsConverter.class;
@@ -53,5 +75,14 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 	@Override
 	public Class<? extends IValueConverterService> bindIValueConverterService() {
 		return BeeLangTerminalConverters.class;
+	}
+
+	@Override
+	public Class<? extends XtextResourceSet> bindXtextResourceSet() {
+		return null; // return SynchronizedXtextResourceSet.class;
+	}
+
+	public Class<? extends Provider<XtextResourceSet>> provideXtextResourceSet() {
+		return XtextResourceSetProvider.class;
 	}
 }

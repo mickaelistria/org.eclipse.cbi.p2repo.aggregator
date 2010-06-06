@@ -25,7 +25,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BGuardExpressionItemProvider extends BGuardItemProvider implements IEditingDomainItemProvider,
@@ -33,7 +32,6 @@ public class BGuardExpressionItemProvider extends BGuardItemProvider implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -42,7 +40,6 @@ public class BGuardExpressionItemProvider extends BGuardItemProvider implements 
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BGuardExpressionItemProvider(AdapterFactory adapterFactory) {
@@ -53,18 +50,22 @@ public class BGuardExpressionItemProvider extends BGuardItemProvider implements 
 	 * This adds a property descriptor for the Guard Expr feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addGuardExprPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_BGuardExpression_guardExpr_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_BGuardExpression_guardExpr_feature",
-				"_UI_BGuardExpression_type"), B3backendPackage.Literals.BGUARD_EXPRESSION__GUARD_EXPR, true, false,
-			true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BGuardExpression_guardExpr_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BGuardExpression_guardExpr_feature", "_UI_BGuardExpression_type"),
+				 B3backendPackage.Literals.BGUARD_EXPRESSION__GUARD_EXPR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -72,7 +73,6 @@ public class BGuardExpressionItemProvider extends BGuardItemProvider implements 
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -84,7 +84,6 @@ public class BGuardExpressionItemProvider extends BGuardItemProvider implements 
 	 * This returns BGuardExpression.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -96,12 +95,11 @@ public class BGuardExpressionItemProvider extends BGuardItemProvider implements 
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addGuardExprPropertyDescriptor(object);
@@ -113,7 +111,6 @@ public class BGuardExpressionItemProvider extends BGuardItemProvider implements 
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -126,7 +123,6 @@ public class BGuardExpressionItemProvider extends BGuardItemProvider implements 
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

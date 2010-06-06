@@ -36,7 +36,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BFunctionNamePredicateItemProvider extends BExpressionItemProvider implements IEditingDomainItemProvider,
@@ -44,7 +43,6 @@ public class BFunctionNamePredicateItemProvider extends BExpressionItemProvider 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -53,7 +51,6 @@ public class BFunctionNamePredicateItemProvider extends BExpressionItemProvider 
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BFunctionNamePredicateItemProvider(AdapterFactory adapterFactory) {
@@ -65,22 +62,21 @@ public class BFunctionNamePredicateItemProvider extends BExpressionItemProvider 
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE,
-			B3backendFactory.eINSTANCE.createBNamePredicate()));
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE,
+				 B3backendFactory.eINSTANCE.createBNamePredicate()));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -97,12 +93,11 @@ public class BFunctionNamePredicateItemProvider extends BExpressionItemProvider 
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(B3backendPackage.Literals.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE);
 		}
@@ -113,7 +108,6 @@ public class BFunctionNamePredicateItemProvider extends BExpressionItemProvider 
 	 * This returns BFunctionNamePredicate.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -125,12 +119,11 @@ public class BFunctionNamePredicateItemProvider extends BExpressionItemProvider 
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -141,7 +134,6 @@ public class BFunctionNamePredicateItemProvider extends BExpressionItemProvider 
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -154,14 +146,13 @@ public class BFunctionNamePredicateItemProvider extends BExpressionItemProvider 
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(BFunctionNamePredicate.class)) {
+		switch (notification.getFeatureID(BFunctionNamePredicate.class)) {
 			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

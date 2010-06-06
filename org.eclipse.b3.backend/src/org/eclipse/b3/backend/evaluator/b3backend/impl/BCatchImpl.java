@@ -7,18 +7,18 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -32,9 +32,9 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCatchImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCatchImpl#getType <em>Type</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCatchImpl#getCatchExpr <em>Catch Expr</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCatchImpl#getVarname <em>Varname</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCatchImpl#getExceptionType <em>Exception Type</em>}</li>
  * </ul>
  * </p>
  * 
@@ -50,6 +50,39 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type type;
+
+	/**
 	 * The cached value of the '{@link #getCatchExpr() <em>Catch Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,39 +92,6 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	 * @ordered
 	 */
 	protected BExpression catchExpr;
-
-	/**
-	 * The default value of the '{@link #getVarname() <em>Varname</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getVarname()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VARNAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getVarname() <em>Varname</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getVarname()
-	 * @generated
-	 * @ordered
-	 */
-	protected String varname = VARNAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getExceptionType() <em>Exception Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getExceptionType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type exceptionType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,12 +129,12 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetExceptionType(Type newExceptionType, NotificationChain msgs) {
-		Type oldExceptionType = exceptionType;
-		exceptionType = newExceptionType;
+	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
+		Type oldType = type;
+		type = newType;
 		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BCATCH__EXCEPTION_TYPE, oldExceptionType, newExceptionType);
+				this, Notification.SET, B3backendPackage.BCATCH__TYPE, oldType, newType);
 			if(msgs == null)
 				msgs = notification;
 			else
@@ -152,12 +152,12 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
+			case B3backendPackage.BCATCH__NAME:
+				return getName();
+			case B3backendPackage.BCATCH__TYPE:
+				return getType();
 			case B3backendPackage.BCATCH__CATCH_EXPR:
 				return getCatchExpr();
-			case B3backendPackage.BCATCH__VARNAME:
-				return getVarname();
-			case B3backendPackage.BCATCH__EXCEPTION_TYPE:
-				return getExceptionType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,10 +171,10 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
+			case B3backendPackage.BCATCH__TYPE:
+				return basicSetType(null, msgs);
 			case B3backendPackage.BCATCH__CATCH_EXPR:
 				return basicSetCatchExpr(null, msgs);
-			case B3backendPackage.BCATCH__EXCEPTION_TYPE:
-				return basicSetExceptionType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -188,14 +188,14 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
+			case B3backendPackage.BCATCH__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case B3backendPackage.BCATCH__TYPE:
+				return type != null;
 			case B3backendPackage.BCATCH__CATCH_EXPR:
 				return catchExpr != null;
-			case B3backendPackage.BCATCH__VARNAME:
-				return VARNAME_EDEFAULT == null
-						? varname != null
-						: !VARNAME_EDEFAULT.equals(varname);
-			case B3backendPackage.BCATCH__EXCEPTION_TYPE:
-				return exceptionType != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -209,14 +209,14 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
+			case B3backendPackage.BCATCH__NAME:
+				setName((String) newValue);
+				return;
+			case B3backendPackage.BCATCH__TYPE:
+				setType((Type) newValue);
+				return;
 			case B3backendPackage.BCATCH__CATCH_EXPR:
 				setCatchExpr((BExpression) newValue);
-				return;
-			case B3backendPackage.BCATCH__VARNAME:
-				setVarname((String) newValue);
-				return;
-			case B3backendPackage.BCATCH__EXCEPTION_TYPE:
-				setExceptionType((Type) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -242,14 +242,14 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
+			case B3backendPackage.BCATCH__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case B3backendPackage.BCATCH__TYPE:
+				setType((Type) null);
+				return;
 			case B3backendPackage.BCATCH__CATCH_EXPR:
 				setCatchExpr((BExpression) null);
-				return;
-			case B3backendPackage.BCATCH__VARNAME:
-				setVarname(VARNAME_EDEFAULT);
-				return;
-			case B3backendPackage.BCATCH__EXCEPTION_TYPE:
-				setExceptionType((Type) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -289,21 +289,10 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
-	public Type getExceptionType() {
-		// NOTE: Must check against exceptionType being an EObject
-		if(exceptionType != null && exceptionType instanceof EObject && ((EObject) exceptionType).eIsProxy()) {
-			InternalEObject oldExceptionType = (InternalEObject) exceptionType;
-			exceptionType = (Type) eResolveProxy(oldExceptionType);
-			if(exceptionType != oldExceptionType) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, B3backendPackage.BCATCH__EXCEPTION_TYPE, oldExceptionType,
-						exceptionType));
-			}
-		}
-		return exceptionType;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -312,8 +301,8 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	 * 
 	 * @generated
 	 */
-	public String getVarname() {
-		return varname;
+	public Type getType() {
+		return type;
 	}
 
 	/**
@@ -342,40 +331,54 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * exceptionType may not be an EObject, and if it is not no notification is generated on change.
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
-	public void setExceptionType(Type newExceptionType) {
-		if(newExceptionType != exceptionType) {
-			NotificationChain msgs = null;
-			if(exceptionType != null && exceptionType instanceof EObject)
-				msgs = ((InternalEObject) exceptionType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BCATCH__EXCEPTION_TYPE, null, msgs);
-			if(newExceptionType != null && newExceptionType instanceof EObject)
-				msgs = ((InternalEObject) newExceptionType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BCATCH__EXCEPTION_TYPE, null, msgs);
-			msgs = basicSetExceptionType(newExceptionType, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BCATCH__EXCEPTION_TYPE, newExceptionType, newExceptionType));
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCATCH__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @generated NOT
+	 */
+	public void setType(Type newType) {
+		if(!(newType instanceof EObject)) {
+			B3ParameterizedType wrappedType = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+			wrappedType.setRawType(newType);
+			newType = wrappedType;
+		}
+		setTypeGen(newType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * exceptionType may not be an EObject, and if it is not no notification is generated on change.
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setVarname(String newVarname) {
-		String oldVarname = varname;
-		varname = newVarname;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCATCH__VARNAME, oldVarname, varname));
+	public void setTypeGen(Type newType) {
+		if(newType != type) {
+			NotificationChain msgs = null;
+			if(type != null)
+				msgs = ((InternalEObject) type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BCATCH__TYPE, null, msgs);
+			if(newType != null)
+				msgs = ((InternalEObject) newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BCATCH__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCATCH__TYPE, newType, newType));
 	}
 
 	/**
@@ -390,8 +393,8 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (varname: ");
-		result.append(varname);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

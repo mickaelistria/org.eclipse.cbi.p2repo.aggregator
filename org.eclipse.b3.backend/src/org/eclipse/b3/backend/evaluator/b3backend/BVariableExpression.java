@@ -15,6 +15,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression#getNamedValue <em>Named Value</em>}</li>
  * </ul>
  * </p>
  * 
@@ -48,6 +49,22 @@ public interface BVariableExpression extends BExpression {
 	String getName();
 
 	/**
+	 * Returns the value of the '<em><b>Named Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Named Value</em>' reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Named Value</em>' reference.
+	 * @see #setNamedValue(INamedValue)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBVariableExpression_NamedValue()
+	 * @model
+	 * @generated
+	 */
+	INamedValue getNamedValue();
+
+	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,5 +75,17 @@ public interface BVariableExpression extends BExpression {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression#getNamedValue <em>Named Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Named Value</em>' reference.
+	 * @see #getNamedValue()
+	 * @generated
+	 */
+	void setNamedValue(INamedValue value);
 
 } // BVariableExpression

@@ -96,6 +96,16 @@ public interface B3backendFactory extends EFactory {
 	B3ParameterizedType createB3ParameterizedType();
 
 	/**
+	 * Returns a new object of class '<em>B3 Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>B3 Type</em>'.
+	 * @generated
+	 */
+	B3Type createB3Type();
+
+	/**
 	 * Returns a new object of class '<em>B3 Wildcard Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,16 +444,6 @@ public interface B3backendFactory extends EFactory {
 	 * @generated
 	 */
 	BJavaFunction createBJavaFunction();
-
-	/**
-	 * Returns a new object of class '<em>BLine Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>BLine Reference</em>'.
-	 * @generated
-	 */
-	BLineReference createBLineReference();
 
 	/**
 	 * Returns a new object of class '<em>BLiteral Any</em>'.

@@ -21,7 +21,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BLiteral Type</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BLiteralTypeTest extends BExpressionTest {
@@ -29,7 +28,6 @@ public class BLiteralTypeTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -37,7 +35,6 @@ public class BLiteralTypeTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -48,7 +45,6 @@ public class BLiteralTypeTest extends BExpressionTest {
 	 * Constructs a new BLiteral Type test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BLiteralTypeTest(String name) {
@@ -59,18 +55,16 @@ public class BLiteralTypeTest extends BExpressionTest {
 	 * Returns the fixture for this BLiteral Type test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected BLiteralType getFixture() {
-		return (BLiteralType) fixture;
+		return (BLiteralType)fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -82,7 +76,6 @@ public class BLiteralTypeTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

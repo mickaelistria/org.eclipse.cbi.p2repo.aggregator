@@ -20,14 +20,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCase;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BCase#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object)
- * <em>Evaluate</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get
- * Declared Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object) <em>Evaluate</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Declared Type</em>}</li>
  * </ul>
  * </p>
- * 
  * @generated
  */
 public class BCaseTest extends TestCase {
@@ -35,7 +31,6 @@ public class BCaseTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -43,7 +38,6 @@ public class BCaseTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -54,7 +48,6 @@ public class BCaseTest extends TestCase {
 	 * The fixture for this BCase test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BCase fixture = null;
@@ -63,7 +56,6 @@ public class BCaseTest extends TestCase {
 	 * Constructs a new BCase test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BCaseTest(String name) {
@@ -74,7 +66,6 @@ public class BCaseTest extends TestCase {
 	 * Returns the fixture for this BCase test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BCase getFixture() {
@@ -85,7 +76,6 @@ public class BCaseTest extends TestCase {
 	 * Sets the fixture for this BCase test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void setFixture(BCase fixture) {
@@ -95,7 +85,6 @@ public class BCaseTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -107,7 +96,6 @@ public class BCaseTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

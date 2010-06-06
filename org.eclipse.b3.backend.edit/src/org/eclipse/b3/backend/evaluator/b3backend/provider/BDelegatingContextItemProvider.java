@@ -33,7 +33,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BDelegatingContextItemProvider extends BInnerContextItemProvider implements IEditingDomainItemProvider,
@@ -41,7 +40,6 @@ public class BDelegatingContextItemProvider extends BInnerContextItemProvider im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -50,7 +48,6 @@ public class BDelegatingContextItemProvider extends BInnerContextItemProvider im
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BDelegatingContextItemProvider(AdapterFactory adapterFactory) {
@@ -62,7 +59,6 @@ public class BDelegatingContextItemProvider extends BInnerContextItemProvider im
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -74,7 +70,6 @@ public class BDelegatingContextItemProvider extends BInnerContextItemProvider im
 	 * This returns BDelegatingContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -86,12 +81,11 @@ public class BDelegatingContextItemProvider extends BInnerContextItemProvider im
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -102,18 +96,15 @@ public class BDelegatingContextItemProvider extends BInnerContextItemProvider im
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		ValueMap labelValue = ((BDelegatingContext) object).getValueMap();
-		String label = labelValue == null
-				? null
-				: labelValue.toString();
-		return label == null || label.length() == 0
-				? getString("_UI_BDelegatingContext_type")
-				: getString("_UI_BDelegatingContext_type") + " " + label;
+		ValueMap labelValue = ((BDelegatingContext)object).getValueMap();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BDelegatingContext_type") :
+			getString("_UI_BDelegatingContext_type") + " " + label;
 	}
 
 	/**
@@ -121,7 +112,6 @@ public class BDelegatingContextItemProvider extends BInnerContextItemProvider im
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

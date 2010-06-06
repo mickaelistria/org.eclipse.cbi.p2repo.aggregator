@@ -37,7 +37,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BInstanceContextItemProvider extends BInnerContextItemProvider implements IEditingDomainItemProvider,
@@ -45,7 +44,6 @@ public class BInstanceContextItemProvider extends BInnerContextItemProvider impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -54,7 +52,6 @@ public class BInstanceContextItemProvider extends BInnerContextItemProvider impl
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BInstanceContextItemProvider(AdapterFactory adapterFactory) {
@@ -65,18 +62,22 @@ public class BInstanceContextItemProvider extends BInnerContextItemProvider impl
 	 * This adds a property descriptor for the Instance feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addInstancePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_BInstanceContext_instance_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_BInstanceContext_instance_feature",
-				"_UI_BInstanceContext_type"), B3backendPackage.Literals.BINSTANCE_CONTEXT__INSTANCE, true, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BInstanceContext_instance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BInstanceContext_instance_feature", "_UI_BInstanceContext_type"),
+				 B3backendPackage.Literals.BINSTANCE_CONTEXT__INSTANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -84,7 +85,6 @@ public class BInstanceContextItemProvider extends BInnerContextItemProvider impl
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -96,7 +96,6 @@ public class BInstanceContextItemProvider extends BInnerContextItemProvider impl
 	 * This returns BInstanceContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -108,12 +107,11 @@ public class BInstanceContextItemProvider extends BInnerContextItemProvider impl
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addInstancePropertyDescriptor(object);
@@ -125,18 +123,15 @@ public class BInstanceContextItemProvider extends BInnerContextItemProvider impl
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		ValueMap labelValue = ((BInstanceContext) object).getValueMap();
-		String label = labelValue == null
-				? null
-				: labelValue.toString();
-		return label == null || label.length() == 0
-				? getString("_UI_BInstanceContext_type")
-				: getString("_UI_BInstanceContext_type") + " " + label;
+		ValueMap labelValue = ((BInstanceContext)object).getValueMap();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BInstanceContext_type") :
+			getString("_UI_BInstanceContext_type") + " " + label;
 	}
 
 	/**
@@ -144,14 +139,13 @@ public class BInstanceContextItemProvider extends BInnerContextItemProvider impl
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(BInstanceContext.class)) {
+		switch (notification.getFeatureID(BInstanceContext.class)) {
 			case B3backendPackage.BINSTANCE_CONTEXT__INSTANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
