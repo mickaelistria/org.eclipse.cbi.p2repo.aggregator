@@ -75,6 +75,8 @@ public class PojoFeatureLValue implements LValue {
 	}
 
 	public Type getDeclaredType() throws B3EngineException {
+		if(getter == null)
+			throw new B3NoSuchFeatureException(featureName);
 		return TypeUtils.objectify(getter.getGenericReturnType());
 	}
 
