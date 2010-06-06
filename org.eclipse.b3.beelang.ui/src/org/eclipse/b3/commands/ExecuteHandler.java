@@ -106,7 +106,7 @@ public class ExecuteHandler extends AbstractHandler {
 						return null;
 					final List<Object> argv = new ArrayList<Object>();
 					argv.add(engine);
-					engine.getContext().defineFinalValue("$test.engine", engine, B3BuildEngine.class);
+					engine.getContext().defineFinalValue("${test.engine}", engine, B3BuildEngine.class);
 
 					EffectiveUnitIterator uItor = new EffectiveUnitIterator(engine.getBuildContext());
 					while(uItor.hasNext()) {
@@ -114,7 +114,7 @@ public class ExecuteHandler extends AbstractHandler {
 						BuildUnit unitProxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
 						argv.add(unitProxy);
 						engine.getContext().defineFinalValue(
-							"$test." + unitProxy.getName(), unitProxy, unitProxy.getClass());
+							"${test." + unitProxy.getName() + "}", unitProxy, unitProxy.getClass());
 					}
 					try {
 						return engine.getContext().callFunction(

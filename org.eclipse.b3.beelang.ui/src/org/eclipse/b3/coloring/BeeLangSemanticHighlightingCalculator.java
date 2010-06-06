@@ -22,6 +22,14 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 
+/**
+ * Semantic highlighting for b3 (i.e. where highlight depends on where in grammar a particular
+ * instance / token is.
+ * 
+ * TODO: as the number of rules increases, change implementation from using x instanceof y to
+ * a declarative polymorph class.
+ * 
+ */
 public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlightingCalculator {
 
 	// navigate to the parse node corresponding to the semantic object and
@@ -144,6 +152,8 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 				highlightRepository((Repository) o, acceptor);
 			else if(o instanceof RepoOption)
 				highlightRepoOption((RepoOption) o, acceptor);
+
+			// TODO: fix highlighting of keywords when they appear in non KW semantic positions.
 		}
 
 		// DEBUG PRINT System.out.print("Highlight instance of: "+ o.getClass().getName() + "\n");

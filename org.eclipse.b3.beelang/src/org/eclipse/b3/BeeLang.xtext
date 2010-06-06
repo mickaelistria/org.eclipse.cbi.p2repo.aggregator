@@ -687,7 +687,7 @@ PrimaryExpression returns be::BExpression
 	| VariableValue
 	| Literal 
 	| PropertyValue
-	| KeywordVariables
+//	| KeywordVariables
 	| ParanthesizedExpression
 	| IfExpression
 	| BlockExpression
@@ -765,15 +765,20 @@ PropertyValue returns  be::BExpression : {be::BVariableExpression}
 	;
 	
 VariableValue returns  be::BExpression : {be::BVariableExpression} 
-	name = ID 
+	name = ID_or_KW 
 	;
 	
-KeywordVariables returns  be::BExpression : {be::BVariableExpression} 
-	name = ("input" | "output" | "source" | "result" | "properties" | "builder" | "unit" | "this"
-//		| "local" | "remote" | "user" | "password"
-		)
-	;
+//KeywordVariables returns  be::BExpression : {be::BVariableExpression} 
+//	name = ("input" | "output" | "source" | "result" | "properties" | "builder" | "unit" | "this"
+////		| "local" | "remote" | "user" | "password"
+//		)
+//	;
 
+ID_or_KW : ID | KW ;
+KW : "input" | "output" | "source" | "result" | "properties" | "builder" | "unit" | "this"
+	| "name" | "modify" | "greedy" | "version"
+	;
+	
 FeatureCall returns be::BExpression :
 	OperationCall
 	| ({be::BCallFeature} "." name=ID  "(" (parameterList = ParameterList)? ")")
@@ -1224,7 +1229,7 @@ terminal ID : ('^')?(('a'..'z')|('A'..'Z')|'_') (('a'..'z')|('A'..'Z')|('0'..'9'
 
 // Property Names start with $ and are qualified. Must be handled by lexer as
 // a.b.c is otherwise ambigous in expressions.
-terminal PID : '$' ID ('.' ID)* ;
+terminal PID : '$' '{' ID ('.' ID)* '}';
 
 // Java regexp - allows \ before any character == same as unescaped character if character is not an operator
 terminal REGULAR_EXPR returns be::RegexpPattern

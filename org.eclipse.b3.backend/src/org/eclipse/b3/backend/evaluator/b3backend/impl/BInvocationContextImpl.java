@@ -15,7 +15,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
 import org.eclipse.core.runtime.CoreException;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -189,7 +188,7 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 		Properties properties = System.getProperties();
 		for(Object key : properties.keySet()) {
 			try {
-				defineValue("$" + ((String) key), properties.get(key), String.class);
+				defineValue("${" + ((String) key) + "}", properties.get(key), String.class);
 			}
 			catch(B3EngineException e) {
 				e.printStackTrace();

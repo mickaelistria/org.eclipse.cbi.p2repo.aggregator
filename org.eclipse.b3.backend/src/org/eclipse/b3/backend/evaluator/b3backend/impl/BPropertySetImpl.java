@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.Collection;
-import java.util.Properties;
 import java.util.Map.Entry;
+import java.util.Properties;
 
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
@@ -28,17 +28,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -355,7 +350,7 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 			p.load(propertiesFile.toURL().openStream());
 			EList<BPropertyOperation> ops = getOperations();
 			for(Entry<Object, Object> e : p.entrySet()) {
-				String key = "$" + String.class.cast(e.getKey());
+				String key = "${" + String.class.cast(e.getKey()) + "}";
 				String value = String.class.cast(e.getValue());
 				BPropertyDefinitionOperation propDef = B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation();
 				BDefProperty valueDef = B3backendFactory.eINSTANCE.createBDefProperty();

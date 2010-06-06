@@ -220,7 +220,7 @@ class JUnitB3FileRunnerFactory {
 			engine.getBuildContext().defineBeeModel(beeModel);
 			final List<Object> argv = new ArrayList<Object>();
 			argv.add(engine);
-			ctx.defineFinalValue("$test.engine", engine, B3BuildEngine.class);
+			ctx.defineFinalValue("${test.engine}", engine, B3BuildEngine.class);
 
 			// Questionable if this should be kept - it binds the names of all found units to
 			// properties named after the units.
@@ -230,9 +230,9 @@ class JUnitB3FileRunnerFactory {
 				BuildUnit unit = uItor.next();
 				BuildUnit unitProxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
 				argv.add(unitProxy);
-				ctx.defineFinalValue("$test." + unitProxy.getName(), unitProxy, unitProxy.getClass());
+				ctx.defineFinalValue("${test." + unitProxy.getName() + "}", unitProxy, unitProxy.getClass());
 			}
-			ctx.defineFinalValue("$test.argv", argv, List.class);
+			ctx.defineFinalValue("${test.argv}", argv, List.class);
 
 			// TODO: This can not be performed like this as the result is only valid while the resolver is
 			// still alive.

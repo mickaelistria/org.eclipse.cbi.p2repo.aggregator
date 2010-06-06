@@ -16,123 +16,123 @@ import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer;
 
 
 
-KEYWORD_140 : '@postinputcondition';
+KEYWORD_141 : '@postinputcondition';
 
-KEYWORD_138 : 'default-properties';
+KEYWORD_139 : 'default-properties';
 
-KEYWORD_139 : 'postinputcondition';
+KEYWORD_140 : 'postinputcondition';
 
-KEYWORD_137 : 'having-parameters';
+KEYWORD_138 : 'having-parameters';
 
-KEYWORD_136 : 'replace-modified';
+KEYWORD_137 : 'replace-modified';
 
-KEYWORD_133 : 'builder-context';
+KEYWORD_134 : 'builder-context';
 
-KEYWORD_134 : 'modify-selected';
+KEYWORD_135 : 'modify-selected';
 
-KEYWORD_135 : 'select-builders';
+KEYWORD_136 : 'select-builders';
 
-KEYWORD_131 : '@postcondition';
+KEYWORD_132 : '@postcondition';
 
-KEYWORD_132 : 'merge-modified';
+KEYWORD_133 : 'merge-modified';
 
-KEYWORD_125 : '@precondition';
+KEYWORD_126 : '@precondition';
 
-KEYWORD_126 : 'fail-modified';
+KEYWORD_127 : 'fail-modified';
 
-KEYWORD_127 : 'keep-modified';
+KEYWORD_128 : 'keep-modified';
 
-KEYWORD_128 : 'postcondition';
+KEYWORD_129 : 'postcondition';
 
-KEYWORD_129 : 'select-switch';
+KEYWORD_130 : 'select-switch';
 
-KEYWORD_130 : 'update-policy';
+KEYWORD_131 : 'update-policy';
 
-KEYWORD_119 : 'precondition';
+KEYWORD_120 : 'precondition';
 
-KEYWORD_120 : 'requires-max';
+KEYWORD_121 : 'requires-max';
 
-KEYWORD_121 : 'requires-min';
+KEYWORD_122 : 'requires-min';
 
-KEYWORD_122 : 'select-first';
+KEYWORD_123 : 'select-first';
 
-KEYWORD_123 : 'select-units';
+KEYWORD_124 : 'select-units';
 
-KEYWORD_124 : 'unit-context';
+KEYWORD_125 : 'unit-context';
 
-KEYWORD_117 : 'annotations';
+KEYWORD_118 : 'annotations';
 
-KEYWORD_118 : 'select-best';
+KEYWORD_119 : 'select-best';
 
-KEYWORD_106 : '@callguard';
+KEYWORD_107 : '@callguard';
 
-KEYWORD_107 : 'capability';
+KEYWORD_108 : 'capability';
 
-KEYWORD_108 : 'conditions';
+KEYWORD_109 : 'conditions';
 
-KEYWORD_109 : 'connection';
+KEYWORD_110 : 'connection';
 
-KEYWORD_110 : 'implements';
+KEYWORD_111 : 'implements';
 
-KEYWORD_111 : 'instanceof';
+KEYWORD_112 : 'instanceof';
 
-KEYWORD_112 : 'name-space';
+KEYWORD_113 : 'name-space';
 
-KEYWORD_113 : 'properties';
+KEYWORD_114 : 'properties';
 
-KEYWORD_114 : 'repository';
+KEYWORD_115 : 'repository';
 
-KEYWORD_115 : 'resolution';
+KEYWORD_116 : 'resolution';
 
-KEYWORD_116 : 'sequential';
+KEYWORD_117 : 'sequential';
 
-KEYWORD_101 : 'container';
+KEYWORD_102 : 'container';
 
-KEYWORD_102 : 'endswitch';
+KEYWORD_103 : 'endswitch';
 
-KEYWORD_103 : 'load-from';
+KEYWORD_104 : 'load-from';
 
-KEYWORD_104 : 'no-update';
+KEYWORD_105 : 'no-update';
 
-KEYWORD_105 : 'timestamp';
+KEYWORD_106 : 'timestamp';
 
-KEYWORD_94 : 'branches';
+KEYWORD_95 : 'branches';
 
-KEYWORD_95 : 'function';
+KEYWORD_96 : 'function';
 
-KEYWORD_96 : 'parallel';
+KEYWORD_97 : 'parallel';
 
-KEYWORD_97 : 'provides';
+KEYWORD_98 : 'provides';
 
-KEYWORD_98 : 'reexport';
+KEYWORD_99 : 'reexport';
 
-KEYWORD_99 : 'requires';
+KEYWORD_100 : 'requires';
 
-KEYWORD_100 : 'revision';
+KEYWORD_101 : 'revision';
 
-KEYWORD_82 : 'builder';
+KEYWORD_83 : 'builder';
 
-KEYWORD_83 : 'concern';
+KEYWORD_84 : 'concern';
 
-KEYWORD_84 : 'context';
+KEYWORD_85 : 'context';
 
-KEYWORD_85 : 'default';
+KEYWORD_86 : 'default';
 
-KEYWORD_86 : 'exclude';
+KEYWORD_87 : 'exclude';
 
-KEYWORD_87 : 'extends';
+KEYWORD_88 : 'extends';
 
-KEYWORD_88 : 'finally';
+KEYWORD_89 : 'finally';
 
-KEYWORD_89 : 'include';
+KEYWORD_90 : 'include';
 
-KEYWORD_90 : 'mutable';
+KEYWORD_91 : 'mutable';
 
-KEYWORD_91 : 'private';
+KEYWORD_92 : 'private';
 
-KEYWORD_92 : 'proceed';
+KEYWORD_93 : 'proceed';
 
-KEYWORD_93 : 'version';
+KEYWORD_94 : 'version';
 
 KEYWORD_70 : 'branch';
 
@@ -148,15 +148,17 @@ KEYWORD_75 : 'import';
 
 KEYWORD_76 : 'latest';
 
-KEYWORD_77 : 'output';
+KEYWORD_77 : 'modify';
 
-KEYWORD_78 : 'public';
+KEYWORD_78 : 'output';
 
-KEYWORD_79 : 'result';
+KEYWORD_79 : 'public';
 
-KEYWORD_80 : 'source';
+KEYWORD_80 : 'result';
 
-KEYWORD_81 : 'switch';
+KEYWORD_81 : 'source';
+
+KEYWORD_82 : 'switch';
 
 KEYWORD_63 : 'catch';
 
@@ -300,7 +302,7 @@ KEYWORD_25 : '}';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;
 
-RULE_PID : '$' RULE_ID ('.' RULE_ID)*;
+RULE_PID : '$' '{' RULE_ID ('.' RULE_ID)* '}';
 
 RULE_REGULAR_EXPR : '~/' ('\\' ~(('\t'|'\r'|'\n'))|~(('\\'|'/'|' '|'\t'|'\r'|'\n')))* '/' ('u'|'m'|'i'|'c'|'d')*;
 
