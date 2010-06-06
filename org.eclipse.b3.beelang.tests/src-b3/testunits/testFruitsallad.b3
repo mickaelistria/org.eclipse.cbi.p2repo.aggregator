@@ -28,10 +28,10 @@ function main(List argv) {
 * as expected.
 */
 function testBuildingFruitSallad() {
-	var engine = $test.engine;
-	var sallad = $test.fruitsallad;
+	var engine = ${test.engine};
+	var sallad = ${test.fruitsallad};
 	assertEquals("The fruitsallad unit is found", "fruitsallad", sallad.^name);
-	assertEquals("The fruitsallad unit is found", "fruitsallad", ($test.fruitsallad).^name);
+	assertEquals("The fruitsallad unit is found", "fruitsallad", ${test.fruitsallad}.^name);
 	var e = sallad.getEffectiveFacade(engine.getBuildContext());
 	var x = sallad.make();
 	x.schedule();
@@ -52,10 +52,10 @@ function testBuildingFruitSallad() {
 * Basic test of running simplest type of builder (returns source), and merging result.
 */
 function testRunBuildersAndMergeResult() {
-	assertTrue("Test should have initialized property $test.banana", $test.banana instanceof Fruit);	
-	assertTrue("Test should have initialized property $test.orange", $test.orange instanceof Fruit);	
-	Fruit banana = $test.banana;
-	Fruit orange = $test.orange;
+	assertTrue("Test should have initialized property $test.banana", ${test.banana} instanceof Fruit);	
+	assertTrue("Test should have initialized property $test.orange", ${test.orange} instanceof Fruit);	
+	Fruit banana = ${test.banana};
+	Fruit orange = ${test.orange};
 	
 	var x = banana.pulp();
 	x.schedule();
@@ -78,7 +78,7 @@ function testRunBuildersAndMergeResult() {
 
 
 private function fruitWaste() {
-	var apple = $test.apple;
+	var apple = ${test.apple};
 	var x = apple.waste();
 	x.schedule();
 	x.join();
