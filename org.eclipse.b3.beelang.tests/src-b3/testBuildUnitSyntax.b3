@@ -112,7 +112,7 @@ concern TestingBuilderContextSyntax {
 	builder-context { select-builders: input ~= { unit builder ~= _; }; modify-selected : {}; }
 	
 	// addresses builder with a complex name in same unit
-	builder-context { select-builders: input ~= { unit builder == a.^builder.called.wanda; }; modify-selected : {}; }
+	builder-context { select-builders: input ~= { unit builder == a.builder.called.wanda; }; modify-selected : {}; }
 
 	// selecting a builder that provides a capability	
 	builder-context { select-builders: provides ~= capability { name-space == a; name == b;}; modify-selected : {}; }
@@ -240,7 +240,7 @@ unit aTestUnit version 1.0.0 {
 		}
 
 	resolution : [
-		select-switch request.^name 
+		select-switch request.name 
 			case "a" : 	repository TestRepo { path : "foo"; }
 			case _ : 	repository TestRepo
 			endswitch
