@@ -17,11 +17,8 @@ import java.lang.reflect.Type;
 import org.eclipse.b3.backend.core.B3BackendActivator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -383,8 +380,10 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 			return super.toString();
 
 		StringBuffer result = new StringBuffer("java import: ");
-		result.append(qualifiedName);
-		if(!qualifiedName.endsWith(name)) {
+		result.append(qualifiedName == null
+				? "<null>"
+				: qualifiedName);
+		if(qualifiedName != null && !qualifiedName.endsWith(name)) {
 			result.append(" as: ");
 			result.append(name);
 		}
