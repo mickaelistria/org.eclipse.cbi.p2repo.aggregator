@@ -106,13 +106,13 @@ concern TestingUnitContextSyntax {
 }
 concern TestingBuilderContextSyntax {
 	// addresses builder using any input in same unit
-	builder-context { select-builders: input ~= { builder ~= _; }; modify-selected : {}; }
+	builder-context { select-builders: input ~= { called-builder ~= _; }; modify-selected : {}; }
 	
 	// same as above, but explicit 'unit'
-	builder-context { select-builders: input ~= { unit builder ~= _; }; modify-selected : {}; }
+	builder-context { select-builders: input ~= { unit called-builder ~= _; }; modify-selected : {}; }
 	
 	// addresses builder with a complex name in same unit
-	builder-context { select-builders: input ~= { unit builder == a.builder.called.wanda; }; modify-selected : {}; }
+	builder-context { select-builders: input ~= { unit called-builder == a.builder.called.wanda; }; modify-selected : {}; }
 
 	// selecting a builder that provides a capability	
 	builder-context { select-builders: provides ~= capability { name-space == a; name == b;}; modify-selected : {}; }
@@ -124,15 +124,15 @@ concern TestingBuilderContextSyntax {
 	builder-context { select-builders: builder ~= { name ~= _; }; modify-selected : {}; }
 	
 	builder-context { select-builders: builder ~= { name == "a.builder.with.a.qualified.type"; }; modify-selected : {}; }
-	builder-context { select-builders: input ~= { unit builder == foo; }; modify-selected: {}; }
+	builder-context { select-builders: input ~= { unit called-builder == foo; }; modify-selected: {}; }
 	
 	// builders that have a unit with a name matching a regexp, calling builders matching a regexp.
-	builder-context { select-builders: input ~= { unit ~= { name ~= ~/my\.unit\..*/; } builder ~= ~/make.*/; }; modify-selected: {};}
+	builder-context { select-builders: input ~= { unit ~= { name ~= ~/my\.unit\..*/; } called-builder ~= ~/make.*/; }; modify-selected: {};}
 	
 	// regexp for ns and name capability reference
 	builder-context { 
 		select-builders: input ~= { capability { 
-			name-space ~= ~/osgi\..*/; name ~= ~/my\.unit\..*/; version ~= 1.0.0; } builder ~= ~/make.*/; }; 
+			name-space ~= ~/osgi\..*/; name ~= ~/my\.unit\..*/; version ~= 1.0.0; } called-builder ~= ~/make.*/; }; 
 		modify-selected:{}; }
 }
 concern TestingNestedBuilderContextSyntax {
@@ -141,11 +141,11 @@ concern TestingNestedBuilderContextSyntax {
 	 	modify-selected: { 
 			/* what to do to units (in this case all untis as name ~= _ */
 			builder-context { 
-				select-builders: input ~= { builder == foo; }; 
+				select-builders: input ~= { called-builder == foo; }; 
 				modify-selected: { /* what to do with builders named foo */ }; 
 			}
 			builder-context { 
-				select-builders: input ~= { builder == bar; }; 
+				select-builders: input ~= { called-builder == bar; }; 
 				modify-selected: { /* what to do with builders named bar */ };
 			}
 			/** 
@@ -172,10 +172,10 @@ concern TestingBuilderContextBody {
 						version : 1.0.0; }.foo("hello", "goodbye") ;
 		
 				// removes the builder's input of a/b calling builder named c
-				- input ~= { capability { name-space == a; name == b; } builder == c; };
+				- input ~= { capability { name-space == a; name == b; } called-builder == c; };
 				
 				// removes all calls to a builder called x in any of the builder's inputs
-				- input ~= { capability {name-space ~= _; name ~= _; } builder == x; };		
+				- input ~= { capability {name-space ~= _; name ~= _; } called-builder == x; };		
 			};
 			source : {
 				- source ~= a/b ;
