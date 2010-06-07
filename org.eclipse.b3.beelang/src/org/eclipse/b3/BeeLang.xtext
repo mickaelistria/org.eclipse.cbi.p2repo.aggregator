@@ -352,10 +352,10 @@ PostCondition returns be::BExpression : "@postcondition" ':' Expression ';' ;
 PostInputCondition returns be::BExpression : "@postinputcondition" ':' Expression ';' ;
 	
 ParameterList returns be::BParameterList : {be::BParameterList} 
-	parameters += FirstParameter ("," parameters += FirstParameter)*
+	parameters += ParameterOrClosure ("," parameters += ParameterOrClosure)*
 	;
 	
-FirstParameter returns be::BParameter 
+ParameterOrClosure returns be::BParameter 
 	: ClosureParameter
 	| Parameter
 	;
@@ -369,10 +369,10 @@ ClosureParameter returns be::BParameter : {be::BParameter}
 	;
 
 ParameterDeclaration returns be::BParameterDeclaration : {be::BParameterDeclaration} 
-	((type=TypeRef)? name = (ID | KeywordParameterName)) 
+	((type=TypeRef)? name = (ID_or_KW)) 
 	;
 
-KeywordParameterName : "unit";
+//KeywordParameterName : "unit";
 
 BuilderInput returns build::BuilderInput : {build::BuilderInput}
 	prerequisites += Prerequisite (',' prerequisites += Prerequisite)*
@@ -672,9 +672,9 @@ PostopExpression returns be::BExpression :
 
 InfixExpression returns be::BExpression :
 	CallExpression ( 
-	  	({be::BCallFeature.funcExpr=current} "." name=ID  "(" (parameterList = ParameterList)? ")")
+	  	({be::BCallFeature.funcExpr=current} "." name=ID_or_KW  "(" (parameterList = ParameterList)? ")")
 	  |	({be::BAtExpression.objExpr=current} '[' indexExpr=Expression ']' )
-	  | ({be::BFeatureExpression.objExpr=current} "." featureName=ID)
+	  | ({be::BFeatureExpression.objExpr=current} "." featureName=ID_or_KW)
 	)*;
 	
 CallExpression returns be::BExpression : 
@@ -687,7 +687,6 @@ PrimaryExpression returns be::BExpression
 	| VariableValue
 	| Literal 
 	| PropertyValue
-//	| KeywordVariables
 	| ParanthesizedExpression
 	| IfExpression
 	| BlockExpression
@@ -768,12 +767,6 @@ VariableValue returns  be::BExpression : {be::BVariableExpression}
 	name = ID_or_KW 
 	;
 	
-//KeywordVariables returns  be::BExpression : {be::BVariableExpression} 
-//	name = ("input" | "output" | "source" | "result" | "properties" | "builder" | "unit" | "this"
-////		| "local" | "remote" | "user" | "password"
-//		)
-//	;
-
 ID_or_KW : ID | KW ;
 KW : "input" | "output" | "source" | "result" | "properties" | "builder" | "unit" | "this"
 	| "name" | "modify" | "greedy" | "version"
@@ -781,8 +774,8 @@ KW : "input" | "output" | "source" | "result" | "properties" | "builder" | "unit
 	
 FeatureCall returns be::BExpression :
 	OperationCall
-	| ({be::BCallFeature} "." name=ID  "(" (parameterList = ParameterList)? ")")
-	| ({be::BFeatureExpression} "." featureName=ID)
+	| ({be::BCallFeature} "." name=ID_or_KW  "(" (parameterList = ParameterList)? ")")
+	| ({be::BFeatureExpression} "." featureName=ID_or_KW)
 	
 	;
 	
@@ -806,7 +799,7 @@ InitializationExpression returns be::BExpression : {be::BAssignmentExpression}
 	;
 FeatureOfThis returns be::BExpression : {be::BFeatureExpression}
 	// TODO: objExpr = null, means use "this" (cheat)
-	featureName = ID 
+	featureName = ID_or_KW 
 	; 
 // Used in a concern to describe pointcuts/advice for units and/or builders
 BuildConcernContext returns be::BConcernContext : 
@@ -1197,11 +1190,11 @@ VersionRangeLiteral returns build::VersionRange
 QIDREF : (("super" |(("unit" | "this") ('.' "super")?)) ('.' QID)?) | QID ;
 
 // Qualified name
-QID hidden(): ID (INT|HEX|ID)* ('.' ID (INT|HEX|ID)*)* ; 
+QID hidden(): ID_or_KW (INT|HEX|ID_or_KW)* ('.' ID_or_KW (INT|HEX|ID_or_KW)*)* ; 
 
 // Allows a qualified name, or a string to be used as a name
 EscapedQualifiedName:  STRING | QID;
-CapabilityInterface	: QID | "unit";
+CapabilityInterface	: QID ;
 
 // Aliases that help with unified naming (good for experiments - the indirection can be removed later)
 UnitName 		: EscapedQualifiedName ;

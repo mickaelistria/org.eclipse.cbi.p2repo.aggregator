@@ -63,8 +63,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuilderAccess().getAlternatives_7_1(), "rule__Builder__Alternatives_7_1");
 					put(grammarAccess.getBuilderAccess().getAlternatives_7_1_0_0(), "rule__Builder__Alternatives_7_1_0_0");
 					put(grammarAccess.getBuilderAccess().getAlternatives_12_0_2(), "rule__Builder__Alternatives_12_0_2");
-					put(grammarAccess.getFirstParameterAccess().getAlternatives(), "rule__FirstParameter__Alternatives");
-					put(grammarAccess.getParameterDeclarationAccess().getNameAlternatives_1_1_0(), "rule__ParameterDeclaration__NameAlternatives_1_1_0");
+					put(grammarAccess.getParameterOrClosureAccess().getAlternatives(), "rule__ParameterOrClosure__Alternatives");
 					put(grammarAccess.getRepositoryAccess().getAlternatives_5(), "rule__Repository__Alternatives_5");
 					put(grammarAccess.getBranchAccess().getAlternatives_5_0(), "rule__Branch__Alternatives_5_0");
 					put(grammarAccess.getBranchPointStringAccess().getAlternatives(), "rule__BranchPointString__Alternatives");
@@ -147,7 +146,6 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQIDAccess().getAlternatives_1(), "rule__QID__Alternatives_1");
 					put(grammarAccess.getQIDAccess().getAlternatives_2_2(), "rule__QID__Alternatives_2_2");
 					put(grammarAccess.getEscapedQualifiedNameAccess().getAlternatives(), "rule__EscapedQualifiedName__Alternatives");
-					put(grammarAccess.getCapabilityInterfaceAccess().getAlternatives(), "rule__CapabilityInterface__Alternatives");
 					put(grammarAccess.getSeparatorAccess().getAlternatives(), "rule__Separator__Alternatives");
 					put(grammarAccess.getAlfanumSymAccess().getAlternatives_0(), "rule__AlfanumSym__Alternatives_0");
 					put(grammarAccess.getAlfanumSymAccess().getAlternatives_1_1(), "rule__AlfanumSym__Alternatives_1_1");
