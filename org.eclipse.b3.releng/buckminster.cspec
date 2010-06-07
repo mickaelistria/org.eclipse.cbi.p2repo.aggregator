@@ -76,6 +76,10 @@
             <cs:attribute name="promote.site.eclipse.headless"/>
             <cs:attribute name="promote.sites.to.archive"/>
         </cs:public>
+        <cs:public name="site.p2">
+            <cs:attribute name="site.p2" component="org.eclipse.b3.site.eclipse"/>
+            <cs:attribute name="site.p2" component="org.eclipse.b3.site.eclipse.headless"/>
+        </cs:public>
         <cs:public name="site.zips">
             <cs:attribute name="site.p2.zip" component="org.eclipse.b3.site.eclipse"/>
             <cs:attribute name="site.p2.zip" component="org.eclipse.b3.site.eclipse.headless"/>

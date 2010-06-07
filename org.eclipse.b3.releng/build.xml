@@ -207,6 +207,22 @@
 		</buckminster>
 	</target>
 
+	<target name="create.sites" depends="clean.workspace,clean.output,provision">
+		<echo message="Building all projects in workspace ${workspace}" />
+		<buckminster command="build">
+			<cmdargs>
+				<arg value="--thorough" />
+			</cmdargs>
+		</buckminster>
+
+		<echo message="Performing org.eclipse.b3.releng#site.p2" />
+		<buckminster command="perform">
+			<cmdargs>
+				<arg value="org.eclipse.b3.releng#site.p2" />
+			</cmdargs>
+		</buckminster>
+	</target>
+
 	<target name="clean.all" depends="clean.tools,clean.workspace,clean.tp,clean.output" />
 
 	<target name="clean.tools">
