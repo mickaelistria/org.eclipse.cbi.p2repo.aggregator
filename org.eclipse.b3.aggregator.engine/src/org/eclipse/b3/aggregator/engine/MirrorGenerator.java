@@ -147,8 +147,13 @@ public class MirrorGenerator extends BuilderPhase {
 				}
 			}
 
-			if(!found)
+			if(!found) {
+				String msg = "Artifact " + key + " could not be found in the artifact repository (" +
+						source.getLocation() + ")";
+				LogUtils.error(msg);
+				errors.add(msg);
 				continue;
+			}
 
 			LogUtils.info("- mirroring artifact %s", key);
 
@@ -515,6 +520,7 @@ public class MirrorGenerator extends BuilderPhase {
 			// If maven result is required, prepare the maven metadata structure
 			MavenRepositoryHelper mavenHelper = null;
 			if(aggregator.isMavenResult()) {
+				Set<IInstallableUnit> copyOfUnitsToAggregate = new HashSet<IInstallableUnit>(unitsToAggregate);
 				List<InstallableUnitMapping> iusToMaven = new ArrayList<InstallableUnitMapping>();
 				for(Contribution contrib : contribs) {
 					SubMonitor contribMonitor = childMonitor.newChild(10);
@@ -535,7 +541,7 @@ public class MirrorGenerator extends BuilderPhase {
 						MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
 						ArrayList<IInstallableUnit> iusToMirror = null;
 						for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-							if(!unitsToAggregate.contains(iu))
+							if(!copyOfUnitsToAggregate.remove(iu))
 								continue;
 
 							if(iusToMirror == null)
@@ -579,79 +585,84 @@ public class MirrorGenerator extends BuilderPhase {
 						aggregator.getPackedStrategy().getName(), packedStrategy.getName());
 				}
 			}
-			else {
-				List<String[]> mappingRules = new ArrayList<String[]>();
-				List<ArtifactDescriptor> referencedArtifacts = new ArrayList<ArtifactDescriptor>();
-				for(Contribution contrib : contribs) {
-					SubMonitor contribMonitor = childMonitor.newChild(10);
-					List<MappedRepository> repos = contrib.getRepositories(true);
-					MonitorUtils.begin(contribMonitor, repos.size() * 100);
-					for(MappedRepository repo : repos) {
-						int ticksRemaining = 100;
 
-						// Create rules only if the artifacts are mapped from a non-p2 repository
-						if("p2".equals(repo.getNature())) {
-							MonitorUtils.worked(contribMonitor, 100);
+			List<String[]> mappingRules = new ArrayList<String[]>();
+			List<ArtifactDescriptor> referencedArtifacts = new ArrayList<ArtifactDescriptor>();
+			Set<IInstallableUnit> copyOfUnitsToAggregate = null;
+
+			for(Contribution contrib : contribs) {
+				SubMonitor contribMonitor = childMonitor.newChild(10);
+				List<MappedRepository> repos = contrib.getRepositories(true);
+				MonitorUtils.begin(contribMonitor, repos.size() * 100);
+				for(MappedRepository repo : repos) {
+					int ticksRemaining = 100;
+
+					// Create rules only if the artifacts are mapped from a non-p2 repository
+					if("p2".equals(repo.getNature())) {
+						MonitorUtils.worked(contribMonitor, 100);
+						continue;
+					}
+
+					if(copyOfUnitsToAggregate == null)
+						copyOfUnitsToAggregate = new HashSet<IInstallableUnit>(unitsToAggregate);
+
+					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
+					ArrayList<IInstallableUnit> iusToRefer = null;
+					for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
+						if(!copyOfUnitsToAggregate.remove(iu))
 							continue;
-						}
 
-						MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
-						ArrayList<IInstallableUnit> iusToRefer = null;
-						for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-							if(!unitsToAggregate.contains(iu))
-								continue;
+						if(iusToRefer == null)
+							iusToRefer = new ArrayList<IInstallableUnit>();
+						iusToRefer.add(iu);
+					}
 
-							if(iusToRefer == null)
-								iusToRefer = new ArrayList<IInstallableUnit>();
-							iusToRefer.add(iu);
-						}
+					IArtifactRepository ar;
+					if(iusToRefer != null) {
+						int ticks = 50;
+						ar = getArtifactRepository(repo, contribMonitor.newChild(ticks));
+						ticksRemaining -= ticks;
+						for(IInstallableUnit iu : iusToRefer) {
+							String versionString = iu.getVersion().getOriginal();
+							if(versionString == null)
+								versionString = iu.getVersion().toString();
+							String originalPath = iu.getProperty(IRepositoryLoader.PROP_ORIGINAL_PATH);
+							String originalId = iu.getProperty(IRepositoryLoader.PROP_ORIGINAL_ID);
+							if(originalId == null)
+								originalId = iu.getId();
 
-						IArtifactRepository ar;
-						if(iusToRefer != null) {
-							int ticks = 50;
-							ar = getArtifactRepository(repo, contribMonitor.newChild(ticks));
-							ticksRemaining -= ticks;
-							for(IInstallableUnit iu : iusToRefer) {
-								String versionString = iu.getVersion().getOriginal();
-								if(versionString == null)
-									versionString = iu.getVersion().toString();
-								String originalPath = iu.getProperty(IRepositoryLoader.PROP_ORIGINAL_PATH);
-								String originalId = iu.getProperty(IRepositoryLoader.PROP_ORIGINAL_ID);
-								if(originalId == null)
-									originalId = iu.getId();
+							for(IArtifactKey key : iu.getArtifacts()) {
+								if(repo.isMirrorArtifacts()) {
+									String location = "${repoUrl}/non-p2/" + repo.getNature() + '/' +
+											key.getClassifier() + '/' + (originalPath != null
+													? (originalPath + '/')
+													: "") + originalId + '_' + versionString + '.' +
+											key.getClassifier();
 
-								for(IArtifactKey key : iu.getArtifacts()) {
-									if(repo.isMirrorArtifacts()) {
-										String location = "${repoUrl}/non-p2/" + repo.getNature() + '/' +
-												key.getClassifier() + '/' + (originalPath != null
-														? (originalPath + '/')
-														: "") + originalId + '_' + versionString + '.' +
-												key.getClassifier();
-
-										mappingRules.add(new String[] {
-												"(& (classifier=" + IUUtils.encodeFilterValue(key.getClassifier()) +
-														") (id=" + IUUtils.encodeFilterValue(key.getId()) +
-														") (version=" +
-														IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))",
-												location });
-									}
-									else {
-										for(IArtifactDescriptor desc : ar.getArtifactDescriptors(key)) {
-											String ref = ((SimpleArtifactDescriptor) desc).getRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE);
-											SimpleArtifactDescriptor ad = new SimpleArtifactDescriptor(desc);
-											ad.setRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE, ref);
-											referencedArtifacts.add(ad);
-										}
+									mappingRules.add(new String[] {
+											"(& (classifier=" + IUUtils.encodeFilterValue(key.getClassifier()) +
+													") (id=" + IUUtils.encodeFilterValue(key.getId()) + ") (version=" +
+													IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))",
+											location });
+								}
+								else {
+									for(IArtifactDescriptor desc : ar.getArtifactDescriptors(key)) {
+										String ref = ((SimpleArtifactDescriptor) desc).getRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE);
+										SimpleArtifactDescriptor ad = new SimpleArtifactDescriptor(desc);
+										ad.setRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE, ref);
+										referencedArtifacts.add(ad);
 									}
 								}
 							}
 						}
-
-						MonitorUtils.worked(contribMonitor, ticksRemaining);
 					}
-					MonitorUtils.done(contribMonitor);
-				}
 
+					MonitorUtils.worked(contribMonitor, ticksRemaining);
+				}
+				MonitorUtils.done(contribMonitor);
+			}
+
+			if(mappingRules.size() > 0 || referencedArtifacts.size() > 0) {
 				if(aggregateAr instanceof SimpleArtifactRepository) {
 					SimpleArtifactRepository simpleAr = ((SimpleArtifactRepository) aggregateAr);
 					List<String[]> ruleList = new ArrayList<String[]>(Arrays.asList(simpleAr.getRules()));
