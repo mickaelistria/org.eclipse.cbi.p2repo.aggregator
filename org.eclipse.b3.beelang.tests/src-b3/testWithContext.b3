@@ -10,8 +10,8 @@ function main(List argv) {
 }
 function testWithContext() {
 	var a = [ [bananas: ["b1", "b2"], pyjamas: ["striped", "checkered"] ]];
-	with context a[0] {
-		assertEquals("Size of bananas map should be 2", 2, this.size); 
+	with context a[0] as x{
+		assertEquals("Size of bananas map should be 2", 2, x.size); 
 	};
 }
 function testWithAt() {
