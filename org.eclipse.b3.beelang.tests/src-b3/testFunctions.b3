@@ -1,0 +1,10 @@
+import java.lang.Integer;
+import java.lang.String;
+import java.util.List;
+
+function main(List argv) {
+	testKwParams();
+}
+function testKwParams(Integer unit, Integer builder) {
+	assertTrue("Parameter names should not cause syntax errors", true);
+}
