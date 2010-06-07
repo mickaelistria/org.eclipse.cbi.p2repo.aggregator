@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -140,20 +141,18 @@ public class MirrorGenerator extends BuilderPhase {
 			// We must iterate here since EMF lists use identity comparison
 			// ant not equals.
 			boolean found = false;
-			for(IArtifactKey keyToInstall : keysToInstall) {
+			Iterator<IArtifactKey> keyIterator = keysToInstall.iterator();
+			while(keyIterator.hasNext()) {
+				IArtifactKey keyToInstall = keyIterator.next();
 				if(keyToInstall.equals(key)) {
 					found = true;
+					keyIterator.remove();
 					break;
 				}
 			}
 
-			if(!found) {
-				String msg = "Artifact " + key + " could not be found in the artifact repository (" +
-						source.getLocation() + ")";
-				LogUtils.error(msg);
-				errors.add(msg);
+			if(!found)
 				continue;
-			}
 
 			LogUtils.info("- mirroring artifact %s", key);
 
@@ -258,6 +257,15 @@ public class MirrorGenerator extends BuilderPhase {
 				dest.removeDescriptor(key);
 			}
 		}
+
+		// the collection of keys to install should now be empty unless some artifacts could not be found
+		for(IArtifactKey key : keysToInstall) {
+			String msg = "Artifact " + key + " could not be found in the artifact repository (" + source.getLocation() +
+					")";
+			LogUtils.error(msg);
+			errors.add(msg);
+		}
+
 		MonitorUtils.done(monitor);
 	}
 
