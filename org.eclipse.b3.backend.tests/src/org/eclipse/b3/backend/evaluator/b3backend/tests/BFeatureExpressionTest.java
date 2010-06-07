@@ -19,6 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BFeature Expression</b></em>'.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BFeatureExpressionTest extends BExpressionTest {
@@ -42,6 +43,7 @@ public class BFeatureExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -49,6 +51,7 @@ public class BFeatureExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -59,6 +62,7 @@ public class BFeatureExpressionTest extends BExpressionTest {
 	 * Constructs a new BFeature Expression test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BFeatureExpressionTest(String name) {
@@ -69,16 +73,18 @@ public class BFeatureExpressionTest extends BExpressionTest {
 	 * Returns the fixture for this BFeature Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected BFeatureExpression getFixture() {
-		return (BFeatureExpression)fixture;
+		return (BFeatureExpression) fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -90,6 +96,7 @@ public class BFeatureExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

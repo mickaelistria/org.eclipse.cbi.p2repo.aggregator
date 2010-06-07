@@ -24,21 +24,30 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
  * <p>
  * The following features are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes() <em>Parameter Types</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames() <em>Parameter Names</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType() <em>Vararg Array Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes() <em>Parameter Types</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames() <em>Parameter Names</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType() <em>Vararg Array Type</em>}</li>
  * </ul>
  * </p>
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#call(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Call</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Internal Call</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#prepareCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Prepare Call</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getSignature() <em>Get Signature</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Return Type For Parameter Types</em>}</li>
+ * <li>
+ * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#call(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+ * <em>Call</em>}</li>
+ * <li>
+ * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+ * <em>Internal Call</em>}</li>
+ * <li>
+ * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#prepareCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+ * <em>Prepare Call</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getSignature() <em>Get Signature</em>}</li>
+ * <li>
+ * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+ * <em>Get Return Type For Parameter Types</em>}</li>
  * </ul>
  * </p>
+ * 
  * @generated
  */
 public class BFunctionWrapperTest extends BExpressionTest {
@@ -46,6 +55,7 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -53,6 +63,7 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -63,6 +74,7 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	 * Constructs a new BFunction Wrapper test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BFunctionWrapperTest(String name) {
@@ -73,16 +85,18 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	 * Returns the fixture for this BFunction Wrapper test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected BFunctionWrapper getFixture() {
-		return (BFunctionWrapper)fixture;
+		return (BFunctionWrapper) fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -94,6 +108,7 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -103,10 +118,14 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#call(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Call</em>}' operation.
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#call(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+	 * <em>Call</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#call(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#call(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 *      java.lang.Object[], java.lang.reflect.Type[])
 	 * @generated
 	 */
 	public void testCall__BExecutionContext_Object_Type() {
@@ -119,6 +138,7 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames() <em>Parameter Names</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames()
 	 * @generated
 	 */
@@ -132,6 +152,7 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes() <em>Parameter Types</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes()
 	 * @generated
 	 */
@@ -142,10 +163,14 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Return Type For Parameter Types</em>}' operation.
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * <em>Get Return Type For Parameter Types</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[],
+	 *      org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
 	 * @generated
 	 */
 	public void testGetReturnTypeForParameterTypes__Type_BExecutionContext() {
@@ -158,6 +183,7 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getSignature() <em>Get Signature</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getSignature()
 	 * @generated
 	 */
@@ -171,6 +197,7 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType() <em>Vararg Array Type</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType()
 	 * @generated
 	 */
@@ -181,10 +208,14 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Internal Call</em>}' operation.
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+	 * <em>Internal Call</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 *      java.lang.Object[], java.lang.reflect.Type[])
 	 * @generated
 	 */
 	public void testInternalCall__BExecutionContext_Object_Type() {
@@ -194,10 +225,14 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#prepareCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Prepare Call</em>}' operation.
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#prepareCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+	 * <em>Prepare Call</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#prepareCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#prepareCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 *      java.lang.Object[], java.lang.reflect.Type[])
 	 * @generated
 	 */
 	public void testPrepareCall__BExecutionContext_Object_Type() {
@@ -207,9 +242,11 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterNames(java.lang.String[]) <em>Parameter Names</em>}' feature setter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterNames(java.lang.String[]) <em>Parameter Names</em>}' feature
+	 * setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterNames(java.lang.String[])
 	 * @generated
 	 */
@@ -220,9 +257,11 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterTypes(java.lang.reflect.Type[]) <em>Parameter Types</em>}' feature setter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterTypes(java.lang.reflect.Type[]) <em>Parameter Types</em>}'
+	 * feature setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterTypes(java.lang.reflect.Type[])
 	 * @generated
 	 */
@@ -233,9 +272,11 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setVarargArrayType(java.lang.reflect.Type) <em>Vararg Array Type</em>}' feature setter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setVarargArrayType(java.lang.reflect.Type) <em>Vararg Array Type</em>}'
+	 * feature setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#setVarargArrayType(java.lang.reflect.Type)
 	 * @generated
 	 */

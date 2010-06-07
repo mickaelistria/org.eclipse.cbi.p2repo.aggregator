@@ -711,7 +711,7 @@ WithExpression returns be::BWithExpression : {be::BWithExpression}
 		;
 		
 WithContextExpression returns be::BWithContextExpression : {be::BWithContextExpression}
-	"with" "context" expr = Expression ("as" alias = ID )? contextBlock = BlockExpression
+	"with" "context" expr = Expression ("as" name = ID )? contextBlock = BlockExpression
 	;	
 
 ProceedExpression returns be::BExpression : {be::BProceedExpression}
@@ -763,8 +763,9 @@ PropertyValue returns  be::BExpression : {be::BVariableExpression}
 	name = PID
 	;
 	
-VariableValue returns  be::BExpression : {be::BVariableExpression} 
-	name = ID_or_KW 
+VariableValue returns  be::BExpression : {be::BVariableExpression}
+	namedValue = [be::INamedValue | ID_or_KW] 
+//	name = ID_or_KW 
 	;
 	
 ID_or_KW : ID | KW ;
@@ -977,7 +978,7 @@ InputPredicate returns build::InputPredicate: {build::InputPredicate}
 	| (capabilityPredicate = UnitNamePredicate)
 	| ("unit")?
 	)
-	"builder" builderPredicate = QualifiedNamePredicate ';'
+	"called-builder" builderPredicate = QualifiedNamePredicate ';'
 	'}'
 	;
 	

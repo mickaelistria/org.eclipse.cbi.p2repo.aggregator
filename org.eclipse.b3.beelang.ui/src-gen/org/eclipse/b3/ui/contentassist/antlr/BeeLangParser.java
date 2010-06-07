@@ -840,7 +840,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getWithExpressionAccess().getFuncExprAssignment_4_0_1(), "rule__WithExpression__FuncExprAssignment_4_0_1");
 					put(grammarAccess.getWithExpressionAccess().getFuncExprAssignment_4_1_1(), "rule__WithExpression__FuncExprAssignment_4_1_1");
 					put(grammarAccess.getWithContextExpressionAccess().getExprAssignment_3(), "rule__WithContextExpression__ExprAssignment_3");
-					put(grammarAccess.getWithContextExpressionAccess().getAliasAssignment_4_1(), "rule__WithContextExpression__AliasAssignment_4_1");
+					put(grammarAccess.getWithContextExpressionAccess().getNameAssignment_4_1(), "rule__WithContextExpression__NameAssignment_4_1");
 					put(grammarAccess.getWithContextExpressionAccess().getContextBlockAssignment_5(), "rule__WithContextExpression__ContextBlockAssignment_5");
 					put(grammarAccess.getThrowExpressionAccess().getExprAssignment_2(), "rule__ThrowExpression__ExprAssignment_2");
 					put(grammarAccess.getTryCatchExpressionAccess().getTryExprAssignment_2(), "rule__TryCatchExpression__TryExprAssignment_2");
@@ -863,7 +863,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getElseIfExpressionAccess().getElseExprAssignment_5_0(), "rule__ElseIfExpression__ElseExprAssignment_5_0");
 					put(grammarAccess.getElseIfExpressionAccess().getElseExprAssignment_5_1_1(), "rule__ElseIfExpression__ElseExprAssignment_5_1_1");
 					put(grammarAccess.getPropertyValueAccess().getNameAssignment_1(), "rule__PropertyValue__NameAssignment_1");
-					put(grammarAccess.getVariableValueAccess().getNameAssignment_1(), "rule__VariableValue__NameAssignment_1");
+					put(grammarAccess.getVariableValueAccess().getNamedValueAssignment_1(), "rule__VariableValue__NamedValueAssignment_1");
 					put(grammarAccess.getFeatureCallAccess().getNameAssignment_1_2(), "rule__FeatureCall__NameAssignment_1_2");
 					put(grammarAccess.getFeatureCallAccess().getParameterListAssignment_1_4(), "rule__FeatureCall__ParameterListAssignment_1_4");
 					put(grammarAccess.getFeatureCallAccess().getFeatureNameAssignment_2_2(), "rule__FeatureCall__FeatureNameAssignment_2_2");

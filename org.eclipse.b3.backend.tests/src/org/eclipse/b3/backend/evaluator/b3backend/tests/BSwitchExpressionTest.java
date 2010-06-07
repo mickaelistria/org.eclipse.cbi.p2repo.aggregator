@@ -26,9 +26,12 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#hasUnreachableCase(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Has Unreachable Case</em>}</li>
+ * <li>
+ * {@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#hasUnreachableCase(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+ * <em>Has Unreachable Case</em>}</li>
  * </ul>
  * </p>
+ * 
  * @generated
  */
 public class BSwitchExpressionTest extends BExpressionTest {
@@ -36,6 +39,7 @@ public class BSwitchExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -43,6 +47,7 @@ public class BSwitchExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -53,6 +58,7 @@ public class BSwitchExpressionTest extends BExpressionTest {
 	 * Constructs a new BSwitch Expression test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BSwitchExpressionTest(String name) {
@@ -63,16 +69,18 @@ public class BSwitchExpressionTest extends BExpressionTest {
 	 * Returns the fixture for this BSwitch Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected BSwitchExpression getFixture() {
-		return (BSwitchExpression)fixture;
+		return (BSwitchExpression) fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -84,6 +92,7 @@ public class BSwitchExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -216,10 +225,14 @@ public class BSwitchExpressionTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#hasUnreachableCase(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Has Unreachable Case</em>}' operation.
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#hasUnreachableCase(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * <em>Has Unreachable Case</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#hasUnreachableCase(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#hasUnreachableCase(org.eclipse.emf.common.util.DiagnosticChain,
+	 *      java.util.Map)
 	 * @generated
 	 */
 	public void testHasUnreachableCase__DiagnosticChain_Map() {

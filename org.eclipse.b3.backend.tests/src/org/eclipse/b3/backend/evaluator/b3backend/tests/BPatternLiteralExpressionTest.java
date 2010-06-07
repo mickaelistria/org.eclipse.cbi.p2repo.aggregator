@@ -22,9 +22,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression#matches(java.lang.CharSequence) <em>Matches</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression#matches(java.lang.CharSequence) <em>Matches</em>}</li>
  * </ul>
  * </p>
+ * 
  * @generated
  */
 public class BPatternLiteralExpressionTest extends BExpressionTest {
@@ -32,6 +33,7 @@ public class BPatternLiteralExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -39,6 +41,7 @@ public class BPatternLiteralExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -49,6 +52,7 @@ public class BPatternLiteralExpressionTest extends BExpressionTest {
 	 * Constructs a new BPattern Literal Expression test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BPatternLiteralExpressionTest(String name) {
@@ -59,16 +63,18 @@ public class BPatternLiteralExpressionTest extends BExpressionTest {
 	 * Returns the fixture for this BPattern Literal Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected BPatternLiteralExpression getFixture() {
-		return (BPatternLiteralExpression)fixture;
+		return (BPatternLiteralExpression) fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -80,6 +86,7 @@ public class BPatternLiteralExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -89,9 +96,11 @@ public class BPatternLiteralExpressionTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression#matches(java.lang.CharSequence) <em>Matches</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression#matches(java.lang.CharSequence) <em>Matches</em>}'
+	 * operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression#matches(java.lang.CharSequence)
 	 * @generated
 	 */

@@ -170,15 +170,16 @@ import org.eclipse.b3.services.BeeLangGrammarAccess;
 		tokenNameToValue.put("KEYWORD_130", "'select-switch'");
 		tokenNameToValue.put("KEYWORD_131", "'update-policy'");
 		tokenNameToValue.put("KEYWORD_132", "'@postcondition'");
-		tokenNameToValue.put("KEYWORD_133", "'merge-modified'");
-		tokenNameToValue.put("KEYWORD_134", "'builder-context'");
-		tokenNameToValue.put("KEYWORD_135", "'modify-selected'");
-		tokenNameToValue.put("KEYWORD_136", "'select-builders'");
-		tokenNameToValue.put("KEYWORD_137", "'replace-modified'");
-		tokenNameToValue.put("KEYWORD_138", "'having-parameters'");
-		tokenNameToValue.put("KEYWORD_139", "'default-properties'");
-		tokenNameToValue.put("KEYWORD_140", "'postinputcondition'");
-		tokenNameToValue.put("KEYWORD_141", "'@postinputcondition'");
+		tokenNameToValue.put("KEYWORD_133", "'called-builder'");
+		tokenNameToValue.put("KEYWORD_134", "'merge-modified'");
+		tokenNameToValue.put("KEYWORD_135", "'builder-context'");
+		tokenNameToValue.put("KEYWORD_136", "'modify-selected'");
+		tokenNameToValue.put("KEYWORD_137", "'select-builders'");
+		tokenNameToValue.put("KEYWORD_138", "'replace-modified'");
+		tokenNameToValue.put("KEYWORD_139", "'having-parameters'");
+		tokenNameToValue.put("KEYWORD_140", "'default-properties'");
+		tokenNameToValue.put("KEYWORD_141", "'postinputcondition'");
+		tokenNameToValue.put("KEYWORD_142", "'@postinputcondition'");
  	}
  	
     public void setGrammarAccess(BeeLangGrammarAccess grammarAccess) {
@@ -8674,7 +8675,7 @@ rule__UpdateStrategy__Alternatives
 
     |(
 { before(grammarAccess.getUpdateStrategyAccess().getMergeEnumLiteralDeclaration_2()); }
-(	KEYWORD_133
+(	KEYWORD_134
 )
 { after(grammarAccess.getUpdateStrategyAccess().getMergeEnumLiteralDeclaration_2()); }
 )
@@ -8688,7 +8689,7 @@ rule__UpdateStrategy__Alternatives
 
     |(
 { before(grammarAccess.getUpdateStrategyAccess().getReplaceModifiedEnumLiteralDeclaration_4()); }
-(	KEYWORD_137
+(	KEYWORD_138
 )
 { after(grammarAccess.getUpdateStrategyAccess().getReplaceModifiedEnumLiteralDeclaration_4()); }
 )
@@ -16096,7 +16097,7 @@ rule__PropertySetDefault__Group__1__Impl
 (
 { before(grammarAccess.getPropertySetDefaultAccess().getDefaultPropertiesKeyword_1()); }
 
-	KEYWORD_139 
+	KEYWORD_140 
 
 { after(grammarAccess.getPropertySetDefaultAccess().getDefaultPropertiesKeyword_1()); }
 )
@@ -23580,7 +23581,7 @@ rule__PostInputCondition__Group__0__Impl
 (
 { before(grammarAccess.getPostInputConditionAccess().getPostinputconditionKeyword_0()); }
 
-	KEYWORD_141 
+	KEYWORD_142 
 
 { after(grammarAccess.getPostInputConditionAccess().getPostinputconditionKeyword_0()); }
 )
@@ -34720,9 +34721,9 @@ rule__WithContextExpression__Group_4__1__Impl
     }
 :
 (
-{ before(grammarAccess.getWithContextExpressionAccess().getAliasAssignment_4_1()); }
-(rule__WithContextExpression__AliasAssignment_4_1)
-{ after(grammarAccess.getWithContextExpressionAccess().getAliasAssignment_4_1()); }
+{ before(grammarAccess.getWithContextExpressionAccess().getNameAssignment_4_1()); }
+(rule__WithContextExpression__NameAssignment_4_1)
+{ after(grammarAccess.getWithContextExpressionAccess().getNameAssignment_4_1()); }
 )
 
 ;
@@ -36607,9 +36608,9 @@ rule__VariableValue__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getVariableValueAccess().getNameAssignment_1()); }
-(rule__VariableValue__NameAssignment_1)
-{ after(grammarAccess.getVariableValueAccess().getNameAssignment_1()); }
+{ before(grammarAccess.getVariableValueAccess().getNamedValueAssignment_1()); }
+(rule__VariableValue__NamedValueAssignment_1)
+{ after(grammarAccess.getVariableValueAccess().getNamedValueAssignment_1()); }
 )
 
 ;
@@ -39065,7 +39066,7 @@ rule__UnitConcernContext__Group__8__Impl
 (
 { before(grammarAccess.getUnitConcernContextAccess().getModifySelectedKeyword_8()); }
 
-	KEYWORD_135 
+	KEYWORD_136 
 
 { after(grammarAccess.getUnitConcernContextAccess().getModifySelectedKeyword_8()); }
 )
@@ -40840,7 +40841,7 @@ rule__BuilderConcernContext__Group__2__Impl
 (
 { before(grammarAccess.getBuilderConcernContextAccess().getBuilderContextKeyword_2()); }
 
-	KEYWORD_134 
+	KEYWORD_135 
 
 { after(grammarAccess.getBuilderConcernContextAccess().getBuilderContextKeyword_2()); }
 )
@@ -40902,7 +40903,7 @@ rule__BuilderConcernContext__Group__4__Impl
 (
 { before(grammarAccess.getBuilderConcernContextAccess().getSelectBuildersKeyword_4()); }
 
-	KEYWORD_136 
+	KEYWORD_137 
 
 { after(grammarAccess.getBuilderConcernContextAccess().getSelectBuildersKeyword_4()); }
 )
@@ -41053,7 +41054,7 @@ rule__BuilderConcernContext__Group__9__Impl
 (
 { before(grammarAccess.getBuilderConcernContextAccess().getModifySelectedKeyword_9()); }
 
-	KEYWORD_135 
+	KEYWORD_136 
 
 { after(grammarAccess.getBuilderConcernContextAccess().getModifySelectedKeyword_9()); }
 )
@@ -41516,7 +41517,7 @@ rule__BuilderConcernContext__Group_8__0__Impl
 (
 { before(grammarAccess.getBuilderConcernContextAccess().getHavingParametersKeyword_8_0()); }
 
-	KEYWORD_138 
+	KEYWORD_139 
 
 { after(grammarAccess.getBuilderConcernContextAccess().getHavingParametersKeyword_8_0()); }
 )
@@ -42754,7 +42755,7 @@ rule__BuilderConcernContext__Group_12_6__1__Impl
 (
 { before(grammarAccess.getBuilderConcernContextAccess().getPostinputconditionKeyword_12_6_1()); }
 
-	KEYWORD_140 
+	KEYWORD_141 
 
 { after(grammarAccess.getBuilderConcernContextAccess().getPostinputconditionKeyword_12_6_1()); }
 )
@@ -48046,11 +48047,11 @@ rule__InputPredicate__Group__5__Impl
     }
 :
 (
-{ before(grammarAccess.getInputPredicateAccess().getBuilderKeyword_5()); }
+{ before(grammarAccess.getInputPredicateAccess().getCalledBuilderKeyword_5()); }
 
-	KEYWORD_83 
+	KEYWORD_133 
 
-{ after(grammarAccess.getInputPredicateAccess().getBuilderKeyword_5()); }
+{ after(grammarAccess.getInputPredicateAccess().getCalledBuilderKeyword_5()); }
 )
 
 ;
@@ -59602,14 +59603,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__WithContextExpression__AliasAssignment_4_1
+rule__WithContextExpression__NameAssignment_4_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getWithContextExpressionAccess().getAliasIDTerminalRuleCall_4_1_0()); }
-	RULE_ID{ after(grammarAccess.getWithContextExpressionAccess().getAliasIDTerminalRuleCall_4_1_0()); }
+{ before(grammarAccess.getWithContextExpressionAccess().getNameIDTerminalRuleCall_4_1_0()); }
+	RULE_ID{ after(grammarAccess.getWithContextExpressionAccess().getNameIDTerminalRuleCall_4_1_0()); }
 )
 
 ;
@@ -59947,14 +59948,18 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__VariableValue__NameAssignment_1
+rule__VariableValue__NamedValueAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getVariableValueAccess().getNameID_or_KWParserRuleCall_1_0()); }
-	ruleID_or_KW{ after(grammarAccess.getVariableValueAccess().getNameID_or_KWParserRuleCall_1_0()); }
+{ before(grammarAccess.getVariableValueAccess().getNamedValueINamedValueCrossReference_1_0()); }
+(
+{ before(grammarAccess.getVariableValueAccess().getNamedValueINamedValueID_or_KWParserRuleCall_1_0_1()); }
+	ruleID_or_KW{ after(grammarAccess.getVariableValueAccess().getNamedValueINamedValueID_or_KWParserRuleCall_1_0_1()); }
+)
+{ after(grammarAccess.getVariableValueAccess().getNamedValueINamedValueCrossReference_1_0()); }
 )
 
 ;
@@ -60862,7 +60867,7 @@ rule__BuilderConcernContext__RemovePostInputConditionAssignment_12_5_1
 (
 { before(grammarAccess.getBuilderConcernContextAccess().getRemovePostInputConditionPostinputconditionKeyword_12_5_1_0()); }
 
-	KEYWORD_140 
+	KEYWORD_141 
 
 { after(grammarAccess.getBuilderConcernContextAccess().getRemovePostInputConditionPostinputconditionKeyword_12_5_1_0()); }
 )

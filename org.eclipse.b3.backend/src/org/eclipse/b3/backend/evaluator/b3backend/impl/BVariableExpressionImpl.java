@@ -13,12 +13,9 @@ import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
-
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -187,17 +184,31 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		return ctx.getValue(name);
+		// TODO: in transition - can use both name and reference to name
+		String n = name != null
+				? name
+				: getNamedValue().getName();
+		return ctx.getValue(n);
 	}
 
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return ctx.getDeclaredValueType(name);
+		// TODO: in transition - can use both name and reference to name
+		String n = name != null
+				? name
+				: getNamedValue().getName();
+
+		return ctx.getDeclaredValueType(n);
 	}
 
 	@Override
 	public LValue getLValue(BExecutionContext ctx) throws B3EngineException {
-		return ctx.getLValue(name);
+		// TODO: in transition - can use both name and reference to name
+		String n = name != null
+				? name
+				: getNamedValue().getName();
+
+		return ctx.getLValue(n);
 	}
 
 	/**

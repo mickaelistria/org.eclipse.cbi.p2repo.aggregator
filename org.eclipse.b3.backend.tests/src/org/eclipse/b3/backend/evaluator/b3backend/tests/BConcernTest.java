@@ -24,10 +24,13 @@ import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate If Matching</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator() <em>Get Concern Context Iterator</em>}</li>
+ * <li>
+ * {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+ * <em>Evaluate If Matching</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator() <em>Get Concern Context Iterator</em>}</li>
  * </ul>
  * </p>
+ * 
  * @generated
  */
 public class BConcernTest extends BAdviceTest {
@@ -35,6 +38,7 @@ public class BConcernTest extends BAdviceTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -42,6 +46,7 @@ public class BConcernTest extends BAdviceTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -52,6 +57,7 @@ public class BConcernTest extends BAdviceTest {
 	 * Constructs a new BConcern test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BConcernTest(String name) {
@@ -62,16 +68,18 @@ public class BConcernTest extends BAdviceTest {
 	 * Returns the fixture for this BConcern test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected BConcern getFixture() {
-		return (BConcern)fixture;
+		return (BConcern) fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -83,6 +91,7 @@ public class BConcernTest extends BAdviceTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -92,10 +101,14 @@ public class BConcernTest extends BAdviceTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate If Matching</em>}' operation.
+	 * Tests the '
+	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * <em>Evaluate If Matching</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object,
+	 *      org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
 	 * @generated
 	 */
 	public void testEvaluateIfMatching__Object_BExecutionContext() {
@@ -105,9 +118,11 @@ public class BConcernTest extends BAdviceTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator() <em>Get Concern Context Iterator</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator() <em>Get Concern Context Iterator</em>}'
+	 * operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator()
 	 * @generated
 	 */

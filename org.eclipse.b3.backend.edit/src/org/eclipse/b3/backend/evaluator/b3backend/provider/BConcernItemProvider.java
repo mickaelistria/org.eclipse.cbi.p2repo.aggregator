@@ -38,6 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BConcernItemProvider extends BAdviceItemProvider implements IEditingDomainItemProvider,
@@ -45,6 +46,7 @@ public class BConcernItemProvider extends BAdviceItemProvider implements IEditin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -53,6 +55,7 @@ public class BConcernItemProvider extends BAdviceItemProvider implements IEditin
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BConcernItemProvider(AdapterFactory adapterFactory) {
@@ -63,44 +66,31 @@ public class BConcernItemProvider extends BAdviceItemProvider implements IEditin
 	 * This adds a property descriptor for the Documentation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addDocumentationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BConcern_documentation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BConcern_documentation_feature", "_UI_BConcern_type"),
-				 B3backendPackage.Literals.BCONCERN__DOCUMENTATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BConcern_documentation_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BConcern_documentation_feature", "_UI_BConcern_type"),
+			B3backendPackage.Literals.BCONCERN__DOCUMENTATION, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Super Concerns feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addSuperConcernsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BConcern_superConcerns_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BConcern_superConcerns_feature", "_UI_BConcern_type"),
-				 B3backendPackage.Literals.BCONCERN__SUPER_CONCERNS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_BConcern_superConcerns_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_BConcern_superConcerns_feature", "_UI_BConcern_type"),
+			B3backendPackage.Literals.BCONCERN__SUPER_CONCERNS, true, false, true, null, null, null));
 	}
 
 	/**
@@ -108,51 +98,40 @@ public class BConcernItemProvider extends BAdviceItemProvider implements IEditin
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
-				 B3backendFactory.eINSTANCE.createBFunction()));
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS, B3backendFactory.eINSTANCE.createBFunction()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
-				 B3backendFactory.eINSTANCE.createB3Function()));
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS, B3backendFactory.eINSTANCE.createB3Function()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
-				 B3backendFactory.eINSTANCE.createBJavaFunction()));
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS, B3backendFactory.eINSTANCE.createBJavaFunction()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
-				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
+			B3backendFactory.eINSTANCE.createBFunctionWrapper()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BCONCERN__PROPERTY_SETS,
-				 B3backendFactory.eINSTANCE.createBPropertySet()));
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCONCERN__PROPERTY_SETS, B3backendFactory.eINSTANCE.createBPropertySet()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BCONCERN__PROPERTY_SETS,
-				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCONCERN__PROPERTY_SETS, B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BCONCERN__CONTEXTS,
-				 B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
+		newChildDescriptors.add(createChildParameter(
+			B3backendPackage.Literals.BCONCERN__CONTEXTS, B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -169,11 +148,12 @@ public class BConcernItemProvider extends BAdviceItemProvider implements IEditin
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS);
 			childrenFeatures.add(B3backendPackage.Literals.BCONCERN__PROPERTY_SETS);
@@ -186,6 +166,7 @@ public class BConcernItemProvider extends BAdviceItemProvider implements IEditin
 	 * This returns BConcern.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -197,11 +178,12 @@ public class BConcernItemProvider extends BAdviceItemProvider implements IEditin
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addDocumentationPropertyDescriptor(object);
@@ -214,14 +196,15 @@ public class BConcernItemProvider extends BAdviceItemProvider implements IEditin
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BConcern)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BConcern_type") :
-			getString("_UI_BConcern_type") + " " + label;
+		String label = ((BConcern) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_BConcern_type")
+				: getString("_UI_BConcern_type") + " " + label;
 	}
 
 	/**
@@ -229,13 +212,14 @@ public class BConcernItemProvider extends BAdviceItemProvider implements IEditin
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(BConcern.class)) {
+		switch(notification.getFeatureID(BConcern.class)) {
 			case B3backendPackage.BCONCERN__DOCUMENTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

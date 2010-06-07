@@ -35,6 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BSimplePatternExpressionItemProvider extends BPatternLiteralExpressionItemProvider implements
@@ -43,6 +44,7 @@ public class BSimplePatternExpressionItemProvider extends BPatternLiteralExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -51,6 +53,7 @@ public class BSimplePatternExpressionItemProvider extends BPatternLiteralExpress
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BSimplePatternExpressionItemProvider(AdapterFactory adapterFactory) {
@@ -61,22 +64,18 @@ public class BSimplePatternExpressionItemProvider extends BPatternLiteralExpress
 	 * This adds a property descriptor for the Pattern feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addPatternPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BSimplePatternExpression_pattern_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BSimplePatternExpression_pattern_feature", "_UI_BSimplePatternExpression_type"),
-				 B3backendPackage.Literals.BSIMPLE_PATTERN_EXPRESSION__PATTERN,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BSimplePatternExpression_pattern_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_BSimplePatternExpression_pattern_feature",
+				"_UI_BSimplePatternExpression_type"), B3backendPackage.Literals.BSIMPLE_PATTERN_EXPRESSION__PATTERN,
+			true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -84,6 +83,7 @@ public class BSimplePatternExpressionItemProvider extends BPatternLiteralExpress
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -95,6 +95,7 @@ public class BSimplePatternExpressionItemProvider extends BPatternLiteralExpress
 	 * This returns BSimplePatternExpression.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -106,11 +107,12 @@ public class BSimplePatternExpressionItemProvider extends BPatternLiteralExpress
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addPatternPropertyDescriptor(object);
@@ -122,15 +124,18 @@ public class BSimplePatternExpressionItemProvider extends BPatternLiteralExpress
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		SimplePattern labelValue = ((BSimplePatternExpression)object).getPattern();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BSimplePatternExpression_type") :
-			getString("_UI_BSimplePatternExpression_type") + " " + label;
+		SimplePattern labelValue = ((BSimplePatternExpression) object).getPattern();
+		String label = labelValue == null
+				? null
+				: labelValue.toString();
+		return label == null || label.length() == 0
+				? getString("_UI_BSimplePatternExpression_type")
+				: getString("_UI_BSimplePatternExpression_type") + " " + label;
 	}
 
 	/**
@@ -138,13 +143,14 @@ public class BSimplePatternExpressionItemProvider extends BPatternLiteralExpress
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(BSimplePatternExpression.class)) {
+		switch(notification.getFeatureID(BSimplePatternExpression.class)) {
 			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

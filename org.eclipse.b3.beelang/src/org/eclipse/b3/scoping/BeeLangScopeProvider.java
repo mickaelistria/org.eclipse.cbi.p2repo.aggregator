@@ -7,6 +7,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.build.build.AliasedRequiredCapability;
 import org.eclipse.b3.build.build.BeeModel;
@@ -89,6 +90,13 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 			}
 
 		return new SimpleScope(result);
+	}
+
+	IScope scope_INamedValue(BVariableExpression ctx, EReference ref) {
+		IScope scope = new DeclarativeVarScopeProvider().doGetVarScope(ctx);
+		return scope == null
+				? SimpleScope.NULLSCOPE
+				: scope;
 	}
 
 	IScope scope_IType(B3FunctionType ctx, EReference ref) {

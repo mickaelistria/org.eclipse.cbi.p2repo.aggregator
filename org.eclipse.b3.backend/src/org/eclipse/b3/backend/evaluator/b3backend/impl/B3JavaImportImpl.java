@@ -16,9 +16,14 @@ import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.core.B3BackendActivator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -30,8 +35,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl#getQualifiedName <em>Qualified Name</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl#getQualifiedName <em>Qualified Name</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl#isReexport <em>Reexport</em>}</li>
  * </ul>
  * </p>
@@ -70,6 +75,17 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type type;
+
+	/**
 	 * The default value of the '{@link #getQualifiedName() <em>Qualified Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,28 +106,6 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 	 * @ordered
 	 */
 	protected String qualifiedName = QUALIFIED_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Type TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type type = TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isReexport() <em>Reexport</em>}' attribute.
@@ -151,19 +145,96 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 	 * 
 	 * @generated
 	 */
+	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
+		Type oldType = type;
+		type = newType;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.B3_JAVA_IMPORT__TYPE, oldType, newType);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if(baseClass == INamedValue.class) {
+			switch(derivedFeatureID) {
+				case B3backendPackage.B3_JAVA_IMPORT__NAME:
+					return B3backendPackage.INAMED_VALUE__NAME;
+				case B3backendPackage.B3_JAVA_IMPORT__TYPE:
+					return B3backendPackage.INAMED_VALUE__TYPE;
+				default:
+					return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if(baseClass == INamedValue.class) {
+			switch(baseFeatureID) {
+				case B3backendPackage.INAMED_VALUE__NAME:
+					return B3backendPackage.B3_JAVA_IMPORT__NAME;
+				case B3backendPackage.INAMED_VALUE__TYPE:
+					return B3backendPackage.B3_JAVA_IMPORT__TYPE;
+				default:
+					return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
 			case B3backendPackage.B3_JAVA_IMPORT__NAME:
 				return getName();
-			case B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME:
-				return getQualifiedName();
 			case B3backendPackage.B3_JAVA_IMPORT__TYPE:
 				return getType();
+			case B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME:
+				return getQualifiedName();
 			case B3backendPackage.B3_JAVA_IMPORT__REEXPORT:
 				return isReexport();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case B3backendPackage.B3_JAVA_IMPORT__TYPE:
+				return basicSetType(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -179,14 +250,12 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 				return NAME_EDEFAULT == null
 						? name != null
 						: !NAME_EDEFAULT.equals(name);
+			case B3backendPackage.B3_JAVA_IMPORT__TYPE:
+				return type != null;
 			case B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME:
 				return QUALIFIED_NAME_EDEFAULT == null
 						? qualifiedName != null
 						: !QUALIFIED_NAME_EDEFAULT.equals(qualifiedName);
-			case B3backendPackage.B3_JAVA_IMPORT__TYPE:
-				return TYPE_EDEFAULT == null
-						? type != null
-						: !TYPE_EDEFAULT.equals(type);
 			case B3backendPackage.B3_JAVA_IMPORT__REEXPORT:
 				return reexport != REEXPORT_EDEFAULT;
 		}
@@ -205,11 +274,11 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 			case B3backendPackage.B3_JAVA_IMPORT__NAME:
 				setName((String) newValue);
 				return;
-			case B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME:
-				setQualifiedName((String) newValue);
-				return;
 			case B3backendPackage.B3_JAVA_IMPORT__TYPE:
 				setType((Type) newValue);
+				return;
+			case B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME:
+				setQualifiedName((String) newValue);
 				return;
 			case B3backendPackage.B3_JAVA_IMPORT__REEXPORT:
 				setReexport((Boolean) newValue);
@@ -241,11 +310,11 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 			case B3backendPackage.B3_JAVA_IMPORT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case B3backendPackage.B3_JAVA_IMPORT__TYPE:
+				setType((Type) null);
+				return;
 			case B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME:
 				setQualifiedName(QUALIFIED_NAME_EDEFAULT);
-				return;
-			case B3backendPackage.B3_JAVA_IMPORT__TYPE:
-				setType(TYPE_EDEFAULT);
 				return;
 			case B3backendPackage.B3_JAVA_IMPORT__REEXPORT:
 				setReexport(REEXPORT_EDEFAULT);
@@ -284,7 +353,10 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 	public Type getType() {
 		if(type == null) {
 			try {
-				setType(B3BackendActivator.instance.getBundle().loadClass(getQualifiedName()));
+				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+				metaClass.setInstanceClass(B3BackendActivator.instance.getBundle().loadClass(getQualifiedName()));
+				// setType(B3BackendActivator.instance.getBundle().loadClass(getQualifiedName()));
+				setType(metaClass);
 			}
 			catch(ClassNotFoundException e) {
 				// TODO: ?? Need to handle this, so the "not found" surfaces to the user...
@@ -362,10 +434,21 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 	 * @generated
 	 */
 	public void setType(Type newType) {
-		Type oldType = type;
-		type = newType;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_JAVA_IMPORT__TYPE, oldType, type));
+		if(newType != type) {
+			NotificationChain msgs = null;
+			if(type != null)
+				msgs = ((InternalEObject) type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.B3_JAVA_IMPORT__TYPE, null, msgs);
+			if(newType != null)
+				msgs = ((InternalEObject) newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.B3_JAVA_IMPORT__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.B3_JAVA_IMPORT__TYPE, newType, newType));
 	}
 
 	/**

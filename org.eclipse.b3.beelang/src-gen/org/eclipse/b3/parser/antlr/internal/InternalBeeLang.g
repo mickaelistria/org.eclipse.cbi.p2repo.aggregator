@@ -12983,9 +12983,9 @@ ruleWithContextExpression returns [EObject current=null]
     }
 (
 (
-		lv_alias_5_0=RULE_ID
+		lv_name_5_0=RULE_ID
 		{
-			createLeafNode(grammarAccess.getWithContextExpressionAccess().getAliasIDTerminalRuleCall_4_1_0(), "alias"); 
+			createLeafNode(grammarAccess.getWithContextExpressionAccess().getNameIDTerminalRuleCall_4_1_0(), "name"); 
 		}
 		{
 	        if ($current==null) {
@@ -12995,8 +12995,8 @@ ruleWithContextExpression returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"alias",
-	        		lv_alias_5_0, 
+	       			"name",
+	        		lv_name_5_0, 
 	        		"ID", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -14075,23 +14075,18 @@ ruleVariableValue returns [EObject current=null]
 )(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getVariableValueAccess().getNameID_or_KWParserRuleCall_1_0(), currentNode); 
-	    }
-		lv_name_1_0=ruleID_or_KW		{
-	        if ($current==null) {
+		  /* */ 
+		}
+		{
+			if ($current==null) {
 	            $current = factory.create(grammarAccess.getVariableValueRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	            associateNodeWithAstElement(currentNode, $current);
 	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"name",
-	        		lv_name_1_0, 
-	        		"ID_or_KW", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
+        }
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getVariableValueAccess().getNamedValueINamedValueCrossReference_1_0(), currentNode); 
+	    }
+		ruleID_or_KW		{ 
 	        currentNode = currentNode.getParent();
 	    }
 
@@ -18299,9 +18294,9 @@ ruleInputPredicate returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getInputPredicateAccess().getUnitKeyword_4_2(), null); 
     }
-)?)	'builder' 
+)?)	'called-builder' 
     {
-        createLeafNode(grammarAccess.getInputPredicateAccess().getBuilderKeyword_5(), null); 
+        createLeafNode(grammarAccess.getInputPredicateAccess().getCalledBuilderKeyword_5(), null); 
     }
 (
 (

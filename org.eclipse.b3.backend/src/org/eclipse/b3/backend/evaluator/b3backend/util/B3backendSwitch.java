@@ -2166,6 +2166,8 @@ public class B3backendSwitch<T> {
 				if(result == null)
 					result = caseIType(b3JavaImport);
 				if(result == null)
+					result = caseINamedValue(b3JavaImport);
+				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -2237,6 +2239,8 @@ public class B3backendSwitch<T> {
 				if(result == null)
 					result = caseBExpression(bPropertySet);
 				if(result == null)
+					result = caseINamedValue(bPropertySet);
+				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -2249,6 +2253,8 @@ public class B3backendSwitch<T> {
 					result = caseBAdvice(bDefaultPropertySet);
 				if(result == null)
 					result = caseBExpression(bDefaultPropertySet);
+				if(result == null)
+					result = caseINamedValue(bDefaultPropertySet);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -2301,6 +2307,8 @@ public class B3backendSwitch<T> {
 				if(result == null)
 					result = caseBExpression(bAdvice);
 				if(result == null)
+					result = caseINamedValue(bAdvice);
+				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -2313,6 +2321,8 @@ public class B3backendSwitch<T> {
 					result = caseBFunctionContainer(bConcern);
 				if(result == null)
 					result = caseBExpression(bConcern);
+				if(result == null)
+					result = caseINamedValue(bConcern);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -2396,6 +2406,8 @@ public class B3backendSwitch<T> {
 				BParameterPredicate bParameterPredicate = (BParameterPredicate) theEObject;
 				T result = caseBParameterPredicate(bParameterPredicate);
 				if(result == null)
+					result = caseINamedValue(bParameterPredicate);
+				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -2459,6 +2471,8 @@ public class B3backendSwitch<T> {
 				T result = caseBWithContextExpression(bWithContextExpression);
 				if(result == null)
 					result = caseBExpression(bWithContextExpression);
+				if(result == null)
+					result = caseINamedValue(bWithContextExpression);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

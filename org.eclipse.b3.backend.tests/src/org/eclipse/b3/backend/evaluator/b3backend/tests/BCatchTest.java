@@ -20,10 +20,13 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Declared Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate
+ * </em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get
+ * Declared Type</em>}</li>
  * </ul>
  * </p>
+ * 
  * @generated
  */
 public class BCatchTest extends TestCase {
@@ -31,6 +34,7 @@ public class BCatchTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -38,6 +42,7 @@ public class BCatchTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -48,6 +53,7 @@ public class BCatchTest extends TestCase {
 	 * The fixture for this BCatch test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCatch fixture = null;
@@ -56,6 +62,7 @@ public class BCatchTest extends TestCase {
 	 * Constructs a new BCatch test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BCatchTest(String name) {
@@ -66,6 +73,7 @@ public class BCatchTest extends TestCase {
 	 * Returns the fixture for this BCatch test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCatch getFixture() {
@@ -76,6 +84,7 @@ public class BCatchTest extends TestCase {
 	 * Sets the fixture for this BCatch test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void setFixture(BCatch fixture) {
@@ -85,6 +94,7 @@ public class BCatchTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -96,6 +106,7 @@ public class BCatchTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

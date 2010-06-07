@@ -35,6 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BWrappingContextItemProvider extends BDelegatingContextItemProvider implements IEditingDomainItemProvider,
@@ -42,6 +43,7 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -50,6 +52,7 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BWrappingContextItemProvider(AdapterFactory adapterFactory) {
@@ -60,110 +63,90 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 * This adds a property descriptor for the Function Wrapper feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addFunctionWrapperPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BWrappingContext_functionWrapper_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BWrappingContext_functionWrapper_feature", "_UI_BWrappingContext_type"),
-				 B3backendPackage.Literals.BWRAPPING_CONTEXT__FUNCTION_WRAPPER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWrappingContext_functionWrapper_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_BWrappingContext_functionWrapper_feature",
+				"_UI_BWrappingContext_type"), B3backendPackage.Literals.BWRAPPING_CONTEXT__FUNCTION_WRAPPER, true,
+			false, true, null, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Parameters feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addParametersPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BWrappingContext_parameters_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BWrappingContext_parameters_feature", "_UI_BWrappingContext_type"),
-				 B3backendPackage.Literals.BWRAPPING_CONTEXT__PARAMETERS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWrappingContext_parameters_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_BWrappingContext_parameters_feature",
+				"_UI_BWrappingContext_type"), B3backendPackage.Literals.BWRAPPING_CONTEXT__PARAMETERS, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Parameter Types feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addParameterTypesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BWrappingContext_parameterTypes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BWrappingContext_parameterTypes_feature", "_UI_BWrappingContext_type"),
-				 B3backendPackage.Literals.BWRAPPING_CONTEXT__PARAMETER_TYPES,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWrappingContext_parameterTypes_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_BWrappingContext_parameterTypes_feature",
+				"_UI_BWrappingContext_type"), B3backendPackage.Literals.BWRAPPING_CONTEXT__PARAMETER_TYPES, true,
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Varargs Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addVarargsNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BWrappingContext_varargsName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BWrappingContext_varargsName_feature", "_UI_BWrappingContext_type"),
-				 B3backendPackage.Literals.BWRAPPING_CONTEXT__VARARGS_NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWrappingContext_varargsName_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_BWrappingContext_varargsName_feature",
+				"_UI_BWrappingContext_type"), B3backendPackage.Literals.BWRAPPING_CONTEXT__VARARGS_NAME, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Wrapped Context feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addWrappedContextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BWrappingContext_wrappedContext_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BWrappingContext_wrappedContext_feature", "_UI_BWrappingContext_type"),
-				 B3backendPackage.Literals.BWRAPPING_CONTEXT__WRAPPED_CONTEXT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BWrappingContext_wrappedContext_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_BWrappingContext_wrappedContext_feature",
+				"_UI_BWrappingContext_type"), B3backendPackage.Literals.BWRAPPING_CONTEXT__WRAPPED_CONTEXT, true,
+			false, true, null, null, null));
 	}
 
 	/**
@@ -171,6 +154,7 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -182,6 +166,7 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 * This returns BWrappingContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -193,11 +178,12 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addFunctionWrapperPropertyDescriptor(object);
@@ -213,14 +199,15 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BWrappingContext)object).getVarargsName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BWrappingContext_type") :
-			getString("_UI_BWrappingContext_type") + " " + label;
+		String label = ((BWrappingContext) object).getVarargsName();
+		return label == null || label.length() == 0
+				? getString("_UI_BWrappingContext_type")
+				: getString("_UI_BWrappingContext_type") + " " + label;
 	}
 
 	/**
@@ -228,13 +215,14 @@ public class BWrappingContextItemProvider extends BDelegatingContextItemProvider
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(BWrappingContext.class)) {
+		switch(notification.getFeatureID(BWrappingContext.class)) {
 			case B3backendPackage.BWRAPPING_CONTEXT__PARAMETERS:
 			case B3backendPackage.BWRAPPING_CONTEXT__PARAMETER_TYPES:
 			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_NAME:

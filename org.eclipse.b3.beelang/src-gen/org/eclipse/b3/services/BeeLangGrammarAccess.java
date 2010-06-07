@@ -6784,16 +6784,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprExpressionParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cAsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cAliasAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cAliasIDTerminalRuleCall_4_1_0 = (RuleCall)cAliasAssignment_4_1.eContents().get(0);
+		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Assignment cContextBlockAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cContextBlockBlockExpressionParserRuleCall_5_0 = (RuleCall)cContextBlockAssignment_5.eContents().get(0);
 		
 		//WithContextExpression returns be::BWithContextExpression:
-		//	{be::BWithContextExpression} "with" "context" expr=Expression ("as" alias=ID)? contextBlock=BlockExpression;
+		//	{be::BWithContextExpression} "with" "context" expr=Expression ("as" name=ID)? contextBlock=BlockExpression;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BWithContextExpression} "with" "context" expr=Expression ("as" alias=ID)? contextBlock=BlockExpression
+		//{be::BWithContextExpression} "with" "context" expr=Expression ("as" name=ID)? contextBlock=BlockExpression
 		public Group getGroup() { return cGroup; }
 
 		//{be::BWithContextExpression}
@@ -6811,17 +6811,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getExprExpressionParserRuleCall_3_0() { return cExprExpressionParserRuleCall_3_0; }
 
-		//("as" alias=ID)?
+		//("as" name=ID)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"as"
 		public Keyword getAsKeyword_4_0() { return cAsKeyword_4_0; }
 
-		//alias=ID
-		public Assignment getAliasAssignment_4_1() { return cAliasAssignment_4_1; }
+		//name=ID
+		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
 		//ID
-		public RuleCall getAliasIDTerminalRuleCall_4_1_0() { return cAliasIDTerminalRuleCall_4_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_4_1_0() { return cNameIDTerminalRuleCall_4_1_0; }
 
 		//contextBlock=BlockExpression
 		public Assignment getContextBlockAssignment_5() { return cContextBlockAssignment_5; }
@@ -7306,24 +7306,29 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VariableValue");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBVariableExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameID_or_KWParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cNamedValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cNamedValueINamedValueCrossReference_1_0 = (CrossReference)cNamedValueAssignment_1.eContents().get(0);
+		private final RuleCall cNamedValueINamedValueID_or_KWParserRuleCall_1_0_1 = (RuleCall)cNamedValueINamedValueCrossReference_1_0.eContents().get(1);
 		
+		////	name = ID_or_KW 
 		//VariableValue returns be::BExpression:
-		//	{be::BVariableExpression} name=ID_or_KW;
+		//	{be::BVariableExpression} namedValue=[be::INamedValue|ID_or_KW];
 		public ParserRule getRule() { return rule; }
 
-		//{be::BVariableExpression} name=ID_or_KW
+		//{be::BVariableExpression} namedValue=[be::INamedValue|ID_or_KW]
 		public Group getGroup() { return cGroup; }
 
 		//{be::BVariableExpression}
 		public Action getBVariableExpressionAction_0() { return cBVariableExpressionAction_0; }
 
-		//name=ID_or_KW
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//namedValue=[be::INamedValue|ID_or_KW]
+		public Assignment getNamedValueAssignment_1() { return cNamedValueAssignment_1; }
+
+		//[be::INamedValue|ID_or_KW]
+		public CrossReference getNamedValueINamedValueCrossReference_1_0() { return cNamedValueINamedValueCrossReference_1_0; }
 
 		//ID_or_KW
-		public RuleCall getNameID_or_KWParserRuleCall_1_0() { return cNameID_or_KWParserRuleCall_1_0; }
+		public RuleCall getNamedValueINamedValueID_or_KWParserRuleCall_1_0_1() { return cNamedValueINamedValueID_or_KWParserRuleCall_1_0_1; }
 	}
 
 	public class ID_or_KWElements extends AbstractParserRuleElementFinder {
@@ -9741,7 +9746,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCapabilityPredicateAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
 		private final RuleCall cCapabilityPredicateUnitNamePredicateParserRuleCall_4_1_0 = (RuleCall)cCapabilityPredicateAssignment_4_1.eContents().get(0);
 		private final Keyword cUnitKeyword_4_2 = (Keyword)cAlternatives_4.eContents().get(2);
-		private final Keyword cBuilderKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cCalledBuilderKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cBuilderPredicateAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cBuilderPredicateQualifiedNamePredicateParserRuleCall_6_0 = (RuleCall)cBuilderPredicateAssignment_6.eContents().get(0);
 		private final Keyword cSemicolonKeyword_7 = (Keyword)cGroup.eContents().get(7);
@@ -9749,11 +9754,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//InputPredicate returns build::InputPredicate:
 		//	{build::InputPredicate} "input" "~=" "{" (capabilityPredicate=CapabilityPredicate |
-		//	capabilityPredicate=UnitNamePredicate | "unit"?) "builder" builderPredicate=QualifiedNamePredicate ";" "}";
+		//	capabilityPredicate=UnitNamePredicate | "unit"?) "called-builder" builderPredicate=QualifiedNamePredicate ";" "}";
 		public ParserRule getRule() { return rule; }
 
 		//{build::InputPredicate} "input" "~=" "{" (capabilityPredicate=CapabilityPredicate |
-		//capabilityPredicate=UnitNamePredicate | "unit"?) "builder" builderPredicate=QualifiedNamePredicate ";" "}"
+		//capabilityPredicate=UnitNamePredicate | "unit"?) "called-builder" builderPredicate=QualifiedNamePredicate ";" "}"
 		public Group getGroup() { return cGroup; }
 
 		//{build::InputPredicate}
@@ -9786,8 +9791,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"unit"?
 		public Keyword getUnitKeyword_4_2() { return cUnitKeyword_4_2; }
 
-		//"builder"
-		public Keyword getBuilderKeyword_5() { return cBuilderKeyword_5; }
+		//"called-builder"
+		public Keyword getCalledBuilderKeyword_5() { return cCalledBuilderKeyword_5; }
 
 		//builderPredicate=QualifiedNamePredicate
 		public Assignment getBuilderPredicateAssignment_6() { return cBuilderPredicateAssignment_6; }
@@ -13296,7 +13301,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//WithContextExpression returns be::BWithContextExpression:
-	//	{be::BWithContextExpression} "with" "context" expr=Expression ("as" alias=ID)? contextBlock=BlockExpression;
+	//	{be::BWithContextExpression} "with" "context" expr=Expression ("as" name=ID)? contextBlock=BlockExpression;
 	public WithContextExpressionElements getWithContextExpressionAccess() {
 		return (pWithContextExpression != null) ? pWithContextExpression : (pWithContextExpression = new WithContextExpressionElements());
 	}
@@ -13417,8 +13422,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertyValueAccess().getRule();
 	}
 
+	////	name = ID_or_KW 
 	//VariableValue returns be::BExpression:
-	//	{be::BVariableExpression} name=ID_or_KW;
+	//	{be::BVariableExpression} namedValue=[be::INamedValue|ID_or_KW];
 	public VariableValueElements getVariableValueAccess() {
 		return (pVariableValue != null) ? pVariableValue : (pVariableValue = new VariableValueElements());
 	}
@@ -13739,7 +13745,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//InputPredicate returns build::InputPredicate:
 	//	{build::InputPredicate} "input" "~=" "{" (capabilityPredicate=CapabilityPredicate |
-	//	capabilityPredicate=UnitNamePredicate | "unit"?) "builder" builderPredicate=QualifiedNamePredicate ";" "}";
+	//	capabilityPredicate=UnitNamePredicate | "unit"?) "called-builder" builderPredicate=QualifiedNamePredicate ";" "}";
 	public InputPredicateElements getInputPredicateAccess() {
 		return (pInputPredicate != null) ? pInputPredicate : (pInputPredicate = new InputPredicateElements());
 	}

@@ -1365,9 +1365,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(b3FuncTypeVariableEClass, B3_FUNC_TYPE_VARIABLE__NAME);
 
 		b3JavaImportEClass = createEClass(B3_JAVA_IMPORT);
-		createEAttribute(b3JavaImportEClass, B3_JAVA_IMPORT__NAME);
 		createEAttribute(b3JavaImportEClass, B3_JAVA_IMPORT__QUALIFIED_NAME);
-		createEAttribute(b3JavaImportEClass, B3_JAVA_IMPORT__TYPE);
 		createEAttribute(b3JavaImportEClass, B3_JAVA_IMPORT__REEXPORT);
 
 		bLiteralTypeEClass = createEClass(BLITERAL_TYPE);
@@ -1407,7 +1405,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bPropertySetOperationEClass, BPROPERTY_SET_OPERATION__PROPERTY_SET);
 
 		bAdviceEClass = createEClass(BADVICE);
-		createEAttribute(bAdviceEClass, BADVICE__NAME);
 
 		bConcernEClass = createEClass(BCONCERN);
 		createEAttribute(bConcernEClass, BCONCERN__DOCUMENTATION);
@@ -1447,9 +1444,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bFunctionConcernContextEClass, BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS);
 
 		bParameterPredicateEClass = createEClass(BPARAMETER_PREDICATE);
-		createEAttribute(bParameterPredicateEClass, BPARAMETER_PREDICATE__NAME);
 		createEAttribute(bParameterPredicateEClass, BPARAMETER_PREDICATE__TYPE_PREDICATE_OP);
-		createEReference(bParameterPredicateEClass, BPARAMETER_PREDICATE__TYPE);
 
 		bProceedExpressionEClass = createEClass(BPROCEED_EXPRESSION);
 
@@ -1469,7 +1464,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bExpressionWrapperEClass, BEXPRESSION_WRAPPER__ORIGINAL);
 
 		bWithContextExpressionEClass = createEClass(BWITH_CONTEXT_EXPRESSION);
-		createEAttribute(bWithContextExpressionEClass, BWITH_CONTEXT_EXPRESSION__ALIAS);
 		createEReference(bWithContextExpressionEClass, BWITH_CONTEXT_EXPRESSION__EXPR);
 		createEReference(bWithContextExpressionEClass, BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK);
 
@@ -1698,7 +1692,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	public EAttribute getB3JavaImport_Name() {
+	public EAttribute getB3JavaImport_QualifiedName() {
 		return (EAttribute) b3JavaImportEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1708,28 +1702,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	public EAttribute getB3JavaImport_QualifiedName() {
-		return (EAttribute) b3JavaImportEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EAttribute getB3JavaImport_Reexport() {
-		return (EAttribute) b3JavaImportEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getB3JavaImport_Type() {
-		return (EAttribute) b3JavaImportEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) b3JavaImportEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1850,16 +1824,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EClass getBAdvice() {
 		return bAdviceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getBAdvice_Name() {
-		return (EAttribute) bAdviceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3108,28 +3072,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBParameterPredicate_Name() {
-		return (EAttribute) bParameterPredicateEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getBParameterPredicate_Type() {
-		return (EReference) bParameterPredicateEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EAttribute getBParameterPredicate_TypePredicateOp() {
-		return (EAttribute) bParameterPredicateEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) bParameterPredicateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3508,18 +3452,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBWithContextExpression_Alias() {
-		return (EAttribute) bWithContextExpressionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EReference getBWithContextExpression_ContextBlock() {
-		return (EReference) bWithContextExpressionEClass.getEStructuralFeatures().get(2);
+		return (EReference) bWithContextExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3529,7 +3463,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EReference getBWithContextExpression_Expr() {
-		return (EReference) bWithContextExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference) bWithContextExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4201,6 +4135,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		g1.getETypeArguments().add(g2);
 		b3FuncTypeVariableEClass.getEGenericSuperTypes().add(g1);
 		b3JavaImportEClass.getESuperTypes().add(this.getIType());
+		b3JavaImportEClass.getESuperTypes().add(this.getINamedValue());
 		bLiteralTypeEClass.getESuperTypes().add(this.getBExpression());
 		bGuardFunctionEClass.getESuperTypes().add(this.getBGuard());
 		bTypeCalculatorFunctionEClass.getESuperTypes().add(this.getBTypeCalculator());
@@ -4213,6 +4148,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bConditionalPropertyOperationEClass.getESuperTypes().add(this.getBPropertyOperation());
 		bPropertySetOperationEClass.getESuperTypes().add(this.getBPropertyOperation());
 		bAdviceEClass.getESuperTypes().add(this.getBExpression());
+		bAdviceEClass.getESuperTypes().add(this.getINamedValue());
 		bConcernEClass.getESuperTypes().add(this.getBAdvice());
 		bConcernEClass.getESuperTypes().add(this.getBFunctionContainer());
 		bWithExpressionEClass.getESuperTypes().add(this.getBExpression());
@@ -4224,12 +4160,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bFunctionWrapperEClass.getESuperTypes().add(this.getIFunction());
 		bFunctionNamePredicateEClass.getESuperTypes().add(this.getBExpression());
 		bFunctionConcernContextEClass.getESuperTypes().add(this.getBConcernContext());
+		bParameterPredicateEClass.getESuperTypes().add(this.getINamedValue());
 		bProceedExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bDelegatingContextEClass.getESuperTypes().add(this.getBInnerContext());
 		bWrappingContextEClass.getESuperTypes().add(this.getBDelegatingContext());
 		b3MetaClassEClass.getESuperTypes().add(this.getIType());
 		bExpressionWrapperEClass.getESuperTypes().add(this.getBExpression());
 		bWithContextExpressionEClass.getESuperTypes().add(this.getBExpression());
+		bWithContextExpressionEClass.getESuperTypes().add(this.getINamedValue());
 		bCallFeatureEClass.getESuperTypes().add(this.getBCallExpression());
 		bCallNamedFunctionEClass.getESuperTypes().add(this.getBCallExpression());
 		bCallFunctionEClass.getESuperTypes().add(this.getBCallExpression());
@@ -4975,15 +4913,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			b3JavaImportEClass, B3JavaImport.class, "B3JavaImport", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getB3JavaImport_Name(), ecorePackage.getEString(), "name", null, 0, 1, B3JavaImport.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
 			getB3JavaImport_QualifiedName(), ecorePackage.getEString(), "qualifiedName", null, 0, 1,
 			B3JavaImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getB3JavaImport_Type(), this.getType(), "type", null, 0, 1, B3JavaImport.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getB3JavaImport_Reexport(), ecorePackage.getEBoolean(), "reexport", null, 0, 1, B3JavaImport.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5106,9 +5038,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bAdviceEClass, BAdvice.class, "BAdvice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBAdvice_Name(), ecorePackage.getEString(), "name", null, 0, 1, BAdvice.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bConcernEClass, BConcern.class, "BConcern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
@@ -5266,15 +5195,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			bParameterPredicateEClass, BParameterPredicate.class, "BParameterPredicate", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getBParameterPredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, BParameterPredicate.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
 			getBParameterPredicate_TypePredicateOp(), ecorePackage.getEString(), "typePredicateOp", null, 0, 1,
 			BParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBParameterPredicate_Type(), this.getIType(), null, "type", null, 0, 1, BParameterPredicate.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 
 		initEClass(
@@ -5343,10 +5265,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(
 			bWithContextExpressionEClass, BWithContextExpression.class, "BWithContextExpression", !IS_ABSTRACT,
 			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBWithContextExpression_Alias(), ecorePackage.getEString(), "alias", null, 0, 1,
-			BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getBWithContextExpression_Expr(), this.getBExpression(), null, "expr", null, 1, 1,
 			BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,

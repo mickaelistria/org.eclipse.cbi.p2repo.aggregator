@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BBinary Op Expression</b></em>'.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BBinaryOpExpressionTest extends BBinaryExpressionTest {
@@ -25,6 +26,7 @@ public class BBinaryOpExpressionTest extends BBinaryExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -32,6 +34,7 @@ public class BBinaryOpExpressionTest extends BBinaryExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -42,6 +45,7 @@ public class BBinaryOpExpressionTest extends BBinaryExpressionTest {
 	 * Constructs a new BBinary Op Expression test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BBinaryOpExpressionTest(String name) {
@@ -52,16 +56,18 @@ public class BBinaryOpExpressionTest extends BBinaryExpressionTest {
 	 * Returns the fixture for this BBinary Op Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected BBinaryOpExpression getFixture() {
-		return (BBinaryOpExpression)fixture;
+		return (BBinaryOpExpression) fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */

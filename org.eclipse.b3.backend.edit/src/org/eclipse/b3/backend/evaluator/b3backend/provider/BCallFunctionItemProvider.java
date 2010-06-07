@@ -29,6 +29,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFunction} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BCallFunctionItemProvider extends BCallExpressionItemProvider implements IEditingDomainItemProvider,
@@ -36,6 +37,7 @@ public class BCallFunctionItemProvider extends BCallExpressionItemProvider imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -44,6 +46,7 @@ public class BCallFunctionItemProvider extends BCallExpressionItemProvider imple
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BCallFunctionItemProvider(AdapterFactory adapterFactory) {
@@ -55,6 +58,7 @@ public class BCallFunctionItemProvider extends BCallExpressionItemProvider imple
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -66,6 +70,7 @@ public class BCallFunctionItemProvider extends BCallExpressionItemProvider imple
 	 * This returns BCallFunction.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -77,11 +82,12 @@ public class BCallFunctionItemProvider extends BCallExpressionItemProvider imple
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -92,14 +98,15 @@ public class BCallFunctionItemProvider extends BCallExpressionItemProvider imple
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BCallFunction)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BCallFunction_type") :
-			getString("_UI_BCallFunction_type") + " " + label;
+		String label = ((BCallFunction) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_BCallFunction_type")
+				: getString("_UI_BCallFunction_type") + " " + label;
 	}
 
 	/**
@@ -107,6 +114,7 @@ public class BCallFunctionItemProvider extends BCallExpressionItemProvider imple
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

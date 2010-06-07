@@ -34,6 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * Note that most of the adapters are shared among multiple instances.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory implements ComposeableAdapterFactory,
@@ -41,6 +42,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -49,6 +51,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
@@ -57,6 +60,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
@@ -65,6 +69,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
@@ -73,6 +78,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BIfExpressionItemProvider bIfExpressionItemProvider;
@@ -81,6 +87,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BSwitchExpressionItemProvider bSwitchExpressionItemProvider;
@@ -89,6 +96,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCase} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCaseItemProvider bCaseItemProvider;
@@ -97,6 +105,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BTryExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BTryExpressionItemProvider bTryExpressionItemProvider;
@@ -105,6 +114,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCatchItemProvider bCatchItemProvider;
@@ -113,6 +123,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BOrExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BOrExpressionItemProvider bOrExpressionItemProvider;
@@ -121,6 +132,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BAndExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BAndExpressionItemProvider bAndExpressionItemProvider;
@@ -129,6 +141,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BChainedExpressionItemProvider bChainedExpressionItemProvider;
@@ -137,6 +150,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BThrowExpressionItemProvider bThrowExpressionItemProvider;
@@ -145,6 +159,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BUnaryOpExpressionItemProvider bUnaryOpExpressionItemProvider;
@@ -153,6 +168,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BUnaryPostOpExpressionItemProvider bUnaryPostOpExpressionItemProvider;
@@ -161,6 +177,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BBinaryOpExpressionItemProvider bBinaryOpExpressionItemProvider;
@@ -169,6 +186,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCachedExpressionItemProvider bCachedExpressionItemProvider;
@@ -177,6 +195,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BLiteralExpressionItemProvider bLiteralExpressionItemProvider;
@@ -185,6 +204,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BLiteralListExpressionItemProvider bLiteralListExpressionItemProvider;
@@ -193,6 +213,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BLiteralMapExpressionItemProvider bLiteralMapExpressionItemProvider;
@@ -201,6 +222,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BMapEntry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BMapEntryItemProvider bMapEntryItemProvider;
@@ -209,6 +231,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BFeatureExpressionItemProvider bFeatureExpressionItemProvider;
@@ -217,6 +240,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BAtExpressionItemProvider bAtExpressionItemProvider;
@@ -225,6 +249,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BVariableExpressionItemProvider bVariableExpressionItemProvider;
@@ -233,6 +258,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BLiteralAnyItemProvider bLiteralAnyItemProvider;
@@ -241,6 +267,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCreateExpressionItemProvider bCreateExpressionItemProvider;
@@ -249,6 +276,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BGuardExpressionItemProvider bGuardExpressionItemProvider;
@@ -257,6 +285,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BSystemContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BSystemContextItemProvider bSystemContextItemProvider;
@@ -265,6 +294,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BContextItemProvider bContextItemProvider;
@@ -273,6 +303,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BInnerContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BInnerContextItemProvider bInnerContextItemProvider;
@@ -281,6 +312,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BInvocationContextItemProvider bInvocationContextItemProvider;
@@ -289,6 +321,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BUnaryPreOpExpressionItemProvider bUnaryPreOpExpressionItemProvider;
@@ -297,6 +330,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BAssignmentExpressionItemProvider bAssignmentExpressionItemProvider;
@@ -305,6 +339,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3Function} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3FunctionItemProvider b3FunctionItemProvider;
@@ -313,6 +348,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BJavaFunctionItemProvider bJavaFunctionItemProvider;
@@ -321,6 +357,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BDefValueItemProvider bDefValueItemProvider;
@@ -329,6 +366,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BRegularExpressionItemProvider bRegularExpressionItemProvider;
@@ -337,6 +375,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterList} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BParameterListItemProvider bParameterListItemProvider;
@@ -345,6 +384,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BParameterItemProvider bParameterItemProvider;
@@ -353,6 +393,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BParameterDeclarationItemProvider bParameterDeclarationItemProvider;
@@ -361,6 +402,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3FunctionTypeItemProvider b3FunctionTypeItemProvider;
@@ -369,6 +411,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3ParameterizedTypeItemProvider b3ParameterizedTypeItemProvider;
@@ -377,6 +420,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3WildcardTypeItemProvider b3WildcardTypeItemProvider;
@@ -385,6 +429,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3FuncTypeVariableItemProvider b3FuncTypeVariableItemProvider;
@@ -393,6 +438,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3JavaImportItemProvider b3JavaImportItemProvider;
@@ -401,6 +447,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BLiteralTypeItemProvider bLiteralTypeItemProvider;
@@ -409,6 +456,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BGuardFunctionItemProvider bGuardFunctionItemProvider;
@@ -417,6 +465,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BTypeCalculatorItemProvider bTypeCalculatorItemProvider;
@@ -425,6 +474,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BTypeCalculatorFunctionItemProvider bTypeCalculatorFunctionItemProvider;
@@ -433,6 +483,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BInstanceContextItemProvider bInstanceContextItemProvider;
@@ -441,6 +492,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDefProperty} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BDefPropertyItemProvider bDefPropertyItemProvider;
@@ -449,6 +501,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BPropertySetItemProvider bPropertySetItemProvider;
@@ -457,6 +510,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BDefaultPropertySetItemProvider bDefaultPropertySetItemProvider;
@@ -465,6 +519,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BPropertyDefinitionOperationItemProvider bPropertyDefinitionOperationItemProvider;
@@ -473,6 +528,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BConditionalPropertyOperationItemProvider bConditionalPropertyOperationItemProvider;
@@ -481,6 +537,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BPropertySetOperationItemProvider bPropertySetOperationItemProvider;
@@ -489,6 +546,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BAdviceItemProvider bAdviceItemProvider;
@@ -497,6 +555,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BConcernItemProvider bConcernItemProvider;
@@ -505,6 +564,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BWithExpressionItemProvider bWithExpressionItemProvider;
@@ -513,6 +573,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BFunctionItemProvider bFunctionItemProvider;
@@ -521,6 +582,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BFunctionWrapperItemProvider bFunctionWrapperItemProvider;
@@ -529,6 +591,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BNamePredicateItemProvider bNamePredicateItemProvider;
@@ -537,6 +600,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BFunctionNamePredicateItemProvider bFunctionNamePredicateItemProvider;
@@ -545,6 +609,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BFunctionConcernContextItemProvider bFunctionConcernContextItemProvider;
@@ -553,6 +618,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BParameterPredicateItemProvider bParameterPredicateItemProvider;
@@ -561,6 +627,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BProceedExpressionItemProvider bProceedExpressionItemProvider;
@@ -569,6 +636,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BDelegatingContextItemProvider bDelegatingContextItemProvider;
@@ -577,6 +645,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BWrappingContextItemProvider bWrappingContextItemProvider;
@@ -585,6 +654,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3MetaClassItemProvider b3MetaClassItemProvider;
@@ -593,6 +663,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BExpressionWrapperItemProvider bExpressionWrapperItemProvider;
@@ -601,6 +672,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BWithContextExpressionItemProvider bWithContextExpressionItemProvider;
@@ -609,6 +681,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFeature} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCallFeatureItemProvider bCallFeatureItemProvider;
@@ -617,6 +690,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCallNamedFunctionItemProvider bCallNamedFunctionItemProvider;
@@ -625,6 +699,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFunction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCallFunctionItemProvider bCallFunctionItemProvider;
@@ -633,6 +708,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BPatternLiteralExpressionItemProvider bPatternLiteralExpressionItemProvider;
@@ -641,14 +717,25 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BSimplePatternExpressionItemProvider bSimplePatternExpressionItemProvider;
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3Type} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected B3TypeItemProvider b3TypeItemProvider;
+
+	/**
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public B3backendItemProviderAdapterFactory() {
@@ -663,6 +750,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This implementation substitutes the factory itself as the key for the adapter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -673,13 +761,14 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object adapt(Object object, Object type) {
-		if (isFactoryForType(type)) {
+		if(isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+			if(!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -691,6 +780,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This adds a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
@@ -701,11 +791,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3Function}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createB3FunctionAdapter() {
-		if (b3FunctionItemProvider == null) {
+		if(b3FunctionItemProvider == null) {
 			b3FunctionItemProvider = new B3FunctionItemProvider(this);
 		}
 
@@ -716,11 +807,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createB3FunctionTypeAdapter() {
-		if (b3FunctionTypeItemProvider == null) {
+		if(b3FunctionTypeItemProvider == null) {
 			b3FunctionTypeItemProvider = new B3FunctionTypeItemProvider(this);
 		}
 
@@ -731,11 +823,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createB3FuncTypeVariableAdapter() {
-		if (b3FuncTypeVariableItemProvider == null) {
+		if(b3FuncTypeVariableItemProvider == null) {
 			b3FuncTypeVariableItemProvider = new B3FuncTypeVariableItemProvider(this);
 		}
 
@@ -746,11 +839,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createB3JavaImportAdapter() {
-		if (b3JavaImportItemProvider == null) {
+		if(b3JavaImportItemProvider == null) {
 			b3JavaImportItemProvider = new B3JavaImportItemProvider(this);
 		}
 
@@ -761,11 +855,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createB3MetaClassAdapter() {
-		if (b3MetaClassItemProvider == null) {
+		if(b3MetaClassItemProvider == null) {
 			b3MetaClassItemProvider = new B3MetaClassItemProvider(this);
 		}
 
@@ -776,11 +871,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createB3ParameterizedTypeAdapter() {
-		if (b3ParameterizedTypeItemProvider == null) {
+		if(b3ParameterizedTypeItemProvider == null) {
 			b3ParameterizedTypeItemProvider = new B3ParameterizedTypeItemProvider(this);
 		}
 
@@ -788,14 +884,31 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3Type}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createB3TypeAdapter() {
+		if(b3TypeItemProvider == null) {
+			b3TypeItemProvider = new B3TypeItemProvider(this);
+		}
+
+		return b3TypeItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createB3WildcardTypeAdapter() {
-		if (b3WildcardTypeItemProvider == null) {
+		if(b3WildcardTypeItemProvider == null) {
 			b3WildcardTypeItemProvider = new B3WildcardTypeItemProvider(this);
 		}
 
@@ -806,11 +919,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBAdviceAdapter() {
-		if (bAdviceItemProvider == null) {
+		if(bAdviceItemProvider == null) {
 			bAdviceItemProvider = new BAdviceItemProvider(this);
 		}
 
@@ -821,11 +935,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BAndExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBAndExpressionAdapter() {
-		if (bAndExpressionItemProvider == null) {
+		if(bAndExpressionItemProvider == null) {
 			bAndExpressionItemProvider = new BAndExpressionItemProvider(this);
 		}
 
@@ -836,11 +951,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBAssignmentExpressionAdapter() {
-		if (bAssignmentExpressionItemProvider == null) {
+		if(bAssignmentExpressionItemProvider == null) {
 			bAssignmentExpressionItemProvider = new BAssignmentExpressionItemProvider(this);
 		}
 
@@ -851,11 +967,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBAtExpressionAdapter() {
-		if (bAtExpressionItemProvider == null) {
+		if(bAtExpressionItemProvider == null) {
 			bAtExpressionItemProvider = new BAtExpressionItemProvider(this);
 		}
 
@@ -866,11 +983,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBBinaryOpExpressionAdapter() {
-		if (bBinaryOpExpressionItemProvider == null) {
+		if(bBinaryOpExpressionItemProvider == null) {
 			bBinaryOpExpressionItemProvider = new BBinaryOpExpressionItemProvider(this);
 		}
 
@@ -881,11 +999,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBCachedExpressionAdapter() {
-		if (bCachedExpressionItemProvider == null) {
+		if(bCachedExpressionItemProvider == null) {
 			bCachedExpressionItemProvider = new BCachedExpressionItemProvider(this);
 		}
 
@@ -896,11 +1015,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFeature}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBCallFeatureAdapter() {
-		if (bCallFeatureItemProvider == null) {
+		if(bCallFeatureItemProvider == null) {
 			bCallFeatureItemProvider = new BCallFeatureItemProvider(this);
 		}
 
@@ -911,11 +1031,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCallFunction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBCallFunctionAdapter() {
-		if (bCallFunctionItemProvider == null) {
+		if(bCallFunctionItemProvider == null) {
 			bCallFunctionItemProvider = new BCallFunctionItemProvider(this);
 		}
 
@@ -926,11 +1047,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBCallNamedFunctionAdapter() {
-		if (bCallNamedFunctionItemProvider == null) {
+		if(bCallNamedFunctionItemProvider == null) {
 			bCallNamedFunctionItemProvider = new BCallNamedFunctionItemProvider(this);
 		}
 
@@ -941,11 +1063,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCase}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBCaseAdapter() {
-		if (bCaseItemProvider == null) {
+		if(bCaseItemProvider == null) {
 			bCaseItemProvider = new BCaseItemProvider(this);
 		}
 
@@ -956,11 +1079,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCatch}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBCatchAdapter() {
-		if (bCatchItemProvider == null) {
+		if(bCatchItemProvider == null) {
 			bCatchItemProvider = new BCatchItemProvider(this);
 		}
 
@@ -971,11 +1095,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBChainedExpressionAdapter() {
-		if (bChainedExpressionItemProvider == null) {
+		if(bChainedExpressionItemProvider == null) {
 			bChainedExpressionItemProvider = new BChainedExpressionItemProvider(this);
 		}
 
@@ -986,11 +1111,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBConcernAdapter() {
-		if (bConcernItemProvider == null) {
+		if(bConcernItemProvider == null) {
 			bConcernItemProvider = new BConcernItemProvider(this);
 		}
 
@@ -1001,11 +1127,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBConditionalPropertyOperationAdapter() {
-		if (bConditionalPropertyOperationItemProvider == null) {
+		if(bConditionalPropertyOperationItemProvider == null) {
 			bConditionalPropertyOperationItemProvider = new BConditionalPropertyOperationItemProvider(this);
 		}
 
@@ -1016,11 +1143,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBContextAdapter() {
-		if (bContextItemProvider == null) {
+		if(bContextItemProvider == null) {
 			bContextItemProvider = new BContextItemProvider(this);
 		}
 
@@ -1031,11 +1159,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBCreateExpressionAdapter() {
-		if (bCreateExpressionItemProvider == null) {
+		if(bCreateExpressionItemProvider == null) {
 			bCreateExpressionItemProvider = new BCreateExpressionItemProvider(this);
 		}
 
@@ -1046,11 +1175,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBDefaultPropertySetAdapter() {
-		if (bDefaultPropertySetItemProvider == null) {
+		if(bDefaultPropertySetItemProvider == null) {
 			bDefaultPropertySetItemProvider = new BDefaultPropertySetItemProvider(this);
 		}
 
@@ -1061,11 +1191,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BDefProperty}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBDefPropertyAdapter() {
-		if (bDefPropertyItemProvider == null) {
+		if(bDefPropertyItemProvider == null) {
 			bDefPropertyItemProvider = new BDefPropertyItemProvider(this);
 		}
 
@@ -1076,11 +1207,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBDefValueAdapter() {
-		if (bDefValueItemProvider == null) {
+		if(bDefValueItemProvider == null) {
 			bDefValueItemProvider = new BDefValueItemProvider(this);
 		}
 
@@ -1091,11 +1223,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBDelegatingContextAdapter() {
-		if (bDelegatingContextItemProvider == null) {
+		if(bDelegatingContextItemProvider == null) {
 			bDelegatingContextItemProvider = new BDelegatingContextItemProvider(this);
 		}
 
@@ -1106,11 +1239,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBExpressionWrapperAdapter() {
-		if (bExpressionWrapperItemProvider == null) {
+		if(bExpressionWrapperItemProvider == null) {
 			bExpressionWrapperItemProvider = new BExpressionWrapperItemProvider(this);
 		}
 
@@ -1121,11 +1255,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBFeatureExpressionAdapter() {
-		if (bFeatureExpressionItemProvider == null) {
+		if(bFeatureExpressionItemProvider == null) {
 			bFeatureExpressionItemProvider = new BFeatureExpressionItemProvider(this);
 		}
 
@@ -1136,11 +1271,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFunction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBFunctionAdapter() {
-		if (bFunctionItemProvider == null) {
+		if(bFunctionItemProvider == null) {
 			bFunctionItemProvider = new BFunctionItemProvider(this);
 		}
 
@@ -1151,11 +1287,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBFunctionConcernContextAdapter() {
-		if (bFunctionConcernContextItemProvider == null) {
+		if(bFunctionConcernContextItemProvider == null) {
 			bFunctionConcernContextItemProvider = new BFunctionConcernContextItemProvider(this);
 		}
 
@@ -1166,11 +1303,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBFunctionNamePredicateAdapter() {
-		if (bFunctionNamePredicateItemProvider == null) {
+		if(bFunctionNamePredicateItemProvider == null) {
 			bFunctionNamePredicateItemProvider = new BFunctionNamePredicateItemProvider(this);
 		}
 
@@ -1181,11 +1319,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBFunctionWrapperAdapter() {
-		if (bFunctionWrapperItemProvider == null) {
+		if(bFunctionWrapperItemProvider == null) {
 			bFunctionWrapperItemProvider = new BFunctionWrapperItemProvider(this);
 		}
 
@@ -1196,11 +1335,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBGuardExpressionAdapter() {
-		if (bGuardExpressionItemProvider == null) {
+		if(bGuardExpressionItemProvider == null) {
 			bGuardExpressionItemProvider = new BGuardExpressionItemProvider(this);
 		}
 
@@ -1211,11 +1351,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBGuardFunctionAdapter() {
-		if (bGuardFunctionItemProvider == null) {
+		if(bGuardFunctionItemProvider == null) {
 			bGuardFunctionItemProvider = new BGuardFunctionItemProvider(this);
 		}
 
@@ -1226,11 +1367,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBIfExpressionAdapter() {
-		if (bIfExpressionItemProvider == null) {
+		if(bIfExpressionItemProvider == null) {
 			bIfExpressionItemProvider = new BIfExpressionItemProvider(this);
 		}
 
@@ -1241,11 +1383,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BInnerContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBInnerContextAdapter() {
-		if (bInnerContextItemProvider == null) {
+		if(bInnerContextItemProvider == null) {
 			bInnerContextItemProvider = new BInnerContextItemProvider(this);
 		}
 
@@ -1256,11 +1399,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBInstanceContextAdapter() {
-		if (bInstanceContextItemProvider == null) {
+		if(bInstanceContextItemProvider == null) {
 			bInstanceContextItemProvider = new BInstanceContextItemProvider(this);
 		}
 
@@ -1271,11 +1415,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBInvocationContextAdapter() {
-		if (bInvocationContextItemProvider == null) {
+		if(bInvocationContextItemProvider == null) {
 			bInvocationContextItemProvider = new BInvocationContextItemProvider(this);
 		}
 
@@ -1286,11 +1431,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBJavaFunctionAdapter() {
-		if (bJavaFunctionItemProvider == null) {
+		if(bJavaFunctionItemProvider == null) {
 			bJavaFunctionItemProvider = new BJavaFunctionItemProvider(this);
 		}
 
@@ -1301,11 +1447,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBLiteralAnyAdapter() {
-		if (bLiteralAnyItemProvider == null) {
+		if(bLiteralAnyItemProvider == null) {
 			bLiteralAnyItemProvider = new BLiteralAnyItemProvider(this);
 		}
 
@@ -1316,11 +1463,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBLiteralExpressionAdapter() {
-		if (bLiteralExpressionItemProvider == null) {
+		if(bLiteralExpressionItemProvider == null) {
 			bLiteralExpressionItemProvider = new BLiteralExpressionItemProvider(this);
 		}
 
@@ -1331,11 +1479,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBLiteralListExpressionAdapter() {
-		if (bLiteralListExpressionItemProvider == null) {
+		if(bLiteralListExpressionItemProvider == null) {
 			bLiteralListExpressionItemProvider = new BLiteralListExpressionItemProvider(this);
 		}
 
@@ -1346,11 +1495,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBLiteralMapExpressionAdapter() {
-		if (bLiteralMapExpressionItemProvider == null) {
+		if(bLiteralMapExpressionItemProvider == null) {
 			bLiteralMapExpressionItemProvider = new BLiteralMapExpressionItemProvider(this);
 		}
 
@@ -1361,11 +1511,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBLiteralTypeAdapter() {
-		if (bLiteralTypeItemProvider == null) {
+		if(bLiteralTypeItemProvider == null) {
 			bLiteralTypeItemProvider = new BLiteralTypeItemProvider(this);
 		}
 
@@ -1376,11 +1527,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BMapEntry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBMapEntryAdapter() {
-		if (bMapEntryItemProvider == null) {
+		if(bMapEntryItemProvider == null) {
 			bMapEntryItemProvider = new BMapEntryItemProvider(this);
 		}
 
@@ -1391,11 +1543,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBNamePredicateAdapter() {
-		if (bNamePredicateItemProvider == null) {
+		if(bNamePredicateItemProvider == null) {
 			bNamePredicateItemProvider = new BNamePredicateItemProvider(this);
 		}
 
@@ -1406,11 +1559,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BOrExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBOrExpressionAdapter() {
-		if (bOrExpressionItemProvider == null) {
+		if(bOrExpressionItemProvider == null) {
 			bOrExpressionItemProvider = new BOrExpressionItemProvider(this);
 		}
 
@@ -1421,11 +1575,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BParameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBParameterAdapter() {
-		if (bParameterItemProvider == null) {
+		if(bParameterItemProvider == null) {
 			bParameterItemProvider = new BParameterItemProvider(this);
 		}
 
@@ -1436,11 +1591,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBParameterDeclarationAdapter() {
-		if (bParameterDeclarationItemProvider == null) {
+		if(bParameterDeclarationItemProvider == null) {
 			bParameterDeclarationItemProvider = new BParameterDeclarationItemProvider(this);
 		}
 
@@ -1451,11 +1607,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterList}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBParameterListAdapter() {
-		if (bParameterListItemProvider == null) {
+		if(bParameterListItemProvider == null) {
 			bParameterListItemProvider = new BParameterListItemProvider(this);
 		}
 
@@ -1466,11 +1623,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBParameterPredicateAdapter() {
-		if (bParameterPredicateItemProvider == null) {
+		if(bParameterPredicateItemProvider == null) {
 			bParameterPredicateItemProvider = new BParameterPredicateItemProvider(this);
 		}
 
@@ -1481,11 +1639,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBPatternLiteralExpressionAdapter() {
-		if (bPatternLiteralExpressionItemProvider == null) {
+		if(bPatternLiteralExpressionItemProvider == null) {
 			bPatternLiteralExpressionItemProvider = new BPatternLiteralExpressionItemProvider(this);
 		}
 
@@ -1496,11 +1655,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBProceedExpressionAdapter() {
-		if (bProceedExpressionItemProvider == null) {
+		if(bProceedExpressionItemProvider == null) {
 			bProceedExpressionItemProvider = new BProceedExpressionItemProvider(this);
 		}
 
@@ -1511,11 +1671,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBPropertyDefinitionOperationAdapter() {
-		if (bPropertyDefinitionOperationItemProvider == null) {
+		if(bPropertyDefinitionOperationItemProvider == null) {
 			bPropertyDefinitionOperationItemProvider = new BPropertyDefinitionOperationItemProvider(this);
 		}
 
@@ -1526,11 +1687,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBPropertySetAdapter() {
-		if (bPropertySetItemProvider == null) {
+		if(bPropertySetItemProvider == null) {
 			bPropertySetItemProvider = new BPropertySetItemProvider(this);
 		}
 
@@ -1541,11 +1703,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBPropertySetOperationAdapter() {
-		if (bPropertySetOperationItemProvider == null) {
+		if(bPropertySetOperationItemProvider == null) {
 			bPropertySetOperationItemProvider = new BPropertySetOperationItemProvider(this);
 		}
 
@@ -1556,11 +1719,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBRegularExpressionAdapter() {
-		if (bRegularExpressionItemProvider == null) {
+		if(bRegularExpressionItemProvider == null) {
 			bRegularExpressionItemProvider = new BRegularExpressionItemProvider(this);
 		}
 
@@ -1571,11 +1735,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBSimplePatternExpressionAdapter() {
-		if (bSimplePatternExpressionItemProvider == null) {
+		if(bSimplePatternExpressionItemProvider == null) {
 			bSimplePatternExpressionItemProvider = new BSimplePatternExpressionItemProvider(this);
 		}
 
@@ -1586,11 +1751,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBSwitchExpressionAdapter() {
-		if (bSwitchExpressionItemProvider == null) {
+		if(bSwitchExpressionItemProvider == null) {
 			bSwitchExpressionItemProvider = new BSwitchExpressionItemProvider(this);
 		}
 
@@ -1601,11 +1767,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BSystemContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBSystemContextAdapter() {
-		if (bSystemContextItemProvider == null) {
+		if(bSystemContextItemProvider == null) {
 			bSystemContextItemProvider = new BSystemContextItemProvider(this);
 		}
 
@@ -1616,11 +1783,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBThrowExpressionAdapter() {
-		if (bThrowExpressionItemProvider == null) {
+		if(bThrowExpressionItemProvider == null) {
 			bThrowExpressionItemProvider = new BThrowExpressionItemProvider(this);
 		}
 
@@ -1631,11 +1799,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BTryExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBTryExpressionAdapter() {
-		if (bTryExpressionItemProvider == null) {
+		if(bTryExpressionItemProvider == null) {
 			bTryExpressionItemProvider = new BTryExpressionItemProvider(this);
 		}
 
@@ -1646,11 +1815,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBTypeCalculatorAdapter() {
-		if (bTypeCalculatorItemProvider == null) {
+		if(bTypeCalculatorItemProvider == null) {
 			bTypeCalculatorItemProvider = new BTypeCalculatorItemProvider(this);
 		}
 
@@ -1661,11 +1831,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBTypeCalculatorFunctionAdapter() {
-		if (bTypeCalculatorFunctionItemProvider == null) {
+		if(bTypeCalculatorFunctionItemProvider == null) {
 			bTypeCalculatorFunctionItemProvider = new BTypeCalculatorFunctionItemProvider(this);
 		}
 
@@ -1676,11 +1847,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBUnaryOpExpressionAdapter() {
-		if (bUnaryOpExpressionItemProvider == null) {
+		if(bUnaryOpExpressionItemProvider == null) {
 			bUnaryOpExpressionItemProvider = new BUnaryOpExpressionItemProvider(this);
 		}
 
@@ -1691,11 +1863,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBUnaryPostOpExpressionAdapter() {
-		if (bUnaryPostOpExpressionItemProvider == null) {
+		if(bUnaryPostOpExpressionItemProvider == null) {
 			bUnaryPostOpExpressionItemProvider = new BUnaryPostOpExpressionItemProvider(this);
 		}
 
@@ -1706,11 +1879,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBUnaryPreOpExpressionAdapter() {
-		if (bUnaryPreOpExpressionItemProvider == null) {
+		if(bUnaryPreOpExpressionItemProvider == null) {
 			bUnaryPreOpExpressionItemProvider = new BUnaryPreOpExpressionItemProvider(this);
 		}
 
@@ -1721,11 +1895,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBVariableExpressionAdapter() {
-		if (bVariableExpressionItemProvider == null) {
+		if(bVariableExpressionItemProvider == null) {
 			bVariableExpressionItemProvider = new BVariableExpressionItemProvider(this);
 		}
 
@@ -1736,11 +1911,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBWithContextExpressionAdapter() {
-		if (bWithContextExpressionItemProvider == null) {
+		if(bWithContextExpressionItemProvider == null) {
 			bWithContextExpressionItemProvider = new BWithContextExpressionItemProvider(this);
 		}
 
@@ -1751,11 +1927,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBWithExpressionAdapter() {
-		if (bWithExpressionItemProvider == null) {
+		if(bWithExpressionItemProvider == null) {
 			bWithExpressionItemProvider = new BWithExpressionItemProvider(this);
 		}
 
@@ -1766,11 +1943,12 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createBWrappingContextAdapter() {
-		if (bWrappingContextItemProvider == null) {
+		if(bWrappingContextItemProvider == null) {
 			bWrappingContextItemProvider = new BWrappingContextItemProvider(this);
 		}
 
@@ -1778,96 +1956,172 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
-	 * This disposes all of the item providers created by this factory. 
+	 * This disposes all of the item providers created by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void dispose() {
-		if (bIfExpressionItemProvider != null) bIfExpressionItemProvider.dispose();
-		if (bSwitchExpressionItemProvider != null) bSwitchExpressionItemProvider.dispose();
-		if (bCaseItemProvider != null) bCaseItemProvider.dispose();
-		if (bTryExpressionItemProvider != null) bTryExpressionItemProvider.dispose();
-		if (bCatchItemProvider != null) bCatchItemProvider.dispose();
-		if (bOrExpressionItemProvider != null) bOrExpressionItemProvider.dispose();
-		if (bAndExpressionItemProvider != null) bAndExpressionItemProvider.dispose();
-		if (bChainedExpressionItemProvider != null) bChainedExpressionItemProvider.dispose();
-		if (bThrowExpressionItemProvider != null) bThrowExpressionItemProvider.dispose();
-		if (bUnaryOpExpressionItemProvider != null) bUnaryOpExpressionItemProvider.dispose();
-		if (bUnaryPostOpExpressionItemProvider != null) bUnaryPostOpExpressionItemProvider.dispose();
-		if (bBinaryOpExpressionItemProvider != null) bBinaryOpExpressionItemProvider.dispose();
-		if (bCachedExpressionItemProvider != null) bCachedExpressionItemProvider.dispose();
-		if (bLiteralExpressionItemProvider != null) bLiteralExpressionItemProvider.dispose();
-		if (bLiteralListExpressionItemProvider != null) bLiteralListExpressionItemProvider.dispose();
-		if (bLiteralMapExpressionItemProvider != null) bLiteralMapExpressionItemProvider.dispose();
-		if (bMapEntryItemProvider != null) bMapEntryItemProvider.dispose();
-		if (bFeatureExpressionItemProvider != null) bFeatureExpressionItemProvider.dispose();
-		if (bAtExpressionItemProvider != null) bAtExpressionItemProvider.dispose();
-		if (bVariableExpressionItemProvider != null) bVariableExpressionItemProvider.dispose();
-		if (bLiteralAnyItemProvider != null) bLiteralAnyItemProvider.dispose();
-		if (bCreateExpressionItemProvider != null) bCreateExpressionItemProvider.dispose();
-		if (bGuardExpressionItemProvider != null) bGuardExpressionItemProvider.dispose();
-		if (bSystemContextItemProvider != null) bSystemContextItemProvider.dispose();
-		if (bContextItemProvider != null) bContextItemProvider.dispose();
-		if (bInnerContextItemProvider != null) bInnerContextItemProvider.dispose();
-		if (bInvocationContextItemProvider != null) bInvocationContextItemProvider.dispose();
-		if (bUnaryPreOpExpressionItemProvider != null) bUnaryPreOpExpressionItemProvider.dispose();
-		if (bAssignmentExpressionItemProvider != null) bAssignmentExpressionItemProvider.dispose();
-		if (b3FunctionItemProvider != null) b3FunctionItemProvider.dispose();
-		if (bJavaFunctionItemProvider != null) bJavaFunctionItemProvider.dispose();
-		if (bDefValueItemProvider != null) bDefValueItemProvider.dispose();
-		if (bRegularExpressionItemProvider != null) bRegularExpressionItemProvider.dispose();
-		if (bParameterListItemProvider != null) bParameterListItemProvider.dispose();
-		if (bParameterItemProvider != null) bParameterItemProvider.dispose();
-		if (bParameterDeclarationItemProvider != null) bParameterDeclarationItemProvider.dispose();
-		if (b3FunctionTypeItemProvider != null) b3FunctionTypeItemProvider.dispose();
-		if (b3ParameterizedTypeItemProvider != null) b3ParameterizedTypeItemProvider.dispose();
-		if (b3WildcardTypeItemProvider != null) b3WildcardTypeItemProvider.dispose();
-		if (b3FuncTypeVariableItemProvider != null) b3FuncTypeVariableItemProvider.dispose();
-		if (b3JavaImportItemProvider != null) b3JavaImportItemProvider.dispose();
-		if (bLiteralTypeItemProvider != null) bLiteralTypeItemProvider.dispose();
-		if (bGuardFunctionItemProvider != null) bGuardFunctionItemProvider.dispose();
-		if (bTypeCalculatorItemProvider != null) bTypeCalculatorItemProvider.dispose();
-		if (bTypeCalculatorFunctionItemProvider != null) bTypeCalculatorFunctionItemProvider.dispose();
-		if (bInstanceContextItemProvider != null) bInstanceContextItemProvider.dispose();
-		if (bDefPropertyItemProvider != null) bDefPropertyItemProvider.dispose();
-		if (bPropertySetItemProvider != null) bPropertySetItemProvider.dispose();
-		if (bDefaultPropertySetItemProvider != null) bDefaultPropertySetItemProvider.dispose();
-		if (bPropertyDefinitionOperationItemProvider != null) bPropertyDefinitionOperationItemProvider.dispose();
-		if (bConditionalPropertyOperationItemProvider != null) bConditionalPropertyOperationItemProvider.dispose();
-		if (bPropertySetOperationItemProvider != null) bPropertySetOperationItemProvider.dispose();
-		if (bAdviceItemProvider != null) bAdviceItemProvider.dispose();
-		if (bConcernItemProvider != null) bConcernItemProvider.dispose();
-		if (bWithExpressionItemProvider != null) bWithExpressionItemProvider.dispose();
-		if (bFunctionItemProvider != null) bFunctionItemProvider.dispose();
-		if (bFunctionWrapperItemProvider != null) bFunctionWrapperItemProvider.dispose();
-		if (bNamePredicateItemProvider != null) bNamePredicateItemProvider.dispose();
-		if (bFunctionNamePredicateItemProvider != null) bFunctionNamePredicateItemProvider.dispose();
-		if (bFunctionConcernContextItemProvider != null) bFunctionConcernContextItemProvider.dispose();
-		if (bParameterPredicateItemProvider != null) bParameterPredicateItemProvider.dispose();
-		if (bProceedExpressionItemProvider != null) bProceedExpressionItemProvider.dispose();
-		if (bDelegatingContextItemProvider != null) bDelegatingContextItemProvider.dispose();
-		if (bWrappingContextItemProvider != null) bWrappingContextItemProvider.dispose();
-		if (b3MetaClassItemProvider != null) b3MetaClassItemProvider.dispose();
-		if (bExpressionWrapperItemProvider != null) bExpressionWrapperItemProvider.dispose();
-		if (bWithContextExpressionItemProvider != null) bWithContextExpressionItemProvider.dispose();
-		if (bCallFeatureItemProvider != null) bCallFeatureItemProvider.dispose();
-		if (bCallNamedFunctionItemProvider != null) bCallNamedFunctionItemProvider.dispose();
-		if (bCallFunctionItemProvider != null) bCallFunctionItemProvider.dispose();
-		if (bPatternLiteralExpressionItemProvider != null) bPatternLiteralExpressionItemProvider.dispose();
-		if (bSimplePatternExpressionItemProvider != null) bSimplePatternExpressionItemProvider.dispose();
+		if(bIfExpressionItemProvider != null)
+			bIfExpressionItemProvider.dispose();
+		if(bSwitchExpressionItemProvider != null)
+			bSwitchExpressionItemProvider.dispose();
+		if(bCaseItemProvider != null)
+			bCaseItemProvider.dispose();
+		if(bTryExpressionItemProvider != null)
+			bTryExpressionItemProvider.dispose();
+		if(bCatchItemProvider != null)
+			bCatchItemProvider.dispose();
+		if(bOrExpressionItemProvider != null)
+			bOrExpressionItemProvider.dispose();
+		if(bAndExpressionItemProvider != null)
+			bAndExpressionItemProvider.dispose();
+		if(bChainedExpressionItemProvider != null)
+			bChainedExpressionItemProvider.dispose();
+		if(bThrowExpressionItemProvider != null)
+			bThrowExpressionItemProvider.dispose();
+		if(bUnaryOpExpressionItemProvider != null)
+			bUnaryOpExpressionItemProvider.dispose();
+		if(bUnaryPostOpExpressionItemProvider != null)
+			bUnaryPostOpExpressionItemProvider.dispose();
+		if(bBinaryOpExpressionItemProvider != null)
+			bBinaryOpExpressionItemProvider.dispose();
+		if(bCachedExpressionItemProvider != null)
+			bCachedExpressionItemProvider.dispose();
+		if(bLiteralExpressionItemProvider != null)
+			bLiteralExpressionItemProvider.dispose();
+		if(bLiteralListExpressionItemProvider != null)
+			bLiteralListExpressionItemProvider.dispose();
+		if(bLiteralMapExpressionItemProvider != null)
+			bLiteralMapExpressionItemProvider.dispose();
+		if(bMapEntryItemProvider != null)
+			bMapEntryItemProvider.dispose();
+		if(bFeatureExpressionItemProvider != null)
+			bFeatureExpressionItemProvider.dispose();
+		if(bAtExpressionItemProvider != null)
+			bAtExpressionItemProvider.dispose();
+		if(bVariableExpressionItemProvider != null)
+			bVariableExpressionItemProvider.dispose();
+		if(bLiteralAnyItemProvider != null)
+			bLiteralAnyItemProvider.dispose();
+		if(bCreateExpressionItemProvider != null)
+			bCreateExpressionItemProvider.dispose();
+		if(bGuardExpressionItemProvider != null)
+			bGuardExpressionItemProvider.dispose();
+		if(bSystemContextItemProvider != null)
+			bSystemContextItemProvider.dispose();
+		if(bContextItemProvider != null)
+			bContextItemProvider.dispose();
+		if(bInnerContextItemProvider != null)
+			bInnerContextItemProvider.dispose();
+		if(bInvocationContextItemProvider != null)
+			bInvocationContextItemProvider.dispose();
+		if(bUnaryPreOpExpressionItemProvider != null)
+			bUnaryPreOpExpressionItemProvider.dispose();
+		if(bAssignmentExpressionItemProvider != null)
+			bAssignmentExpressionItemProvider.dispose();
+		if(b3FunctionItemProvider != null)
+			b3FunctionItemProvider.dispose();
+		if(bJavaFunctionItemProvider != null)
+			bJavaFunctionItemProvider.dispose();
+		if(bDefValueItemProvider != null)
+			bDefValueItemProvider.dispose();
+		if(bRegularExpressionItemProvider != null)
+			bRegularExpressionItemProvider.dispose();
+		if(bParameterListItemProvider != null)
+			bParameterListItemProvider.dispose();
+		if(bParameterItemProvider != null)
+			bParameterItemProvider.dispose();
+		if(bParameterDeclarationItemProvider != null)
+			bParameterDeclarationItemProvider.dispose();
+		if(b3FunctionTypeItemProvider != null)
+			b3FunctionTypeItemProvider.dispose();
+		if(b3ParameterizedTypeItemProvider != null)
+			b3ParameterizedTypeItemProvider.dispose();
+		if(b3WildcardTypeItemProvider != null)
+			b3WildcardTypeItemProvider.dispose();
+		if(b3FuncTypeVariableItemProvider != null)
+			b3FuncTypeVariableItemProvider.dispose();
+		if(b3JavaImportItemProvider != null)
+			b3JavaImportItemProvider.dispose();
+		if(bLiteralTypeItemProvider != null)
+			bLiteralTypeItemProvider.dispose();
+		if(bGuardFunctionItemProvider != null)
+			bGuardFunctionItemProvider.dispose();
+		if(bTypeCalculatorItemProvider != null)
+			bTypeCalculatorItemProvider.dispose();
+		if(bTypeCalculatorFunctionItemProvider != null)
+			bTypeCalculatorFunctionItemProvider.dispose();
+		if(bInstanceContextItemProvider != null)
+			bInstanceContextItemProvider.dispose();
+		if(bDefPropertyItemProvider != null)
+			bDefPropertyItemProvider.dispose();
+		if(bPropertySetItemProvider != null)
+			bPropertySetItemProvider.dispose();
+		if(bDefaultPropertySetItemProvider != null)
+			bDefaultPropertySetItemProvider.dispose();
+		if(bPropertyDefinitionOperationItemProvider != null)
+			bPropertyDefinitionOperationItemProvider.dispose();
+		if(bConditionalPropertyOperationItemProvider != null)
+			bConditionalPropertyOperationItemProvider.dispose();
+		if(bPropertySetOperationItemProvider != null)
+			bPropertySetOperationItemProvider.dispose();
+		if(bAdviceItemProvider != null)
+			bAdviceItemProvider.dispose();
+		if(bConcernItemProvider != null)
+			bConcernItemProvider.dispose();
+		if(bWithExpressionItemProvider != null)
+			bWithExpressionItemProvider.dispose();
+		if(bFunctionItemProvider != null)
+			bFunctionItemProvider.dispose();
+		if(bFunctionWrapperItemProvider != null)
+			bFunctionWrapperItemProvider.dispose();
+		if(bNamePredicateItemProvider != null)
+			bNamePredicateItemProvider.dispose();
+		if(bFunctionNamePredicateItemProvider != null)
+			bFunctionNamePredicateItemProvider.dispose();
+		if(bFunctionConcernContextItemProvider != null)
+			bFunctionConcernContextItemProvider.dispose();
+		if(bParameterPredicateItemProvider != null)
+			bParameterPredicateItemProvider.dispose();
+		if(bProceedExpressionItemProvider != null)
+			bProceedExpressionItemProvider.dispose();
+		if(bDelegatingContextItemProvider != null)
+			bDelegatingContextItemProvider.dispose();
+		if(bWrappingContextItemProvider != null)
+			bWrappingContextItemProvider.dispose();
+		if(b3MetaClassItemProvider != null)
+			b3MetaClassItemProvider.dispose();
+		if(bExpressionWrapperItemProvider != null)
+			bExpressionWrapperItemProvider.dispose();
+		if(bWithContextExpressionItemProvider != null)
+			bWithContextExpressionItemProvider.dispose();
+		if(bCallFeatureItemProvider != null)
+			bCallFeatureItemProvider.dispose();
+		if(bCallNamedFunctionItemProvider != null)
+			bCallNamedFunctionItemProvider.dispose();
+		if(bCallFunctionItemProvider != null)
+			bCallFunctionItemProvider.dispose();
+		if(bPatternLiteralExpressionItemProvider != null)
+			bPatternLiteralExpressionItemProvider.dispose();
+		if(bSimplePatternExpressionItemProvider != null)
+			bSimplePatternExpressionItemProvider.dispose();
+		if(b3TypeItemProvider != null)
+			b3TypeItemProvider.dispose();
 	}
 
 	/**
 	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
-		if (parentAdapterFactory != null) {
+		if(parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
@@ -1876,15 +2130,19 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+		return parentAdapterFactory == null
+				? this
+				: parentAdapterFactory.getRootAdapterFactory();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1896,6 +2154,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This removes a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
@@ -1906,6 +2165,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * This sets the composed adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {

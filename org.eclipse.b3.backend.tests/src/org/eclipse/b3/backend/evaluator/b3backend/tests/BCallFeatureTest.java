@@ -27,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BCall Feature</b></em>'.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BCallFeatureTest extends BCallExpressionTest {
@@ -34,6 +35,7 @@ public class BCallFeatureTest extends BCallExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -41,6 +43,7 @@ public class BCallFeatureTest extends BCallExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -51,6 +54,7 @@ public class BCallFeatureTest extends BCallExpressionTest {
 	 * Constructs a new BCall Feature test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BCallFeatureTest(String name) {
@@ -78,16 +82,18 @@ public class BCallFeatureTest extends BCallExpressionTest {
 	 * Returns the fixture for this BCall Feature test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected BCallFeature getFixture() {
-		return (BCallFeature)fixture;
+		return (BCallFeature) fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -99,6 +105,7 @@ public class BCallFeatureTest extends BCallExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

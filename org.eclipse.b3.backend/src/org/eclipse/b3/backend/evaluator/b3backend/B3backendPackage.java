@@ -1103,24 +1103,6 @@ public interface B3backendPackage extends EPackage {
 		EClass BPARAMETER_PREDICATE = eINSTANCE.getBParameterPredicate();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute BPARAMETER_PREDICATE__NAME = eINSTANCE.getBParameterPredicate_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference BPARAMETER_PREDICATE__TYPE = eINSTANCE.getBParameterPredicate_Type();
-
-		/**
 		 * The meta object literal for the '<em><b>Type Predicate Op</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1262,15 +1244,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BWITH_CONTEXT_EXPRESSION = eINSTANCE.getBWithContextExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute BWITH_CONTEXT_EXPRESSION__ALIAS = eINSTANCE.getBWithContextExpression_Alias();
 
 		/**
 		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
@@ -1978,15 +1951,6 @@ public interface B3backendPackage extends EPackage {
 		EClass B3_JAVA_IMPORT = eINSTANCE.getB3JavaImport();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute B3_JAVA_IMPORT__NAME = eINSTANCE.getB3JavaImport_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Qualified Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1994,15 +1958,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute B3_JAVA_IMPORT__QUALIFIED_NAME = eINSTANCE.getB3JavaImport_QualifiedName();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute B3_JAVA_IMPORT__TYPE = eINSTANCE.getB3JavaImport_Type();
 
 		/**
 		 * The meta object literal for the '<em><b>Reexport</b></em>' attribute feature.
@@ -2272,15 +2227,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BADVICE = eINSTANCE.getBAdvice();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute BADVICE__NAME = eINSTANCE.getBAdvice_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl <em>BConcern</em>}' class.
@@ -5907,6 +5853,16 @@ public interface B3backendPackage extends EPackage {
 	int B3_JAVA_IMPORT__NAME = ITYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int B3_JAVA_IMPORT__TYPE = ITYPE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5914,17 +5870,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int B3_JAVA_IMPORT__QUALIFIED_NAME = ITYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int B3_JAVA_IMPORT__TYPE = ITYPE_FEATURE_COUNT + 2;
+	int B3_JAVA_IMPORT__QUALIFIED_NAME = ITYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Reexport</b></em>' attribute.
@@ -6265,6 +6211,16 @@ public interface B3backendPackage extends EPackage {
 	int BADVICE__NAME = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BADVICE__TYPE = BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>BAdvice</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6272,7 +6228,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BADVICE_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
+	int BADVICE_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl <em>BProperty Set</em>}' class.
@@ -6294,6 +6250,16 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BPROPERTY_SET__NAME = BADVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_SET__TYPE = BADVICE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference.
@@ -6356,6 +6322,16 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BDEFAULT_PROPERTY_SET__NAME = BPROPERTY_SET__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BDEFAULT_PROPERTY_SET__TYPE = BPROPERTY_SET__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference.
@@ -6544,6 +6520,16 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BCONCERN__NAME = BADVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BCONCERN__TYPE = BADVICE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -7133,17 +7119,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BPARAMETER_PREDICATE__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Type Predicate Op</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BPARAMETER_PREDICATE__TYPE_PREDICATE_OP = 1;
+	int BPARAMETER_PREDICATE__NAME = INAMED_VALUE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -7153,7 +7129,17 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BPARAMETER_PREDICATE__TYPE = 2;
+	int BPARAMETER_PREDICATE__TYPE = INAMED_VALUE__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Type Predicate Op</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BPARAMETER_PREDICATE__TYPE_PREDICATE_OP = INAMED_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>BParameter Predicate</em>' class.
@@ -7163,7 +7149,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BPARAMETER_PREDICATE_FEATURE_COUNT = 3;
+	int BPARAMETER_PREDICATE_FEATURE_COUNT = INAMED_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BProceedExpressionImpl <em>BProceed Expression</em>}' class.
@@ -7493,14 +7479,24 @@ public interface B3backendPackage extends EPackage {
 	int BWITH_CONTEXT_EXPRESSION = 82;
 
 	/**
-	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BWITH_CONTEXT_EXPRESSION__ALIAS = BEXPRESSION_FEATURE_COUNT + 0;
+	int BWITH_CONTEXT_EXPRESSION__NAME = BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BWITH_CONTEXT_EXPRESSION__TYPE = BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -7510,7 +7506,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BWITH_CONTEXT_EXPRESSION__EXPR = BEXPRESSION_FEATURE_COUNT + 1;
+	int BWITH_CONTEXT_EXPRESSION__EXPR = BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Context Block</b></em>' containment reference.
@@ -7520,7 +7516,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK = BEXPRESSION_FEATURE_COUNT + 2;
+	int BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK = BEXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>BWith Context Expression</em>' class.
@@ -7530,7 +7526,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BWITH_CONTEXT_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 3;
+	int BWITH_CONTEXT_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCallFeatureImpl <em>BCall Feature</em>}' class.
@@ -8214,18 +8210,6 @@ public interface B3backendPackage extends EPackage {
 	EClass getB3JavaImport();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getName()
-	 * @see #getB3JavaImport()
-	 * @generated
-	 */
-	EAttribute getB3JavaImport_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getQualifiedName
 	 * <em>Qualified Name</em>}'.
 	 * <!-- begin-user-doc -->
@@ -8249,18 +8233,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getB3JavaImport_Reexport();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getType()
-	 * @see #getB3JavaImport()
-	 * @generated
-	 */
-	EAttribute getB3JavaImport_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass <em>B3 Meta Class</em>}'.
@@ -8406,18 +8378,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBAdvice();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BAdvice#getName()
-	 * @see #getBAdvice()
-	 * @generated
-	 */
-	EAttribute getBAdvice_Name();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BAndExpression <em>BAnd Expression</em>}'.
@@ -9913,31 +9873,6 @@ public interface B3backendPackage extends EPackage {
 	EClass getBParameterPredicate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getName()
-	 * @see #getBParameterPredicate()
-	 * @generated
-	 */
-	EAttribute getBParameterPredicate_Name();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getType
-	 * <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '<em>Type</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getType()
-	 * @see #getBParameterPredicate()
-	 * @generated
-	 */
-	EReference getBParameterPredicate_Type();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getTypePredicateOp
 	 * <em>Type Predicate Op</em>}'.
 	 * <!-- begin-user-doc -->
@@ -10392,18 +10327,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBWithContextExpression();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression#getAlias <em>Alias</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Alias</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression#getAlias()
-	 * @see #getBWithContextExpression()
-	 * @generated
-	 */
-	EAttribute getBWithContextExpression_Alias();
 
 	/**
 	 * Returns the meta object for the containment reference '

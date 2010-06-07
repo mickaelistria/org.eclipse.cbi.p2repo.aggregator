@@ -2934,7 +2934,7 @@
       </elements>
       <elements xsi:type="xtext:Group" cardinality="?">
         <elements xsi:type="xtext:Keyword" value="as"/>
-        <elements xsi:type="xtext:Assignment" feature="alias" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.188"/>
         </elements>
       </elements>
@@ -3187,8 +3187,13 @@
           <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BVariableExpression"/>
         </type>
       </elements>
-      <elements xsi:type="xtext:Assignment" feature="name" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.109"/>
+      <elements xsi:type="xtext:Assignment" feature="namedValue" operator="=">
+        <terminal xsi:type="xtext:CrossReference">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//INamedValue"/>
+          </type>
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.109"/>
+        </terminal>
       </elements>
     </alternatives>
   </rules>
@@ -4147,7 +4152,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" cardinality="?" value="unit"/>
       </elements>
-      <elements xsi:type="xtext:Keyword" value="builder"/>
+      <elements xsi:type="xtext:Keyword" value="called-builder"/>
       <elements xsi:type="xtext:Assignment" feature="builderPredicate" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.142"/>
       </elements>

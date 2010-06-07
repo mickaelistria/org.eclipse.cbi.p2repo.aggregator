@@ -19,6 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BSimple Pattern Expression</b></em>'.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BSimplePatternExpressionTest extends BPatternLiteralExpressionTest {
@@ -26,6 +27,7 @@ public class BSimplePatternExpressionTest extends BPatternLiteralExpressionTest 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -33,6 +35,7 @@ public class BSimplePatternExpressionTest extends BPatternLiteralExpressionTest 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -43,6 +46,7 @@ public class BSimplePatternExpressionTest extends BPatternLiteralExpressionTest 
 	 * Constructs a new BSimple Pattern Expression test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BSimplePatternExpressionTest(String name) {
@@ -53,16 +57,18 @@ public class BSimplePatternExpressionTest extends BPatternLiteralExpressionTest 
 	 * Returns the fixture for this BSimple Pattern Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected BSimplePatternExpression getFixture() {
-		return (BSimplePatternExpression)fixture;
+		return (BSimplePatternExpression) fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -74,6 +80,7 @@ public class BSimplePatternExpressionTest extends BPatternLiteralExpressionTest 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

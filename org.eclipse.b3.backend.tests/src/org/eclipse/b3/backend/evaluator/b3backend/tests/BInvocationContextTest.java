@@ -18,9 +18,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext#evaluateIfNotCached(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression) <em>Evaluate If Not Cached</em>}</li>
+ * <li>
+ * {@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext#evaluateIfNotCached(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression)
+ * <em>Evaluate If Not Cached</em>}</li>
  * </ul>
  * </p>
+ * 
  * @generated
  */
 public class BInvocationContextTest extends BExecutionContextTest {
@@ -28,6 +31,7 @@ public class BInvocationContextTest extends BExecutionContextTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -35,6 +39,7 @@ public class BInvocationContextTest extends BExecutionContextTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -45,6 +50,7 @@ public class BInvocationContextTest extends BExecutionContextTest {
 	 * Constructs a new BInvocation Context test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BInvocationContextTest(String name) {
@@ -55,16 +61,18 @@ public class BInvocationContextTest extends BExecutionContextTest {
 	 * Returns the fixture for this BInvocation Context test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected BInvocationContext getFixture() {
-		return (BInvocationContext)fixture;
+		return (BInvocationContext) fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -76,6 +84,7 @@ public class BInvocationContextTest extends BExecutionContextTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

@@ -34,8 +34,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getTypePredicateOp <em>Type Predicate Op</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getTypePredicateOp <em>Type Predicate Op</em>}</li>
  * </ul>
  * </p>
  * 
@@ -73,6 +73,17 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type type;
+
+	/**
 	 * The default value of the '{@link #getTypePredicateOp() <em>Type Predicate Op</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,17 +104,6 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	 * @ordered
 	 */
 	protected String typePredicateOp = TYPE_PREDICATE_OP_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,10 +146,10 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 		switch(featureID) {
 			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
 				return getName();
-			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
-				return getTypePredicateOp();
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
 				return getType();
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
+				return getTypePredicateOp();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,12 +182,12 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 				return NAME_EDEFAULT == null
 						? name != null
 						: !NAME_EDEFAULT.equals(name);
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
+				return type != null;
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
 				return TYPE_PREDICATE_OP_EDEFAULT == null
 						? typePredicateOp != null
 						: !TYPE_PREDICATE_OP_EDEFAULT.equals(typePredicateOp);
-			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
-				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -204,11 +204,11 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
 				setName((String) newValue);
 				return;
-			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
-				setTypePredicateOp((String) newValue);
-				return;
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
 				setType((Type) newValue);
+				return;
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
+				setTypePredicateOp((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -237,11 +237,11 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
-				setTypePredicateOp(TYPE_PREDICATE_OP_EDEFAULT);
-				return;
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
 				setType((Type) null);
+				return;
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
+				setTypePredicateOp(TYPE_PREDICATE_OP_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
