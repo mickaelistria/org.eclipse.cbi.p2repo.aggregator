@@ -5,6 +5,9 @@ import java.util.List;
 function main(List argv) {
 	testKwParams();
 }
-function testKwParams(Integer unit, Integer builder) {
+function testKwParams() {
+	functionWithKwParams(1,1);
 	assertTrue("Parameter names should not cause syntax errors", true);
+}
+function functionWithKwParams(Integer unit, Integer builder) {
 }
