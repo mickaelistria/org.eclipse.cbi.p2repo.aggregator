@@ -19931,9 +19931,9 @@ rule__Prerequisite__Group_4__1__Impl
     }
 :
 (
-{ before(grammarAccess.getPrerequisiteAccess().getAliasAssignment_4_1()); }
-(rule__Prerequisite__AliasAssignment_4_1)
-{ after(grammarAccess.getPrerequisiteAccess().getAliasAssignment_4_1()); }
+{ before(grammarAccess.getPrerequisiteAccess().getNameAssignment_4_1()); }
+(rule__Prerequisite__NameAssignment_4_1)
+{ after(grammarAccess.getPrerequisiteAccess().getNameAssignment_4_1()); }
 )
 
 ;
@@ -56782,14 +56782,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Prerequisite__AliasAssignment_4_1
+rule__Prerequisite__NameAssignment_4_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getPrerequisiteAccess().getAliasIDTerminalRuleCall_4_1_0()); }
-	RULE_ID{ after(grammarAccess.getPrerequisiteAccess().getAliasIDTerminalRuleCall_4_1_0()); }
+{ before(grammarAccess.getPrerequisiteAccess().getNameIDTerminalRuleCall_4_1_0()); }
+	RULE_ID{ after(grammarAccess.getPrerequisiteAccess().getNameIDTerminalRuleCall_4_1_0()); }
 )
 
 ;

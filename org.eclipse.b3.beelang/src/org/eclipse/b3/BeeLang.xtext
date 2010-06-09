@@ -271,7 +271,7 @@ Prerequisite returns build::Prerequisite : {build::Prerequisite}
 	('when' '(' condExpr=Expression ')' )?
 	(withExpr = WithClause ':')?
 	buildResult=BuildResultReference
-	("as" alias=ID)? // ';'
+	("as" name=ID)? // ';'
 	;
 
 // Validation checks that there is at least one of references, properties or concern.
@@ -765,7 +765,6 @@ PropertyValue returns  be::BExpression : {be::BVariableExpression}
 	
 VariableValue returns  be::BExpression : {be::BVariableExpression}
 	namedValue = [be::INamedValue | ID_or_KW] 
-//	name = ID_or_KW 
 	;
 	
 ID_or_KW : ID | KW ;

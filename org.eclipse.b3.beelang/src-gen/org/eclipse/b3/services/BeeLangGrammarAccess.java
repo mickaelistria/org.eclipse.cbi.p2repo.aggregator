@@ -2717,17 +2717,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBuildResultBuildResultReferenceParserRuleCall_3_0 = (RuleCall)cBuildResultAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cAsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cAliasAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cAliasIDTerminalRuleCall_4_1_0 = (RuleCall)cAliasAssignment_4_1.eContents().get(0);
+		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		
 		//Prerequisite returns build::Prerequisite:
 		//	{build::Prerequisite} ("when" "(" condExpr=Expression ")")? (withExpr=WithClause ":")?
-		//	buildResult=BuildResultReference ("as" alias=ID)? // ';'
+		//	buildResult=BuildResultReference ("as" name=ID)? // ';'
 		//;
 		public ParserRule getRule() { return rule; }
 
 		//{build::Prerequisite} ("when" "(" condExpr=Expression ")")? (withExpr=WithClause ":")? buildResult=BuildResultReference
-		//("as" alias=ID)? // ';'
+		//("as" name=ID)? // ';'
 		public Group getGroup() { return cGroup; }
 
 		//{build::Prerequisite}
@@ -2769,17 +2769,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//BuildResultReference
 		public RuleCall getBuildResultBuildResultReferenceParserRuleCall_3_0() { return cBuildResultBuildResultReferenceParserRuleCall_3_0; }
 
-		//("as" alias=ID)?
+		//("as" name=ID)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"as"
 		public Keyword getAsKeyword_4_0() { return cAsKeyword_4_0; }
 
-		//alias=ID
-		public Assignment getAliasAssignment_4_1() { return cAliasAssignment_4_1; }
+		//name=ID
+		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
 		//ID
-		public RuleCall getAliasIDTerminalRuleCall_4_1_0() { return cAliasIDTerminalRuleCall_4_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_4_1_0() { return cNameIDTerminalRuleCall_4_1_0; }
 	}
 
 	public class WithClauseElements extends AbstractParserRuleElementFinder {
@@ -12535,7 +12535,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Prerequisite returns build::Prerequisite:
 	//	{build::Prerequisite} ("when" "(" condExpr=Expression ")")? (withExpr=WithClause ":")?
-	//	buildResult=BuildResultReference ("as" alias=ID)? // ';'
+	//	buildResult=BuildResultReference ("as" name=ID)? // ';'
 	//;
 	public PrerequisiteElements getPrerequisiteAccess() {
 		return (pPrerequisite != null) ? pPrerequisite : (pPrerequisite = new PrerequisiteElements());

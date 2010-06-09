@@ -1096,7 +1096,7 @@
       </elements>
       <elements xsi:type="xtext:Group" cardinality="?">
         <elements xsi:type="xtext:Keyword" value="as"/>
-        <elements xsi:type="xtext:Assignment" feature="alias" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.188"/>
         </elements>
       </elements>

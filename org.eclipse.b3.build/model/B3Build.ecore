@@ -125,7 +125,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pathVectors" upperBound="-1"
         eType="#//ConditionalPathVector" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Prerequisite">
+  <eClassifiers xsi:type="ecore:EClass" name="Prerequisite" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//INamedValue">
     <eOperations name="getEffectiveRequirements" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//JavaIterator">
         <eTypeArguments eClassifier="#//EffectiveRequirementFacade"/>
@@ -149,7 +149,6 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="withExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BWithExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildResult" eType="#//BuildResultReference"

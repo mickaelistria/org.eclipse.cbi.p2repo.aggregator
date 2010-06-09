@@ -2125,15 +2125,6 @@ public interface B3BuildPackage extends EPackage {
 		EReference PREREQUISITE__COND_EXPR = eINSTANCE.getPrerequisite_CondExpr();
 
 		/**
-		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute PREREQUISITE__ALIAS = eINSTANCE.getPrerequisite_Alias();
-
-		/**
 		 * The meta object literal for the '<em><b>With Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3325,6 +3316,26 @@ public interface B3BuildPackage extends EPackage {
 	int PATH_GROUP_FEATURE_COUNT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PREREQUISITE__NAME = B3backendPackage.INAMED_VALUE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PREREQUISITE__TYPE = B3backendPackage.INAMED_VALUE__TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3332,17 +3343,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PREREQUISITE__COND_EXPR = 0;
-
-	/**
-	 * The feature id for the '<em><b>Alias</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PREREQUISITE__ALIAS = 1;
+	int PREREQUISITE__COND_EXPR = B3backendPackage.INAMED_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>With Expr</b></em>' containment reference.
@@ -3352,7 +3353,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PREREQUISITE__WITH_EXPR = 2;
+	int PREREQUISITE__WITH_EXPR = B3backendPackage.INAMED_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Build Result</b></em>' containment reference.
@@ -3362,7 +3363,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PREREQUISITE__BUILD_RESULT = 3;
+	int PREREQUISITE__BUILD_RESULT = B3backendPackage.INAMED_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Prerequisite</em>' class.
@@ -3372,7 +3373,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PREREQUISITE_FEATURE_COUNT = 4;
+	int PREREQUISITE_FEATURE_COUNT = B3backendPackage.INAMED_VALUE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Build Result Reference</em>' class.
@@ -9224,18 +9225,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPrerequisite();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Prerequisite#getAlias <em>Alias</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Alias</em>'.
-	 * @see org.eclipse.b3.build.build.Prerequisite#getAlias()
-	 * @see #getPrerequisite()
-	 * @generated
-	 */
-	EAttribute getPrerequisite_Alias();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Prerequisite#getBuildResult <em>Build Result</em>}'.

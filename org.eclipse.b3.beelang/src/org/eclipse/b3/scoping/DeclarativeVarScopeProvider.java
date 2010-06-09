@@ -11,7 +11,8 @@ package org.eclipse.b3.scoping;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
@@ -26,9 +27,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.build.build.BeeModel;
+import org.eclipse.b3.build.build.Builder;
+import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.b3.build.build.UnitProvider;
 import org.eclipse.b3.build.core.B3BuildConstants;
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.b3.build.engine.B3BuildEngineResource;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -61,8 +65,6 @@ public class DeclarativeVarScopeProvider {
 				return handleError(params, e);
 			}
 		});
-
-	private List<Object> inferenceStack = new ArrayList<Object>();
 
 	/**
 	 * Safe create SimpleScope (if outer is null).
@@ -159,6 +161,51 @@ public class DeclarativeVarScopeProvider {
 		return createScope(doGetVarScope(container.eContainer(), container), result);
 	}
 
+	/**
+	 * A Builder scope has the implicit variables input, source and output, as well as the prerequisite aliases
+	 * declared in the "input" declaration. All of these are added to the scope.
+	 * Note that the input can define the same alias more than once, it should only be presented once though.
+	 * 
+	 * @param container
+	 * @param contained
+	 * @return
+	 */
+	IScope varScope(Builder container, EObject contained) {
+		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
+		B3BuildEngineResource r = (B3BuildEngineResource) container.eResource().getResourceSet().getResource(uri, false);
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+
+		BDefValue varInput = r.getVarInput();
+		if(container.getInput() != null) {
+			result.add(new EObjectDescription(varInput.getName(), varInput, null));
+			TreeIterator<EObject> itor = container.getInput().eAllContents();
+			Map<String, Prerequisite> aliasMap = new HashMap<String, Prerequisite>();
+			while(itor.hasNext()) {
+				EObject e = itor.next();
+				if(e instanceof Prerequisite) {
+					Prerequisite p = (Prerequisite) e;
+					String n = p.getName();
+					if(n != null && n.length() > 0 && !aliasMap.containsKey(n))
+						aliasMap.put(n, p);
+				}
+			}
+			for(Map.Entry<String, Prerequisite> element : aliasMap.entrySet())
+				result.add(new EObjectDescription(element.getValue().getName(), element.getValue(), null));
+		}
+		BDefValue varOutput = r.getVarOutput();
+		if(container.getOutput() != null) {
+			result.add(new EObjectDescription(varOutput.getName(), varOutput, null));
+		}
+
+		BDefValue varSource = r.getVarSource();
+		if(container.getOutput() != null) {
+			result.add(new EObjectDescription(varSource.getName(), varSource, null));
+		}
+
+		return createScope(doGetVarScope(container.eContainer(), container), result);
+
+	}
+
 	IScope varScope(BVariableExpression varExpr) {
 		IScope scope = doGetVarScope(varExpr.eContainer(), varExpr);
 		if(scope == null)
@@ -197,17 +244,11 @@ public class DeclarativeVarScopeProvider {
 	 * @return
 	 */
 	IScope varScope(UnitProvider container, EObject contained) {
-		URI uri = URI.createURI("b3engine:/default");
+		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
 		Resource r = container.eResource().getResourceSet().getResource(uri, false);
-		EList<EObject> contents = r.getContents();
-		for(EObject e : contents) {
-			if(e instanceof BDefValue && B3BuildConstants.B3_VAR_REQUEST.equals(((BDefValue) e).getName())) {
-				ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-				result.add(new EObjectDescription(((INamedValue) e).getName(), e, null));
-				return createScope(doGetVarScope(container.eContainer(), container), result);
-			}
-		}
-		// did not find it...
-		return doGetVarScope(container.eContainer(), container);
+		BDefValue req = ((B3BuildEngineResource) r).getVarRequest();
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		result.add(new EObjectDescription(req.getName(), req, null));
+		return createScope(doGetVarScope(container.eContainer(), container), result);
 	}
 }

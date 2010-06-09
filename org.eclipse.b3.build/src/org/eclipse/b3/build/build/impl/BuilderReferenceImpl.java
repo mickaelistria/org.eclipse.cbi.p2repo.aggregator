@@ -331,7 +331,7 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 		while(container != null && !(container instanceof BuilderInput)) {
 			if(container instanceof Prerequisite) {
 				// in case of bogus input where same aliases used multiple times, just add it once
-				String a = ((Prerequisite) container).getAlias();
+				String a = ((Prerequisite) container).getName();
 				if(!facade.getAliases().contains(a))
 					facade.getAliases().add(a);
 			}

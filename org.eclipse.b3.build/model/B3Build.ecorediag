@@ -83,10 +83,6 @@
     <children xmi:type="notation:Node" xmi:id="_oMvCgPR2Ed6fhZ-cYf2Uvg" type="1001">
       <children xmi:type="notation:Node" xmi:id="_oMxewPR2Ed6fhZ-cYf2Uvg" type="4001"/>
       <children xmi:type="notation:Node" xmi:id="_oMyF0PR2Ed6fhZ-cYf2Uvg" type="5001">
-        <children xmi:type="notation:Node" xmi:id="_3A-oAPR4Ed6fhZ-cYf2Uvg" type="2001">
-          <element xmi:type="ecore:EAttribute" href="B3Build.ecore#//Prerequisite/alias"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_3A-oAfR4Ed6fhZ-cYf2Uvg"/>
-        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_oMyF0fR2Ed6fhZ-cYf2Uvg"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_oMyF0vR2Ed6fhZ-cYf2Uvg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_oMyF0_R2Ed6fhZ-cYf2Uvg"/>
@@ -326,6 +322,25 @@
       <styles xmi:type="notation:ShapeStyle" xmi:id="_uN00ARpOEd-wE6Rt8B74sQ" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//IType"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uN00AhpOEd-wE6Rt8B74sQ" x="450" y="36"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_K_1y8HKYEd-Xyeal-c_zow" type="1001">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LCNKcHKYEd-Xyeal-c_zow" source="Shortcut">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LCNKcXKYEd-Xyeal-c_zow" key="modelID" value="EcoreTools"/>
+      </eAnnotations>
+      <children xmi:type="notation:Node" xmi:id="_LAG4sHKYEd-Xyeal-c_zow" type="4001"/>
+      <children xmi:type="notation:Node" xmi:id="_LAHfwHKYEd-Xyeal-c_zow" type="5001">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_LAHfwXKYEd-Xyeal-c_zow"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_LAHfwnKYEd-Xyeal-c_zow"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_LAHfw3KYEd-Xyeal-c_zow"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_LAHfxHKYEd-Xyeal-c_zow" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_LAHfxXKYEd-Xyeal-c_zow"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_LAHfxnKYEd-Xyeal-c_zow"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_LAHfx3KYEd-Xyeal-c_zow"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_K_1y8XKYEd-Xyeal-c_zow" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+      <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//INamedValue"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K_1y8nKYEd-Xyeal-c_zow" x="171" y="486"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_2zMlwfPrEd6fhZ-cYf2Uvg"/>
     <element xmi:type="ecore:EPackage" href="B3Build.ecore#/"/>
@@ -636,6 +651,14 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RW9WkxzkEd-q6dBg_wgfLg" points="[-5, 14, 0, -89]$[-5, 103, 0, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RXCPEBzkEd-q6dBg_wgfLg" id="(0.2677595628415301,0.9409282700421941)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RXCPERzkEd-q6dBg_wgfLg" id="(0.7941176470588235,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_NwShUHKYEd-Xyeal-c_zow" type="3003" source="_oMvCgPR2Ed6fhZ-cYf2Uvg" target="_K_1y8HKYEd-Xyeal-c_zow">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_NwShUXKYEd-Xyeal-c_zow" routing="Rectilinear" lineColor="4210752"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_NwShUnKYEd-Xyeal-c_zow" fontName="Lucida Grande"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NwShU3KYEd-Xyeal-c_zow" points="[16, 0, 73, 41]$[16, -45, 73, -4]$[-37, -45, 20, -4]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NwTvcHKYEd-Xyeal-c_zow" id="(0.04395604395604396,0.011363636363636364)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NwUWgHKYEd-Xyeal-c_zow" id="(0.803921568627451,0.5409836065573771)"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_yqxq8PQDEd6fhZ-cYf2Uvg" type="EcoreTools" name="DataTypes" measurementUnit="Pixel">

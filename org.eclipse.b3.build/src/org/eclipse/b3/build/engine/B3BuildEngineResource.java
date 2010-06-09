@@ -14,6 +14,7 @@ import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
+import org.eclipse.b3.build.build.BuildSet;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.emf.common.util.EList;
@@ -45,11 +46,45 @@ public class B3BuildEngineResource extends ResourceImpl {
 
 	private BDefValue varRequest;
 
+	private BDefValue varInput;
+
+	private BDefValue varOutput;
+
+	private BDefValue varSource;
+
 	/**
 	 * @param uri
 	 */
 	public B3BuildEngineResource(URI uri) {
 		super(uri);
+	}
+
+	/**
+	 * @return the varInput
+	 */
+	public BDefValue getVarInput() {
+		return varInput;
+	}
+
+	/**
+	 * @return the varOutput
+	 */
+	public BDefValue getVarOutput() {
+		return varOutput;
+	}
+
+	/**
+	 * @return the varRequest
+	 */
+	public BDefValue getVarRequest() {
+		return varRequest;
+	}
+
+	/**
+	 * @return the varSource
+	 */
+	public BDefValue getVarSource() {
+		return varSource;
 	}
 
 	/*
@@ -62,6 +97,15 @@ public class B3BuildEngineResource extends ResourceImpl {
 		EList<EObject> content = getContents();
 		varRequest = createValue(B3BuildConstants.B3_VAR_REQUEST, RequiredCapability.class, true);
 		content.add(varRequest);
+
+		varInput = createValue(B3BuildConstants.B3_VAR_INPUT, BuildSet.class, true);
+		content.add(varInput);
+
+		varOutput = createValue(B3BuildConstants.B3_VAR_OUTPUT, BuildSet.class, true);
+		content.add(varOutput);
+
+		varSource = createValue(B3BuildConstants.B3_VAR_OUTPUT, BuildSet.class, true);
+		content.add(varSource);
 	}
 
 	/*

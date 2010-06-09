@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -42,8 +43,9 @@ import org.eclipse.emf.ecore.util.EcoreEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getType <em>Type</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getCondExpr <em>Cond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getAlias <em>Alias</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getWithExpr <em>With Expr</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getBuildResult <em>Build Result</em>}</li>
  * </ul>
@@ -52,6 +54,39 @@ import org.eclipse.emf.ecore.util.EcoreEList;
  * @generated
  */
 public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type type;
+
 	/**
 	 * The cached value of the '{@link #getCondExpr() <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -62,28 +97,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * @ordered
 	 */
 	protected BExpression condExpr;
-
-	/**
-	 * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getAlias()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ALIAS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getAlias()
-	 * @generated
-	 * @ordered
-	 */
-	protected String alias = ALIAS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getWithExpr() <em>With Expr</em>}' containment reference.
@@ -163,6 +176,26 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * 
 	 * @generated
 	 */
+	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
+		Type oldType = type;
+		type = newType;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.PREREQUISITE__TYPE, oldType, newType);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public NotificationChain basicSetWithExpr(BWithExpression newWithExpr, NotificationChain msgs) {
 		BWithExpression oldWithExpr = withExpr;
 		withExpr = newWithExpr;
@@ -186,10 +219,12 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
+			case B3BuildPackage.PREREQUISITE__NAME:
+				return getName();
+			case B3BuildPackage.PREREQUISITE__TYPE:
+				return getType();
 			case B3BuildPackage.PREREQUISITE__COND_EXPR:
 				return getCondExpr();
-			case B3BuildPackage.PREREQUISITE__ALIAS:
-				return getAlias();
 			case B3BuildPackage.PREREQUISITE__WITH_EXPR:
 				return getWithExpr();
 			case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
@@ -207,6 +242,8 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
+			case B3BuildPackage.PREREQUISITE__TYPE:
+				return basicSetType(null, msgs);
 			case B3BuildPackage.PREREQUISITE__COND_EXPR:
 				return basicSetCondExpr(null, msgs);
 			case B3BuildPackage.PREREQUISITE__WITH_EXPR:
@@ -226,12 +263,14 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
+			case B3BuildPackage.PREREQUISITE__NAME:
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
+			case B3BuildPackage.PREREQUISITE__TYPE:
+				return type != null;
 			case B3BuildPackage.PREREQUISITE__COND_EXPR:
 				return condExpr != null;
-			case B3BuildPackage.PREREQUISITE__ALIAS:
-				return ALIAS_EDEFAULT == null
-						? alias != null
-						: !ALIAS_EDEFAULT.equals(alias);
 			case B3BuildPackage.PREREQUISITE__WITH_EXPR:
 				return withExpr != null;
 			case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
@@ -249,11 +288,14 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
+			case B3BuildPackage.PREREQUISITE__NAME:
+				setName((String) newValue);
+				return;
+			case B3BuildPackage.PREREQUISITE__TYPE:
+				setType((Type) newValue);
+				return;
 			case B3BuildPackage.PREREQUISITE__COND_EXPR:
 				setCondExpr((BExpression) newValue);
-				return;
-			case B3BuildPackage.PREREQUISITE__ALIAS:
-				setAlias((String) newValue);
 				return;
 			case B3BuildPackage.PREREQUISITE__WITH_EXPR:
 				setWithExpr((BWithExpression) newValue);
@@ -285,11 +327,14 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
+			case B3BuildPackage.PREREQUISITE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case B3BuildPackage.PREREQUISITE__TYPE:
+				setType((Type) null);
+				return;
 			case B3BuildPackage.PREREQUISITE__COND_EXPR:
 				setCondExpr((BExpression) null);
-				return;
-			case B3BuildPackage.PREREQUISITE__ALIAS:
-				setAlias(ALIAS_EDEFAULT);
 				return;
 			case B3BuildPackage.PREREQUISITE__WITH_EXPR:
 				setWithExpr((BWithExpression) null);
@@ -299,16 +344,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public String getAlias() {
-		return alias;
 	}
 
 	/**
@@ -400,6 +435,16 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public EList<RequiredCapability> getRequirements() throws Throwable {
@@ -421,8 +466,8 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * 
 	 * @generated
 	 */
-	public BWithExpression getWithExpr() {
-		return withExpr;
+	public Type getType() {
+		return type;
 	}
 
 	/**
@@ -431,11 +476,8 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * 
 	 * @generated
 	 */
-	public void setAlias(String newAlias) {
-		String oldAlias = alias;
-		alias = newAlias;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__ALIAS, oldAlias, alias));
+	public BWithExpression getWithExpr() {
+		return withExpr;
 	}
 
 	/**
@@ -492,6 +534,42 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * 
 	 * @generated
 	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setType(Type newType) {
+		if(newType != type) {
+			NotificationChain msgs = null;
+			if(type != null)
+				msgs = ((InternalEObject) type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.PREREQUISITE__TYPE, null, msgs);
+			if(newType != null)
+				msgs = ((InternalEObject) newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.PREREQUISITE__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setWithExpr(BWithExpression newWithExpr) {
 		if(newWithExpr != withExpr) {
 			NotificationChain msgs = null;
@@ -522,8 +600,8 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (alias: ");
-		result.append(alias);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

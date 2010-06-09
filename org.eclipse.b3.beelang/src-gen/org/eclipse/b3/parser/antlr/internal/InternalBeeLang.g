@@ -5084,9 +5084,9 @@ rulePrerequisite returns [EObject current=null]
     }
 (
 (
-		lv_alias_9_0=RULE_ID
+		lv_name_9_0=RULE_ID
 		{
-			createLeafNode(grammarAccess.getPrerequisiteAccess().getAliasIDTerminalRuleCall_4_1_0(), "alias"); 
+			createLeafNode(grammarAccess.getPrerequisiteAccess().getNameIDTerminalRuleCall_4_1_0(), "name"); 
 		}
 		{
 	        if ($current==null) {
@@ -5096,8 +5096,8 @@ rulePrerequisite returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"alias",
-	        		lv_alias_9_0, 
+	       			"name",
+	        		lv_name_9_0, 
 	        		"ID", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {

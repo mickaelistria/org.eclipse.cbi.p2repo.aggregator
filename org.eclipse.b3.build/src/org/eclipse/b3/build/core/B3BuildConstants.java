@@ -28,6 +28,12 @@ public interface B3BuildConstants extends B3BackendConstants {
 	 */
 	public static final String B3_VAR_REQUEST = "request";
 
+	public static final String B3_VAR_INPUT = "input";
+
+	public static final String B3_VAR_OUTPUT = "output";
+
+	public static final String B3_VAR_SOURCE = "source";
+
 	/**
 	 * Variable name for the repository configuration to use when resolving requirements.
 	 */
@@ -42,4 +48,6 @@ public interface B3BuildConstants extends B3BackendConstants {
 	 * Guice Key to get custom resolution scope. (To enter/exit the scope).
 	 */
 	public static final Key<SharedScope> KEY_RESOLUTION_SCOPE = Key.get(SharedScope.class, Names.named("resolution"));
+
+	public static final String B3ENGINE_MODEL_URI = "b3engine:/default";
 }

@@ -11,8 +11,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.build.build.Prerequisite#getCondExpr <em>Cond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.Prerequisite#getAlias <em>Alias</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Prerequisite#getWithExpr <em>With Expr</em>}</li>
  * <li>{@link org.eclipse.b3.build.build.Prerequisite#getBuildResult <em>Build Result</em>}</li>
  * </ul>
@@ -33,23 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Prerequisite extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Alias</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Alias</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Alias</em>' attribute.
-	 * @see #setAlias(String)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getPrerequisite_Alias()
-	 * @model
-	 * @generated
-	 */
-	String getAlias();
-
+public interface Prerequisite extends INamedValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,18 +115,6 @@ public interface Prerequisite extends EObject {
 	 * @generated
 	 */
 	BWithExpression getWithExpr();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.Prerequisite#getAlias <em>Alias</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Alias</em>' attribute.
-	 * @see #getAlias()
-	 * @generated
-	 */
-	void setAlias(String value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.Prerequisite#getBuildResult <em>Build Result</em>}' containment reference.

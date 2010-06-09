@@ -814,7 +814,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		prerequisiteEClass = createEClass(PREREQUISITE);
 		createEReference(prerequisiteEClass, PREREQUISITE__COND_EXPR);
-		createEAttribute(prerequisiteEClass, PREREQUISITE__ALIAS);
 		createEReference(prerequisiteEClass, PREREQUISITE__WITH_EXPR);
 		createEReference(prerequisiteEClass, PREREQUISITE__BUILD_RESULT);
 
@@ -2821,18 +2820,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getPrerequisite_Alias() {
-		return (EAttribute) prerequisiteEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EReference getPrerequisite_BuildResult() {
-		return (EReference) prerequisiteEClass.getEStructuralFeatures().get(3);
+		return (EReference) prerequisiteEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2852,7 +2841,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	public EReference getPrerequisite_WithExpr() {
-		return (EReference) prerequisiteEClass.getEStructuralFeatures().get(2);
+		return (EReference) prerequisiteEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3418,6 +3407,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		iBuilderEClass.getESuperTypes().add(this.getIProvidedCapabilityContainer());
 		iBuilderEClass.getESuperTypes().add(theB3backendPackage.getIFunction());
 		versionedCapabilityEClass.getESuperTypes().add(this.getCapability());
+		prerequisiteEClass.getESuperTypes().add(theB3backendPackage.getINamedValue());
 		compoundBuildResultReferenceEClass.getESuperTypes().add(this.getBuildResultReference());
 		builderReferenceEClass.getESuperTypes().add(this.getBuildResultReference());
 		requiredCapabilityEClass.getESuperTypes().add(this.getCapability());
@@ -3651,9 +3641,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getPrerequisite_CondExpr(), theB3backendPackage.getBExpression(), null, "condExpr", null, 0, 1,
 			Prerequisite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getPrerequisite_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, Prerequisite.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getPrerequisite_WithExpr(), theB3backendPackage.getBWithExpression(), null, "withExpr", null, 0, 1,
 			Prerequisite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
