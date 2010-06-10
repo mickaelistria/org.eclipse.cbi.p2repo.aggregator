@@ -3,13 +3,13 @@
 * 
 */
 import java.util.List; // cheat, need a type, don't have the actual types yet...
-import java.util.Map; // - " -
+import java.util.Map; // - " - 
 import org.eclipse.b3.beelang.tests.repo.TestRepo;
 
 function main(List argv) {
 	testBuildUnitSyntax();
 }
-function testBuildUnitSyntax() {
+function testBuildUnitSyntax {
 	true; // test is ok if this file can be parsed without errors
 }
 
@@ -18,7 +18,7 @@ function testBuildUnitSyntax() {
 */
 concern TestingBuildUnitConcernSyntaxSimple {
 	// define functions intermixed with other things
-	function foo() : "foo";
+	function foo() : "foo"; 
 	
 	// implements with type reference
 	unit-context {
@@ -237,6 +237,7 @@ unit aTestUnit version 1.0.0 {
 			local : "file://aLocalURL/"; 
 			user : "hello";
 			password : "hush-hush";
+			branches : [ branch main { exclude : [ "1_Complex.Name" ]; update-policy : fail_modified; }];
 		}
 
 	resolution : [
@@ -248,12 +249,22 @@ unit aTestUnit version 1.0.0 {
 	
 	builder peel {
 		output : [ bananapeel.txt ];
+		result: output;
 	}
 	builder seeds {
 		output : [ bananaseeds.txt ] ;
 	}
 	builder pulp {
-		output : [ bananapulp.txt ] ;	
+		// test that groups in the input are available as variables in "result" 
+		// why does 
+		input : [ capability {name : "bar.a"; }.bar() as theBars, capability { name : "foo"; }.foo() as theFoos];
+		output : [ bananapulp.txt ] ;
+		result : theFoos.merge(theBars);
 	}
+}
+unit testUnit2 {
+	builder foo {
+		input : [ capability {name : "bar.a"; }.bar() as aaaBBB, capability { name : "foo"; }.foo() as aaaCCC];
 	
+	}
 }
