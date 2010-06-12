@@ -4,13 +4,12 @@
 */
 import java.util.List; // cheat, need a type, don't have the actual types yet...
 import java.util.Map; // - " - 
-import org.eclipse.b3.beelang.tests.repo.TestRepo;
 
 function main(List argv) {
 	testBuildUnitSyntax();
 }
 function testBuildUnitSyntax {
-	true; // test is ok if this file can be parsed without errors
+		true; // test is ok if this file can be parsed without errors
 }
 
 /**
@@ -214,7 +213,7 @@ concern TestingUnitContextBody {
 		};
 	}
 }
-	repository cvs TestRepo {
+	repository cvs TestRepo1 {
 			connection : "http://abc.org" ; 
 			local : "file://aLocalURL/"; 
 			user : "hello";
@@ -232,7 +231,7 @@ unit aTestUnit version 1.0.0 {
 	source : "resource:/a.b.c/src/";
 	output : "output:/a.b.c/";
 	
-	repository cvs TestRepo {
+	repository cvs TestRepo2 {
 			connection : "http://abc.org" ; 
 			local : "file://aLocalURL/"; 
 			user : "hello";
@@ -242,8 +241,8 @@ unit aTestUnit version 1.0.0 {
 
 	resolution : [
 		select-switch request.name 
-			case "a" : 	repository TestRepo { path : "foo"; }
-			case _ : 	repository TestRepo
+			case "a" : 	repository TestRepo1 { path : "foo"; }
+			case _ : 	repository TestRepo2
 			endswitch
 	];
 	
