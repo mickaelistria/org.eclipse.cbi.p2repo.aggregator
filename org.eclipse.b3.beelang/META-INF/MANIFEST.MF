@@ -27,6 +27,7 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.common.types
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6,J2SE-1.5
 Export-Package: org.eclipse.b3,
+ org.eclipse.b3.enums,
  org.eclipse.b3.parseTreeConstruction,
  org.eclipse.b3.parser.antlr,
  org.eclipse.b3.parser.antlr.internal,

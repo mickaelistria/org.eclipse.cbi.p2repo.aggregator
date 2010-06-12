@@ -392,14 +392,15 @@ Repository returns build::Repository : {build::Repository}
 enum BranchPointTypeLatest returns build::BranchPointType :  Latest="latest" ;
 enum BranchPointTypeOther returns build::BranchPointType : Latest="latest" | Revision="revision" | Tag="tag" | Timestamp = "timestamp";
 //enum BranchPointTypeTs returns build::BranchPointType : Timestamp="timestamp" ;
-enum UpdateStrategy returns build::UpdateStrategy : 
-	  FailModified = "fail-modified"
-	| KeepModified = "keep-modified"
-	| Merge = "merge-modified"
-	| NoUpdate = "no-update"
-	| ReplaceModified = "replace-modified"
-	| BranchPointDefault = "default"
-;
+//enum
+UpdateStrategy returns build::UpdateStrategy : ID_or_KW;
+//	  FailModified = "fail-modified"
+//	| KeepModified = "keep-modified"
+//	| Merge = "merge-modified"
+//	| NoUpdate = "no-update"
+//	| ReplaceModified = "replace-modified"
+//	| BranchPointDefault = "default"
+//;
 	
 //		  | (branchPointType = BranchPointTypeTs branchPointTs = TIMESTAMP ';') 
 

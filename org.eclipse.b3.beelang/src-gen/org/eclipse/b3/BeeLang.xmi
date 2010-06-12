@@ -1647,36 +1647,11 @@
       </elements>
     </alternatives>
   </rules>
-  <rules xsi:type="xtext:EnumRule" name="UpdateStrategy">
+  <rules xsi:type="xtext:ParserRule" name="UpdateStrategy">
     <type metamodel="//@metamodelDeclarations.2">
       <classifier xsi:type="ecore:EEnum" href="http://b3build/1.0#//UpdateStrategy"/>
     </type>
-    <alternatives xsi:type="xtext:Alternatives">
-      <elements xsi:type="xtext:EnumLiteralDeclaration">
-        <enumLiteral href="http://b3build/1.0#//UpdateStrategy/FailModified"/>
-        <literal value="fail-modified"/>
-      </elements>
-      <elements xsi:type="xtext:EnumLiteralDeclaration">
-        <enumLiteral href="http://b3build/1.0#//UpdateStrategy/KeepModified"/>
-        <literal value="keep-modified"/>
-      </elements>
-      <elements xsi:type="xtext:EnumLiteralDeclaration">
-        <enumLiteral href="http://b3build/1.0#//UpdateStrategy/Merge"/>
-        <literal value="merge-modified"/>
-      </elements>
-      <elements xsi:type="xtext:EnumLiteralDeclaration">
-        <enumLiteral href="http://b3build/1.0#//UpdateStrategy/NoUpdate"/>
-        <literal value="no-update"/>
-      </elements>
-      <elements xsi:type="xtext:EnumLiteralDeclaration">
-        <enumLiteral href="http://b3build/1.0#//UpdateStrategy/ReplaceModified"/>
-        <literal value="replace-modified"/>
-      </elements>
-      <elements xsi:type="xtext:EnumLiteralDeclaration">
-        <enumLiteral href="http://b3build/1.0#//UpdateStrategy/BranchPointDefault"/>
-        <literal value="default"/>
-      </elements>
-    </alternatives>
+    <alternatives xsi:type="xtext:RuleCall" rule="//@rules.109"/>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="Branch">
     <type metamodel="//@metamodelDeclarations.2">

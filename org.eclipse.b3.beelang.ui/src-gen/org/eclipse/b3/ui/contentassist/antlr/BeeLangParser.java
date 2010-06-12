@@ -151,7 +151,6 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAlfanumSymAccess().getAlternatives_1_1(), "rule__AlfanumSym__Alternatives_1_1");
 					put(grammarAccess.getREALAccess().getAlternatives_2(), "rule__REAL__Alternatives_2");
 					put(grammarAccess.getBranchPointTypeOtherAccess().getAlternatives(), "rule__BranchPointTypeOther__Alternatives");
-					put(grammarAccess.getUpdateStrategyAccess().getAlternatives(), "rule__UpdateStrategy__Alternatives");
 					put(grammarAccess.getVisibilityAccess().getAlternatives(), "rule__Visibility__Alternatives");
 					put(grammarAccess.getExecutionModeAccess().getAlternatives(), "rule__ExecutionMode__Alternatives");
 					put(grammarAccess.getBeeModelAccess().getGroup(), "rule__BeeModel__Group__0");

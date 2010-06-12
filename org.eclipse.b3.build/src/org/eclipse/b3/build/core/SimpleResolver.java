@@ -182,7 +182,7 @@ public class SimpleResolver implements IBuildUnitResolver {
 					IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
 					"Resolution failed with exception", e));
 				// TODO: do something better than print stack trace
-				e.printStackTrace();
+				// e.printStackTrace();
 				reqAdapter.setAssociatedInfo(this, ri);
 				ms.add(ri.getStatus());
 			}

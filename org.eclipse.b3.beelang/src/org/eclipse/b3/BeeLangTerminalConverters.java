@@ -22,6 +22,8 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 import org.eclipse.b3.backend.core.SimplePattern;
+import org.eclipse.b3.build.build.UpdateStrategy;
+import org.eclipse.b3.enums.UpdateStrategyEnumHelper;
 import org.eclipse.b3.validation.FixableTimestampException;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
@@ -359,6 +361,11 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 				}
 			}
 		};
+	}
+
+	@ValueConverter(rule = "UpdateStrategy")
+	public IValueConverter<UpdateStrategy> UpdateStrategy() {
+		return UpdateStrategyEnumHelper.getValueConverter();
 	}
 
 	@ValueConverter(rule = "URI")

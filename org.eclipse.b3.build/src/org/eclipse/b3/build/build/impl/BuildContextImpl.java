@@ -27,9 +27,11 @@ import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.IBuilder;
+import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapter;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.osgi.util.NLS;
 
 /**
  * <!-- begin-user-doc -->
@@ -114,6 +116,25 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 		// define all of the unit's builders
 		for(IBuilder b : unit.getBuilders())
 			defineFunction(b);
+
+		// Evaluate REPOSITORIES
+		// (This will create the repository impl instances
+		// Resolvers using the repositories links to the repository instances and will pick up
+		// the impl instances).
+		Repository x = null; // remembered if there is an error
+		for(Repository r : unit.getRepositories())
+			try {
+				x = r;
+				r.evaluate(this);
+			}
+			catch(Throwable e) {
+				throw new B3EngineException(NLS.bind(
+					"Evaluation of repositories in unit {0} failed for repository {1}.", new Object[] {
+							unit.getName(), x == null
+									? "null"
+									: x.getName() }), e);
+			}
+
 	}
 
 	/**

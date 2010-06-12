@@ -4008,6 +4008,20 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_5_1_4() { return cRightCurlyBracketKeyword_5_1_4; }
 	}
 
+	public class UpdateStrategyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UpdateStrategy");
+		private final RuleCall cID_or_KWParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		////enum BranchPointTypeTs returns build::BranchPointType : Timestamp="timestamp" ;
+		////enum
+		//UpdateStrategy returns build::UpdateStrategy:
+		//	ID_or_KW;
+		public ParserRule getRule() { return rule; }
+
+		//ID_or_KW
+		public RuleCall getID_or_KWParserRuleCall() { return cID_or_KWParserRuleCall; }
+	}
+
 	public class BranchElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Branch");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -4035,7 +4049,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cUpdatePolicyKeyword_5_1_0 = (Keyword)cGroup_5_1.eContents().get(0);
 		private final Keyword cColonKeyword_5_1_1 = (Keyword)cGroup_5_1.eContents().get(1);
 		private final Assignment cUpdateStrategyAssignment_5_1_2 = (Assignment)cGroup_5_1.eContents().get(2);
-		private final RuleCall cUpdateStrategyUpdateStrategyEnumRuleCall_5_1_2_0 = (RuleCall)cUpdateStrategyAssignment_5_1_2.eContents().get(0);
+		private final RuleCall cUpdateStrategyUpdateStrategyParserRuleCall_5_1_2_0 = (RuleCall)cUpdateStrategyAssignment_5_1_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_5_1_3 = (Keyword)cGroup_5_1.eContents().get(3);
 		private final Group cGroup_5_2 = (Group)cUnorderedGroup_5.eContents().get(2);
 		private final Keyword cExcludeKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
@@ -4063,6 +4077,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_5_3_6 = (Keyword)cGroup_5_3.eContents().get(6);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
+		////	  FailModified = "fail-modified"
+		////	| KeepModified = "keep-modified"
+		////	| Merge = "merge-modified"
+		////	| NoUpdate = "no-update"
+		////	| ReplaceModified = "replace-modified"
+		////	| BranchPointDefault = "default"
+		////;
 		////		  | (branchPointType = BranchPointTypeTs branchPointTs = TIMESTAMP ';') 
 		//Branch returns build::Branch:
 		//	{build::Branch} documentation=DOCUMENTATION? "branch" name=EscapedQualifiedName "{"
@@ -4154,7 +4175,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getUpdateStrategyAssignment_5_1_2() { return cUpdateStrategyAssignment_5_1_2; }
 
 		//UpdateStrategy
-		public RuleCall getUpdateStrategyUpdateStrategyEnumRuleCall_5_1_2_0() { return cUpdateStrategyUpdateStrategyEnumRuleCall_5_1_2_0; }
+		public RuleCall getUpdateStrategyUpdateStrategyParserRuleCall_5_1_2_0() { return cUpdateStrategyUpdateStrategyParserRuleCall_5_1_2_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_5_1_3() { return cSemicolonKeyword_5_1_3; }
@@ -7310,7 +7331,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cNamedValueINamedValueCrossReference_1_0 = (CrossReference)cNamedValueAssignment_1.eContents().get(0);
 		private final RuleCall cNamedValueINamedValueID_or_KWParserRuleCall_1_0_1 = (RuleCall)cNamedValueINamedValueCrossReference_1_0.eContents().get(1);
 		
-		////	name = ID_or_KW 
 		//VariableValue returns be::BExpression:
 		//	{be::BVariableExpression} namedValue=[be::INamedValue|ID_or_KW];
 		public ParserRule getRule() { return rule; }
@@ -11822,69 +11842,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getTimestampTimestampKeyword_3_0() { return cTimestampTimestampKeyword_3_0; }
 	}
 
-	public class UpdateStrategyElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "UpdateStrategy");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cFailModifiedEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cFailModifiedFailModifiedKeyword_0_0 = (Keyword)cFailModifiedEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cKeepModifiedEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cKeepModifiedKeepModifiedKeyword_1_0 = (Keyword)cKeepModifiedEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cMergeEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cMergeMergeModifiedKeyword_2_0 = (Keyword)cMergeEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cNoUpdateEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cNoUpdateNoUpdateKeyword_3_0 = (Keyword)cNoUpdateEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cReplaceModifiedEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cReplaceModifiedReplaceModifiedKeyword_4_0 = (Keyword)cReplaceModifiedEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cBranchPointDefaultEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cBranchPointDefaultDefaultKeyword_5_0 = (Keyword)cBranchPointDefaultEnumLiteralDeclaration_5.eContents().get(0);
-		
-		////enum BranchPointTypeTs returns build::BranchPointType : Timestamp="timestamp" ;
-		//enum UpdateStrategy returns build::UpdateStrategy:
-		//	FailModified="fail-modified" | KeepModified="keep-modified" | Merge="merge-modified" | NoUpdate="no-update" |
-		//	ReplaceModified="replace-modified" | BranchPointDefault="default";
-		public EnumRule getRule() { return rule; }
-
-		//FailModified="fail-modified" | KeepModified="keep-modified" | Merge="merge-modified" | NoUpdate="no-update" |
-		//ReplaceModified="replace-modified" | BranchPointDefault="default"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//FailModified="fail-modified"
-		public EnumLiteralDeclaration getFailModifiedEnumLiteralDeclaration_0() { return cFailModifiedEnumLiteralDeclaration_0; }
-
-		//"fail-modified"
-		public Keyword getFailModifiedFailModifiedKeyword_0_0() { return cFailModifiedFailModifiedKeyword_0_0; }
-
-		//KeepModified="keep-modified"
-		public EnumLiteralDeclaration getKeepModifiedEnumLiteralDeclaration_1() { return cKeepModifiedEnumLiteralDeclaration_1; }
-
-		//"keep-modified"
-		public Keyword getKeepModifiedKeepModifiedKeyword_1_0() { return cKeepModifiedKeepModifiedKeyword_1_0; }
-
-		//Merge="merge-modified"
-		public EnumLiteralDeclaration getMergeEnumLiteralDeclaration_2() { return cMergeEnumLiteralDeclaration_2; }
-
-		//"merge-modified"
-		public Keyword getMergeMergeModifiedKeyword_2_0() { return cMergeMergeModifiedKeyword_2_0; }
-
-		//NoUpdate="no-update"
-		public EnumLiteralDeclaration getNoUpdateEnumLiteralDeclaration_3() { return cNoUpdateEnumLiteralDeclaration_3; }
-
-		//"no-update"
-		public Keyword getNoUpdateNoUpdateKeyword_3_0() { return cNoUpdateNoUpdateKeyword_3_0; }
-
-		//ReplaceModified="replace-modified"
-		public EnumLiteralDeclaration getReplaceModifiedEnumLiteralDeclaration_4() { return cReplaceModifiedEnumLiteralDeclaration_4; }
-
-		//"replace-modified"
-		public Keyword getReplaceModifiedReplaceModifiedKeyword_4_0() { return cReplaceModifiedReplaceModifiedKeyword_4_0; }
-
-		//BranchPointDefault="default"
-		public EnumLiteralDeclaration getBranchPointDefaultEnumLiteralDeclaration_5() { return cBranchPointDefaultEnumLiteralDeclaration_5; }
-
-		//"default"
-		public Keyword getBranchPointDefaultDefaultKeyword_5_0() { return cBranchPointDefaultDefaultKeyword_5_0; }
-	}
-
 	public class VisibilityElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "Visibility");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -11990,7 +11947,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private RepositoryElements pRepository;
 	private BranchPointTypeLatestElements unknownRuleBranchPointTypeLatest;
 	private BranchPointTypeOtherElements unknownRuleBranchPointTypeOther;
-	private UpdateStrategyElements unknownRuleUpdateStrategy;
+	private UpdateStrategyElements pUpdateStrategy;
 	private BranchElements pBranch;
 	private BranchPointStringElements pBranchPointString;
 	private UnitProviderElements pUnitProvider;
@@ -12760,17 +12717,24 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	////enum BranchPointTypeTs returns build::BranchPointType : Timestamp="timestamp" ;
-	//enum UpdateStrategy returns build::UpdateStrategy:
-	//	FailModified="fail-modified" | KeepModified="keep-modified" | Merge="merge-modified" | NoUpdate="no-update" |
-	//	ReplaceModified="replace-modified" | BranchPointDefault="default";
+	////enum
+	//UpdateStrategy returns build::UpdateStrategy:
+	//	ID_or_KW;
 	public UpdateStrategyElements getUpdateStrategyAccess() {
-		return (unknownRuleUpdateStrategy != null) ? unknownRuleUpdateStrategy : (unknownRuleUpdateStrategy = new UpdateStrategyElements());
+		return (pUpdateStrategy != null) ? pUpdateStrategy : (pUpdateStrategy = new UpdateStrategyElements());
 	}
 	
-	public EnumRule getUpdateStrategyRule() {
+	public ParserRule getUpdateStrategyRule() {
 		return getUpdateStrategyAccess().getRule();
 	}
 
+	////	  FailModified = "fail-modified"
+	////	| KeepModified = "keep-modified"
+	////	| Merge = "merge-modified"
+	////	| NoUpdate = "no-update"
+	////	| ReplaceModified = "replace-modified"
+	////	| BranchPointDefault = "default"
+	////;
 	////		  | (branchPointType = BranchPointTypeTs branchPointTs = TIMESTAMP ';') 
 	//Branch returns build::Branch:
 	//	{build::Branch} documentation=DOCUMENTATION? "branch" name=EscapedQualifiedName "{"
@@ -13422,7 +13386,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertyValueAccess().getRule();
 	}
 
-	////	name = ID_or_KW 
 	//VariableValue returns be::BExpression:
 	//	{be::BVariableExpression} namedValue=[be::INamedValue|ID_or_KW];
 	public VariableValueElements getVariableValueAccess() {

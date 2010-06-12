@@ -217,9 +217,10 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	@Override
 	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, Map<String, Object> options)
 			throws Throwable {
+
 		// This impl is simply a data carrier, it can not actually resolve antything
-		// TODO: should probably log or throw an error if an attempt to resolve is made
 		return null;
+		// throw new B3UndefinedRepositoryHandlerException(this);
 	}
 
 	/**

@@ -215,6 +215,7 @@ class JUnitB3FileRunnerFactory {
 				throw new MultiProblemException("There were parse errors in the file", problems);
 			}
 
+			// TODO: Use an Engine with test bindings for repositories
 			BeeModel beeModel = (BeeModel) resource.getParseResult().getRootASTElement();
 			BuildContext ctx = (engine = new B3BuildEngine()).getBuildContext();
 			engine.getBuildContext().defineBeeModel(beeModel);

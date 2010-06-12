@@ -6,11 +6,14 @@ package org.eclipse.b3.ui.contentassist;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.eclipse.b3.build.build.Branch;
 import org.eclipse.b3.build.build.BranchPointType;
 import org.eclipse.b3.build.build.Repository;
+import org.eclipse.b3.build.build.UpdateStrategy;
 import org.eclipse.b3.build.core.RepositoryValidation;
+import org.eclipse.b3.enums.UpdateStrategyEnumHelper;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.jface.viewers.StyledString;
@@ -89,6 +92,17 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 		acceptor.accept(completionProposal);
 
 		super.complete_NamePredicate(model, ruleCall, context, acceptor);
+	}
+
+	@Override
+	public void complete_UpdateStrategy(EObject model, RuleCall ruleCall, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		ICompletionProposal completionProposal;
+		for(Entry<UpdateStrategy, String> entry : UpdateStrategyEnumHelper.converterMap.entrySet()) {
+			completionProposal = createCompletionProposal(entry.getValue(), new StyledString(entry.getValue()), context);
+			acceptor.accept(completionProposal);
+		}
+
 	}
 
 	/*

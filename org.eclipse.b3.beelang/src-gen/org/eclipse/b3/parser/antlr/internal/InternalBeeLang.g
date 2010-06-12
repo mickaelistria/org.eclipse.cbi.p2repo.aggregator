@@ -7404,6 +7404,40 @@ ruleRepository returns [EObject current=null]
 
 
 
+// Entry rule entryRuleUpdateStrategy
+entryRuleUpdateStrategy returns [String current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getUpdateStrategyRule(), currentNode); } 
+	 iv_ruleUpdateStrategy=ruleUpdateStrategy 
+	 { $current=$iv_ruleUpdateStrategy.current.getText(); }  
+	 EOF 
+;
+
+// Rule UpdateStrategy
+ruleUpdateStrategy returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+
+    { 
+        currentNode=createCompositeNode(grammarAccess.getUpdateStrategyAccess().getID_or_KWParserRuleCall(), currentNode); 
+    }
+    this_ID_or_KW_0=ruleID_or_KW    {
+		$current.merge(this_ID_or_KW_0);
+    }
+
+    { 
+        currentNode = currentNode.getParent();
+    }
+
+    ;
+
+
+
+
+
 // Entry rule entryRuleBranch
 entryRuleBranch returns [EObject current=null] 
 	:
@@ -7612,7 +7646,7 @@ ruleBranch returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getUpdateStrategyUpdateStrategyEnumRuleCall_5_1_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBranchAccess().getUpdateStrategyUpdateStrategyParserRuleCall_5_1_2_0(), currentNode); 
 	    }
 		lv_updateStrategy_14_0=ruleUpdateStrategy		{
 	        if ($current==null) {
@@ -22289,51 +22323,6 @@ ruleBranchPointTypeOther returns [Enumerator current=null]
 	{
         $current = grammarAccess.getBranchPointTypeOtherAccess().getTimestampEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
         createLeafNode(grammarAccess.getBranchPointTypeOtherAccess().getTimestampEnumLiteralDeclaration_3(), null); 
-    }
-));
-
-
-
-// Rule UpdateStrategy
-ruleUpdateStrategy returns [Enumerator current=null] 
-    @init { setCurrentLookahead(); resetLookahead(); }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-((	'fail-modified' 
-	{
-        $current = grammarAccess.getUpdateStrategyAccess().getFailModifiedEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getUpdateStrategyAccess().getFailModifiedEnumLiteralDeclaration_0(), null); 
-    }
-)
-    |(	'keep-modified' 
-	{
-        $current = grammarAccess.getUpdateStrategyAccess().getKeepModifiedEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getUpdateStrategyAccess().getKeepModifiedEnumLiteralDeclaration_1(), null); 
-    }
-)
-    |(	'merge-modified' 
-	{
-        $current = grammarAccess.getUpdateStrategyAccess().getMergeEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getUpdateStrategyAccess().getMergeEnumLiteralDeclaration_2(), null); 
-    }
-)
-    |(	'no-update' 
-	{
-        $current = grammarAccess.getUpdateStrategyAccess().getNoUpdateEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getUpdateStrategyAccess().getNoUpdateEnumLiteralDeclaration_3(), null); 
-    }
-)
-    |(	'replace-modified' 
-	{
-        $current = grammarAccess.getUpdateStrategyAccess().getReplaceModifiedEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getUpdateStrategyAccess().getReplaceModifiedEnumLiteralDeclaration_4(), null); 
-    }
-)
-    |(	'default' 
-	{
-        $current = grammarAccess.getUpdateStrategyAccess().getBranchPointDefaultEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getUpdateStrategyAccess().getBranchPointDefaultEnumLiteralDeclaration_5(), null); 
     }
 ));
 

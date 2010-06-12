@@ -16,77 +16,69 @@ import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer;
 
 
 
-KEYWORD_142 : '@postinputcondition';
+KEYWORD_137 : '@postinputcondition';
 
-KEYWORD_140 : 'default-properties';
+KEYWORD_135 : 'default-properties';
 
-KEYWORD_141 : 'postinputcondition';
+KEYWORD_136 : 'postinputcondition';
 
-KEYWORD_139 : 'having-parameters';
+KEYWORD_134 : 'having-parameters';
 
-KEYWORD_138 : 'replace-modified';
+KEYWORD_131 : 'builder-context';
 
-KEYWORD_135 : 'builder-context';
+KEYWORD_132 : 'modify-selected';
 
-KEYWORD_136 : 'modify-selected';
+KEYWORD_133 : 'select-builders';
 
-KEYWORD_137 : 'select-builders';
+KEYWORD_129 : '@postcondition';
 
-KEYWORD_132 : '@postcondition';
+KEYWORD_130 : 'called-builder';
 
-KEYWORD_133 : 'called-builder';
+KEYWORD_125 : '@precondition';
 
-KEYWORD_134 : 'merge-modified';
+KEYWORD_126 : 'postcondition';
 
-KEYWORD_126 : '@precondition';
+KEYWORD_127 : 'select-switch';
 
-KEYWORD_127 : 'fail-modified';
+KEYWORD_128 : 'update-policy';
 
-KEYWORD_128 : 'keep-modified';
+KEYWORD_119 : 'precondition';
 
-KEYWORD_129 : 'postcondition';
+KEYWORD_120 : 'requires-max';
 
-KEYWORD_130 : 'select-switch';
+KEYWORD_121 : 'requires-min';
 
-KEYWORD_131 : 'update-policy';
+KEYWORD_122 : 'select-first';
 
-KEYWORD_120 : 'precondition';
+KEYWORD_123 : 'select-units';
 
-KEYWORD_121 : 'requires-max';
+KEYWORD_124 : 'unit-context';
 
-KEYWORD_122 : 'requires-min';
+KEYWORD_117 : 'annotations';
 
-KEYWORD_123 : 'select-first';
+KEYWORD_118 : 'select-best';
 
-KEYWORD_124 : 'select-units';
+KEYWORD_106 : '@callguard';
 
-KEYWORD_125 : 'unit-context';
+KEYWORD_107 : 'capability';
 
-KEYWORD_118 : 'annotations';
+KEYWORD_108 : 'conditions';
 
-KEYWORD_119 : 'select-best';
+KEYWORD_109 : 'connection';
 
-KEYWORD_107 : '@callguard';
+KEYWORD_110 : 'implements';
 
-KEYWORD_108 : 'capability';
+KEYWORD_111 : 'instanceof';
 
-KEYWORD_109 : 'conditions';
+KEYWORD_112 : 'name-space';
 
-KEYWORD_110 : 'connection';
+KEYWORD_113 : 'properties';
 
-KEYWORD_111 : 'implements';
+KEYWORD_114 : 'repository';
 
-KEYWORD_112 : 'instanceof';
+KEYWORD_115 : 'resolution';
 
-KEYWORD_113 : 'name-space';
-
-KEYWORD_114 : 'properties';
-
-KEYWORD_115 : 'repository';
-
-KEYWORD_116 : 'resolution';
-
-KEYWORD_117 : 'sequential';
+KEYWORD_116 : 'sequential';
 
 KEYWORD_102 : 'container';
 
@@ -94,9 +86,7 @@ KEYWORD_103 : 'endswitch';
 
 KEYWORD_104 : 'load-from';
 
-KEYWORD_105 : 'no-update';
-
-KEYWORD_106 : 'timestamp';
+KEYWORD_105 : 'timestamp';
 
 KEYWORD_95 : 'branches';
 

@@ -22,6 +22,7 @@ import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.core.B3BuildConstants;
+import org.eclipse.b3.build.core.B3UndefinedRepositoryHandlerException;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -304,9 +305,13 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 		// was not performed on the repository, or that the guice binding was wrong and nothing was found
 		// the latter is most likely reported by guice).
 		//
-		return (repository == null
+		IBuildUnitRepository r = repository == null
 				? buildUnitRepository
-				: repository.getBuildUnitRepository()).resolve(ctx, requiredCapability, evaluatedOptions);
+				: getRepository().getBuildUnitRepository();
+		if(r == null) {
+			throw new B3UndefinedRepositoryHandlerException(repository);
+		}
+		return r.resolve(ctx, requiredCapability, evaluatedOptions);
 	}
 
 	/**
