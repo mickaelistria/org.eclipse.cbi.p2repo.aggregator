@@ -100,6 +100,18 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
+	public String convertMergeConflictStrategyToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null
+				? null
+				: instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public String convertPathIteratorToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
@@ -113,10 +125,12 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch(eDataType.getClassifierID()) {
-			case B3BuildPackage.UPDATE_STRATEGY:
-				return convertUpdateStrategyToString(eDataType, instanceValue);
+			case B3BuildPackage.MERGE_CONFLICT_STRATEGY:
+				return convertMergeConflictStrategyToString(eDataType, instanceValue);
 			case B3BuildPackage.BRANCH_POINT_TYPE:
 				return convertBranchPointTypeToString(eDataType, instanceValue);
+			case B3BuildPackage.TRI_STATE:
+				return convertTriStateToString(eDataType, instanceValue);
 			case B3BuildPackage.VERSION_RANGE:
 				return convertVersionRangeToString(eDataType, instanceValue);
 			case B3BuildPackage.VERSION:
@@ -137,7 +151,7 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
-	public String convertUpdateStrategyToString(EDataType eDataType, Object instanceValue) {
+	public String convertTriStateToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null
 				? null
 				: instanceValue.toString();
@@ -675,10 +689,12 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch(eDataType.getClassifierID()) {
-			case B3BuildPackage.UPDATE_STRATEGY:
-				return createUpdateStrategyFromString(eDataType, initialValue);
+			case B3BuildPackage.MERGE_CONFLICT_STRATEGY:
+				return createMergeConflictStrategyFromString(eDataType, initialValue);
 			case B3BuildPackage.BRANCH_POINT_TYPE:
 				return createBranchPointTypeFromString(eDataType, initialValue);
+			case B3BuildPackage.TRI_STATE:
+				return createTriStateFromString(eDataType, initialValue);
 			case B3BuildPackage.VERSION_RANGE:
 				return createVersionRangeFromString(eDataType, initialValue);
 			case B3BuildPackage.VERSION:
@@ -723,6 +739,20 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 */
 	public IStatus createIStatusFromString(EDataType eDataType, String initialValue) {
 		return (IStatus) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public MergeConflictStrategy createMergeConflictStrategyFromString(EDataType eDataType, String initialValue) {
+		MergeConflictStrategy result = MergeConflictStrategy.get(initialValue);
+		if(result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
+		return result;
 	}
 
 	/**
@@ -917,6 +947,20 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * 
 	 * @generated
 	 */
+	public TriState createTriStateFromString(EDataType eDataType, String initialValue) {
+		TriState result = TriState.get(initialValue);
+		if(result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public UnitConcernContext createUnitConcernContext() {
 		UnitConcernContextImpl unitConcernContext = new UnitConcernContextImpl();
 		return unitConcernContext;
@@ -953,20 +997,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public UnitResolutionInfo createUnitResolutionInfo() {
 		UnitResolutionInfoImpl unitResolutionInfo = new UnitResolutionInfoImpl();
 		return unitResolutionInfo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public UpdateStrategy createUpdateStrategyFromString(EDataType eDataType, String initialValue) {
-		UpdateStrategy result = UpdateStrategy.get(initialValue);
-		if(result == null)
-			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
-					eDataType.getName() + "'");
-		return result;
 	}
 
 	/**

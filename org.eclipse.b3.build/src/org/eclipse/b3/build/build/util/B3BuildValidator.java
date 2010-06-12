@@ -56,6 +56,7 @@ import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.build.ImplementsPredicate;
 import org.eclipse.b3.build.build.InputPredicate;
+import org.eclipse.b3.build.build.MergeConflictStrategy;
 import org.eclipse.b3.build.build.NameSpacePredicate;
 import org.eclipse.b3.build.build.OutputPredicate;
 import org.eclipse.b3.build.build.PathGroup;
@@ -72,12 +73,12 @@ import org.eclipse.b3.build.build.ResolutionInfo;
 import org.eclipse.b3.build.build.SourcePredicate;
 import org.eclipse.b3.build.build.SwitchUnitProvider;
 import org.eclipse.b3.build.build.Synchronization;
+import org.eclipse.b3.build.build.TriState;
 import org.eclipse.b3.build.build.UnitConcernContext;
 import org.eclipse.b3.build.build.UnitNamePredicate;
 import org.eclipse.b3.build.build.UnitProvider;
 import org.eclipse.b3.build.build.UnitRepositoryDescription;
 import org.eclipse.b3.build.build.UnitResolutionInfo;
-import org.eclipse.b3.build.build.UpdateStrategy;
 import org.eclipse.b3.build.build.VersionedCapability;
 import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
@@ -337,10 +338,12 @@ public class B3BuildValidator extends EObjectValidator {
 				return validateRepoOption((RepoOption) value, diagnostics, context);
 			case B3BuildPackage.UNIT_REPOSITORY_DESCRIPTION:
 				return validateUnitRepositoryDescription((UnitRepositoryDescription) value, diagnostics, context);
-			case B3BuildPackage.UPDATE_STRATEGY:
-				return validateUpdateStrategy((UpdateStrategy) value, diagnostics, context);
+			case B3BuildPackage.MERGE_CONFLICT_STRATEGY:
+				return validateMergeConflictStrategy((MergeConflictStrategy) value, diagnostics, context);
 			case B3BuildPackage.BRANCH_POINT_TYPE:
 				return validateBranchPointType((BranchPointType) value, diagnostics, context);
+			case B3BuildPackage.TRI_STATE:
+				return validateTriState((TriState) value, diagnostics, context);
 			case B3BuildPackage.VERSION_RANGE:
 				return validateVersionRange((VersionRange) value, diagnostics, context);
 			case B3BuildPackage.VERSION:
@@ -900,6 +903,17 @@ public class B3BuildValidator extends EObjectValidator {
 	 * 
 	 * @generated
 	 */
+	public boolean validateMergeConflictStrategy(MergeConflictStrategy mergeConflictStrategy,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public boolean validateNameSpacePredicate(NameSpacePredicate nameSpacePredicate, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(nameSpacePredicate, diagnostics, context);
@@ -1083,6 +1097,16 @@ public class B3BuildValidator extends EObjectValidator {
 	 * 
 	 * @generated
 	 */
+	public boolean validateTriState(TriState triState, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public boolean validateUnitConcernContext(UnitConcernContext unitConcernContext, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(unitConcernContext, diagnostics, context);
@@ -1130,17 +1154,6 @@ public class B3BuildValidator extends EObjectValidator {
 	public boolean validateUnitResolutionInfo(UnitResolutionInfo unitResolutionInfo, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(unitResolutionInfo, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public boolean validateUpdateStrategy(UpdateStrategy updateStrategy, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return true;
 	}
 
 	/**

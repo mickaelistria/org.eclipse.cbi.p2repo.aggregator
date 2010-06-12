@@ -65,7 +65,9 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuilderAccess().getAlternatives_12_0_2(), "rule__Builder__Alternatives_12_0_2");
 					put(grammarAccess.getParameterOrClosureAccess().getAlternatives(), "rule__ParameterOrClosure__Alternatives");
 					put(grammarAccess.getRepositoryAccess().getAlternatives_5(), "rule__Repository__Alternatives_5");
+					put(grammarAccess.getTriStateAccess().getAlternatives(), "rule__TriState__Alternatives");
 					put(grammarAccess.getBranchAccess().getAlternatives_5_0(), "rule__Branch__Alternatives_5_0");
+					put(grammarAccess.getBranchAccess().getAlternatives_5_1_3_1(), "rule__Branch__Alternatives_5_1_3_1");
 					put(grammarAccess.getBranchPointStringAccess().getAlternatives(), "rule__BranchPointString__Alternatives");
 					put(grammarAccess.getUnitProviderAccess().getAlternatives(), "rule__UnitProvider__Alternatives");
 					put(grammarAccess.getRepositorySelectCaseAccess().getAlternatives_1(), "rule__RepositorySelectCase__Alternatives_1");
@@ -304,6 +306,12 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBranchAccess().getGroup_5_0_0(), "rule__Branch__Group_5_0_0__0");
 					put(grammarAccess.getBranchAccess().getGroup_5_0_1(), "rule__Branch__Group_5_0_1__0");
 					put(grammarAccess.getBranchAccess().getGroup_5_1(), "rule__Branch__Group_5_1__0");
+					put(grammarAccess.getBranchAccess().getGroup_5_1_3(), "rule__Branch__Group_5_1_3__0");
+					put(grammarAccess.getBranchAccess().getGroup_5_1_3_0(), "rule__Branch__Group_5_1_3_0__0");
+					put(grammarAccess.getBranchAccess().getGroup_5_1_3_1_0_0(), "rule__Branch__Group_5_1_3_1_0_0__0");
+					put(grammarAccess.getBranchAccess().getGroup_5_1_3_1_0_1(), "rule__Branch__Group_5_1_3_1_0_1__0");
+					put(grammarAccess.getBranchAccess().getGroup_5_1_3_1_0_2(), "rule__Branch__Group_5_1_3_1_0_2__0");
+					put(grammarAccess.getBranchAccess().getGroup_5_1_3_1_1(), "rule__Branch__Group_5_1_3_1_1__0");
 					put(grammarAccess.getBranchAccess().getGroup_5_2(), "rule__Branch__Group_5_2__0");
 					put(grammarAccess.getBranchAccess().getGroup_5_2_4(), "rule__Branch__Group_5_2_4__0");
 					put(grammarAccess.getBranchAccess().getGroup_5_3(), "rule__Branch__Group_5_3__0");
@@ -724,7 +732,11 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBranchAccess().getBranchPointTypeAssignment_5_0_0_0(), "rule__Branch__BranchPointTypeAssignment_5_0_0_0");
 					put(grammarAccess.getBranchAccess().getBranchPointTypeAssignment_5_0_1_0(), "rule__Branch__BranchPointTypeAssignment_5_0_1_0");
 					put(grammarAccess.getBranchAccess().getBranchPointAssignment_5_0_1_2(), "rule__Branch__BranchPointAssignment_5_0_1_2");
-					put(grammarAccess.getBranchAccess().getUpdateStrategyAssignment_5_1_2(), "rule__Branch__UpdateStrategyAssignment_5_1_2");
+					put(grammarAccess.getBranchAccess().getCheckoutAssignment_5_1_3_0_2(), "rule__Branch__CheckoutAssignment_5_1_3_0_2");
+					put(grammarAccess.getBranchAccess().getAcceptDirtyAssignment_5_1_3_1_0_0_2(), "rule__Branch__AcceptDirtyAssignment_5_1_3_1_0_0_2");
+					put(grammarAccess.getBranchAccess().getUpdateAssignment_5_1_3_1_0_1_2(), "rule__Branch__UpdateAssignment_5_1_3_1_0_1_2");
+					put(grammarAccess.getBranchAccess().getMergeStrategyAssignment_5_1_3_1_0_2_2(), "rule__Branch__MergeStrategyAssignment_5_1_3_1_0_2_2");
+					put(grammarAccess.getBranchAccess().getReplaceAssignment_5_1_3_1_1_2(), "rule__Branch__ReplaceAssignment_5_1_3_1_1_2");
 					put(grammarAccess.getBranchAccess().getExcludeAssignment_5_2_3(), "rule__Branch__ExcludeAssignment_5_2_3");
 					put(grammarAccess.getBranchAccess().getExcludeAssignment_5_2_4_1(), "rule__Branch__ExcludeAssignment_5_2_4_1");
 					put(grammarAccess.getBranchAccess().getIncludeAssignment_5_3_3(), "rule__Branch__IncludeAssignment_5_3_3");
@@ -1012,6 +1024,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRequiredCapability_UnfilteredAccess().getUnorderedGroup_2_1(), "rule__RequiredCapability_Unfiltered__UnorderedGroup_2_1");
 					put(grammarAccess.getBuilderAccess().getUnorderedGroup_12(), "rule__Builder__UnorderedGroup_12");
 					put(grammarAccess.getBranchAccess().getUnorderedGroup_5(), "rule__Branch__UnorderedGroup_5");
+					put(grammarAccess.getBranchAccess().getUnorderedGroup_5_1_3_1_0(), "rule__Branch__UnorderedGroup_5_1_3_1_0");
 				}
 			};
 		}

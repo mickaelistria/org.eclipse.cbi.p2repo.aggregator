@@ -944,15 +944,6 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute BRANCH__NAME = eINSTANCE.getBranch_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Update Strategy</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute BRANCH__UPDATE_STRATEGY = eINSTANCE.getBranch_UpdateStrategy();
-
-		/**
 		 * The meta object literal for the '<em><b>Branch Point Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -969,6 +960,42 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BRANCH__BRANCH_POINT = eINSTANCE.getBranch_BranchPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Checkout</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BRANCH__CHECKOUT = eINSTANCE.getBranch_Checkout();
+
+		/**
+		 * The meta object literal for the '<em><b>Accept Dirty</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BRANCH__ACCEPT_DIRTY = eINSTANCE.getBranch_AcceptDirty();
+
+		/**
+		 * The meta object literal for the '<em><b>Update</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BRANCH__UPDATE = eINSTANCE.getBranch_Update();
+
+		/**
+		 * The meta object literal for the '<em><b>Replace</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BRANCH__REPLACE = eINSTANCE.getBranch_Replace();
 
 		/**
 		 * The meta object literal for the '<em><b>Include</b></em>' containment reference list feature.
@@ -996,6 +1023,15 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BRANCH__DOCUMENTATION = eINSTANCE.getBranch_Documentation();
+
+		/**
+		 * The meta object literal for the '<em><b>Merge Strategy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BRANCH__MERGE_STRATEGY = eINSTANCE.getBranch_MergeStrategy();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.DelegatingUnitProviderImpl <em>Delegating Unit Provider</em>}'
@@ -1069,6 +1105,17 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute UNIT_REPOSITORY_DESCRIPTION__EVALUATED_OPTIONS = eINSTANCE.getUnitRepositoryDescription_EvaluatedOptions();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.MergeConflictStrategy <em>Merge Conflict Strategy</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.build.MergeConflictStrategy
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getMergeConflictStrategy()
+		 * @generated
+		 */
+		EEnum MERGE_CONFLICT_STRATEGY = eINSTANCE.getMergeConflictStrategy();
+
+		/**
 		 * The meta object literal for the '<em><b>Repository</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1076,17 +1123,6 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UNIT_REPOSITORY_DESCRIPTION__REPOSITORY = eINSTANCE.getUnitRepositoryDescription_Repository();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @see org.eclipse.b3.build.build.UpdateStrategy
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUpdateStrategy()
-		 * @generated
-		 */
-		EEnum UPDATE_STRATEGY = eINSTANCE.getUpdateStrategy();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.BranchPointType <em>Branch Point Type</em>}' enum.
@@ -1098,6 +1134,17 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum BRANCH_POINT_TYPE = eINSTANCE.getBranchPointType();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.TriState <em>Tri State</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.build.TriState
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getTriState()
+		 * @generated
+		 */
+		EEnum TRI_STATE = eINSTANCE.getTriState();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.
@@ -6871,14 +6918,14 @@ public interface B3BuildPackage extends EPackage {
 	int BRANCH__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Update Strategy</b></em>' attribute.
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__UPDATE_STRATEGY = 1;
+	int BRANCH__DOCUMENTATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Branch Point Type</b></em>' attribute.
@@ -6911,16 +6958,6 @@ public interface B3BuildPackage extends EPackage {
 	int BRANCH__EXCLUDE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH__DOCUMENTATION = 5;
-
-	/**
 	 * The feature id for the '<em><b>Branch Point</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6928,7 +6965,57 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__BRANCH_POINT = 6;
+	int BRANCH__BRANCH_POINT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Merge Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__MERGE_STRATEGY = 6;
+
+	/**
+	 * The feature id for the '<em><b>Checkout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__CHECKOUT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Accept Dirty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__ACCEPT_DIRTY = 8;
+
+	/**
+	 * The feature id for the '<em><b>Update</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__UPDATE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Replace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__REPLACE = 10;
 
 	/**
 	 * The number of structural features of the '<em>Branch</em>' class.
@@ -6938,7 +7025,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH_FEATURE_COUNT = 7;
+	int BRANCH_FEATURE_COUNT = 11;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.DelegatingUnitProviderImpl <em>Delegating Unit Provider</em>}' class.
@@ -7064,15 +7151,15 @@ public interface B3BuildPackage extends EPackage {
 	int UNIT_REPOSITORY_DESCRIPTION_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}' enum.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.MergeConflictStrategy <em>Merge Conflict Strategy</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.build.build.UpdateStrategy
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUpdateStrategy()
+	 * @see org.eclipse.b3.build.build.MergeConflictStrategy
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getMergeConflictStrategy()
 	 * @generated
 	 */
-	int UPDATE_STRATEGY = 65;
+	int MERGE_CONFLICT_STRATEGY = 65;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.BranchPointType <em>Branch Point Type</em>}' enum.
@@ -7086,6 +7173,17 @@ public interface B3BuildPackage extends EPackage {
 	int BRANCH_POINT_TYPE = 66;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.TriState <em>Tri State</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.build.build.TriState
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getTriState()
+	 * @generated
+	 */
+	int TRI_STATE = 67;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7094,7 +7192,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 67;
+	int VERSION_RANGE = 68;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -7105,7 +7203,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 68;
+	int VERSION = 69;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -7116,7 +7214,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 69;
+	int ISTATUS = 70;
 
 	/**
 	 * The meta object id for the '<em>Path Iterator</em>' data type.
@@ -7127,7 +7225,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathIterator()
 	 * @generated
 	 */
-	int PATH_ITERATOR = 70;
+	int PATH_ITERATOR = 71;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
@@ -7364,6 +7462,18 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBranch();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getAcceptDirty <em>Accept Dirty</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Accept Dirty</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getAcceptDirty()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EAttribute getBranch_AcceptDirty();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Branch#getBranchPoint <em>Branch Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7386,6 +7496,18 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBranch_BranchPointType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getCheckout <em>Checkout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Checkout</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getCheckout()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EAttribute getBranch_Checkout();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getDocumentation <em>Documentation</em>}'.
@@ -7424,6 +7546,18 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBranch_Include();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getMergeStrategy <em>Merge Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Merge Strategy</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getMergeStrategy()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EAttribute getBranch_MergeStrategy();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7436,16 +7570,28 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBranch_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getUpdateStrategy <em>Update Strategy</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getReplace <em>Replace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the attribute '<em>Update Strategy</em>'.
-	 * @see org.eclipse.b3.build.build.Branch#getUpdateStrategy()
+	 * @return the meta object for the attribute '<em>Replace</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getReplace()
 	 * @see #getBranch()
 	 * @generated
 	 */
-	EAttribute getBranch_UpdateStrategy();
+	EAttribute getBranch_Replace();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.Branch#getUpdate <em>Update</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Update</em>'.
+	 * @see org.eclipse.b3.build.build.Branch#getUpdate()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EAttribute getBranch_Update();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.build.build.BranchPointType <em>Branch Point Type</em>}'.
@@ -9063,6 +9209,17 @@ public interface B3BuildPackage extends EPackage {
 	EDataType getIStatus();
 
 	/**
+	 * Returns the meta object for enum '{@link org.eclipse.b3.build.build.MergeConflictStrategy <em>Merge Conflict Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for enum '<em>Merge Conflict Strategy</em>'.
+	 * @see org.eclipse.b3.build.build.MergeConflictStrategy
+	 * @generated
+	 */
+	EEnum getMergeConflictStrategy();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.NameSpacePredicate <em>Name Space Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9644,6 +9801,17 @@ public interface B3BuildPackage extends EPackage {
 	EReference getSynchronization_BuilderQueries();
 
 	/**
+	 * Returns the meta object for enum '{@link org.eclipse.b3.build.build.TriState <em>Tri State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for enum '<em>Tri State</em>'.
+	 * @see org.eclipse.b3.build.build.TriState
+	 * @generated
+	 */
+	EEnum getTriState();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitConcernContext <em>Unit Concern Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9833,17 +10001,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUnitResolutionInfo_Unit();
-
-	/**
-	 * Returns the meta object for enum '{@link org.eclipse.b3.build.build.UpdateStrategy <em>Update Strategy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for enum '<em>Update Strategy</em>'.
-	 * @see org.eclipse.b3.build.build.UpdateStrategy
-	 * @generated
-	 */
-	EEnum getUpdateStrategy();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.Version <em>Version</em>}'.

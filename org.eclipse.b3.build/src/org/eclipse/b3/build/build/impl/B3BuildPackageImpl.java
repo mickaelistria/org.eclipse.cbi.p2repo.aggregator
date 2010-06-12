@@ -17,6 +17,8 @@ import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeHive;
 import org.eclipse.b3.build.build.BeeModel;
+import org.eclipse.b3.build.build.BeeModelRepository;
+import org.eclipse.b3.build.build.BestFoundUnitProvider;
 import org.eclipse.b3.build.build.Branch;
 import org.eclipse.b3.build.build.BranchPointType;
 import org.eclipse.b3.build.build.BuildConcernContext;
@@ -39,6 +41,7 @@ import org.eclipse.b3.build.build.CapabilityPredicate;
 import org.eclipse.b3.build.build.CompoundBuildResultReference;
 import org.eclipse.b3.build.build.CompoundBuildUnitRepository;
 import org.eclipse.b3.build.build.CompoundFirstFoundRepository;
+import org.eclipse.b3.build.build.CompoundUnitProvider;
 import org.eclipse.b3.build.build.ConditionalPathVector;
 import org.eclipse.b3.build.build.ContainerConfiguration;
 import org.eclipse.b3.build.build.DelegatingUnitProvider;
@@ -48,11 +51,13 @@ import org.eclipse.b3.build.build.EffectiveFacade;
 import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.EffectiveUnitFacade;
 import org.eclipse.b3.build.build.ExecutionStackRepository;
+import org.eclipse.b3.build.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.build.ImplementsPredicate;
 import org.eclipse.b3.build.build.InputPredicate;
+import org.eclipse.b3.build.build.MergeConflictStrategy;
 import org.eclipse.b3.build.build.NameSpacePredicate;
 import org.eclipse.b3.build.build.OutputPredicate;
 import org.eclipse.b3.build.build.PathGroup;
@@ -65,20 +70,16 @@ import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.RequiresPredicate;
-import org.eclipse.b3.build.build.UnitProvider;
-import org.eclipse.b3.build.build.UnitRepositoryDescription;
 import org.eclipse.b3.build.build.ResolutionInfo;
-import org.eclipse.b3.build.build.CompoundUnitProvider;
-import org.eclipse.b3.build.build.BestFoundUnitProvider;
-import org.eclipse.b3.build.build.FirstFoundUnitProvider;
-import org.eclipse.b3.build.build.SwitchUnitProvider;
-import org.eclipse.b3.build.build.BeeModelRepository;
 import org.eclipse.b3.build.build.SourcePredicate;
+import org.eclipse.b3.build.build.SwitchUnitProvider;
 import org.eclipse.b3.build.build.Synchronization;
+import org.eclipse.b3.build.build.TriState;
 import org.eclipse.b3.build.build.UnitConcernContext;
 import org.eclipse.b3.build.build.UnitNamePredicate;
+import org.eclipse.b3.build.build.UnitProvider;
+import org.eclipse.b3.build.build.UnitRepositoryDescription;
 import org.eclipse.b3.build.build.UnitResolutionInfo;
-import org.eclipse.b3.build.build.UpdateStrategy;
 import org.eclipse.b3.build.build.VersionedCapability;
 import org.eclipse.b3.build.build.util.B3BuildValidator;
 import org.eclipse.b3.build.core.PathIterator;
@@ -398,7 +399,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	private EEnum updateStrategyEEnum = null;
+	private EEnum mergeConflictStrategyEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -407,6 +408,14 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EEnum branchPointTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EEnum triStateEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1045,12 +1054,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		branchEClass = createEClass(BRANCH);
 		createEAttribute(branchEClass, BRANCH__NAME);
-		createEAttribute(branchEClass, BRANCH__UPDATE_STRATEGY);
+		createEAttribute(branchEClass, BRANCH__DOCUMENTATION);
 		createEAttribute(branchEClass, BRANCH__BRANCH_POINT_TYPE);
 		createEReference(branchEClass, BRANCH__INCLUDE);
 		createEReference(branchEClass, BRANCH__EXCLUDE);
-		createEAttribute(branchEClass, BRANCH__DOCUMENTATION);
 		createEReference(branchEClass, BRANCH__BRANCH_POINT);
+		createEAttribute(branchEClass, BRANCH__MERGE_STRATEGY);
+		createEAttribute(branchEClass, BRANCH__CHECKOUT);
+		createEAttribute(branchEClass, BRANCH__ACCEPT_DIRTY);
+		createEAttribute(branchEClass, BRANCH__UPDATE);
+		createEAttribute(branchEClass, BRANCH__REPLACE);
 
 		delegatingUnitProviderEClass = createEClass(DELEGATING_UNIT_PROVIDER);
 		createEReference(delegatingUnitProviderEClass, DELEGATING_UNIT_PROVIDER__DELEGATE);
@@ -1064,8 +1077,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEAttribute(unitRepositoryDescriptionEClass, UNIT_REPOSITORY_DESCRIPTION__EVALUATED_OPTIONS);
 
 		// Create enums
-		updateStrategyEEnum = createEEnum(UPDATE_STRATEGY);
+		mergeConflictStrategyEEnum = createEEnum(MERGE_CONFLICT_STRATEGY);
 		branchPointTypeEEnum = createEEnum(BRANCH_POINT_TYPE);
+		triStateEEnum = createEEnum(TRI_STATE);
 
 		// Create data types
 		versionRangeEDataType = createEDataType(VERSION_RANGE);
@@ -1280,8 +1294,18 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EAttribute getBranch_AcceptDirty() {
+		return (EAttribute) branchEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EReference getBranch_BranchPoint() {
-		return (EReference) branchEClass.getEStructuralFeatures().get(6);
+		return (EReference) branchEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1300,8 +1324,18 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EAttribute getBranch_Checkout() {
+		return (EAttribute) branchEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EAttribute getBranch_Documentation() {
-		return (EAttribute) branchEClass.getEStructuralFeatures().get(5);
+		return (EAttribute) branchEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1330,6 +1364,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EAttribute getBranch_MergeStrategy() {
+		return (EAttribute) branchEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EAttribute getBranch_Name() {
 		return (EAttribute) branchEClass.getEStructuralFeatures().get(0);
 	}
@@ -1340,8 +1384,18 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBranch_UpdateStrategy() {
-		return (EAttribute) branchEClass.getEStructuralFeatures().get(1);
+	public EAttribute getBranch_Replace() {
+		return (EAttribute) branchEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBranch_Update() {
+		return (EAttribute) branchEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -2680,6 +2734,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EEnum getMergeConflictStrategy() {
+		return mergeConflictStrategyEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getNameSpacePredicate() {
 		return nameSpacePredicateEClass;
 	}
@@ -3170,6 +3234,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EEnum getTriState() {
+		return triStateEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getUnitConcernContext() {
 		return unitConcernContextEClass;
 	}
@@ -3322,16 +3396,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EReference getUnitResolutionInfo_Unit() {
 		return (EReference) unitResolutionInfoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EEnum getUpdateStrategy() {
-		return updateStrategyEEnum;
 	}
 
 	/**
@@ -4468,9 +4532,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getBranch_Name(), ecorePackage.getEString(), "name", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE,
 			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
-			getBranch_UpdateStrategy(), this.getUpdateStrategy(), "updateStrategy", "BranchPointDefault", 1, 1,
-			Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
+			getBranch_Documentation(), ecorePackage.getEString(), "documentation", "", 0, 1, Branch.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getBranch_BranchPointType(), this.getBranchPointType(), "branchPointType", "Latest", 1, 1, Branch.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4482,15 +4545,36 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getBranch_Exclude(), theB3backendPackage.getBNamePredicate(), null, "exclude", null, 0, -1, Branch.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBranch_Documentation(), ecorePackage.getEString(), "documentation", "", 0, 1, Branch.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getBranch_BranchPoint(), theB3backendPackage.getBExpression(), null, "branchPoint", null, 0, 1,
 			Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBranch_MergeStrategy(), this.getMergeConflictStrategy(), "mergeStrategy", "Default", 1, 1, Branch.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBranch_Checkout(), this.getTriState(), "checkout", "Default", 0, 1, Branch.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBranch_AcceptDirty(), this.getTriState(), "acceptDirty", "Default", 0, 1, Branch.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBranch_Update(), this.getTriState(), "update", "Default", 0, 1, Branch.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBranch_Replace(), this.getTriState(), "replace", "Default", 0, 1, Branch.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(branchEClass, this.getUpdateStrategy(), "getEffectiveUpdateStrategy", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(
+			branchEClass, this.getMergeConflictStrategy(), "getEffectiveMergeStrategy", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(branchEClass, ecorePackage.getEBoolean(), "getEffectiveCheckout", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(branchEClass, ecorePackage.getEBoolean(), "getEffectiveAcceptDirty", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(branchEClass, ecorePackage.getEBoolean(), "getEffectiveUpdate", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(branchEClass, ecorePackage.getEBoolean(), "getEffectiveReplace", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(branchEClass, ecorePackage.getEBoolean(), "hasValidState", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4537,19 +4621,22 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(updateStrategyEEnum, UpdateStrategy.class, "UpdateStrategy");
-		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.BRANCH_POINT_DEFAULT);
-		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.NO_UPDATE);
-		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.MERGE);
-		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.KEEP_MODIFIED);
-		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.REPLACE_MODIFIED);
-		addEEnumLiteral(updateStrategyEEnum, UpdateStrategy.FAIL_MODIFIED);
+		initEEnum(mergeConflictStrategyEEnum, MergeConflictStrategy.class, "MergeConflictStrategy");
+		addEEnumLiteral(mergeConflictStrategyEEnum, MergeConflictStrategy.DEFAULT);
+		addEEnumLiteral(mergeConflictStrategyEEnum, MergeConflictStrategy.USE_WORKSPACE);
+		addEEnumLiteral(mergeConflictStrategyEEnum, MergeConflictStrategy.USE_SCM);
+		addEEnumLiteral(mergeConflictStrategyEEnum, MergeConflictStrategy.FAIL);
 
 		initEEnum(branchPointTypeEEnum, BranchPointType.class, "BranchPointType");
 		addEEnumLiteral(branchPointTypeEEnum, BranchPointType.LATEST);
 		addEEnumLiteral(branchPointTypeEEnum, BranchPointType.TAG);
 		addEEnumLiteral(branchPointTypeEEnum, BranchPointType.TIMESTAMP);
 		addEEnumLiteral(branchPointTypeEEnum, BranchPointType.REVISION);
+
+		initEEnum(triStateEEnum, TriState.class, "TriState");
+		addEEnumLiteral(triStateEEnum, TriState.DEFAULT);
+		addEEnumLiteral(triStateEEnum, TriState.TRUE);
+		addEEnumLiteral(triStateEEnum, TriState.FALSE);
 
 		// Initialize data types
 		initEDataType(

@@ -22,8 +22,10 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 import org.eclipse.b3.backend.core.SimplePattern;
-import org.eclipse.b3.build.build.UpdateStrategy;
-import org.eclipse.b3.enums.UpdateStrategyEnumHelper;
+import org.eclipse.b3.build.build.MergeConflictStrategy;
+import org.eclipse.b3.build.build.TriState;
+import org.eclipse.b3.enums.MergeConflictStrategyEnumHelper;
+import org.eclipse.b3.enums.TriStateEnumHelper;
 import org.eclipse.b3.validation.FixableTimestampException;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
@@ -166,6 +168,11 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 			}
 
 		};
+	}
+
+	@ValueConverter(rule = "MergeStrategy")
+	public IValueConverter<MergeConflictStrategy> MergeStrategy() {
+		return MergeConflictStrategyEnumHelper.getValueConverter();
 	}
 
 	@ValueConverter(rule = "Path")
@@ -363,9 +370,9 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 		};
 	}
 
-	@ValueConverter(rule = "UpdateStrategy")
-	public IValueConverter<UpdateStrategy> UpdateStrategy() {
-		return UpdateStrategyEnumHelper.getValueConverter();
+	@ValueConverter(rule = "TriState")
+	public IValueConverter<TriState> TriState() {
+		return TriStateEnumHelper.getValueConverter();
 	}
 
 	@ValueConverter(rule = "URI")

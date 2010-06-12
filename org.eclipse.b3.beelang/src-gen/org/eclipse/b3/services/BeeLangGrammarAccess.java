@@ -4008,18 +4008,42 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_5_1_4() { return cRightCurlyBracketKeyword_5_1_4; }
 	}
 
-	public class UpdateStrategyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UpdateStrategy");
+	public class MergeStrategyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MergeStrategy");
 		private final RuleCall cID_or_KWParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		////enum BranchPointTypeTs returns build::BranchPointType : Timestamp="timestamp" ;
 		////enum
-		//UpdateStrategy returns build::UpdateStrategy:
+		//MergeStrategy returns build::MergeConflictStrategy:
 		//	ID_or_KW;
 		public ParserRule getRule() { return rule; }
 
 		//ID_or_KW
 		public RuleCall getID_or_KWParserRuleCall() { return cID_or_KWParserRuleCall; }
+	}
+
+	public class TriStateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TriState");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cDefaultKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//TriState returns build::TriState:
+		//	"true" | "false" | "default";
+		public ParserRule getRule() { return rule; }
+
+		//"true" | "false" | "default"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"true"
+		public Keyword getTrueKeyword_0() { return cTrueKeyword_0; }
+
+		//"false"
+		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
+
+		//"default"
+		public Keyword getDefaultKeyword_2() { return cDefaultKeyword_2; }
 	}
 
 	public class BranchElements extends AbstractParserRuleElementFinder {
@@ -4046,11 +4070,44 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBranchPointExpressionParserRuleCall_5_0_1_2_0 = (RuleCall)cBranchPointAssignment_5_0_1_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_5_0_1_3 = (Keyword)cGroup_5_0_1.eContents().get(3);
 		private final Group cGroup_5_1 = (Group)cUnorderedGroup_5.eContents().get(1);
-		private final Keyword cUpdatePolicyKeyword_5_1_0 = (Keyword)cGroup_5_1.eContents().get(0);
+		private final Keyword cPolicyKeyword_5_1_0 = (Keyword)cGroup_5_1.eContents().get(0);
 		private final Keyword cColonKeyword_5_1_1 = (Keyword)cGroup_5_1.eContents().get(1);
-		private final Assignment cUpdateStrategyAssignment_5_1_2 = (Assignment)cGroup_5_1.eContents().get(2);
-		private final RuleCall cUpdateStrategyUpdateStrategyParserRuleCall_5_1_2_0 = (RuleCall)cUpdateStrategyAssignment_5_1_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5_1_3 = (Keyword)cGroup_5_1.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_5_1_2 = (Keyword)cGroup_5_1.eContents().get(2);
+		private final Group cGroup_5_1_3 = (Group)cGroup_5_1.eContents().get(3);
+		private final Group cGroup_5_1_3_0 = (Group)cGroup_5_1_3.eContents().get(0);
+		private final Keyword cCheckoutContentKeyword_5_1_3_0_0 = (Keyword)cGroup_5_1_3_0.eContents().get(0);
+		private final Keyword cColonKeyword_5_1_3_0_1 = (Keyword)cGroup_5_1_3_0.eContents().get(1);
+		private final Assignment cCheckoutAssignment_5_1_3_0_2 = (Assignment)cGroup_5_1_3_0.eContents().get(2);
+		private final RuleCall cCheckoutTriStateParserRuleCall_5_1_3_0_2_0 = (RuleCall)cCheckoutAssignment_5_1_3_0_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5_1_3_0_3 = (Keyword)cGroup_5_1_3_0.eContents().get(3);
+		private final Alternatives cAlternatives_5_1_3_1 = (Alternatives)cGroup_5_1_3.eContents().get(1);
+		private final UnorderedGroup cUnorderedGroup_5_1_3_1_0 = (UnorderedGroup)cAlternatives_5_1_3_1.eContents().get(0);
+		private final Group cGroup_5_1_3_1_0_0 = (Group)cUnorderedGroup_5_1_3_1_0.eContents().get(0);
+		private final Keyword cAcceptDirtyKeyword_5_1_3_1_0_0_0 = (Keyword)cGroup_5_1_3_1_0_0.eContents().get(0);
+		private final Keyword cColonKeyword_5_1_3_1_0_0_1 = (Keyword)cGroup_5_1_3_1_0_0.eContents().get(1);
+		private final Assignment cAcceptDirtyAssignment_5_1_3_1_0_0_2 = (Assignment)cGroup_5_1_3_1_0_0.eContents().get(2);
+		private final RuleCall cAcceptDirtyTriStateParserRuleCall_5_1_3_1_0_0_2_0 = (RuleCall)cAcceptDirtyAssignment_5_1_3_1_0_0_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5_1_3_1_0_0_3 = (Keyword)cGroup_5_1_3_1_0_0.eContents().get(3);
+		private final Group cGroup_5_1_3_1_0_1 = (Group)cUnorderedGroup_5_1_3_1_0.eContents().get(1);
+		private final Keyword cUpdateContentKeyword_5_1_3_1_0_1_0 = (Keyword)cGroup_5_1_3_1_0_1.eContents().get(0);
+		private final Keyword cColonKeyword_5_1_3_1_0_1_1 = (Keyword)cGroup_5_1_3_1_0_1.eContents().get(1);
+		private final Assignment cUpdateAssignment_5_1_3_1_0_1_2 = (Assignment)cGroup_5_1_3_1_0_1.eContents().get(2);
+		private final RuleCall cUpdateTriStateParserRuleCall_5_1_3_1_0_1_2_0 = (RuleCall)cUpdateAssignment_5_1_3_1_0_1_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5_1_3_1_0_1_3 = (Keyword)cGroup_5_1_3_1_0_1.eContents().get(3);
+		private final Group cGroup_5_1_3_1_0_2 = (Group)cUnorderedGroup_5_1_3_1_0.eContents().get(2);
+		private final Keyword cOnMergeConflictKeyword_5_1_3_1_0_2_0 = (Keyword)cGroup_5_1_3_1_0_2.eContents().get(0);
+		private final Keyword cColonKeyword_5_1_3_1_0_2_1 = (Keyword)cGroup_5_1_3_1_0_2.eContents().get(1);
+		private final Assignment cMergeStrategyAssignment_5_1_3_1_0_2_2 = (Assignment)cGroup_5_1_3_1_0_2.eContents().get(2);
+		private final RuleCall cMergeStrategyMergeStrategyParserRuleCall_5_1_3_1_0_2_2_0 = (RuleCall)cMergeStrategyAssignment_5_1_3_1_0_2_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5_1_3_1_0_2_3 = (Keyword)cGroup_5_1_3_1_0_2.eContents().get(3);
+		private final Group cGroup_5_1_3_1_1 = (Group)cAlternatives_5_1_3_1.eContents().get(1);
+		private final Keyword cReplaceContentKeyword_5_1_3_1_1_0 = (Keyword)cGroup_5_1_3_1_1.eContents().get(0);
+		private final Keyword cColonKeyword_5_1_3_1_1_1 = (Keyword)cGroup_5_1_3_1_1.eContents().get(1);
+		private final Assignment cReplaceAssignment_5_1_3_1_1_2 = (Assignment)cGroup_5_1_3_1_1.eContents().get(2);
+		private final RuleCall cReplaceTriStateParserRuleCall_5_1_3_1_1_2_0 = (RuleCall)cReplaceAssignment_5_1_3_1_1_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5_1_3_1_1_3 = (Keyword)cGroup_5_1_3_1_1.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_5_1_4 = (Keyword)cGroup_5_1.eContents().get(4);
+		private final Keyword cSemicolonKeyword_5_1_5 = (Keyword)cGroup_5_1.eContents().get(5);
 		private final Group cGroup_5_2 = (Group)cUnorderedGroup_5.eContents().get(2);
 		private final Keyword cExcludeKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
 		private final Keyword cColonKeyword_5_2_1 = (Keyword)cGroup_5_2.eContents().get(1);
@@ -4088,14 +4145,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Branch returns build::Branch:
 		//	{build::Branch} documentation=DOCUMENTATION? "branch" name=EscapedQualifiedName "{"
 		//	((branchPointType=BranchPointTypeLatest ";" | branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? &
-		//	("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
+		//	("policy" ":" "{" (("checkout-content" ":" checkout=TriState ";")? (("accept-dirty" ":" acceptDirty=TriState ";")? &
+		//	("update-content" ":" update=TriState ";")? & ("on-merge-conflict" ":" mergeStrategy=MergeStrategy ";")? |
+		//	"replace-content" ":" replace=TriState ";"))? "}" ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
 		//	exclude+=NamePredicate)* "]" ";")? & ("include" ":" "[" include+=NamePredicate ("," include+=NamePredicate)* "]"
 		//	";")?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//{build::Branch} documentation=DOCUMENTATION? "branch" name=EscapedQualifiedName "{"
 		//((branchPointType=BranchPointTypeLatest ";" | branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? &
-		//("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
+		//("policy" ":" "{" (("checkout-content" ":" checkout=TriState ";")? (("accept-dirty" ":" acceptDirty=TriState ";")? &
+		//("update-content" ":" update=TriState ";")? & ("on-merge-conflict" ":" mergeStrategy=MergeStrategy ";")? |
+		//"replace-content" ":" replace=TriState ";"))? "}" ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
 		//exclude+=NamePredicate)* "]" ";")? & ("include" ":" "[" include+=NamePredicate ("," include+=NamePredicate)* "]" ";")?)
 		//"}"
 		public Group getGroup() { return cGroup; }
@@ -4122,7 +4183,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 
 		//(branchPointType=BranchPointTypeLatest ";" | branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? &
-		//("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
+		//("policy" ":" "{" (("checkout-content" ":" checkout=TriState ";")? (("accept-dirty" ":" acceptDirty=TriState ";")? &
+		//("update-content" ":" update=TriState ";")? & ("on-merge-conflict" ":" mergeStrategy=MergeStrategy ";")? |
+		//"replace-content" ":" replace=TriState ";"))? "}" ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
 		//exclude+=NamePredicate)* "]" ";")? & ("include" ":" "[" include+=NamePredicate ("," include+=NamePredicate)* "]" ";")?
 		public UnorderedGroup getUnorderedGroup_5() { return cUnorderedGroup_5; }
 
@@ -4162,23 +4225,128 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_5_0_1_3() { return cSemicolonKeyword_5_0_1_3; }
 
-		//("update-policy" ":" updateStrategy=UpdateStrategy ";")?
+		//("policy" ":" "{" (("checkout-content" ":" checkout=TriState ";")? (("accept-dirty" ":" acceptDirty=TriState ";")? &
+		//("update-content" ":" update=TriState ";")? & ("on-merge-conflict" ":" mergeStrategy=MergeStrategy ";")? |
+		//"replace-content" ":" replace=TriState ";"))? "}" ";")?
 		public Group getGroup_5_1() { return cGroup_5_1; }
 
-		//"update-policy"
-		public Keyword getUpdatePolicyKeyword_5_1_0() { return cUpdatePolicyKeyword_5_1_0; }
+		//"policy"
+		public Keyword getPolicyKeyword_5_1_0() { return cPolicyKeyword_5_1_0; }
 
 		//":"
 		public Keyword getColonKeyword_5_1_1() { return cColonKeyword_5_1_1; }
 
-		//updateStrategy=UpdateStrategy
-		public Assignment getUpdateStrategyAssignment_5_1_2() { return cUpdateStrategyAssignment_5_1_2; }
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_5_1_2() { return cLeftCurlyBracketKeyword_5_1_2; }
 
-		//UpdateStrategy
-		public RuleCall getUpdateStrategyUpdateStrategyParserRuleCall_5_1_2_0() { return cUpdateStrategyUpdateStrategyParserRuleCall_5_1_2_0; }
+		//(("checkout-content" ":" checkout=TriState ";")? (("accept-dirty" ":" acceptDirty=TriState ";")? & ("update-content" ":"
+		//update=TriState ";")? & ("on-merge-conflict" ":" mergeStrategy=MergeStrategy ";")? | "replace-content" ":"
+		//replace=TriState ";"))?
+		public Group getGroup_5_1_3() { return cGroup_5_1_3; }
+
+		//("checkout-content" ":" checkout=TriState ";")?
+		public Group getGroup_5_1_3_0() { return cGroup_5_1_3_0; }
+
+		//"checkout-content"
+		public Keyword getCheckoutContentKeyword_5_1_3_0_0() { return cCheckoutContentKeyword_5_1_3_0_0; }
+
+		//":"
+		public Keyword getColonKeyword_5_1_3_0_1() { return cColonKeyword_5_1_3_0_1; }
+
+		//checkout=TriState
+		public Assignment getCheckoutAssignment_5_1_3_0_2() { return cCheckoutAssignment_5_1_3_0_2; }
+
+		//TriState
+		public RuleCall getCheckoutTriStateParserRuleCall_5_1_3_0_2_0() { return cCheckoutTriStateParserRuleCall_5_1_3_0_2_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_5_1_3() { return cSemicolonKeyword_5_1_3; }
+		public Keyword getSemicolonKeyword_5_1_3_0_3() { return cSemicolonKeyword_5_1_3_0_3; }
+
+		//("accept-dirty" ":" acceptDirty=TriState ";")? & ("update-content" ":" update=TriState ";")? & ("on-merge-conflict" ":"
+		//mergeStrategy=MergeStrategy ";")? | "replace-content" ":" replace=TriState ";"
+		public Alternatives getAlternatives_5_1_3_1() { return cAlternatives_5_1_3_1; }
+
+		//("accept-dirty" ":" acceptDirty=TriState ";")? & ("update-content" ":" update=TriState ";")? & ("on-merge-conflict" ":"
+		//mergeStrategy=MergeStrategy ";")?
+		public UnorderedGroup getUnorderedGroup_5_1_3_1_0() { return cUnorderedGroup_5_1_3_1_0; }
+
+		//("accept-dirty" ":" acceptDirty=TriState ";")?
+		public Group getGroup_5_1_3_1_0_0() { return cGroup_5_1_3_1_0_0; }
+
+		//"accept-dirty"
+		public Keyword getAcceptDirtyKeyword_5_1_3_1_0_0_0() { return cAcceptDirtyKeyword_5_1_3_1_0_0_0; }
+
+		//":"
+		public Keyword getColonKeyword_5_1_3_1_0_0_1() { return cColonKeyword_5_1_3_1_0_0_1; }
+
+		//acceptDirty=TriState
+		public Assignment getAcceptDirtyAssignment_5_1_3_1_0_0_2() { return cAcceptDirtyAssignment_5_1_3_1_0_0_2; }
+
+		//TriState
+		public RuleCall getAcceptDirtyTriStateParserRuleCall_5_1_3_1_0_0_2_0() { return cAcceptDirtyTriStateParserRuleCall_5_1_3_1_0_0_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5_1_3_1_0_0_3() { return cSemicolonKeyword_5_1_3_1_0_0_3; }
+
+		//("update-content" ":" update=TriState ";")?
+		public Group getGroup_5_1_3_1_0_1() { return cGroup_5_1_3_1_0_1; }
+
+		//"update-content"
+		public Keyword getUpdateContentKeyword_5_1_3_1_0_1_0() { return cUpdateContentKeyword_5_1_3_1_0_1_0; }
+
+		//":"
+		public Keyword getColonKeyword_5_1_3_1_0_1_1() { return cColonKeyword_5_1_3_1_0_1_1; }
+
+		//update=TriState
+		public Assignment getUpdateAssignment_5_1_3_1_0_1_2() { return cUpdateAssignment_5_1_3_1_0_1_2; }
+
+		//TriState
+		public RuleCall getUpdateTriStateParserRuleCall_5_1_3_1_0_1_2_0() { return cUpdateTriStateParserRuleCall_5_1_3_1_0_1_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5_1_3_1_0_1_3() { return cSemicolonKeyword_5_1_3_1_0_1_3; }
+
+		//("on-merge-conflict" ":" mergeStrategy=MergeStrategy ";")?
+		public Group getGroup_5_1_3_1_0_2() { return cGroup_5_1_3_1_0_2; }
+
+		//"on-merge-conflict"
+		public Keyword getOnMergeConflictKeyword_5_1_3_1_0_2_0() { return cOnMergeConflictKeyword_5_1_3_1_0_2_0; }
+
+		//":"
+		public Keyword getColonKeyword_5_1_3_1_0_2_1() { return cColonKeyword_5_1_3_1_0_2_1; }
+
+		//mergeStrategy=MergeStrategy
+		public Assignment getMergeStrategyAssignment_5_1_3_1_0_2_2() { return cMergeStrategyAssignment_5_1_3_1_0_2_2; }
+
+		//MergeStrategy
+		public RuleCall getMergeStrategyMergeStrategyParserRuleCall_5_1_3_1_0_2_2_0() { return cMergeStrategyMergeStrategyParserRuleCall_5_1_3_1_0_2_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5_1_3_1_0_2_3() { return cSemicolonKeyword_5_1_3_1_0_2_3; }
+
+		//"replace-content" ":" replace=TriState ";"
+		public Group getGroup_5_1_3_1_1() { return cGroup_5_1_3_1_1; }
+
+		//"replace-content"
+		public Keyword getReplaceContentKeyword_5_1_3_1_1_0() { return cReplaceContentKeyword_5_1_3_1_1_0; }
+
+		//":"
+		public Keyword getColonKeyword_5_1_3_1_1_1() { return cColonKeyword_5_1_3_1_1_1; }
+
+		//replace=TriState
+		public Assignment getReplaceAssignment_5_1_3_1_1_2() { return cReplaceAssignment_5_1_3_1_1_2; }
+
+		//TriState
+		public RuleCall getReplaceTriStateParserRuleCall_5_1_3_1_1_2_0() { return cReplaceTriStateParserRuleCall_5_1_3_1_1_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5_1_3_1_1_3() { return cSemicolonKeyword_5_1_3_1_1_3; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5_1_4() { return cRightCurlyBracketKeyword_5_1_4; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5_1_5() { return cSemicolonKeyword_5_1_5; }
 
 		//("exclude" ":" "[" exclude+=NamePredicate ("," exclude+=NamePredicate)* "]" ";")?
 		public Group getGroup_5_2() { return cGroup_5_2; }
@@ -11947,7 +12115,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private RepositoryElements pRepository;
 	private BranchPointTypeLatestElements unknownRuleBranchPointTypeLatest;
 	private BranchPointTypeOtherElements unknownRuleBranchPointTypeOther;
-	private UpdateStrategyElements pUpdateStrategy;
+	private MergeStrategyElements pMergeStrategy;
+	private TriStateElements pTriState;
 	private BranchElements pBranch;
 	private BranchPointStringElements pBranchPointString;
 	private UnitProviderElements pUnitProvider;
@@ -12718,14 +12887,24 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	////enum BranchPointTypeTs returns build::BranchPointType : Timestamp="timestamp" ;
 	////enum
-	//UpdateStrategy returns build::UpdateStrategy:
+	//MergeStrategy returns build::MergeConflictStrategy:
 	//	ID_or_KW;
-	public UpdateStrategyElements getUpdateStrategyAccess() {
-		return (pUpdateStrategy != null) ? pUpdateStrategy : (pUpdateStrategy = new UpdateStrategyElements());
+	public MergeStrategyElements getMergeStrategyAccess() {
+		return (pMergeStrategy != null) ? pMergeStrategy : (pMergeStrategy = new MergeStrategyElements());
 	}
 	
-	public ParserRule getUpdateStrategyRule() {
-		return getUpdateStrategyAccess().getRule();
+	public ParserRule getMergeStrategyRule() {
+		return getMergeStrategyAccess().getRule();
+	}
+
+	//TriState returns build::TriState:
+	//	"true" | "false" | "default";
+	public TriStateElements getTriStateAccess() {
+		return (pTriState != null) ? pTriState : (pTriState = new TriStateElements());
+	}
+	
+	public ParserRule getTriStateRule() {
+		return getTriStateAccess().getRule();
 	}
 
 	////	  FailModified = "fail-modified"
@@ -12739,7 +12918,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//Branch returns build::Branch:
 	//	{build::Branch} documentation=DOCUMENTATION? "branch" name=EscapedQualifiedName "{"
 	//	((branchPointType=BranchPointTypeLatest ";" | branchPointType=BranchPointTypeOther ":" branchPoint=Expression ";")? &
-	//	("update-policy" ":" updateStrategy=UpdateStrategy ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
+	//	("policy" ":" "{" (("checkout-content" ":" checkout=TriState ";")? (("accept-dirty" ":" acceptDirty=TriState ";")? &
+	//	("update-content" ":" update=TriState ";")? & ("on-merge-conflict" ":" mergeStrategy=MergeStrategy ";")? |
+	//	"replace-content" ":" replace=TriState ";"))? "}" ";")? & ("exclude" ":" "[" exclude+=NamePredicate (","
 	//	exclude+=NamePredicate)* "]" ";")? & ("include" ":" "[" include+=NamePredicate ("," include+=NamePredicate)* "]"
 	//	";")?) "}";
 	public BranchElements getBranchAccess() {

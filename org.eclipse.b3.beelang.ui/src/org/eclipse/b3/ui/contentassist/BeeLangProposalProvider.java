@@ -10,10 +10,12 @@ import java.util.Map.Entry;
 
 import org.eclipse.b3.build.build.Branch;
 import org.eclipse.b3.build.build.BranchPointType;
+import org.eclipse.b3.build.build.MergeConflictStrategy;
 import org.eclipse.b3.build.build.Repository;
-import org.eclipse.b3.build.build.UpdateStrategy;
+import org.eclipse.b3.build.build.TriState;
 import org.eclipse.b3.build.core.RepositoryValidation;
-import org.eclipse.b3.enums.UpdateStrategyEnumHelper;
+import org.eclipse.b3.enums.MergeConflictStrategyEnumHelper;
+import org.eclipse.b3.enums.TriStateEnumHelper;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.jface.viewers.StyledString;
@@ -61,6 +63,15 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 		super.complete_EscapedQualifiedName(model, ruleCall, context, acceptor);
 	}
 
+	public void complete_MergeStrategy(EObject model, RuleCall ruleCall, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		ICompletionProposal completionProposal;
+		for(Entry<MergeConflictStrategy, String> entry : MergeConflictStrategyEnumHelper.converterMap.entrySet()) {
+			completionProposal = createCompletionProposal(entry.getValue(), new StyledString(entry.getValue()), context);
+			acceptor.accept(completionProposal);
+		}
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -94,15 +105,13 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 		super.complete_NamePredicate(model, ruleCall, context, acceptor);
 	}
 
-	@Override
-	public void complete_UpdateStrategy(EObject model, RuleCall ruleCall, ContentAssistContext context,
+	public void complete_TriState(EObject model, RuleCall ruleCall, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
 		ICompletionProposal completionProposal;
-		for(Entry<UpdateStrategy, String> entry : UpdateStrategyEnumHelper.converterMap.entrySet()) {
+		for(Entry<TriState, String> entry : TriStateEnumHelper.converterMap.entrySet()) {
 			completionProposal = createCompletionProposal(entry.getValue(), new StyledString(entry.getValue()), context);
 			acceptor.accept(completionProposal);
 		}
-
 	}
 
 	/*

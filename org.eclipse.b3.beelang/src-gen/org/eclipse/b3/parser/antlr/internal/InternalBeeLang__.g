@@ -57,131 +57,136 @@ T63 : '@postinputcondition' ;
 T64 : 'repository' ;
 T65 : 'connection' ;
 T66 : 'branches' ;
-T67 : 'branch' ;
-T68 : 'update-policy' ;
-T69 : 'exclude' ;
-T70 : 'include' ;
-T71 : 'resolution' ;
-T72 : 'select-first' ;
-T73 : 'select-best' ;
-T74 : 'select-switch' ;
-T75 : 'endswitch' ;
-T76 : 'case' ;
-T77 : 'default' ;
-T78 : 'container' ;
-T79 : 'function' ;
-T80 : '@callguard' ;
-T81 : '+=' ;
-T82 : '-=' ;
-T83 : '*=' ;
-T84 : '/=' ;
-T85 : '%=' ;
-T86 : '~=' ;
-T87 : '==' ;
-T88 : '===' ;
-T89 : '!=' ;
-T90 : '!==' ;
-T91 : '>=' ;
-T92 : '<=' ;
-T93 : '>' ;
-T94 : '<' ;
-T95 : 'var' ;
-T96 : 'val' ;
-T97 : '=>' ;
-T98 : '?' ;
-T99 : 'super' ;
-T100 : 'cached' ;
-T101 : '||' ;
-T102 : '&&' ;
-T103 : 'instanceof' ;
-T104 : '+' ;
-T105 : '-' ;
-T106 : '*' ;
-T107 : '%' ;
-T108 : '..' ;
-T109 : '!' ;
-T110 : '++' ;
-T111 : '--' ;
-T112 : 'context' ;
-T113 : 'proceed' ;
-T114 : '_' ;
-T115 : 'throw' ;
-T116 : 'try' ;
-T117 : 'finally' ;
-T118 : 'endtry' ;
-T119 : 'catch' ;
-T120 : 'switch' ;
-T121 : 'if' ;
-T122 : 'then' ;
-T123 : 'else' ;
-T124 : 'endif' ;
-T125 : 'elseif' ;
-T126 : 'this' ;
-T127 : 'modify' ;
-T128 : 'new' ;
-T129 : 'unit-context' ;
-T130 : 'select-units' ;
-T131 : 'modify-selected' ;
-T132 : 'builder-context' ;
-T133 : 'select-builders' ;
-T134 : 'having-parameters' ;
-T135 : 'conditions' ;
-T136 : 'precondition' ;
-T137 : 'postinputcondition' ;
-T138 : 'postcondition' ;
-T139 : 'called-builder' ;
-T140 : '|' ;
-T141 : 'null' ;
-T142 : 'true' ;
-T143 : 'false' ;
-T144 : '@' ;
-T145 : '$' ;
-T146 : '&' ;
-T147 : 'latest' ;
-T148 : 'revision' ;
-T149 : 'tag' ;
-T150 : 'timestamp' ;
-T151 : 'public' ;
-T152 : 'private' ;
-T153 : 'parallel' ;
+T67 : 'true' ;
+T68 : 'false' ;
+T69 : 'default' ;
+T70 : 'branch' ;
+T71 : 'policy' ;
+T72 : 'checkout-content' ;
+T73 : 'accept-dirty' ;
+T74 : 'update-content' ;
+T75 : 'on-merge-conflict' ;
+T76 : 'replace-content' ;
+T77 : 'exclude' ;
+T78 : 'include' ;
+T79 : 'resolution' ;
+T80 : 'select-first' ;
+T81 : 'select-best' ;
+T82 : 'select-switch' ;
+T83 : 'endswitch' ;
+T84 : 'case' ;
+T85 : 'container' ;
+T86 : 'function' ;
+T87 : '@callguard' ;
+T88 : '+=' ;
+T89 : '-=' ;
+T90 : '*=' ;
+T91 : '/=' ;
+T92 : '%=' ;
+T93 : '~=' ;
+T94 : '==' ;
+T95 : '===' ;
+T96 : '!=' ;
+T97 : '!==' ;
+T98 : '>=' ;
+T99 : '<=' ;
+T100 : '>' ;
+T101 : '<' ;
+T102 : 'var' ;
+T103 : 'val' ;
+T104 : '=>' ;
+T105 : '?' ;
+T106 : 'super' ;
+T107 : 'cached' ;
+T108 : '||' ;
+T109 : '&&' ;
+T110 : 'instanceof' ;
+T111 : '+' ;
+T112 : '-' ;
+T113 : '*' ;
+T114 : '%' ;
+T115 : '..' ;
+T116 : '!' ;
+T117 : '++' ;
+T118 : '--' ;
+T119 : 'context' ;
+T120 : 'proceed' ;
+T121 : '_' ;
+T122 : 'throw' ;
+T123 : 'try' ;
+T124 : 'finally' ;
+T125 : 'endtry' ;
+T126 : 'catch' ;
+T127 : 'switch' ;
+T128 : 'if' ;
+T129 : 'then' ;
+T130 : 'else' ;
+T131 : 'endif' ;
+T132 : 'elseif' ;
+T133 : 'this' ;
+T134 : 'modify' ;
+T135 : 'new' ;
+T136 : 'unit-context' ;
+T137 : 'select-units' ;
+T138 : 'modify-selected' ;
+T139 : 'builder-context' ;
+T140 : 'select-builders' ;
+T141 : 'having-parameters' ;
+T142 : 'conditions' ;
+T143 : 'precondition' ;
+T144 : 'postinputcondition' ;
+T145 : 'postcondition' ;
+T146 : 'called-builder' ;
+T147 : '|' ;
+T148 : 'null' ;
+T149 : '@' ;
+T150 : '$' ;
+T151 : '&' ;
+T152 : 'latest' ;
+T153 : 'revision' ;
+T154 : 'tag' ;
+T155 : 'timestamp' ;
+T156 : 'public' ;
+T157 : 'private' ;
+T158 : 'parallel' ;
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22373
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22633
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22375
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22635
 RULE_PID : '$' '{' RULE_ID ('.' RULE_ID)* '}';
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22377
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22637
 RULE_REGULAR_EXPR : '~/' ('\\' ~(('\t'|'\r'|'\n'))|~(('\\'|'/'|' '|'\t'|'\r'|'\n')))* '/' ('u'|'m'|'i'|'c'|'d')*;
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22379
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22639
 RULE_SIMPLE_PATTERN : '~' RULE_STRING;
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22381
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22641
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|'\''|'\\')|~(('\\'|'"'|'\r'|'\n')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|'\''|'\\')|~(('\\'|'\''|'\r'|'\n')))* '\'');
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22383
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22643
 RULE_DOCUMENTATION : '/**' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22385
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22645
 RULE_ML_COMMENT : '/*' ~('*') ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22387
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22647
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22389
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22649
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22391
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22651
 RULE_HEX : '0' ('x'|'X') ('0'..'9'|'a'..'f'|'A'..'F')+;
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22393
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22653
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22395
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22655
 RULE_EXT_INT : RULE_INT ('e'|'E') ('-'|'+') RULE_INT;
 
-// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22397
+// $ANTLR src "../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g" 22657
 RULE_ANY_OTHER : .;
 
 

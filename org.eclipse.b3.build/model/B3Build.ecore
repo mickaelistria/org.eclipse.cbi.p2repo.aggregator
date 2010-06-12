@@ -609,11 +609,15 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Branch">
-    <eOperations name="getEffectiveUpdateStrategy" eType="#//UpdateStrategy">
+    <eOperations name="getEffectiveMergeStrategy" eType="#//MergeConflictStrategy">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the update strategy (explicit, or derived from combination BranchPointDefault, and BranchPointType)."/>
       </eAnnotations>
     </eOperations>
+    <eOperations name="getEffectiveCheckout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="getEffectiveAcceptDirty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="getEffectiveUpdate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="getEffectiveReplace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="hasValidState" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="chain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
       <eParameters name="map">
@@ -624,8 +628,8 @@
       </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="updateStrategy" lowerBound="1"
-        eType="#//UpdateStrategy" defaultValueLiteral="BranchPointDefault"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchPointType" lowerBound="1"
         eType="#//BranchPointType" defaultValueLiteral="Latest"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="include" upperBound="-1"
@@ -634,18 +638,24 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="exclude" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BNamePredicate"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="branchPoint" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mergeStrategy" lowerBound="1"
+        eType="#//MergeConflictStrategy" defaultValueLiteral="Default"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkout" eType="#//TriState"
+        defaultValueLiteral="Default"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="acceptDirty" eType="#//TriState"
+        defaultValueLiteral="Default"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="update" eType="#//TriState"
+        defaultValueLiteral="Default"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replace" eType="#//TriState"
+        defaultValueLiteral="Default"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="UpdateStrategy">
-    <eLiterals name="BranchPointDefault" literal="BranchPointDefault"/>
-    <eLiterals name="NoUpdate" value="1"/>
-    <eLiterals name="Merge" value="2"/>
-    <eLiterals name="KeepModified" value="3"/>
-    <eLiterals name="ReplaceModified" value="4"/>
-    <eLiterals name="FailModified" value="5"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="MergeConflictStrategy">
+    <eLiterals name="Default"/>
+    <eLiterals name="UseWorkspace" value="1" literal="UseWorkspace"/>
+    <eLiterals name="UseSCM" value="2"/>
+    <eLiterals name="Fail" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BranchPointType">
     <eLiterals name="Latest"/>
@@ -676,5 +686,10 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TriState">
+    <eLiterals name="Default"/>
+    <eLiterals name="True" value="1"/>
+    <eLiterals name="False" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

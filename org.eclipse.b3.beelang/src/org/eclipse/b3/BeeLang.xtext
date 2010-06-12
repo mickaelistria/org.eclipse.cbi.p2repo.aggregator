@@ -393,7 +393,9 @@ enum BranchPointTypeLatest returns build::BranchPointType :  Latest="latest" ;
 enum BranchPointTypeOther returns build::BranchPointType : Latest="latest" | Revision="revision" | Tag="tag" | Timestamp = "timestamp";
 //enum BranchPointTypeTs returns build::BranchPointType : Timestamp="timestamp" ;
 //enum
-UpdateStrategy returns build::UpdateStrategy : ID_or_KW;
+MergeStrategy returns build::MergeConflictStrategy : ID_or_KW;
+TriState returns  build::TriState : "true" | "false" | "default" ;
+
 //	  FailModified = "fail-modified"
 //	| KeepModified = "keep-modified"
 //	| Merge = "merge-modified"
@@ -412,7 +414,14 @@ Branch returns build::Branch : {build::Branch}
 		  ( (branchPointType = BranchPointTypeLatest ';') |
 		   (branchPointType = BranchPointTypeOther ':' branchPoint = Expression ';')
 		  )?
-		& ("update-policy" ':' updateStrategy = UpdateStrategy ';')?
+		& ("policy" ':' '{' 
+			( 	("checkout-content" ':' checkout = TriState ';')?
+				(( 	("accept-dirty" ':' acceptDirty = TriState ';')?
+				  & ("update-content" ':' update = TriState ';')?
+				  & ("on-merge-conflict" ':' mergeStrategy = MergeStrategy ';')?
+				) | ("replace-content" ':' replace = TriState ';'))
+			)? 
+			'}' ';')?
 		& ("exclude" ':' '[' (exclude += NamePredicate) (',' exclude += NamePredicate)* ']' ';')?
 		& ("include" ':' '[' (include += NamePredicate) (',' include += NamePredicate)* ']' ';')?
 		)

@@ -3,6 +3,8 @@
  */
 package org.eclipse.b3;
 
+import java.util.Properties;
+
 import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.service.DefaultRuntimeModule;
 
@@ -15,27 +17,20 @@ import com.google.inject.name.Names;
  @SuppressWarnings("all")
 public abstract class AbstractBeeLangRuntimeModule extends DefaultRuntimeModule {
 
-	// Support for property files is deprecated. Please use configure...() methods instead. 
-	protected boolean useProperties = getClass().getResource("org/eclipse/b3/BeeLang.properties") != null;
+	protected Properties properties = null;
 
 	@Override
 	public void configure(Binder binder) {
+		properties = tryBindProperties(binder, "org/eclipse/b3/BeeLang.properties");
 		super.configure(binder);
-		if(useProperties)
-			bindProperties(binder);
-	}
-	
-	protected void bindProperties(Binder binder) {
-		bindProperties(binder, "org/eclipse/b3/BeeLang.properties");
 	}
 	
 	public void configureLanguageName(Binder binder) {
-		if(!useProperties)
-			binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance("org.eclipse.b3.BeeLang");
+		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance("org.eclipse.b3.BeeLang");
 	}
 	
 	public void configureFileExtensions(Binder binder) {
-		if(!useProperties)
+		if (properties == null || properties.getProperty(Constants.FILE_EXTENSIONS) == null)
 			binder.bind(String.class).annotatedWith(Names.named(Constants.FILE_EXTENSIONS)).toInstance("b3");
 	}
 	
