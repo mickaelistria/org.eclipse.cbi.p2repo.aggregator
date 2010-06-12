@@ -236,7 +236,13 @@ unit aTestUnit version 1.0.0 {
 			local : "file://aLocalURL/"; 
 			user : "hello";
 			password : "hush-hush";
-			branches : [ branch main { exclude : [ "1_Complex.Name" ]; update-policy : fail_modified; }];
+			branches : [ branch main { exclude : [ "1_Complex.Name" ]; 
+				policy : {
+					checkout-content : true ; 
+					accept-dirty : true;
+					update-content : true;
+					on-merge-conflict : use_workspace; 
+					/* replace-content : true; */  }; }];
 		}
 
 	resolution : [
