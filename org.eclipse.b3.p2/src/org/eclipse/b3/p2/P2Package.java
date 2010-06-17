@@ -82,6 +82,18 @@ public interface P2Package extends EPackage {
 		EAttribute IARTIFACT_KEY__VERSION = eINSTANCE.getIArtifactKey_Version();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.artifact.IArtifactRepository <em>IArtifact Repository</em>}'
+		 * class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.equinox.p2.repository.artifact.IArtifactRepository
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIArtifactRepository()
+		 * @generated
+		 */
+		EClass IARTIFACT_REPOSITORY = eINSTANCE.getIArtifactRepository();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.ICopyright <em>ICopyright</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -109,6 +121,18 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EAttribute ICOPYRIGHT__BODY = eINSTANCE.getICopyright_Body();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository
+		 * <em>IFile Artifact Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIFileArtifactRepository()
+		 * @generated
+		 */
+		EClass IFILE_ARTIFACT_REPOSITORY = eINSTANCE.getIFileArtifactRepository();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit <em>IInstallable Unit</em>}' class.
@@ -644,6 +668,84 @@ public interface P2Package extends EPackage {
 		EClass ARTIFACT_KEY = eINSTANCE.getArtifactKey();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.ArtifactDescriptorImpl <em>Artifact Descriptor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.ArtifactDescriptorImpl
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getArtifactDescriptor()
+		 * @generated
+		 */
+		EClass ARTIFACT_DESCRIPTOR = eINSTANCE.getArtifactDescriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Map</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference ARTIFACT_DESCRIPTOR__PROPERTY_MAP = eINSTANCE.getArtifactDescriptor_PropertyMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Processing Step List</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST = eINSTANCE.getArtifactDescriptor_ProcessingStepList();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.ArtifactRepositoryImpl <em>Artifact Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.ArtifactRepositoryImpl
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getArtifactRepository()
+		 * @generated
+		 */
+		EClass ARTIFACT_REPOSITORY = eINSTANCE.getArtifactRepository();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Map</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference ARTIFACT_REPOSITORY__ARTIFACT_MAP = eINSTANCE.getArtifactRepository_ArtifactMap();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.ArtifactsByKeyImpl <em>Artifacts By Key</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.ArtifactsByKeyImpl
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getArtifactsByKey()
+		 * @generated
+		 */
+		EClass ARTIFACTS_BY_KEY = eINSTANCE.getArtifactsByKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference ARTIFACTS_BY_KEY__KEY = eINSTANCE.getArtifactsByKey_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference ARTIFACTS_BY_KEY__VALUE = eINSTANCE.getArtifactsByKey_Value();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.CopyrightImpl <em>Copyright</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -684,13 +786,15 @@ public interface P2Package extends EPackage {
 		EReference METADATA_REPOSITORY__REFERENCES = eINSTANCE.getMetadataRepository_References();
 
 		/**
-		 * The meta object literal for the '<em><b>Property Map</b></em>' map feature.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.ProcessingStepDescriptorImpl <em>Processing Step Descriptor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
+		 * @see org.eclipse.b3.p2.impl.ProcessingStepDescriptorImpl
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getProcessingStepDescriptor()
 		 * @generated
 		 */
-		EReference METADATA_REPOSITORY__PROPERTY_MAP = eINSTANCE.getMetadataRepository_PropertyMap();
+		EClass PROCESSING_STEP_DESCRIPTOR = eINSTANCE.getProcessingStepDescriptor();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.InstallableUnitImpl <em>Installable Unit</em>}' class.
@@ -746,6 +850,35 @@ public interface P2Package extends EPackage {
 		EClass LICENSE = eINSTANCE.getLicense();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.MappingRuleImpl <em>Mapping Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.MappingRuleImpl
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getMappingRule()
+		 * @generated
+		 */
+		EClass MAPPING_RULE = eINSTANCE.getMappingRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Filter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute MAPPING_RULE__FILTER = eINSTANCE.getMappingRule_Filter();
+
+		/**
+		 * The meta object literal for the '<em><b>Output</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute MAPPING_RULE__OUTPUT = eINSTANCE.getMappingRule_Output();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.ProvidedCapabilityImpl <em>Provided Capability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -755,6 +888,26 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EClass PROVIDED_CAPABILITY = eINSTANCE.getProvidedCapability();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.RepositoryImpl <em>Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.RepositoryImpl
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRepository()
+		 * @generated
+		 */
+		EClass REPOSITORY = eINSTANCE.getRepository();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Map</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPOSITORY__PROPERTY_MAP = eINSTANCE.getRepository_PropertyMap();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.RequiredCapabilityImpl <em>Required Capability</em>}' class.
@@ -788,6 +941,46 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EClass REQUIREMENT_CHANGE = eINSTANCE.getRequirementChange();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.SimpleArtifactRepositoryImpl <em>Simple Artifact Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.SimpleArtifactRepositoryImpl
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getSimpleArtifactRepository()
+		 * @generated
+		 */
+		EClass SIMPLE_ARTIFACT_REPOSITORY = eINSTANCE.getSimpleArtifactRepository();
+
+		/**
+		 * The meta object literal for the '<em><b>Rules</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference SIMPLE_ARTIFACT_REPOSITORY__RULES = eINSTANCE.getSimpleArtifactRepository_Rules();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.SimpleArtifactDescriptorImpl <em>Simple Artifact Descriptor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.SimpleArtifactDescriptorImpl
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getSimpleArtifactDescriptor()
+		 * @generated
+		 */
+		EClass SIMPLE_ARTIFACT_DESCRIPTOR = eINSTANCE.getSimpleArtifactDescriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Repository Property Map</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP = eINSTANCE.getSimpleArtifactDescriptor_RepositoryPropertyMap();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.TouchpointDataImpl <em>Touchpoint Data</em>}' class.
@@ -924,6 +1117,45 @@ public interface P2Package extends EPackage {
 		EClass IMETADATA_REPOSITORY = eINSTANCE.getIMetadataRepository();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor
+		 * <em>IProcessing Step Descriptor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProcessingStepDescriptor()
+		 * @generated
+		 */
+		EClass IPROCESSING_STEP_DESCRIPTOR = eINSTANCE.getIProcessingStepDescriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Processor Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IPROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID = eINSTANCE.getIProcessingStepDescriptor_ProcessorId();
+
+		/**
+		 * The meta object literal for the '<em><b>Data</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IPROCESSING_STEP_DESCRIPTOR__DATA = eINSTANCE.getIProcessingStepDescriptor_Data();
+
+		/**
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IPROCESSING_STEP_DESCRIPTOR__REQUIRED = eINSTANCE.getIProcessingStepDescriptor_Required();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.IRepository <em>IRepository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -998,6 +1230,15 @@ public interface P2Package extends EPackage {
 		EAttribute IREPOSITORY__MODIFIABLE = eINSTANCE.getIRepository_Modifiable();
 
 		/**
+		 * The meta object literal for the '<em><b>Provisioning Agent</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IREPOSITORY__PROVISIONING_AGENT = eINSTANCE.getIRepository_ProvisioningAgent();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.IRepositoryReference <em>IRepository Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1065,6 +1306,27 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EClass IADAPTABLE = eINSTANCE.getIAdaptable();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor <em>IArtifact Descriptor</em>}'
+		 * class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIArtifactDescriptor()
+		 * @generated
+		 */
+		EClass IARTIFACT_DESCRIPTOR = eINSTANCE.getIArtifactDescriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Key</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference IARTIFACT_DESCRIPTOR__ARTIFACT_KEY = eINSTANCE.getIArtifactDescriptor_ArtifactKey();
 
 		/**
 		 * The meta object literal for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
@@ -1151,6 +1413,16 @@ public interface P2Package extends EPackage {
 		EDataType IARTIFACT_KEY_ARRAY = eINSTANCE.getIArtifactKeyArray();
 
 		/**
+		 * The meta object literal for the '<em>IArtifact Request Array</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIArtifactRequestArray()
+		 * @generated
+		 */
+		EDataType IARTIFACT_REQUEST_ARRAY = eINSTANCE.getIArtifactRequestArray();
+
+		/**
 		 * The meta object literal for the '<em>ITouchpoint Data Array</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1169,6 +1441,16 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EDataType IREQUIREMENT_ARRAY_ARRAY = eINSTANCE.getIRequirementArrayArray();
+
+		/**
+		 * The meta object literal for the '<em>IProcessing Descriptor Array</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProcessingDescriptorArray()
+		 * @generated
+		 */
+		EDataType IPROCESSING_DESCRIPTOR_ARRAY = eINSTANCE.getIProcessingDescriptorArray();
 
 		/**
 		 * The meta object literal for the '<em>String Array</em>' data type.
@@ -1201,6 +1483,17 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EDataType MAP = eINSTANCE.getMap();
+
+		/**
+		 * The meta object literal for the '<em>Output Stream</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see java.io.OutputStream
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getOutputStream()
+		 * @generated
+		 */
+		EDataType OUTPUT_STREAM = eINSTANCE.getOutputStream();
 
 		/**
 		 * The meta object literal for the '<em>ILicense Array</em>' data type.
@@ -1244,6 +1537,27 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EDataType COLLECTOR = eINSTANCE.getCollector();
+
+		/**
+		 * The meta object literal for the '<em>File</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see java.io.File
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getFile()
+		 * @generated
+		 */
+		EDataType FILE = eINSTANCE.getFile();
+
+		/**
+		 * The meta object literal for the '<em>IArtifact Descriptor Array</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIArtifactDescriptorArray()
+		 * @generated
+		 */
+		EDataType IARTIFACT_DESCRIPTOR_ARRAY = eINSTANCE.getIArtifactDescriptorArray();
 
 		/**
 		 * The meta object literal for the '<em>IProgress Monitor</em>' data type.
@@ -1358,7 +1672,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIArtifactKey()
 	 * @generated
 	 */
-	int IARTIFACT_KEY = 0;
+	int IARTIFACT_KEY = 8;
 
 	/**
 	 * The feature id for the '<em><b>Classifier</b></em>' attribute.
@@ -1409,7 +1723,953 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getICopyright()
 	 * @generated
 	 */
-	int ICOPYRIGHT = 1;
+	int ICOPYRIGHT = 10;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IVersionedId <em>IVersioned Id</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IVersionedId
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIVersionedId()
+	 * @generated
+	 */
+	int IVERSIONED_ID = 32;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit <em>IInstallable Unit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnit
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnit()
+	 * @generated
+	 */
+	int IINSTALLABLE_UNIT = 12;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitFragment <em>IInstallable Unit Fragment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitFragment
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnitFragment()
+	 * @generated
+	 */
+	int IINSTALLABLE_UNIT_FRAGMENT = 13;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitPatch <em>IInstallable Unit Patch</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitPatch
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnitPatch()
+	 * @generated
+	 */
+	int IINSTALLABLE_UNIT_PATCH = 14;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ILicense <em>ILicense</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.ILicense
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getILicense()
+	 * @generated
+	 */
+	int ILICENSE = 15;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability <em>IProvided Capability</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IProvidedCapability
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProvidedCapability()
+	 * @generated
+	 */
+	int IPROVIDED_CAPABILITY = 22;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IRequirement <em>IRequirement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IRequirement
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequirement()
+	 * @generated
+	 */
+	int IREQUIREMENT = 26;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability <em>IRequired Capability</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.internal.p2.metadata.IRequiredCapability
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequiredCapability()
+	 * @generated
+	 */
+	int IREQUIRED_CAPABILITY = 27;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IRequirementChange <em>IRequirement Change</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IRequirementChange
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequirementChange()
+	 * @generated
+	 */
+	int IREQUIREMENT_CHANGE = 28;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointData <em>ITouchpoint Data</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.ITouchpointData
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointData()
+	 * @generated
+	 */
+	int ITOUCHPOINT_DATA = 29;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction <em>ITouchpoint Instruction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.ITouchpointInstruction
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointInstruction()
+	 * @generated
+	 */
+	int ITOUCHPOINT_INSTRUCTION = 30;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointType <em>ITouchpoint Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.ITouchpointType
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointType()
+	 * @generated
+	 */
+	int ITOUCHPOINT_TYPE = 31;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor <em>IUpdate Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IUpdateDescriptor
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIUpdateDescriptor()
+	 * @generated
+	 */
+	int IUPDATE_DESCRIPTOR = 33;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.ArtifactKeyImpl <em>Artifact Key</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.ArtifactKeyImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getArtifactKey()
+	 * @generated
+	 */
+	int ARTIFACT_KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Classifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_KEY__CLASSIFIER = IARTIFACT_KEY__CLASSIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_KEY__ID = IARTIFACT_KEY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_KEY__VERSION = IARTIFACT_KEY__VERSION;
+
+	/**
+	 * The number of structural features of the '<em>Artifact Key</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_KEY_FEATURE_COUNT = IARTIFACT_KEY_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor <em>IArtifact Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIArtifactDescriptor()
+	 * @generated
+	 */
+	int IARTIFACT_DESCRIPTOR = 7;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IARTIFACT_DESCRIPTOR__ARTIFACT_KEY = 0;
+
+	/**
+	 * The number of structural features of the '<em>IArtifact Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IARTIFACT_DESCRIPTOR_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.ArtifactDescriptorImpl <em>Artifact Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.ArtifactDescriptorImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getArtifactDescriptor()
+	 * @generated
+	 */
+	int ARTIFACT_DESCRIPTOR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DESCRIPTOR__ARTIFACT_KEY = IARTIFACT_DESCRIPTOR__ARTIFACT_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Property Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DESCRIPTOR__PROPERTY_MAP = IARTIFACT_DESCRIPTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Processing Step List</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST = IARTIFACT_DESCRIPTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Artifact Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DESCRIPTOR_FEATURE_COUNT = IARTIFACT_DESCRIPTOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.CopyrightImpl <em>Copyright</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.CopyrightImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getCopyright()
+	 * @generated
+	 */
+	int COPYRIGHT = 5;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.core.runtime.IAdaptable <em>IAdaptable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.core.runtime.IAdaptable
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIAdaptable()
+	 * @generated
+	 */
+	int IADAPTABLE = 6;
+
+	/**
+	 * The number of structural features of the '<em>IAdaptable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IADAPTABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.IRepository <em>IRepository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.repository.IRepository
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRepository()
+	 * @generated
+	 */
+	int IREPOSITORY = 24;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY__LOCATION = IADAPTABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY__NAME = IADAPTABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY__TYPE = IADAPTABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY__VERSION = IADAPTABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY__DESCRIPTION = IADAPTABLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Provider</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY__PROVIDER = IADAPTABLE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY__MODIFIABLE = IADAPTABLE_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Provisioning Agent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY__PROVISIONING_AGENT = IADAPTABLE_FEATURE_COUNT + 7;
+
+	/**
+	 * The number of structural features of the '<em>IRepository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY_FEATURE_COUNT = IADAPTABLE_FEATURE_COUNT + 8;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.artifact.IArtifactRepository <em>IArtifact Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.repository.artifact.IArtifactRepository
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIArtifactRepository()
+	 * @generated
+	 */
+	int IARTIFACT_REPOSITORY = 9;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.ArtifactRepositoryImpl <em>Artifact Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.ArtifactRepositoryImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getArtifactRepository()
+	 * @generated
+	 */
+	int ARTIFACT_REPOSITORY = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository <em>IMetadata Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.repository.metadata.IMetadataRepository
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIMetadataRepository()
+	 * @generated
+	 */
+	int IMETADATA_REPOSITORY = 20;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor <em>IProcessing Step Descriptor</em>}'
+	 * class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProcessingStepDescriptor()
+	 * @generated
+	 */
+	int IPROCESSING_STEP_DESCRIPTOR = 21;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.MetadataRepositoryImpl <em>Metadata Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.MetadataRepositoryImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getMetadataRepository()
+	 * @generated
+	 */
+	int METADATA_REPOSITORY = 36;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.ProcessingStepDescriptorImpl <em>Processing Step Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.ProcessingStepDescriptorImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getProcessingStepDescriptor()
+	 * @generated
+	 */
+	int PROCESSING_STEP_DESCRIPTOR = 37;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.InstallableUnitImpl <em>Installable Unit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.InstallableUnitImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstallableUnit()
+	 * @generated
+	 */
+	int INSTALLABLE_UNIT = 16;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl <em>Installable Unit Fragment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstallableUnitFragment()
+	 * @generated
+	 */
+	int INSTALLABLE_UNIT_FRAGMENT = 17;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.InstallableUnitPatchImpl <em>Installable Unit Patch</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.InstallableUnitPatchImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstallableUnitPatch()
+	 * @generated
+	 */
+	int INSTALLABLE_UNIT_PATCH = 18;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.LicenseImpl <em>License</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.LicenseImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getLicense()
+	 * @generated
+	 */
+	int LICENSE = 34;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.ProvidedCapabilityImpl <em>Provided Capability</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.ProvidedCapabilityImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getProvidedCapability()
+	 * @generated
+	 */
+	int PROVIDED_CAPABILITY = 39;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RequirementImpl <em>Requirement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.RequirementImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRequirement()
+	 * @generated
+	 */
+	int REQUIREMENT = 43;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RequiredCapabilityImpl <em>Required Capability</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.RequiredCapabilityImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRequiredCapability()
+	 * @generated
+	 */
+	int REQUIRED_CAPABILITY = 42;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RequirementChangeImpl <em>Requirement Change</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.RequirementChangeImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRequirementChange()
+	 * @generated
+	 */
+	int REQUIREMENT_CHANGE = 44;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.TouchpointDataImpl <em>Touchpoint Data</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.TouchpointDataImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getTouchpointData()
+	 * @generated
+	 */
+	int TOUCHPOINT_DATA = 47;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.TouchpointInstructionImpl <em>Touchpoint Instruction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.TouchpointInstructionImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getTouchpointInstruction()
+	 * @generated
+	 */
+	int TOUCHPOINT_INSTRUCTION = 48;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.TouchpointTypeImpl <em>Touchpoint Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.TouchpointTypeImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getTouchpointType()
+	 * @generated
+	 */
+	int TOUCHPOINT_TYPE = 49;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.UpdateDescriptorImpl <em>Update Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.UpdateDescriptorImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getUpdateDescriptor()
+	 * @generated
+	 */
+	int UPDATE_DESCRIPTOR = 50;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.PropertyImpl <em>Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.PropertyImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getProperty()
+	 * @generated
+	 */
+	int PROPERTY = 38;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.InstructionMapImpl <em>Instruction Map</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.InstructionMapImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstructionMap()
+	 * @generated
+	 */
+	int INSTRUCTION_MAP = 19;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.query.IQueryable <em>IQueryable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.query.IQueryable
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIQueryable()
+	 * @generated
+	 */
+	int IQUERYABLE = 23;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.IRepositoryReference <em>IRepository Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.repository.IRepositoryReference
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRepositoryReference()
+	 * @generated
+	 */
+	int IREPOSITORY_REFERENCE = 25;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RepositoryReferenceImpl <em>Repository Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.RepositoryReferenceImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRepositoryReference()
+	 * @generated
+	 */
+	int REPOSITORY_REFERENCE = 41;
+
+	/**
+	 * The meta object id for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see java.lang.Comparable
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getComparable()
+	 * @generated
+	 */
+	int COMPARABLE = 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RepositoryImpl <em>Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.RepositoryImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRepository()
+	 * @generated
+	 */
+	int REPOSITORY = 40;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__LOCATION = IREPOSITORY__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__NAME = IREPOSITORY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__TYPE = IREPOSITORY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__VERSION = IREPOSITORY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__DESCRIPTION = IREPOSITORY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Provider</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__PROVIDER = IREPOSITORY__PROVIDER;
+
+	/**
+	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__MODIFIABLE = IREPOSITORY__MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Provisioning Agent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__PROVISIONING_AGENT = IREPOSITORY__PROVISIONING_AGENT;
+
+	/**
+	 * The feature id for the '<em><b>Property Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__PROPERTY_MAP = IREPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FEATURE_COUNT = IREPOSITORY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_REPOSITORY__LOCATION = REPOSITORY__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_REPOSITORY__NAME = REPOSITORY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_REPOSITORY__TYPE = REPOSITORY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_REPOSITORY__VERSION = REPOSITORY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_REPOSITORY__DESCRIPTION = REPOSITORY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Provider</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_REPOSITORY__PROVIDER = REPOSITORY__PROVIDER;
+
+	/**
+	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_REPOSITORY__MODIFIABLE = REPOSITORY__MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Provisioning Agent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_REPOSITORY__PROVISIONING_AGENT = REPOSITORY__PROVISIONING_AGENT;
+
+	/**
+	 * The feature id for the '<em><b>Property Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_REPOSITORY__PROPERTY_MAP = REPOSITORY__PROPERTY_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_REPOSITORY__ARTIFACT_MAP = REPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Artifact Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_REPOSITORY_FEATURE_COUNT = REPOSITORY_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.ArtifactsByKeyImpl <em>Artifacts By Key</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.ArtifactsByKeyImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getArtifactsByKey()
+	 * @generated
+	 */
+	int ARTIFACTS_BY_KEY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACTS_BY_KEY__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACTS_BY_KEY__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Artifacts By Key</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACTS_BY_KEY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of structural features of the '<em>Comparable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE_FEATURE_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -1442,15 +2702,226 @@ public interface P2Package extends EPackage {
 	int ICOPYRIGHT_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IVersionedId <em>IVersioned Id</em>}' class.
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.equinox.p2.metadata.IVersionedId
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIVersionedId()
+	 * @generated
+	 * @ordered
+	 */
+	int COPYRIGHT__LOCATION = ICOPYRIGHT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COPYRIGHT__BODY = ICOPYRIGHT__BODY;
+
+	/**
+	 * The number of structural features of the '<em>Copyright</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COPYRIGHT_FEATURE_COUNT = ICOPYRIGHT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IARTIFACT_REPOSITORY__LOCATION = IREPOSITORY__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IARTIFACT_REPOSITORY__NAME = IREPOSITORY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IARTIFACT_REPOSITORY__TYPE = IREPOSITORY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IARTIFACT_REPOSITORY__VERSION = IREPOSITORY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IARTIFACT_REPOSITORY__DESCRIPTION = IREPOSITORY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Provider</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IARTIFACT_REPOSITORY__PROVIDER = IREPOSITORY__PROVIDER;
+
+	/**
+	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IARTIFACT_REPOSITORY__MODIFIABLE = IREPOSITORY__MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Provisioning Agent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IARTIFACT_REPOSITORY__PROVISIONING_AGENT = IREPOSITORY__PROVISIONING_AGENT;
+
+	/**
+	 * The number of structural features of the '<em>IArtifact Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IARTIFACT_REPOSITORY_FEATURE_COUNT = IREPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository <em>IFile Artifact Repository</em>}'
+	 * class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIFileArtifactRepository()
 	 * @generated
 	 */
-	int IVERSIONED_ID = 13;
+	int IFILE_ARTIFACT_REPOSITORY = 11;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IFILE_ARTIFACT_REPOSITORY__LOCATION = IARTIFACT_REPOSITORY__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IFILE_ARTIFACT_REPOSITORY__NAME = IARTIFACT_REPOSITORY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IFILE_ARTIFACT_REPOSITORY__TYPE = IARTIFACT_REPOSITORY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IFILE_ARTIFACT_REPOSITORY__VERSION = IARTIFACT_REPOSITORY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IFILE_ARTIFACT_REPOSITORY__DESCRIPTION = IARTIFACT_REPOSITORY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Provider</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IFILE_ARTIFACT_REPOSITORY__PROVIDER = IARTIFACT_REPOSITORY__PROVIDER;
+
+	/**
+	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IFILE_ARTIFACT_REPOSITORY__MODIFIABLE = IARTIFACT_REPOSITORY__MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Provisioning Agent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IFILE_ARTIFACT_REPOSITORY__PROVISIONING_AGENT = IARTIFACT_REPOSITORY__PROVISIONING_AGENT;
+
+	/**
+	 * The number of structural features of the '<em>IFile Artifact Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IFILE_ARTIFACT_REPOSITORY_FEATURE_COUNT = IARTIFACT_REPOSITORY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1481,17 +2952,6 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int IVERSIONED_ID_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit <em>IInstallable Unit</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnit
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnit()
-	 * @generated
-	 */
-	int IINSTALLABLE_UNIT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1654,17 +3114,6 @@ public interface P2Package extends EPackage {
 	int IINSTALLABLE_UNIT_FEATURE_COUNT = IVERSIONED_ID_FEATURE_COUNT + 13;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitFragment <em>IInstallable Unit Fragment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitFragment
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnitFragment()
-	 * @generated
-	 */
-	int IINSTALLABLE_UNIT_FRAGMENT = 3;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1823,17 +3272,6 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int IINSTALLABLE_UNIT_FRAGMENT_FEATURE_COUNT = IINSTALLABLE_UNIT_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitPatch <em>IInstallable Unit Patch</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitPatch
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnitPatch()
-	 * @generated
-	 */
-	int IINSTALLABLE_UNIT_PATCH = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2026,17 +3464,6 @@ public interface P2Package extends EPackage {
 	int IINSTALLABLE_UNIT_PATCH_FEATURE_COUNT = IINSTALLABLE_UNIT_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ILicense <em>ILicense</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.metadata.ILicense
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getILicense()
-	 * @generated
-	 */
-	int ILICENSE = 5;
-
-	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2075,871 +3502,6 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int ILICENSE_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability <em>IProvided Capability</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.metadata.IProvidedCapability
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProvidedCapability()
-	 * @generated
-	 */
-	int IPROVIDED_CAPABILITY = 6;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IPROVIDED_CAPABILITY__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IPROVIDED_CAPABILITY__NAMESPACE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IPROVIDED_CAPABILITY__VERSION = 2;
-
-	/**
-	 * The number of structural features of the '<em>IProvided Capability</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IPROVIDED_CAPABILITY_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IRequirement <em>IRequirement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.metadata.IRequirement
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequirement()
-	 * @generated
-	 */
-	int IREQUIREMENT = 7;
-
-	/**
-	 * The feature id for the '<em><b>Filter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIREMENT__FILTER = 0;
-
-	/**
-	 * The feature id for the '<em><b>Max</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIREMENT__MAX = 1;
-
-	/**
-	 * The feature id for the '<em><b>Min</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIREMENT__MIN = 2;
-
-	/**
-	 * The feature id for the '<em><b>Matches</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIREMENT__MATCHES = 3;
-
-	/**
-	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIREMENT__GREEDY = 4;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIREMENT__DESCRIPTION = 5;
-
-	/**
-	 * The number of structural features of the '<em>IRequirement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIREMENT_FEATURE_COUNT = 6;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability <em>IRequired Capability</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.internal.p2.metadata.IRequiredCapability
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequiredCapability()
-	 * @generated
-	 */
-	int IREQUIRED_CAPABILITY = 8;
-
-	/**
-	 * The feature id for the '<em><b>Filter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY__FILTER = IREQUIREMENT__FILTER;
-
-	/**
-	 * The feature id for the '<em><b>Max</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY__MAX = IREQUIREMENT__MAX;
-
-	/**
-	 * The feature id for the '<em><b>Min</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY__MIN = IREQUIREMENT__MIN;
-
-	/**
-	 * The feature id for the '<em><b>Matches</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY__MATCHES = IREQUIREMENT__MATCHES;
-
-	/**
-	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY__GREEDY = IREQUIREMENT__GREEDY;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY__DESCRIPTION = IREQUIREMENT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY__NAME = IREQUIREMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY__NAMESPACE = IREQUIREMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Range</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY__RANGE = IREQUIREMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>IRequired Capability</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY_FEATURE_COUNT = IREQUIREMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IRequirementChange <em>IRequirement Change</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.metadata.IRequirementChange
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequirementChange()
-	 * @generated
-	 */
-	int IREQUIREMENT_CHANGE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Apply On</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIREMENT_CHANGE__APPLY_ON = 0;
-
-	/**
-	 * The feature id for the '<em><b>New Value</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIREMENT_CHANGE__NEW_VALUE = 1;
-
-	/**
-	 * The number of structural features of the '<em>IRequirement Change</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIREMENT_CHANGE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointData <em>ITouchpoint Data</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.metadata.ITouchpointData
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointData()
-	 * @generated
-	 */
-	int ITOUCHPOINT_DATA = 10;
-
-	/**
-	 * The number of structural features of the '<em>ITouchpoint Data</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ITOUCHPOINT_DATA_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction <em>ITouchpoint Instruction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.metadata.ITouchpointInstruction
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointInstruction()
-	 * @generated
-	 */
-	int ITOUCHPOINT_INSTRUCTION = 11;
-
-	/**
-	 * The feature id for the '<em><b>Body</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ITOUCHPOINT_INSTRUCTION__BODY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Import Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ITOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE = 1;
-
-	/**
-	 * The number of structural features of the '<em>ITouchpoint Instruction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ITOUCHPOINT_INSTRUCTION_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.ITouchpointType <em>ITouchpoint Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.metadata.ITouchpointType
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointType()
-	 * @generated
-	 */
-	int ITOUCHPOINT_TYPE = 12;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ITOUCHPOINT_TYPE__ID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ITOUCHPOINT_TYPE__VERSION = 1;
-
-	/**
-	 * The number of structural features of the '<em>ITouchpoint Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ITOUCHPOINT_TYPE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor <em>IUpdate Descriptor</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.metadata.IUpdateDescriptor
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIUpdateDescriptor()
-	 * @generated
-	 */
-	int IUPDATE_DESCRIPTOR = 14;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IUPDATE_DESCRIPTOR__DESCRIPTION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Severity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IUPDATE_DESCRIPTOR__SEVERITY = 1;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IUPDATE_DESCRIPTOR__LOCATION = 2;
-
-	/**
-	 * The number of structural features of the '<em>IUpdate Descriptor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IUPDATE_DESCRIPTOR_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.ArtifactKeyImpl <em>Artifact Key</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.ArtifactKeyImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getArtifactKey()
-	 * @generated
-	 */
-	int ARTIFACT_KEY = 15;
-
-	/**
-	 * The feature id for the '<em><b>Classifier</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT_KEY__CLASSIFIER = IARTIFACT_KEY__CLASSIFIER;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT_KEY__ID = IARTIFACT_KEY__ID;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT_KEY__VERSION = IARTIFACT_KEY__VERSION;
-
-	/**
-	 * The number of structural features of the '<em>Artifact Key</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT_KEY_FEATURE_COUNT = IARTIFACT_KEY_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.CopyrightImpl <em>Copyright</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.CopyrightImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getCopyright()
-	 * @generated
-	 */
-	int COPYRIGHT = 16;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COPYRIGHT__LOCATION = ICOPYRIGHT__LOCATION;
-
-	/**
-	 * The feature id for the '<em><b>Body</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COPYRIGHT__BODY = ICOPYRIGHT__BODY;
-
-	/**
-	 * The number of structural features of the '<em>Copyright</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COPYRIGHT_FEATURE_COUNT = ICOPYRIGHT_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.core.runtime.IAdaptable <em>IAdaptable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.core.runtime.IAdaptable
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIAdaptable()
-	 * @generated
-	 */
-	int IADAPTABLE = 37;
-
-	/**
-	 * The number of structural features of the '<em>IAdaptable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IADAPTABLE_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.IRepository <em>IRepository</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.repository.IRepository
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRepository()
-	 * @generated
-	 */
-	int IREPOSITORY = 34;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREPOSITORY__LOCATION = IADAPTABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREPOSITORY__NAME = IADAPTABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREPOSITORY__TYPE = IADAPTABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREPOSITORY__VERSION = IADAPTABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREPOSITORY__DESCRIPTION = IADAPTABLE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Provider</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREPOSITORY__PROVIDER = IADAPTABLE_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREPOSITORY__MODIFIABLE = IADAPTABLE_FEATURE_COUNT + 6;
-
-	/**
-	 * The number of structural features of the '<em>IRepository</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREPOSITORY_FEATURE_COUNT = IADAPTABLE_FEATURE_COUNT + 7;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository <em>IMetadata Repository</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.repository.metadata.IMetadataRepository
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIMetadataRepository()
-	 * @generated
-	 */
-	int IMETADATA_REPOSITORY = 33;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IMETADATA_REPOSITORY__LOCATION = IREPOSITORY__LOCATION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IMETADATA_REPOSITORY__NAME = IREPOSITORY__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IMETADATA_REPOSITORY__TYPE = IREPOSITORY__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IMETADATA_REPOSITORY__VERSION = IREPOSITORY__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IMETADATA_REPOSITORY__DESCRIPTION = IREPOSITORY__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Provider</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IMETADATA_REPOSITORY__PROVIDER = IREPOSITORY__PROVIDER;
-
-	/**
-	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IMETADATA_REPOSITORY__MODIFIABLE = IREPOSITORY__MODIFIABLE;
-
-	/**
-	 * The number of structural features of the '<em>IMetadata Repository</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IMETADATA_REPOSITORY_FEATURE_COUNT = IREPOSITORY_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.MetadataRepositoryImpl <em>Metadata Repository</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.MetadataRepositoryImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getMetadataRepository()
-	 * @generated
-	 */
-	int METADATA_REPOSITORY = 17;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY__LOCATION = IMETADATA_REPOSITORY__LOCATION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY__NAME = IMETADATA_REPOSITORY__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY__TYPE = IMETADATA_REPOSITORY__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY__VERSION = IMETADATA_REPOSITORY__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY__DESCRIPTION = IMETADATA_REPOSITORY__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Provider</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY__PROVIDER = IMETADATA_REPOSITORY__PROVIDER;
-
-	/**
-	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY__MODIFIABLE = IMETADATA_REPOSITORY__MODIFIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Installable Units</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY__INSTALLABLE_UNITS = IMETADATA_REPOSITORY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>References</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY__REFERENCES = IMETADATA_REPOSITORY_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Property Map</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY__PROPERTY_MAP = IMETADATA_REPOSITORY_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Metadata Repository</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY_FEATURE_COUNT = IMETADATA_REPOSITORY_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.InstallableUnitImpl <em>Installable Unit</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.InstallableUnitImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstallableUnit()
-	 * @generated
-	 */
-	int INSTALLABLE_UNIT = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3112,17 +3674,6 @@ public interface P2Package extends EPackage {
 	int INSTALLABLE_UNIT_FEATURE_COUNT = IINSTALLABLE_UNIT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl <em>Installable Unit Fragment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstallableUnitFragment()
-	 * @generated
-	 */
-	int INSTALLABLE_UNIT_FRAGMENT = 19;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3291,17 +3842,6 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int INSTALLABLE_UNIT_FRAGMENT_FEATURE_COUNT = INSTALLABLE_UNIT_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.InstallableUnitPatchImpl <em>Installable Unit Patch</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.InstallableUnitPatchImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstallableUnitPatch()
-	 * @generated
-	 */
-	int INSTALLABLE_UNIT_PATCH = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3504,15 +4044,534 @@ public interface P2Package extends EPackage {
 	int INSTALLABLE_UNIT_PATCH_FEATURE_COUNT = INSTALLABLE_UNIT_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.LicenseImpl <em>License</em>}' class.
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.p2.impl.LicenseImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getLicense()
 	 * @generated
+	 * @ordered
 	 */
-	int LICENSE = 21;
+	int INSTRUCTION_MAP__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUCTION_MAP__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Instruction Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUCTION_MAP_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IMETADATA_REPOSITORY__LOCATION = IREPOSITORY__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IMETADATA_REPOSITORY__NAME = IREPOSITORY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IMETADATA_REPOSITORY__TYPE = IREPOSITORY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IMETADATA_REPOSITORY__VERSION = IREPOSITORY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IMETADATA_REPOSITORY__DESCRIPTION = IREPOSITORY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Provider</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IMETADATA_REPOSITORY__PROVIDER = IREPOSITORY__PROVIDER;
+
+	/**
+	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IMETADATA_REPOSITORY__MODIFIABLE = IREPOSITORY__MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Provisioning Agent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IMETADATA_REPOSITORY__PROVISIONING_AGENT = IREPOSITORY__PROVISIONING_AGENT;
+
+	/**
+	 * The number of structural features of the '<em>IMetadata Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IMETADATA_REPOSITORY_FEATURE_COUNT = IREPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Processor Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IPROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IPROCESSING_STEP_DESCRIPTOR__DATA = 1;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IPROCESSING_STEP_DESCRIPTOR__REQUIRED = 2;
+
+	/**
+	 * The number of structural features of the '<em>IProcessing Step Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IPROCESSING_STEP_DESCRIPTOR_FEATURE_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IPROVIDED_CAPABILITY__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IPROVIDED_CAPABILITY__NAMESPACE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IPROVIDED_CAPABILITY__VERSION = 2;
+
+	/**
+	 * The number of structural features of the '<em>IProvided Capability</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IPROVIDED_CAPABILITY_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of structural features of the '<em>IQueryable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IQUERYABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of structural features of the '<em>IRepository Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY_REFERENCE_FEATURE_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT__FILTER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT__MAX = 1;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT__MIN = 2;
+
+	/**
+	 * The feature id for the '<em><b>Matches</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT__MATCHES = 3;
+
+	/**
+	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT__GREEDY = 4;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT__DESCRIPTION = 5;
+
+	/**
+	 * The number of structural features of the '<em>IRequirement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT_FEATURE_COUNT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY__FILTER = IREQUIREMENT__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY__MAX = IREQUIREMENT__MAX;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY__MIN = IREQUIREMENT__MIN;
+
+	/**
+	 * The feature id for the '<em><b>Matches</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY__MATCHES = IREQUIREMENT__MATCHES;
+
+	/**
+	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY__GREEDY = IREQUIREMENT__GREEDY;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY__DESCRIPTION = IREQUIREMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY__NAME = IREQUIREMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY__NAMESPACE = IREQUIREMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY__RANGE = IREQUIREMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>IRequired Capability</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY_FEATURE_COUNT = IREQUIREMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Apply On</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT_CHANGE__APPLY_ON = 0;
+
+	/**
+	 * The feature id for the '<em><b>New Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT_CHANGE__NEW_VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>IRequirement Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT_CHANGE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of structural features of the '<em>ITouchpoint Data</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ITOUCHPOINT_DATA_FEATURE_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ITOUCHPOINT_INSTRUCTION__BODY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Import Attribute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ITOUCHPOINT_INSTRUCTION__IMPORT_ATTRIBUTE = 1;
+
+	/**
+	 * The number of structural features of the '<em>ITouchpoint Instruction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ITOUCHPOINT_INSTRUCTION_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ITOUCHPOINT_TYPE__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ITOUCHPOINT_TYPE__VERSION = 1;
+
+	/**
+	 * The number of structural features of the '<em>ITouchpoint Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ITOUCHPOINT_TYPE_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IUPDATE_DESCRIPTOR__DESCRIPTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Severity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IUPDATE_DESCRIPTOR__SEVERITY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IUPDATE_DESCRIPTOR__LOCATION = 2;
+
+	/**
+	 * The number of structural features of the '<em>IUpdate Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IUPDATE_DESCRIPTOR_FEATURE_COUNT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -3555,15 +4614,235 @@ public interface P2Package extends EPackage {
 	int LICENSE_FEATURE_COUNT = ILICENSE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.ProvidedCapabilityImpl <em>Provided Capability</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.MappingRuleImpl <em>Mapping Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.p2.impl.ProvidedCapabilityImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getProvidedCapability()
+	 * @see org.eclipse.b3.p2.impl.MappingRuleImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getMappingRule()
 	 * @generated
 	 */
-	int PROVIDED_CAPABILITY = 22;
+	int MAPPING_RULE = 35;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING_RULE__FILTER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Output</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING_RULE__OUTPUT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Mapping Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING_RULE_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY__LOCATION = REPOSITORY__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY__NAME = REPOSITORY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY__TYPE = REPOSITORY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY__VERSION = REPOSITORY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY__DESCRIPTION = REPOSITORY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Provider</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY__PROVIDER = REPOSITORY__PROVIDER;
+
+	/**
+	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY__MODIFIABLE = REPOSITORY__MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Provisioning Agent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY__PROVISIONING_AGENT = REPOSITORY__PROVISIONING_AGENT;
+
+	/**
+	 * The feature id for the '<em><b>Property Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY__PROPERTY_MAP = REPOSITORY__PROPERTY_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Installable Units</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY__INSTALLABLE_UNITS = REPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY__REFERENCES = REPOSITORY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Metadata Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY_FEATURE_COUNT = REPOSITORY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Processor Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID = IPROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_STEP_DESCRIPTOR__DATA = IPROCESSING_STEP_DESCRIPTOR__DATA;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_STEP_DESCRIPTOR__REQUIRED = IPROCESSING_STEP_DESCRIPTOR__REQUIRED;
+
+	/**
+	 * The number of structural features of the '<em>Processing Step Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_STEP_DESCRIPTOR_FEATURE_COUNT = IPROCESSING_STEP_DESCRIPTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3606,15 +4885,54 @@ public interface P2Package extends EPackage {
 	int PROVIDED_CAPABILITY_FEATURE_COUNT = IPROVIDED_CAPABILITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RequirementImpl <em>Requirement</em>}' class.
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.p2.impl.RequirementImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRequirement()
 	 * @generated
+	 * @ordered
 	 */
-	int REQUIREMENT = 24;
+	int REPOSITORY_REFERENCE__LOCATION = IREPOSITORY_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_REFERENCE__TYPE = IREPOSITORY_REFERENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_REFERENCE__OPTIONS = IREPOSITORY_REFERENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_REFERENCE__NICKNAME = IREPOSITORY_REFERENCE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Repository Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_REFERENCE_FEATURE_COUNT = IREPOSITORY_REFERENCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -3685,17 +5003,6 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int REQUIREMENT_FEATURE_COUNT = IREQUIREMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RequiredCapabilityImpl <em>Required Capability</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.RequiredCapabilityImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRequiredCapability()
-	 * @generated
-	 */
-	int REQUIRED_CAPABILITY = 23;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -3798,17 +5105,6 @@ public interface P2Package extends EPackage {
 	int REQUIRED_CAPABILITY_FEATURE_COUNT = REQUIREMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RequirementChangeImpl <em>Requirement Change</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.RequirementChangeImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRequirementChange()
-	 * @generated
-	 */
-	int REQUIREMENT_CHANGE = 25;
-
-	/**
 	 * The feature id for the '<em><b>Apply On</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3839,15 +5135,196 @@ public interface P2Package extends EPackage {
 	int REQUIREMENT_CHANGE_FEATURE_COUNT = IREQUIREMENT_CHANGE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.TouchpointDataImpl <em>Touchpoint Data</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.SimpleArtifactRepositoryImpl <em>Simple Artifact Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.p2.impl.TouchpointDataImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getTouchpointData()
+	 * @see org.eclipse.b3.p2.impl.SimpleArtifactRepositoryImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getSimpleArtifactRepository()
 	 * @generated
 	 */
-	int TOUCHPOINT_DATA = 26;
+	int SIMPLE_ARTIFACT_REPOSITORY = 45;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY__LOCATION = ARTIFACT_REPOSITORY__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY__NAME = ARTIFACT_REPOSITORY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY__TYPE = ARTIFACT_REPOSITORY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY__VERSION = ARTIFACT_REPOSITORY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY__DESCRIPTION = ARTIFACT_REPOSITORY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Provider</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY__PROVIDER = ARTIFACT_REPOSITORY__PROVIDER;
+
+	/**
+	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY__MODIFIABLE = ARTIFACT_REPOSITORY__MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Provisioning Agent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY__PROVISIONING_AGENT = ARTIFACT_REPOSITORY__PROVISIONING_AGENT;
+
+	/**
+	 * The feature id for the '<em><b>Property Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY__PROPERTY_MAP = ARTIFACT_REPOSITORY__PROPERTY_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY__ARTIFACT_MAP = ARTIFACT_REPOSITORY__ARTIFACT_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Rules</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY__RULES = ARTIFACT_REPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Simple Artifact Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_REPOSITORY_FEATURE_COUNT = ARTIFACT_REPOSITORY_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.SimpleArtifactDescriptorImpl <em>Simple Artifact Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.SimpleArtifactDescriptorImpl
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getSimpleArtifactDescriptor()
+	 * @generated
+	 */
+	int SIMPLE_ARTIFACT_DESCRIPTOR = 46;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_DESCRIPTOR__ARTIFACT_KEY = ARTIFACT_DESCRIPTOR__ARTIFACT_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Property Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_DESCRIPTOR__PROPERTY_MAP = ARTIFACT_DESCRIPTOR__PROPERTY_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Processing Step List</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST = ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Repository Property Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP = ARTIFACT_DESCRIPTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Simple Artifact Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ARTIFACT_DESCRIPTOR_FEATURE_COUNT = ARTIFACT_DESCRIPTOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Instruction Map</b></em>' map.
@@ -3868,17 +5345,6 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int TOUCHPOINT_DATA_FEATURE_COUNT = ITOUCHPOINT_DATA_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.TouchpointInstructionImpl <em>Touchpoint Instruction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.TouchpointInstructionImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getTouchpointInstruction()
-	 * @generated
-	 */
-	int TOUCHPOINT_INSTRUCTION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' attribute.
@@ -3911,17 +5377,6 @@ public interface P2Package extends EPackage {
 	int TOUCHPOINT_INSTRUCTION_FEATURE_COUNT = ITOUCHPOINT_INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.TouchpointTypeImpl <em>Touchpoint Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.TouchpointTypeImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getTouchpointType()
-	 * @generated
-	 */
-	int TOUCHPOINT_TYPE = 28;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3950,17 +5405,6 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int TOUCHPOINT_TYPE_FEATURE_COUNT = ITOUCHPOINT_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.UpdateDescriptorImpl <em>Update Descriptor</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.UpdateDescriptorImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getUpdateDescriptor()
-	 * @generated
-	 */
-	int UPDATE_DESCRIPTOR = 29;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -4003,212 +5447,6 @@ public interface P2Package extends EPackage {
 	int UPDATE_DESCRIPTOR_FEATURE_COUNT = IUPDATE_DESCRIPTOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.PropertyImpl <em>Property</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.PropertyImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getProperty()
-	 * @generated
-	 */
-	int PROPERTY = 30;
-
-	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__KEY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__VALUE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.InstructionMapImpl <em>Instruction Map</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.InstructionMapImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getInstructionMap()
-	 * @generated
-	 */
-	int INSTRUCTION_MAP = 31;
-
-	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTRUCTION_MAP__KEY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTRUCTION_MAP__VALUE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Instruction Map</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTRUCTION_MAP_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.query.IQueryable <em>IQueryable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.query.IQueryable
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIQueryable()
-	 * @generated
-	 */
-	int IQUERYABLE = 32;
-
-	/**
-	 * The number of structural features of the '<em>IQueryable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IQUERYABLE_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.repository.IRepositoryReference <em>IRepository Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.equinox.p2.repository.IRepositoryReference
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRepositoryReference()
-	 * @generated
-	 */
-	int IREPOSITORY_REFERENCE = 35;
-
-	/**
-	 * The number of structural features of the '<em>IRepository Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREPOSITORY_REFERENCE_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.impl.RepositoryReferenceImpl <em>Repository Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.p2.impl.RepositoryReferenceImpl
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getRepositoryReference()
-	 * @generated
-	 */
-	int REPOSITORY_REFERENCE = 36;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_REFERENCE__LOCATION = IREPOSITORY_REFERENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_REFERENCE__TYPE = IREPOSITORY_REFERENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_REFERENCE__OPTIONS = IREPOSITORY_REFERENCE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_REFERENCE__NICKNAME = IREPOSITORY_REFERENCE_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Repository Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_REFERENCE_FEATURE_COUNT = IREPOSITORY_REFERENCE_FEATURE_COUNT + 4;
-
-	/**
-	 * The meta object id for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see java.lang.Comparable
-	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getComparable()
-	 * @generated
-	 */
-	int COMPARABLE = 38;
-
-	/**
-	 * The number of structural features of the '<em>Comparable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARABLE_FEATURE_COUNT = 0;
-
-	/**
 	 * The meta object id for the '<em>Version</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4217,7 +5455,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 39;
+	int VERSION = 76;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -4228,7 +5466,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 40;
+	int VERSION_RANGE = 77;
 
 	/**
 	 * The meta object id for the '<em>IInstallable Unit Array</em>' data type.
@@ -4238,7 +5476,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnitArray()
 	 * @generated
 	 */
-	int IINSTALLABLE_UNIT_ARRAY = 41;
+	int IINSTALLABLE_UNIT_ARRAY = 57;
 
 	/**
 	 * The meta object id for the '<em>Collection</em>' data type.
@@ -4249,7 +5487,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getCollection()
 	 * @generated
 	 */
-	int COLLECTION = 42;
+	int COLLECTION = 51;
 
 	/**
 	 * The meta object id for the '<em>IProvided Capability Array</em>' data type.
@@ -4259,7 +5497,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProvidedCapabilityArray()
 	 * @generated
 	 */
-	int IPROVIDED_CAPABILITY_ARRAY = 43;
+	int IPROVIDED_CAPABILITY_ARRAY = 63;
 
 	/**
 	 * The meta object id for the '<em>IInstallable Unit Fragment Array</em>' data type.
@@ -4269,7 +5507,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIInstallableUnitFragmentArray()
 	 * @generated
 	 */
-	int IINSTALLABLE_UNIT_FRAGMENT_ARRAY = 44;
+	int IINSTALLABLE_UNIT_FRAGMENT_ARRAY = 58;
 
 	/**
 	 * The meta object id for the '<em>IArtifact Key Array</em>' data type.
@@ -4279,7 +5517,17 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIArtifactKeyArray()
 	 * @generated
 	 */
-	int IARTIFACT_KEY_ARRAY = 45;
+	int IARTIFACT_KEY_ARRAY = 55;
+
+	/**
+	 * The meta object id for the '<em>IArtifact Request Array</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIArtifactRequestArray()
+	 * @generated
+	 */
+	int IARTIFACT_REQUEST_ARRAY = 56;
 
 	/**
 	 * The meta object id for the '<em>ITouchpoint Data Array</em>' data type.
@@ -4289,7 +5537,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointDataArray()
 	 * @generated
 	 */
-	int ITOUCHPOINT_DATA_ARRAY = 46;
+	int ITOUCHPOINT_DATA_ARRAY = 70;
 
 	/**
 	 * The meta object id for the '<em>IRequirement Array Array</em>' data type.
@@ -4299,7 +5547,17 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRequirementArrayArray()
 	 * @generated
 	 */
-	int IREQUIREMENT_ARRAY_ARRAY = 47;
+	int IREQUIREMENT_ARRAY_ARRAY = 65;
+
+	/**
+	 * The meta object id for the '<em>IProcessing Descriptor Array</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProcessingDescriptorArray()
+	 * @generated
+	 */
+	int IPROCESSING_DESCRIPTOR_ARRAY = 66;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -4309,7 +5567,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 48;
+	int STRING_ARRAY = 73;
 
 	/**
 	 * The meta object id for the '<em>Untyped Map</em>' data type.
@@ -4320,7 +5578,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getUntypedMap()
 	 * @generated
 	 */
-	int UNTYPED_MAP = 49;
+	int UNTYPED_MAP = 74;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -4331,7 +5589,18 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 50;
+	int MAP = 71;
+
+	/**
+	 * The meta object id for the '<em>Output Stream</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see java.io.OutputStream
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getOutputStream()
+	 * @generated
+	 */
+	int OUTPUT_STREAM = 72;
 
 	/**
 	 * The meta object id for the '<em>ILicense Array</em>' data type.
@@ -4341,7 +5610,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getILicenseArray()
 	 * @generated
 	 */
-	int ILICENSE_ARRAY = 51;
+	int ILICENSE_ARRAY = 59;
 
 	/**
 	 * The meta object id for the '<em>IQuery Result</em>' data type.
@@ -4352,7 +5621,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIQueryResult()
 	 * @generated
 	 */
-	int IQUERY_RESULT = 52;
+	int IQUERY_RESULT = 62;
 
 	/**
 	 * The meta object id for the '<em>IQuery</em>' data type.
@@ -4363,7 +5632,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIQuery()
 	 * @generated
 	 */
-	int IQUERY = 53;
+	int IQUERY = 61;
 
 	/**
 	 * The meta object id for the '<em>Collector</em>' data type.
@@ -4374,7 +5643,28 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getCollector()
 	 * @generated
 	 */
-	int COLLECTOR = 54;
+	int COLLECTOR = 52;
+
+	/**
+	 * The meta object id for the '<em>File</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see java.io.File
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getFile()
+	 * @generated
+	 */
+	int FILE = 53;
+
+	/**
+	 * The meta object id for the '<em>IArtifact Descriptor Array</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIArtifactDescriptorArray()
+	 * @generated
+	 */
+	int IARTIFACT_DESCRIPTOR_ARRAY = 54;
 
 	/**
 	 * The meta object id for the '<em>IProgress Monitor</em>' data type.
@@ -4385,7 +5675,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProgressMonitor()
 	 * @generated
 	 */
-	int IPROGRESS_MONITOR = 55;
+	int IPROGRESS_MONITOR = 67;
 
 	/**
 	 * The meta object id for the '<em>IRunnable With Progress</em>' data type.
@@ -4396,7 +5686,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRunnableWithProgress()
 	 * @generated
 	 */
-	int IRUNNABLE_WITH_PROGRESS = 56;
+	int IRUNNABLE_WITH_PROGRESS = 68;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -4407,7 +5697,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 57;
+	int ISTATUS = 69;
 
 	/**
 	 * The meta object id for the '<em>IMatch Expression</em>' data type.
@@ -4418,7 +5708,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIMatchExpression()
 	 * @generated
 	 */
-	int IMATCH_EXPRESSION = 58;
+	int IMATCH_EXPRESSION = 60;
 
 	/**
 	 * The meta object id for the '<em>IProvisioning Agent</em>' data type.
@@ -4429,7 +5719,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProvisioningAgent()
 	 * @generated
 	 */
-	int IPROVISIONING_AGENT = 59;
+	int IPROVISIONING_AGENT = 64;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -4440,7 +5730,43 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 60;
+	int URI = 75;
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.ArtifactDescriptor <em>Artifact Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Artifact Descriptor</em>'.
+	 * @see org.eclipse.b3.p2.ArtifactDescriptor
+	 * @generated
+	 */
+	EClass getArtifactDescriptor();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.p2.ArtifactDescriptor#getProcessingStepList
+	 * <em>Processing Step List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Processing Step List</em>'.
+	 * @see org.eclipse.b3.p2.ArtifactDescriptor#getProcessingStepList()
+	 * @see #getArtifactDescriptor()
+	 * @generated
+	 */
+	EReference getArtifactDescriptor_ProcessingStepList();
+
+	/**
+	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.ArtifactDescriptor#getPropertyMap <em>Property Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the map '<em>Property Map</em>'.
+	 * @see org.eclipse.b3.p2.ArtifactDescriptor#getPropertyMap()
+	 * @see #getArtifactDescriptor()
+	 * @generated
+	 */
+	EReference getArtifactDescriptor_PropertyMap();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.p2.ArtifactKey <em>Artifact Key</em>}'.
@@ -4452,6 +5778,66 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EClass getArtifactKey();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.ArtifactRepository <em>Artifact Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Artifact Repository</em>'.
+	 * @see org.eclipse.b3.p2.ArtifactRepository
+	 * @generated
+	 */
+	EClass getArtifactRepository();
+
+	/**
+	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.ArtifactRepository#getArtifactMap <em>Artifact Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the map '<em>Artifact Map</em>'.
+	 * @see org.eclipse.b3.p2.ArtifactRepository#getArtifactMap()
+	 * @see #getArtifactRepository()
+	 * @generated
+	 */
+	EReference getArtifactRepository_ArtifactMap();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Artifacts By Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Artifacts By Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyType="org.eclipse.b3.p2.IArtifactKey" keyContainment="true" keyResolveProxies="true" keyRequired="true"
+	 *        valueType="org.eclipse.b3.p2.IArtifactDescriptor" valueContainment="true" valueResolveProxies="true" valueMany="true"
+	 * @generated
+	 */
+	EClass getArtifactsByKey();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getArtifactsByKey()
+	 * @generated
+	 */
+	EReference getArtifactsByKey_Key();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getArtifactsByKey()
+	 * @generated
+	 */
+	EReference getArtifactsByKey_Value();
 
 	/**
 	 * Returns the meta object for data type '{@link java.util.Collection <em>Collection</em>}'.
@@ -4501,6 +5887,18 @@ public interface P2Package extends EPackage {
 	EClass getCopyright();
 
 	/**
+	 * Returns the meta object for data type '{@link java.io.File <em>File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>File</em>'.
+	 * @see java.io.File
+	 * @model instanceClass="java.io.File"
+	 * @generated
+	 */
+	EDataType getFile();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.core.runtime.IAdaptable <em>IAdaptable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4511,6 +5909,42 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EClass getIAdaptable();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor <em>IArtifact Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IArtifact Descriptor</em>'.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor
+	 * @model instanceClass="org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor"
+	 * @generated
+	 */
+	EClass getIArtifactDescriptor();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor#getArtifactKey
+	 * <em>Artifact Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Artifact Key</em>'.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor#getArtifactKey()
+	 * @see #getIArtifactDescriptor()
+	 * @generated
+	 */
+	EReference getIArtifactDescriptor_ArtifactKey();
+
+	/**
+	 * Returns the meta object for data type '<em>IArtifact Descriptor Array</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IArtifact Descriptor Array</em>'.
+	 * @model instanceClass="org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor[]"
+	 * @generated
+	 */
+	EDataType getIArtifactDescriptorArray();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IArtifactKey <em>IArtifact Key</em>}'.
@@ -4572,6 +6006,30 @@ public interface P2Package extends EPackage {
 	EDataType getIArtifactKeyArray();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.repository.artifact.IArtifactRepository <em>IArtifact Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IArtifact Repository</em>'.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IArtifactRepository
+	 * @model instanceClass="org.eclipse.equinox.p2.repository.artifact.IArtifactRepository"
+	 *        superTypes="org.eclipse.b3.p2.IRepository<org.eclipse.b3.p2.IArtifactKey>"
+	 * @generated
+	 */
+	EClass getIArtifactRepository();
+
+	/**
+	 * Returns the meta object for data type '<em>IArtifact Request Array</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IArtifact Request Array</em>'.
+	 * @model instanceClass="org.eclipse.equinox.p2.repository.artifact.IArtifactRequest[]"
+	 * @generated
+	 */
+	EDataType getIArtifactRequestArray();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.ICopyright <em>ICopyright</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4606,6 +6064,19 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EAttribute getICopyright_Location();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository
+	 * <em>IFile Artifact Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IFile Artifact Repository</em>'.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository
+	 * @model instanceClass="org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository" superTypes="org.eclipse.b3.p2.IArtifactRepository"
+	 * @generated
+	 */
+	EClass getIFileArtifactRepository();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.IInstallableUnit <em>IInstallable Unit</em>}'.
@@ -5037,6 +6508,68 @@ public interface P2Package extends EPackage {
 	EReference getInstructionMap_Value();
 
 	/**
+	 * Returns the meta object for data type '<em>IProcessing Descriptor Array</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IProcessing Descriptor Array</em>'.
+	 * @model instanceClass="org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor[]"
+	 * @generated
+	 */
+	EDataType getIProcessingDescriptorArray();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor
+	 * <em>IProcessing Step Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IProcessing Step Descriptor</em>'.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor
+	 * @model instanceClass="org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor"
+	 * @generated
+	 */
+	EClass getIProcessingStepDescriptor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor#getData <em>Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Data</em>'.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor#getData()
+	 * @see #getIProcessingStepDescriptor()
+	 * @generated
+	 */
+	EAttribute getIProcessingStepDescriptor_Data();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor#getProcessorId
+	 * <em>Processor Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Processor Id</em>'.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor#getProcessorId()
+	 * @see #getIProcessingStepDescriptor()
+	 * @generated
+	 */
+	EAttribute getIProcessingStepDescriptor_ProcessorId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor#isRequired
+	 * <em>Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Required</em>'.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor#isRequired()
+	 * @see #getIProcessingStepDescriptor()
+	 * @generated
+	 */
+	EAttribute getIProcessingStepDescriptor_Required();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.core.runtime.IProgressMonitor <em>IProgress Monitor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5227,6 +6760,19 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIRepository_Provider();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getProvisioningAgent
+	 * <em>Provisioning Agent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Provisioning Agent</em>'.
+	 * @see org.eclipse.equinox.p2.repository.IRepository#getProvisioningAgent()
+	 * @see #getIRepository()
+	 * @generated
+	 */
+	EAttribute getIRepository_ProvisioningAgent();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepository#getType <em>Type</em>}'.
@@ -5674,6 +7220,41 @@ public interface P2Package extends EPackage {
 	EDataType getMap();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.MappingRule <em>Mapping Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Mapping Rule</em>'.
+	 * @see org.eclipse.b3.p2.MappingRule
+	 * @generated
+	 */
+	EClass getMappingRule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.MappingRule#getFilter <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Filter</em>'.
+	 * @see org.eclipse.b3.p2.MappingRule#getFilter()
+	 * @see #getMappingRule()
+	 * @generated
+	 */
+	EAttribute getMappingRule_Filter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.MappingRule#getOutput <em>Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Output</em>'.
+	 * @see org.eclipse.b3.p2.MappingRule#getOutput()
+	 * @see #getMappingRule()
+	 * @generated
+	 */
+	EAttribute getMappingRule_Output();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.p2.MetadataRepository <em>Metadata Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5698,18 +7279,6 @@ public interface P2Package extends EPackage {
 	EReference getMetadataRepository_InstallableUnits();
 
 	/**
-	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.MetadataRepository#getPropertyMap <em>Property Map</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the map '<em>Property Map</em>'.
-	 * @see org.eclipse.b3.p2.MetadataRepository#getPropertyMap()
-	 * @see #getMetadataRepository()
-	 * @generated
-	 */
-	EReference getMetadataRepository_PropertyMap();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.p2.MetadataRepository#getReferences <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5722,6 +7291,18 @@ public interface P2Package extends EPackage {
 	EReference getMetadataRepository_References();
 
 	/**
+	 * Returns the meta object for data type '{@link java.io.OutputStream <em>Output Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>Output Stream</em>'.
+	 * @see java.io.OutputStream
+	 * @model instanceClass="java.io.OutputStream"
+	 * @generated
+	 */
+	EDataType getOutputStream();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5730,6 +7311,17 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	P2Factory getP2Factory();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.ProcessingStepDescriptor <em>Processing Step Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Processing Step Descriptor</em>'.
+	 * @see org.eclipse.b3.p2.ProcessingStepDescriptor
+	 * @generated
+	 */
+	EClass getProcessingStepDescriptor();
 
 	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Property</em>}'.
@@ -5778,6 +7370,29 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EClass getProvidedCapability();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.Repository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Repository</em>'.
+	 * @see org.eclipse.b3.p2.Repository
+	 * @generated
+	 */
+	EClass getRepository();
+
+	/**
+	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.Repository#getPropertyMap <em>Property Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the map '<em>Property Map</em>'.
+	 * @see org.eclipse.b3.p2.Repository#getPropertyMap()
+	 * @see #getRepository()
+	 * @generated
+	 */
+	EReference getRepository_PropertyMap();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.p2.RepositoryReference <em>Repository Reference</em>}'.
@@ -5870,6 +7485,53 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EClass getRequirementChange();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.SimpleArtifactDescriptor <em>Simple Artifact Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Simple Artifact Descriptor</em>'.
+	 * @see org.eclipse.b3.p2.SimpleArtifactDescriptor
+	 * @generated
+	 */
+	EClass getSimpleArtifactDescriptor();
+
+	/**
+	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.SimpleArtifactDescriptor#getRepositoryPropertyMap
+	 * <em>Repository Property Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the map '<em>Repository Property Map</em>'.
+	 * @see org.eclipse.b3.p2.SimpleArtifactDescriptor#getRepositoryPropertyMap()
+	 * @see #getSimpleArtifactDescriptor()
+	 * @generated
+	 */
+	EReference getSimpleArtifactDescriptor_RepositoryPropertyMap();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.SimpleArtifactRepository <em>Simple Artifact Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Simple Artifact Repository</em>'.
+	 * @see org.eclipse.b3.p2.SimpleArtifactRepository
+	 * @generated
+	 */
+	EClass getSimpleArtifactRepository();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.p2.SimpleArtifactRepository#getRules <em>Rules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Rules</em>'.
+	 * @see org.eclipse.b3.p2.SimpleArtifactRepository#getRules()
+	 * @see #getSimpleArtifactRepository()
+	 * @generated
+	 */
+	EReference getSimpleArtifactRepository_Rules();
 
 	/**
 	 * Returns the meta object for data type '<em>String Array</em>'.

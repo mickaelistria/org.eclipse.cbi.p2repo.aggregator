@@ -28,6 +28,16 @@ public interface P2Factory extends EFactory {
 	P2Factory eINSTANCE = org.eclipse.b3.p2.impl.P2FactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Artifact Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Artifact Descriptor</em>'.
+	 * @generated
+	 */
+	ArtifactDescriptor createArtifactDescriptor();
+
+	/**
 	 * Returns a new object of class '<em>Artifact Key</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -36,6 +46,16 @@ public interface P2Factory extends EFactory {
 	 * @generated
 	 */
 	ArtifactKey createArtifactKey();
+
+	/**
+	 * Returns a new object of class '<em>Artifact Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Artifact Repository</em>'.
+	 * @generated
+	 */
+	ArtifactRepository createArtifactRepository();
 
 	/**
 	 * Returns a new object of class '<em>Copyright</em>'.
@@ -88,6 +108,16 @@ public interface P2Factory extends EFactory {
 	License createLicense();
 
 	/**
+	 * Returns a new object of class '<em>Mapping Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Mapping Rule</em>'.
+	 * @generated
+	 */
+	MappingRule createMappingRule();
+
+	/**
 	 * Returns a new object of class '<em>Metadata Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,6 +133,16 @@ public interface P2Factory extends EFactory {
 	 * @return
 	 */
 	MetadataRepository createMetadataRepositoryProxy(String nature, String resolvedLocation);
+
+	/**
+	 * Returns a new object of class '<em>Processing Step Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Processing Step Descriptor</em>'.
+	 * @generated
+	 */
+	ProcessingStepDescriptor createProcessingStepDescriptor();
 
 	/**
 	 * Returns a new object of class '<em>Provided Capability</em>'.
@@ -153,6 +193,26 @@ public interface P2Factory extends EFactory {
 	 * @generated
 	 */
 	RequirementChange createRequirementChange();
+
+	/**
+	 * Returns a new object of class '<em>Simple Artifact Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Simple Artifact Descriptor</em>'.
+	 * @generated
+	 */
+	SimpleArtifactDescriptor createSimpleArtifactDescriptor();
+
+	/**
+	 * Returns a new object of class '<em>Simple Artifact Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Simple Artifact Repository</em>'.
+	 * @generated
+	 */
+	SimpleArtifactRepository createSimpleArtifactRepository();
 
 	/**
 	 * Returns a new object of class '<em>Touchpoint Data</em>'.

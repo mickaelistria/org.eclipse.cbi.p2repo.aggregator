@@ -1,0 +1,858 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='Buckminster - Artifact Repository' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='4'>
+    <property name='p2.timestamp' value='1276504022797'/>
+    <property name='p2.compressed' value='true'/>
+    <property name='publishPackFilesAsSiblings' value='true'/>
+    <property name='p2.mirrorsURL' value='http://www.eclipse.org/downloads/download.php?file=/tools/buckminster/updates-3.6/&amp;protocol=http&amp;format=xml'/>
+  </properties>
+  <mappings size='5'>
+    <rule filter='(&amp; (classifier=osgi.bundle) (format=packed))' output='${repoUrl}/plugins/${id}_${version}.jar.pack.gz'/>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature) (format=packed))' output='${repoUrl}/features/${id}_${version}.jar.pack.gz'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='100'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.ui.source' version='1.3.0.r11451'>
+      <properties size='3'>
+        <property name='artifact.size' value='252523'/>
+        <property name='download.size' value='252523'/>
+        <property name='download.md5' value='50934e1ca302e5b87687f70ba983fa62'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.git.feature' version='1.0.360.r11433'>
+      <properties size='4'>
+        <property name='artifact.size' value='16924'/>
+        <property name='download.size' value='16924'/>
+        <property name='download.md5' value='58268b316e24ead4b6613ed77b209c14'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.runtime.source' version='1.2.0.r11375'>
+      <properties size='3'>
+        <property name='artifact.size' value='32956'/>
+        <property name='download.size' value='32956'/>
+        <property name='download.md5' value='ae4fb88df557a0806c367639b59a3e31'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.psf.feature' version='1.0.0.r11467'>
+      <properties size='4'>
+        <property name='artifact.size' value='16995'/>
+        <property name='download.size' value='16995'/>
+        <property name='download.md5' value='aa6f4bff92c41da4e1f5542d54a92118'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.subclipse.source.feature' version='1.1.0.r11440'>
+      <properties size='4'>
+        <property name='artifact.size' value='16588'/>
+        <property name='download.size' value='16588'/>
+        <property name='download.md5' value='8a061ad9dff943c4c00ebe5987d95b1e'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.maven' version='1.0.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='35085'/>
+        <property name='download.size' value='15773'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.download' version='1.1.0.r11379'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='47644'/>
+        <property name='download.size' value='20352'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.ui.capabilities' version='1.0.0.r11210'>
+      <properties size='3'>
+        <property name='artifact.size' value='6455'/>
+        <property name='download.size' value='6455'/>
+        <property name='download.md5' value='e77cab2b5bde4a7565454f947daf9d03'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.subversive.source.feature' version='1.1.0.r11440'>
+      <properties size='4'>
+        <property name='artifact.size' value='16672'/>
+        <property name='download.size' value='16672'/>
+        <property name='download.md5' value='92158179deb63da4661481f8f67e6260'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.pde' version='1.2.0.r11455'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='326644'/>
+        <property name='download.size' value='129861'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.runtime' version='1.2.0.r11375'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='39910'/>
+        <property name='download.size' value='19340'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.download.source' version='1.1.0.r11379'>
+      <properties size='3'>
+        <property name='artifact.size' value='37127'/>
+        <property name='download.size' value='37127'/>
+        <property name='download.md5' value='c2bdaf47ffa22fb3f39e8a42af811c10'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.psf.edit.source' version='1.0.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='10328'/>
+        <property name='download.size' value='10328'/>
+        <property name='download.md5' value='c07c820353aa4bf9edfbc01dea5d2be3'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.subversive.feature' version='1.1.0.r11440'>
+      <properties size='4'>
+        <property name='artifact.size' value='17080'/>
+        <property name='download.size' value='17080'/>
+        <property name='download.md5' value='1d31c58b8f51cfde403b7d77401ed088'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.osgi.filter.source' version='1.0.0.r11266'>
+      <properties size='3'>
+        <property name='artifact.size' value='22299'/>
+        <property name='download.size' value='22299'/>
+        <property name='download.md5' value='aed151905c3982b3069094dd4d17e366'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.jdt.source' version='1.0.0.r11394'>
+      <properties size='3'>
+        <property name='artifact.size' value='25179'/>
+        <property name='download.size' value='25179'/>
+        <property name='download.md5' value='76b0dfc126f82323cb438d1709dbb2ae'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.pde' version='1.0.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='21668'/>
+        <property name='download.size' value='10160'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.team' version='1.0.0.r11424'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='24381'/>
+        <property name='download.size' value='12978'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.pde.ui.source' version='1.1.0.r11272'>
+      <properties size='3'>
+        <property name='artifact.size' value='9137'/>
+        <property name='download.size' value='9137'/>
+        <property name='download.md5' value='d5472a5fbe08d1367a0d7f23bbeb18b0'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.maven.source' version='1.2.0.r11234'>
+      <properties size='3'>
+        <property name='artifact.size' value='40407'/>
+        <property name='download.size' value='40407'/>
+        <property name='download.md5' value='61762220017d6a7e77e3cd243be0c34f'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.mspec.edit' version='1.1.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='34165'/>
+        <property name='download.size' value='13365'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.mspec.editor' version='1.0.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='58462'/>
+        <property name='download.size' value='23731'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.mspec.edit.source' version='1.1.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='18934'/>
+        <property name='download.size' value='18934'/>
+        <property name='download.md5' value='0f66be1c3b40ccb7a8f23943502ea715'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.team.source' version='1.0.0.r11424'>
+      <properties size='3'>
+        <property name='artifact.size' value='17264'/>
+        <property name='download.size' value='17264'/>
+        <property name='download.md5' value='99bd4c33a6ba6fdae9f6a191b498438c'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.editor' version='1.0.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='58956'/>
+        <property name='download.size' value='24278'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.jarprocessor' version='1.0.0.r11295'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='35751'/>
+        <property name='download.size' value='17178'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.cvs.feature' version='1.1.0.r11436'>
+      <properties size='4'>
+        <property name='artifact.size' value='16941'/>
+        <property name='download.size' value='16941'/>
+        <property name='download.md5' value='f99a23cb703f3223250f678fb68bf0ad'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.pde.ui' version='1.1.0.r11272'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='10893'/>
+        <property name='download.size' value='6968'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.maven.feature' version='1.3.0.r11467'>
+      <properties size='4'>
+        <property name='artifact.size' value='17004'/>
+        <property name='download.size' value='17004'/>
+        <property name='download.md5' value='10d344e41862f79e91001ba53a86b1db'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.subversive' version='1.0.0.r11436'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='25118'/>
+        <property name='download.size' value='12531'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.jdt' version='1.0.0.r11394'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='47053'/>
+        <property name='download.size' value='28407'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.core.feature' version='1.3.0.r11467'>
+      <properties size='4'>
+        <property name='artifact.size' value='17287'/>
+        <property name='download.size' value='17287'/>
+        <property name='download.md5' value='f0e41f18c1f998b922d3d84bfb5f9076'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.mspec' version='1.0.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='50606'/>
+        <property name='download.size' value='24699'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.model.common.edit.source' version='1.1.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='43478'/>
+        <property name='download.size' value='43478'/>
+        <property name='download.md5' value='eb670560e41ec2d3207e45a88fa7bd0a'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.maven' version='1.2.0.r11234'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='55831'/>
+        <property name='download.size' value='24638'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.generic.ui.source' version='1.0.0.r11210'>
+      <properties size='3'>
+        <property name='artifact.size' value='22075'/>
+        <property name='download.size' value='22075'/>
+        <property name='download.md5' value='f0689065a57ad85b1470906cadc09394'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.maven.edit' version='1.0.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='26614'/>
+        <property name='download.size' value='11011'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.ui.dependency.visualizer.source' version='1.1.0.r11210'>
+      <properties size='3'>
+        <property name='artifact.size' value='53402'/>
+        <property name='download.size' value='53402'/>
+        <property name='download.md5' value='1b4a1e99743b251ff7449ae6d60ad573'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.executor.source' version='1.0.0.r11341'>
+      <properties size='3'>
+        <property name='artifact.size' value='12073'/>
+        <property name='download.size' value='12073'/>
+        <property name='download.md5' value='9bf9ca5fc96b22fc5927aca325f92186'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.junit' version='1.0.0.r11240'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='19808'/>
+        <property name='download.size' value='12027'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.ui.dependency.visualizer' version='1.1.0.r11210'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='75689'/>
+        <property name='download.size' value='26344'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.installer.source' version='1.1.0.r11336'>
+      <properties size='3'>
+        <property name='artifact.size' value='15014'/>
+        <property name='download.size' value='15014'/>
+        <property name='download.md5' value='20c282dbb7cbd67c3545ca5b74b005f0'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.maven.edit.source' version='1.0.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='15603'/>
+        <property name='download.size' value='15603'/>
+        <property name='download.md5' value='7591d0cf0e81590e6cc38a1283f809e4'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.subclipse.feature' version='1.1.0.r11440'>
+      <properties size='4'>
+        <property name='artifact.size' value='17006'/>
+        <property name='download.size' value='17006'/>
+        <property name='download.md5' value='8715b2a3793eb013ef9cafcb8009bcdb'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.edit.source' version='1.1.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='29306'/>
+        <property name='download.size' value='29306'/>
+        <property name='download.md5' value='300b0292e34a197cfb2725bbec5a557a'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.sax.source' version='1.0.0.r11210'>
+      <properties size='3'>
+        <property name='artifact.size' value='25306'/>
+        <property name='download.size' value='25306'/>
+        <property name='download.md5' value='9c7b21b5f61a5a332d7c00ae59f16831'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.pde.feature' version='1.2.0.r11467'>
+      <properties size='4'>
+        <property name='artifact.size' value='17102'/>
+        <property name='download.size' value='17102'/>
+        <property name='download.md5' value='f79b9f25f5fe459dec714aa31f6b4c12'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.model.common' version='1.1.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='109138'/>
+        <property name='download.size' value='41769'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.fetcher.source' version='1.0.0.r11210'>
+      <properties size='3'>
+        <property name='artifact.size' value='13946'/>
+        <property name='download.size' value='13946'/>
+        <property name='download.md5' value='e1f88166ca1dc22bb00eba5c1de90741'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.ant.source' version='1.2.360.r11210'>
+      <properties size='3'>
+        <property name='artifact.size' value='33542'/>
+        <property name='download.size' value='33542'/>
+        <property name='download.md5' value='288030e82e9aff1270574d29c4a0bc60'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.sax' version='1.0.0.r11210'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='27350'/>
+        <property name='download.size' value='13295'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.executor' version='1.0.0.r11341'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='15431'/>
+        <property name='download.size' value='9778'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.team.psf' version='1.0.0'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='40077'/>
+        <property name='download.size' value='16943'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.ui' version='1.3.0.r11451'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='556356'/>
+        <property name='download.size' value='162194'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.maven.source' version='1.0.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='26763'/>
+        <property name='download.size' value='26763'/>
+        <property name='download.md5' value='5a911d2a7027d0f3c0e3660451cd70dd'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.generic.source' version='1.0.0.r11210'>
+      <properties size='3'>
+        <property name='artifact.size' value='28840'/>
+        <property name='download.size' value='28840'/>
+        <property name='download.md5' value='f995e1e6b553056f32e29a3d345e5690'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.team.psf.source' version='1.0.0'>
+      <properties size='3'>
+        <property name='artifact.size' value='31780'/>
+        <property name='download.size' value='31780'/>
+        <property name='download.md5' value='1a6017eee1fa2541804ecb31ca324189'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.ui.capabilities.source' version='1.0.0.r11210'>
+      <properties size='3'>
+        <property name='artifact.size' value='5462'/>
+        <property name='download.size' value='5462'/>
+        <property name='download.md5' value='b26f70382dd231bbf8ec83ac2b44c6f0'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.core.source' version='1.2.360.r11456'>
+      <properties size='3'>
+        <property name='artifact.size' value='718852'/>
+        <property name='download.size' value='718852'/>
+        <property name='download.md5' value='c780e91486b37dadba2256828ed32147'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap' version='1.1.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='66663'/>
+        <property name='download.size' value='29718'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.editor.source' version='1.0.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='22350'/>
+        <property name='download.size' value='22350'/>
+        <property name='download.md5' value='5bb1249498c40284488a428fbb2e3e61'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.git' version='1.0.0.r11433'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='20900'/>
+        <property name='download.size' value='12024'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.subclipse' version='1.0.0.r11436'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='31553'/>
+        <property name='download.size' value='14374'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.pde.edit.source' version='1.0.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='10017'/>
+        <property name='download.size' value='10017'/>
+        <property name='download.md5' value='b843f7867eda12e551f988b236529de1'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.mspec.source' version='1.0.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='37276'/>
+        <property name='download.size' value='37276'/>
+        <property name='download.md5' value='2d73d4106109e1bc2186a6fed860b0bb'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.model.common.edit' version='1.1.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='72297'/>
+        <property name='download.size' value='18928'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.jarprocessor.source' version='1.0.0.r11295'>
+      <properties size='3'>
+        <property name='artifact.size' value='22874'/>
+        <property name='download.size' value='22874'/>
+        <property name='download.md5' value='f8b1ea115f14ef027b16c80a7ac75e89'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.pde.source' version='1.0.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='16546'/>
+        <property name='download.size' value='16546'/>
+        <property name='download.md5' value='152f4a671e892cce0c6c37bb92493b26'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.subclipse.source' version='1.0.0.r11436'>
+      <properties size='3'>
+        <property name='artifact.size' value='20390'/>
+        <property name='download.size' value='20390'/>
+        <property name='download.md5' value='de183346a6d83937ce4fa304c35b274a'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.source' version='1.1.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='50762'/>
+        <property name='download.size' value='50762'/>
+        <property name='download.md5' value='8e11d7ca4eff1eea6b7ef021ad5652d2'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.cvs.source.feature' version='1.1.0.r11436'>
+      <properties size='4'>
+        <property name='artifact.size' value='16574'/>
+        <property name='download.size' value='16574'/>
+        <property name='download.md5' value='973aa8b5f8323607f3691e54911638e2'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.cvs.source' version='1.1.0.r11436'>
+      <properties size='3'>
+        <property name='artifact.size' value='32093'/>
+        <property name='download.size' value='32093'/>
+        <property name='download.md5' value='631c22e1560d17f8c45752bad28bc38b'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.subversive.source' version='1.0.0.r11436'>
+      <properties size='3'>
+        <property name='artifact.size' value='19814'/>
+        <property name='download.size' value='19814'/>
+        <property name='download.md5' value='d3ea5940641f559e56e397f20732807c'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.psf.edit' version='1.0.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='17330'/>
+        <property name='download.size' value='9142'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.core.source.feature' version='1.3.0.r11467'>
+      <properties size='4'>
+        <property name='artifact.size' value='16772'/>
+        <property name='download.size' value='16772'/>
+        <property name='download.md5' value='649cd5dbc33d3f0cdb513a16be70c80a'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.cmdline.source' version='1.0.350.r11425'>
+      <properties size='3'>
+        <property name='artifact.size' value='39506'/>
+        <property name='download.size' value='39506'/>
+        <property name='download.md5' value='fd6890e250730bed2dfb62dc87a3fdb6'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.maven.source.feature' version='1.3.0.r11467'>
+      <properties size='4'>
+        <property name='artifact.size' value='16584'/>
+        <property name='download.size' value='16584'/>
+        <property name='download.md5' value='387853009c4aa87e29b42c5a678d8573'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.git.source' version='1.0.0.r11433'>
+      <properties size='3'>
+        <property name='artifact.size' value='14357'/>
+        <property name='download.size' value='14357'/>
+        <property name='download.md5' value='f3003cdfbf9b43e0868cedb35fb22f9b'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.git.source.feature' version='1.0.360.r11433'>
+      <properties size='4'>
+        <property name='artifact.size' value='16549'/>
+        <property name='download.size' value='16549'/>
+        <property name='download.md5' value='8efc9e7d47ab7bc3fc774eac14e44cea'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.edit' version='1.1.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='57692'/>
+        <property name='download.size' value='17238'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.cmdline' version='1.0.350.r11425'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='50656'/>
+        <property name='download.size' value='22696'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.psf' version='1.1.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='33678'/>
+        <property name='download.size' value='16291'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.generic' version='1.0.0.r11210'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='30013'/>
+        <property name='download.size' value='11989'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.core' version='1.2.360.r11456'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='1051257'/>
+        <property name='download.size' value='320337'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.psf.source' version='1.1.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='22709'/>
+        <property name='download.size' value='22709'/>
+        <property name='download.md5' value='6e196c79097a89cf5800cd3199870177'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.pde.source.feature' version='1.2.0.r11467'>
+      <properties size='4'>
+        <property name='artifact.size' value='16629'/>
+        <property name='download.size' value='16629'/>
+        <property name='download.md5' value='95531f97ee5785dfcd11014831643cdc'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.cvs' version='1.1.0.r11436'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='48406'/>
+        <property name='download.size' value='22791'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.ant' version='1.2.360.r11210'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='77710'/>
+        <property name='download.size' value='39993'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.fetcher' version='1.0.0.r11210'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='19016'/>
+        <property name='download.size' value='9932'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.mspec.editor.source' version='1.0.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='22387'/>
+        <property name='download.size' value='22387'/>
+        <property name='download.md5' value='50da6350f7cc9189ca0c0d529dee19d8'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.junit.source' version='1.0.0.r11240'>
+      <properties size='3'>
+        <property name='artifact.size' value='16346'/>
+        <property name='download.size' value='16346'/>
+        <property name='download.md5' value='338941ace106947b1de295fc9ded9f01'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.osgi.filter' version='1.0.0.r11266'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='33434'/>
+        <property name='download.size' value='15766'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.pde.source' version='1.2.0.r11455'>
+      <properties size='3'>
+        <property name='artifact.size' value='213147'/>
+        <property name='download.size' value='213147'/>
+        <property name='download.md5' value='f2ee1a6793635fdad7ebfb1033f12697'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.subversion.source' version='1.1.0.r11440'>
+      <properties size='3'>
+        <property name='artifact.size' value='27342'/>
+        <property name='download.size' value='27342'/>
+        <property name='download.md5' value='61ed32635169afbbc3f7bd2f19181222'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.subversion' version='1.1.0.r11440'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='41233'/>
+        <property name='download.size' value='21368'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.installer' version='1.1.0.r11336'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='18990'/>
+        <property name='download.size' value='10188'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.generic.ui' version='1.0.0.r11210'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='23602'/>
+        <property name='download.size' value='11212'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.rmap.pde.edit' version='1.0.0.r11467'>
+      <processing size='1'>
+        <step id='org.eclipse.equinox.p2.processing.Pack200Unpacker' required='true'/>
+      </processing>
+      <properties size='3'>
+        <property name='artifact.size' value='16803'/>
+        <property name='download.size' value='8873'/>
+        <property name='format' value='packed'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.buckminster.model.common.source' version='1.1.0.r11467'>
+      <properties size='3'>
+        <property name='artifact.size' value='83933'/>
+        <property name='download.size' value='83933'/>
+        <property name='download.md5' value='47f89b661245d77c61ffd469aefc3d08'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.buckminster.psf.source.feature' version='1.0.0.r11467'>
+      <properties size='4'>
+        <property name='artifact.size' value='16615'/>
+        <property name='download.size' value='16615'/>
+        <property name='download.md5' value='f65eb0d5bb4c31ad20d167849ae8c720'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

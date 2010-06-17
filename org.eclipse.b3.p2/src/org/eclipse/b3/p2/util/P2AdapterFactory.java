@@ -8,34 +8,37 @@ package org.eclipse.b3.p2.util;
 
 import java.util.Map;
 
+import org.eclipse.b3.p2.ArtifactDescriptor;
 import org.eclipse.b3.p2.ArtifactKey;
+import org.eclipse.b3.p2.ArtifactRepository;
 import org.eclipse.b3.p2.Copyright;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.InstallableUnitFragment;
 import org.eclipse.b3.p2.InstallableUnitPatch;
 import org.eclipse.b3.p2.License;
+import org.eclipse.b3.p2.MappingRule;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Package;
+import org.eclipse.b3.p2.ProcessingStepDescriptor;
 import org.eclipse.b3.p2.ProvidedCapability;
+import org.eclipse.b3.p2.Repository;
 import org.eclipse.b3.p2.RepositoryReference;
 import org.eclipse.b3.p2.RequiredCapability;
 import org.eclipse.b3.p2.Requirement;
 import org.eclipse.b3.p2.RequirementChange;
+import org.eclipse.b3.p2.SimpleArtifactDescriptor;
+import org.eclipse.b3.p2.SimpleArtifactRepository;
 import org.eclipse.b3.p2.TouchpointData;
 import org.eclipse.b3.p2.TouchpointInstruction;
 import org.eclipse.b3.p2.TouchpointType;
 import org.eclipse.b3.p2.UpdateDescriptor;
 import org.eclipse.core.runtime.IAdaptable;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
-
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -50,12 +53,13 @@ import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 import org.eclipse.equinox.p2.metadata.IVersionedId;
-
 import org.eclipse.equinox.p2.query.IQueryable;
-
 import org.eclipse.equinox.p2.repository.IRepository;
 import org.eclipse.equinox.p2.repository.IRepositoryReference;
-
+import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
+import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
+import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 
 /**
@@ -86,8 +90,23 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected P2Switch<Adapter> modelSwitch = new P2Switch<Adapter>() {
 		@Override
+		public Adapter caseArtifactDescriptor(ArtifactDescriptor object) {
+			return createArtifactDescriptorAdapter();
+		}
+
+		@Override
 		public Adapter caseArtifactKey(ArtifactKey object) {
 			return createArtifactKeyAdapter();
+		}
+
+		@Override
+		public Adapter caseArtifactRepository(ArtifactRepository object) {
+			return createArtifactRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseArtifactsByKey(Map.Entry<IArtifactKey, EList<IArtifactDescriptor>> object) {
+			return createArtifactsByKeyAdapter();
 		}
 
 		@Override
@@ -106,13 +125,28 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseIArtifactDescriptor(IArtifactDescriptor object) {
+			return createIArtifactDescriptorAdapter();
+		}
+
+		@Override
 		public Adapter caseIArtifactKey(IArtifactKey object) {
 			return createIArtifactKeyAdapter();
 		}
 
 		@Override
+		public Adapter caseIArtifactRepository(IArtifactRepository object) {
+			return createIArtifactRepositoryAdapter();
+		}
+
+		@Override
 		public Adapter caseICopyright(ICopyright object) {
 			return createICopyrightAdapter();
+		}
+
+		@Override
+		public Adapter caseIFileArtifactRepository(IFileArtifactRepository object) {
+			return createIFileArtifactRepositoryAdapter();
 		}
 
 		@Override
@@ -158,6 +192,11 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseInstructionMap(Map.Entry<String, ITouchpointInstruction> object) {
 			return createInstructionMapAdapter();
+		}
+
+		@Override
+		public Adapter caseIProcessingStepDescriptor(IProcessingStepDescriptor object) {
+			return createIProcessingStepDescriptorAdapter();
 		}
 
 		@Override
@@ -226,8 +265,18 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseMappingRule(MappingRule object) {
+			return createMappingRuleAdapter();
+		}
+
+		@Override
 		public Adapter caseMetadataRepository(MetadataRepository object) {
 			return createMetadataRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseProcessingStepDescriptor(ProcessingStepDescriptor object) {
+			return createProcessingStepDescriptorAdapter();
 		}
 
 		@Override
@@ -238,6 +287,11 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseProvidedCapability(ProvidedCapability object) {
 			return createProvidedCapabilityAdapter();
+		}
+
+		@Override
+		public <T> Adapter caseRepository(Repository<T> object) {
+			return createRepositoryAdapter();
 		}
 
 		@Override
@@ -258,6 +312,16 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseRequirementChange(RequirementChange object) {
 			return createRequirementChangeAdapter();
+		}
+
+		@Override
+		public Adapter caseSimpleArtifactDescriptor(SimpleArtifactDescriptor object) {
+			return createSimpleArtifactDescriptorAdapter();
+		}
+
+		@Override
+		public Adapter caseSimpleArtifactRepository(SimpleArtifactRepository object) {
+			return createSimpleArtifactRepositoryAdapter();
 		}
 
 		@Override
@@ -315,6 +379,21 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.ArtifactDescriptor <em>Artifact Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.p2.ArtifactDescriptor
+	 * @generated
+	 */
+	public Adapter createArtifactDescriptorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.ArtifactKey <em>Artifact Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -326,6 +405,36 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArtifactKeyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.ArtifactRepository <em>Artifact Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.p2.ArtifactRepository
+	 * @generated
+	 */
+	public Adapter createArtifactRepositoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Artifacts By Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createArtifactsByKeyAdapter() {
 		return null;
 	}
 
@@ -388,6 +497,22 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor
+	 * <em>IArtifact Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor
+	 * @generated
+	 */
+	public Adapter createIArtifactDescriptorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IArtifactKey <em>IArtifact Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -403,6 +528,22 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.repository.artifact.IArtifactRepository
+	 * <em>IArtifact Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IArtifactRepository
+	 * @generated
+	 */
+	public Adapter createIArtifactRepositoryAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.ICopyright <em>ICopyright</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -414,6 +555,22 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createICopyrightAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository
+	 * <em>IFile Artifact Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository
+	 * @generated
+	 */
+	public Adapter createIFileArtifactRepositoryAdapter() {
 		return null;
 	}
 
@@ -551,6 +708,22 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInstructionMapAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor
+	 * <em>IProcessing Step Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor
+	 * @generated
+	 */
+	public Adapter createIProcessingStepDescriptorAdapter() {
 		return null;
 	}
 
@@ -751,6 +924,21 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.MappingRule <em>Mapping Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.p2.MappingRule
+	 * @generated
+	 */
+	public Adapter createMappingRuleAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.MetadataRepository <em>Metadata Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -762,6 +950,21 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMetadataRepositoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.ProcessingStepDescriptor <em>Processing Step Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.p2.ProcessingStepDescriptor
+	 * @generated
+	 */
+	public Adapter createProcessingStepDescriptorAdapter() {
 		return null;
 	}
 
@@ -792,6 +995,21 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProvidedCapabilityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.Repository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.p2.Repository
+	 * @generated
+	 */
+	public Adapter createRepositoryAdapter() {
 		return null;
 	}
 
@@ -852,6 +1070,36 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRequirementChangeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.SimpleArtifactDescriptor <em>Simple Artifact Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.p2.SimpleArtifactDescriptor
+	 * @generated
+	 */
+	public Adapter createSimpleArtifactDescriptorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.p2.SimpleArtifactRepository <em>Simple Artifact Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.p2.SimpleArtifactRepository
+	 * @generated
+	 */
+	public Adapter createSimpleArtifactRepositoryAdapter() {
 		return null;
 	}
 

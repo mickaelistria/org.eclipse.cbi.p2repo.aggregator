@@ -15,11 +15,15 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import org.eclipse.b3.p2.ArtifactDescriptor;
 import org.eclipse.b3.p2.ArtifactKey;
+import org.eclipse.b3.p2.ArtifactRepository;
 import org.eclipse.b3.p2.Copyright;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.License;
+import org.eclipse.b3.p2.MappingRule;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.ProvidedCapability;
@@ -28,17 +32,24 @@ import org.eclipse.b3.p2.TouchpointData;
 import org.eclipse.b3.p2.TouchpointInstruction;
 import org.eclipse.b3.p2.TouchpointType;
 import org.eclipse.b3.p2.UpdateDescriptor;
+import org.eclipse.b3.p2.impl.ArtifactDescriptorImpl;
 import org.eclipse.b3.p2.impl.ArtifactKeyImpl;
+import org.eclipse.b3.p2.impl.ArtifactRepositoryImpl;
 import org.eclipse.b3.p2.impl.CopyrightImpl;
 import org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl;
 import org.eclipse.b3.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.p2.impl.InstallableUnitPatchImpl;
 import org.eclipse.b3.p2.impl.LicenseImpl;
+import org.eclipse.b3.p2.impl.MappingRuleImpl;
 import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
+import org.eclipse.b3.p2.impl.ProcessingStepDescriptorImpl;
 import org.eclipse.b3.p2.impl.ProvidedCapabilityImpl;
+import org.eclipse.b3.p2.impl.RepositoryImpl;
 import org.eclipse.b3.p2.impl.RequiredCapabilityImpl;
 import org.eclipse.b3.p2.impl.RequirementChangeImpl;
 import org.eclipse.b3.p2.impl.RequirementImpl;
+import org.eclipse.b3.p2.impl.SimpleArtifactDescriptorImpl;
+import org.eclipse.b3.p2.impl.SimpleArtifactRepositoryImpl;
 import org.eclipse.b3.p2.impl.TouchpointInstructionImpl;
 import org.eclipse.b3.p2.impl.TouchpointTypeImpl;
 import org.eclipse.b3.p2.impl.UpdateDescriptorImpl;
@@ -46,6 +57,8 @@ import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EMap;
+import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
+import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
@@ -60,9 +73,16 @@ import org.eclipse.equinox.p2.metadata.ITouchpointData;
 import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
+import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.query.QueryUtil;
+import org.eclipse.equinox.p2.repository.IRepository;
+import org.eclipse.equinox.p2.repository.IRepositoryManager;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
+import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
@@ -106,6 +126,59 @@ public class P2Bridge {
 		mkey.setId(key.getId());
 		mkey.setVersion(key.getVersion());
 		return mkey;
+	}
+
+	public static ArtifactDescriptor importToModel(IArtifactRepository target, IArtifactDescriptor descriptor) {
+		if(descriptor == null)
+			return null;
+		ArtifactDescriptorImpl mdescriptor = (ArtifactDescriptorImpl) target.createArtifactDescriptor(descriptor.getArtifactKey());
+		List<IProcessingStepDescriptor> msteps = mdescriptor.getProcessingStepList();
+		for(IProcessingStepDescriptor step : descriptor.getProcessingSteps())
+			msteps.add(importToModel(step));
+
+		Map<String, String> props = descriptor.getProperties();
+		if(props.size() > 0)
+			mdescriptor.getPropertyMap().putAll(props);
+
+		if(descriptor instanceof SimpleArtifactDescriptor) {
+			props = ((SimpleArtifactDescriptor) descriptor).getRepositoryProperties();
+			((SimpleArtifactDescriptorImpl) mdescriptor).getRepositoryPropertyMap().putAll(props);
+		}
+		return mdescriptor;
+	}
+
+	public static void importToModel(IArtifactRepositoryManager arMgr, IArtifactRepository ar,
+			ArtifactRepositoryImpl target, IProgressMonitor monitor) throws CoreException {
+		importToModel(arMgr, ar, target);
+		IQuery<IArtifactDescriptor> descriptorQuery = QueryUtil.createMatchQuery(
+			IArtifactDescriptor.class, ExpressionUtil.TRUE_EXPRESSION);
+		Set<IArtifactDescriptor> result = ar.descriptorQueryable().query(descriptorQuery, monitor).toUnmodifiableSet();
+		for(IArtifactDescriptor desc : result)
+			target.addDescriptor(desc);
+
+		if(ar instanceof SimpleArtifactRepository) {
+			String[][] rules = ((SimpleArtifactRepository) ar).getRules();
+			if(rules != null) {
+				List<MappingRule> trules = ((SimpleArtifactRepositoryImpl) target).getRules();
+				for(String[] ruleDef : rules) {
+					MappingRuleImpl trule = (MappingRuleImpl) P2Factory.eINSTANCE.createMappingRule();
+					trule.setFilter(ruleDef[0]);
+					trule.setOutput(ruleDef[1]);
+					trules.add(trule);
+				}
+			}
+		}
+	}
+
+	public static ArtifactRepository importToModel(IArtifactRepositoryManager arMgr, IArtifactRepository ar,
+			IProgressMonitor monitor) throws CoreException {
+		ArtifactRepositoryImpl target;
+		if(ar instanceof SimpleArtifactRepository)
+			target = (ArtifactRepositoryImpl) P2Factory.eINSTANCE.createSimpleArtifactRepository();
+		else
+			target = (ArtifactRepositoryImpl) P2Factory.eINSTANCE.createArtifactRepository();
+		importToModel(arMgr, ar, target, monitor);
+		return target;
 	}
 
 	public static Copyright importToModel(ICopyright cr) {
@@ -213,15 +286,7 @@ public class P2Bridge {
 
 	public static void importToModel(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr,
 			MetadataRepositoryImpl target, IProgressMonitor monitor, boolean sortIUs) throws CoreException {
-		target.setProvisioningAgent(mdr.getProvisioningAgent());
-		target.setName(mdr.getName());
-		target.setLocation(mdr.getLocation());
-		target.setDescription(mdr.getDescription());
-		target.setProvider(mdr.getProvider());
-		target.setType(mdr.getType());
-		target.setVersion(mdr.getVersion());
-		target.getPropertyMap().putAll(mdr.getProperties());
-
+		importToModel(mdrMgr, mdr, target);
 		monitor = MonitorUtils.ensureNotNull(monitor);
 		IQueryResult<IInstallableUnit> result = mdr.query(QUERY_ALL_IUS, monitor);
 		Iterator<IInstallableUnit> itor = result.iterator();
@@ -235,6 +300,17 @@ public class P2Bridge {
 		target.addRepositoryReferences(mdrMgr, mdr);
 	}
 
+	public static IProcessingStepDescriptor importToModel(IProcessingStepDescriptor step) {
+		if(step == null)
+			return null;
+
+		ProcessingStepDescriptorImpl mstep = (ProcessingStepDescriptorImpl) P2Factory.eINSTANCE.createProcessingStepDescriptor();
+		mstep.setData(step.getData());
+		mstep.setProcessorId(mstep.getProcessorId());
+		mstep.setRequired(step.isRequired());
+		return mstep;
+	}
+
 	public static ProvidedCapability importToModel(IProvidedCapability pc) {
 		if(pc == null)
 			return null;
@@ -243,6 +319,18 @@ public class P2Bridge {
 		mrq.setNamespace(pc.getNamespace());
 		mrq.setVersion(pc.getVersion());
 		return mrq;
+	}
+
+	public static <T> void importToModel(IRepositoryManager<T> repoMgr, IRepository<T> repo, RepositoryImpl<T> target)
+			throws CoreException {
+		target.setProvisioningAgent(repo.getProvisioningAgent());
+		target.setName(repo.getName());
+		target.setLocation(repo.getLocation());
+		target.setDescription(repo.getDescription());
+		target.setProvider(repo.getProvider());
+		target.setType(repo.getType());
+		target.setVersion(repo.getVersion());
+		target.getPropertyMap().putAll(repo.getProperties());
 	}
 
 	public static Requirement importToModel(IRequirement req) {

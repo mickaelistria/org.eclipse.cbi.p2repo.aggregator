@@ -9,30 +9,35 @@ package org.eclipse.b3.p2.util;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.p2.ArtifactDescriptor;
 import org.eclipse.b3.p2.ArtifactKey;
+import org.eclipse.b3.p2.ArtifactRepository;
 import org.eclipse.b3.p2.Copyright;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.InstallableUnitFragment;
 import org.eclipse.b3.p2.InstallableUnitPatch;
 import org.eclipse.b3.p2.License;
+import org.eclipse.b3.p2.MappingRule;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Package;
+import org.eclipse.b3.p2.ProcessingStepDescriptor;
 import org.eclipse.b3.p2.ProvidedCapability;
+import org.eclipse.b3.p2.Repository;
 import org.eclipse.b3.p2.RepositoryReference;
 import org.eclipse.b3.p2.RequiredCapability;
 import org.eclipse.b3.p2.Requirement;
 import org.eclipse.b3.p2.RequirementChange;
+import org.eclipse.b3.p2.SimpleArtifactDescriptor;
+import org.eclipse.b3.p2.SimpleArtifactRepository;
 import org.eclipse.b3.p2.TouchpointData;
 import org.eclipse.b3.p2.TouchpointInstruction;
 import org.eclipse.b3.p2.TouchpointType;
 import org.eclipse.b3.p2.UpdateDescriptor;
 import org.eclipse.core.runtime.IAdaptable;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
-
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -47,12 +52,13 @@ import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 import org.eclipse.equinox.p2.metadata.IVersionedId;
-
 import org.eclipse.equinox.p2.query.IQueryable;
-
 import org.eclipse.equinox.p2.repository.IRepository;
 import org.eclipse.equinox.p2.repository.IRepositoryReference;
-
+import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
+import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
+import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 
 /**
@@ -93,6 +99,23 @@ public class P2Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Artifact Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Artifact Descriptor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseArtifactDescriptor(ArtifactDescriptor object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Artifact Key</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -106,6 +129,40 @@ public class P2Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseArtifactKey(ArtifactKey object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Artifact Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Artifact Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseArtifactRepository(ArtifactRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Artifacts By Key</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Artifacts By Key</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseArtifactsByKey(Map.Entry<IArtifactKey, EList<IArtifactDescriptor>> object) {
 		return null;
 	}
 
@@ -161,6 +218,23 @@ public class P2Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IArtifact Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IArtifact Descriptor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIArtifactDescriptor(IArtifactDescriptor object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IArtifact Key</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -178,6 +252,23 @@ public class P2Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IArtifact Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IArtifact Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIArtifactRepository(IArtifactRepository object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>ICopyright</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -191,6 +282,23 @@ public class P2Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseICopyright(ICopyright object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IFile Artifact Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IFile Artifact Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIFileArtifactRepository(IFileArtifactRepository object) {
 		return null;
 	}
 
@@ -344,6 +452,23 @@ public class P2Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseInstructionMap(Map.Entry<String, ITouchpointInstruction> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IProcessing Step Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IProcessing Step Descriptor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIProcessingStepDescriptor(IProcessingStepDescriptor object) {
 		return null;
 	}
 
@@ -569,6 +694,23 @@ public class P2Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mapping Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mapping Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMappingRule(MappingRule object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Metadata Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -582,6 +724,23 @@ public class P2Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseMetadataRepository(MetadataRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Processing Step Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Processing Step Descriptor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseProcessingStepDescriptor(ProcessingStepDescriptor object) {
 		return null;
 	}
 
@@ -616,6 +775,23 @@ public class P2Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseProvidedCapability(ProvidedCapability object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseRepository(Repository<T> object) {
 		return null;
 	}
 
@@ -684,6 +860,40 @@ public class P2Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseRequirementChange(RequirementChange object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Artifact Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Artifact Descriptor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseSimpleArtifactDescriptor(SimpleArtifactDescriptor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Artifact Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Artifact Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseSimpleArtifactRepository(SimpleArtifactRepository object) {
 		return null;
 	}
 
@@ -823,26 +1033,45 @@ public class P2Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
+			case P2Package.ARTIFACT_DESCRIPTOR: {
+				ArtifactDescriptor artifactDescriptor = (ArtifactDescriptor) theEObject;
+				T1 result = caseArtifactDescriptor(artifactDescriptor);
+				if(result == null)
+					result = caseIArtifactDescriptor(artifactDescriptor);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.ARTIFACT_REPOSITORY: {
+				ArtifactRepository artifactRepository = (ArtifactRepository) theEObject;
+				T1 result = caseArtifactRepository(artifactRepository);
+				if(result == null)
+					result = caseRepository(artifactRepository);
+				if(result == null)
+					result = caseIArtifactRepository(artifactRepository);
+				if(result == null)
+					result = caseIRepository(artifactRepository);
+				if(result == null)
+					result = caseIAdaptable(artifactRepository);
+				if(result == null)
+					result = caseIQueryable(artifactRepository);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.ARTIFACTS_BY_KEY: {
+				@SuppressWarnings("unchecked")
+				Map.Entry<IArtifactKey, EList<IArtifactDescriptor>> artifactsByKey = (Map.Entry<IArtifactKey, EList<IArtifactDescriptor>>) theEObject;
+				T1 result = caseArtifactsByKey(artifactsByKey);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
 			case P2Package.COPYRIGHT: {
 				Copyright copyright = (Copyright) theEObject;
 				T1 result = caseCopyright(copyright);
 				if(result == null)
 					result = caseICopyright(copyright);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case P2Package.METADATA_REPOSITORY: {
-				MetadataRepository metadataRepository = (MetadataRepository) theEObject;
-				T1 result = caseMetadataRepository(metadataRepository);
-				if(result == null)
-					result = caseIMetadataRepository(metadataRepository);
-				if(result == null)
-					result = caseIRepository(metadataRepository);
-				if(result == null)
-					result = caseIAdaptable(metadataRepository);
-				if(result == null)
-					result = caseIQueryable(metadataRepository);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -894,6 +1123,14 @@ public class P2Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
+			case P2Package.INSTRUCTION_MAP: {
+				@SuppressWarnings("unchecked")
+				Map.Entry<String, ITouchpointInstruction> instructionMap = (Map.Entry<String, ITouchpointInstruction>) theEObject;
+				T1 result = caseInstructionMap(instructionMap);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
 			case P2Package.LICENSE: {
 				License license = (License) theEObject;
 				T1 result = caseLicense(license);
@@ -903,11 +1140,74 @@ public class P2Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
+			case P2Package.MAPPING_RULE: {
+				MappingRule mappingRule = (MappingRule) theEObject;
+				T1 result = caseMappingRule(mappingRule);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.METADATA_REPOSITORY: {
+				MetadataRepository metadataRepository = (MetadataRepository) theEObject;
+				T1 result = caseMetadataRepository(metadataRepository);
+				if(result == null)
+					result = caseRepository(metadataRepository);
+				if(result == null)
+					result = caseIMetadataRepository(metadataRepository);
+				if(result == null)
+					result = caseIRepository(metadataRepository);
+				if(result == null)
+					result = caseIAdaptable(metadataRepository);
+				if(result == null)
+					result = caseIQueryable(metadataRepository);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.PROCESSING_STEP_DESCRIPTOR: {
+				ProcessingStepDescriptor processingStepDescriptor = (ProcessingStepDescriptor) theEObject;
+				T1 result = caseProcessingStepDescriptor(processingStepDescriptor);
+				if(result == null)
+					result = caseIProcessingStepDescriptor(processingStepDescriptor);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.PROPERTY: {
+				@SuppressWarnings("unchecked")
+				Map.Entry<String, String> property = (Map.Entry<String, String>) theEObject;
+				T1 result = caseProperty(property);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
 			case P2Package.PROVIDED_CAPABILITY: {
 				ProvidedCapability providedCapability = (ProvidedCapability) theEObject;
 				T1 result = caseProvidedCapability(providedCapability);
 				if(result == null)
 					result = caseIProvidedCapability(providedCapability);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.REPOSITORY: {
+				Repository<?> repository = (Repository<?>) theEObject;
+				T1 result = caseRepository(repository);
+				if(result == null)
+					result = caseIRepository(repository);
+				if(result == null)
+					result = caseIAdaptable(repository);
+				if(result == null)
+					result = caseIQueryable(repository);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.REPOSITORY_REFERENCE: {
+				RepositoryReference repositoryReference = (RepositoryReference) theEObject;
+				T1 result = caseRepositoryReference(repositoryReference);
+				if(result == null)
+					result = caseIRepositoryReference(repositoryReference);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -939,6 +1239,38 @@ public class P2Switch<T1> {
 				T1 result = caseRequirementChange(requirementChange);
 				if(result == null)
 					result = caseIRequirementChange(requirementChange);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.SIMPLE_ARTIFACT_REPOSITORY: {
+				SimpleArtifactRepository simpleArtifactRepository = (SimpleArtifactRepository) theEObject;
+				T1 result = caseSimpleArtifactRepository(simpleArtifactRepository);
+				if(result == null)
+					result = caseArtifactRepository(simpleArtifactRepository);
+				if(result == null)
+					result = caseIFileArtifactRepository(simpleArtifactRepository);
+				if(result == null)
+					result = caseRepository(simpleArtifactRepository);
+				if(result == null)
+					result = caseIArtifactRepository(simpleArtifactRepository);
+				if(result == null)
+					result = caseIRepository(simpleArtifactRepository);
+				if(result == null)
+					result = caseIAdaptable(simpleArtifactRepository);
+				if(result == null)
+					result = caseIQueryable(simpleArtifactRepository);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR: {
+				SimpleArtifactDescriptor simpleArtifactDescriptor = (SimpleArtifactDescriptor) theEObject;
+				T1 result = caseSimpleArtifactDescriptor(simpleArtifactDescriptor);
+				if(result == null)
+					result = caseArtifactDescriptor(simpleArtifactDescriptor);
+				if(result == null)
+					result = caseIArtifactDescriptor(simpleArtifactDescriptor);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -975,31 +1307,6 @@ public class P2Switch<T1> {
 				T1 result = caseUpdateDescriptor(updateDescriptor);
 				if(result == null)
 					result = caseIUpdateDescriptor(updateDescriptor);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case P2Package.PROPERTY: {
-				@SuppressWarnings("unchecked")
-				Map.Entry<String, String> property = (Map.Entry<String, String>) theEObject;
-				T1 result = caseProperty(property);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case P2Package.INSTRUCTION_MAP: {
-				@SuppressWarnings("unchecked")
-				Map.Entry<String, ITouchpointInstruction> instructionMap = (Map.Entry<String, ITouchpointInstruction>) theEObject;
-				T1 result = caseInstructionMap(instructionMap);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case P2Package.REPOSITORY_REFERENCE: {
-				RepositoryReference repositoryReference = (RepositoryReference) theEObject;
-				T1 result = caseRepositoryReference(repositoryReference);
-				if(result == null)
-					result = caseIRepositoryReference(repositoryReference);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
