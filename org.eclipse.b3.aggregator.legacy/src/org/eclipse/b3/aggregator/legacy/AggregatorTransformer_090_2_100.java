@@ -77,7 +77,7 @@ public class AggregatorTransformer_090_2_100 extends ResourceTransformer {
 		else if(VALID_CONFIGURATIONS_RULE_NODE.equals(scrEClass.getName()))
 			transformIUNode(srcEObject, trgtParentTreePath);
 		else
-			super.transform(srcEObject, trgtParentTreePath);
+			super.doTransform(srcEObject, trgtParentTreePath);
 	}
 
 	private void transformIUNode(EObject srcEObject, TreePath trgtParentTreePath) {
