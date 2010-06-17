@@ -10,29 +10,36 @@ package org.eclipse.b3.p2.provider;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
-import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.p2.MetadataRepository} object.
+ * This is the item provider adapter for a {@link java.util.Map.Entry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 
  * @generated
  */
-public class MetadataRepositoryItemProvider extends RepositoryItemProvider implements IEditingDomainItemProvider,
+public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -41,7 +48,7 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 	 * 
 	 * @generated
 	 */
-	public MetadataRepositoryItemProvider(AdapterFactory adapterFactory) {
+	public ArtifactsByKeyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -58,14 +65,13 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS);
-			childrenFeatures.add(P2Package.Literals.METADATA_REPOSITORY__REFERENCES);
+			childrenFeatures.add(P2Package.Literals.ARTIFACTS_BY_KEY__KEY);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * This returns MetadataRepository.gif.
+	 * This returns ArtifactsByKey.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -73,7 +79,7 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MetadataRepository"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArtifactsByKey"));
 	}
 
 	/**
@@ -88,8 +94,21 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return P2EditPlugin.INSTANCE;
 	}
 
 	/**
@@ -101,10 +120,8 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MetadataRepository) object).getName();
-		return label == null || label.length() == 0
-				? getString("_UI_MetadataRepository_type")
-				: getString("_UI_MetadataRepository_type") + " " + label;
+		Map.Entry<?, ?> artifactsByKey = (Map.Entry<?, ?>) object;
+		return "" + artifactsByKey.getKey() + " -> " + artifactsByKey.getValue();
 	}
 
 	/**
@@ -119,13 +136,29 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(MetadataRepository.class)) {
-			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
-			case P2Package.METADATA_REPOSITORY__REFERENCES:
+		switch(notification.getFeatureID(Map.Entry.class)) {
+			case P2Package.ARTIFACTS_BY_KEY__KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_ArtifactsByKey_value_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_ArtifactsByKey_value_feature", "_UI_ArtifactsByKey_type"),
+			P2Package.Literals.ARTIFACTS_BY_KEY__VALUE, true, false, true, null, null, null));
 	}
 
 	/**
@@ -141,17 +174,7 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS, P2Factory.eINSTANCE.createInstallableUnit()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS,
-			P2Factory.eINSTANCE.createInstallableUnitFragment()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS, P2Factory.eINSTANCE.createInstallableUnitPatch()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__REFERENCES, P2Factory.eINSTANCE.createRepositoryReference()));
+			P2Package.Literals.ARTIFACTS_BY_KEY__KEY, P2Factory.eINSTANCE.createArtifactKey()));
 	}
 
 	/**

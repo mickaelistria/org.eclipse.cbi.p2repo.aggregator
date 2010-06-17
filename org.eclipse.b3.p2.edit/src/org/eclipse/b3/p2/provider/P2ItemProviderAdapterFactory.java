@@ -231,6 +231,69 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory implements Co
 	protected RequirementChangeItemProvider requirementChangeItemProvider;
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.p2.ArtifactDescriptor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected ArtifactDescriptorItemProvider artifactDescriptorItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.p2.ArtifactRepository} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected ArtifactRepositoryItemProvider artifactRepositoryItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected ArtifactsByKeyItemProvider artifactsByKeyItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.p2.MappingRule} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected MappingRuleItemProvider mappingRuleItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.p2.ProcessingStepDescriptor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected ProcessingStepDescriptorItemProvider processingStepDescriptorItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.p2.SimpleArtifactRepository} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected SimpleArtifactRepositoryItemProvider simpleArtifactRepositoryItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.p2.SimpleArtifactDescriptor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected SimpleArtifactDescriptorItemProvider simpleArtifactDescriptorItemProvider;
+
+	/**
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -287,6 +350,22 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory implements Co
 	}
 
 	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.p2.ArtifactDescriptor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createArtifactDescriptorAdapter() {
+		if(artifactDescriptorItemProvider == null) {
+			artifactDescriptorItemProvider = new ArtifactDescriptorItemProvider(this);
+		}
+
+		return artifactDescriptorItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.p2.ArtifactKey}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -300,6 +379,38 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory implements Co
 		}
 
 		return artifactKeyItemProvider;
+	}
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.p2.ArtifactRepository}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createArtifactRepositoryAdapter() {
+		if(artifactRepositoryItemProvider == null) {
+			artifactRepositoryItemProvider = new ArtifactRepositoryItemProvider(this);
+		}
+
+		return artifactRepositoryItemProvider;
+	}
+
+	/**
+	 * This creates an adapter for a {@link java.util.Map.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createArtifactsByKeyAdapter() {
+		if(artifactsByKeyItemProvider == null) {
+			artifactsByKeyItemProvider = new ArtifactsByKeyItemProvider(this);
+		}
+
+		return artifactsByKeyItemProvider;
 	}
 
 	/**
@@ -399,6 +510,22 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory implements Co
 	}
 
 	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.p2.MappingRule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createMappingRuleAdapter() {
+		if(mappingRuleItemProvider == null) {
+			mappingRuleItemProvider = new MappingRuleItemProvider(this);
+		}
+
+		return mappingRuleItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.p2.MetadataRepository}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -412,6 +539,22 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory implements Co
 		}
 
 		return metadataRepositoryItemProvider;
+	}
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.p2.ProcessingStepDescriptor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createProcessingStepDescriptorAdapter() {
+		if(processingStepDescriptorItemProvider == null) {
+			processingStepDescriptorItemProvider = new ProcessingStepDescriptorItemProvider(this);
+		}
+
+		return processingStepDescriptorItemProvider;
 	}
 
 	/**
@@ -511,6 +654,38 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory implements Co
 	}
 
 	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.p2.SimpleArtifactDescriptor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createSimpleArtifactDescriptorAdapter() {
+		if(simpleArtifactDescriptorItemProvider == null) {
+			simpleArtifactDescriptorItemProvider = new SimpleArtifactDescriptorItemProvider(this);
+		}
+
+		return simpleArtifactDescriptorItemProvider;
+	}
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.p2.SimpleArtifactRepository}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createSimpleArtifactRepositoryAdapter() {
+		if(simpleArtifactRepositoryItemProvider == null) {
+			simpleArtifactRepositoryItemProvider = new SimpleArtifactRepositoryItemProvider(this);
+		}
+
+		return simpleArtifactRepositoryItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.p2.TouchpointData}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -584,26 +759,46 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory implements Co
 	public void dispose() {
 		if(artifactKeyItemProvider != null)
 			artifactKeyItemProvider.dispose();
+		if(artifactDescriptorItemProvider != null)
+			artifactDescriptorItemProvider.dispose();
+		if(artifactRepositoryItemProvider != null)
+			artifactRepositoryItemProvider.dispose();
+		if(artifactsByKeyItemProvider != null)
+			artifactsByKeyItemProvider.dispose();
 		if(copyrightItemProvider != null)
 			copyrightItemProvider.dispose();
-		if(metadataRepositoryItemProvider != null)
-			metadataRepositoryItemProvider.dispose();
 		if(installableUnitItemProvider != null)
 			installableUnitItemProvider.dispose();
 		if(installableUnitFragmentItemProvider != null)
 			installableUnitFragmentItemProvider.dispose();
 		if(installableUnitPatchItemProvider != null)
 			installableUnitPatchItemProvider.dispose();
+		if(instructionMapItemProvider != null)
+			instructionMapItemProvider.dispose();
 		if(licenseItemProvider != null)
 			licenseItemProvider.dispose();
+		if(mappingRuleItemProvider != null)
+			mappingRuleItemProvider.dispose();
+		if(metadataRepositoryItemProvider != null)
+			metadataRepositoryItemProvider.dispose();
+		if(processingStepDescriptorItemProvider != null)
+			processingStepDescriptorItemProvider.dispose();
+		if(propertyItemProvider != null)
+			propertyItemProvider.dispose();
 		if(providedCapabilityItemProvider != null)
 			providedCapabilityItemProvider.dispose();
+		if(repositoryReferenceItemProvider != null)
+			repositoryReferenceItemProvider.dispose();
 		if(requiredCapabilityItemProvider != null)
 			requiredCapabilityItemProvider.dispose();
 		if(requirementItemProvider != null)
 			requirementItemProvider.dispose();
 		if(requirementChangeItemProvider != null)
 			requirementChangeItemProvider.dispose();
+		if(simpleArtifactRepositoryItemProvider != null)
+			simpleArtifactRepositoryItemProvider.dispose();
+		if(simpleArtifactDescriptorItemProvider != null)
+			simpleArtifactDescriptorItemProvider.dispose();
 		if(touchpointDataItemProvider != null)
 			touchpointDataItemProvider.dispose();
 		if(touchpointInstructionItemProvider != null)
@@ -612,12 +807,6 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory implements Co
 			touchpointTypeItemProvider.dispose();
 		if(updateDescriptorItemProvider != null)
 			updateDescriptorItemProvider.dispose();
-		if(propertyItemProvider != null)
-			propertyItemProvider.dispose();
-		if(instructionMapItemProvider != null)
-			instructionMapItemProvider.dispose();
-		if(repositoryReferenceItemProvider != null)
-			repositoryReferenceItemProvider.dispose();
 	}
 
 	/**

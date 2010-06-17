@@ -11,12 +11,15 @@ package org.eclipse.b3.p2.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
+import org.eclipse.b3.p2.SimpleArtifactRepository;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -26,14 +29,15 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.p2.MetadataRepository} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.p2.SimpleArtifactRepository} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 
  * @generated
  */
-public class MetadataRepositoryItemProvider extends RepositoryItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -41,7 +45,7 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 	 * 
 	 * @generated
 	 */
-	public MetadataRepositoryItemProvider(AdapterFactory adapterFactory) {
+	public SimpleArtifactRepositoryItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -58,14 +62,13 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS);
-			childrenFeatures.add(P2Package.Literals.METADATA_REPOSITORY__REFERENCES);
+			childrenFeatures.add(P2Package.Literals.SIMPLE_ARTIFACT_REPOSITORY__RULES);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * This returns MetadataRepository.gif.
+	 * This returns SimpleArtifactRepository.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -73,7 +76,7 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MetadataRepository"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SimpleArtifactRepository"));
 	}
 
 	/**
@@ -101,10 +104,10 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MetadataRepository) object).getName();
+		String label = ((SimpleArtifactRepository) object).getName();
 		return label == null || label.length() == 0
-				? getString("_UI_MetadataRepository_type")
-				: getString("_UI_MetadataRepository_type") + " " + label;
+				? getString("_UI_SimpleArtifactRepository_type")
+				: getString("_UI_SimpleArtifactRepository_type") + " " + label;
 	}
 
 	/**
@@ -119,9 +122,8 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(MetadataRepository.class)) {
-			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
-			case P2Package.METADATA_REPOSITORY__REFERENCES:
+		switch(notification.getFeatureID(SimpleArtifactRepository.class)) {
+			case P2Package.SIMPLE_ARTIFACT_REPOSITORY__RULES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -141,17 +143,7 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS, P2Factory.eINSTANCE.createInstallableUnit()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS,
-			P2Factory.eINSTANCE.createInstallableUnitFragment()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS, P2Factory.eINSTANCE.createInstallableUnitPatch()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__REFERENCES, P2Factory.eINSTANCE.createRepositoryReference()));
+			P2Package.Literals.SIMPLE_ARTIFACT_REPOSITORY__RULES, P2Factory.eINSTANCE.createMappingRule()));
 	}
 
 	/**
