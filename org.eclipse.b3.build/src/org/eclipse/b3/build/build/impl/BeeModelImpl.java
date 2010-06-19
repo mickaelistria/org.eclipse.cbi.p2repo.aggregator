@@ -48,17 +48,17 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getImports <em>Imports</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getFunctions <em>Functions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getConcerns <em>Concerns</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getBuildUnits <em>Build Units</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getPropertySets <em>Property Sets</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getRepositories <em>Repositories</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getProviders <em>Providers</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getDefaultProperties <em>Default Properties</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getImports <em>Imports</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getFunctions <em>Functions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getConcerns <em>Concerns</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getBuildUnits <em>Build Units</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getPropertySets <em>Property Sets</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getRepositories <em>Repositories</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getProviders <em>Providers</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getDefaultProperties <em>Default Properties</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
@@ -66,6 +66,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getImports()
 	 * @generated
 	 * @ordered
@@ -76,6 +77,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFunctions()
 	 * @generated
 	 * @ordered
@@ -86,6 +88,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * The cached value of the '{@link #getConcerns() <em>Concerns</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getConcerns()
 	 * @generated
 	 * @ordered
@@ -96,6 +99,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * The cached value of the '{@link #getBuildUnits() <em>Build Units</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBuildUnits()
 	 * @generated
 	 * @ordered
@@ -106,6 +110,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * The cached value of the '{@link #getPropertySets() <em>Property Sets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPropertySets()
 	 * @generated
 	 * @ordered
@@ -116,6 +121,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRepositories()
 	 * @generated
 	 * @ordered
@@ -126,6 +132,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * The cached value of the '{@link #getProviders() <em>Providers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProviders()
 	 * @generated
 	 * @ordered
@@ -136,6 +143,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * The cached value of the '{@link #getDefaultProperties() <em>Default Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDefaultProperties()
 	 * @generated
 	 * @ordered
@@ -145,6 +153,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BeeModelImpl() {
@@ -154,6 +163,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetDefaultProperties(BPropertySet newDefaultProperties, NotificationChain msgs) {
@@ -174,6 +184,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -202,6 +213,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -230,6 +242,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -258,6 +271,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -302,6 +316,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -312,6 +327,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -424,6 +440,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BuildUnit> getBuildUnits() {
@@ -437,6 +454,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BConcern> getConcerns() {
@@ -457,6 +475,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BPropertySet getDefaultProperties() {
@@ -466,6 +485,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<IFunction> getFunctions() {
@@ -479,6 +499,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Type> getImports() {
@@ -491,6 +512,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BPropertySet> getPropertySets() {
@@ -504,6 +526,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<FirstFoundUnitProvider> getProviders() {
@@ -517,6 +540,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Repository> getRepositories() {
@@ -542,6 +566,7 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDefaultProperties(BPropertySet newDefaultProperties) {

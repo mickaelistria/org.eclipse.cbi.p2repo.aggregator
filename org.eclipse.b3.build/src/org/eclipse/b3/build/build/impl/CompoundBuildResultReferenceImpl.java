@@ -38,10 +38,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.CompoundBuildResultReferenceImpl#getPrerequisites <em>Prerequisites</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.CompoundBuildResultReferenceImpl#getPrerequisites <em>Prerequisites</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl implements CompoundBuildResultReference {
@@ -49,6 +49,7 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	 * The cached value of the '{@link #getPrerequisites() <em>Prerequisites</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPrerequisites()
 	 * @generated
 	 * @ordered
@@ -58,6 +59,7 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CompoundBuildResultReferenceImpl() {
@@ -67,6 +69,7 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -81,6 +84,7 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -95,6 +99,7 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -109,6 +114,7 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -126,6 +132,7 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -136,6 +143,7 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -192,6 +200,7 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Prerequisite> getPrerequisites() {

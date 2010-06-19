@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Build Unit Repository</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnitRepository()
  * @model abstract="true" superTypes="org.eclipse.b3.build.build.IBuildUnitRepository"
  * @generated
@@ -30,6 +30,7 @@ public interface BuildUnitRepository extends EObject, IBuildUnitRepository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -38,6 +39,7 @@ public interface BuildUnitRepository extends EObject, IBuildUnitRepository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */

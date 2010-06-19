@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositoryImpl implements
@@ -34,6 +34,7 @@ public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CompoundFirstFoundRepositoryImpl() {
@@ -43,6 +44,7 @@ public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

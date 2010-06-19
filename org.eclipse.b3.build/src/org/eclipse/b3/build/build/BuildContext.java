@@ -13,8 +13,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Build Context</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildContext()
  * @model
  * @generated
@@ -23,6 +23,7 @@ public interface BuildContext extends BExecutionContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
@@ -31,6 +32,7 @@ public interface BuildContext extends BExecutionContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
@@ -39,6 +41,7 @@ public interface BuildContext extends BExecutionContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */

@@ -18,16 +18,16 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Prerequisite</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.Prerequisite#getCondExpr <em>Cond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.Prerequisite#getWithExpr <em>With Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.Prerequisite#getBuildResult <em>Build Result</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.Prerequisite#getCondExpr <em>Cond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.Prerequisite#getWithExpr <em>With Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.Prerequisite#getBuildResult <em>Build Result</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.build.build.B3BuildPackage#getPrerequisite()
  * @model
  * @generated
@@ -39,6 +39,7 @@ public interface Prerequisite extends ITypedValue {
 	 * <!-- begin-model-doc -->
 	 * Returns the unfiltered requirements as a flattened list.
 	 * <!-- end-model-doc -->
+	 * 
 	 * @model kind="operation" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -51,6 +52,7 @@ public interface Prerequisite extends ITypedValue {
 	 * If the meaning of the '<em>Build Result</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Build Result</em>' containment reference.
 	 * @see #setBuildResult(BuildResultReference)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getPrerequisite_BuildResult()
@@ -66,6 +68,7 @@ public interface Prerequisite extends ITypedValue {
 	 * If the meaning of the '<em>Cond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Cond Expr</em>' containment reference.
 	 * @see #setCondExpr(BExpression)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getPrerequisite_CondExpr()
@@ -80,7 +83,9 @@ public interface Prerequisite extends ITypedValue {
 	 * <!-- begin-model-doc -->
 	 * Returns an iterator over the effective references to builders in this, and other units.
 	 * <!-- end-model-doc -->
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * 
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>"
+	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
 	Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable;
@@ -88,7 +93,9 @@ public interface Prerequisite extends ITypedValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * 
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>"
+	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
 	Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable;
@@ -100,6 +107,7 @@ public interface Prerequisite extends ITypedValue {
 	 * If the meaning of the '<em>With Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>With Expr</em>' containment reference.
 	 * @see #setWithExpr(BWithExpression)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getPrerequisite_WithExpr()
@@ -112,7 +120,9 @@ public interface Prerequisite extends ITypedValue {
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.Prerequisite#getBuildResult <em>Build Result</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Build Result</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Build Result</em>' containment reference.
 	 * @see #getBuildResult()
 	 * @generated
 	 */
@@ -122,7 +132,9 @@ public interface Prerequisite extends ITypedValue {
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.Prerequisite#getCondExpr <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cond Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Cond Expr</em>' containment reference.
 	 * @see #getCondExpr()
 	 * @generated
 	 */
@@ -132,7 +144,9 @@ public interface Prerequisite extends ITypedValue {
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.Prerequisite#getWithExpr <em>With Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>With Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>With Expr</em>' containment reference.
 	 * @see #getWithExpr()
 	 * @generated
 	 */

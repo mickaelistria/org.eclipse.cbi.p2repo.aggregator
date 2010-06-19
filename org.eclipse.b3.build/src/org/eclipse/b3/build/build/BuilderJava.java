@@ -12,8 +12,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Builder Java</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderJava()
  * @model
  * @generated

@@ -28,10 +28,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.DelegatingUnitProviderImpl#getDelegate <em>Delegate</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.DelegatingUnitProviderImpl#getDelegate <em>Delegate</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class DelegatingUnitProviderImpl extends UnitProviderImpl implements DelegatingUnitProvider {
@@ -39,6 +39,7 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 	 * The cached value of the '{@link #getDelegate() <em>Delegate</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDelegate()
 	 * @generated
 	 * @ordered
@@ -48,6 +49,7 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DelegatingUnitProviderImpl() {
@@ -57,6 +59,7 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public UnitProvider basicGetDelegate() {
@@ -66,6 +69,7 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -82,6 +86,7 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -96,6 +101,7 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -111,6 +117,7 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -121,6 +128,7 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -136,6 +144,7 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public UnitProvider getDelegate() {
@@ -166,6 +175,7 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDelegate(UnitProvider newDelegate) {

@@ -54,16 +54,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getBuilderContexts <em>Builder Contexts</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getQuery <em>Query</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiresRemovals <em>Requires Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getProvidesRemovals <em>Provides Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getSourceLocation <em>Source Location</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getOutputLocation <em>Output Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getBuilderContexts <em>Builder Contexts</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getQuery <em>Query</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiresRemovals <em>Requires Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getProvidesRemovals <em>Provides Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getSourceLocation <em>Source Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getOutputLocation <em>Output Location</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class UnitConcernContextImpl extends BuildConcernContextImpl implements UnitConcernContext {
@@ -71,6 +71,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiredCapabilities()
 	 * @generated
 	 * @ordered
@@ -81,6 +82,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The cached value of the '{@link #getBuilderContexts() <em>Builder Contexts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBuilderContexts()
 	 * @generated
 	 * @ordered
@@ -91,6 +93,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The cached value of the '{@link #getQuery() <em>Query</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getQuery()
 	 * @generated
 	 * @ordered
@@ -101,6 +104,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The cached value of the '{@link #getRequiresRemovals() <em>Requires Removals</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiresRemovals()
 	 * @generated
 	 * @ordered
@@ -111,6 +115,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The cached value of the '{@link #getProvidesRemovals() <em>Provides Removals</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProvidesRemovals()
 	 * @generated
 	 * @ordered
@@ -121,6 +126,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The default value of the '{@link #getSourceLocation() <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceLocation()
 	 * @generated
 	 * @ordered
@@ -131,6 +137,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The cached value of the '{@link #getSourceLocation() <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceLocation()
 	 * @generated
 	 * @ordered
@@ -141,6 +148,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The default value of the '{@link #getOutputLocation() <em>Output Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOutputLocation()
 	 * @generated
 	 * @ordered
@@ -151,6 +159,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * The cached value of the '{@link #getOutputLocation() <em>Output Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOutputLocation()
 	 * @generated
 	 * @ordered
@@ -160,6 +169,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected UnitConcernContextImpl() {
@@ -288,6 +298,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetQuery(BExpression newQuery, NotificationChain msgs) {
@@ -307,6 +318,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -325,6 +337,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -343,6 +356,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -369,6 +383,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -391,6 +406,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -421,6 +437,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -459,6 +476,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -469,6 +487,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -530,6 +549,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BuilderConcernContext> getBuilderContexts() {
@@ -555,6 +575,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public URI getOutputLocation() {
@@ -564,6 +585,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ProvidesPredicate> getProvidesRemovals() {
@@ -577,6 +599,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getQuery() {
@@ -586,6 +609,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<RequiredCapability> getRequiredCapabilities() {
@@ -599,6 +623,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<RequiresPredicate> getRequiresRemovals() {
@@ -612,6 +637,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public URI getSourceLocation() {
@@ -621,6 +647,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setOutputLocation(URI newOutputLocation) {
@@ -635,6 +662,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setQuery(BExpression newQuery) {
@@ -658,6 +686,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSourceLocation(URI newSourceLocation) {
@@ -672,6 +701,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

@@ -30,11 +30,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitRepositoryDescriptionImpl#getRepository <em>Repository</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitRepositoryDescriptionImpl#getEvaluatedOptions <em>Evaluated Options</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitRepositoryDescriptionImpl#getRepository <em>Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.UnitRepositoryDescriptionImpl#getEvaluatedOptions <em>Evaluated Options</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl implements UnitRepositoryDescription {
@@ -42,6 +42,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRepository()
 	 * @generated
 	 * @ordered
@@ -52,6 +53,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	 * The cached value of the '{@link #getEvaluatedOptions() <em>Evaluated Options</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getEvaluatedOptions()
 	 * @generated
 	 * @ordered
@@ -61,6 +63,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected UnitRepositoryDescriptionImpl() {
@@ -70,6 +73,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Repository basicGetRepository() {
@@ -79,6 +83,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -97,6 +102,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -113,6 +119,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -132,6 +139,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -142,6 +150,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -160,6 +169,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Map<String, Object> getEvaluatedOptions() {
@@ -169,6 +179,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Repository getRepository() {
@@ -215,6 +226,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setEvaluatedOptions(Map<String, Object> newEvaluatedOptions) {
@@ -229,6 +241,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRepository(Repository newRepository) {
@@ -243,6 +256,7 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

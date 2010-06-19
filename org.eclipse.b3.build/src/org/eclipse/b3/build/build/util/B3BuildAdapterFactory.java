@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
+ * 
  * @see org.eclipse.b3.build.build.B3BuildPackage
  * @generated
  */
@@ -45,6 +46,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static B3BuildPackage modelPackage;
@@ -53,212 +55,28 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3BuildSwitch<Adapter> modelSwitch = new B3BuildSwitch<Adapter>() {
-		@Override
-		public Adapter caseBuildUnit(BuildUnit object) {
-			return createBuildUnitAdapter();
-		}
-
-		@Override
-		public Adapter caseIBuilder(IBuilder object) {
-			return createIBuilderAdapter();
-		}
-
-		@Override
-		public Adapter caseVersionedCapability(VersionedCapability object) {
-			return createVersionedCapabilityAdapter();
-		}
-
-		@Override
-		public Adapter caseBuilderInput(BuilderInput object) {
-			return createBuilderInputAdapter();
-		}
-
-		@Override
-		public Adapter casePathGroup(PathGroup object) {
-			return createPathGroupAdapter();
-		}
-
-		@Override
-		public Adapter casePrerequisite(Prerequisite object) {
-			return createPrerequisiteAdapter();
-		}
-
-		@Override
-		public Adapter caseBuildResultReference(BuildResultReference object) {
-			return createBuildResultReferenceAdapter();
-		}
-
-		@Override
-		public Adapter caseCompoundBuildResultReference(CompoundBuildResultReference object) {
-			return createCompoundBuildResultReferenceAdapter();
-		}
-
-		@Override
-		public Adapter caseBuilderReference(BuilderReference object) {
-			return createBuilderReferenceAdapter();
-		}
-
-		@Override
-		public Adapter caseCapability(Capability object) {
-			return createCapabilityAdapter();
-		}
-
-		@Override
-		public Adapter caseRequiredCapability(RequiredCapability object) {
-			return createRequiredCapabilityAdapter();
-		}
-
-		@Override
-		public Adapter caseConditionalPathVector(ConditionalPathVector object) {
-			return createConditionalPathVectorAdapter();
-		}
-
-		@Override
-		public Adapter casePathVector(PathVector object) {
-			return createPathVectorAdapter();
-		}
-
-		@Override
-		public Adapter caseSynchronization(Synchronization object) {
-			return createSynchronizationAdapter();
-		}
-
-		@Override
-		public Adapter caseUnitProvider(UnitProvider object) {
-			return createUnitProviderAdapter();
-		}
-
-		@Override
-		public Adapter caseRepositoryUnitProvider(RepositoryUnitProvider object) {
-			return createRepositoryUnitProviderAdapter();
-		}
-
-		@Override
-		public Adapter caseCompoundUnitProvider(CompoundUnitProvider object) {
-			return createCompoundUnitProviderAdapter();
-		}
-
-		@Override
-		public Adapter caseFirstFoundUnitProvider(FirstFoundUnitProvider object) {
-			return createFirstFoundUnitProviderAdapter();
-		}
-
-		@Override
-		public Adapter caseBestFoundUnitProvider(BestFoundUnitProvider object) {
-			return createBestFoundUnitProviderAdapter();
-		}
-
-		@Override
-		public Adapter caseContainerConfiguration(ContainerConfiguration object) {
-			return createContainerConfigurationAdapter();
-		}
-
-		@Override
-		public Adapter caseBuildContext(BuildContext object) {
-			return createBuildContextAdapter();
-		}
-
-		@Override
-		public Adapter caseBuildConcernContext(BuildConcernContext object) {
-			return createBuildConcernContextAdapter();
-		}
-
-		@Override
-		public Adapter caseRequiresPredicate(RequiresPredicate object) {
-			return createRequiresPredicateAdapter();
-		}
-
-		@Override
-		public Adapter caseCapabilityPredicate(CapabilityPredicate object) {
-			return createCapabilityPredicateAdapter();
-		}
-
-		@Override
-		public Adapter caseImplementsPredicate(ImplementsPredicate object) {
-			return createImplementsPredicateAdapter();
-		}
-
-		@Override
-		public Adapter caseProvidesPredicate(ProvidesPredicate object) {
-			return createProvidesPredicateAdapter();
-		}
-
-		@Override
-		public Adapter caseNameSpacePredicate(NameSpacePredicate object) {
-			return createNameSpacePredicateAdapter();
-		}
-
-		@Override
-		public Adapter caseUnitNamePredicate(UnitNamePredicate object) {
-			return createUnitNamePredicateAdapter();
-		}
-
-		@Override
-		public Adapter caseBuilderNamePredicate(BuilderNamePredicate object) {
-			return createBuilderNamePredicateAdapter();
-		}
-
-		@Override
-		public Adapter caseInputPredicate(InputPredicate object) {
-			return createInputPredicateAdapter();
-		}
-
-		@Override
-		public Adapter caseUnitConcernContext(UnitConcernContext object) {
-			return createUnitConcernContextAdapter();
-		}
-
-		@Override
-		public Adapter caseBuilderConcernContext(BuilderConcernContext object) {
-			return createBuilderConcernContextAdapter();
-		}
-
-		@Override
-		public Adapter casePathGroupPredicate(PathGroupPredicate object) {
-			return createPathGroupPredicateAdapter();
-		}
-
 		@Override
 		public Adapter caseAliasedRequiredCapability(AliasedRequiredCapability object) {
 			return createAliasedRequiredCapabilityAdapter();
 		}
 
 		@Override
-		public Adapter caseIRequiredCapabilityContainer(IRequiredCapabilityContainer object) {
-			return createIRequiredCapabilityContainerAdapter();
+		public Adapter caseB3Function(B3Function object) {
+			return createB3FunctionAdapter();
 		}
 
 		@Override
-		public Adapter caseIProvidedCapabilityContainer(IProvidedCapabilityContainer object) {
-			return createIProvidedCapabilityContainerAdapter();
+		public Adapter caseBChainedExpression(BChainedExpression object) {
+			return createBChainedExpressionAdapter();
 		}
 
 		@Override
-		public Adapter caseBuilderQuery(BuilderQuery object) {
-			return createBuilderQueryAdapter();
-		}
-
-		@Override
-		public Adapter caseBuilder(Builder object) {
-			return createBuilderAdapter();
-		}
-
-		@Override
-		public Adapter caseBuilderJava(BuilderJava object) {
-			return createBuilderJavaAdapter();
-		}
-
-		@Override
-		public Adapter caseBuilderWrapper(BuilderWrapper object) {
-			return createBuilderWrapperAdapter();
-		}
-
-		@Override
-		public Adapter caseBeeModel(BeeModel object) {
-			return createBeeModelAdapter();
+		public Adapter caseBConcernContext(BConcernContext object) {
+			return createBConcernContextAdapter();
 		}
 
 		@Override
@@ -267,38 +85,108 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseResolutionInfo(ResolutionInfo object) {
-			return createResolutionInfoAdapter();
+		public Adapter caseBeeModel(BeeModel object) {
+			return createBeeModelAdapter();
 		}
 
 		@Override
-		public Adapter caseEffectiveFacade(EffectiveFacade object) {
-			return createEffectiveFacadeAdapter();
+		public Adapter caseBeeModelRepository(BeeModelRepository object) {
+			return createBeeModelRepositoryAdapter();
 		}
 
 		@Override
-		public Adapter caseEffectiveUnitFacade(EffectiveUnitFacade object) {
-			return createEffectiveUnitFacadeAdapter();
+		public Adapter caseBestFoundUnitProvider(BestFoundUnitProvider object) {
+			return createBestFoundUnitProviderAdapter();
 		}
 
 		@Override
-		public Adapter caseEffectiveRequirementFacade(EffectiveRequirementFacade object) {
-			return createEffectiveRequirementFacadeAdapter();
+		public Adapter caseBExecutionContext(BExecutionContext object) {
+			return createBExecutionContextAdapter();
 		}
 
 		@Override
-		public Adapter caseEffectiveCapabilityFacade(EffectiveCapabilityFacade object) {
-			return createEffectiveCapabilityFacadeAdapter();
+		public Adapter caseBExpression(BExpression object) {
+			return createBExpressionAdapter();
 		}
 
 		@Override
-		public Adapter caseEffectiveBuilderReferenceFacade(EffectiveBuilderReferenceFacade object) {
-			return createEffectiveBuilderReferenceFacadeAdapter();
+		public Adapter caseBFunction(BFunction object) {
+			return createBFunctionAdapter();
 		}
 
 		@Override
-		public Adapter caseBuildSet(BuildSet object) {
-			return createBuildSetAdapter();
+		public Adapter caseBFunctionContainer(BFunctionContainer object) {
+			return createBFunctionContainerAdapter();
+		}
+
+		@Override
+		public Adapter caseBFunctionWrapper(BFunctionWrapper object) {
+			return createBFunctionWrapperAdapter();
+		}
+
+		@Override
+		public Adapter caseBInnerContext(BInnerContext object) {
+			return createBInnerContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBJavaFunction(BJavaFunction object) {
+			return createBJavaFunctionAdapter();
+		}
+
+		@Override
+		public Adapter caseBranch(Branch object) {
+			return createBranchAdapter();
+		}
+
+		@Override
+		public Adapter caseBuildConcernContext(BuildConcernContext object) {
+			return createBuildConcernContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBuildContext(BuildContext object) {
+			return createBuildContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBuilder(Builder object) {
+			return createBuilderAdapter();
+		}
+
+		@Override
+		public Adapter caseBuilderConcernContext(BuilderConcernContext object) {
+			return createBuilderConcernContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBuilderInput(BuilderInput object) {
+			return createBuilderInputAdapter();
+		}
+
+		@Override
+		public Adapter caseBuilderJava(BuilderJava object) {
+			return createBuilderJavaAdapter();
+		}
+
+		@Override
+		public Adapter caseBuilderNamePredicate(BuilderNamePredicate object) {
+			return createBuilderNamePredicateAdapter();
+		}
+
+		@Override
+		public Adapter caseBuilderQuery(BuilderQuery object) {
+			return createBuilderQueryAdapter();
+		}
+
+		@Override
+		public Adapter caseBuilderReference(BuilderReference object) {
+			return createBuilderReferenceAdapter();
+		}
+
+		@Override
+		public Adapter caseBuilderWrapper(BuilderWrapper object) {
+			return createBuilderWrapperAdapter();
 		}
 
 		@Override
@@ -307,18 +195,38 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseOutputPredicate(OutputPredicate object) {
-			return createOutputPredicateAdapter();
+		public Adapter caseBuildResultReference(BuildResultReference object) {
+			return createBuildResultReferenceAdapter();
 		}
 
 		@Override
-		public Adapter caseSourcePredicate(SourcePredicate object) {
-			return createSourcePredicateAdapter();
+		public Adapter caseBuildSet(BuildSet object) {
+			return createBuildSetAdapter();
+		}
+
+		@Override
+		public Adapter caseBuildUnit(BuildUnit object) {
+			return createBuildUnitAdapter();
 		}
 
 		@Override
 		public Adapter caseBuildUnitRepository(BuildUnitRepository object) {
 			return createBuildUnitRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseCapability(Capability object) {
+			return createCapabilityAdapter();
+		}
+
+		@Override
+		public Adapter caseCapabilityPredicate(CapabilityPredicate object) {
+			return createCapabilityPredicateAdapter();
+		}
+
+		@Override
+		public Adapter caseCompoundBuildResultReference(CompoundBuildResultReference object) {
+			return createCompoundBuildResultReferenceAdapter();
 		}
 
 		@Override
@@ -332,38 +240,18 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseExecutionStackRepository(ExecutionStackRepository object) {
-			return createExecutionStackRepositoryAdapter();
+		public Adapter caseCompoundUnitProvider(CompoundUnitProvider object) {
+			return createCompoundUnitProviderAdapter();
 		}
 
 		@Override
-		public Adapter caseBeeModelRepository(BeeModelRepository object) {
-			return createBeeModelRepositoryAdapter();
+		public Adapter caseConditionalPathVector(ConditionalPathVector object) {
+			return createConditionalPathVectorAdapter();
 		}
 
 		@Override
-		public Adapter caseIBuildUnitRepository(IBuildUnitRepository object) {
-			return createIBuildUnitRepositoryAdapter();
-		}
-
-		@Override
-		public Adapter caseUnitResolutionInfo(UnitResolutionInfo object) {
-			return createUnitResolutionInfoAdapter();
-		}
-
-		@Override
-		public Adapter caseSwitchUnitProvider(SwitchUnitProvider object) {
-			return createSwitchUnitProviderAdapter();
-		}
-
-		@Override
-		public Adapter caseRepository(Repository object) {
-			return createRepositoryAdapter();
-		}
-
-		@Override
-		public Adapter caseBranch(Branch object) {
-			return createBranchAdapter();
+		public Adapter caseContainerConfiguration(ContainerConfiguration object) {
+			return createContainerConfigurationAdapter();
 		}
 
 		@Override
@@ -372,23 +260,53 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseRepoOption(RepoOption object) {
-			return createRepoOptionAdapter();
+		public Adapter caseEffectiveBuilderReferenceFacade(EffectiveBuilderReferenceFacade object) {
+			return createEffectiveBuilderReferenceFacadeAdapter();
 		}
 
 		@Override
-		public Adapter caseUnitRepositoryDescription(UnitRepositoryDescription object) {
-			return createUnitRepositoryDescriptionAdapter();
+		public Adapter caseEffectiveCapabilityFacade(EffectiveCapabilityFacade object) {
+			return createEffectiveCapabilityFacadeAdapter();
 		}
 
 		@Override
-		public Adapter caseINamedValue(INamedValue object) {
-			return createINamedValueAdapter();
+		public Adapter caseEffectiveFacade(EffectiveFacade object) {
+			return createEffectiveFacadeAdapter();
 		}
 
 		@Override
-		public Adapter caseBFunctionContainer(BFunctionContainer object) {
-			return createBFunctionContainerAdapter();
+		public Adapter caseEffectiveRequirementFacade(EffectiveRequirementFacade object) {
+			return createEffectiveRequirementFacadeAdapter();
+		}
+
+		@Override
+		public Adapter caseEffectiveUnitFacade(EffectiveUnitFacade object) {
+			return createEffectiveUnitFacadeAdapter();
+		}
+
+		@Override
+		public Adapter caseExecutionStackRepository(ExecutionStackRepository object) {
+			return createExecutionStackRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseFirstFoundUnitProvider(FirstFoundUnitProvider object) {
+			return createFirstFoundUnitProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseIBuilder(IBuilder object) {
+			return createIBuilderAdapter();
+		}
+
+		@Override
+		public Adapter caseIBuildUnitRepository(IBuildUnitRepository object) {
+			return createIBuildUnitRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseIFunction(IFunction object) {
+			return createIFunctionAdapter();
 		}
 
 		@Override
@@ -397,13 +315,28 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseBExpression(BExpression object) {
-			return createBExpressionAdapter();
+		public Adapter caseImplementsPredicate(ImplementsPredicate object) {
+			return createImplementsPredicateAdapter();
 		}
 
 		@Override
-		public Adapter caseIFunction(IFunction object) {
-			return createIFunctionAdapter();
+		public Adapter caseINamedValue(INamedValue object) {
+			return createINamedValueAdapter();
+		}
+
+		@Override
+		public Adapter caseInputPredicate(InputPredicate object) {
+			return createInputPredicateAdapter();
+		}
+
+		@Override
+		public Adapter caseIProvidedCapabilityContainer(IProvidedCapabilityContainer object) {
+			return createIProvidedCapabilityContainerAdapter();
+		}
+
+		@Override
+		public Adapter caseIRequiredCapabilityContainer(IRequiredCapabilityContainer object) {
+			return createIRequiredCapabilityContainerAdapter();
 		}
 
 		@Override
@@ -417,43 +350,113 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseBExecutionContext(BExecutionContext object) {
-			return createBExecutionContextAdapter();
+		public Adapter caseNameSpacePredicate(NameSpacePredicate object) {
+			return createNameSpacePredicateAdapter();
 		}
 
 		@Override
-		public Adapter caseBConcernContext(BConcernContext object) {
-			return createBConcernContextAdapter();
+		public Adapter caseOutputPredicate(OutputPredicate object) {
+			return createOutputPredicateAdapter();
 		}
 
 		@Override
-		public Adapter caseBFunction(BFunction object) {
-			return createBFunctionAdapter();
+		public Adapter casePathGroup(PathGroup object) {
+			return createPathGroupAdapter();
 		}
 
 		@Override
-		public Adapter caseB3Function(B3Function object) {
-			return createB3FunctionAdapter();
+		public Adapter casePathGroupPredicate(PathGroupPredicate object) {
+			return createPathGroupPredicateAdapter();
 		}
 
 		@Override
-		public Adapter caseBJavaFunction(BJavaFunction object) {
-			return createBJavaFunctionAdapter();
+		public Adapter casePathVector(PathVector object) {
+			return createPathVectorAdapter();
 		}
 
 		@Override
-		public Adapter caseBFunctionWrapper(BFunctionWrapper object) {
-			return createBFunctionWrapperAdapter();
+		public Adapter casePrerequisite(Prerequisite object) {
+			return createPrerequisiteAdapter();
 		}
 
 		@Override
-		public Adapter caseBChainedExpression(BChainedExpression object) {
-			return createBChainedExpressionAdapter();
+		public Adapter caseProvidesPredicate(ProvidesPredicate object) {
+			return createProvidesPredicateAdapter();
 		}
 
 		@Override
-		public Adapter caseBInnerContext(BInnerContext object) {
-			return createBInnerContextAdapter();
+		public Adapter caseRepoOption(RepoOption object) {
+			return createRepoOptionAdapter();
+		}
+
+		@Override
+		public Adapter caseRepository(Repository object) {
+			return createRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseRepositoryUnitProvider(RepositoryUnitProvider object) {
+			return createRepositoryUnitProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseRequiredCapability(RequiredCapability object) {
+			return createRequiredCapabilityAdapter();
+		}
+
+		@Override
+		public Adapter caseRequiresPredicate(RequiresPredicate object) {
+			return createRequiresPredicateAdapter();
+		}
+
+		@Override
+		public Adapter caseResolutionInfo(ResolutionInfo object) {
+			return createResolutionInfoAdapter();
+		}
+
+		@Override
+		public Adapter caseSourcePredicate(SourcePredicate object) {
+			return createSourcePredicateAdapter();
+		}
+
+		@Override
+		public Adapter caseSwitchUnitProvider(SwitchUnitProvider object) {
+			return createSwitchUnitProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseSynchronization(Synchronization object) {
+			return createSynchronizationAdapter();
+		}
+
+		@Override
+		public Adapter caseUnitConcernContext(UnitConcernContext object) {
+			return createUnitConcernContextAdapter();
+		}
+
+		@Override
+		public Adapter caseUnitNamePredicate(UnitNamePredicate object) {
+			return createUnitNamePredicateAdapter();
+		}
+
+		@Override
+		public Adapter caseUnitProvider(UnitProvider object) {
+			return createUnitProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseUnitRepositoryDescription(UnitRepositoryDescription object) {
+			return createUnitRepositoryDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseUnitResolutionInfo(UnitResolutionInfo object) {
+			return createUnitResolutionInfoAdapter();
+		}
+
+		@Override
+		public Adapter caseVersionedCapability(VersionedCapability object) {
+			return createVersionedCapabilityAdapter();
 		}
 
 		@Override
@@ -466,6 +469,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * Creates an instance of the adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public B3BuildAdapterFactory() {
@@ -478,7 +482,9 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * Creates an adapter for the <code>target</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param target the object to adapt.
+	 * 
+	 * @param target
+	 *            the object to adapt.
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
@@ -488,11 +494,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.AliasedRequiredCapability
 	 * @generated
@@ -507,6 +515,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3Function
 	 * @generated
@@ -516,11 +525,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression <em>BChained Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression
+	 * <em>BChained Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression
 	 * @generated
@@ -535,6 +546,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcernContext
 	 * @generated
@@ -549,6 +561,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BeeHive
 	 * @generated
@@ -563,6 +576,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BeeModel
 	 * @generated
@@ -577,6 +591,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BeeModelRepository
 	 * @generated
@@ -591,6 +606,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BestFoundUnitProvider
 	 * @generated
@@ -600,11 +616,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext <em>BExecution Context</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext <em>BExecution Context</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext
 	 * @generated
@@ -619,6 +637,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExpression
 	 * @generated
@@ -633,6 +652,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction
 	 * @generated
@@ -642,11 +662,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer <em>BFunction Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer
+	 * <em>BFunction Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer
 	 * @generated
@@ -661,6 +683,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper
 	 * @generated
@@ -675,6 +698,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BInnerContext
 	 * @generated
@@ -689,6 +713,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction
 	 * @generated
@@ -703,6 +728,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.Branch
 	 * @generated
@@ -717,6 +743,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuildConcernContext
 	 * @generated
@@ -731,6 +758,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuildContext
 	 * @generated
@@ -745,6 +773,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.Builder
 	 * @generated
@@ -759,6 +788,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuilderConcernContext
 	 * @generated
@@ -773,6 +803,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuilderInput
 	 * @generated
@@ -787,6 +818,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuilderJava
 	 * @generated
@@ -801,6 +833,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuilderNamePredicate
 	 * @generated
@@ -815,6 +848,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuilderQuery
 	 * @generated
@@ -829,6 +863,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuilderReference
 	 * @generated
@@ -843,6 +878,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuilderWrapper
 	 * @generated
@@ -857,6 +893,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuildResultContext
 	 * @generated
@@ -871,6 +908,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuildResultReference
 	 * @generated
@@ -885,6 +923,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuildSet
 	 * @generated
@@ -899,6 +938,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuildUnit
 	 * @generated
@@ -913,6 +953,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.BuildUnitRepository
 	 * @generated
@@ -927,6 +968,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.Capability
 	 * @generated
@@ -941,6 +983,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.CapabilityPredicate
 	 * @generated
@@ -950,11 +993,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CompoundBuildResultReference <em>Compound Build Result Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CompoundBuildResultReference
+	 * <em>Compound Build Result Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.CompoundBuildResultReference
 	 * @generated
@@ -964,11 +1009,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CompoundBuildUnitRepository <em>Compound Build Unit Repository</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CompoundBuildUnitRepository
+	 * <em>Compound Build Unit Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.CompoundBuildUnitRepository
 	 * @generated
@@ -978,11 +1025,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CompoundFirstFoundRepository <em>Compound First Found Repository</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CompoundFirstFoundRepository
+	 * <em>Compound First Found Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.CompoundFirstFoundRepository
 	 * @generated
@@ -997,6 +1046,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.CompoundUnitProvider
 	 * @generated
@@ -1011,6 +1061,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.ConditionalPathVector
 	 * @generated
@@ -1025,6 +1076,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.ContainerConfiguration
 	 * @generated
@@ -1039,6 +1091,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.DelegatingUnitProvider
 	 * @generated
@@ -1048,11 +1101,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade <em>Effective Builder Reference Facade</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade
+	 * <em>Effective Builder Reference Facade</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade
 	 * @generated
@@ -1062,11 +1117,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade <em>Effective Capability Facade</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade <em>Effective Capability Facade</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.EffectiveCapabilityFacade
 	 * @generated
@@ -1081,6 +1138,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.EffectiveFacade
 	 * @generated
@@ -1090,11 +1148,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.EffectiveRequirementFacade <em>Effective Requirement Facade</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.EffectiveRequirementFacade
+	 * <em>Effective Requirement Facade</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.EffectiveRequirementFacade
 	 * @generated
@@ -1109,6 +1169,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.EffectiveUnitFacade
 	 * @generated
@@ -1122,6 +1183,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @generated
 	 */
@@ -1135,6 +1197,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.ExecutionStackRepository
 	 * @generated
@@ -1149,6 +1212,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.FirstFoundUnitProvider
 	 * @generated
@@ -1163,6 +1227,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.IBuilder
 	 * @generated
@@ -1177,6 +1242,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.repository.IBuildUnitRepository
 	 * @generated
@@ -1191,6 +1257,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction
 	 * @generated
@@ -1205,6 +1272,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see java.lang.reflect.GenericDeclaration
 	 * @generated
@@ -1219,6 +1287,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.ImplementsPredicate
 	 * @generated
@@ -1233,6 +1302,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.INamedValue
 	 * @generated
@@ -1247,6 +1317,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.InputPredicate
 	 * @generated
@@ -1256,11 +1327,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer
+	 * <em>IProvided Capability Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.IProvidedCapabilityContainer
 	 * @generated
@@ -1270,11 +1343,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer
+	 * <em>IRequired Capability Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.IRequiredCapabilityContainer
 	 * @generated
@@ -1289,6 +1364,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValue
 	 * @generated
@@ -1298,11 +1374,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer <em>ITyped Value Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer
+	 * <em>ITyped Value Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer
 	 * @generated
@@ -1317,6 +1395,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.NameSpacePredicate
 	 * @generated
@@ -1331,6 +1410,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.OutputPredicate
 	 * @generated
@@ -1345,6 +1425,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.PathGroup
 	 * @generated
@@ -1359,6 +1440,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.PathGroupPredicate
 	 * @generated
@@ -1373,6 +1455,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.PathVector
 	 * @generated
@@ -1387,6 +1470,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.Prerequisite
 	 * @generated
@@ -1401,6 +1485,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.ProvidesPredicate
 	 * @generated
@@ -1415,6 +1500,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.RepoOption
 	 * @generated
@@ -1429,6 +1515,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.Repository
 	 * @generated
@@ -1443,6 +1530,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.RepositoryUnitProvider
 	 * @generated
@@ -1457,6 +1545,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.RequiredCapability
 	 * @generated
@@ -1471,6 +1560,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.RequiresPredicate
 	 * @generated
@@ -1485,6 +1575,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.ResolutionInfo
 	 * @generated
@@ -1499,6 +1590,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.SourcePredicate
 	 * @generated
@@ -1513,6 +1605,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.SwitchUnitProvider
 	 * @generated
@@ -1527,6 +1620,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.Synchronization
 	 * @generated
@@ -1541,6 +1635,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.UnitConcernContext
 	 * @generated
@@ -1555,6 +1650,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.UnitNamePredicate
 	 * @generated
@@ -1569,6 +1665,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.UnitProvider
 	 * @generated
@@ -1578,11 +1675,13 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.UnitRepositoryDescription <em>Unit Repository Description</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.UnitRepositoryDescription <em>Unit Repository Description</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.UnitRepositoryDescription
 	 * @generated
@@ -1597,6 +1696,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.UnitResolutionInfo
 	 * @generated
@@ -1611,6 +1711,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.build.build.VersionedCapability
 	 * @generated
@@ -1625,6 +1726,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance
 	 * object of the model.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */

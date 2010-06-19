@@ -27,13 +27,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class BuildResultReferenceImpl extends EObjectImpl implements BuildResultReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuildResultReferenceImpl() {
@@ -43,6 +44,7 @@ public abstract class BuildResultReferenceImpl extends EObjectImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -53,6 +55,7 @@ public abstract class BuildResultReferenceImpl extends EObjectImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BuilderReference> getBuilderReferences() throws Throwable {
@@ -64,6 +67,7 @@ public abstract class BuildResultReferenceImpl extends EObjectImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx)
@@ -76,6 +80,7 @@ public abstract class BuildResultReferenceImpl extends EObjectImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
@@ -87,6 +92,7 @@ public abstract class BuildResultReferenceImpl extends EObjectImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<RequiredCapability> getRequirements() throws Throwable {

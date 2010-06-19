@@ -35,11 +35,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.PathGroupImpl#getAnnotations <em>Annotations</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.PathGroupImpl#getPathVectors <em>Path Vectors</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.PathGroupImpl#getAnnotations <em>Annotations</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.PathGroupImpl#getPathVectors <em>Path Vectors</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class PathGroupImpl extends EObjectImpl implements PathGroup {
@@ -47,6 +47,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAnnotations()
 	 * @generated
 	 * @ordered
@@ -57,6 +58,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 * The cached value of the '{@link #getPathVectors() <em>Path Vectors</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPathVectors()
 	 * @generated
 	 * @ordered
@@ -66,6 +68,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected PathGroupImpl() {
@@ -75,6 +78,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetAnnotations(BPropertySet newAnnotations, NotificationChain msgs) {
@@ -94,6 +98,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -110,6 +115,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -126,6 +132,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -142,6 +149,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -162,6 +170,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -172,6 +181,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -190,6 +200,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BPropertySet getAnnotations() {
@@ -199,6 +210,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ConditionalPathVector> getPathVectors() {
@@ -212,6 +224,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setAnnotations(BPropertySet newAnnotations) {

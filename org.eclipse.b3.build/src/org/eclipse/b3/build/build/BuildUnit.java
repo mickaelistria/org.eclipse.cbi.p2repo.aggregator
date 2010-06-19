@@ -19,27 +19,27 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Build Unit</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getBuilders <em>Builders</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getDocumentation <em>Documentation</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getExecutionMode <em>Execution Mode</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getImplements <em>Implements</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getConcerns <em>Concerns</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getDefaultProperties <em>Default Properties</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getSynchronizations <em>Synchronizations</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getRepositories <em>Repositories</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getContainers <em>Containers</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getProviders <em>Providers</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getBuilders <em>Builders</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getExecutionMode <em>Execution Mode</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getImplements <em>Implements</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getConcerns <em>Concerns</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getDefaultProperties <em>Default Properties</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getSynchronizations <em>Synchronizations</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getRepositories <em>Repositories</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getContainers <em>Containers</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.BuildUnit#getProviders <em>Providers</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit()
  * @model
  * @generated
@@ -55,6 +55,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Builders</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Builders</em>' reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Builders()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -70,6 +71,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Concerns</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Concerns</em>' containment reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Concerns()
 	 * @model containment="true"
@@ -85,6 +87,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Containers</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Containers</em>' containment reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Containers()
 	 * @model containment="true"
@@ -99,6 +102,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Default Properties</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Default Properties</em>' containment reference.
 	 * @see #setDefaultProperties(BPropertySet)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_DefaultProperties()
@@ -114,6 +118,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Documentation</em>' attribute.
 	 * @see #setDocumentation(String)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Documentation()
@@ -125,6 +130,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -138,6 +144,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Execution Mode</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Execution Mode</em>' attribute.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
 	 * @see #setExecutionMode(ExecutionMode)
@@ -155,6 +162,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Implements</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Implements</em>' containment reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Implements()
 	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
@@ -171,6 +179,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Meta Required Capabilities</em>' containment reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_MetaRequiredCapabilities()
 	 * @model containment="true"
@@ -185,6 +194,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Output Location</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Output Location</em>' attribute.
 	 * @see #setOutputLocation(URI)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_OutputLocation()
@@ -201,6 +211,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Property Sets</em>' containment reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_PropertySets()
 	 * @model containment="true"
@@ -216,6 +227,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Providers</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Providers</em>' containment reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Providers()
 	 * @model containment="true"
@@ -231,6 +243,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Repositories</em>' containment reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Repositories()
 	 * @model containment="true"
@@ -246,6 +259,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Source Location</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Source Location</em>' attribute.
 	 * @see #setSourceLocation(URI)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_SourceLocation()
@@ -262,6 +276,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * If the meaning of the '<em>Synchronizations</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Synchronizations</em>' containment reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Synchronizations()
 	 * @model containment="true"
@@ -275,6 +290,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * <!-- begin-model-doc -->
 	 * Returns the first (and only allowed) provider from the reference "providers".
 	 * <!-- end-model-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -284,7 +300,9 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getDefaultProperties <em>Default Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Default Properties</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Default Properties</em>' containment reference.
 	 * @see #getDefaultProperties()
 	 * @generated
 	 */
@@ -294,7 +312,9 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getDocumentation <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Documentation</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Documentation</em>' attribute.
 	 * @see #getDocumentation()
 	 * @generated
 	 */
@@ -304,7 +324,9 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getExecutionMode <em>Execution Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Execution Mode</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Execution Mode</em>' attribute.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
 	 * @see #getExecutionMode()
 	 * @generated
@@ -315,7 +337,9 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Output Location</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Output Location</em>' attribute.
 	 * @see #getOutputLocation()
 	 * @generated
 	 */
@@ -325,7 +349,9 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source Location</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Source Location</em>' attribute.
 	 * @see #getSourceLocation()
 	 * @generated
 	 */
