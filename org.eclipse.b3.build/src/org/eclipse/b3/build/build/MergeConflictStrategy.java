@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Merge Conflict Strategy</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.b3.build.build.B3BuildPackage#getMergeConflictStrategy()
  * @model
  * @generated
@@ -31,27 +30,24 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * The '<em><b>Default</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #DEFAULT_VALUE
 	 * @generated
 	 * @ordered
 	 */
 	DEFAULT(0, "Default", "Default"), /**
-	 * The '<em><b>Use Workspace</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #USE_WORKSPACE_VALUE
-	 * @generated
-	 * @ordered
-	 */
+										 * The '<em><b>Use Workspace</b></em>' literal object.
+										 * <!-- begin-user-doc -->
+										 * <!-- end-user-doc -->
+										 * @see #USE_WORKSPACE_VALUE
+										 * @generated
+										 * @ordered
+										 */
 	USE_WORKSPACE(1, "UseWorkspace", "UseWorkspace"),
 
 	/**
 	 * The '<em><b>Use SCM</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #USE_SCM_VALUE
 	 * @generated
 	 * @ordered
@@ -62,7 +58,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * The '<em><b>Fail</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #FAIL_VALUE
 	 * @generated
 	 * @ordered
@@ -76,7 +71,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * If the meaning of '<em><b>Default</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #DEFAULT
 	 * @model name="Default"
 	 * @generated
@@ -91,7 +85,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * If the meaning of '<em><b>Use Workspace</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #USE_WORKSPACE
 	 * @model name="UseWorkspace"
 	 * @generated
@@ -106,7 +99,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * If the meaning of '<em><b>Use SCM</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #USE_SCM
 	 * @model name="UseSCM"
 	 * @generated
@@ -121,7 +113,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * If the meaning of '<em><b>Fail</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #FAIL
 	 * @model name="Fail"
 	 * @generated
@@ -133,7 +124,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * An array of all the '<em><b>Merge Conflict Strategy</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private static final MergeConflictStrategy[] VALUES_ARRAY = new MergeConflictStrategy[] {
@@ -143,7 +133,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * A public read-only list of all the '<em><b>Merge Conflict Strategy</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final List<MergeConflictStrategy> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -152,7 +141,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * Returns the '<em><b>Merge Conflict Strategy</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static MergeConflictStrategy get(int value) {
@@ -173,7 +161,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * Returns the '<em><b>Merge Conflict Strategy</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static MergeConflictStrategy get(String literal) {
@@ -190,7 +177,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * Returns the '<em><b>Merge Conflict Strategy</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static MergeConflictStrategy getByName(String name) {
@@ -206,7 +192,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final int value;
@@ -214,7 +199,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final String name;
@@ -222,7 +206,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final String literal;
@@ -231,7 +214,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private MergeConflictStrategy(int value, String name, String literal) {
@@ -243,7 +225,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getLiteral() {
@@ -253,7 +234,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -263,7 +243,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public int getValue() {
@@ -274,7 +253,6 @@ public enum MergeConflictStrategy implements Enumerator {
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

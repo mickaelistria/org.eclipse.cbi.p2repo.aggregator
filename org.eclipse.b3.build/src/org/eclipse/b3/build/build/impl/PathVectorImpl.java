@@ -30,11 +30,11 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getPaths <em>Paths</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getBasePath <em>Base Path</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getPaths <em>Paths</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getBasePath <em>Base Path</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PathVectorImpl extends EObjectImpl implements PathVector {
@@ -42,7 +42,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * The cached value of the '{@link #getPaths() <em>Paths</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPaths()
 	 * @generated
 	 * @ordered
@@ -53,7 +52,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * The default value of the '{@link #getBasePath() <em>Base Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBasePath()
 	 * @generated
 	 * @ordered
@@ -64,7 +62,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * The cached value of the '{@link #getBasePath() <em>Base Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBasePath()
 	 * @generated
 	 * @ordered
@@ -74,7 +71,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected PathVectorImpl() {
@@ -84,7 +80,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -101,7 +96,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -120,7 +114,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -141,7 +134,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -152,7 +144,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -171,7 +162,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public URI getBasePath() {
@@ -181,7 +171,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<URI> getPaths() {
@@ -221,7 +210,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBasePath(URI newBasePath) {
@@ -235,7 +223,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

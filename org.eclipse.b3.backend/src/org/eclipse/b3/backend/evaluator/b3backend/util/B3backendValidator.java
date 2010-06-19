@@ -433,6 +433,8 @@ public class B3backendValidator extends EObjectValidator {
 				return validateINamedValue((INamedValue) value, diagnostics, context);
 			case B3backendPackage.B3_TYPE:
 				return validateB3Type((B3Type) value, diagnostics, context);
+			case B3backendPackage.ITYPED_VALUE:
+				return validateITypedValue((ITypedValue) value, diagnostics, context);
 			case B3backendPackage.VISIBILITY:
 				return validateVisibility((Visibility) value, diagnostics, context);
 			case B3backendPackage.EXECUTION_MODE:
@@ -1573,6 +1575,16 @@ public class B3backendValidator extends EObjectValidator {
 	 */
 	public boolean validateIType(Type iType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint((EObject) iType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateITypedValue(ITypedValue iTypedValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(iTypedValue, diagnostics, context);
 	}
 
 	/**

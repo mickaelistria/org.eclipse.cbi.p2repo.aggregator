@@ -17,6 +17,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAdvice;
 
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -123,8 +124,14 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 			switch(derivedFeatureID) {
 				case B3backendPackage.BADVICE__NAME:
 					return B3backendPackage.INAMED_VALUE__NAME;
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == ITypedValue.class) {
+			switch(derivedFeatureID) {
 				case B3backendPackage.BADVICE__TYPE:
-					return B3backendPackage.INAMED_VALUE__TYPE;
+					return B3backendPackage.ITYPED_VALUE__TYPE;
 				default:
 					return -1;
 			}
@@ -144,7 +151,13 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 			switch(baseFeatureID) {
 				case B3backendPackage.INAMED_VALUE__NAME:
 					return B3backendPackage.BADVICE__NAME;
-				case B3backendPackage.INAMED_VALUE__TYPE:
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == ITypedValue.class) {
+			switch(baseFeatureID) {
+				case B3backendPackage.ITYPED_VALUE__TYPE:
 					return B3backendPackage.BADVICE__TYPE;
 				default:
 					return -1;

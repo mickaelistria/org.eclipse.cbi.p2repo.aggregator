@@ -24,13 +24,13 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getVersionRange <em>Version Range</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#isGreedy <em>Greedy</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getMax <em>Max</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getMin <em>Min</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getVersionRange <em>Version Range</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#isGreedy <em>Greedy</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getMax <em>Max</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl#getMin <em>Min</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCapability {
@@ -38,7 +38,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The default value of the '{@link #getVersionRange() <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getVersionRange()
 	 * @generated
 	 * @ordered
@@ -49,7 +48,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The cached value of the '{@link #getVersionRange() <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getVersionRange()
 	 * @generated
 	 * @ordered
@@ -60,7 +58,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The default value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -71,7 +68,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The cached value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -82,7 +78,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -93,7 +88,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -104,7 +98,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -115,7 +108,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -125,7 +117,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected RequiredCapabilityImpl() {
@@ -135,7 +126,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -156,7 +146,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -179,7 +168,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -204,7 +192,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -215,7 +202,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -240,7 +226,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public int getMax() {
@@ -250,7 +235,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public int getMin() {
@@ -260,7 +244,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public VersionRange getVersionRange() {
@@ -270,7 +253,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isGreedy() {
@@ -280,7 +262,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setGreedy(boolean newGreedy) {
@@ -294,7 +275,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setMax(int newMax) {
@@ -307,7 +287,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setMin(int newMin) {
@@ -320,7 +299,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setVersionRange(VersionRange newVersionRange) {
@@ -335,7 +313,6 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

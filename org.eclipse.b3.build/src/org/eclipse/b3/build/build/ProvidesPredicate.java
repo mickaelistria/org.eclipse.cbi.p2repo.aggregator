@@ -13,14 +13,14 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Provides Predicate</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.ProvidesPredicate#getCapabilityPredicate <em>Capability Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.ProvidesPredicate#getCapabilityPredicate <em>Capability Predicate</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.build.B3BuildPackage#getProvidesPredicate()
  * @model
  * @generated
@@ -33,7 +33,6 @@ public interface ProvidesPredicate extends BExpression {
 	 * If the meaning of the '<em>Capability Predicate</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Capability Predicate</em>' containment reference.
 	 * @see #setCapabilityPredicate(CapabilityPredicate)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getProvidesPredicate_CapabilityPredicate()
@@ -45,7 +44,6 @@ public interface ProvidesPredicate extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @model
 	 * @generated
 	 */
@@ -54,7 +52,6 @@ public interface ProvidesPredicate extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @model
 	 * @generated
 	 */
@@ -66,20 +63,16 @@ public interface ProvidesPredicate extends BExpression {
 	 * <!-- begin-model-doc -->
 	 * Removes matching prerequisites and returns true if something was removed.
 	 * <!-- end-model-doc -->
-	 * 
 	 * @model inputMany="false"
 	 * @generated
 	 */
 	boolean removeMatching(EList<Capability> input);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.ProvidesPredicate#getCapabilityPredicate <em>Capability Predicate</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.ProvidesPredicate#getCapabilityPredicate <em>Capability Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Capability Predicate</em>' containment reference.
+	 * @param value the new value of the '<em>Capability Predicate</em>' containment reference.
 	 * @see #getCapabilityPredicate()
 	 * @generated
 	 */

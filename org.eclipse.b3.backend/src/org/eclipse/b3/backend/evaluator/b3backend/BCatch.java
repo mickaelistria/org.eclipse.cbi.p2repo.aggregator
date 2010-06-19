@@ -25,7 +25,7 @@ import org.eclipse.core.runtime.CoreException;
  * @model
  * @generated
  */
-public interface BCatch extends INamedValue {
+public interface BCatch extends ITypedValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

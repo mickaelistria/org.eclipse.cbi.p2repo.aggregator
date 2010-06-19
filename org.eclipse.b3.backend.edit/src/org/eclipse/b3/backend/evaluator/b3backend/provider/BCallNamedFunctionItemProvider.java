@@ -13,11 +13,13 @@ package org.eclipse.b3.backend.evaluator.b3backend.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -51,6 +53,24 @@ public class BCallNamedFunctionItemProvider extends BCallExpressionItemProvider 
 	 */
 	public BCallNamedFunctionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
+	}
+
+	/**
+	 * This adds a property descriptor for the Func Ref feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addFuncRefPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_BCallNamedFunction_funcRef_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_BCallNamedFunction_funcRef_feature",
+				"_UI_BCallNamedFunction_type"), B3backendPackage.Literals.BCALL_NAMED_FUNCTION__FUNC_REF, true, false,
+			true, null, null, null));
 	}
 
 	/**
@@ -90,6 +110,7 @@ public class BCallNamedFunctionItemProvider extends BCallExpressionItemProvider 
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addFuncRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

@@ -282,7 +282,7 @@ public class RelationalFunctions {
 		return Boolean.FALSE;
 	}
 
-	@B3Backend(funcNames = { "===", "eq" }, hideOriginal = true)
+	@B3Backend(funcNames = { "eq", "===" }, hideOriginal = true)
 	public static Boolean isIdentical(Object left, Object right) {
 		if(left == right)
 			return Boolean.TRUE;
@@ -339,7 +339,7 @@ public class RelationalFunctions {
 		return Boolean.FALSE;
 	}
 
-	@B3Backend(funcNames = { "!==", "neq" }, hideOriginal = true)
+	@B3Backend(funcNames = { "neq", "!==" }, hideOriginal = true)
 	public static Boolean isNotIdentical(Object left, Object right) {
 		if(left != right)
 			return Boolean.TRUE;

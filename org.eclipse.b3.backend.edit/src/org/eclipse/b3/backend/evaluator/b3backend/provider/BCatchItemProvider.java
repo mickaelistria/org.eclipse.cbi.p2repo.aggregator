@@ -88,25 +88,25 @@ public class BCatchItemProvider extends ItemProviderAdapter implements IEditingD
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.INAMED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3FunctionType()));
+			B3backendPackage.Literals.ITYPED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3FunctionType()));
 
 		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.INAMED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3ParameterizedType()));
+			B3backendPackage.Literals.ITYPED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3ParameterizedType()));
 
 		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.INAMED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3WildcardType()));
+			B3backendPackage.Literals.ITYPED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3WildcardType()));
 
 		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.INAMED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
+			B3backendPackage.Literals.ITYPED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
 
 		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.INAMED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3JavaImport()));
+			B3backendPackage.Literals.ITYPED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3JavaImport()));
 
 		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.INAMED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3MetaClass()));
+			B3backendPackage.Literals.ITYPED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3MetaClass()));
 
 		newChildDescriptors.add(createChildParameter(
-			B3backendPackage.Literals.INAMED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3Type()));
+			B3backendPackage.Literals.ITYPED_VALUE__TYPE, B3backendFactory.eINSTANCE.createB3Type()));
 
 		newChildDescriptors.add(createChildParameter(
 			B3backendPackage.Literals.BCATCH__CATCH_EXPR, B3backendFactory.eINSTANCE.createBIfExpression()));
@@ -279,7 +279,7 @@ public class BCatchItemProvider extends ItemProviderAdapter implements IEditingD
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.INAMED_VALUE__TYPE);
+			childrenFeatures.add(B3backendPackage.Literals.ITYPED_VALUE__TYPE);
 			childrenFeatures.add(B3backendPackage.Literals.BCATCH__CATCH_EXPR);
 		}
 		return childrenFeatures;

@@ -43,14 +43,14 @@ import org.eclipse.emf.ecore.util.EcoreEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getCondExpr <em>Cond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getWithExpr <em>With Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getBuildResult <em>Build Result</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getCondExpr <em>Cond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getWithExpr <em>With Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl#getBuildResult <em>Build Result</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
@@ -58,7 +58,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -69,7 +68,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -80,7 +78,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -91,7 +88,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * The cached value of the '{@link #getCondExpr() <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getCondExpr()
 	 * @generated
 	 * @ordered
@@ -102,7 +98,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * The cached value of the '{@link #getWithExpr() <em>With Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getWithExpr()
 	 * @generated
 	 * @ordered
@@ -113,7 +108,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * The cached value of the '{@link #getBuildResult() <em>Build Result</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuildResult()
 	 * @generated
 	 * @ordered
@@ -123,7 +117,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected PrerequisiteImpl() {
@@ -133,7 +126,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetBuildResult(BuildResultReference newBuildResult, NotificationChain msgs) {
@@ -153,7 +145,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCondExpr(BExpression newCondExpr, NotificationChain msgs) {
@@ -173,7 +164,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
@@ -193,7 +183,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetWithExpr(BWithExpression newWithExpr, NotificationChain msgs) {
@@ -213,7 +202,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -236,7 +224,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -257,7 +244,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -282,7 +268,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -310,7 +295,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -321,7 +305,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -366,7 +349,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuildResultReference getBuildResult() {
@@ -376,7 +358,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getCondExpr() {
@@ -434,7 +415,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -463,7 +443,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Type getType() {
@@ -473,7 +452,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BWithExpression getWithExpr() {
@@ -483,7 +461,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBuildResult(BuildResultReference newBuildResult) {
@@ -507,7 +484,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setCondExpr(BExpression newCondExpr) {
@@ -531,7 +507,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -544,7 +519,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setType(Type newType) {
@@ -567,7 +541,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setWithExpr(BWithExpression newWithExpr) {
@@ -591,7 +564,6 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

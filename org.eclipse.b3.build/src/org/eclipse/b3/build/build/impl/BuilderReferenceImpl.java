@@ -38,13 +38,13 @@ import org.eclipse.emf.ecore.util.EcoreEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getParameters <em>Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getBuilderName <em>Builder Name</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getRequiredCapability <em>Required Capability</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getRequiredCapabilityReference <em>Required Capability Reference</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getBuilderName <em>Builder Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getRequiredCapability <em>Required Capability</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl#getRequiredCapabilityReference <em>Required Capability Reference</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuilderReferenceImpl extends BuildResultReferenceImpl implements BuilderReference {
@@ -52,7 +52,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
@@ -63,7 +62,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 * The default value of the '{@link #getBuilderName() <em>Builder Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuilderName()
 	 * @generated
 	 * @ordered
@@ -74,7 +72,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 * The cached value of the '{@link #getBuilderName() <em>Builder Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuilderName()
 	 * @generated
 	 * @ordered
@@ -85,7 +82,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 * The cached value of the '{@link #getRequiredCapability() <em>Required Capability</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRequiredCapability()
 	 * @generated
 	 * @ordered
@@ -96,7 +92,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 * The cached value of the '{@link #getRequiredCapabilityReference() <em>Required Capability Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRequiredCapabilityReference()
 	 * @generated
 	 * @ordered
@@ -106,7 +101,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuilderReferenceImpl() {
@@ -116,7 +110,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public AliasedRequiredCapability basicGetRequiredCapabilityReference() {
@@ -126,7 +119,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetParameters(BParameterList newParameters, NotificationChain msgs) {
@@ -146,7 +138,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetRequiredCapability(RequiredCapability newRequiredCapability, NotificationChain msgs) {
@@ -167,7 +158,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -190,7 +180,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -207,7 +196,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -230,7 +218,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -255,7 +242,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -266,7 +252,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -291,7 +276,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getBuilderName() {
@@ -360,7 +344,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BParameterList getParameters() {
@@ -370,7 +353,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RequiredCapability getRequiredCapability() {
@@ -380,7 +362,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public AliasedRequiredCapability getRequiredCapabilityReference() {
@@ -419,7 +400,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBuilderName(String newBuilderName) {
@@ -433,7 +413,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setParameters(BParameterList newParameters) {
@@ -457,7 +436,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRequiredCapability(RequiredCapability newRequiredCapability) {
@@ -482,7 +460,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRequiredCapabilityReference(AliasedRequiredCapability newRequiredCapabilityReference) {
@@ -497,7 +474,6 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

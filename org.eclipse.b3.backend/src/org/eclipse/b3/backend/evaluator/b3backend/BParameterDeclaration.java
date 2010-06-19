@@ -29,7 +29,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * @model
  * @generated
  */
-public interface BParameterDeclaration extends INamedValue {
+public interface BParameterDeclaration extends ITypedValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -28,10 +28,10 @@ import java.lang.reflect.Type;
  * </p>
  * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3JavaImport()
- * @model superTypes="org.eclipse.b3.backend.evaluator.b3backend.IType org.eclipse.b3.backend.evaluator.b3backend.INamedValue"
+ * @model superTypes="org.eclipse.b3.backend.evaluator.b3backend.IType org.eclipse.b3.backend.evaluator.b3backend.ITypedValue"
  * @generated
  */
-public interface B3JavaImport extends Type, INamedValue {
+public interface B3JavaImport extends Type, ITypedValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

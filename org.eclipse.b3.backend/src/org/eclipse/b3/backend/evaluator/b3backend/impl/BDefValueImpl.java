@@ -22,6 +22,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -205,8 +206,14 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 			switch(derivedFeatureID) {
 				case B3backendPackage.BDEF_VALUE__NAME:
 					return B3backendPackage.INAMED_VALUE__NAME;
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == ITypedValue.class) {
+			switch(derivedFeatureID) {
 				case B3backendPackage.BDEF_VALUE__TYPE:
-					return B3backendPackage.INAMED_VALUE__TYPE;
+					return B3backendPackage.ITYPED_VALUE__TYPE;
 				default:
 					return -1;
 			}
@@ -226,7 +233,13 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 			switch(baseFeatureID) {
 				case B3backendPackage.INAMED_VALUE__NAME:
 					return B3backendPackage.BDEF_VALUE__NAME;
-				case B3backendPackage.INAMED_VALUE__TYPE:
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == ITypedValue.class) {
+			switch(baseFeatureID) {
+				case B3backendPackage.ITYPED_VALUE__TYPE:
 					return B3backendPackage.BDEF_VALUE__TYPE;
 				default:
 					return -1;

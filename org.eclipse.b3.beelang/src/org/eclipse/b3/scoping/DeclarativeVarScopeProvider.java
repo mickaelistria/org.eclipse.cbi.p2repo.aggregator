@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
@@ -27,6 +28,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.build.build.BeeModel;
+import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.b3.build.build.UnitProvider;
@@ -136,6 +138,16 @@ public class DeclarativeVarScopeProvider {
 		return createScope(doGetVarScope(container.eContainer(), container), result);
 	}
 
+	public IScope varScope(BCreateExpression container, EObject contained) {
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		// result.add(new EObjectDescription("this", container, null));
+		if(container.getName() != null)
+			result.add(new EObjectDescription(container.getName(), container, null));
+		if(result.size() < 1)
+			return doGetVarScope(container.eContainer(), container);
+		return createScope(doGetVarScope(container.eContainer(), container), result);
+	}
+
 	IScope varScope(BeeModel container, EObject contained) {
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 
@@ -175,6 +187,11 @@ public class DeclarativeVarScopeProvider {
 		B3BuildEngineResource r = (B3BuildEngineResource) container.eResource().getResourceSet().getResource(uri, false);
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 
+		// Builder parameters
+		for(BParameterDeclaration param : container.getParameters()) {
+			result.add(new EObjectDescription(param.getName(), param, null));
+		}
+
 		BDefValue varInput = r.getVarInput();
 		if(container.getInput() != null) {
 			result.add(new EObjectDescription(varInput.getName(), varInput, null));
@@ -204,6 +221,16 @@ public class DeclarativeVarScopeProvider {
 
 		return createScope(doGetVarScope(container.eContainer(), container), result);
 
+	}
+
+	public IScope varScope(BuildUnit container, EObject contained) {
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		result.add(new EObjectDescription("unit", container, null));
+		if(container.getName() != null)
+			result.add(new EObjectDescription(container.getName(), container, null));
+		if(result.size() < 1)
+			return doGetVarScope(container.eContainer(), container);
+		return createScope(doGetVarScope(container.eContainer(), container), result);
 	}
 
 	IScope varScope(BVariableExpression varExpr) {

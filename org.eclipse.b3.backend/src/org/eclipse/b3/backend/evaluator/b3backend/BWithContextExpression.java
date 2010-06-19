@@ -27,7 +27,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * @model
  * @generated
  */
-public interface BWithContextExpression extends BExpression, INamedValue {
+public interface BWithContextExpression extends BExpression, ITypedValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

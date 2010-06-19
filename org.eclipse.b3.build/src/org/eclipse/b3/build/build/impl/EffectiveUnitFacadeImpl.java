@@ -38,13 +38,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getUnit <em>Unit</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getUnit <em>Unit</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements EffectiveUnitFacade {
@@ -52,7 +52,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getUnit()
 	 * @generated
 	 * @ordered
@@ -63,7 +62,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getProvidedCapabilities()
 	 * @generated
 	 * @ordered
@@ -74,7 +72,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRequiredCapabilities()
 	 * @generated
 	 * @ordered
@@ -85,7 +82,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 * The cached value of the '{@link #getMetaRequiredCapabilities() <em>Meta Required Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getMetaRequiredCapabilities()
 	 * @generated
 	 * @ordered
@@ -95,7 +91,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected EffectiveUnitFacadeImpl() {
@@ -105,7 +100,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuildUnit basicGetUnit() {
@@ -115,7 +109,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -138,7 +131,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -157,7 +149,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -178,7 +169,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -207,7 +197,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -218,7 +207,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -243,7 +231,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<EffectiveRequirementFacade> getMetaRequiredCapabilities() {
@@ -258,7 +245,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<EffectiveCapabilityFacade> getProvidedCapabilities() {
@@ -272,7 +258,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<EffectiveRequirementFacade> getRequiredCapabilities() {
@@ -286,7 +271,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuildUnit getUnit() {
@@ -305,7 +289,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setUnit(BuildUnit newUnit) {

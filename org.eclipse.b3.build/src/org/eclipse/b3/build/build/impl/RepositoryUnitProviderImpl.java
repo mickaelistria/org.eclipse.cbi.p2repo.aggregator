@@ -41,12 +41,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getRepository <em>Repository</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getOptions <em>Options</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getRepository <em>Repository</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.RepositoryUnitProviderImpl#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RepositoryUnitProviderImpl extends UnitProviderImpl implements RepositoryUnitProvider {
@@ -54,7 +54,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRepository()
 	 * @generated
 	 * @ordered
@@ -65,7 +64,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getOptions()
 	 * @generated
 	 * @ordered
@@ -76,7 +74,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 * The cached value of the '{@link #getBuildUnitRepository() <em>Build Unit Repository</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuildUnitRepository()
 	 * @generated
 	 * @ordered
@@ -86,7 +83,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected RepositoryUnitProviderImpl() {
@@ -96,7 +92,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IBuildUnitRepository basicGetBuildUnitRepository() {
@@ -106,7 +101,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Repository basicGetRepository() {
@@ -116,7 +110,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -139,7 +132,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -154,7 +146,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -173,7 +164,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -197,7 +187,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -208,7 +197,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -230,7 +218,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IBuildUnitRepository getBuildUnitRepository() {
@@ -250,7 +237,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<RepoOption> getOptions() {
@@ -264,7 +250,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Repository getRepository() {
@@ -317,7 +302,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBuildUnitRepository(IBuildUnitRepository newBuildUnitRepository) {
@@ -332,7 +316,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRepository(Repository newRepository) {

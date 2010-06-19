@@ -496,6 +496,11 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseITypedValue(ITypedValue object) {
+			return createITypedValueAdapter();
+		}
+
+		@Override
 		public Adapter caseITypedValueContainer(ITypedValueContainer object) {
 			return createITypedValueContainerAdapter();
 		}
@@ -1913,6 +1918,21 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createITypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValue <em>ITyped Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValue
+	 * @generated
+	 */
+	public Adapter createITypedValueAdapter() {
 		return null;
 	}
 

@@ -325,10 +325,10 @@ Builder returns build::Builder : {build::Builder}
 		// first parameter is always "unit", but is implied to "this unit" if builder is specified in
 		// a build unit
 		// TODO: validation and relevant content proposal
-		(( ((explicitUnitType = TypeRef "unit") | (parameters += ParameterDeclaration))
-			(',' parameters += ParameterDeclaration)* 
-			(',' varArgs?="..." parameters += ParameterDeclaration)?)
-		| 	(    varArgs?="..." parameters += ParameterDeclaration))?
+		(( ((explicitUnitType = TypeRef "unit") | (parameters += ParameterDeclarationNotUnit))
+			(',' parameters += ParameterDeclarationNotUnit)* 
+			(',' varArgs?="..." parameters += ParameterDeclarationNotUnit)?)
+		| 	(    varArgs?="..." parameters += ParameterDeclarationNotUnit))?
 	')' )?
 	(guard = GuardExpression)?
 	(precondExpr = PreCondition)?
@@ -368,11 +368,18 @@ ClosureParameter returns be::BParameter : {be::BParameter}
 	(expr = ClosureExpression) 
 	;
 
-ParameterDeclaration returns be::BParameterDeclaration : {be::BParameterDeclaration} 
+ParameterDeclarationOptType returns be::BParameterDeclaration : {be::BParameterDeclaration} 
 	((type=TypeRef)? name = (ID_or_KW)) 
 	;
-
-//KeywordParameterName : "unit";
+	
+ParameterDeclaration returns be::BParameterDeclaration : {be::BParameterDeclaration} 
+	type=TypeRef name = ID_or_KW 
+	;
+	
+// Used in Builder where the first paramter can be called unit, but not others	
+ParameterDeclarationNotUnit returns be::BParameterDeclaration : {be::BParameterDeclaration} 
+	type=TypeRef name = ID_or_KW_NO_UNIT 
+	;
 
 BuilderInput returns build::BuilderInput : {build::BuilderInput}
 	prerequisites += Prerequisite (',' prerequisites += Prerequisite)*
@@ -778,7 +785,9 @@ VariableValue returns  be::BExpression : {be::BVariableExpression}
 	;
 	
 ID_or_KW : ID | KW ;
-KW : "input" | "output" | "source" | "result" | "properties" | "builder" | "unit" | "this"
+ID_or_KW_NO_UNIT : ID | KW_NO_UNIT ;
+KW : KW_NO_UNIT | "unit" ; 
+KW_NO_UNIT : "input" | "output" | "source" | "result" | "properties" | "builder" | "this"
 	| "name" | "modify" | "greedy" | "version"
 	;
 	
@@ -789,8 +798,12 @@ FeatureCall returns be::BExpression :
 	
 	;
 	
+//OperationCall returns be::BCallExpression : {be::BCallNamedFunction}
+//	name=(ID|PID) 
+//	'(' (parameterList = ParameterList)? ')' 
+//	;
 OperationCall returns be::BCallExpression : {be::BCallNamedFunction}
-	name=(ID|PID) 
+	funcRef = [be::IFunction | ID]
 	'(' (parameterList = ParameterList)? ')' 
 	;
 
@@ -1094,9 +1107,9 @@ LiteralFunction returns be::BExpression :
 ClosureExpression returns be::BExpression: {be::B3Function} 
 	('<' returnType=TypeRef '>')?
 	( '|'?
-	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* 
-		(',' varArgs?="..." parameters += ParameterDeclaration)?)
-	| 	(    varArgs?="..." parameters += ParameterDeclaration)
+	(parameters += ParameterDeclarationOptType (',' parameters += ParameterDeclarationOptType)* 
+		(',' varArgs?="..." parameters += ParameterDeclarationOptType)?)
+	| 	(    varArgs?="..." parameters += ParameterDeclarationOptType)
 	)? 
 	'|' funcExpr=OneOrManyExpressions
 	;

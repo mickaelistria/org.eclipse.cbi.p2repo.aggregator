@@ -125,7 +125,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pathVectors" upperBound="-1"
         eType="#//ConditionalPathVector" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Prerequisite" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//INamedValue">
+  <eClassifiers xsi:type="ecore:EClass" name="Prerequisite" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//ITypedValue">
     <eOperations name="getEffectiveRequirements" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//JavaIterator">
         <eTypeArguments eClassifier="#//EffectiveRequirementFacade"/>
@@ -196,11 +196,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCapabilityReference"
         eType="#//AliasedRequiredCapability"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Capability">
+  <eClassifiers xsi:type="ecore:EClass" name="Capability" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//INamedValue">
     <eOperations name="satisfies" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="requirement" eType="#//RequiredCapability"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
@@ -692,4 +691,6 @@
     <eLiterals name="True" value="1"/>
     <eLiterals name="False" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="B3BuilderJob" instanceClassName="org.eclipse.b3.build.core.B3BuilderJob"
+      serializable="false"/>
 </ecore:EPackage>

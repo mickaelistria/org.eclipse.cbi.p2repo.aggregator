@@ -1560,6 +1560,23 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ITyped Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ITyped Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITypedValue(ITypedValue object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>ITyped Value Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1722,6 +1739,8 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.BCATCH: {
 				BCatch bCatch = (BCatch) theEObject;
 				T result = caseBCatch(bCatch);
+				if(result == null)
+					result = caseITypedValue(bCatch);
 				if(result == null)
 					result = caseINamedValue(bCatch);
 				if(result == null)
@@ -1932,9 +1951,11 @@ public class B3backendSwitch<T> {
 				if(result == null)
 					result = caseBParameterizedExpression(bCreateExpression);
 				if(result == null)
-					result = caseINamedValue(bCreateExpression);
+					result = caseITypedValue(bCreateExpression);
 				if(result == null)
 					result = caseBExpression(bCreateExpression);
+				if(result == null)
+					result = caseINamedValue(bCreateExpression);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -2079,6 +2100,8 @@ public class B3backendSwitch<T> {
 				if(result == null)
 					result = caseBExpression(bDefValue);
 				if(result == null)
+					result = caseITypedValue(bDefValue);
+				if(result == null)
 					result = caseINamedValue(bDefValue);
 				if(result == null)
 					result = defaultCase(theEObject);
@@ -2112,6 +2135,8 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.BPARAMETER_DECLARATION: {
 				BParameterDeclaration bParameterDeclaration = (BParameterDeclaration) theEObject;
 				T result = caseBParameterDeclaration(bParameterDeclaration);
+				if(result == null)
+					result = caseITypedValue(bParameterDeclaration);
 				if(result == null)
 					result = caseINamedValue(bParameterDeclaration);
 				if(result == null)
@@ -2165,6 +2190,8 @@ public class B3backendSwitch<T> {
 				T result = caseB3JavaImport(b3JavaImport);
 				if(result == null)
 					result = caseIType(b3JavaImport);
+				if(result == null)
+					result = caseITypedValue(b3JavaImport);
 				if(result == null)
 					result = caseINamedValue(b3JavaImport);
 				if(result == null)
@@ -2226,6 +2253,8 @@ public class B3backendSwitch<T> {
 				if(result == null)
 					result = caseBExpression(bDefProperty);
 				if(result == null)
+					result = caseITypedValue(bDefProperty);
+				if(result == null)
 					result = caseINamedValue(bDefProperty);
 				if(result == null)
 					result = defaultCase(theEObject);
@@ -2238,6 +2267,8 @@ public class B3backendSwitch<T> {
 					result = caseBAdvice(bPropertySet);
 				if(result == null)
 					result = caseBExpression(bPropertySet);
+				if(result == null)
+					result = caseITypedValue(bPropertySet);
 				if(result == null)
 					result = caseINamedValue(bPropertySet);
 				if(result == null)
@@ -2253,6 +2284,8 @@ public class B3backendSwitch<T> {
 					result = caseBAdvice(bDefaultPropertySet);
 				if(result == null)
 					result = caseBExpression(bDefaultPropertySet);
+				if(result == null)
+					result = caseITypedValue(bDefaultPropertySet);
 				if(result == null)
 					result = caseINamedValue(bDefaultPropertySet);
 				if(result == null)
@@ -2307,6 +2340,8 @@ public class B3backendSwitch<T> {
 				if(result == null)
 					result = caseBExpression(bAdvice);
 				if(result == null)
+					result = caseITypedValue(bAdvice);
+				if(result == null)
 					result = caseINamedValue(bAdvice);
 				if(result == null)
 					result = defaultCase(theEObject);
@@ -2321,6 +2356,8 @@ public class B3backendSwitch<T> {
 					result = caseBFunctionContainer(bConcern);
 				if(result == null)
 					result = caseBExpression(bConcern);
+				if(result == null)
+					result = caseITypedValue(bConcern);
 				if(result == null)
 					result = caseINamedValue(bConcern);
 				if(result == null)
@@ -2406,6 +2443,8 @@ public class B3backendSwitch<T> {
 				BParameterPredicate bParameterPredicate = (BParameterPredicate) theEObject;
 				T result = caseBParameterPredicate(bParameterPredicate);
 				if(result == null)
+					result = caseITypedValue(bParameterPredicate);
+				if(result == null)
 					result = caseINamedValue(bParameterPredicate);
 				if(result == null)
 					result = defaultCase(theEObject);
@@ -2471,6 +2510,8 @@ public class B3backendSwitch<T> {
 				T result = caseBWithContextExpression(bWithContextExpression);
 				if(result == null)
 					result = caseBExpression(bWithContextExpression);
+				if(result == null)
+					result = caseITypedValue(bWithContextExpression);
 				if(result == null)
 					result = caseINamedValue(bWithContextExpression);
 				if(result == null)
@@ -2555,6 +2596,15 @@ public class B3backendSwitch<T> {
 				T result = caseB3Type(b3Type);
 				if(result == null)
 					result = caseIType(b3Type);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.ITYPED_VALUE: {
+				ITypedValue iTypedValue = (ITypedValue) theEObject;
+				T result = caseITypedValue(iTypedValue);
+				if(result == null)
+					result = caseINamedValue(iTypedValue);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

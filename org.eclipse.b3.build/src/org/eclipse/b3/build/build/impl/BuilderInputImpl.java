@@ -38,10 +38,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.BuilderInputImpl#getPrerequisites <em>Prerequisites</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderInputImpl#getPrerequisites <em>Prerequisites</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
@@ -49,7 +49,6 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	 * The cached value of the '{@link #getPrerequisites() <em>Prerequisites</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPrerequisites()
 	 * @generated
 	 * @ordered
@@ -59,7 +58,6 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuilderInputImpl() {
@@ -69,7 +67,6 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -84,7 +81,6 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -99,7 +95,6 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -114,7 +109,6 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -132,7 +126,6 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -143,7 +136,6 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -202,7 +194,6 @@ public class BuilderInputImpl extends EObjectImpl implements BuilderInput {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<Prerequisite> getPrerequisites() {

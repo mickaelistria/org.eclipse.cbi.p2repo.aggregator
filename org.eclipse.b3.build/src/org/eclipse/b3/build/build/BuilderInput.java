@@ -16,14 +16,14 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Builder Input</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.BuilderInput#getPrerequisites <em>Prerequisites</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderInput#getPrerequisites <em>Prerequisites</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderInput()
  * @model
  * @generated
@@ -35,7 +35,6 @@ public interface BuilderInput extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Returns the unfiltered requirements as a flattened list.
 	 * <!-- end-model-doc -->
-	 * 
 	 * @model kind="operation" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -47,9 +46,7 @@ public interface BuilderInput extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Returns an iterator over the effective references to builders in this, and other units.
 	 * <!-- end-model-doc -->
-	 * 
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>"
-	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
 	Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable;
@@ -57,9 +54,7 @@ public interface BuilderInput extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>"
-	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveRequirementFacade>" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
 	Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable;
@@ -72,7 +67,6 @@ public interface BuilderInput extends EObject {
 	 * If the meaning of the '<em>Prerequisites</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Prerequisites</em>' containment reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderInput_Prerequisites()
 	 * @model containment="true"

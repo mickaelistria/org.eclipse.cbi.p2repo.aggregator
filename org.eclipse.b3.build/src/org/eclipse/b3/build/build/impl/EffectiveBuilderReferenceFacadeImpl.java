@@ -31,11 +31,11 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl#getBuilderReference <em>Builder Reference</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl#getAliases <em>Aliases</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl#getBuilderReference <em>Builder Reference</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl#getAliases <em>Aliases</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl implements EffectiveBuilderReferenceFacade {
@@ -43,7 +43,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	 * The cached value of the '{@link #getBuilderReference() <em>Builder Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuilderReference()
 	 * @generated
 	 * @ordered
@@ -54,7 +53,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	 * The cached value of the '{@link #getAliases() <em>Aliases</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getAliases()
 	 * @generated
 	 * @ordered
@@ -64,7 +62,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected EffectiveBuilderReferenceFacadeImpl() {
@@ -74,7 +71,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuilderReference basicGetBuilderReference() {
@@ -84,7 +80,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -103,7 +98,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -120,7 +114,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -141,7 +134,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -152,7 +144,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -171,7 +162,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<String> getAliases() {
@@ -185,7 +175,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuilderReference getBuilderReference() {
@@ -206,7 +195,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBuilderReference(BuilderReference newBuilderReference) {
@@ -221,7 +209,6 @@ public class EffectiveBuilderReferenceFacadeImpl extends EffectiveFacadeImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

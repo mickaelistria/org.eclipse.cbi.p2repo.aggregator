@@ -29,10 +29,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.CompoundUnitProviderImpl#getProviders <em>Providers</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.CompoundUnitProviderImpl#getProviders <em>Providers</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implements CompoundUnitProvider {
@@ -40,7 +40,6 @@ public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implemen
 	 * The cached value of the '{@link #getProviders() <em>Providers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getProviders()
 	 * @generated
 	 * @ordered
@@ -50,7 +49,6 @@ public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CompoundUnitProviderImpl() {
@@ -60,7 +58,6 @@ public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -75,7 +72,6 @@ public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -90,7 +86,6 @@ public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -105,7 +100,6 @@ public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -123,7 +117,6 @@ public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -134,7 +127,6 @@ public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -150,7 +142,6 @@ public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<UnitProvider> getProviders() {

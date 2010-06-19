@@ -23,7 +23,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * @model
  * @generated
  */
-public interface BCreateExpression extends BParameterizedExpression, INamedValue {
+public interface BCreateExpression extends BParameterizedExpression, ITypedValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

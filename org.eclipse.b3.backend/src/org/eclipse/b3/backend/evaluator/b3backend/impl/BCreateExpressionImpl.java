@@ -21,11 +21,13 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -254,8 +256,14 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 			switch(derivedFeatureID) {
 				case B3backendPackage.BCREATE_EXPRESSION__NAME:
 					return B3backendPackage.INAMED_VALUE__NAME;
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == ITypedValue.class) {
+			switch(derivedFeatureID) {
 				case B3backendPackage.BCREATE_EXPRESSION__TYPE:
-					return B3backendPackage.INAMED_VALUE__TYPE;
+					return B3backendPackage.ITYPED_VALUE__TYPE;
 				default:
 					return -1;
 			}
@@ -275,7 +283,13 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 			switch(baseFeatureID) {
 				case B3backendPackage.INAMED_VALUE__NAME:
 					return B3backendPackage.BCREATE_EXPRESSION__NAME;
-				case B3backendPackage.INAMED_VALUE__TYPE:
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == ITypedValue.class) {
+			switch(baseFeatureID) {
+				case B3backendPackage.ITYPED_VALUE__TYPE:
 					return B3backendPackage.BCREATE_EXPRESSION__TYPE;
 				default:
 					return -1;
@@ -433,11 +447,15 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 				parameters[i] = expression.evaluate(ctx);
 			}
 		}
+		Class<?> clazz = TypeUtils.getRaw(objectType);
+		if(EObject.class.isAssignableFrom(clazz)) {
+			clazz = clazz;
+		}
 
 		ConstructorCandidate constructorCandidate;
 		{
 			LinkedList<ConstructorCandidate> candidateConstructors = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
-				parameterTypes, new ConstructorCandidateSource(TypeUtils.getRaw(objectType)));
+				parameterTypes, new ConstructorCandidateSource(clazz));
 
 			switch(candidateConstructors.size()) {
 				case 0: // no candidate constructor found

@@ -29,10 +29,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.CompoundBuildUnitRepositoryImpl#getRepositories <em>Repositories</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.CompoundBuildUnitRepositoryImpl#getRepositories <em>Repositories</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositoryImpl implements
@@ -41,7 +41,6 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRepositories()
 	 * @generated
 	 * @ordered
@@ -51,7 +50,6 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CompoundBuildUnitRepositoryImpl() {
@@ -61,7 +59,6 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -76,7 +73,6 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -91,7 +87,6 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -109,7 +104,6 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -120,7 +114,6 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -136,7 +129,6 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<IBuildUnitRepository> getRepositories() {

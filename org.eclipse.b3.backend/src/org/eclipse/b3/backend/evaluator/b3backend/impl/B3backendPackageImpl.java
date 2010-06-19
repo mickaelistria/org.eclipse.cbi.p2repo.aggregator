@@ -113,6 +113,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.b3.backend.evaluator.b3backend.util.B3backendValidator;
@@ -539,6 +540,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass b3TypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iTypedValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1472,6 +1481,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bCallFeatureEClass = createEClass(BCALL_FEATURE);
 
 		bCallNamedFunctionEClass = createEClass(BCALL_NAMED_FUNCTION);
+		createEReference(bCallNamedFunctionEClass, BCALL_NAMED_FUNCTION__FUNC_REF);
 
 		bCallFunctionEClass = createEClass(BCALL_FUNCTION);
 
@@ -1482,10 +1492,12 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		iNamedValueEClass = createEClass(INAMED_VALUE);
 		createEAttribute(iNamedValueEClass, INAMED_VALUE__NAME);
-		createEReference(iNamedValueEClass, INAMED_VALUE__TYPE);
 
 		b3TypeEClass = createEClass(B3_TYPE);
 		createEAttribute(b3TypeEClass, B3_TYPE__RAW_TYPE);
+
+		iTypedValueEClass = createEClass(ITYPED_VALUE);
+		createEReference(iTypedValueEClass, ITYPED_VALUE__TYPE);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -1994,6 +2006,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EClass getBCallNamedFunction() {
 		return bCallNamedFunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getBCallNamedFunction_FuncRef() {
+		return (EReference) bCallNamedFunctionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3842,16 +3864,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	public EReference getINamedValue_Type() {
-		return (EReference) iNamedValueEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EDataType getInjector() {
 		return injectorEDataType;
 	}
@@ -3884,6 +3896,26 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EClass getIType() {
 		return iTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getITypedValue() {
+		return iTypedValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getITypedValue_Type() {
+		return (EReference) iTypedValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4087,7 +4119,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bIfExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bSwitchExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bTryExpressionEClass.getESuperTypes().add(this.getBExpression());
-		bCatchEClass.getESuperTypes().add(this.getINamedValue());
+		bCatchEClass.getESuperTypes().add(this.getITypedValue());
 		bBinaryExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bOrExpressionEClass.getESuperTypes().add(this.getBBinaryExpression());
 		bAndExpressionEClass.getESuperTypes().add(this.getBBinaryExpression());
@@ -4108,7 +4140,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bParameterizedExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bLiteralAnyEClass.getESuperTypes().add(this.getBPatternLiteralExpression());
 		bCreateExpressionEClass.getESuperTypes().add(this.getBParameterizedExpression());
-		bCreateExpressionEClass.getESuperTypes().add(this.getINamedValue());
+		bCreateExpressionEClass.getESuperTypes().add(this.getITypedValue());
 		iFunctionEClass.getESuperTypes().add(this.getIGenericDeclaration());
 		iFunctionEClass.getESuperTypes().add(this.getBExpression());
 		bGuardExpressionEClass.getESuperTypes().add(this.getBGuard());
@@ -4121,9 +4153,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		b3FunctionEClass.getESuperTypes().add(this.getBFunction());
 		bJavaFunctionEClass.getESuperTypes().add(this.getBFunction());
 		bDefValueEClass.getESuperTypes().add(this.getBExpression());
-		bDefValueEClass.getESuperTypes().add(this.getINamedValue());
+		bDefValueEClass.getESuperTypes().add(this.getITypedValue());
 		bRegularExpressionEClass.getESuperTypes().add(this.getBPatternLiteralExpression());
-		bParameterDeclarationEClass.getESuperTypes().add(this.getINamedValue());
+		bParameterDeclarationEClass.getESuperTypes().add(this.getITypedValue());
 		b3FunctionTypeEClass.getESuperTypes().add(this.getIType());
 		iParameterizedTypeEClass.getESuperTypes().add(this.getIType());
 		b3ParameterizedTypeEClass.getESuperTypes().add(this.getIParameterizedType());
@@ -4135,7 +4167,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		g1.getETypeArguments().add(g2);
 		b3FuncTypeVariableEClass.getEGenericSuperTypes().add(g1);
 		b3JavaImportEClass.getESuperTypes().add(this.getIType());
-		b3JavaImportEClass.getESuperTypes().add(this.getINamedValue());
+		b3JavaImportEClass.getESuperTypes().add(this.getITypedValue());
 		bLiteralTypeEClass.getESuperTypes().add(this.getBExpression());
 		bGuardFunctionEClass.getESuperTypes().add(this.getBGuard());
 		bTypeCalculatorFunctionEClass.getESuperTypes().add(this.getBTypeCalculator());
@@ -4148,7 +4180,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bConditionalPropertyOperationEClass.getESuperTypes().add(this.getBPropertyOperation());
 		bPropertySetOperationEClass.getESuperTypes().add(this.getBPropertyOperation());
 		bAdviceEClass.getESuperTypes().add(this.getBExpression());
-		bAdviceEClass.getESuperTypes().add(this.getINamedValue());
+		bAdviceEClass.getESuperTypes().add(this.getITypedValue());
 		bConcernEClass.getESuperTypes().add(this.getBAdvice());
 		bConcernEClass.getESuperTypes().add(this.getBFunctionContainer());
 		bWithExpressionEClass.getESuperTypes().add(this.getBExpression());
@@ -4160,20 +4192,21 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bFunctionWrapperEClass.getESuperTypes().add(this.getIFunction());
 		bFunctionNamePredicateEClass.getESuperTypes().add(this.getBExpression());
 		bFunctionConcernContextEClass.getESuperTypes().add(this.getBConcernContext());
-		bParameterPredicateEClass.getESuperTypes().add(this.getINamedValue());
+		bParameterPredicateEClass.getESuperTypes().add(this.getITypedValue());
 		bProceedExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bDelegatingContextEClass.getESuperTypes().add(this.getBInnerContext());
 		bWrappingContextEClass.getESuperTypes().add(this.getBDelegatingContext());
 		b3MetaClassEClass.getESuperTypes().add(this.getIType());
 		bExpressionWrapperEClass.getESuperTypes().add(this.getBExpression());
 		bWithContextExpressionEClass.getESuperTypes().add(this.getBExpression());
-		bWithContextExpressionEClass.getESuperTypes().add(this.getINamedValue());
+		bWithContextExpressionEClass.getESuperTypes().add(this.getITypedValue());
 		bCallFeatureEClass.getESuperTypes().add(this.getBCallExpression());
 		bCallNamedFunctionEClass.getESuperTypes().add(this.getBCallExpression());
 		bCallFunctionEClass.getESuperTypes().add(this.getBCallExpression());
 		bPatternLiteralExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bSimplePatternExpressionEClass.getESuperTypes().add(this.getBPatternLiteralExpression());
 		b3TypeEClass.getESuperTypes().add(this.getIType());
+		iTypedValueEClass.getESuperTypes().add(this.getINamedValue());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -5346,6 +5379,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(
 			bCallNamedFunctionEClass, BCallNamedFunction.class, "BCallNamedFunction", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getBCallNamedFunction_FuncRef(), this.getIFunction(), null, "funcRef", null, 0, 1,
+			BCallNamedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			bCallFunctionEClass, BCallFunction.class, "BCallFunction", !IS_ABSTRACT, !IS_INTERFACE,
@@ -5372,15 +5409,18 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(
 			getINamedValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, INamedValue.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getINamedValue_Type(), this.getIType(), null, "type", null, 0, 1, INamedValue.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
 
 		initEClass(b3TypeEClass, B3Type.class, "B3Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getB3Type_RawType(), this.getType(), "rawType", null, 0, 1, B3Type.class, !IS_TRANSIENT, !IS_VOLATILE,
 			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			iTypedValueEClass, ITypedValue.class, "ITypedValue", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getITypedValue_Type(), this.getIType(), null, "type", null, 0, 1, ITypedValue.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

@@ -37,10 +37,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPredicate {
@@ -48,7 +48,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 * The cached value of the '{@link #getCapabilityPredicate() <em>Capability Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getCapabilityPredicate()
 	 * @generated
 	 * @ordered
@@ -58,7 +57,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ProvidesPredicateImpl() {
@@ -68,7 +66,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCapabilityPredicate(CapabilityPredicate newCapabilityPredicate,
@@ -90,7 +87,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -105,7 +101,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -120,7 +115,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -135,7 +129,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -151,7 +144,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -162,7 +154,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -207,7 +198,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CapabilityPredicate getCapabilityPredicate() {
@@ -266,7 +256,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setCapabilityPredicate(CapabilityPredicate newCapabilityPredicate) {

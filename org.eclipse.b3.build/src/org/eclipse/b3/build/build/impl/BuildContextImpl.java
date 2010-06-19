@@ -39,7 +39,7 @@ import org.eclipse.osgi.util.NLS;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuildContextImpl extends BExecutionContextImpl implements BuildContext {
@@ -51,7 +51,6 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuildContextImpl() {
@@ -140,7 +139,6 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

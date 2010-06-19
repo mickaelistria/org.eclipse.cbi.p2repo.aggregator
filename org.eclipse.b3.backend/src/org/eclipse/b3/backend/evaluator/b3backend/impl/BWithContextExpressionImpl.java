@@ -17,6 +17,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -186,8 +187,14 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 			switch(derivedFeatureID) {
 				case B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME:
 					return B3backendPackage.INAMED_VALUE__NAME;
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == ITypedValue.class) {
+			switch(derivedFeatureID) {
 				case B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE:
-					return B3backendPackage.INAMED_VALUE__TYPE;
+					return B3backendPackage.ITYPED_VALUE__TYPE;
 				default:
 					return -1;
 			}
@@ -207,7 +214,13 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 			switch(baseFeatureID) {
 				case B3backendPackage.INAMED_VALUE__NAME:
 					return B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME;
-				case B3backendPackage.INAMED_VALUE__TYPE:
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == ITypedValue.class) {
+			switch(baseFeatureID) {
+				case B3backendPackage.ITYPED_VALUE__TYPE:
 					return B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE;
 				default:
 					return -1;

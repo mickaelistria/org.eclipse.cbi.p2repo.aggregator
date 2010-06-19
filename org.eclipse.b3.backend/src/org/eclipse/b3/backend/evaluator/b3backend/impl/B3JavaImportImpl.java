@@ -20,6 +20,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -171,8 +172,14 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 			switch(derivedFeatureID) {
 				case B3backendPackage.B3_JAVA_IMPORT__NAME:
 					return B3backendPackage.INAMED_VALUE__NAME;
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == ITypedValue.class) {
+			switch(derivedFeatureID) {
 				case B3backendPackage.B3_JAVA_IMPORT__TYPE:
-					return B3backendPackage.INAMED_VALUE__TYPE;
+					return B3backendPackage.ITYPED_VALUE__TYPE;
 				default:
 					return -1;
 			}
@@ -192,7 +199,13 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 			switch(baseFeatureID) {
 				case B3backendPackage.INAMED_VALUE__NAME:
 					return B3backendPackage.B3_JAVA_IMPORT__NAME;
-				case B3backendPackage.INAMED_VALUE__TYPE:
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == ITypedValue.class) {
+			switch(baseFeatureID) {
+				case B3backendPackage.ITYPED_VALUE__TYPE:
 					return B3backendPackage.B3_JAVA_IMPORT__TYPE;
 				default:
 					return -1;

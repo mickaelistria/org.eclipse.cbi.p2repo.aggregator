@@ -14,14 +14,14 @@ package org.eclipse.b3.build.build;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Effective Capability Facade</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade#getProvidedCapability <em>Provided Capability</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade#getProvidedCapability <em>Provided Capability</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.build.B3BuildPackage#getEffectiveCapabilityFacade()
  * @model
  * @generated
@@ -34,7 +34,6 @@ public interface EffectiveCapabilityFacade extends EffectiveFacade {
 	 * If the meaning of the '<em>Provided Capability</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Provided Capability</em>' reference.
 	 * @see #setProvidedCapability(Capability)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getEffectiveCapabilityFacade_ProvidedCapability()
@@ -44,13 +43,10 @@ public interface EffectiveCapabilityFacade extends EffectiveFacade {
 	Capability getProvidedCapability();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade#getProvidedCapability <em>Provided Capability</em>}'
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade#getProvidedCapability <em>Provided Capability</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Provided Capability</em>' reference.
+	 * @param value the new value of the '<em>Provided Capability</em>' reference.
 	 * @see #getProvidedCapability()
 	 * @generated
 	 */
