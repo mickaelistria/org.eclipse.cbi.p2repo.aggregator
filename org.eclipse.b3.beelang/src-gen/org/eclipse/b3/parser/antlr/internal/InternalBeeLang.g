@@ -14802,12 +14802,12 @@ ruleFeatureCall returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(
+
 	{ 
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getFeatureCallAccess().getOperationCallParserRuleCall_0(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getFeatureCallAccess().getOperationCallParserRuleCall(), currentNode); 
     }
     this_OperationCall_0=ruleOperationCall
     { 
@@ -14815,124 +14815,6 @@ ruleFeatureCall returns [EObject current=null]
         currentNode = currentNode.getParent();
     }
 
-    |((
-	{ 
-	  /* */ 
-	}
-    { 
-        temp=factory.create(grammarAccess.getFeatureCallAccess().getBCallFeatureAction_1_0().getType().getClassifier());
-        $current = temp; 
-        temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getFeatureCallAccess().getBCallFeatureAction_1_0(), currentNode.getParent());
-    newNode.getChildren().add(currentNode);
-    moveLookaheadInfo(currentNode, newNode);
-    currentNode = newNode; 
-        associateNodeWithAstElement(currentNode, $current); 
-    }
-)	'.' 
-    {
-        createLeafNode(grammarAccess.getFeatureCallAccess().getFullStopKeyword_1_1(), null); 
-    }
-(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getFeatureCallAccess().getNameID_or_KWParserRuleCall_1_2_0(), currentNode); 
-	    }
-		lv_name_3_0=ruleID_or_KW		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getFeatureCallRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"name",
-	        		lv_name_3_0, 
-	        		"ID_or_KW", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-)	'(' 
-    {
-        createLeafNode(grammarAccess.getFeatureCallAccess().getLeftParenthesisKeyword_1_3(), null); 
-    }
-(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getFeatureCallAccess().getParameterListParameterListParserRuleCall_1_4_0(), currentNode); 
-	    }
-		lv_parameterList_5_0=ruleParameterList		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getFeatureCallRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"parameterList",
-	        		lv_parameterList_5_0, 
-	        		"ParameterList", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-)?	')' 
-    {
-        createLeafNode(grammarAccess.getFeatureCallAccess().getRightParenthesisKeyword_1_5(), null); 
-    }
-)
-    |((
-	{ 
-	  /* */ 
-	}
-    { 
-        temp=factory.create(grammarAccess.getFeatureCallAccess().getBFeatureExpressionAction_2_0().getType().getClassifier());
-        $current = temp; 
-        temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getFeatureCallAccess().getBFeatureExpressionAction_2_0(), currentNode.getParent());
-    newNode.getChildren().add(currentNode);
-    moveLookaheadInfo(currentNode, newNode);
-    currentNode = newNode; 
-        associateNodeWithAstElement(currentNode, $current); 
-    }
-)	'.' 
-    {
-        createLeafNode(grammarAccess.getFeatureCallAccess().getFullStopKeyword_2_1(), null); 
-    }
-(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getFeatureCallAccess().getFeatureNameID_or_KWParserRuleCall_2_2_0(), currentNode); 
-	    }
-		lv_featureName_9_0=ruleID_or_KW		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getFeatureCallRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"featureName",
-	        		lv_featureName_9_0, 
-	        		"ID_or_KW", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-)))
 ;
 
 

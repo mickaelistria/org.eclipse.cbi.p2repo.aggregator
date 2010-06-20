@@ -102,7 +102,6 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getID_or_KW_NO_UNITAccess().getAlternatives(), "rule__ID_or_KW_NO_UNIT__Alternatives");
 					put(grammarAccess.getKWAccess().getAlternatives(), "rule__KW__Alternatives");
 					put(grammarAccess.getKW_NO_UNITAccess().getAlternatives(), "rule__KW_NO_UNIT__Alternatives");
-					put(grammarAccess.getFeatureCallAccess().getAlternatives(), "rule__FeatureCall__Alternatives");
 					put(grammarAccess.getBuildConcernContextAccess().getAlternatives(), "rule__BuildConcernContext__Alternatives");
 					put(grammarAccess.getFunctionConcernContextAccess().getAlternatives_5_1(), "rule__FunctionConcernContext__Alternatives_5_1");
 					put(grammarAccess.getParameterPredicateAccess().getAlternatives(), "rule__ParameterPredicate__Alternatives");
@@ -416,8 +415,6 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getElseIfExpressionAccess().getGroup_5_1(), "rule__ElseIfExpression__Group_5_1__0");
 					put(grammarAccess.getPropertyValueAccess().getGroup(), "rule__PropertyValue__Group__0");
 					put(grammarAccess.getVariableValueAccess().getGroup(), "rule__VariableValue__Group__0");
-					put(grammarAccess.getFeatureCallAccess().getGroup_1(), "rule__FeatureCall__Group_1__0");
-					put(grammarAccess.getFeatureCallAccess().getGroup_2(), "rule__FeatureCall__Group_2__0");
 					put(grammarAccess.getOperationCallAccess().getGroup(), "rule__OperationCall__Group__0");
 					put(grammarAccess.getConstructorCallExpressionAccess().getGroup(), "rule__ConstructorCallExpression__Group__0");
 					put(grammarAccess.getConstructorCallExpressionAccess().getGroup_3(), "rule__ConstructorCallExpression__Group_3__0");
@@ -882,9 +879,6 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getElseIfExpressionAccess().getElseExprAssignment_5_1_1(), "rule__ElseIfExpression__ElseExprAssignment_5_1_1");
 					put(grammarAccess.getPropertyValueAccess().getNameAssignment_1(), "rule__PropertyValue__NameAssignment_1");
 					put(grammarAccess.getVariableValueAccess().getNamedValueAssignment_1(), "rule__VariableValue__NamedValueAssignment_1");
-					put(grammarAccess.getFeatureCallAccess().getNameAssignment_1_2(), "rule__FeatureCall__NameAssignment_1_2");
-					put(grammarAccess.getFeatureCallAccess().getParameterListAssignment_1_4(), "rule__FeatureCall__ParameterListAssignment_1_4");
-					put(grammarAccess.getFeatureCallAccess().getFeatureNameAssignment_2_2(), "rule__FeatureCall__FeatureNameAssignment_2_2");
 					put(grammarAccess.getOperationCallAccess().getFuncRefAssignment_1(), "rule__OperationCall__FuncRefAssignment_1");
 					put(grammarAccess.getOperationCallAccess().getParameterListAssignment_3(), "rule__OperationCall__ParameterListAssignment_3");
 					put(grammarAccess.getConstructorCallExpressionAccess().getTypeExprAssignment_2(), "rule__ConstructorCallExpression__TypeExprAssignment_2");

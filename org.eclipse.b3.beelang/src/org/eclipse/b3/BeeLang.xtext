@@ -793,8 +793,8 @@ KW_NO_UNIT : "input" | "output" | "source" | "result" | "properties" | "builder"
 	
 FeatureCall returns be::BExpression :
 	OperationCall
-	| ({be::BCallFeature} "." name=ID_or_KW  "(" (parameterList = ParameterList)? ")")
-	| ({be::BFeatureExpression} "." featureName=ID_or_KW)
+//	| ({be::BCallFeature} "." name=ID_or_KW  "(" (parameterList = ParameterList)? ")")
+//	| ({be::BFeatureExpression} "." featureName=ID_or_KW)
 	
 	;
 	

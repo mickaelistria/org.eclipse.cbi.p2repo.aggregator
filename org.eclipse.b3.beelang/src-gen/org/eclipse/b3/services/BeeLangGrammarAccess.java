@@ -7702,76 +7702,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class FeatureCallElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FeatureCall");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cOperationCallParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cBCallFeatureAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameID_or_KWParserRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cParameterListAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cParameterListParameterListParserRuleCall_1_4_0 = (RuleCall)cParameterListAssignment_1_4.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_5 = (Keyword)cGroup_1.eContents().get(5);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cBFeatureExpressionAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final Keyword cFullStopKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cFeatureNameAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cFeatureNameID_or_KWParserRuleCall_2_2_0 = (RuleCall)cFeatureNameAssignment_2_2.eContents().get(0);
+		private final RuleCall cOperationCallParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
+		////	| ({be::BCallFeature} "." name=ID_or_KW  "(" (parameterList = ParameterList)? ")")
+		////	| ({be::BFeatureExpression} "." featureName=ID_or_KW)
 		//FeatureCall returns be::BExpression:
-		//	OperationCall | {be::BCallFeature} "." name=ID_or_KW "(" parameterList=ParameterList? ")" | {be::BFeatureExpression}
-		//	"." featureName=ID_or_KW;
+		//	OperationCall;
 		public ParserRule getRule() { return rule; }
 
-		//OperationCall | {be::BCallFeature} "." name=ID_or_KW "(" parameterList=ParameterList? ")" | {be::BFeatureExpression} "."
-		//featureName=ID_or_KW
-		public Alternatives getAlternatives() { return cAlternatives; }
-
 		//OperationCall
-		public RuleCall getOperationCallParserRuleCall_0() { return cOperationCallParserRuleCall_0; }
-
-		//{be::BCallFeature} "." name=ID_or_KW "(" parameterList=ParameterList? ")"
-		public Group getGroup_1() { return cGroup_1; }
-
-		//{be::BCallFeature}
-		public Action getBCallFeatureAction_1_0() { return cBCallFeatureAction_1_0; }
-
-		//"."
-		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
-
-		//name=ID_or_KW
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-
-		//ID_or_KW
-		public RuleCall getNameID_or_KWParserRuleCall_1_2_0() { return cNameID_or_KWParserRuleCall_1_2_0; }
-
-		//"("
-		public Keyword getLeftParenthesisKeyword_1_3() { return cLeftParenthesisKeyword_1_3; }
-
-		//parameterList=ParameterList?
-		public Assignment getParameterListAssignment_1_4() { return cParameterListAssignment_1_4; }
-
-		//ParameterList
-		public RuleCall getParameterListParameterListParserRuleCall_1_4_0() { return cParameterListParameterListParserRuleCall_1_4_0; }
-
-		//")"
-		public Keyword getRightParenthesisKeyword_1_5() { return cRightParenthesisKeyword_1_5; }
-
-		//{be::BFeatureExpression} "." featureName=ID_or_KW
-		public Group getGroup_2() { return cGroup_2; }
-
-		//{be::BFeatureExpression}
-		public Action getBFeatureExpressionAction_2_0() { return cBFeatureExpressionAction_2_0; }
-
-		//"."
-		public Keyword getFullStopKeyword_2_1() { return cFullStopKeyword_2_1; }
-
-		//featureName=ID_or_KW
-		public Assignment getFeatureNameAssignment_2_2() { return cFeatureNameAssignment_2_2; }
-
-		//ID_or_KW
-		public RuleCall getFeatureNameID_or_KWParserRuleCall_2_2_0() { return cFeatureNameID_or_KWParserRuleCall_2_2_0; }
+		public RuleCall getOperationCallParserRuleCall() { return cOperationCallParserRuleCall; }
 	}
 
 	public class OperationCallElements extends AbstractParserRuleElementFinder {
@@ -13741,9 +13681,10 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getKW_NO_UNITAccess().getRule();
 	}
 
+	////	| ({be::BCallFeature} "." name=ID_or_KW  "(" (parameterList = ParameterList)? ")")
+	////	| ({be::BFeatureExpression} "." featureName=ID_or_KW)
 	//FeatureCall returns be::BExpression:
-	//	OperationCall | {be::BCallFeature} "." name=ID_or_KW "(" parameterList=ParameterList? ")" | {be::BFeatureExpression}
-	//	"." featureName=ID_or_KW;
+	//	OperationCall;
 	public FeatureCallElements getFeatureCallAccess() {
 		return (pFeatureCall != null) ? pFeatureCall : (pFeatureCall = new FeatureCallElements());
 	}
