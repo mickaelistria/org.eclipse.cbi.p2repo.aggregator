@@ -1,15 +1,20 @@
 package org.eclipse.b3.validation;
 
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.TypePattern;
+import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCase;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.Branch;
@@ -25,6 +30,7 @@ import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.build.core.RepositoryValidation;
 import org.eclipse.b3.build.repository.IRepositoryValidator;
 import org.eclipse.b3.build.repository.IRepositoryValidator.IOption;
+import org.eclipse.b3.typeinference.B3BuildTypeProvider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.Check;
@@ -87,6 +93,22 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 				error(
 					"A build unit may only have one 'resolution' declaration.", provider,
 					B3BuildPackage.BUILD_UNIT__PROVIDERS, ISSUE_BUILD_UNIT__MULTIPLE_RESOLUTIONS);
+		}
+	}
+
+	@Check
+	public void checkFeatureExists(BFeatureExpression fexpr) {
+		BExpression objE = fexpr.getObjExpr();
+		String fname = fexpr.getFeatureName();
+		B3BuildTypeProvider typer = new B3BuildTypeProvider();
+		Type type = typer.doGetInferredType(objE);
+
+		PojoFeatureLValue resultingLValue = new PojoFeatureLValue(TypeUtils.getRaw(type), fname);
+
+		if(!resultingLValue.isGetable()) {
+			error(
+				"The feature '" + fname + "' is not a feature found in type '" + type + "'.",
+				B3backendPackage.BFEATURE_EXPRESSION__FEATURE_NAME);
 		}
 	}
 

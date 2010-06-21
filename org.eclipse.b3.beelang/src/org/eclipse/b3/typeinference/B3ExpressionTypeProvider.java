@@ -507,8 +507,7 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 	}
 
 	public Type type(BVariableExpression o) {
-		// TODO: OLD WAY look up named value in context and return its type
-		return null;
+		return doGetInferredType(o.getNamedValue());
 	}
 
 	public Type type(BWithContextExpression o) {

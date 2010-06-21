@@ -70,6 +70,14 @@ public class Person {
 		return name;
 	}
 
+	public void makeOlder() {
+		birthYear--;
+	}
+
+	public void makeYounger() {
+		birthYear++;
+	}
+
 	/**
 	 * @param birthYear
 	 *            the birthYear to set
@@ -109,5 +117,4 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }

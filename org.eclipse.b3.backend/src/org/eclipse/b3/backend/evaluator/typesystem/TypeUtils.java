@@ -674,29 +674,19 @@ public class TypeUtils {
 		return Object.class;
 	}
 
-	private static Class<?> getPrimitiveTypeReflectively(Class<?> objectType) {
-		Field f;
-
-		try {
-			f = objectType.getField("TYPE");
-		}
-		catch(SecurityException e) {
-			throw new ExceptionInInitializerError(e);
-		}
-		catch(NoSuchFieldException e) {
-			throw new ExceptionInInitializerError(e);
-		}
-
-		try {
-			return (Class<?>) f.get(null);
-		}
-		catch(IllegalArgumentException e) {
-			throw new ExceptionInInitializerError(e);
-		}
-		catch(IllegalAccessException e) {
-			throw new ExceptionInInitializerError(e);
-		}
-	}
+	// public static List<String> getMemberNamesOfType(Type t) {
+	// List<String> result = new ArrayList<String>();
+	// Class<?> traw = getRaw(t);
+	// Field[] fields = traw.getFields();
+	// Method[] methods = traw.getMethods();
+	// for(int i = 0; i < fields.length; i++) {
+	// result.add(fields[i].getName());
+	// }
+	// for(int i = 0; i < methods.length; i++) {
+	// result.add(methods[i].getName());
+	// }
+	// return result;
+	// }
 
 	// /**
 	// * Returns the (best) specificity distance for an interface. (A class may restate its implementation of an
@@ -724,6 +714,30 @@ public class TypeUtils {
 	// ? best + 1
 	// : best;
 	// }
+
+	private static Class<?> getPrimitiveTypeReflectively(Class<?> objectType) {
+		Field f;
+
+		try {
+			f = objectType.getField("TYPE");
+		}
+		catch(SecurityException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+		catch(NoSuchFieldException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+
+		try {
+			return (Class<?>) f.get(null);
+		}
+		catch(IllegalArgumentException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+		catch(IllegalAccessException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+	}
 
 	protected static Class<?> getRaw(GenericArrayType type) {
 		StringBuilder rawArrayClassName = new StringBuilder();
@@ -805,6 +819,13 @@ public class TypeUtils {
 		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
 	}
 
+	// public static int typeDistance(Type baseType, Type queriedType) {
+	// Class<?> baseClass = getRaw(baseType);
+	// if(baseClass.isInterface())
+	// return interfaceDistance(baseClass, getRaw(queriedType));
+	// return classDistance(baseClass, getRaw(queriedType));
+	// }
+
 	protected static Boolean isAssignableFromSpecialCase(Type baseType, Type fromType) {
 		if(baseType instanceof B3FunctionType)
 			return Boolean.valueOf(((B3FunctionType) baseType).isAssignableFrom(fromType));
@@ -813,18 +834,27 @@ public class TypeUtils {
 		return null;
 	}
 
-	// public static int typeDistance(Type baseType, Type queriedType) {
-	// Class<?> baseClass = getRaw(baseType);
-	// if(baseClass.isInterface())
-	// return interfaceDistance(baseClass, getRaw(queriedType));
-	// return classDistance(baseClass, getRaw(queriedType));
-	// }
-
 	public static boolean isCoercibleFrom(Type baseType, Type fromType) {
 		Set<Type> coerceTypes = coerceMap.get(fromType);
 
 		return coerceTypes != null && coerceTypes.contains(baseType);
 	}
+
+	// public static boolean isNameMemberOfType(Type t, String name) {
+	// Class<?> traw = getRaw(t);
+	// Field[] fields = traw.getFields();
+	// Method[] methods = traw.getMethods();
+	// for(int i = 0; i < fields.length; i++) {
+	// if(fields[i].getName().equals(name))
+	// return true;
+	// }
+	// for(int i = 0; i < methods.length; i++) {
+	// if(methods[i].getName().equals(name))
+	// return true;
+	// }
+	// return false;
+	//
+	// }
 
 	/**
 	 * Returns the object type corresponding to a primitive type.
@@ -845,5 +875,4 @@ public class TypeUtils {
 				? primitiveType
 				: objectType;
 	}
-
 }

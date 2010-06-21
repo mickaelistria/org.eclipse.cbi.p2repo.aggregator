@@ -27,7 +27,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -448,8 +447,11 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 			}
 		}
 		Class<?> clazz = TypeUtils.getRaw(objectType);
-		if(EObject.class.isAssignableFrom(clazz)) {
-			clazz = clazz;
+
+		// if trying to create an instance from an interface see if there is a guice binding for it.
+		//
+		if(clazz.isInterface()) {
+			ctx.getInjector().getInstance(clazz);
 		}
 
 		ConstructorCandidate constructorCandidate;

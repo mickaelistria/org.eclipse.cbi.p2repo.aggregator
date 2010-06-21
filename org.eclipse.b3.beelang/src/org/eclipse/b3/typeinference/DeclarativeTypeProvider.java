@@ -31,7 +31,7 @@ public class DeclarativeTypeProvider {
 
 	private List<Object> inferenceStack = new ArrayList<Object>();
 
-	protected Type doGetInferredType(Object element) {
+	public Type doGetInferredType(Object element) {
 		if(inferenceStack.contains(element))
 			return null; // inference depends on itself
 		try {
