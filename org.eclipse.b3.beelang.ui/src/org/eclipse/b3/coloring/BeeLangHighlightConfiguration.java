@@ -22,6 +22,8 @@ public class BeeLangHighlightConfiguration extends DefaultHighlightingConfigurat
 
 	public static final String REAL_ID = "real";
 
+	public static final String PROPERTY_ID = "property";
+
 	@Override
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		super.configure(acceptor);
@@ -29,6 +31,7 @@ public class BeeLangHighlightConfiguration extends DefaultHighlightingConfigurat
 		acceptor.acceptDefaultHighlighting(REGEXP_ID, "Regular Expression", regexpTextStyle());
 		acceptor.acceptDefaultHighlighting(BOOLEAN_ID, "Boolean Literal", italicKeywordLightStyle());
 		acceptor.acceptDefaultHighlighting(NULL_ID, "Null Literal", nullTextStyle());
+		acceptor.acceptDefaultHighlighting(PROPERTY_ID, "Properties", propertyTextStyle());
 
 		// from semantic
 		acceptor.acceptDefaultHighlighting(VERSION_ID, "Version", versionTextStyle());
@@ -62,6 +65,13 @@ public class BeeLangHighlightConfiguration extends DefaultHighlightingConfigurat
 		return textStyle;
 	}
 
+	public TextStyle propertyTextStyle() {
+		TextStyle textStyle = defaultTextStyle().copy();
+		textStyle.setColor(new RGB(0x99, 0x33, 0x00)); // Brownish
+		return textStyle;
+
+	}
+
 	public TextStyle realTextStyle() {
 		TextStyle textStyle = defaultTextStyle().copy();
 		textStyle.setColor(new RGB(125, 125, 125));
@@ -81,5 +91,4 @@ public class BeeLangHighlightConfiguration extends DefaultHighlightingConfigurat
 		textStyle.setStyle(SWT.ITALIC);
 		return textStyle;
 	}
-
 }

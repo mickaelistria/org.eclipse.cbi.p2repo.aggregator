@@ -1,5 +1,7 @@
 package org.eclipse.b3.coloring;
 
+import java.util.List;
+
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildUnit;
@@ -9,10 +11,13 @@ import org.eclipse.b3.build.build.RepoOption;
 import org.eclipse.b3.build.build.Repository;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.VersionedCapability;
+import org.eclipse.b3.services.BeeLangGrammarAccess;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.IGrammarAccess;
+import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.parsetree.AbstractNode;
 import org.eclipse.xtext.parsetree.CompositeNode;
 import org.eclipse.xtext.parsetree.LeafNode;
@@ -21,6 +26,8 @@ import org.eclipse.xtext.parsetree.NodeUtil;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
+
+import com.google.inject.Inject;
 
 /**
  * Semantic highlighting for b3 (i.e. where highlight depends on where in grammar a particular
@@ -31,6 +38,9 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculato
  * 
  */
 public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlightingCalculator {
+
+	@Inject
+	private IGrammarAccess grammarAccess;
 
 	// navigate to the parse node corresponding to the semantic object and
 	// fetch the leaf node that corresponds to the first feature with the given
@@ -117,6 +127,25 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 	}
 
 	public void provideHighlightingFor(XtextResource resource, IHighlightedPositionAcceptor acceptor) {
+		if(resource == null)
+			return;
+		BeeLangGrammarAccess f = (BeeLangGrammarAccess) grammarAccess;
+		List<RuleCall> x = f.findRuleCalls(f.getID_or_KWRule());
+		Iterable<AbstractNode> allNodes = NodeUtil.getAllContents(resource.getParseResult().getRootNode());
+
+		for(AbstractNode node : allNodes) {
+			EObject gElem = node.getGrammarElement();
+			EObject elem = node.getElement();
+			// is this a RuleCall of the specified type
+			if(gElem instanceof RuleCall)
+				if(x != null && x.contains(gElem)) {
+					acceptor.addPosition(node.getOffset(), node.getLength(), BeeLangHighlightConfiguration.DEFAULT_ID);
+				}
+		}
+		provideHighlightingFor2(resource, acceptor);
+	}
+
+	public void provideHighlightingFor2(XtextResource resource, IHighlightedPositionAcceptor acceptor) {
 		if(resource == null)
 			return;
 		// Iterable<AbstractNode> allNodes = NodeUtil.getAllContents(
