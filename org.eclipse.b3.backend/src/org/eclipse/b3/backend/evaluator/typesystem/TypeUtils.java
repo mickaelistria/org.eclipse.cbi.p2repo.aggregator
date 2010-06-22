@@ -23,7 +23,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 
 public class TypeUtils {
@@ -401,6 +403,66 @@ public class TypeUtils {
 
 		public Type getGenericComponentType() {
 			return componentType;
+		}
+
+	}
+
+	public static class GuardedFunctionCandidateSource extends
+			CandidateSource<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> {
+
+		private class FunctionCandidateIterator implements
+				Iterator<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> {
+
+			private Iterator<IFunction> functionListIterator = functionList.iterator();
+
+			public boolean hasNext() {
+				return functionListIterator.hasNext();
+			}
+
+			public FunctionCandidateAdapterFactory.IFunctionCandidateAdapter next() {
+				return FunctionCandidateAdapterFactory.eINSTANCE.adapt(functionListIterator.next());
+			}
+
+			public void remove() {
+				throw new UnsupportedOperationException();
+			}
+
+		}
+
+		private List<IFunction> functionList;
+
+		// private BExecutionContext callContext;
+
+		// private Object[] callParameters;
+
+		public GuardedFunctionCandidateSource(List<IFunction> list /* , BExecutionContext context, Object[] parameters */) {
+			functionList = list;
+			// we need the following context parameters to be able to call guards
+			// callContext = context;
+			// callParameters = parameters;
+		}
+
+		@Override
+		public boolean isCandidateAccepted(FunctionCandidateAdapterFactory.IFunctionCandidateAdapter candidateAdapter,
+				Type[] parameterTypes) {
+			IFunction candidate = candidateAdapter.getTarget();
+			BGuard guard = candidate.getGuard();
+
+			if(guard == null)
+				return true;
+
+			try {
+				// return guard.accepts(candidate, callContext, callParameters, parameterTypes);
+				return guard.accepts(candidate, parameterTypes);
+			}
+			catch(Throwable t) {
+				// TODO we may want to collect the errors and report them later
+				throw new Error(t);
+			}
+		}
+
+		public Iterator<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> iterator() {
+			return new FunctionCandidateIterator();
 		}
 
 	}

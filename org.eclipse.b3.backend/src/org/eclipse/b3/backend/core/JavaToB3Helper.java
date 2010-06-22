@@ -113,6 +113,17 @@ public class JavaToB3Helper {
 		return f;
 	}
 
+	public static Iterable<IFunction> getNamedFunctions(Class<?> clazz, String name) {
+		List<IFunction> result = new ArrayList<IFunction>();
+		Method[] ms = clazz.getMethods();
+		for(int i = 0; i < ms.length; i++) {
+			if(!name.equals(ms[i].getName()))
+				continue;
+			result.add(createJavaFunction(ms[i], BJavaCallType.METHOD));
+		}
+		return result;
+	}
+
 	private static String[] getParameterNames(Annotation[][] allParametersAnnotations, String... instanceParameterNames) {
 		int instanceParameterNamesCount = instanceParameterNames != null
 				? instanceParameterNames.length
@@ -353,5 +364,4 @@ public class JavaToB3Helper {
 
 		return buf.reverse().toString();
 	}
-
 }

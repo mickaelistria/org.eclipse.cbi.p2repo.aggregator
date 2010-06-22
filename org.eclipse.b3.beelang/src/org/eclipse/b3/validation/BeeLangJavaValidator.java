@@ -2,9 +2,14 @@ package org.eclipse.b3.validation;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.backend.core.B3AmbiguousFunctionSignatureException;
+import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
+import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
+import org.eclipse.b3.backend.core.JavaToB3Helper;
 import org.eclipse.b3.backend.core.TypePattern;
 import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
@@ -19,6 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
@@ -161,30 +167,49 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 				effective.add(f);
 			}
 		}
+		// find matching java methods, skip already overloaded
+		for(IFunction f : JavaToB3Helper.getNamedFunctions(TypeUtils.getRaw(type), name)) {
+			OVERLOADED: {
+				for(IFunction f1 : effective) {
+					if(TypeUtils.hasEqualSignature(f1, f))
+						break OVERLOADED;
+				}
+				effective.add(f);
+			}
+
+		}
 
 		// HOWTO: FIND MATCH
-		// LinkedList<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> candidateFunctions =
-		// TypeUtils.Candidate.findMostSpecificApplicableCandidates(
-		// types, new ContextualFunctionCandidateSource(list, ctx, parameters));
-		//
-		// switch(candidateFunctions.size()) {
-		// case 0: // no candidate function found
-		// throw new B3NoSuchFunctionSignatureException(name, types, list);
-		// case 1: // one candidate function found
-		// return candidateFunctions.getFirst().getTarget();
-		// default: // more than one candidate function found (the function call is ambiguous)
-		// throw new B3AmbiguousFunctionSignatureException(name, types);
-		// }
+		try {
+			if(effective.size() < 1) {
+				throw new B3NoSuchFunctionException(name);
+			}
+			LinkedList<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> candidateFunctions = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
+				tparameters, new TypeUtils.GuardedFunctionCandidateSource(effective));
+
+			switch(candidateFunctions.size()) {
+				case 0: // no candidate function found
+					throw new B3NoSuchFunctionSignatureException(name, tparameters, effective);
+				case 1: // one candidate function found == HAPPY
+						// return candidateFunctions.getFirst().getTarget();
+					break;
+				default: // more than one candidate function found (the function call is ambiguous)
+					throw new B3AmbiguousFunctionSignatureException(name, tparameters);
+			}
+		}
 
 		// find matching methods (static, non static)
-
-		// catch(B3NoSuchFunctionSignatureException e) {
-		// lastError = e;
-		// }
-		// catch(B3NoSuchFunctionException e) {
-		// lastError = e;
-		// }
-		// throw B3BackendException.fromMessage(this, lastError, "Call failed - see details.");
+		catch(B3NoSuchFunctionSignatureException e) {
+			error(
+				"No function matching used parameter types found.", cexpr,
+				B3backendPackage.BCALL_FEATURE__PARAMETER_LIST);
+		}
+		catch(B3NoSuchFunctionException e) {
+			error("Function name not found.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
+		}
+		catch(B3AmbiguousFunctionSignatureException e) {
+			error("Used parameters leads to ambiguous call", cexpr, B3backendPackage.BCALL_FEATURE__PARAMETER_LIST);
+		}
 	}
 
 	@Check

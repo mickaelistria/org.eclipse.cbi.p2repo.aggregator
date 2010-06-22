@@ -13,72 +13,11 @@ import java.util.Set;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
-import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class B3FuncStore {
-	private static class ContextualFunctionCandidateSource extends
-			TypeUtils.CandidateSource<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> {
-
-		private class FunctionCandidateIterator implements
-				Iterator<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> {
-
-			private Iterator<IFunction> functionListIterator = functionList.iterator();
-
-			public boolean hasNext() {
-				return functionListIterator.hasNext();
-			}
-
-			public FunctionCandidateAdapterFactory.IFunctionCandidateAdapter next() {
-				return FunctionCandidateAdapterFactory.eINSTANCE.adapt(functionListIterator.next());
-			}
-
-			public void remove() {
-				throw new UnsupportedOperationException();
-			}
-
-		}
-
-		private List<IFunction> functionList;
-
-		// private BExecutionContext callContext;
-
-		// private Object[] callParameters;
-
-		public ContextualFunctionCandidateSource(List<IFunction> list /* , BExecutionContext context, Object[] parameters */) {
-			functionList = list;
-			// we need the following context parameters to be able to call guards
-			// callContext = context;
-			// callParameters = parameters;
-		}
-
-		@Override
-		public boolean isCandidateAccepted(FunctionCandidateAdapterFactory.IFunctionCandidateAdapter candidateAdapter,
-				Type[] parameterTypes) {
-			IFunction candidate = candidateAdapter.getTarget();
-			BGuard guard = candidate.getGuard();
-
-			if(guard == null)
-				return true;
-
-			try {
-				// return guard.accepts(candidate, callContext, callParameters, parameterTypes);
-				return guard.accepts(candidate, parameterTypes);
-			}
-			catch(Throwable t) {
-				// TODO we may want to collect the errors and report them later
-				throw new Error(t);
-			}
-		}
-
-		public Iterator<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> iterator() {
-			return new FunctionCandidateIterator();
-		}
-
-	}
-
 	private class TypeIterator implements Iterator<IFunction> {
 		UberIterator allFunctionsIterator;
 
@@ -402,7 +341,7 @@ public class B3FuncStore {
 			throw new B3NoSuchFunctionException(name); // something is really wrong if that happens here
 
 		LinkedList<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> candidateFunctions = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
-			types, new ContextualFunctionCandidateSource(list /* , ctx, parameters */));
+			types, new TypeUtils.GuardedFunctionCandidateSource(list /* , ctx, parameters */));
 
 		switch(candidateFunctions.size()) {
 			case 0: // no candidate function found
