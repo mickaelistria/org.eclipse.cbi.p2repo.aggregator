@@ -26,10 +26,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#matches(java.lang.String) <em>Matches</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#matches(java.lang.String) <em>Matches</em>}</li>
  * </ul>
  * </p>
- * 
  * @generated
  */
 public class BNamePredicateTest extends TestCase {
@@ -37,7 +36,6 @@ public class BNamePredicateTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -45,7 +43,6 @@ public class BNamePredicateTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -56,7 +53,6 @@ public class BNamePredicateTest extends TestCase {
 	 * The fixture for this BName Predicate test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BNamePredicate fixture = null;
@@ -65,7 +61,6 @@ public class BNamePredicateTest extends TestCase {
 	 * Constructs a new BName Predicate test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BNamePredicateTest(String name) {
@@ -76,7 +71,6 @@ public class BNamePredicateTest extends TestCase {
 	 * Returns the fixture for this BName Predicate test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BNamePredicate getFixture() {
@@ -87,7 +81,6 @@ public class BNamePredicateTest extends TestCase {
 	 * Sets the fixture for this BName Predicate test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void setFixture(BNamePredicate fixture) {
@@ -97,7 +90,6 @@ public class BNamePredicateTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -109,7 +101,6 @@ public class BNamePredicateTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -122,7 +113,6 @@ public class BNamePredicateTest extends TestCase {
 	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#matches(java.lang.String) <em>Matches</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#matches(java.lang.String)
 	 * @generated
 	 */

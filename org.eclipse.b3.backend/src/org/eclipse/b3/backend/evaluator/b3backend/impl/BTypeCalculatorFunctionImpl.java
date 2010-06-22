@@ -15,15 +15,11 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
-
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -174,12 +170,12 @@ public class BTypeCalculatorFunctionImpl extends BTypeCalculatorImpl implements 
 	}
 
 	@Override
-	public Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx) {
+	public Type getReturnTypeForParameterTypes(Type[] types /* , BExecutionContext ctx */) {
 		try {
-			return (Type) func.call(ctx, new Object[] { types, ctx }, new Type[] { types.getClass(), ctx.getClass() });
+			return (Type) func.call(null, new Object[] { types }, new Type[] { types.getClass() });
 		}
-		catch(Throwable t) {
-			t.printStackTrace();
+		catch(Throwable x) {
+			x.printStackTrace();
 		}
 		// TODO: NOT A VERY ROBUST SOLUTION
 		return null;

@@ -15,15 +15,11 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
-
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -70,9 +66,7 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	}
 
 	@Override
-	public boolean accepts(IFunction function, BExecutionContext ctx, Object[] parameters, Type[] types)
-			throws Throwable {
-		// BExecutionContext octx = ctx.createOuterContext();
+	public boolean accepts(IFunction function, Type[] types) throws Throwable {
 
 		Object[] paramsToUse = types;
 		Type[] typesToUse = new Type[types.length];
@@ -81,7 +75,7 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 			typesToUse[i] = types[i].getClass();
 		}
 
-		Object x = func.call(ctx, paramsToUse, typesToUse);
+		Object x = func.call(null, paramsToUse, typesToUse); // Note: null context
 		return x instanceof Boolean
 				? ((Boolean) x).booleanValue()
 				: Boolean.FALSE.booleanValue();

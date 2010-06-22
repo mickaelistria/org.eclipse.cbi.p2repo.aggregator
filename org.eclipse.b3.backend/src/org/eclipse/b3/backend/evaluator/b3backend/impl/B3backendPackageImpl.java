@@ -4700,14 +4700,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		op = addEOperation(
 			iFunctionEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(bGuardEClass, BGuard.class, "BGuard", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(bGuardEClass, ecorePackage.getEBoolean(), "accepts", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIFunction(), "function", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getObjectArray(), "parameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
 
@@ -4875,7 +4872,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		op = addEOperation(
 			b3FunctionTypeEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			iParameterizedTypeEClass, ParameterizedType.class, "IParameterizedType", IS_ABSTRACT, IS_INTERFACE,
@@ -4976,7 +4972,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		op = addEOperation(
 			bTypeCalculatorEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			bTypeCalculatorFunctionEClass, BTypeCalculatorFunction.class, "BTypeCalculatorFunction", !IS_ABSTRACT,

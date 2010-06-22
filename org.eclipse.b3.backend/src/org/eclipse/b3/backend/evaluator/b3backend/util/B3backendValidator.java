@@ -128,6 +128,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import com.google.inject.Injector;
+import java.lang.CharSequence;
 
 /**
  * <!-- begin-user-doc -->

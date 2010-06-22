@@ -26,7 +26,6 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BLiteral List Expression</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BLiteralListExpressionTest extends BExpressionTest {
@@ -34,7 +33,6 @@ public class BLiteralListExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -42,7 +40,6 @@ public class BLiteralListExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -53,7 +50,6 @@ public class BLiteralListExpressionTest extends BExpressionTest {
 	 * Constructs a new BLiteral List Expression test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BLiteralListExpressionTest(String name) {
@@ -64,18 +60,16 @@ public class BLiteralListExpressionTest extends BExpressionTest {
 	 * Returns the fixture for this BLiteral List Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected BLiteralListExpression getFixture() {
-		return (BLiteralListExpression) fixture;
+		return (BLiteralListExpression)fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -87,7 +81,6 @@ public class BLiteralListExpressionTest extends BExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

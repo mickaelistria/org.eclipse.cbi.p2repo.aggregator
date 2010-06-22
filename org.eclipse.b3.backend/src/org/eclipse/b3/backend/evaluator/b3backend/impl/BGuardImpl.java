@@ -9,7 +9,6 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
@@ -50,8 +49,7 @@ public abstract class BGuardImpl extends EObjectImpl implements BGuard {
 	 * 
 	 * @generated
 	 */
-	public boolean accepts(IFunction function, BExecutionContext ctx, Object[] parameters, Type[] types)
-			throws Throwable {
+	public boolean accepts(IFunction function, Type[] types) throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

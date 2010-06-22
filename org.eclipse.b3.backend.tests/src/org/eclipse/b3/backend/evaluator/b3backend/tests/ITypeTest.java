@@ -20,7 +20,6 @@ import junit.framework.TestCase;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>IType</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public abstract class ITypeTest extends TestCase {
@@ -28,7 +27,6 @@ public abstract class ITypeTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -37,7 +35,6 @@ public abstract class ITypeTest extends TestCase {
 	 * The fixture for this IType test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected Type fixture = null;
@@ -46,7 +43,6 @@ public abstract class ITypeTest extends TestCase {
 	 * Constructs a new IType test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ITypeTest(String name) {
@@ -57,7 +53,6 @@ public abstract class ITypeTest extends TestCase {
 	 * Returns the fixture for this IType test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected Type getFixture() {
@@ -68,7 +63,6 @@ public abstract class ITypeTest extends TestCase {
 	 * Sets the fixture for this IType test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void setFixture(Type fixture) {

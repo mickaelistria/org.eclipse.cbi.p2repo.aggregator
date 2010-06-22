@@ -266,7 +266,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
-	Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx);
+	Type getReturnTypeForParameterTypes(Type[] types);
 
 	/**
 	 * <!-- begin-user-doc -->

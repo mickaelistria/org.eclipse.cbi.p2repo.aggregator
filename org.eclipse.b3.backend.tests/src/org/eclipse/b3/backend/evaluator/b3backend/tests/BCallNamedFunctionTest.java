@@ -26,7 +26,6 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BCall Named Function</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BCallNamedFunctionTest extends BCallExpressionTest {
@@ -34,7 +33,6 @@ public class BCallNamedFunctionTest extends BCallExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -42,7 +40,6 @@ public class BCallNamedFunctionTest extends BCallExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -53,7 +50,6 @@ public class BCallNamedFunctionTest extends BCallExpressionTest {
 	 * Constructs a new BCall Named Function test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BCallNamedFunctionTest(String name) {
@@ -77,18 +73,16 @@ public class BCallNamedFunctionTest extends BCallExpressionTest {
 	 * Returns the fixture for this BCall Named Function test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected BCallNamedFunction getFixture() {
-		return (BCallNamedFunction) fixture;
+		return (BCallNamedFunction)fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -100,7 +94,6 @@ public class BCallNamedFunctionTest extends BCallExpressionTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

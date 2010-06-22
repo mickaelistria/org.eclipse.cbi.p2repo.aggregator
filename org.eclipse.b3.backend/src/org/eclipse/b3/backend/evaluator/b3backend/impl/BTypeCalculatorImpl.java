@@ -15,7 +15,6 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
 
 import org.eclipse.emf.ecore.EClass;
@@ -63,12 +62,11 @@ public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator 
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Derived classes must implement this method.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx) {
+	public Type getReturnTypeForParameterTypes(Type[] types) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

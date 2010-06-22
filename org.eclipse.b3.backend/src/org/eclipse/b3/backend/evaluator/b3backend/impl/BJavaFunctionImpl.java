@@ -110,7 +110,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 */
 	@Override
 	public Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
-		if(ctx.getProgressMonitor().isCanceled())
+		if(ctx != null && ctx.getProgressMonitor().isCanceled())
 			throw new OperationCanceledException();
 
 		return internalCall(ctx, parameters, types);
@@ -228,6 +228,10 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 		return t;
 	}
 
+	/**
+	 * @param ctx
+	 *            - may be null
+	 */
 	@Override
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
 		try {

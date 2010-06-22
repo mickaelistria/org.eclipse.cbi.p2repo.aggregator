@@ -15,13 +15,11 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.GenericDeclaration;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.LValue;
-
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
@@ -37,15 +35,11 @@ import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.core.runtime.OperationCanceledException;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -1303,8 +1297,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * 
 	 * @generated NOT
 	 */
-	public Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx) {
-		return getOriginal().getReturnTypeForParameterTypes(types, ctx);
+	public Type getReturnTypeForParameterTypes(Type[] types) {
+		return getOriginal().getReturnTypeForParameterTypes(types);
 	}
 
 	/**

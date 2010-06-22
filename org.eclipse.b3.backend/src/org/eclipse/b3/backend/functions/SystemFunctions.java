@@ -486,21 +486,21 @@ public class SystemFunctions {
 	}
 
 	@B3Backend(typeCalculator = true)
-	public static Type returnTypeOfFirstLambda(Type[] types, BExecutionContext ctx) {
+	public static Type returnTypeOfFirstLambda(Type[] types) {
 		if(types.length <= 1 || !(types[0] instanceof B3FunctionType))
 			return Object.class;
 		B3FunctionType ft = (B3FunctionType) types[0];
-		Type x = ft.getReturnTypeForParameterTypes(types, ctx);
+		Type x = ft.getReturnTypeForParameterTypes(types);
 		return x;
 	}
 
 	@B3Backend(typeCalculator = true)
-	public static Type returnTypeOfLastLambda(Type[] types, BExecutionContext ctx) {
+	public static Type returnTypeOfLastLambda(Type[] types) {
 		int ix = types.length - 1;
 		if(types.length < 1 || !(types[ix] instanceof B3FunctionType))
 			return Object.class;
 		B3FunctionType ft = (B3FunctionType) types[ix];
-		Type x = ft.getReturnTypeForParameterTypes(types, ctx);
+		Type x = ft.getReturnTypeForParameterTypes(types);
 		return x;
 	}
 

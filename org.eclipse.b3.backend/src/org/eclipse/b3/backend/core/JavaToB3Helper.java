@@ -310,7 +310,7 @@ public class JavaToB3Helper {
 				if(tc == null)
 					throw new B3FunctionLoadException("reference to type calculator function: " + e.getKey() +
 							" can not be satisfied - no such function found.", typed.getMethod());
-				// set the guard function, wrapped in a guard
+				// set the type calculator function, wrapped in a BTypeCalculator
 				BTypeCalculatorFunction tcf = B3backendFactory.eINSTANCE.createBTypeCalculatorFunction();
 				tcf.setFunc(tc);
 				typed.setTypeCalculator(tcf);

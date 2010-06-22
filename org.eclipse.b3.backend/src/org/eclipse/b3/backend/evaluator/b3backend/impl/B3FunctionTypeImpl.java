@@ -14,7 +14,6 @@ import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
@@ -358,11 +357,11 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * 
 	 * @generated NOT
 	 */
-	public Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx) {
+	public Type getReturnTypeForParameterTypes(Type[] types) {
 		BTypeCalculator tc = getTypeCalculator();
 		if(tc == null)
 			return getReturnType();
-		return tc.getReturnTypeForParameterTypes(types, ctx);
+		return tc.getReturnTypeForParameterTypes(types);
 	}
 
 	/**

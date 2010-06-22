@@ -26,14 +26,11 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypesArray() <em>Get Parameter Types Array</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type) <em>Is Assignable From</em>}</li>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
- * <em>Get Return Type For Parameter Types</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypesArray() <em>Get Parameter Types Array</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type) <em>Is Assignable From</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnTypeForParameterTypes(java.lang.reflect.Type[]) <em>Get Return Type For Parameter Types</em>}</li>
  * </ul>
  * </p>
- * 
  * @generated
  */
 public class B3FunctionTypeTest extends TestCase {
@@ -41,7 +38,6 @@ public class B3FunctionTypeTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -49,7 +45,6 @@ public class B3FunctionTypeTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -60,7 +55,6 @@ public class B3FunctionTypeTest extends TestCase {
 	 * The fixture for this B3 Function Type test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected B3FunctionType fixture = null;
@@ -69,7 +63,6 @@ public class B3FunctionTypeTest extends TestCase {
 	 * Constructs a new B3 Function Type test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public B3FunctionTypeTest(String name) {
@@ -80,7 +73,6 @@ public class B3FunctionTypeTest extends TestCase {
 	 * Returns the fixture for this B3 Function Type test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected B3FunctionType getFixture() {
@@ -91,7 +83,6 @@ public class B3FunctionTypeTest extends TestCase {
 	 * Sets the fixture for this B3 Function Type test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void setFixture(B3FunctionType fixture) {
@@ -101,7 +92,6 @@ public class B3FunctionTypeTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -113,7 +103,6 @@ public class B3FunctionTypeTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -123,11 +112,9 @@ public class B3FunctionTypeTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypesArray() <em>Get Parameter Types Array</em>}'
-	 * operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypesArray() <em>Get Parameter Types Array</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypesArray()
 	 * @generated
 	 */
@@ -138,32 +125,26 @@ public class B3FunctionTypeTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * <em>Get Return Type For Parameter Types</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type) <em>Is Assignable From</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnTypeForParameterTypes(java.lang.reflect.Type[],
-	 *      org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type)
 	 * @generated
 	 */
-	public void testGetReturnTypeForParameterTypes__Type_BExecutionContext() {
+	public void testIsAssignableFrom__Type() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type)
-	 * <em>Is Assignable From</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnTypeForParameterTypes(java.lang.reflect.Type[]) <em>Get Return Type For Parameter Types</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnTypeForParameterTypes(java.lang.reflect.Type[])
 	 * @generated
 	 */
-	public void testIsAssignableFrom__Type() {
+	public void testGetReturnTypeForParameterTypes__Type() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

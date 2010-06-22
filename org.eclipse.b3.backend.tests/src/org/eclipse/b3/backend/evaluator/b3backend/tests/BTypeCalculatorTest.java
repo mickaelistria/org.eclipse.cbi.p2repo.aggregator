@@ -26,12 +26,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>
- * {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
- * <em>Get Return Type For Parameter Types</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getReturnTypeForParameterTypes(java.lang.reflect.Type[]) <em>Get Return Type For Parameter Types</em>}</li>
  * </ul>
  * </p>
- * 
  * @generated
  */
 public class BTypeCalculatorTest extends TestCase {
@@ -39,7 +36,6 @@ public class BTypeCalculatorTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -47,7 +43,6 @@ public class BTypeCalculatorTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -58,7 +53,6 @@ public class BTypeCalculatorTest extends TestCase {
 	 * The fixture for this BType Calculator test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BTypeCalculator fixture = null;
@@ -67,7 +61,6 @@ public class BTypeCalculatorTest extends TestCase {
 	 * Constructs a new BType Calculator test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BTypeCalculatorTest(String name) {
@@ -78,7 +71,6 @@ public class BTypeCalculatorTest extends TestCase {
 	 * Returns the fixture for this BType Calculator test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BTypeCalculator getFixture() {
@@ -89,7 +81,6 @@ public class BTypeCalculatorTest extends TestCase {
 	 * Sets the fixture for this BType Calculator test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void setFixture(BTypeCalculator fixture) {
@@ -99,7 +90,6 @@ public class BTypeCalculatorTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -111,7 +101,6 @@ public class BTypeCalculatorTest extends TestCase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */
@@ -121,17 +110,13 @@ public class BTypeCalculatorTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '
-	 * {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 * <em>Get Return Type For Parameter Types</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getReturnTypeForParameterTypes(java.lang.reflect.Type[]) <em>Get Return Type For Parameter Types</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getReturnTypeForParameterTypes(java.lang.reflect.Type[],
-	 *      org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getReturnTypeForParameterTypes(java.lang.reflect.Type[])
 	 * @generated
 	 */
-	public void testGetReturnTypeForParameterTypes__Type_BExecutionContext() {
+	public void testGetReturnTypeForParameterTypes__Type() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

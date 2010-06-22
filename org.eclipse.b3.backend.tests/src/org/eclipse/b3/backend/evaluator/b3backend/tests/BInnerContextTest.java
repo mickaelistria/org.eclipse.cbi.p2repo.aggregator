@@ -15,7 +15,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BInner Context</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BInnerContextTest extends BExecutionContextTest {
@@ -23,7 +22,6 @@ public class BInnerContextTest extends BExecutionContextTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -31,7 +29,6 @@ public class BInnerContextTest extends BExecutionContextTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -42,7 +39,6 @@ public class BInnerContextTest extends BExecutionContextTest {
 	 * Constructs a new BInner Context test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BInnerContextTest(String name) {
@@ -53,18 +49,16 @@ public class BInnerContextTest extends BExecutionContextTest {
 	 * Returns the fixture for this BInner Context test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected BInnerContext getFixture() {
-		return (BInnerContext) fixture;
+		return (BInnerContext)fixture;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
@@ -76,7 +70,6 @@ public class BInnerContextTest extends BExecutionContextTest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

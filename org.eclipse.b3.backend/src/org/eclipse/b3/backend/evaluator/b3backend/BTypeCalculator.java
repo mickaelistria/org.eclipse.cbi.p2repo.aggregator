@@ -42,6 +42,6 @@ public interface BTypeCalculator extends EObject {
 	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
-	Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx);
+	Type getReturnTypeForParameterTypes(Type[] types);
 
 } // BTypeCalculator

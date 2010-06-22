@@ -791,92 +791,6 @@ public class TypeUtils {
 		throw new UnsupportedOperationException("UNSUPPORTED TYPE CLASS - was: " + t);
 	}
 
-	public static boolean isArray(Type baseType) {
-		if(baseType instanceof B3ParameterizedType)
-			baseType = ((B3ParameterizedType) baseType).getRawType();
-
-		return (baseType instanceof Class<?>) && ((Class<?>) baseType).isArray() ||
-				(baseType instanceof GenericArrayType);
-	}
-
-	/**
-	 * Is equivalent to calling {@link #isAssignableFrom(Type, Type)} with baseType, value.getClass(), but handles the
-	 * special case when value is null.
-	 * 
-	 * @param baseType
-	 * @param value
-	 * @return
-	 */
-	public static boolean isAssignableFrom(Type baseType, Object value) {
-		if(value == null)
-			return true;
-		return isAssignableFrom(baseType, value.getClass());
-	}
-
-	public static boolean isAssignableFrom(Type baseType, Type fromType) {
-		Boolean specialCase = isAssignableFromSpecialCase(baseType, fromType);
-		if(specialCase != null)
-			return specialCase.booleanValue();
-		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
-	}
-
-	// public static int typeDistance(Type baseType, Type queriedType) {
-	// Class<?> baseClass = getRaw(baseType);
-	// if(baseClass.isInterface())
-	// return interfaceDistance(baseClass, getRaw(queriedType));
-	// return classDistance(baseClass, getRaw(queriedType));
-	// }
-
-	protected static Boolean isAssignableFromSpecialCase(Type baseType, Type fromType) {
-		if(baseType instanceof B3FunctionType)
-			return Boolean.valueOf(((B3FunctionType) baseType).isAssignableFrom(fromType));
-		if(baseType instanceof B3MetaClass)
-			return Boolean.valueOf(((B3MetaClass) baseType).isAssignableFrom(fromType));
-		return null;
-	}
-
-	public static boolean isCoercibleFrom(Type baseType, Type fromType) {
-		Set<Type> coerceTypes = coerceMap.get(fromType);
-
-		return coerceTypes != null && coerceTypes.contains(baseType);
-	}
-
-	// public static boolean isNameMemberOfType(Type t, String name) {
-	// Class<?> traw = getRaw(t);
-	// Field[] fields = traw.getFields();
-	// Method[] methods = traw.getMethods();
-	// for(int i = 0; i < fields.length; i++) {
-	// if(fields[i].getName().equals(name))
-	// return true;
-	// }
-	// for(int i = 0; i < methods.length; i++) {
-	// if(methods[i].getName().equals(name))
-	// return true;
-	// }
-	// return false;
-	//
-	// }
-
-	/**
-	 * Returns the object type corresponding to a primitive type.
-	 * 
-	 * @param type
-	 * @return
-	 */
-	public static Type objectify(Type primitiveType) {
-		Type objectType = primitiveToObjectMap.get(primitiveType);
-		return objectType != null
-				? objectType
-				: primitiveType;
-	}
-
-	public static Type primitivize(Type objectType) {
-		Type primitiveType = objectToPrimitiveMap.get(objectType);
-		return primitiveType != null
-				? primitiveType
-				: objectType;
-	}
-
 	/**
 	 * Returns true if the overloaded type is assignable from the overloading type.
 	 * 
@@ -912,5 +826,91 @@ public class TypeUtils {
 			if(!pta[i].equals(ptb[i]))
 				return false;
 		return true;
+	}
+
+	public static boolean isArray(Type baseType) {
+		if(baseType instanceof B3ParameterizedType)
+			baseType = ((B3ParameterizedType) baseType).getRawType();
+
+		return (baseType instanceof Class<?>) && ((Class<?>) baseType).isArray() ||
+				(baseType instanceof GenericArrayType);
+	}
+
+	// public static int typeDistance(Type baseType, Type queriedType) {
+	// Class<?> baseClass = getRaw(baseType);
+	// if(baseClass.isInterface())
+	// return interfaceDistance(baseClass, getRaw(queriedType));
+	// return classDistance(baseClass, getRaw(queriedType));
+	// }
+
+	/**
+	 * Is equivalent to calling {@link #isAssignableFrom(Type, Type)} with baseType, value.getClass(), but handles the
+	 * special case when value is null.
+	 * 
+	 * @param baseType
+	 * @param value
+	 * @return
+	 */
+	public static boolean isAssignableFrom(Type baseType, Object value) {
+		if(value == null)
+			return true;
+		return isAssignableFrom(baseType, value.getClass());
+	}
+
+	public static boolean isAssignableFrom(Type baseType, Type fromType) {
+		Boolean specialCase = isAssignableFromSpecialCase(baseType, fromType);
+		if(specialCase != null)
+			return specialCase.booleanValue();
+		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
+	}
+
+	// public static boolean isNameMemberOfType(Type t, String name) {
+	// Class<?> traw = getRaw(t);
+	// Field[] fields = traw.getFields();
+	// Method[] methods = traw.getMethods();
+	// for(int i = 0; i < fields.length; i++) {
+	// if(fields[i].getName().equals(name))
+	// return true;
+	// }
+	// for(int i = 0; i < methods.length; i++) {
+	// if(methods[i].getName().equals(name))
+	// return true;
+	// }
+	// return false;
+	//
+	// }
+
+	protected static Boolean isAssignableFromSpecialCase(Type baseType, Type fromType) {
+		if(baseType instanceof B3FunctionType)
+			return Boolean.valueOf(((B3FunctionType) baseType).isAssignableFrom(fromType));
+		if(baseType instanceof B3MetaClass)
+			return Boolean.valueOf(((B3MetaClass) baseType).isAssignableFrom(fromType));
+		return null;
+	}
+
+	public static boolean isCoercibleFrom(Type baseType, Type fromType) {
+		Set<Type> coerceTypes = coerceMap.get(fromType);
+
+		return coerceTypes != null && coerceTypes.contains(baseType);
+	}
+
+	/**
+	 * Returns the object type corresponding to a primitive type.
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public static Type objectify(Type primitiveType) {
+		Type objectType = primitiveToObjectMap.get(primitiveType);
+		return objectType != null
+				? objectType
+				: primitiveType;
+	}
+
+	public static Type primitivize(Type objectType) {
+		Type primitiveType = objectToPrimitiveMap.get(objectType);
+		return primitiveType != null
+				? primitiveType
+				: objectType;
 	}
 }

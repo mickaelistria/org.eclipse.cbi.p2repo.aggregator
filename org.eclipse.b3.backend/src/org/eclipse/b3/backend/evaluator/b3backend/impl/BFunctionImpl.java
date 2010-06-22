@@ -1148,10 +1148,10 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * 
 	 * @generated NOT
 	 */
-	public Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx) {
+	public Type getReturnTypeForParameterTypes(Type[] types) {
 		BTypeCalculator tc = getTypeCalculator();
 		if(tc != null)
-			return tc.getReturnTypeForParameterTypes(types, ctx);
+			return tc.getReturnTypeForParameterTypes(types);
 		return getReturnType();
 	}
 

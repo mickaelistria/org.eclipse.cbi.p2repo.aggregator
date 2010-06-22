@@ -111,7 +111,7 @@ public interface B3FunctionType extends EObject, Type {
 	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
-	Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx);
+	Type getReturnTypeForParameterTypes(Type[] types);
 
 	/**
 	 * Returns the value of the '<em><b>Type Calculator</b></em>' reference.

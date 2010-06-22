@@ -43,15 +43,15 @@ public class B3FuncStore {
 
 		private List<IFunction> functionList;
 
-		private BExecutionContext callContext;
+		// private BExecutionContext callContext;
 
-		private Object[] callParameters;
+		// private Object[] callParameters;
 
-		public ContextualFunctionCandidateSource(List<IFunction> list, BExecutionContext context, Object[] parameters) {
+		public ContextualFunctionCandidateSource(List<IFunction> list /* , BExecutionContext context, Object[] parameters */) {
 			functionList = list;
 			// we need the following context parameters to be able to call guards
-			callContext = context;
-			callParameters = parameters;
+			// callContext = context;
+			// callParameters = parameters;
 		}
 
 		@Override
@@ -64,7 +64,8 @@ public class B3FuncStore {
 				return true;
 
 			try {
-				return guard.accepts(candidate, callContext, callParameters, parameterTypes);
+				// return guard.accepts(candidate, callContext, callParameters, parameterTypes);
+				return guard.accepts(candidate, parameterTypes);
 			}
 			catch(Throwable t) {
 				// TODO we may want to collect the errors and report them later
@@ -267,7 +268,7 @@ public class B3FuncStore {
 		Object[] fakeParameters = new Object[types.length];
 		IFunction toBeCalled = getMostSpecificFunction(functionName, fakeParameters, types, ctx);
 
-		return toBeCalled.getReturnTypeForParameterTypes(types, ctx);
+		return toBeCalled.getReturnTypeForParameterTypes(types);
 	}
 
 	// /**
@@ -401,7 +402,7 @@ public class B3FuncStore {
 			throw new B3NoSuchFunctionException(name); // something is really wrong if that happens here
 
 		LinkedList<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> candidateFunctions = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
-			types, new ContextualFunctionCandidateSource(list, ctx, parameters));
+			types, new ContextualFunctionCandidateSource(list /* , ctx, parameters */));
 
 		switch(candidateFunctions.size()) {
 			case 0: // no candidate function found
