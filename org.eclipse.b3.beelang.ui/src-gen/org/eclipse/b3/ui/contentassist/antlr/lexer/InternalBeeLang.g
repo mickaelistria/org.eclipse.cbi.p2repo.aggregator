@@ -16,77 +16,75 @@ import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer;
 
 
 
-KEYWORD_142 : '@postinputcondition';
+KEYWORD_141 : '@postinputcondition';
 
-KEYWORD_140 : 'default-properties';
+KEYWORD_139 : 'default-properties';
 
-KEYWORD_141 : 'postinputcondition';
+KEYWORD_140 : 'postinputcondition';
 
-KEYWORD_138 : 'having-parameters';
+KEYWORD_137 : 'having-parameters';
 
-KEYWORD_139 : 'on-merge-conflict';
+KEYWORD_138 : 'on-merge-conflict';
 
-KEYWORD_137 : 'checkout-content';
+KEYWORD_136 : 'checkout-content';
 
-KEYWORD_133 : 'builder-context';
+KEYWORD_132 : 'builder-context';
 
-KEYWORD_134 : 'modify-selected';
+KEYWORD_133 : 'modify-selected';
 
-KEYWORD_135 : 'replace-content';
+KEYWORD_134 : 'replace-content';
 
-KEYWORD_136 : 'select-builders';
+KEYWORD_135 : 'select-builders';
 
-KEYWORD_130 : '@postcondition';
+KEYWORD_129 : '@postcondition';
 
-KEYWORD_131 : 'called-builder';
+KEYWORD_130 : 'called-builder';
 
-KEYWORD_132 : 'update-content';
+KEYWORD_131 : 'update-content';
 
-KEYWORD_127 : '@precondition';
+KEYWORD_126 : '@precondition';
 
-KEYWORD_128 : 'postcondition';
+KEYWORD_127 : 'postcondition';
 
-KEYWORD_129 : 'select-switch';
+KEYWORD_128 : 'select-switch';
 
-KEYWORD_120 : 'accept-dirty';
+KEYWORD_119 : 'accept-dirty';
 
-KEYWORD_121 : 'precondition';
+KEYWORD_120 : 'precondition';
 
-KEYWORD_122 : 'requires-max';
+KEYWORD_121 : 'requires-max';
 
-KEYWORD_123 : 'requires-min';
+KEYWORD_122 : 'requires-min';
 
-KEYWORD_124 : 'select-first';
+KEYWORD_123 : 'select-first';
 
-KEYWORD_125 : 'select-units';
+KEYWORD_124 : 'select-units';
 
-KEYWORD_126 : 'unit-context';
+KEYWORD_125 : 'unit-context';
 
-KEYWORD_118 : 'annotations';
+KEYWORD_117 : 'annotations';
 
-KEYWORD_119 : 'select-best';
+KEYWORD_118 : 'select-best';
 
-KEYWORD_107 : '@callguard';
+KEYWORD_107 : 'capability';
 
-KEYWORD_108 : 'capability';
+KEYWORD_108 : 'conditions';
 
-KEYWORD_109 : 'conditions';
+KEYWORD_109 : 'connection';
 
-KEYWORD_110 : 'connection';
+KEYWORD_110 : 'implements';
 
-KEYWORD_111 : 'implements';
+KEYWORD_111 : 'instanceof';
 
-KEYWORD_112 : 'instanceof';
+KEYWORD_112 : 'name-space';
 
-KEYWORD_113 : 'name-space';
+KEYWORD_113 : 'properties';
 
-KEYWORD_114 : 'properties';
+KEYWORD_114 : 'repository';
 
-KEYWORD_115 : 'repository';
+KEYWORD_115 : 'resolution';
 
-KEYWORD_116 : 'resolution';
-
-KEYWORD_117 : 'sequential';
+KEYWORD_116 : 'sequential';
 
 KEYWORD_103 : 'container';
 

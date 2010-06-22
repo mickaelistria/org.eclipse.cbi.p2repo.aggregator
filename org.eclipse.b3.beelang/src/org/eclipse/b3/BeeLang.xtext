@@ -330,7 +330,7 @@ Builder returns build::Builder : {build::Builder}
 			(',' varArgs?="..." parameters += ParameterDeclarationNotUnit)?)
 		| 	(    varArgs?="..." parameters += ParameterDeclarationNotUnit))?
 	')' )?
-	(guard = GuardExpression)?
+//	(guard = GuardExpression)?
 	(precondExpr = PreCondition)?
 	(postcondExpr = PostCondition)?
 	 '{'
@@ -528,12 +528,13 @@ Function returns be::B3Function : {be::B3Function}
    		(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters += ParameterDeclaration)?)
    		| (varArgs ?= "..." parameters += ParameterDeclaration)
    		)? ')' )?
-   	(guard = GuardExpression)?
+//   	(guard = GuardExpression)?
    	((':' funcExpr=Expression ';') | (funcExpr=BlockExpression))
 	;
-	
-GuardExpression returns be::BGuardExpression : {be::BGuardExpression} 
-	"@callguard" ':' guardExpr = Expression ';' ;
+
+// TODO: redesign into "static calculation"
+//GuardExpression returns be::BGuardExpression : {be::BGuardExpression} 
+//	"@callguard" ':' guardExpr = Expression ';' ;
 	
 //TypeParamDeclaration 
 //	: ID ( ("extends" type+= TypeRef ('&' type+=TypeRef)*) | ("super" superType=TypeRef))?
