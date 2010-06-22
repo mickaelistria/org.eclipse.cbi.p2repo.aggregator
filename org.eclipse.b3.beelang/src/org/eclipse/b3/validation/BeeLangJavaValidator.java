@@ -1,6 +1,7 @@
 package org.eclipse.b3.validation;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -8,12 +9,16 @@ import org.eclipse.b3.backend.core.TypePattern;
 import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallFeature;
 import org.eclipse.b3.backend.evaluator.b3backend.BCase;
+import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
@@ -30,9 +35,13 @@ import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.build.core.RepositoryValidation;
 import org.eclipse.b3.build.repository.IRepositoryValidator;
 import org.eclipse.b3.build.repository.IRepositoryValidator.IOption;
+import org.eclipse.b3.scoping.DeclarativeFuncScopeProvider;
 import org.eclipse.b3.typeinference.B3BuildTypeProvider;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.validation.Check;
 
 public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implements IBeeLangDiagnostic {
@@ -97,8 +106,98 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 	}
 
 	@Check
+	void checkFeatureCallCanBeMade(BCallFeature cexpr) {
+		BExpression lhs = cexpr.getFuncExpr();
+		String name = cexpr.getName();
+		B3BuildTypeProvider typer = new B3BuildTypeProvider();
+		Type type = typer.doGetInferredType(lhs);
+		if(type == null) {
+			error(
+				"The type of the expression is not known or inferable.", cexpr,
+				B3backendPackage.BCALL_FEATURE__FUNC_EXPR);
+			return;
+		}
+		if(name == null || name.length() < 1) {
+			error("The name of the operation is null or empty.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
+			return;
+		}
+
+		// figure out the types of the parameters
+		EList<BParameter> pList = cexpr.getParameterList().getParameters();
+
+		// search for a function
+		int nbrParams = pList.size() + 1;
+		Type[] tparameters = new Type[nbrParams];
+		int counter = 0;
+		// first parameter always have its actual type when making the call, but needs
+		// to be declared to have a type where the operation is available
+		tparameters[counter++] = type; // the type(lhs)
+		boolean failed = false;
+		for(BParameter p : pList) {
+			tparameters[counter] = typer.doGetInferredType(p);
+			if(tparameters[counter] == null) {
+				error("The type of the parameter is not known or inferable.", p, B3backendPackage.BPARAMETER__EXPR);
+				failed = true;
+			}
+			counter++;
+		}
+		if(failed)
+			return; // not meaningful to continue after reporting about missing types of parameters
+
+		// is there a function or feature that provides the signature?
+		// find matching function candidates...
+		DeclarativeFuncScopeProvider funcScopeProvider = new DeclarativeFuncScopeProvider();
+		IScope funcScope = funcScopeProvider.doGetFuncScope(cexpr);
+		List<IFunction> effective = new ArrayList<IFunction>();
+		for(IEObjectDescription e : funcScope.getAllContents()) {
+			if(!(name.equals(e.getName()) && e.getEObjectOrProxy() instanceof IFunction))
+				continue;
+			IFunction f = (IFunction) e.getEObjectOrProxy();
+			OVERLOADED: {
+				for(IFunction f1 : effective) {
+					if(TypeUtils.hasEqualSignature(f1, f))
+						break OVERLOADED;
+				}
+				effective.add(f);
+			}
+		}
+
+		// HOWTO: FIND MATCH
+		// LinkedList<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> candidateFunctions =
+		// TypeUtils.Candidate.findMostSpecificApplicableCandidates(
+		// types, new ContextualFunctionCandidateSource(list, ctx, parameters));
+		//
+		// switch(candidateFunctions.size()) {
+		// case 0: // no candidate function found
+		// throw new B3NoSuchFunctionSignatureException(name, types, list);
+		// case 1: // one candidate function found
+		// return candidateFunctions.getFirst().getTarget();
+		// default: // more than one candidate function found (the function call is ambiguous)
+		// throw new B3AmbiguousFunctionSignatureException(name, types);
+		// }
+
+		// find matching methods (static, non static)
+
+		// catch(B3NoSuchFunctionSignatureException e) {
+		// lastError = e;
+		// }
+		// catch(B3NoSuchFunctionException e) {
+		// lastError = e;
+		// }
+		// throw B3BackendException.fromMessage(this, lastError, "Call failed - see details.");
+	}
+
+	@Check
 	public void checkFeatureExists(BFeatureExpression fexpr) {
-		BExpression objE = fexpr.getObjExpr();
+		EObject objE = fexpr.getObjExpr();
+
+		// TODO: Ugly, it expects to find "special engine var 'this'" in runtime == a created instance
+		if(objE == null) {
+			EObject container = fexpr;
+			while(container.eContainer() != null && !(container instanceof BCreateExpression))
+				container = container.eContainer();
+			objE = container;
+		}
 		String fname = fexpr.getFeatureName();
 		B3BuildTypeProvider typer = new B3BuildTypeProvider();
 		Type type = typer.doGetInferredType(objE);
@@ -107,7 +206,7 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 
 		if(!resultingLValue.isGetable()) {
 			error(
-				"The feature '" + fname + "' is not a feature found in type '" + type + "'.",
+				"The feature '" + fname + "' is not a feature found in type '" + type + "'.", fexpr,
 				B3backendPackage.BFEATURE_EXPRESSION__FEATURE_NAME);
 		}
 	}

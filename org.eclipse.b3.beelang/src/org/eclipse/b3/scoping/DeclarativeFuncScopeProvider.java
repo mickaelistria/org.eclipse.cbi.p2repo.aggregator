@@ -61,13 +61,13 @@ public class DeclarativeFuncScopeProvider {
 				: outer, descriptions);
 	}
 
-	protected IScope doGetFuncScope(B3BuildEngineResource r) {
+	public IScope doGetFuncScope(B3BuildEngineResource r) {
 		if(r == null)
 			return null;
 		return (IScope) scopeDispatcher.invoke(r);
 	}
 
-	protected IScope doGetFuncScope(EObject container) {
+	public IScope doGetFuncScope(EObject container) {
 		if(container == null)
 			return null;
 		return (IScope) scopeDispatcher.invoke(container);
@@ -75,6 +75,8 @@ public class DeclarativeFuncScopeProvider {
 
 	IScope funcScope(B3BuildEngineResource r) {
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		// filter out functions that can not be called directly (i.e. '+' '-' etc).
+		//
 		Pattern pID = Pattern.compile("[a-zA-Z][a-zA-Z0-9_]*");
 		for(Map.Entry<String, IFunction> entry : r.getFunctions().entrySet()) {
 			if(pID.matcher(entry.getKey()).matches())

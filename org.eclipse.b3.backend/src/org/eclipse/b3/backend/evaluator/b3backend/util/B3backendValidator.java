@@ -28,13 +28,13 @@ import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.core.SimplePattern;
 import org.eclipse.b3.backend.core.ValueMap;
-import org.eclipse.b3.backend.evaluator.b3backend.*;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
 import org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAdvice;
@@ -115,6 +115,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.core.runtime.CoreException;
@@ -126,7 +128,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import com.google.inject.Injector;
-import java.lang.CharSequence;
 
 /**
  * <!-- begin-user-doc -->
@@ -578,11 +579,13 @@ public class B3backendValidator extends EObjectValidator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateB3ParameterizedType(B3ParameterizedType b3ParameterizedType, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(b3ParameterizedType, diagnostics, context);
+		// TODO: B3ParameterizedType has a non EObject feature somewhere (sometimes)
+		// return validate_EveryDefaultConstraint(b3ParameterizedType, diagnostics, context);
+		return true;
 	}
 
 	/**

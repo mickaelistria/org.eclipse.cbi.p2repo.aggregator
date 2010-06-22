@@ -340,6 +340,10 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 		return Boolean.class;
 	}
 
+	public Type type(BParameter o) {
+		return doGetInferredType(o.getExpr());
+	}
+
 	/**
 	 * The type of a declared parameter is either:
 	 * - the declared

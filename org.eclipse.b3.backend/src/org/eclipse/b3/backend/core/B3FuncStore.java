@@ -231,142 +231,6 @@ public class B3FuncStore {
 		};
 	}
 
-	// /**
-	// * Find the best function matching the parameters.
-	// *
-	// * @param name
-	// * @param parameters
-	// * @param types
-	// * @param ctx
-	// * @return best function, or null, if none was found.
-	// * @throws B3EngineException
-	// * if there are exceptions while evaluating guards, or underlying issues.
-	// */
-	// private IFunction getBestFunction(String name, Object[] parameters, Type[] types, BExecutionContext ctx)
-	// throws B3EngineException {
-	// List<IFunction> list = effective.get(name);
-	// List<IFunction> candidates = null;
-	// IFunction found = null;
-	// if(list.size() < 1)
-	// throw new B3NoSuchFunctionException(name); // something is really wrong if that happens here
-	// perFunction: for(IFunction f : list) {
-	// Type[] pt = f.getParameterTypes();
-	// if(!f.isVarArgs()) {
-	// if(types.length != pt.length)
-	// continue perFunction; // not a match
-	// for(int i = 0; i < pt.length; i++) {
-	// if(!TypeUtils.isAssignableFrom(pt[i], types[i]))
-	// continue perFunction;
-	// }
-	// // found a candidate
-	// if(found != null) {
-	// // lazy creation of candidate list (typically there is only one candidate)
-	// if(candidates == null)
-	// candidates = new ArrayList<IFunction>();
-	// candidates.add(found);
-	// }
-	// found = f;
-	// }
-	// else {
-	// // for varargs
-	// // A java function must have an array as the last argument to be compatible
-	// if(f instanceof BJavaFunction && !TypeUtils.isArray(pt[pt.length - 1]))
-	// throw new IllegalArgumentException("A function with name: '" + name
-	// + "', declared to have varargs does not have an array as its last parameter");
-	// // list can be one item shorter than the list
-	// if(types.length < pt.length - 1)
-	// continue perFunction; // not a match - list is too short
-	//
-	// // compare all types except last (which is the varargs spec)
-	// int limit = pt.length - 1;
-	// for(int i = 0; i < limit; i++) {
-	// if(!TypeUtils.isAssignableFrom(pt[i], types[i]))
-	// continue perFunction;
-	// }
-	// Type varArgsType;
-	// // check compatibility of varargs
-	// if(types.length >= pt.length) {
-	// // java functions have an array type for varargs, B3 functions declare it as a regular type, and
-	// // the calling logic passes it as a List.
-	// if(f instanceof BJavaFunction)
-	// varArgsType = TypeUtils.getArrayComponentType(pt[pt.length-1]);
-	// else
-	// varArgsType = pt[pt.length - 1];
-	// if(varArgsType != Object.class) // no need to check if type is object - anything goes
-	// for(int i = limit; i < types.length; i++)
-	// if(!TypeUtils.isAssignableFrom(varArgsType, types[i])) // incompatible var arg
-	// continue perFunction;
-	//
-	// // found a candidate
-	// if(found != null) {
-	// // lazy creation of candidate list (typically there is only one candidate)
-	// if(candidates != null)
-	// candidates = new ArrayList<IFunction>();
-	// candidates.add(found);
-	// }
-	// found = f;
-	// }
-	// }
-	// }
-	// // all candidates found - now return best match
-	// if(candidates == null) {// if there were < 2 candidates
-	// if(found == null)
-	// return null;
-	//
-	// BGuard guard = found.getGuard();
-	// if(guard != null) {
-	// try {
-	// if(guard.accepts(found, ctx, parameters, types))
-	// return found;
-	// }
-	// catch(Throwable e) {
-	// throw new B3EngineException("evaluation of guard ended with exception", e);
-	// }
-	// throw new B3NotAcceptedByGuardException(name, types);
-	// }
-	// return found;
-	// }
-	// candidates.add(found); // to make it easier to process all
-	// int best = Integer.MAX_VALUE;
-	// IFunction bestFunc = null;
-	// List<Throwable> exceptions = null;
-	// eachCandidate: for(IFunction candidate : candidates) {
-	// BGuard guard = candidate.getGuard();
-	// if(guard != null) {
-	// try {
-	// if(!guard.accepts(candidate, ctx, parameters, types))
-	// continue eachCandidate;
-	// }
-	// catch(Throwable e) {
-	// if(exceptions == null)
-	// exceptions = new ArrayList<Throwable>();
-	// exceptions.add(e);
-	// e.printStackTrace();
-	// continue eachCandidate;
-	// }
-	// }
-	//
-	// int distance = specificity(candidate, types);
-	// if(distance < best) {
-	// if(distance == 0)
-	// return candidate; // unbeatable
-	// best = distance;
-	// bestFunc = candidate;
-	// }
-	// }
-	//
-	// // TODO: HANDLE GUARD FAILURES DIFFERENTLY ? GIVE UP AT ONCE ?
-	// if(bestFunc == null) {
-	// if(exceptions != null)
-	// throw new B3EngineException(
-	// "evaluation of guard ended with exception(s) see stacktraces - showing first out of "
-	// + Integer.toString(exceptions.size()), exceptions.get(0));
-	//
-	// throw new B3NotAcceptedByGuardException(name, types);
-	// }
-	// return bestFunc;
-	// }
-
 	public Iterable<IFunction> functionIterable(final String name) {
 		return new Iterable<IFunction>() {
 
@@ -428,8 +292,8 @@ public class B3FuncStore {
 		for(IFunction f : thisList)
 			for(IFunction f2 : parentList) {
 				// if f has same signature as f2, make it hide predecessor
-				if(hasEqualSignature(f, f2)) {
-					if(!hasCompatibleReturnType(f2, f))
+				if(TypeUtils.hasEqualSignature(f, f2)) {
+					if(!TypeUtils.hasCompatibleReturnType(f2, f))
 						throw new B3IncompatibleReturnTypeException(f2.getReturnType(), f.getReturnType());
 					overloaded.add(f2);
 				}
@@ -548,65 +412,6 @@ public class B3FuncStore {
 				throw new B3AmbiguousFunctionSignatureException(name, types);
 		}
 	}
-
-	/**
-	 * Returns true if the overloaded type is assignable from the overloading type.
-	 * 
-	 * @param overloaded
-	 * @param overloading
-	 * @return
-	 */
-	private boolean hasCompatibleReturnType(IFunction overloaded, IFunction overloading) {
-		Type at = overloaded.getReturnType();
-		Type bt = overloading.getReturnType();
-		return at.getClass().isAssignableFrom(bt.getClass());
-	}
-
-	/**
-	 * Returns true if the functions have the same number of parameters, compatible var args flag,
-	 * compatible classFunction flag,
-	 * and equal parameter types.
-	 * 
-	 * @param a
-	 * @param b
-	 * @return
-	 */
-	private boolean hasEqualSignature(IFunction a, IFunction b) {
-		Type[] pta = a.getParameterTypes();
-		Type[] ptb = b.getParameterTypes();
-		if(pta.length != ptb.length)
-			return false;
-		if(a.isClassFunction() != b.isClassFunction())
-			return false;
-		if(a.isVarArgs() != b.isVarArgs())
-			return false;
-		for(int i = 0; i < pta.length; i++)
-			if(!pta[i].equals(ptb[i]))
-				return false;
-		return true;
-	}
-
-	// /**
-	// * Computes the specificity distance of the function.
-	// *
-	// * @param f
-	// * @param types
-	// * @return parameter distance from stated types - 0 is most specific
-	// */
-	// public int specificity(IFunction f, Type[] types) {
-	// Type[] pt = f.getParameterTypes();
-	// int distance = 0;
-	// for(int i = 0; i < pt.length; i++)
-	// distance += TypeUtils.typeDistance(pt[i], types[i]);
-	// //
-	// // Class ptc = pt[i].getClass();
-	// // if(ptc.isInterface())
-	// // distance += (1+TypeUtils.interfaceDistance(ptc, types[i]));
-	// // else
-	// // distance += TypeUtils.classDistance(ptc, types[i]);
-	// // }
-	// return distance;
-	// }
 
 	public void undefineFunction(String name, BFunction func) {
 		dirtyFunctions.add(name);

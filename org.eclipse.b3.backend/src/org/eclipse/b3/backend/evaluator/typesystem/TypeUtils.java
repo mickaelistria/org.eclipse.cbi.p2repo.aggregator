@@ -23,6 +23,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.emf.ecore.EObject;
 
 public class TypeUtils {
@@ -874,5 +875,42 @@ public class TypeUtils {
 		return primitiveType != null
 				? primitiveType
 				: objectType;
+	}
+
+	/**
+	 * Returns true if the overloaded type is assignable from the overloading type.
+	 * 
+	 * @param overloaded
+	 * @param overloading
+	 * @return
+	 */
+	public static boolean hasCompatibleReturnType(IFunction overloaded, IFunction overloading) {
+		Type at = overloaded.getReturnType();
+		Type bt = overloading.getReturnType();
+		return at.getClass().isAssignableFrom(bt.getClass());
+	}
+
+	/**
+	 * Returns true if the functions have the same number of parameters, compatible var args flag,
+	 * compatible classFunction flag,
+	 * and equal parameter types.
+	 * 
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public static boolean hasEqualSignature(IFunction a, IFunction b) {
+		Type[] pta = a.getParameterTypes();
+		Type[] ptb = b.getParameterTypes();
+		if(pta.length != ptb.length)
+			return false;
+		if(a.isClassFunction() != b.isClassFunction())
+			return false;
+		if(a.isVarArgs() != b.isVarArgs())
+			return false;
+		for(int i = 0; i < pta.length; i++)
+			if(!pta[i].equals(ptb[i]))
+				return false;
+		return true;
 	}
 }
