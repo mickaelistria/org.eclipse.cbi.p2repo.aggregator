@@ -57,9 +57,9 @@ public class AbstractB3Module extends AbstractModule {
 		// tell Guice about the ResolutionScoped scope
 		bindScope(ResolutionScoped.class, resolutionScope);
 
-		// todo - currently no Annotation bound to the ThreadScope
+		// TODO: there is currently no Annotation bound to the ThreadScope
 
-		// make our scopes instance injectable
+		// make the new scopes instance injectable
 		bind(ThreadScope.class).annotatedWith(Names.named("thread")).toInstance(threadScope);
 		bind(SharedScope.class).annotatedWith(Names.named("resolution")).toInstance(resolutionScope);
 

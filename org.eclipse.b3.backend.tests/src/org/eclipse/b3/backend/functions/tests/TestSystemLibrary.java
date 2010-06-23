@@ -3,7 +3,11 @@ package org.eclipse.b3.backend.functions.tests;
 import java.util.ArrayList;
 import java.util.List;
 
+import junit.framework.AssertionFailedError;
+import junit.framework.TestCase;
+
 import org.eclipse.b3.backend.core.B3Engine;
+import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression;
@@ -18,9 +22,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.emf.common.util.EList;
 
-import junit.framework.AssertionFailedError;
-import junit.framework.TestCase;
-
 public class TestSystemLibrary extends TestCase {
 
 	public static class EngineData {
@@ -30,7 +31,7 @@ public class TestSystemLibrary extends TestCase {
 
 		public B3backendFactory factory;
 
-		public EngineData() {
+		public EngineData() throws B3EngineException {
 			factory = B3backendFactory.eINSTANCE;
 			engine = new B3Engine();
 			ctx = engine.getContext();

@@ -1,11 +1,11 @@
 package org.eclipse.b3.build.core;
 
 import org.eclipse.b3.backend.core.B3Engine;
+import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.BuildContext;
 
-import com.google.inject.Guice;
 import com.google.inject.Module;
 import com.google.inject.util.Modules;
 
@@ -16,25 +16,18 @@ public class B3BuildEngine extends B3Engine {
 	/**
 	 * Creates and initializes the engine with a default runtime guice module.
 	 */
-	public B3BuildEngine() {
-		super();
+	public B3BuildEngine() throws B3EngineException {
+		super(new DefaultB3Module());
 		initialize();
-		invocationContext.setInjector(Guice.createInjector(new DefaultB3Module()));
+		// invocationContext.setInjector(Guice.createInjector(new DefaultB3Module()));
 	}
 
 	/**
 	 * Creates and initializes the engine with a an overriding guice module.
 	 */
-	public B3BuildEngine(Module overridingModule) {
-		super();
+	public B3BuildEngine(Module overridingModule) throws B3EngineException {
+		super(Modules.override(new DefaultB3Module()).with(overridingModule));
 		initialize();
-		// create an injector and make it available in the execution context(s)
-		// The DeclarativeRepositoriesModule will create UnitRepositoryDescriptor instances for
-		// all requests to create a IUnitRepository.
-		//
-		invocationContext.setInjector(Guice.createInjector(Modules.override(new DefaultB3Module()).with(
-			overridingModule)));
-
 	}
 
 	public BuildContext getBuildContext() {
