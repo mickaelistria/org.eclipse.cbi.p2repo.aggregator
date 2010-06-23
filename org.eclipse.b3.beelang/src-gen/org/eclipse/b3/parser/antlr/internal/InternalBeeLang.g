@@ -14658,6 +14658,20 @@ ruleKW_NO_UNIT returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
         $current.merge(kw);
         createLeafNode(grammarAccess.getKW_NO_UNITAccess().getVersionKeyword_10(), null); 
     }
+
+    |
+	kw='requires' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getKW_NO_UNITAccess().getRequiresKeyword_11(), null); 
+    }
+
+    |
+	kw='provides' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getKW_NO_UNITAccess().getProvidesKeyword_12(), null); 
+    }
 )
     ;
 

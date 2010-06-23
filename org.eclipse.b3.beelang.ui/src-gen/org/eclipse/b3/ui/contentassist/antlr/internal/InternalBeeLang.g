@@ -7401,6 +7401,22 @@ rule__KW_NO_UNIT__Alternatives
 { after(grammarAccess.getKW_NO_UNITAccess().getVersionKeyword_10()); }
 )
 
+    |(
+{ before(grammarAccess.getKW_NO_UNITAccess().getRequiresKeyword_11()); }
+
+	KEYWORD_101 
+
+{ after(grammarAccess.getKW_NO_UNITAccess().getRequiresKeyword_11()); }
+)
+
+    |(
+{ before(grammarAccess.getKW_NO_UNITAccess().getProvidesKeyword_12()); }
+
+	KEYWORD_99 
+
+{ after(grammarAccess.getKW_NO_UNITAccess().getProvidesKeyword_12()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);

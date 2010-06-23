@@ -789,20 +789,16 @@ ID_or_KW : ID | KW ;
 ID_or_KW_NO_UNIT : ID | KW_NO_UNIT ;
 KW : KW_NO_UNIT | "unit" ; 
 KW_NO_UNIT : "input" | "output" | "source" | "result" | "properties" | "builder" | "this"
-	| "name" | "modify" | "greedy" | "version"
+	| "name" | "modify" | "greedy" | "version" | "requires" | "provides"
 	;
 	
 FeatureCall returns be::BExpression :
 	OperationCall
+// DEPRECATED: calling ".feature" with implicit 'this'
 //	| ({be::BCallFeature} "." name=ID_or_KW  "(" (parameterList = ParameterList)? ")")
 //	| ({be::BFeatureExpression} "." featureName=ID_or_KW)
-	
 	;
 	
-//OperationCall returns be::BCallExpression : {be::BCallNamedFunction}
-//	name=(ID|PID) 
-//	'(' (parameterList = ParameterList)? ')' 
-//	;
 OperationCall returns be::BCallExpression : {be::BCallNamedFunction}
 	funcRef = [be::IFunction | ID]
 	'(' (parameterList = ParameterList)? ')' 

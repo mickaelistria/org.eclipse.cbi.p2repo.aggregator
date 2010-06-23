@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.xtext.util.Exceptions;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;
@@ -57,8 +59,12 @@ public class DeclarativeTypeProvider {
 		return Exceptions.throwUncheckedException(e);
 	}
 
+	public Type type(BuildUnit o) {
+		return BuildUnitProxyAdapterFactory.eINSTANCE.adapt(o).getProxy().getClass();
+	}
+
 	public Type type(Object o) {
-		return Object.class;
+		return o.getClass();
 	}
 
 }

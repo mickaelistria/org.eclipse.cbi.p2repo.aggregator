@@ -3282,6 +3282,8 @@
       <elements xsi:type="xtext:Keyword" value="modify"/>
       <elements xsi:type="xtext:Keyword" value="greedy"/>
       <elements xsi:type="xtext:Keyword" value="version"/>
+      <elements xsi:type="xtext:Keyword" value="requires"/>
+      <elements xsi:type="xtext:Keyword" value="provides"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="FeatureCall">

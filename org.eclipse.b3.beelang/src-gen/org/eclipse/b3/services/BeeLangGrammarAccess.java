@@ -7611,13 +7611,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cModifyKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
 		private final Keyword cGreedyKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
 		private final Keyword cVersionKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
+		private final Keyword cRequiresKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
+		private final Keyword cProvidesKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
 		
 		//KW_NO_UNIT returns ecore::EString:
 		//	"input" | "output" | "source" | "result" | "properties" | "builder" | "this" | "name" | "modify" | "greedy" |
-		//	"version";
+		//	"version" | "requires" | "provides";
 		public ParserRule getRule() { return rule; }
 
 		//"input" | "output" | "source" | "result" | "properties" | "builder" | "this" | "name" | "modify" | "greedy" | "version"
+		//| "requires" | "provides"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"input"
@@ -7652,12 +7655,19 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"version"
 		public Keyword getVersionKeyword_10() { return cVersionKeyword_10; }
+
+		//"requires"
+		public Keyword getRequiresKeyword_11() { return cRequiresKeyword_11; }
+
+		//"provides"
+		public Keyword getProvidesKeyword_12() { return cProvidesKeyword_12; }
 	}
 
 	public class FeatureCallElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FeatureCall");
 		private final RuleCall cOperationCallParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
+		//// DEPRECATED: calling ".feature" with implicit 'this'
 		////	| ({be::BCallFeature} "." name=ID_or_KW  "(" (parameterList = ParameterList)? ")")
 		////	| ({be::BFeatureExpression} "." featureName=ID_or_KW)
 		//FeatureCall returns be::BExpression:
@@ -7680,10 +7690,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cParameterListParameterListParserRuleCall_3_0 = (RuleCall)cParameterListAssignment_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		////OperationCall returns be::BCallExpression : {be::BCallNamedFunction}
-		////	name=(ID|PID) 
-		////	'(' (parameterList = ParameterList)? ')' 
-		////	;
 		//OperationCall returns be::BCallExpression:
 		//	{be::BCallNamedFunction} funcRef=[be::IFunction] "(" parameterList=ParameterList? ")";
 		public ParserRule getRule() { return rule; }
@@ -13619,7 +13625,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//KW_NO_UNIT returns ecore::EString:
 	//	"input" | "output" | "source" | "result" | "properties" | "builder" | "this" | "name" | "modify" | "greedy" |
-	//	"version";
+	//	"version" | "requires" | "provides";
 	public KW_NO_UNITElements getKW_NO_UNITAccess() {
 		return (pKW_NO_UNIT != null) ? pKW_NO_UNIT : (pKW_NO_UNIT = new KW_NO_UNITElements());
 	}
@@ -13628,6 +13634,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getKW_NO_UNITAccess().getRule();
 	}
 
+	//// DEPRECATED: calling ".feature" with implicit 'this'
 	////	| ({be::BCallFeature} "." name=ID_or_KW  "(" (parameterList = ParameterList)? ")")
 	////	| ({be::BFeatureExpression} "." featureName=ID_or_KW)
 	//FeatureCall returns be::BExpression:
@@ -13640,10 +13647,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getFeatureCallAccess().getRule();
 	}
 
-	////OperationCall returns be::BCallExpression : {be::BCallNamedFunction}
-	////	name=(ID|PID) 
-	////	'(' (parameterList = ParameterList)? ')' 
-	////	;
 	//OperationCall returns be::BCallExpression:
 	//	{be::BCallNamedFunction} funcRef=[be::IFunction] "(" parameterList=ParameterList? ")";
 	public OperationCallElements getOperationCallAccess() {
