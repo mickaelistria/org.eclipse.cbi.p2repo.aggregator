@@ -168,4 +168,9 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 		}
 		return null; // TODO: Should probably throw "NoSuchUnit" instead
 	}
+
+	@Override
+	public boolean isPropertyScope() {
+		return true;
+	}
 } // BuildContextImpl
