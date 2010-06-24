@@ -494,8 +494,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -1009,8 +1008,8 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.CompoundBuildUnitRepository
-	 * <em>Compound Build Unit Repository</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.CompoundBuildUnitRepository <em>Compound Build Unit Repository</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -1117,8 +1116,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.EffectiveCapabilityFacade <em>Effective Capability Facade</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.EffectiveCapabilityFacade <em>Effective Capability Facade</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -1148,8 +1146,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.EffectiveRequirementFacade
-	 * <em>Effective Requirement Facade</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.EffectiveRequirementFacade <em>Effective Requirement Facade</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -1327,8 +1324,8 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.IProvidedCapabilityContainer
-	 * <em>IProvided Capability Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -1343,8 +1340,8 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.IRequiredCapabilityContainer
-	 * <em>IRequired Capability Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -1675,8 +1672,7 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.UnitRepositoryDescription <em>Unit Repository Description</em>}
-	 * '.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.UnitRepositoryDescription <em>Unit Repository Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.

@@ -63,8 +63,7 @@ public interface EffectiveBuilderReferenceFacade extends EffectiveFacade {
 	BuilderReference getBuilderReference();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.EffectiveBuilderReferenceFacade#getBuilderReference <em>Builder Reference</em>}'
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.EffectiveBuilderReferenceFacade#getBuilderReference <em>Builder Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

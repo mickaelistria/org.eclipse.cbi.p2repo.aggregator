@@ -63,8 +63,8 @@ public interface BuildConcernContext extends BConcernContext, IProvidedCapabilit
 	EList<String> getDefaultPropertiesRemovals();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuildConcernContext#getDefaultPropertiesAdditions
-	 * <em>Default Properties Additions</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuildConcernContext#getDefaultPropertiesAdditions <em>Default Properties Additions</em>}'
+	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

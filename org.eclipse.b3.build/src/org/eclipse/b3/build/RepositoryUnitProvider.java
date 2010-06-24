@@ -81,8 +81,7 @@ public interface RepositoryUnitProvider extends UnitProvider {
 	Repository getRepository();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.RepositoryUnitProvider#getBuildUnitRepository <em>Build Unit Repository</em>}'
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.RepositoryUnitProvider#getBuildUnitRepository <em>Build Unit Repository</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

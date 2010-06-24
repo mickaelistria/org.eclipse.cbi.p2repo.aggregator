@@ -84,8 +84,7 @@ public interface InputPredicate extends BExpression {
 	void setBuilderPredicate(BNamePredicate value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.InputPredicate#getCapabilityPredicate <em>Capability Predicate</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.InputPredicate#getCapabilityPredicate <em>Capability Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

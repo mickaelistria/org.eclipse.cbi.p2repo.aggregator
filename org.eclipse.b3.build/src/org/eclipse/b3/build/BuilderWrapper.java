@@ -128,8 +128,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	boolean isUnitTypeAdvised();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderWrapper#isDefaultPropertiesAdvised <em>Default Properties Advised</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderWrapper#isDefaultPropertiesAdvised <em>Default Properties Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

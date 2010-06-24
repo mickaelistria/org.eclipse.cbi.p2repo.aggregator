@@ -439,8 +439,8 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setMatchParameters(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getOutputAnnotationAdditions
-	 * <em>Output Annotation Additions</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}'
+	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -501,8 +501,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setQuery(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePostCondition <em>Remove Post Condition</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePostCondition <em>Remove Post Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -514,8 +513,8 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setRemovePostCondition(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input Condition</em>}
-	 * ' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input Condition</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -539,8 +538,8 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	void setRemovePreCondition(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getSourceAnnotationAdditions
-	 * <em>Source Annotation Additions</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}'
+	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

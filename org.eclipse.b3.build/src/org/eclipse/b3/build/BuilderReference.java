@@ -117,8 +117,7 @@ public interface BuilderReference extends BuildResultReference {
 	void setParameters(BParameterList value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderReference#getRequiredCapability <em>Required Capability</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderReference#getRequiredCapability <em>Required Capability</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -130,8 +129,8 @@ public interface BuilderReference extends BuildResultReference {
 	void setRequiredCapability(RequiredCapability value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderReference#getRequiredCapabilityReference
-	 * <em>Required Capability Reference</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderReference#getRequiredCapabilityReference <em>Required Capability Reference</em>}'
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

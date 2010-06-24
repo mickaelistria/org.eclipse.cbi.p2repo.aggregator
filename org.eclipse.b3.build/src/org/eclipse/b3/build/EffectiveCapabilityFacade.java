@@ -44,8 +44,7 @@ public interface EffectiveCapabilityFacade extends EffectiveFacade {
 	Capability getProvidedCapability();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.EffectiveCapabilityFacade#getProvidedCapability <em>Provided Capability</em>}'
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.EffectiveCapabilityFacade#getProvidedCapability <em>Provided Capability</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
