@@ -34,14 +34,12 @@ public class BuildUtilsDynamicClassLoader extends ClassLoader implements Opcodes
 			Class<? extends BuildUnit> clazz = (Class<? extends BuildUnit>) (defineClass(name, bytes, 0, bytes.length));
 			return clazz;
 		}
-		else {
-			try {
-				return B3BackendActivator.instance.getBundle().loadClass(name);
-			}
-			catch(ClassNotFoundException e) {
-				// do nothing, try the super class loader
-			}
-			return super.findClass(name);
+		try {
+			return B3BackendActivator.instance.getBundle().loadClass(name);
 		}
+		catch(ClassNotFoundException e) {
+			// do nothing, try the super class loader
+		}
+		return super.findClass(name);
 	}
 }
