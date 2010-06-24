@@ -11,10 +11,12 @@ package org.eclipse.b3.typeinference;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.build.BeeModel;
+import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuilderNamePredicate;
 import org.eclipse.b3.build.ImplementsPredicate;
 import org.eclipse.b3.build.InputPredicate;
 import org.eclipse.b3.build.PathGroupPredicate;
+import org.eclipse.b3.build.Prerequisite;
 import org.eclipse.b3.build.ProvidesPredicate;
 import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.RequiresPredicate;
@@ -46,6 +48,10 @@ public class B3BuildTypeProvider extends B3ExpressionTypeProvider {
 
 	public Type type(PathGroupPredicate o) {
 		return Boolean.class;
+	}
+
+	public Type type(Prerequisite o) {
+		return BuildSet.class;
 	}
 
 	public Type type(ProvidesPredicate o) {
