@@ -6,9 +6,9 @@ import java.util.Map;
 
 import org.eclipse.b3.backend.core.ParentContextIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.build.build.BuildContext;
-import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.impl.BuildContextImpl;
+import org.eclipse.b3.build.BuildContext;
+import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.impl.BuildContextImpl;
 
 /**
  * Iterates over the effective "horizon" of build units (advised units have been supplanted).

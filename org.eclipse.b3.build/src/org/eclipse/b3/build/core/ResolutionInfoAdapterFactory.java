@@ -1,7 +1,7 @@
 package org.eclipse.b3.build.core;
 
-import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;

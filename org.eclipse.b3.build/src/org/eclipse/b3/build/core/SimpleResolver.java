@@ -10,19 +10,19 @@ package org.eclipse.b3.build.core;
 
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3NoSuchVariableException;
-import org.eclipse.b3.build.build.B3BuildFactory;
-import org.eclipse.b3.build.build.BeeModel;
-import org.eclipse.b3.build.build.BuildContext;
-import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.DelegatingUnitProvider;
-import org.eclipse.b3.build.build.EffectiveRequirementFacade;
-import org.eclipse.b3.build.build.EffectiveUnitFacade;
-import org.eclipse.b3.build.build.FirstFoundUnitProvider;
-import org.eclipse.b3.build.build.RepositoryUnitProvider;
-import org.eclipse.b3.build.build.RequiredCapability;
-import org.eclipse.b3.build.build.ResolutionInfo;
-import org.eclipse.b3.build.build.UnitProvider;
-import org.eclipse.b3.build.build.UnitResolutionInfo;
+import org.eclipse.b3.build.B3BuildFactory;
+import org.eclipse.b3.build.BeeModel;
+import org.eclipse.b3.build.BuildContext;
+import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.DelegatingUnitProvider;
+import org.eclipse.b3.build.EffectiveRequirementFacade;
+import org.eclipse.b3.build.EffectiveUnitFacade;
+import org.eclipse.b3.build.FirstFoundUnitProvider;
+import org.eclipse.b3.build.RepositoryUnitProvider;
+import org.eclipse.b3.build.RequiredCapability;
+import org.eclipse.b3.build.ResolutionInfo;
+import org.eclipse.b3.build.UnitProvider;
+import org.eclipse.b3.build.UnitResolutionInfo;
 import org.eclipse.b3.build.internal.B3BuildActivator;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
 import org.eclipse.core.runtime.IStatus;
@@ -41,7 +41,7 @@ public class SimpleResolver implements IBuildUnitResolver {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveAll(org.eclipse.b3.build.build.BuildContext)
+	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveAll(org.eclipse.b3.build.BuildContext)
 	 */
 	public IStatus resolveAll(BuildContext ctx) {
 		EffectiveUnitIterator uItor = new EffectiveUnitIterator(ctx);
@@ -54,7 +54,7 @@ public class SimpleResolver implements IBuildUnitResolver {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveUnit(org.eclipse.b3.build.build.BuildUnit, org.eclipse.b3.build.build.BuildContext)
+	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveUnit(org.eclipse.b3.build.BuildUnit, org.eclipse.b3.build.BuildContext)
 	 */
 	public IStatus resolveUnit(BuildUnit unit, BuildContext ctx) {
 

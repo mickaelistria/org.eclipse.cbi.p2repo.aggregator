@@ -19,7 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-import org.eclipse.b3.build.build.BeeModel;
+import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.engine.B3BuildEngineResource;
 import org.eclipse.emf.common.util.URI;

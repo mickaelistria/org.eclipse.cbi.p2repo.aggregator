@@ -173,7 +173,7 @@
                 checkEnabled="false">
              <iterate>
                 <adapt
-                      type="org.eclipse.b3.build.build.BeeModel">
+                      type="org.eclipse.b3.build.BeeModel">
                 </adapt>
              </iterate>
           </visibleWhen>
@@ -189,7 +189,7 @@
                 checkEnabled="false">
              <iterate>
                 <adapt
-                      type="org.eclipse.b3.build.build.BeeModel">
+                      type="org.eclipse.b3.build.BeeModel">
                 </adapt>
              </iterate>
           </visibleWhen>

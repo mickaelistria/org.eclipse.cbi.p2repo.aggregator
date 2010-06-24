@@ -8,7 +8,7 @@
 
 package org.eclipse.b3.enums;
 
-import org.eclipse.b3.build.build.MergeConflictStrategy;
+import org.eclipse.b3.build.MergeConflictStrategy;
 import org.eclipse.xtext.conversion.IValueConverter;
 import org.eclipse.xtext.conversion.ValueConverterException;
 import org.eclipse.xtext.parsetree.AbstractNode;

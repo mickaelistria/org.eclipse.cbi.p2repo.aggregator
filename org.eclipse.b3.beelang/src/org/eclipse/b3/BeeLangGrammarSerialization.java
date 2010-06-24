@@ -1,6 +1,6 @@
 package org.eclipse.b3;
 
-import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.parsetree.reconstr.impl.DefaultTransientValueService;

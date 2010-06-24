@@ -16,7 +16,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://b3build/1.0"
-            class="org.eclipse.b3.build.build.B3BuildPackage"
+            class="org.eclipse.b3.build.B3BuildPackage"
             genModel="model/B3Build.genmodel"/>
    </extension>
    <extension

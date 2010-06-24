@@ -1,7 +1,7 @@
 package org.eclipse.b3.build.internal;
 
 import org.eclipse.b3.backend.core.B3BackendActivator;
-import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.BuildUnit;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 
@@ -28,7 +28,7 @@ public class BuildUtilsDynamicClassLoader extends ClassLoader implements Opcodes
 				null, // generics
 				"java/lang/Object", // superclass
 				new String[] { // extended interfaces
-				"org/eclipse/b3/build/build/BuildUnit" });
+				"org/eclipse/b3/build/BuildUnit" });
 			cw.visitEnd();
 			byte bytes[] = cw.toByteArray();
 			Class<? extends BuildUnit> clazz = (Class<? extends BuildUnit>) (defineClass(name, bytes, 0, bytes.length));

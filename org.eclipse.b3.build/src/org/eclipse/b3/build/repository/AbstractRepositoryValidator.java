@@ -16,9 +16,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.build.build.RepoOption;
-import org.eclipse.b3.build.build.Repository;
-import org.eclipse.b3.build.build.RepositoryUnitProvider;
+import org.eclipse.b3.build.RepoOption;
+import org.eclipse.b3.build.Repository;
+import org.eclipse.b3.build.RepositoryUnitProvider;
 import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 
 public abstract class AbstractRepositoryValidator implements IRepositoryValidator {
@@ -120,7 +120,7 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.build.RepoOption,
+		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.RepoOption,
 		 * java.lang.Object, org.eclipse.xtext.validation.ValidationMessageAcceptor)
 		 */
 		@Override
@@ -132,7 +132,7 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.build.RepoOption,
+		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.RepoOption,
 		 * org.eclipse.xtext.validation.ValidationMessageAcceptor)
 		 */
 		@Override
@@ -157,7 +157,7 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.build.RepoOption,
+		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.RepoOption,
 		 * java.lang.Object, org.eclipse.xtext.validation.ValidationMessageAcceptor)
 		 */
 		@Override
@@ -170,7 +170,7 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.build.RepoOption,
+		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.RepoOption,
 		 * org.eclipse.xtext.validation.ValidationMessageAcceptor)
 		 */
 		@Override

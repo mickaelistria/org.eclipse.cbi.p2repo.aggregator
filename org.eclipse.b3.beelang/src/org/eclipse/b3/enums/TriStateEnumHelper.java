@@ -8,7 +8,7 @@
 
 package org.eclipse.b3.enums;
 
-import org.eclipse.b3.build.build.TriState;
+import org.eclipse.b3.build.TriState;
 import org.eclipse.xtext.conversion.IValueConverter;
 import org.eclipse.xtext.conversion.ValueConverterException;
 import org.eclipse.xtext.parsetree.AbstractNode;

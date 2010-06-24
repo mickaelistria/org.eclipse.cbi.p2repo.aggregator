@@ -1,7 +1,7 @@
 import java.util.List;
 import java.lang.Iterable;
 import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
-import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.BuildUnit;
 
 /**
  * Runs test in the IDE.

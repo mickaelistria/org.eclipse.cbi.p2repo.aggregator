@@ -10,8 +10,8 @@ package org.eclipse.b3.beelang.tests.repo;
 
 import java.net.URI;
 
-import org.eclipse.b3.build.build.ExecutionStackRepository;
-import org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl;
+import org.eclipse.b3.build.ExecutionStackRepository;
+import org.eclipse.b3.build.impl.ExecutionStackRepositoryImpl;
 
 /**
  * A test repository that delegates to a stack repository
@@ -39,7 +39,7 @@ public class TestRepo extends ExecutionStackRepositoryImpl {
 	// * @see
 	// *
 	// org.eclipse.b3.build.core.IBuildUnitRepository#resolve(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext
-	// * , org.eclipse.b3.build.build.RequiredCapability)
+	// * , org.eclipse.b3.build.RequiredCapability)
 	// */
 	// public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
 	// return repo.resolve(ctx, requiredCapability);
@@ -49,7 +49,7 @@ public class TestRepo extends ExecutionStackRepositoryImpl {
 	// * (non-Javadoc)
 	// *
 	// * @see
-	// * org.eclipse.b3.build.core.IBuildUnitRepository#resolve(org.eclipse.b3.build.build.EffectiveRequirementFacade)
+	// * org.eclipse.b3.build.core.IBuildUnitRepository#resolve(org.eclipse.b3.build.EffectiveRequirementFacade)
 	// */
 	// public BuildUnit resolve(EffectiveRequirementFacade effectiveRequirement) throws Throwable {
 	// return repo.resolve(effectiveRequirement);

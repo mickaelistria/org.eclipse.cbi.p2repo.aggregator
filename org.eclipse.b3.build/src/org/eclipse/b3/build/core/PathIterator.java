@@ -7,10 +7,10 @@ import java.util.List;
 
 import org.eclipse.b3.backend.core.B3URIUtils;
 import org.eclipse.b3.backend.core.SerialIterator;
-import org.eclipse.b3.build.build.BuildSet;
-import org.eclipse.b3.build.build.ConditionalPathVector;
-import org.eclipse.b3.build.build.PathGroup;
-import org.eclipse.b3.build.build.PathVector;
+import org.eclipse.b3.build.BuildSet;
+import org.eclipse.b3.build.ConditionalPathVector;
+import org.eclipse.b3.build.PathGroup;
+import org.eclipse.b3.build.PathVector;
 import org.eclipse.emf.common.util.EList;
 
 public class PathIterator implements Iterator<URI> {

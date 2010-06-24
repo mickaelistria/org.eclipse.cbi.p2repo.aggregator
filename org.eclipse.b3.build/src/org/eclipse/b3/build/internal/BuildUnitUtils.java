@@ -2,7 +2,7 @@ package org.eclipse.b3.build.internal;
 
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.equinox.p2.metadata.Version;
 

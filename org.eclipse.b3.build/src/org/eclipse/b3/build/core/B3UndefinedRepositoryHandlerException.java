@@ -1,8 +1,8 @@
 package org.eclipse.b3.build.core;
 
 import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.build.build.Repository;
-import org.eclipse.b3.build.build.UnitRepositoryDescription;
+import org.eclipse.b3.build.Repository;
+import org.eclipse.b3.build.UnitRepositoryDescription;
 import org.eclipse.osgi.util.NLS;
 
 public class B3UndefinedRepositoryHandlerException extends B3EngineException {

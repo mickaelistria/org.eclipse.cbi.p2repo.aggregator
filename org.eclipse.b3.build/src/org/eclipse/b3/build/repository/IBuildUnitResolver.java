@@ -8,8 +8,8 @@
 
 package org.eclipse.b3.build.repository;
 
-import org.eclipse.b3.build.build.BuildContext;
-import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.BuildContext;
+import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.core.runtime.IStatus;
 
 public interface IBuildUnitResolver {

@@ -20,7 +20,7 @@ Workflow {
 		platformUri = "${runtimeProject}/.."
 	}
     bean = StandaloneSetup {
-    	registerGeneratedEPackage = "org.eclipse.b3.build.build.B3BuildPackage"
+    	registerGeneratedEPackage = "org.eclipse.b3.build.B3BuildPackage"
 		platformUri = "${runtimeProject}/.."
 	}
 

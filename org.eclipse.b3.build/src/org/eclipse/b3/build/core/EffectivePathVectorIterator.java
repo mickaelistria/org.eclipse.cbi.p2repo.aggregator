@@ -5,9 +5,9 @@ import java.util.Iterator;
 import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.backend.core.SingletonIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.build.build.ConditionalPathVector;
-import org.eclipse.b3.build.build.PathGroup;
-import org.eclipse.b3.build.build.PathVector;
+import org.eclipse.b3.build.ConditionalPathVector;
+import org.eclipse.b3.build.PathGroup;
+import org.eclipse.b3.build.PathVector;
 
 public class EffectivePathVectorIterator implements Iterator<PathVector> {
 	private Iterator<PathVector> itor;

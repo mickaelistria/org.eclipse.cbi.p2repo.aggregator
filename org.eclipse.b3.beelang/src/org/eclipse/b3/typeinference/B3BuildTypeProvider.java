@@ -10,16 +10,16 @@ package org.eclipse.b3.typeinference;
 
 import java.lang.reflect.Type;
 
-import org.eclipse.b3.build.build.BeeModel;
-import org.eclipse.b3.build.build.BuilderNamePredicate;
-import org.eclipse.b3.build.build.ImplementsPredicate;
-import org.eclipse.b3.build.build.InputPredicate;
-import org.eclipse.b3.build.build.PathGroupPredicate;
-import org.eclipse.b3.build.build.ProvidesPredicate;
-import org.eclipse.b3.build.build.Repository;
-import org.eclipse.b3.build.build.RequiresPredicate;
-import org.eclipse.b3.build.build.UnitNamePredicate;
-import org.eclipse.b3.build.build.UnitProvider;
+import org.eclipse.b3.build.BeeModel;
+import org.eclipse.b3.build.BuilderNamePredicate;
+import org.eclipse.b3.build.ImplementsPredicate;
+import org.eclipse.b3.build.InputPredicate;
+import org.eclipse.b3.build.PathGroupPredicate;
+import org.eclipse.b3.build.ProvidesPredicate;
+import org.eclipse.b3.build.Repository;
+import org.eclipse.b3.build.RequiresPredicate;
+import org.eclipse.b3.build.UnitNamePredicate;
+import org.eclipse.b3.build.UnitProvider;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
 
 /**

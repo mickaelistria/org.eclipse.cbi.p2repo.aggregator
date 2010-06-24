@@ -12,9 +12,9 @@ import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.eclipse.b3.build.build.RepoOption;
-import org.eclipse.b3.build.build.Repository;
-import org.eclipse.b3.build.build.RepositoryUnitProvider;
+import org.eclipse.b3.build.RepoOption;
+import org.eclipse.b3.build.Repository;
+import org.eclipse.b3.build.RepositoryUnitProvider;
 import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 
 public interface IRepositoryValidator {

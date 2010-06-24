@@ -3,8 +3,8 @@ package org.eclipse.b3.build.core;
 import org.eclipse.b3.backend.core.B3Engine;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.build.build.B3BuildFactory;
-import org.eclipse.b3.build.build.BuildContext;
+import org.eclipse.b3.build.B3BuildFactory;
+import org.eclipse.b3.build.BuildContext;
 
 import com.google.inject.Module;
 import com.google.inject.util.Modules;

@@ -1,6 +1,6 @@
 package org.eclipse.b3.beelang.tests.buildunittypes;
 
-import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.core.B3BuilderJob;
 
 /**

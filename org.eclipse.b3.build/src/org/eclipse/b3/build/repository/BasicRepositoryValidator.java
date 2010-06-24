@@ -8,8 +8,8 @@
 
 package org.eclipse.b3.build.repository;
 
-import org.eclipse.b3.build.build.RepoOption;
-import org.eclipse.b3.build.build.Repository;
+import org.eclipse.b3.build.RepoOption;
+import org.eclipse.b3.build.Repository;
 import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 
 /**

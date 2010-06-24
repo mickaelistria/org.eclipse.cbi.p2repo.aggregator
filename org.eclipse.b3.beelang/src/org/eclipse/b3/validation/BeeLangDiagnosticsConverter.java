@@ -9,7 +9,7 @@
 package org.eclipse.b3.validation;
 
 import org.eclipse.b3.backend.evaluator.b3backend.util.B3backendValidator;
-import org.eclipse.b3.build.build.util.B3BuildValidator;
+import org.eclipse.b3.build.util.B3BuildValidator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.util.Pair;

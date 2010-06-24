@@ -15,10 +15,10 @@ import java.util.List;
 
 import org.eclipse.b3.BeeLangStandaloneSetup;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-import org.eclipse.b3.build.build.BeeModel;
-import org.eclipse.b3.build.build.BuildContext;
-import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.IBuilder;
+import org.eclipse.b3.build.BeeModel;
+import org.eclipse.b3.build.BuildContext;
+import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.B3BuildEngine;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;

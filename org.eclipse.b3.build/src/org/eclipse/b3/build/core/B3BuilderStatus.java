@@ -1,6 +1,6 @@
 package org.eclipse.b3.build.core;
 
-import org.eclipse.b3.build.build.BuildSet;
+import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.internal.B3BuildActivator;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;

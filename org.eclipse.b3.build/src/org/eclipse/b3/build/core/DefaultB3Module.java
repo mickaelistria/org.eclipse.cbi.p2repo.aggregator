@@ -8,9 +8,9 @@
 
 package org.eclipse.b3.build.core;
 
-import org.eclipse.b3.build.build.B3BuildPackage;
-import org.eclipse.b3.build.build.BeeModelRepository;
-import org.eclipse.b3.build.build.UnitRepositoryDescription;
+import org.eclipse.b3.build.B3BuildPackage;
+import org.eclipse.b3.build.BeeModelRepository;
+import org.eclipse.b3.build.UnitRepositoryDescription;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
 

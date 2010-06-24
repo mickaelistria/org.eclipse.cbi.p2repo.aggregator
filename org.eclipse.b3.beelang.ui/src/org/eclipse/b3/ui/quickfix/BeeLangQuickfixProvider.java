@@ -9,7 +9,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BCase;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
-import org.eclipse.b3.build.build.Repository;
+import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.validation.B3BackendIssues;
 import org.eclipse.b3.validation.B3BuildIssues;
 import org.eclipse.b3.validation.BeeLangJavaValidator;

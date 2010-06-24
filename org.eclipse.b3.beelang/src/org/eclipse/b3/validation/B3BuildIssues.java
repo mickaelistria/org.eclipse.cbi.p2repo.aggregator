@@ -8,11 +8,11 @@
 
 package org.eclipse.b3.validation;
 
-import static org.eclipse.b3.build.build.util.B3BuildValidator.BRANCH__HAS_EXPRESSION_TIMESTAMP;
-import static org.eclipse.b3.build.build.util.B3BuildValidator.BRANCH__HAS_INVALID_TIMESTAMP;
-import static org.eclipse.b3.build.build.util.B3BuildValidator.BRANCH__HAS_TRANSFORMABLE_TIMESTAMP;
-import static org.eclipse.b3.build.build.util.B3BuildValidator.BRANCH__HAS_VALID_STATE;
-import static org.eclipse.b3.build.build.util.B3BuildValidator.DIAGNOSTIC_SOURCE;
+import static org.eclipse.b3.build.util.B3BuildValidator.BRANCH__HAS_EXPRESSION_TIMESTAMP;
+import static org.eclipse.b3.build.util.B3BuildValidator.BRANCH__HAS_INVALID_TIMESTAMP;
+import static org.eclipse.b3.build.util.B3BuildValidator.BRANCH__HAS_TRANSFORMABLE_TIMESTAMP;
+import static org.eclipse.b3.build.util.B3BuildValidator.BRANCH__HAS_VALID_STATE;
+import static org.eclipse.b3.build.util.B3BuildValidator.DIAGNOSTIC_SOURCE;
 
 import org.eclipse.b3.validation.BeeLangDiagnosticsConverter.IModelDiagnosticsConverterHelper;
 import org.eclipse.xtext.util.Pair;

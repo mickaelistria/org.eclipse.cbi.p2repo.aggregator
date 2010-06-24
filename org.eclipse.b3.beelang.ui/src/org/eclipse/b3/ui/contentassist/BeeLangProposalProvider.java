@@ -8,11 +8,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.eclipse.b3.build.build.Branch;
-import org.eclipse.b3.build.build.BranchPointType;
-import org.eclipse.b3.build.build.MergeConflictStrategy;
-import org.eclipse.b3.build.build.Repository;
-import org.eclipse.b3.build.build.TriState;
+import org.eclipse.b3.build.Branch;
+import org.eclipse.b3.build.BranchPointType;
+import org.eclipse.b3.build.MergeConflictStrategy;
+import org.eclipse.b3.build.Repository;
+import org.eclipse.b3.build.TriState;
 import org.eclipse.b3.build.core.RepositoryValidation;
 import org.eclipse.b3.enums.MergeConflictStrategyEnumHelper;
 import org.eclipse.b3.enums.TriStateEnumHelper;

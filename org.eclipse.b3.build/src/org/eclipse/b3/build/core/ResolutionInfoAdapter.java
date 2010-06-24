@@ -2,7 +2,7 @@ package org.eclipse.b3.build.core;
 
 import java.util.WeakHashMap;
 
-import org.eclipse.b3.build.build.ResolutionInfo;
+import org.eclipse.b3.build.ResolutionInfo;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 
 /**

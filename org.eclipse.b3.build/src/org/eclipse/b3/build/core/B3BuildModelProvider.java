@@ -8,7 +8,7 @@
 
 package org.eclipse.b3.build.core;
 
-import org.eclipse.b3.build.build.B3BuildFactory;
+import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.emf.ecore.EClass;
 
 import com.google.inject.Provider;

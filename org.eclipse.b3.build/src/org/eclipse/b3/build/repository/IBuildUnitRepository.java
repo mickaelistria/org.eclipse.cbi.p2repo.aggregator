@@ -13,9 +13,9 @@ package org.eclipse.b3.build.repository;
 import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.Repository;
-import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.Repository;
+import org.eclipse.b3.build.RequiredCapability;
 
 /**
  * This is the b3 main interface for a repository of Build Units.
