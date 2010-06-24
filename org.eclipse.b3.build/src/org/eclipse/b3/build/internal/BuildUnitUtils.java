@@ -1,15 +1,15 @@
 package org.eclipse.b3.build.internal;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.lang.reflect.Type;
+
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.equinox.p2.metadata.Version;
-
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Type;
 
 public class BuildUnitUtils {
 	// private static class BuildUnitProxyFactory implements Opcodes {
@@ -147,7 +147,7 @@ public class BuildUnitUtils {
 		buf.append(unitName);
 		if(version != null) {
 			buf.append("_");
-			version.toString(buf);
+			buf.append(version.getOriginal());
 		}
 		return buf.toString();
 
