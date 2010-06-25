@@ -4,7 +4,12 @@
 */
 import java.util.List; // cheat, need a type, don't have the actual types yet...
 import java.util.Map; // - " - 
+import java.lang.String;
 
+default-properties {
+	${this.property.is.set} = true;
+	String ${a.b.c} = "";
+}
 function main(List argv) {
 	testBuildUnitSyntax();
 }
