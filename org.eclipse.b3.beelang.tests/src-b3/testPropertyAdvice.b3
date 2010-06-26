@@ -1,6 +1,9 @@
 import java.lang.Integer;
 import java.util.List;
 
+default-properties {
+	Integer ${property.a} = 0;
+}
 function main(List args) {
 	testInnerPropertyAdvice();
 	testOuterPropertyAdvice();
