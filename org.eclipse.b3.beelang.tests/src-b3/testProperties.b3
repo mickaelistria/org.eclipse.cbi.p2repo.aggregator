@@ -2,6 +2,9 @@ import java.util.List;
 import java.lang.String;
 import java.lang.System;
 
+default-properties {
+	String ${java.version} = "";
+}
 properties setA {
 	
 	// typed property
