@@ -362,7 +362,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		// let's find the original one first (there should be only one shared requirement instance at the moment)
 		IRequirement orig = null;
 		for(RepositoryRequirement req : repoReqs) {
-			if(req.equals(rq))
+			if(!req.equals(rq))
 				continue;
 			orig = req.requirement;
 			break;
