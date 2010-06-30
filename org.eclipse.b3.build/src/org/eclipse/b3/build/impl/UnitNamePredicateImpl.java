@@ -13,7 +13,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.UnitNamePredicate;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -48,6 +47,7 @@ public class UnitNamePredicateImpl extends CapabilityPredicateImpl implements Un
 	}
 
 	@Override
+	@Deprecated
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// pick up "@test" parameter from context
 		Object test = ctx.getValue("@test");

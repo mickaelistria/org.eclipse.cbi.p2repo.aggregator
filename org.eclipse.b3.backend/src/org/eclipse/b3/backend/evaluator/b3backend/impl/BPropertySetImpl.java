@@ -15,11 +15,15 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.Properties;
 
 import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.core.LoadedPropertySetAdapter;
+import org.eclipse.b3.backend.core.LoadedPropertySetAdapterFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
@@ -110,10 +114,10 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	 */
 	protected URI propertiesFile = PROPERTIES_FILE_EDEFAULT;
 
-	/**
-	 * Private flag indicating if the property set pointed to by propertiesFile URI has been loaded
-	 */
-	private boolean propertiesFileLoaded = false;
+	// /**
+	// * Private flag indicating if the property set pointed to by propertiesFile URI has been loaded
+	// */
+	// private boolean propertiesFileLoaded = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -260,6 +264,14 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 		BPropertySet ps = getExtends();
 		if(ps != null)
 			ps.evaluate(ctx);
+		if(getPropertiesFile() != null) {
+			LoadedPropertySetAdapter adapter = LoadedPropertySetAdapterFactory.eINSTANCE.adapt(this);
+			List<BPropertyOperation> ops = adapter.getAssociatedOps();
+			if(ops != null) {
+				for(BPropertyOperation po : ops)
+					po.evaluate(ctx);
+			}
+		}
 		for(BPropertyOperation po : getOperations()) {
 			po.evaluate(ctx);
 		}
@@ -278,6 +290,15 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 		BPropertySet ps = getExtends();
 		if(ps != null)
 			ps.evaluateDefaults(ctx, allVisible);
+		if(getPropertiesFile() != null) {
+			LoadedPropertySetAdapter adapter = LoadedPropertySetAdapterFactory.eINSTANCE.adapt(this);
+			List<BPropertyOperation> ops = adapter.getAssociatedOps();
+			if(ops != null) {
+				for(BPropertyOperation po : ops)
+					po.evaluateDefaults(ctx, allVisible);
+			}
+		}
+
 		for(BPropertyOperation po : getOperations()) {
 			po.evaluateDefaults(ctx, allVisible);
 		}
@@ -340,15 +361,23 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	 * 
 	 * @throws IOException
 	 */
-	private void loadProperties() throws IOException {
-		if(propertiesFile == null || propertiesFileLoaded)
+	public void loadProperties() throws IOException {
+		if(propertiesFile == null)
 			return;
+		LoadedPropertySetAdapter adapter = LoadedPropertySetAdapterFactory.eINSTANCE.adapt(this);
+		List<BPropertyOperation> ops = adapter.getAssociatedOps();
+		if(ops != null)
+			return; // already loaded
+
+		ops = new ArrayList<BPropertyOperation>();
+		adapter.setAssociatedOps(ops);
+
 		InputStream inputStream = null;
 		Properties p = new Properties();
 		try {
 			inputStream = propertiesFile.toURL().openStream();
-			p.load(propertiesFile.toURL().openStream());
-			EList<BPropertyOperation> ops = getOperations();
+			p.load(inputStream);
+			// EList<BPropertyOperation> ops = getOperations();
 			for(Entry<Object, Object> e : p.entrySet()) {
 				String key = "${" + String.class.cast(e.getKey()) + "}";
 				String value = String.class.cast(e.getValue());
@@ -363,8 +392,8 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 			}
 		}
 		finally {
-			propertiesFileLoaded = true; // don't try again if there are errors (TODO: too simplistic handling of
-											// errors)
+			// propertiesFileLoaded = true; // don't try again if there are errors (TODO: too simplistic handling of
+			// errors)
 			if(inputStream != null)
 				try {
 					inputStream.close();

@@ -37409,9 +37409,9 @@ rule__PropertyValue__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getPropertyValueAccess().getNameAssignment_1()); }
-(rule__PropertyValue__NameAssignment_1)
-{ after(grammarAccess.getPropertyValueAccess().getNameAssignment_1()); }
+{ before(grammarAccess.getPropertyValueAccess().getNamedValueAssignment_1()); }
+(rule__PropertyValue__NamedValueAssignment_1)
+{ after(grammarAccess.getPropertyValueAccess().getNamedValueAssignment_1()); }
 )
 
 ;
@@ -60720,14 +60720,18 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__PropertyValue__NameAssignment_1
+rule__PropertyValue__NamedValueAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getPropertyValueAccess().getNamePIDTerminalRuleCall_1_0()); }
-	RULE_PID{ after(grammarAccess.getPropertyValueAccess().getNamePIDTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getPropertyValueAccess().getNamedValueINamedValueCrossReference_1_0()); }
+(
+{ before(grammarAccess.getPropertyValueAccess().getNamedValueINamedValuePIDTerminalRuleCall_1_0_1()); }
+	RULE_PID{ after(grammarAccess.getPropertyValueAccess().getNamedValueINamedValuePIDTerminalRuleCall_1_0_1()); }
+)
+{ after(grammarAccess.getPropertyValueAccess().getNamedValueINamedValueCrossReference_1_0()); }
 )
 
 ;

@@ -12,17 +12,13 @@ import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
-
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuilderNamePredicate;
 import org.eclipse.b3.build.IBuilder;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -170,6 +166,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	}
 
 	@Override
+	@Deprecated
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// pick up "@test" parameter from context
 		Object test = ctx.getValue("@test");

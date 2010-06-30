@@ -10,8 +10,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
-import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
@@ -221,12 +219,12 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 		return method;
 	}
 
-	@Override
-	public Type getSignature() {
-		B3FunctionType t = (B3FunctionType) super.getSignature();
-		t.setFunctionType(B3Function.class);
-		return t;
-	}
+	// @Override
+	// public Type getSignature() {
+	// B3FunctionType t = (B3FunctionType) super.getSignature();
+	// t.setFunctionType(B3Function.class);
+	// return t;
+	// }
 
 	/**
 	 * @param ctx
@@ -249,6 +247,9 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 			return method.invoke(instance, callParameters);
 		}
 		catch(InvocationTargetException e) {
+			throw e.getCause();
+		}
+		catch(IllegalArgumentException e) {
 			throw e.getCause();
 		}
 	}

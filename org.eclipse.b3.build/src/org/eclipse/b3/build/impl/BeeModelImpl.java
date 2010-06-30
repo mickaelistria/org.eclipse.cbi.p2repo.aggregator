@@ -368,10 +368,12 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * Evaluates all repositories
 	 * Sets up resolution.
 	 * 
+	 * @deprecated use evaluator instead
 	 * @param ctx
 	 *            Must be an instance of BuildContext
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BChainedExpressionImpl#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
 	 */
+	@Deprecated
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// A BeeModel is a BChainedExpression, and can this contain any type of expression

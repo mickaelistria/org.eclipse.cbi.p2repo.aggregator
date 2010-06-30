@@ -6,13 +6,9 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -225,15 +221,15 @@ public abstract class BCallExpressionImpl extends BParameterizedExpressionImpl i
 		return name;
 	}
 
-	protected Type safeTypeOf(Object x, Type declaredType) {
-		if(x == null)
-			return declaredType;
-		if(x instanceof IFunction)
-			return ((IFunction) x).getSignature();
-		if(declaredType instanceof B3MetaClass)
-			return declaredType;
-		return x.getClass();
-	}
+	// protected Type safeTypeOf(Object x, Type declaredType) {
+	// if(x == null)
+	// return declaredType;
+	// if(x instanceof IFunction)
+	// return FunctionUtils.getSignature((IFunction) x);
+	// if(declaredType instanceof B3MetaClass)
+	// return declaredType;
+	// return x.getClass();
+	// }
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -18,7 +18,6 @@ import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.core.runtime.OperationCanceledException;
@@ -164,36 +163,38 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 	 */
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		if(ctx.getProgressMonitor().isCanceled())
-			throw new OperationCanceledException();
-		Throwable lastError = null;
-		try {
-			EList<BParameter> pList = getParameterList().getParameters();
-			int nbrParams = pList.size();
-			Object[] parameters = new Object[nbrParams];
-			Type[] tparameters = new Type[nbrParams];
-			int counter = 0;
-			for(BParameter p : pList) {
-				BExpression e = p.getExpr();
-				parameters[counter] = e.evaluate(ctx);
-				// first parameter always have its actual type
-				tparameters[counter] = counter == 0 && parameters[counter] != null
-						? safeTypeOf(parameters[counter], e.getDeclaredType(ctx))
-						: e.getDeclaredType(ctx);
-				counter++;
-			}
-			String fName = getFuncRef() == null
-					? name
-					: getFuncRef().getName();
-			return ctx.callFunction(fName, parameters, tparameters);
-		}
-		catch(B3NoSuchFunctionSignatureException e) {
-			lastError = e;
-		}
-		catch(B3NoSuchFunctionException e) {
-			lastError = e;
-		}
-		throw B3BackendException.fromMessage(this, lastError, "Call failed - see details.");
+		throw new IllegalAccessError("DO NOT CALL BCallNamedFunction.evaluate");
+
+		// if(ctx.getProgressMonitor().isCanceled())
+		// throw new OperationCanceledException();
+		// Throwable lastError = null;
+		// try {
+		// EList<BParameter> pList = getParameterList().getParameters();
+		// int nbrParams = pList.size();
+		// Object[] parameters = new Object[nbrParams];
+		// Type[] tparameters = new Type[nbrParams];
+		// int counter = 0;
+		// for(BParameter p : pList) {
+		// BExpression e = p.getExpr();
+		// parameters[counter] = e.evaluate(ctx);
+		// // first parameter always have its actual type
+		// tparameters[counter] = counter == 0 && parameters[counter] != null
+		// ? safeTypeOf(parameters[counter], e.getDeclaredType(ctx))
+		// : e.getDeclaredType(ctx);
+		// counter++;
+		// }
+		// String fName = getFuncRef() == null
+		// ? name
+		// : getFuncRef().getName();
+		// return ctx.callFunction(fName, parameters, tparameters);
+		// }
+		// catch(B3NoSuchFunctionSignatureException e) {
+		// lastError = e;
+		// }
+		// catch(B3NoSuchFunctionException e) {
+		// lastError = e;
+		// }
+		// throw B3BackendException.fromMessage(this, lastError, "Call failed - see details.");
 	}
 
 	@Override

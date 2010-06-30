@@ -12,7 +12,6 @@ import java.util.ListIterator;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
-
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.Capability;
@@ -20,14 +19,11 @@ import org.eclipse.b3.build.CapabilityPredicate;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.ProvidesPredicate;
 import org.eclipse.b3.build.VersionedCapability;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -187,6 +183,7 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	// }
 
 	@Override
+	@Deprecated
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// pick up "@test" parameter from context
 		Object test = ctx.getValue("@test");

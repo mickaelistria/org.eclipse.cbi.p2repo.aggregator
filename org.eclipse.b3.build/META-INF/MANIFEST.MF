@@ -12,10 +12,12 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
 Export-Package: org.eclipse.b3.build,
  org.eclipse.b3.build.core,
  org.eclipse.b3.build.engine,
+ org.eclipse.b3.build.functions,
  org.eclipse.b3.build.impl,
  org.eclipse.b3.build.internal;x-friends:="org.eclipse.b3.build.tests",
  org.eclipse.b3.build.repository,
- org.eclipse.b3.build.util
+ org.eclipse.b3.build.util,
+ org.eclipse.b3.evaluator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.b3.backend,

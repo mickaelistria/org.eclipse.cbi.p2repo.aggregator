@@ -185,18 +185,18 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// TODO: in transition - can use both name and reference to name
-		String n = name != null
+		String n = (getName() != null
 				? name
-				: getNamedValue().getName();
+				: getNamedValue().getName());
 		return ctx.getValue(n);
 	}
 
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		// TODO: in transition - can use both name and reference to name
-		String n = name != null
+		String n = (getName() != null
 				? name
-				: getNamedValue().getName();
+				: getNamedValue().getName());
 
 		return ctx.getDeclaredValueType(n);
 	}
@@ -204,9 +204,9 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	@Override
 	public LValue getLValue(BExecutionContext ctx) throws B3EngineException {
 		// TODO: in transition - can use both name and reference to name
-		String n = name != null
+		String n = (getName() != null
 				? name
-				: getNamedValue().getName();
+				: getNamedValue().getName());
 
 		return ctx.getLValue(n);
 	}
@@ -283,6 +283,10 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", refName: ");
+		result.append(namedValue == null
+				? "null"
+				: namedValue.getName());
 		result.append(')');
 		return result.toString();
 	}

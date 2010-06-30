@@ -83,6 +83,14 @@ public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionO
 		findNext();
 	}
 
+	public PropertyDefinitionIterator(PropertyOperationIterator propOpItor) {
+		itorStack = new ArrayList<PropertyOperationIterator>();
+		visitedSets = new HashSet<BPropertySet>();
+		push(propOpItor);
+		findNext();
+
+	}
+
 	protected void conditionalOp(BConditionalPropertyOperation op) {
 		opSwitch(op.getBody());
 	}

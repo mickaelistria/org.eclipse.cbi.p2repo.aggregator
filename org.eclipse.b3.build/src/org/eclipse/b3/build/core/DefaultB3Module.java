@@ -8,11 +8,19 @@
 
 package org.eclipse.b3.build.core;
 
+import org.eclipse.b3.backend.evaluator.B3BackendLValProvider;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.evaluator.IB3LvalProvider;
+import org.eclipse.b3.backend.inference.ITypeProvider;
+import org.eclipse.b3.backend.scoping.IFuncScopeProvider;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BeeModelRepository;
 import org.eclipse.b3.build.UnitRepositoryDescription;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
+import org.eclipse.b3.evaluator.B3BuildEvaluator;
+import org.eclipse.b3.evaluator.B3BuildFuncScopeProvider;
+import org.eclipse.b3.evaluator.B3BuildTypeProvider;
 
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
@@ -61,8 +69,31 @@ public class DefaultB3Module extends AbstractB3Module {
 		bind(IBuildUnitResolver.class).to(SimpleResolver.class).in(ResolutionScoped.class);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Binds the evaluator to the default B3BuildEvaluator.
+	 */
+	protected void bindEvaluator() {
+		bind(IB3Evaluator.class).to(B3BuildEvaluator.class);
+	}
+
+	/**
+	 * Binds a function scope provider that includes functions with operator names.
+	 */
+	protected void bindFuncScopeProvider() {
+		bind(IFuncScopeProvider.class).to(B3BuildFuncScopeProvider.Unfiltered.class);
+	}
+
+	protected void bindLValueProvider() {
+		// Note: Currently no LValues in the build package, and hence no provider
+		bind(IB3LvalProvider.class).to(B3BackendLValProvider.class);
+	}
+
+	protected void bindTypeProvider() {
+		bind(ITypeProvider.class).to(B3BuildTypeProvider.class);
+	}
+
+	/**
+	 * Calls the bindXXX operations on this module.
 	 * 
 	 * @see com.google.inject.AbstractModule#configure()
 	 */
@@ -72,5 +103,9 @@ public class DefaultB3Module extends AbstractB3Module {
 		bindBuildUnitRepository_Default();
 		bindBuildUnitRepository_b3();
 		bindBuildUnitResolver();
+		bindEvaluator();
+		bindLValueProvider();
+		bindTypeProvider();
+		bindFuncScopeProvider();
 	}
 }

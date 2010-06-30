@@ -275,7 +275,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * @model kind="operation" type="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
-	Type getSignature();
+	// Type getSignature();
 
 	/**
 	 * Returns the value of the '<em><b>Type Calculator</b></em>' containment reference.

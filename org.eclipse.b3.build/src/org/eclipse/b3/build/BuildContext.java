@@ -27,6 +27,7 @@ public interface BuildContext extends BExecutionContext {
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
+	@Deprecated
 	void defineBeeModel(BeeModel beeModel) throws B3EngineException;
 
 	/**
@@ -36,6 +37,7 @@ public interface BuildContext extends BExecutionContext {
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
+	@Deprecated
 	void defineBuildUnit(BuildUnit unit, boolean isWeaving) throws B3EngineException;
 
 	/**

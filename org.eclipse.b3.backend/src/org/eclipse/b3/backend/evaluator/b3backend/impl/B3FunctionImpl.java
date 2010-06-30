@@ -7,17 +7,16 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
-import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -181,12 +180,12 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 		return funcExpr;
 	}
 
-	@Override
-	public Type getSignature() {
-		B3FunctionType t = (B3FunctionType) super.getSignature();
-		t.setFunctionType(B3Function.class);
-		return t;
-	}
+	// @Override
+	// public Type getSignature() {
+	// B3FunctionType t = (B3FunctionType) super.getSignature();
+	// t.setFunctionType(B3Function.class);
+	// return t;
+	// }
 
 	/**
 	 * Calls the B3 Defined function using the context passed as the context for the function.
@@ -198,7 +197,8 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 		// all set up - fire away
 		if(funcExpr == null)
 			return null;
-		return funcExpr.evaluate(octx);
+		return octx.getInjector().getInstance(IB3Evaluator.class).doEvaluate(funcExpr, octx);
+		// return funcExpr.evaluate(octx);
 	}
 
 	/**

@@ -150,6 +150,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
 	 */
 	@Override
+	@Deprecated
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		return this; // a unit provider is literal
 	}

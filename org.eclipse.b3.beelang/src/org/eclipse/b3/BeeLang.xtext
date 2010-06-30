@@ -761,7 +761,7 @@ Case returns be::BCase : {be::BCase}
 	;
 
 BlockExpression returns be::BExpression: {be::BChainedExpression} 
-	'{' (expressions += TopLevelExpression ';')* '}' 
+	'{' (expressions +=TopLevelExpression ';')* '}' 
 	;
 
 IfExpression returns be::BExpression : {be::BIfExpression} 
@@ -778,7 +778,8 @@ ElseIfExpression returns be::BExpression : {be::BIfExpression}
 	;
 	
 PropertyValue returns  be::BExpression : {be::BVariableExpression}
-	name = PID
+	namedValue = [be::INamedValue | PID]
+//	name = PID
 	;
 	
 VariableValue returns  be::BExpression : {be::BVariableExpression}

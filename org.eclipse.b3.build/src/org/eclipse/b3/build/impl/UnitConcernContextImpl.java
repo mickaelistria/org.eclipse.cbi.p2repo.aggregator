@@ -523,6 +523,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * the unit is woven.
 	 */
 	@Override
+	@Deprecated
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		BExecutionContext ictx = ctx.createInnerContext();
 		ictx.defineVariableValue("@test", null, BuildUnit.class);
@@ -538,6 +539,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * Weaves the build united passed as candidate if it matches the predicates.
 	 */
 	@Override
+	@Deprecated
 	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
 		if(!(candidate instanceof BuildUnit))
 			return false;

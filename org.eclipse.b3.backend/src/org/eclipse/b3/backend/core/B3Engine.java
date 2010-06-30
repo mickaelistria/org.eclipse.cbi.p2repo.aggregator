@@ -2,6 +2,7 @@ package org.eclipse.b3.backend.core;
 
 import java.util.List;
 
+import org.eclipse.b3.backend.evaluator.IB3Engine;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
@@ -19,7 +20,7 @@ import com.google.inject.Guice;
 import com.google.inject.Module;
 import com.google.inject.util.Modules;
 
-public class B3Engine {
+public class B3Engine implements IB3Engine {
 	protected BSystemContext systemContext;
 
 	protected BInvocationContext invocationContext;

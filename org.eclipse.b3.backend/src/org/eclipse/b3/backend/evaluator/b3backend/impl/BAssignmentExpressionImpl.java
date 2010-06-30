@@ -68,7 +68,7 @@ public class BAssignmentExpressionImpl extends BBinaryOpExpressionImpl implement
 		// straight assignment
 		if(functionName == null || "".equals(functionName) || "=:".contains(functionName))
 			return lval.set(r);
-		Object[] params = new Object[] { lval.get(), rightExpr.evaluate(ctx) };
+		Object[] params = new Object[] { lval.get(), r };
 		Type[] types = new Type[] { lval.getDeclaredType(), rightExpr.getDeclaredType(ctx) };
 		// remove the trailing = from +=, *= <<= etc. before calling
 		String fn = functionName.endsWith("=")

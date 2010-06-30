@@ -382,7 +382,7 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Object result = (valueExpr == null
+		Object result = (getValueExpr() == null
 				? null
 				: valueExpr.evaluate(ctx));
 
@@ -408,7 +408,7 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	@Override
 	public LValue getLValue(BExecutionContext ctx) throws Throwable {
 		// must define it if getLValue is called before evaluate
-		if(!ctx.getValueMap().containsKey(name))
+		if(!ctx.getValueMap().containsKey(getName()))
 			evaluate(ctx);
 		return ctx.getLValue(name);
 	}

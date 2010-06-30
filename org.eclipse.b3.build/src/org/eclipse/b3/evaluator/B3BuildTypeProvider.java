@@ -6,12 +6,14 @@
  * such license is available at www.eclipse.org.
  */
 
-package org.eclipse.b3.typeinference;
+package org.eclipse.b3.evaluator;
 
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.inference.B3BackendTypeProvider;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildSet;
+import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.BuilderNamePredicate;
 import org.eclipse.b3.build.ImplementsPredicate;
 import org.eclipse.b3.build.InputPredicate;
@@ -22,13 +24,14 @@ import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.RequiresPredicate;
 import org.eclipse.b3.build.UnitNamePredicate;
 import org.eclipse.b3.build.UnitProvider;
+import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
 
 /**
  * Extension for build model
  * 
  */
-public class B3BuildTypeProvider extends B3ExpressionTypeProvider {
+public class B3BuildTypeProvider extends B3BackendTypeProvider {
 
 	public Type type(BeeModel o) {
 		return BeeModel.class;
@@ -36,6 +39,10 @@ public class B3BuildTypeProvider extends B3ExpressionTypeProvider {
 
 	public Type type(BuilderNamePredicate o) {
 		return Boolean.class;
+	}
+
+	public Type type(BuildUnit o) {
+		return BuildUnitProxyAdapterFactory.eINSTANCE.adapt(o).getProxy().getClass();
 	}
 
 	public Type type(ImplementsPredicate o) {
@@ -73,4 +80,5 @@ public class B3BuildTypeProvider extends B3ExpressionTypeProvider {
 	public Type type(UnitProvider o) {
 		return UnitProvider.class;
 	}
+
 }

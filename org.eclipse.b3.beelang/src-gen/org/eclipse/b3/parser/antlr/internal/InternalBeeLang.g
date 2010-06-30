@@ -14356,26 +14356,19 @@ rulePropertyValue returns [EObject current=null]
     }
 )(
 (
-		lv_name_1_0=RULE_PID
-		{
-			createLeafNode(grammarAccess.getPropertyValueAccess().getNamePIDTerminalRuleCall_1_0(), "name"); 
+		{ 
+		  /* */ 
 		}
 		{
-	        if ($current==null) {
+			if ($current==null) {
 	            $current = factory.create(grammarAccess.getPropertyValueRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode, $current);
 	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"name",
-	        		lv_name_1_0, 
-	        		"PID", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
+        }
+	RULE_PID
+	{
+		createLeafNode(grammarAccess.getPropertyValueAccess().getNamedValueINamedValueCrossReference_1_0(), "namedValue"); 
+	}
 
 )
 ))

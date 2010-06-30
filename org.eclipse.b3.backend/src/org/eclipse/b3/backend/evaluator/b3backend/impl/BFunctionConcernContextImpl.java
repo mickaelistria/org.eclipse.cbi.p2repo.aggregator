@@ -335,6 +335,7 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	}
 
 	@Override
+	@Deprecated
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// Find all functions that match the predicate
 		// Add wrappers for all found functions
@@ -347,6 +348,7 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	}
 
 	@Override
+	@Deprecated
 	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
 		if(!(candidate instanceof IFunction))
 			return false;
@@ -508,6 +510,7 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 		return result.toString();
 	}
 
+	@Deprecated
 	private boolean weaveIfParametersMatch(TypePattern pattern, IFunction f, BExecutionContext ctx)
 			throws B3EngineException {
 		// TODO: FUNCTION EFFECTIVE PARAMETERS

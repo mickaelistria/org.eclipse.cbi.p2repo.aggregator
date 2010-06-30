@@ -54,8 +54,10 @@ public class SourcePredicateImpl extends PathGroupPredicateImpl implements Sourc
 	 * either the path vector or pathPattern (a literal any or literal regexp). In the case of a path vector,
 	 * the source specification must contain all paths in the predicate path vector (i.e. containsAll semantics).
 	 * 
-	 * Note: Matching is performed on unfiltered output.
+	 * @deprecated use evaluator
+	 *             Note: Matching is performed on unfiltered output.
 	 */
+	@Deprecated
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// pick up "@test" parameter from context

@@ -873,7 +873,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getElseIfExpressionAccess().getThenExprAssignment_4(), "rule__ElseIfExpression__ThenExprAssignment_4");
 					put(grammarAccess.getElseIfExpressionAccess().getElseExprAssignment_5_0(), "rule__ElseIfExpression__ElseExprAssignment_5_0");
 					put(grammarAccess.getElseIfExpressionAccess().getElseExprAssignment_5_1_1(), "rule__ElseIfExpression__ElseExprAssignment_5_1_1");
-					put(grammarAccess.getPropertyValueAccess().getNameAssignment_1(), "rule__PropertyValue__NameAssignment_1");
+					put(grammarAccess.getPropertyValueAccess().getNamedValueAssignment_1(), "rule__PropertyValue__NamedValueAssignment_1");
 					put(grammarAccess.getVariableValueAccess().getNamedValueAssignment_1(), "rule__VariableValue__NamedValueAssignment_1");
 					put(grammarAccess.getOperationCallAccess().getFuncRefAssignment_1(), "rule__OperationCall__FuncRefAssignment_1");
 					put(grammarAccess.getOperationCallAccess().getParameterListAssignment_3(), "rule__OperationCall__ParameterListAssignment_3");

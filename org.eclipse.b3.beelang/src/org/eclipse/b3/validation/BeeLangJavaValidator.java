@@ -41,8 +41,8 @@ import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.build.core.RepositoryValidation;
 import org.eclipse.b3.build.repository.IRepositoryValidator;
 import org.eclipse.b3.build.repository.IRepositoryValidator.IOption;
-import org.eclipse.b3.scoping.DeclarativeFuncScopeProvider;
-import org.eclipse.b3.typeinference.B3BuildTypeProvider;
+import org.eclipse.b3.evaluator.B3BuildFuncScopeProvider;
+import org.eclipse.b3.evaluator.B3BuildTypeProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -152,7 +152,8 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 
 		// is there a function or feature that provides the signature?
 		// find matching function candidates...
-		DeclarativeFuncScopeProvider funcScopeProvider = new DeclarativeFuncScopeProvider();
+		// TODO: INJECT THIS
+		B3BuildFuncScopeProvider funcScopeProvider = new B3BuildFuncScopeProvider();
 		IScope funcScope = funcScopeProvider.doGetFuncScope(cexpr);
 		List<IFunction> effective = new ArrayList<IFunction>();
 		for(IEObjectDescription e : funcScope.getAllContents()) {
@@ -179,7 +180,7 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 
 		}
 
-		// HOWTO: FIND MATCH
+		// find matching methods (static, non static)
 		try {
 			if(effective.size() < 1) {
 				throw new B3NoSuchFunctionException(name);
@@ -198,7 +199,6 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 			}
 		}
 
-		// find matching methods (static, non static)
 		catch(B3NoSuchFunctionSignatureException e) {
 			error(
 				"No function matching used parameter types found.", cexpr,

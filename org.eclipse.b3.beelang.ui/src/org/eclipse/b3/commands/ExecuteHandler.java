@@ -10,13 +10,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.beelang.ui.BeeLangConsoleUtils;
 import org.eclipse.b3.build.BeeModel;
-import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.B3BuildEngine;
-import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
-import org.eclipse.b3.build.core.EffectiveUnitIterator;
 import org.eclipse.b3.build.core.SharedScope;
-import org.eclipse.b3.build.repository.IBuildUnitResolver;
+import org.eclipse.b3.utils.BeeLangUtils;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -24,9 +21,6 @@ import org.eclipse.core.expressions.EvaluationContext;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.ui.console.MessageConsole;
-import org.eclipse.xtext.parsetree.CompositeNode;
-import org.eclipse.xtext.parsetree.NodeAdapter;
-import org.eclipse.xtext.parsetree.NodeUtil;
 import org.eclipse.xtext.ui.editor.outline.ContentOutlineNode;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
@@ -46,7 +40,7 @@ public class ExecuteHandler extends AbstractHandler {
 				public Object exec(EObject state) throws Exception {
 					B3BuildEngine engine = new B3BuildEngine();
 					try {
-						engine.getBuildContext().defineBeeModel((BeeModel) state);
+						engine.defineBeeModel((BeeModel) state);
 					}
 					catch(Throwable e) {
 						PrintStream b3ConsoleErrorStream = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);
@@ -70,13 +64,10 @@ public class ExecuteHandler extends AbstractHandler {
 					SharedScope resolutionScope = null;
 					// If resolving, run a resolution
 					if(isPerformResolve()) {
-						resolutionScope = engine.getContext().getInjector().getInstance(
-							B3BuildConstants.KEY_RESOLUTION_SCOPE);
+						resolutionScope = engine.getInjector().getInstance(B3BuildConstants.KEY_RESOLUTION_SCOPE);
 						resolutionScope.enter(); // !remember to call exit()
-						IBuildUnitResolver resolver = engine.getContext().getInjector().getInstance(
-							IBuildUnitResolver.class);
 
-						IStatus status = resolver.resolveAll(engine.getBuildContext());
+						IStatus status = engine.resolveAllUnits();
 						if(!status.isOK()) {
 							PrintStream b3ConsoleErrorStream = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);
 							try {
@@ -106,38 +97,29 @@ public class ExecuteHandler extends AbstractHandler {
 						return null;
 					final List<Object> argv = new ArrayList<Object>();
 					argv.add(engine);
-					engine.getContext().defineFinalValue("${test.engine}", engine, B3BuildEngine.class);
-
-					EffectiveUnitIterator uItor = new EffectiveUnitIterator(engine.getBuildContext());
-					while(uItor.hasNext()) {
-						BuildUnit unit = uItor.next();
-						BuildUnit unitProxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
-						argv.add(unitProxy);
-						engine.getContext().defineFinalValue(
-							"${test." + unitProxy.getName() + "}", unitProxy, unitProxy.getClass());
-					}
+					// engine.getContext().defineFinalValue("${test.engine}", engine, B3BuildEngine.class);
+					engine.bindUnitsToProperties();
+					// EffectiveUnitIterator uItor = new EffectiveUnitIterator(engine.getBuildContext());
+					// while(uItor.hasNext()) {
+					// BuildUnit unit = uItor.next();
+					// BuildUnit unitProxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
+					// argv.add(unitProxy);
+					// engine.getContext().defineFinalValue(
+					// "${test." + unitProxy.getName() + "}", unitProxy, unitProxy.getClass());
+					// }
 					try {
 						return engine.getContext().callFunction(
 							"main", new Object[] { argv }, new Type[] { List.class });
 					}
 					catch(B3BackendException exprException) {
 						exprException.printStackTrace();
-						int lineNumber = 0;
 						BExpression expr = exprException.getExpression();
-						if(expr != null) {
-							NodeAdapter adapter = NodeUtil.getNodeAdapter(expr);
-							if(adapter != null) {
-								CompositeNode node = adapter.getParserNode();
-								if(node != null) {
-									lineNumber = node.getLine();
-								}
-							}
-						}
+						int lineNumber = BeeLangUtils.getLineNumber(expr);
 
 						PrintStream b3ConsoleErrorStream = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);
 						try {
 							b3ConsoleErrorStream.println(exprException.getMessage());
-							b3ConsoleErrorStream.println("        at <function name TBD>(" +
+							b3ConsoleErrorStream.println("        at " + BeeLangUtils.closestNamedElement(expr) + "(" +
 									exprException.getLocationString() + ":" + lineNumber + ").");
 							if(exprException.getCause() != null) {
 								b3ConsoleErrorStream.println("Caused by: " +

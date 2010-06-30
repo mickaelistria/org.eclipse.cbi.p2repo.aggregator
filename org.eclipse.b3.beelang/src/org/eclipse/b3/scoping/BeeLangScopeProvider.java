@@ -18,6 +18,7 @@ import org.eclipse.b3.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.RequiredCapability;
+import org.eclipse.b3.evaluator.B3BuildFuncScopeProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -94,7 +95,8 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 	}
 
 	IScope scope_IFunction(BExpression ctx, EReference ref) {
-		IScope scope = new DeclarativeFuncScopeProvider().doGetFuncScope(ctx);
+		// TODO: Inject the BuildFuncScopeProvider
+		IScope scope = new B3BuildFuncScopeProvider().doGetFuncScope(ctx);
 		return scope == null
 				? SimpleScope.NULLSCOPE
 				: scope;

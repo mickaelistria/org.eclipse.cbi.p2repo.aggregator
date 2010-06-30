@@ -12,11 +12,11 @@ package org.eclipse.b3.build.impl;
 
 import java.lang.reflect.Type;
 import java.util.Collection;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.Branch;
@@ -376,6 +376,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
 	 */
 	@Override
+	@Deprecated
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		EList<RepoOption> opts = getOptions();
 

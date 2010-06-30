@@ -3214,8 +3214,13 @@
           <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BVariableExpression"/>
         </type>
       </elements>
-      <elements xsi:type="xtext:Assignment" feature="name" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.193"/>
+      <elements xsi:type="xtext:Assignment" feature="namedValue" operator="=">
+        <terminal xsi:type="xtext:CrossReference">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//INamedValue"/>
+          </type>
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.193"/>
+        </terminal>
       </elements>
     </alternatives>
   </rules>

@@ -13,7 +13,6 @@ import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
-
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildResultReference;
 import org.eclipse.b3.build.BuilderInput;
@@ -24,14 +23,11 @@ import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.InputPredicate;
 import org.eclipse.b3.build.Prerequisite;
 import org.eclipse.b3.build.RequiredCapability;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -229,6 +225,7 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * predicate(s) (builder name, and required capability). The evaulation uses unfiltered builder references.
 	 */
 	@Override
+	@Deprecated
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// pick up "@test" parameter from context
 		Object test = ctx.getValue("@test");

@@ -6,27 +6,23 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3ImmutableTypeException;
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
+
 import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.evaluator.BackendHelper;
+import org.eclipse.b3.backend.evaluator.ListLValue;
+import org.eclipse.b3.backend.evaluator.MapLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-
-import java.lang.reflect.Type;
-import java.util.List;
-import java.util.Map;
-
-import org.eclipse.b3.backend.evaluator.BackendHelper;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -44,88 +40,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression {
-	@SuppressWarnings("rawtypes")
-	private static class ListLValue implements LValue {
-		List list;
-
-		int index;
-
-		Type type;
-
-		public ListLValue(List list, int index, Type t) {
-			this.list = list;
-			this.index = index;
-			this.type = t;
-		}
-
-		public Object get() throws B3EngineException {
-			return list.get(index);
-		}
-
-		public Type getDeclaredType() {
-			return type;
-		}
-
-		public boolean isGetable() throws B3EngineException {
-			return true;
-		}
-
-		public boolean isSettable() throws B3EngineException {
-			return list != null && list.size() > index;
-		}
-
-		@SuppressWarnings("unchecked")
-		public Object set(Object value) throws B3EngineException {
-			list.set(index, value);
-			return value;
-		}
-
-		public void setDeclaredType(Type t) throws B3EngineException {
-			throw new B3ImmutableTypeException(list, type, t);
-		}
-	}
-
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static class MapLValue implements LValue {
-		Map map;
-
-		Object key;
-
-		Type type;
-
-		public MapLValue(Map map, Object key, Type t) {
-			this.map = map;
-			this.key = key;
-			this.type = t;
-		}
-
-		public Object get() throws B3EngineException {
-			return map.get(key);
-		}
-
-		public Type getDeclaredType() {
-			return type;
-		}
-
-		public boolean isGetable() throws B3EngineException {
-			return true;
-		}
-
-		public boolean isSettable() throws B3EngineException {
-			return map != null && map.containsKey(key);
-		}
-
-		public Object set(Object value) throws B3EngineException {
-			map.put(key, value);
-			return value;
-		}
-
-		public void setDeclaredType(Type t) throws B3EngineException {
-			throw new B3ImmutableTypeException(map, type, t);
-		}
-
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

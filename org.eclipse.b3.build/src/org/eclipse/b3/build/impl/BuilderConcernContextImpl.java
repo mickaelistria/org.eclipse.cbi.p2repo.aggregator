@@ -23,7 +23,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildUnit;
@@ -41,17 +40,12 @@ import org.eclipse.b3.build.Prerequisite;
 import org.eclipse.b3.build.ProvidesPredicate;
 import org.eclipse.b3.build.SourcePredicate;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -888,9 +882,11 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * in this context. Each matching builder is wrapped with a BuildWrapper and added to the context passed
 	 * as a parameter.
 	 * 
+	 * @deprecated use evaluator
 	 * @returns this
 	 */
 	@Override
+	@Deprecated
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// Find all builders that match the predicate
 		// Add wrappers for all found builders
@@ -907,7 +903,10 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 
 	/**
 	 * Performs the same operation as {@link #evaluate(BExecutionContext)} but for a single object (candidate).
+	 * 
+	 * @deprecated use Weaver
 	 */
+	@Deprecated
 	@Override
 	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
 		return evaluateIfMatching(candidate, ctx, null);
@@ -919,8 +918,10 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * with resulting wrapped builders being promoted to promoteToUnit (if set).
 	 * <!-- end-user-doc -->
 	 * 
+	 * @deprecated use Weaver
 	 * @generated NOT
 	 */
+	@Deprecated
 	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx, BuildUnit promoteToUnit)
 			throws Throwable {
 		TypePattern pattern = TypePattern.compile(getParameters());
@@ -1191,7 +1192,10 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 
 	/**
 	 * Returns true if the candidate object matches the query and parameter type pattern.
+	 * 
+	 * @deprecated use BuilderWeaver instead
 	 */
+	@Deprecated
 	@Override
 	public boolean matches(Object candidate, BExecutionContext ctx) {
 		if(!(candidate instanceof IBuilder))
@@ -1217,11 +1221,13 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * Evaluates the query and returns true, if the candidate matches the query. This method does not include
 	 * parameter type matching.
 	 * 
+	 * @deprecated use BuilderWeaver instead
 	 * @param candidate
 	 * @param ctx
 	 * @return
 	 * @throws Throwable
 	 */
+	@Deprecated
 	private boolean matchesQuery(IBuilder candidate, BExecutionContext ctx) throws Throwable {
 		BExecutionContext ictx = ctx.createInnerContext();
 		ictx.defineVariableValue("@test", candidate, Builder.class);
@@ -1514,12 +1520,14 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * original's - this will work since the wrapped first parameter is applicable to the unit even if it is
 	 * narrowed in the wrapper. This is all done in wrapper.promoteToUnit().
 	 * 
+	 * @deprecated use BuilderWeaver instead
 	 * @param pattern
 	 * @param b
 	 * @param ctx
 	 * @return
 	 * @throws B3EngineException
 	 */
+	@Deprecated
 	private boolean weaveIfParametersMatch(TypePattern pattern, IBuilder b, BExecutionContext ctx,
 			BuildUnit promoteToUnit) throws B3EngineException {
 		Matcher matcher = pattern.match(b.getParameterTypes());

@@ -14,16 +14,22 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.b3.backend.core.PropertyDefinitionIterator;
+import org.eclipse.b3.backend.core.PropertyOperationIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
@@ -101,6 +107,17 @@ public class DeclarativeVarScopeProvider {
 		return Exceptions.throwUncheckedException(e);
 	}
 
+	IScope varScope(B3BuildEngineResource r) {
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		// filter out functions that can not be called directly (i.e. '+' '-' etc).
+		//
+		BDefValue varEngine = r.getVarEngine();
+		result.add(new EObjectDescription(varEngine.getName(), varEngine, null));
+		if(result.size() < 1)
+			return null;
+		return createScope(null, result);
+	}
+
 	IScope varScope(B3Function container, EObject contained) {
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		for(BParameterDeclaration param : container.getParameters()) {
@@ -155,9 +172,28 @@ public class DeclarativeVarScopeProvider {
 			if(t instanceof B3JavaImport)
 				result.add(new EObjectDescription(((INamedValue) t).getName(), (INamedValue) t, null));
 
+		PropertyDefinitionIterator propItor = new PropertyDefinitionIterator(container.getDefaultProperties());
+		while(propItor.hasNext()) {
+			BPropertyDefinitionOperation prop = propItor.next();
+			BDefProperty defProp = prop.getDefinition();
+			result.add(new EObjectDescription(defProp.getName(), defProp, null));
+
+		}
+		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
+		B3BuildEngineResource r = (B3BuildEngineResource) container.eResource().getResourceSet().getResource(uri, false);
+
 		if(result.size() < 1)
-			return doGetVarScope(container.eContainer(), container);
-		return createScope(doGetVarScope(container.eContainer(), container), result);
+			return doGetVarScope(r);
+		return createScope(doGetVarScope(r), result);
+
+		// if(result.size() < 1)
+		// return doGetVarScope(container.eContainer(), container);
+		// return createScope(doGetVarScope(container.eContainer(), container), result);
+		//
+		// //
+		// if(result.size() < 1)
+		// return doGetVarScope(container.eContainer());
+
 	}
 
 	IScope varScope(BFunctionConcernContext container, EObject contained) {
@@ -167,6 +203,21 @@ public class DeclarativeVarScopeProvider {
 				// an unambigous parameter predicate
 				result.add(new EObjectDescription(((INamedValue) param).getName(), param, null));
 			}
+		}
+		if(result.size() < 1)
+			return doGetVarScope(container.eContainer(), container);
+		return createScope(doGetVarScope(container.eContainer(), container), result);
+	}
+
+	IScope varScope(BPropertySet container, EObject contained) {
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		// iterate over all property operations but filter out the operations after "contained"
+		PropertyDefinitionIterator propDefItor = new PropertyDefinitionIterator(new PropertyOperationIterator(
+			container, (BPropertyOperation) contained));
+		while(propDefItor.hasNext()) {
+			BPropertyDefinitionOperation op = propDefItor.next();
+			BDefProperty def = op.getDefinition();
+			result.add(new EObjectDescription(def.getName(), def, null));
 		}
 		if(result.size() < 1)
 			return doGetVarScope(container.eContainer(), container);

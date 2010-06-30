@@ -18,7 +18,6 @@ import org.eclipse.b3.backend.core.B3BackendException;
 import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
-import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -32,6 +31,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -1120,12 +1120,12 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	public Type getReturnType() {
 		// if return type is null return java.lang.Object.class
-		if(returnType == null)
-			return Object.class;
+		// if(returnType == null)
+		// return Object.class;
 		// NOTE: Must check if return type is an EObject
 		if(returnType != null && returnType instanceof EObject && ((EObject) returnType).eIsProxy()) {
 			InternalEObject oldReturnType = (InternalEObject) returnType;
@@ -1146,8 +1146,10 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * should have a typeCalculator that performs the job.
 	 * <!-- end-user-doc -->
 	 * 
+	 * @deprecated
 	 * @generated NOT
 	 */
+	@Deprecated
 	public Type getReturnTypeForParameterTypes(Type[] types) {
 		BTypeCalculator tc = getTypeCalculator();
 		if(tc != null)
@@ -1159,20 +1161,12 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @deprecated
+	 * @generated
 	 */
+	@Deprecated
 	public Type getSignature() {
-		B3FunctionType t = B3backendFactory.eINSTANCE.createB3FunctionType();
-		t.setReturnType(getReturnType());
-		t.setVarArgs(isVarArgs());
-		t.setTypeCalculator(getTypeCalculator());
-		EList<Type> pt = t.getParameterTypes();
-		Type[] ptarray = getParameterTypes();
-		for(int i = 0; i < ptarray.length; i++)
-			pt.add(ptarray[i]);
-		// for(BParameterDeclaration p : getParameters())
-		// pt.add(p.getType());
-		return t;
+		throw new UnsupportedOperationException("Do not call getSignature on BFunction - use FunctionUtils");
 	}
 
 	/**
@@ -1277,7 +1271,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				// check type compatibility
 				Object o = params[i];
 				Type t = o instanceof BFunction
-						? ((BFunction) o).getSignature()
+						? FunctionUtils.getSignature((BFunction) o)
 						: o.getClass();
 
 				if(!(TypeUtils.isAssignableFrom(functionParameterTypes[i], t)))
@@ -1295,7 +1289,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				Object o = params[limit];
 				if(o != null) {
 					Type t = o instanceof BFunction
-							? ((BFunction) o).getSignature()
+							? FunctionUtils.getSignature((BFunction) o)
 							: o.getClass();
 					if(!TypeUtils.isAssignableFrom(functionParameterTypes[limit], t))
 						throw new B3IncompatibleTypeException(
@@ -1311,7 +1305,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				for(int i = limit; i < params.length; i++) {
 					Object o = params[i];
 					Type t = o instanceof BFunction
-							? ((BFunction) o).getSignature()
+							? FunctionUtils.getSignature((BFunction) o)
 							: o.getClass();
 
 					if(!TypeUtils.isAssignableFrom(varargsType, t))

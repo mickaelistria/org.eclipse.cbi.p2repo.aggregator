@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 
 public class ValueMap {
 	private static class ValueEntry {
@@ -31,7 +33,7 @@ public class ValueMap {
 
 		boolean isAssignableFrom(Object value) {
 			if(value instanceof B3Function)
-				return TypeUtils.isAssignableFrom(type, ((B3Function) value).getSignature());
+				return TypeUtils.isAssignableFrom(type, FunctionUtils.getSignature((BFunction) value));
 			return TypeUtils.isAssignableFrom(type, value);
 		}
 

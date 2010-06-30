@@ -6,7 +6,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -22,6 +21,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
+import org.eclipse.b3.backend.evaluator.typesystem.ConstructorCandidate;
+import org.eclipse.b3.backend.evaluator.typesystem.ConstructorCandidateSource;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -47,59 +48,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class BCreateExpressionImpl extends BParameterizedExpressionImpl implements BCreateExpression {
-	private static class ConstructorCandidate extends TypeUtils.AdaptingJavaCandidate<Constructor<?>> {
-
-		public ConstructorCandidate(Constructor<?> aConstructor) {
-			super(aConstructor);
-		}
-
-		public Constructor<?> getConstructor() {
-			return adaptedObject;
-		}
-
-		@Override
-		protected Type[] getJavaParameterTypes() {
-			return adaptedObject.getGenericParameterTypes();
-		}
-
-		public boolean isVarArgs() {
-			return adaptedObject.isVarArgs();
-		}
-
-	}
-
-	private static class ConstructorCandidateSource extends TypeUtils.CandidateSource<ConstructorCandidate> {
-
-		private class MethodCandidateIterator implements Iterator<ConstructorCandidate> {
-
-			private int currentIndex;
-
-			public boolean hasNext() {
-				return currentIndex < constructors.length;
-			}
-
-			public ConstructorCandidate next() {
-				return new ConstructorCandidate(constructors[currentIndex++]);
-			}
-
-			public void remove() {
-				throw new UnsupportedOperationException();
-			}
-
-		}
-
-		private Constructor<?>[] constructors;
-
-		public ConstructorCandidateSource(Class<?> aClass) {
-			constructors = aClass.getConstructors();
-		}
-
-		public Iterator<ConstructorCandidate> iterator() {
-			return new MethodCandidateIterator();
-		}
-
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

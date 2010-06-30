@@ -7,6 +7,9 @@ import java.util.Set;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterators;
+
 /**
  * Iterates over a PropertySet in super-most order and returns BProperyOperation instances.
  * Note that these instances in turn have a complex structure. If you want each PropertyDefinition in
@@ -18,15 +21,20 @@ public class PropertyOperationIterator implements Iterator<BPropertyOperation> {
 
 	private Set<BPropertySet> visitedSets;
 
-	public PropertyOperationIterator(BPropertySet propertySet) {
+	private BPropertyOperation[] excludedOperations;
+
+	public PropertyOperationIterator(BPropertySet propertySet, BPropertyOperation... excludedOps) {
 		visitedSets = new HashSet<BPropertySet>();
 		itor = new SerialIterator<BPropertyOperation>();
+		excludedOperations = excludedOps;
 		addAllSets(propertySet);
 	}
 
-	public PropertyOperationIterator(BPropertySet propertySet, Set<BPropertySet> visitedSets) {
+	public PropertyOperationIterator(BPropertySet propertySet, Set<BPropertySet> visitedSets,
+			BPropertyOperation... excludedOps) {
 		this.visitedSets = visitedSets;
 		itor = new SerialIterator<BPropertyOperation>();
+		excludedOperations = excludedOps;
 		addAllSets(propertySet);
 	}
 
@@ -38,7 +46,20 @@ public class PropertyOperationIterator implements Iterator<BPropertyOperation> {
 					set.getName());
 		visitedSets.add(set);
 		addAllSets(set.getExtends());
-		itor.addIterator(set.getOperations().iterator());
+		itor.addIterator(Iterators.filter(set.getOperations().iterator(), new Predicate<BPropertyOperation>() {
+
+			@Override
+			public boolean apply(BPropertyOperation input) {
+				if(excludedOperations != null)
+					for(int i = 0; i < excludedOperations.length; i++) {
+						if(excludedOperations[i] == input)
+							return false;
+					}
+				return true;
+			}
+		}));
+		//
+		// itor.addIterator(set.getOperations().iterator());
 	}
 
 	public boolean hasNext() {

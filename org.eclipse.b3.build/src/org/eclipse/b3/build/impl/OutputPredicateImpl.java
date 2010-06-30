@@ -57,6 +57,7 @@ public class OutputPredicateImpl extends PathGroupPredicateImpl implements Outpu
 	 * Note: Matching is performed on unfiltered output.
 	 */
 	@Override
+	@Deprecated
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// pick up "@test" parameter from context
 		Object test = ctx.getValue("@test");

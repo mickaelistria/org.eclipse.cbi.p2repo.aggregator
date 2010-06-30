@@ -16,15 +16,11 @@ import java.util.List;
 import org.eclipse.b3.BeeLangStandaloneSetup;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.build.BeeModel;
-import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.B3BuildEngine;
-import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
-import org.eclipse.b3.build.core.EffectiveUnitIterator;
 import org.eclipse.b3.build.core.SharedScope;
-import org.eclipse.b3.build.repository.IBuildUnitResolver;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -151,8 +147,7 @@ class JUnitB3FileRunnerFactory {
 		private void beforeChildren() throws Exception {
 			resolutionScope = engine.getContext().getInjector().getInstance(B3BuildConstants.KEY_RESOLUTION_SCOPE);
 			resolutionScope.enter();
-			IBuildUnitResolver resolver = engine.getContext().getInjector().getInstance(IBuildUnitResolver.class);
-			IStatus status = resolver.resolveAll(engine.getBuildContext());
+			IStatus status = engine.resolveAllUnits();
 			if(!status.isOK()) {
 				throw new Exception(status.toString());
 			}
@@ -196,9 +191,10 @@ class JUnitB3FileRunnerFactory {
 				b3FileURI, ContentHandler.UNSPECIFIED_CONTENT_TYPE);
 
 			resource.load(null);
+			// List<org.eclipse.emf.common.util.Diagnostic> syntaxErrors = resource.validateConcreteSyntax();
 
 			EList<Diagnostic> errors = resource.getErrors();
-			if(errors.size() > 0) {
+			if(errors.size() > 0 /* || syntaxErrors.size() > 0 */) {
 				ArrayList<Throwable> problems = new ArrayList<Throwable>(errors.size());
 
 				for(Diagnostic error : errors) {
@@ -211,29 +207,42 @@ class JUnitB3FileRunnerFactory {
 						problems.add(t);
 					}
 				}
+				// for(org.eclipse.emf.common.util.Diagnostic error : syntaxErrors) {
+				// try {
+				// if(error instanceof AbstractDiagnostic)
+				// throw new Exception("Error at line: " + ((AbstractDiagnostic) error).getLine() + ": " +
+				// error.getMessage());
+				// throw new Exception("Error at unspecified location: " + error.getMessage());
+				// }
+				// catch(Throwable t) {
+				// problems.add(t);
+				// }
+				// }
 
 				throw new MultiProblemException("There were parse errors in the file", problems);
 			}
 
 			// TODO: Use an Engine with test bindings for repositories
 			BeeModel beeModel = (BeeModel) resource.getParseResult().getRootASTElement();
-			BuildContext ctx = (engine = new B3BuildEngine()).getBuildContext();
-			engine.getBuildContext().defineBeeModel(beeModel);
+			// BuildContext ctx = (engine = new B3BuildEngine()).getBuildContext();
+			engine = new B3BuildEngine();
+			engine.defineBeeModel(beeModel);
 			final List<Object> argv = new ArrayList<Object>();
 			argv.add(engine);
-			ctx.defineFinalValue("${test.engine}", engine, B3BuildEngine.class);
+			// ctx.defineFinalValue("${test.engine}", engine, B3BuildEngine.class);
 
 			// Questionable if this should be kept - it binds the names of all found units to
 			// properties named after the units.
 			//
-			EffectiveUnitIterator uItor = new EffectiveUnitIterator(engine.getBuildContext());
-			while(uItor.hasNext()) {
-				BuildUnit unit = uItor.next();
-				BuildUnit unitProxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
-				argv.add(unitProxy);
-				ctx.defineFinalValue("${test." + unitProxy.getName() + "}", unitProxy, unitProxy.getClass());
-			}
-			ctx.defineFinalValue("${test.argv}", argv, List.class);
+			engine.bindUnitsToProperties();
+			// EffectiveUnitIterator uItor = new EffectiveUnitIterator(engine.getBuildContext());
+			// while(uItor.hasNext()) {
+			// BuildUnit unit = uItor.next();
+			// BuildUnit unitProxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
+			// argv.add(unitProxy);
+			// ctx.defineFinalValue("${test." + unitProxy.getName() + "}", unitProxy, unitProxy.getClass());
+			// }
+			// ctx.defineFinalValue("${test.argv}", argv, List.class);
 
 			// TODO: This can not be performed like this as the result is only valid while the resolver is
 			// still alive.
@@ -271,7 +280,7 @@ class JUnitB3FileRunnerFactory {
 
 			notifier.fireTestStarted(testDescription);
 			try {
-				engine.getContext().callFunction(child.getFunctionName(), EMPTY_PARAMETER_ARRAY, EMPTY_TYPE_ARRAY);
+				engine.callFunction(child.getFunctionName(), EMPTY_PARAMETER_ARRAY, EMPTY_TYPE_ARRAY);
 			}
 			catch(Throwable t) {
 				notifier.fireTestFailure(new Failure(testDescription, t));
@@ -349,6 +358,7 @@ class JUnitB3FileRunnerFactory {
 		Injector beeLangInjector = new BeeLangStandaloneSetup().createInjectorAndDoEMFRegistration();
 
 		beeLangResourceSet = beeLangInjector.getProvider(XtextResourceSet.class).get();
+		beeLangResourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
 	}
 
 	public List<Runner> getB3FileRunners() {

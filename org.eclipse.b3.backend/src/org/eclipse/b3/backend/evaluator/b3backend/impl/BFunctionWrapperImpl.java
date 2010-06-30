@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
@@ -1305,11 +1306,17 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	public Type getSignature() {
-		return getOriginal().getSignature();
+		// return getOriginal().getSignature();
+		return null;
 	}
+
+	// public Type getSignature() {
+	// // return getOriginal().getSignature();
+	// return null;
+	// }
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1372,7 +1379,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
 		if(aroundExpr == null)
 			return getOriginal().internalCall(ctx, parameters, types);
-		return aroundExpr.evaluate(ctx);
+		return ctx.getInjector().getInstance(IB3Evaluator.class).doEvaluate(aroundExpr, ctx);
+		// return aroundExpr.evaluate(ctx);
 	}
 
 	/**

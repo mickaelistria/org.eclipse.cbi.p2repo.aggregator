@@ -20,21 +20,16 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
-
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
-
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.PathGroup;
 import org.eclipse.b3.build.PathGroupPredicate;
 import org.eclipse.b3.build.PathVector;
 import org.eclipse.b3.build.core.PathIterator;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -233,6 +228,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	 * Note: Matching is performed on unfiltered output.
 	 */
 	@Override
+	@Deprecated
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// pick up "@test.pathgroup" parameter from context
 		Object test = ctx.getValue("@test.pathgroup");

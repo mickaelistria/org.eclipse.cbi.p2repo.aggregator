@@ -63,9 +63,11 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 	 * TODO: DOES NOT NEED TO RETURN THE CTX
 	 * <!-- end-user-doc -->
 	 * 
+	 * @deprecated use evaluator
 	 * @throws B3EngineException
 	 * @generated NOT
 	 */
+	@Deprecated
 	public void defineBeeModel(BeeModel beeModel) throws B3EngineException {
 
 		try {

@@ -6,30 +6,30 @@
  * such license is available at www.eclipse.org.
  */
 
-package org.eclipse.b3.typeinference;
+package org.eclipse.b3.backend.inference;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.b3.build.BuildUnit;
-import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.xtext.util.Exceptions;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;
 
 /**
+ * Basic implementation of ITypeProvider.
  * 
- *
  */
-public class DeclarativeTypeProvider {
+public class DeclarativeTypeProvider implements ITypeProvider {
 	private final PolymorphicDispatcher<Object> typeDispatcher = new PolymorphicDispatcher<Object>(
 		"type", 1, 1, Collections.singletonList(this), new ErrorHandler<Object>() {
 			public Object handle(Object[] params, Throwable e) {
 				return handleError(params, e);
 			}
 		});
+
+	// TODO: ADD RETURN TYPE DISPATCHER
 
 	private List<Object> inferenceStack = new ArrayList<Object>();
 
@@ -42,6 +42,7 @@ public class DeclarativeTypeProvider {
 			if(type != null) {
 				return type;
 			}
+			System.err.print("Type provider - null result for: " + element.getClass().getName() + "\n");
 			return null;
 		}
 		finally {
@@ -59,12 +60,9 @@ public class DeclarativeTypeProvider {
 		return Exceptions.throwUncheckedException(e);
 	}
 
-	public Type type(BuildUnit o) {
-		return BuildUnitProxyAdapterFactory.eINSTANCE.adapt(o).getProxy().getClass();
-	}
-
 	public Type type(Object o) {
-		return o.getClass();
+		throw new UnsupportedOperationException("No suitable method for object of class:" + o.getClass());
+		// return o.getClass();
 	}
 
 }

@@ -93,7 +93,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		}
 
 		public boolean isSettable() {
-			return getValueMap().isImmutable(name);
+			return !getValueMap().isImmutable(name);
 		}
 
 		public Object set(Object value) throws B3EngineException {

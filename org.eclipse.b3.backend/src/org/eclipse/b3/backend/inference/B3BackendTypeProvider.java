@@ -6,7 +6,7 @@
  * such license is available at www.eclipse.org.
  */
 
-package org.eclipse.b3.typeinference;
+package org.eclipse.b3.backend.inference;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -15,11 +15,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import org.eclipse.b3.backend.core.B3AmbiguousFunctionSignatureException;
 import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
+import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.core.SimplePattern;
 import org.eclipse.b3.backend.evaluator.Any;
 import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
+import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
@@ -35,10 +40,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCase;
 import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
@@ -50,6 +57,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
 import org.eclipse.b3.backend.evaluator.b3backend.BOrExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
@@ -65,12 +74,36 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.util.Strings;
+
+import com.google.inject.Inject;
 
 /**
  * Provides the type of expressions using declared type and type inference.
  * 
  */
-public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
+public class B3BackendTypeProvider extends DeclarativeTypeProvider {
+
+	@Inject
+	protected FunctionUtils functionUtils;
+
+	/**
+	 * Adds inference of return type.
+	 * 
+	 * @param o
+	 * @return B3FunctionType with possible inferred return type
+	 */
+	public Type type(B3Function o) {
+		B3FunctionType t = (B3FunctionType) type((BFunction) o);
+		if(t.getReturnType() == null) {
+			t.setReturnType(doGetInferredType(o.getFuncExpr()));
+		}
+		return t;
+	}
+
+	public Type type(B3JavaImport o) {
+		return o.getType();
+	}
 
 	public Type type(BAndExpression o) {
 		return Boolean.class;
@@ -93,13 +126,28 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 	}
 
 	public Type type(BBinaryOpExpression o) {
+		Type lhsT = doGetInferredType(o.getLeftExpr());
+		Type rhsT = doGetInferredType(o.getRightExpr());
+		// TODO: consider if java should be consulted directly for operator on lhs type
+		List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getFunctionName(), lhsT);
+		try {
+			Type[] types = new Type[] { lhsT, rhsT };
+			IFunction f = functionUtils.selectFunction(o.getFunctionName(), candidates, types);
+			return functionUtils.getReturnType(f, types);
+			// B3FunctionType t = FunctionUtils.getSignature(f);
+			// BTypeCalculator tc = t.getTypeCalculator();
+			// if(tc == null)
+			// return t.getReturnType();
+			// return tc.getReturnTypeForParameterTypes(types);
+		}
+		catch(Exception e) {
+			return Object.class;
+		}
 		/*
 		 * OLD WAY:
 		 * return ctx.getDeclaredFunctionType(
 		 * functionName, new Type[] { leftExpr.getDeclaredType(ctx), rightExpr.getDeclaredType(ctx) });
 		 */
-		return null; // TODO: REQUIRES THAT FUNCTIONS ARE LINKED
-
 	}
 
 	public Type type(BCachedExpression o) {
@@ -107,30 +155,54 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 	}
 
 	public Type type(BCallFeature o) {
-		/*
-		 * OLD WAY
-		 * Throwable lastError = null;
-		 * try {
-		 * EList<BParameter> pList = getParameterList().getParameters();
-		 * int nbrParams = pList.size() + 1;
-		 * Type[] tparameters = new Type[nbrParams];
-		 * int counter = 0;
-		 * tparameters[counter++] = funcExpr.getDeclaredType(ctx);
-		 * for(BParameter p : pList) {
-		 * tparameters[counter++] = p.getExpr().getDeclaredType(ctx);
-		 * }
-		 * return ctx.getDeclaredFunctionType(name, tparameters);
-		 * }
-		 * catch(B3NoSuchFunctionSignatureException e) {
-		 * lastError = e;
-		 * }
-		 * catch(B3NoSuchFunctionException e) {
-		 * lastError = e;
-		 * }
-		 * throw B3BackendException.fromMessage(this, lastError, "Determening return type of Call failed - see details.");
-		 */
-		return null; // TODO: REQUIRES THAT FUNCTIONS ARE LINKED
+		Type[] types = null;
+		boolean staticAttempt = false;
+		try {
+			types = functionUtils.asTypeArray(o, true);
 
+			types[0] = doGetInferredType(o.getFuncExpr());
+			List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
+			IFunction f = functionUtils.selectFunction(o.getName(), candidates, types);
+			return functionUtils.getReturnType(f, types);
+		}
+		catch(InferenceExceptions e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch(B3NoSuchFunctionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch(B3NoSuchFunctionSignatureException e) {
+			staticAttempt = true;
+		}
+		catch(B3AmbiguousFunctionSignatureException e) {
+			staticAttempt = true;
+		}
+		// Try again, this time with a static call
+		if(staticAttempt) {
+			if(types.length > 0) {
+				// static call
+				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+				metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+				Type[] newTypes = new Type[types.length + 1];
+				System.arraycopy(types, 0, newTypes, 1, types.length);
+				newTypes[0] = metaClass;
+
+				List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
+				IFunction f;
+				try {
+					f = functionUtils.selectFunction(o.getName(), candidates, newTypes);
+					return functionUtils.getReturnType(f, types);
+				}
+				catch(B3EngineException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		// survive syntax errors by returning Object.class
+		return Object.class;
 	}
 
 	public Type type(BCallFunction o) {
@@ -148,30 +220,64 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 	}
 
 	public Type type(BCallNamedFunction o) {
-		/*
-		 * OLD WAY
-		 * // if call is on the form "x.f(...)" => "f(x,...)"
-		 * 
-		 * Throwable lastError = null;
-		 * try {
-		 * EList<BParameter> pList = getParameterList().getParameters();
-		 * int nbrParams = pList.size();
-		 * Type[] tparameters = new Type[nbrParams];
-		 * int counter = 0;
-		 * for(BParameter p : pList) {
-		 * tparameters[counter++] = p.getExpr().getDeclaredType(ctx);
-		 * }
-		 * return ctx.getDeclaredFunctionType(name, tparameters);
-		 * }
-		 * catch(B3NoSuchFunctionSignatureException e) {
-		 * lastError = e;
-		 * }
-		 * catch(B3NoSuchFunctionException e) {
-		 * lastError = e;
-		 * }
-		 * throw B3BackendException.fromMessage(this, lastError, "Determening return type of Call failed - see details.");
-		 */
-		return null; // TODO: REQUIRES THAT FUNCTIONS ARE LINKED
+		// Find functions by name
+		// Match parameters
+		// get return type
+		String name = o.getFuncRef().getName();
+		if(Strings.isEmpty(name))
+			name = o.getName();
+		if(Strings.isEmpty(name))
+			return null;
+		Type[] types = null;
+		try {
+			types = functionUtils.asTypeArray(o, false);
+		}
+		catch(InferenceExceptions e) {
+			return null;
+		}
+		Type referenceType = types.length > 0
+				? types[0]
+				: null;
+		List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, name, referenceType);
+		boolean staticAttempt = false;
+		try {
+			IFunction func = functionUtils.selectFunction(name, candidates, types);
+			return functionUtils.getReturnType(func, types);
+		}
+		catch(B3NoSuchFunctionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch(B3NoSuchFunctionSignatureException e) {
+			staticAttempt = true;
+		}
+		catch(B3AmbiguousFunctionSignatureException e) {
+			staticAttempt = true;
+		}
+		// Try again, this time with a static call
+		if(staticAttempt) {
+			if(types.length > 0) {
+				// static call
+				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+				metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+				Type[] newTypes = new Type[types.length + 1];
+				System.arraycopy(types, 0, newTypes, 1, types.length);
+				newTypes[0] = metaClass;
+
+				try {
+					candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
+					IFunction f = functionUtils.selectFunction(o.getName(), candidates, newTypes);
+					return functionUtils.getReturnType(f, types);
+				}
+				catch(B3EngineException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		// survive syntax errors by returning Object.class
+		return Object.class;
+
 	}
 
 	public Type type(BCase o) {
@@ -187,7 +293,7 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 		final EList<BExpression> exprList = o.getExpressions();
 		final int sz = exprList.size();
 		if(sz == 0)
-			return Object.class; // TODO: This may be too relaxed - should perhaps be <?>
+			return Object.class; // TODO: result is null, but could be seen as null of expected type...
 		return doGetInferredType(exprList.get(sz - 1));
 	}
 
@@ -197,6 +303,13 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 			throw new IllegalArgumentException("Can only create literal type. Was: " + t.getClass().toString());
 		// note: use the type the type represents, not the type that describes it
 		return ((BLiteralType) t).getType();
+	}
+
+	public Type type(BDefProperty o) {
+		final Type t = o.getType();
+		return t == null
+				? doGetInferredType(o.getValueExpr())
+				: t;
 	}
 
 	public Type type(BDefValue o) {
@@ -224,7 +337,32 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 	}
 
 	public Type type(BFunction o) {
-		return o.getSignature();
+		B3FunctionType t = B3backendFactory.eINSTANCE.createB3FunctionType();
+		// TODO: This is probably wrong - but current impl uses this class for
+		// both B3Function, and JavaFunction ??? Probably a Bug??
+		t.setFunctionType(B3Function.class);
+
+		Type returnType = o.getReturnType();
+		t.setReturnType(returnType);
+		t.setVarArgs(o.isVarArgs());
+		t.setTypeCalculator(o.getTypeCalculator());
+
+		// Infer the type of the parameters
+		EList<Type> pt = t.getParameterTypes();
+		for(BParameterDeclaration p : o.getParameters())
+			pt.add(doGetInferredType(p));
+
+		// override the inference that a varargs parameter is a List<T> and use only a T
+		if(o.isVarArgs()) {
+			int lastIndex = pt.size() - 1;
+			pt.set(lastIndex, TypeUtils.getElementType(pt.get(lastIndex)));
+		}
+
+		// Type[] ptarray = o.getParameterTypes();
+		// for(int i = 0; i < ptarray.length; i++)
+		// pt.add(ptarray[i]);
+		return t;
+		// return FunctionUtils.getSignature(o);
 	}
 
 	public Type type(BFunctionWrapper o) {
@@ -286,13 +424,20 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 	 * @param o
 	 * @return
 	 */
+	// Type kt = keyType == null
+	// ? String.class
+	// : keyType;
+	// Type vt = valueType == null
+	// ? Object.class
+	// : valueType;
+	// B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+	// pt.setRawType(Map.class);
+	// pt.getActualArgumentsList().add(kt);
+	// pt.getActualArgumentsList().add(vt);
+	// return pt;
 	public Type type(BLiteralMapExpression o) {
 		Type kt = o.getKeyType();
 		Type vt = o.getValueType();
-		B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-		pt.setRawType(Map.class);
-		pt.getActualArgumentsList().add(kt);
-		pt.getActualArgumentsList().add(vt);
 
 		ArrayList<Type> typeListKey = kt != null
 				? null
@@ -315,6 +460,9 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 				vt = Object.class;
 			}
 		}
+		B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+		pt.setRawType(Map.class);
+
 		pt.getActualArgumentsList().add(kt != null
 				? kt
 				: TypeUtils.getCommonSuperType(typeListKey.toArray(new Type[typeListKey.size()])));
@@ -347,6 +495,7 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 	/**
 	 * The type of a declared parameter is either:
 	 * - the declared
+	 * - the declared varargs
 	 * - inferred from:
 	 * 1. lambda parent being passed as arg
 	 * 2. lambda parent being called with args of known type
@@ -360,9 +509,19 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 	 */
 	public Type type(BParameterDeclaration o) {
 		Type t = o.getType(); // declared type
-		if(t != null)
+		if(t != null) {
+			// check if it is a varargs parameter
+			if(((IFunction) o.eContainer()).isVarArgs()) {
+				EList<BParameterDeclaration> params = ((IFunction) o.eContainer()).getParameters();
+				if(params.indexOf(o) == params.size() - 1) {
+					B3ParameterizedType t2 = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+					t2.setRawType(List.class);
+					t2.getActualArgumentsList().add(t);
+					t = t2;
+				}
+			}
 			return t;
-
+		}
 		// possible inferences:
 		// 1. a lambda passed as an argument to function - the declared signature determines the type
 		// 2. a lambda being called can infer the type to the type used in the call.
@@ -446,6 +605,31 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 		return t;
 	}
 
+	public Type type(BParameterPredicate o) {
+		return o.getType();
+	}
+
+	/**
+	 * TODO: Proceed is used in FunctionConcern and in BuilderConcern. Must be handled as overriding type provider
+	 * TODO: Proceed can not get return type from ConcernContext !! always returns Object.class
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public Type type(BProceedExpression o) {
+		EObject container = o.eContainer();
+		while(container != null) {
+			if(container instanceof BFunctionConcernContext) // || container instanceof BuilderConcernContext)
+				break; // ok
+			container = container.eContainer();
+		}
+		if(container == null)
+			return Object.class; // Syntax error, but try to survive
+		// TODO: The return type is currently not declared in the Function Context
+		// ((BFunctionConcernContext)container).getReturnType()
+		return Object.class;
+	}
+
 	public Type type(BRegularExpression o) {
 		return Pattern.class;
 	}
@@ -492,11 +676,17 @@ public class B3ExpressionTypeProvider extends DeclarativeTypeProvider {
 	}
 
 	public Type type(BUnaryOpExpression o) {
-		// TODO:
-		// OLD WAY:
-		// return ctx.getDeclaredFunctionType(functionName, new Type[] { expr.getDeclaredType(ctx) });
-		return null;
-
+		Type lhsT = doGetInferredType(o.getExpr());
+		// TODO: consider if java should be consulted directly for operator on lhs type
+		List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getFunctionName(), lhsT);
+		try {
+			Type[] types = new Type[] { lhsT };
+			IFunction f = functionUtils.selectFunction(o.getFunctionName(), candidates, types);
+			return functionUtils.getReturnType(f, types);
+		}
+		catch(Exception e) {
+			return Object.class;
+		}
 	}
 
 	public Type type(BUnaryPostOpExpression o) {

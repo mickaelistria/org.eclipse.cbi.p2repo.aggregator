@@ -7489,24 +7489,29 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertyValue");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBVariableExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNamePIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cNamedValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cNamedValueINamedValueCrossReference_1_0 = (CrossReference)cNamedValueAssignment_1.eContents().get(0);
+		private final RuleCall cNamedValueINamedValuePIDTerminalRuleCall_1_0_1 = (RuleCall)cNamedValueINamedValueCrossReference_1_0.eContents().get(1);
 		
+		////	name = PID
 		//PropertyValue returns be::BExpression:
-		//	{be::BVariableExpression} name=PID;
+		//	{be::BVariableExpression} namedValue=[be::INamedValue|PID];
 		public ParserRule getRule() { return rule; }
 
-		//{be::BVariableExpression} name=PID
+		//{be::BVariableExpression} namedValue=[be::INamedValue|PID]
 		public Group getGroup() { return cGroup; }
 
 		//{be::BVariableExpression}
 		public Action getBVariableExpressionAction_0() { return cBVariableExpressionAction_0; }
 
-		//name=PID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//namedValue=[be::INamedValue|PID]
+		public Assignment getNamedValueAssignment_1() { return cNamedValueAssignment_1; }
+
+		//[be::INamedValue|PID]
+		public CrossReference getNamedValueINamedValueCrossReference_1_0() { return cNamedValueINamedValueCrossReference_1_0; }
 
 		//PID
-		public RuleCall getNamePIDTerminalRuleCall_1_0() { return cNamePIDTerminalRuleCall_1_0; }
+		public RuleCall getNamedValueINamedValuePIDTerminalRuleCall_1_0_1() { return cNamedValueINamedValuePIDTerminalRuleCall_1_0_1; }
 	}
 
 	public class VariableValueElements extends AbstractParserRuleElementFinder {
@@ -13573,8 +13578,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getElseIfExpressionAccess().getRule();
 	}
 
+	////	name = PID
 	//PropertyValue returns be::BExpression:
-	//	{be::BVariableExpression} name=PID;
+	//	{be::BVariableExpression} namedValue=[be::INamedValue|PID];
 	public PropertyValueElements getPropertyValueAccess() {
 		return (pPropertyValue != null) ? pPropertyValue : (pPropertyValue = new PropertyValueElements());
 	}

@@ -279,7 +279,6 @@
       <eParameters name="parameters" eType="#//ObjectArray"/>
       <eParameters name="types" eType="#//TypeArray"/>
     </eOperations>
-    <eOperations name="getSignature" eType="#//IType"/>
     <eOperations name="getReturnTypeForParameterTypes" eType="#//Type">
       <eParameters name="types" eType="#//TypeArray"/>
     </eOperations>

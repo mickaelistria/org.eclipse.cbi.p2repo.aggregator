@@ -11,9 +11,11 @@ package org.eclipse.b3.build.engine;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.JavaToB3Helper;
+import org.eclipse.b3.backend.evaluator.IB3Engine;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
@@ -24,13 +26,16 @@ import org.eclipse.b3.backend.functions.SystemFunctions;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.core.B3BuildConstants;
+import org.eclipse.b3.build.functions.BuildFunctions;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
-import com.google.common.collect.Maps;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
 
 /**
  * The Engine Resource is a b3 model loaded from the environment. It can not be saved.
@@ -63,7 +68,9 @@ public class B3BuildEngineResource extends ResourceImpl {
 
 	private BDefValue varSource;
 
-	private Map<String, IFunction> functionMap;
+	private BDefValue varEngine;
+
+	private ArrayListMultimap<String, IFunction> functionMap;
 
 	/**
 	 * @param uri
@@ -72,12 +79,32 @@ public class B3BuildEngineResource extends ResourceImpl {
 		super(uri);
 	}
 
+	/**
+	 * Returns the first function having name, or null if there is no such function.
+	 * 
+	 * @param name
+	 * @return
+	 */
 	public IFunction getFunctionByName(String name) {
-		return functionMap.get(name);
+		List<IFunction> list = functionMap.get(name);
+		if(list.size() > 0)
+			return list.get(0);
+		return null;
 	}
 
-	public Map<String, IFunction> getFunctions() {
-		return Collections.unmodifiableMap(functionMap);
+	public ListMultimap<String, IFunction> getFunctions() {
+		return Multimaps.unmodifiableListMultimap(functionMap);
+	}
+
+	public List<IFunction> getFunctionsByName(String name) {
+		return Collections.unmodifiableList(functionMap.get(name));
+	}
+
+	/**
+	 * @return the varEngine
+	 */
+	public BDefValue getVarEngine() {
+		return varEngine;
 	}
 
 	/**
@@ -115,7 +142,7 @@ public class B3BuildEngineResource extends ResourceImpl {
 	 */
 	@Override
 	public void load(Map<?, ?> options) throws IOException {
-		functionMap = Maps.newHashMap();
+		functionMap = Multimaps.newArrayListMultimap();
 
 		EList<EObject> content = getContents();
 		varRequest = createValue(B3BuildConstants.B3_VAR_REQUEST, RequiredCapability.class, true);
@@ -130,12 +157,17 @@ public class B3BuildEngineResource extends ResourceImpl {
 		varSource = createValue(B3BuildConstants.B3_VAR_OUTPUT, BuildSet.class, true);
 		content.add(varSource);
 
+		varEngine = createValue(B3BuildConstants.B3_VAR_ENGINE, IB3Engine.class, true);
+		content.add(varEngine);
+
 		// load functions
 		try {
 			processFunctions(JavaToB3Helper.loadFunctions(ArithmeticFunctions.class));
 			processFunctions(JavaToB3Helper.loadFunctions(RelationalFunctions.class));
 			processFunctions(JavaToB3Helper.loadFunctions(StringFunctions.class));
 			processFunctions(JavaToB3Helper.loadFunctions(SystemFunctions.class));
+
+			processFunctions(JavaToB3Helper.loadFunctions(BuildFunctions.class));
 		}
 		catch(Exception e) {
 			// TODO: Investigate if there is some better exception to throw, this

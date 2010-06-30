@@ -151,11 +151,14 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
+	 * @deprecated now done by evaluator
+	 *             <!-- end-user-doc -->
 	 * 
 	 * @throws CoreException
 	 * @generated NOT
 	 */
+	@Deprecated
 	public Object evaluateIfNotCached(BExecutionContext ctx, BCachedExpression cachedExpression) throws Throwable {
 		synchronized(cachedExpression) {
 			if(getExpressionCache().isCached(cachedExpression))
