@@ -3,6 +3,7 @@ import java.util.List;
 import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.beelang.tests.repo.TestRepo;
+import org.eclipse.b3.build.core.B3BuildEngine;
 
 /**
 * Used to advice 'Fruit' that the waste (seeds and peel) can be built.
@@ -24,19 +25,20 @@ function main(List argv) {
 
 /**
 * Tests that a fruitsallad can be build - i.e, that its prerequisites in input has
-* been resolved, the builders are found, exectuted, returns a result that is merged
+* been resolved, the builders are found, executed, returns a result that is merged
 * as expected.
 */
 function testBuildingFruitSallad() {
-	var engine = ${test.engine};
-	var sallad = ${test.fruitsallad};
-	assertEquals("The fruitsallad unit is found", "fruitsallad", sallad.name);
-	assertEquals("The fruitsallad unit is found", "fruitsallad", ${test.fruitsallad}.name);
-	var e = sallad.getEffectiveFacade(engine.getBuildContext());
-	var x = sallad.make();
-	x.schedule();
-	x.join();
-	var r = x.getBuildResult();
+//	assertEquals("The fruitsallad unit is found", "fruitsallad", sallad.name);
+//	assertEquals("The fruitsallad unit is found", "fruitsallad", sallad.name);
+//	var String = engine.toString();
+//	var bcttx = engine.getBuildContext();
+	
+//	var e = sallad.getEffectiveFacade(bcttx);
+	var r = b3.runBuilder("fruitsallad", "make");
+//	x.schedule();
+//	x.join();
+//	var r = x.getBuildResult();
 	
 	assertContainsAll("All input in fruitsallaed is merged", 
 	r.getPathIterator().toList().collect(x|x.toString()),
@@ -52,21 +54,24 @@ function testBuildingFruitSallad() {
 * Basic test of running simplest type of builder (returns source), and merging result.
 */
 function testRunBuildersAndMergeResult() {
-	assertTrue("Test should have initialized property $test.banana", ${test.banana} instanceof Fruit);	
-	assertTrue("Test should have initialized property $test.orange", ${test.orange} instanceof Fruit);	
-	Fruit banana = ${test.banana};
-	Fruit orange = ${test.orange};
+//	assertTrue("Test should have initialized property $test.banana", ${test.banana} instanceof Fruit);	
+//	assertTrue("Test should have initialized property $test.orange", ${test.orange} instanceof Fruit);	
+//	Fruit banana = ${test.banana};
+//	Fruit orange = ${test.orange};
+//	
+//	var x = banana.pulp();
+//	x.schedule();
+//	x.join();
+//	var r = x.getBuildResult();
+	var r = b3.runBuilder("banana", "pulp");
 	
-	var x = banana.pulp();
-	x.schedule();
-	x.join();
-	var r = x.getBuildResult();
-	
-	x = orange.peel();
-	x.schedule();
-	x.join();
-	r.merge(x.getBuildResult());
-	
+//	x = orange.peel();
+//	x.schedule();
+//	x.join();
+//	r.merge(x.getBuildResult());
+
+	r.merge(b3.runBuilder("orange", "peel"));
+		
 	// needs typecast to List see Bug 303920
 	assertContainsAll("Orange and Banana should have been merged", 
 		r.getPathIterator().toList().collect(x|x.toString()),
@@ -78,13 +83,15 @@ function testRunBuildersAndMergeResult() {
 
 
 private function fruitWaste() {
-	var apple = ${test.apple};
-	var x = apple.waste();
-	x.schedule();
-	x.join();
+//	var apple = ${test.apple};
+//	var x = apple.waste();
+//	x.schedule();
+//	x.join();
+	var r = b3.runBuilder("apple", "waste");
 	// needs typecast to List see Bug 303920
 	assertContainsAll("Advice used and two files returned", 
-		x.getBuildResult().getPathIterator().toList().collect(x|x.toString()),
+//		x.getBuildResult().getPathIterator().toList().collect(x|x.toString()),
+		r.getPathIterator().toList().collect(x|x.toString()),
 		[
 			"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/applepeel.txt",
 			"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/appleseeds.txt"
