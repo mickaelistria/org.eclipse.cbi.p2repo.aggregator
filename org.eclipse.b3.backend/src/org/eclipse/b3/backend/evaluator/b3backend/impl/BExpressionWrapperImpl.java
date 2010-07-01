@@ -12,11 +12,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
 
@@ -153,27 +149,6 @@ public class BExpressionWrapperImpl extends BExpressionImpl implements BExpressi
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		return original == null
-				? null
-				: original.evaluate(ctx);
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return original == null
-				? Object.class
-				: original.getDeclaredType(ctx);
-	}
-
-	@Override
-	public LValue getLValue(BExecutionContext ctx) throws Throwable {
-		return original == null
-				? super.getLValue(ctx)
-				: original.getLValue(ctx);
 	}
 
 	/**

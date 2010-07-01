@@ -6,15 +6,9 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.evaluator.BackendHelper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -263,19 +257,6 @@ public class BIfExpressionImpl extends BExpressionImpl implements BIfExpression 
 		super.eUnset(featureID);
 	}
 
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Object cond = conditionExpr.evaluate(ctx);
-		if(!(cond instanceof Boolean))
-			throw BackendHelper.createException(
-				conditionExpr, "If-condition is not a Boolean, was : {0}", new Object[] { cond.getClass().toString() });
-		if(((Boolean) cond).booleanValue())
-			return thenExpr.evaluate(ctx);
-		if(elseExpr != null)
-			return elseExpr.evaluate(ctx);
-		return null;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -284,11 +265,6 @@ public class BIfExpressionImpl extends BExpressionImpl implements BIfExpression 
 	 */
 	public BExpression getConditionExpr() {
 		return conditionExpr;
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return TypeUtils.getCommonSuperType(new Type[] { thenExpr.getDeclaredType(ctx), elseExpr.getDeclaredType(ctx) });
 	}
 
 	/**

@@ -37,7 +37,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -978,17 +977,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	}
 
 	/**
-	 * Functions are literal and evaluate to self. When a function is evaluated, it also binds
-	 * to the context where it is defined.
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		// if(getClosure() == null)
-		setClosure(ctx);
-		return this; // a function is literal.
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1017,11 +1005,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		if(eContainerFeatureID() != B3backendPackage.BFUNCTION__CONTAINER)
 			return null;
 		return (BFunctionContainer) eContainer();
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return getSignature();
 	}
 
 	/**
@@ -1123,19 +1106,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * @generated
 	 */
 	public Type getReturnType() {
-		// if return type is null return java.lang.Object.class
-		// if(returnType == null)
-		// return Object.class;
-		// NOTE: Must check if return type is an EObject
-		if(returnType != null && returnType instanceof EObject && ((EObject) returnType).eIsProxy()) {
-			InternalEObject oldReturnType = (InternalEObject) returnType;
-			returnType = (Type) eResolveProxy(oldReturnType);
-			if(returnType != oldReturnType) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, B3backendPackage.BFUNCTION__RETURN_TYPE, oldReturnType, returnType));
-			}
-		}
 		return returnType;
 	}
 
@@ -1155,18 +1125,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		if(tc != null)
 			return tc.getReturnTypeForParameterTypes(types);
 		return getReturnType();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @deprecated
-	 * @generated
-	 */
-	@Deprecated
-	public Type getSignature() {
-		throw new UnsupportedOperationException("Do not call getSignature on BFunction - use FunctionUtils");
 	}
 
 	/**

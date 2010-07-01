@@ -6,11 +6,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -52,68 +48,6 @@ public abstract class BExpressionImpl extends EObjectImpl implements BExpression
 	@Override
 	protected EClass eStaticClass() {
 		return B3backendPackage.Literals.BEXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns declared type, unless declared type is null in which case inferred type is
-	 * returned (which may also result in null when type is neither declared nor inferrable).
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Type getEffectiveType(BExecutionContext ctx) throws Throwable {
-		Type t = getDeclaredType(ctx);
-		if(t != null)
-			return t;
-		return getInferredType(ctx);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns null.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Type getInferredType(BExecutionContext ctx) throws Throwable {
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public LValue getLValue(BExecutionContext ctx) throws Throwable {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 } // BExpressionImpl

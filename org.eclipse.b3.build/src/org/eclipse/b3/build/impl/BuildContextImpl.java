@@ -16,14 +16,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.B3WeavingFailedException;
 import org.eclipse.b3.backend.core.ParentContextIterator;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl;
 import org.eclipse.b3.build.B3BuildPackage;
-import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.IBuilder;
@@ -60,28 +59,6 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * TODO: DOES NOT NEED TO RETURN THE CTX
-	 * <!-- end-user-doc -->
-	 * 
-	 * @deprecated use evaluator
-	 * @throws B3EngineException
-	 * @generated NOT
-	 */
-	@Deprecated
-	public void defineBeeModel(BeeModel beeModel) throws B3EngineException {
-
-		try {
-			beeModel.evaluate(this);
-		}
-		catch(Throwable e) {
-			// TODO: Throwable is not good, use specific exception for BeeModelDefinition fail.
-			throw new B3InternalError("Loading of model failed", e);
-		}
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * Define a build unit. Any bequested matching advice is applied.
 	 * TODO: SEMANTICS OF REDEFINING A UNIT (All sorts of bad things happen) - now exception is thrown
 	 * <!-- end-user-doc -->
@@ -91,6 +68,7 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 	 * @generated NOT
 	 */
 	public void defineBuildUnit(BuildUnit unit, boolean isWeaving) throws B3EngineException {
+		IB3Evaluator evaluator = getInjector().getInstance(IB3Evaluator.class);
 		BuildUnitProxyAdapter p = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit);
 		Class<? extends BuildUnit> iface = p.getIface();
 		if(unitStore.containsKey(iface))
@@ -127,7 +105,7 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 		for(Repository r : unit.getRepositories())
 			try {
 				x = r;
-				r.evaluate(this);
+				evaluator.doEvaluate(r, this);
 			}
 			catch(Throwable e) {
 				throw new B3EngineException(NLS.bind(

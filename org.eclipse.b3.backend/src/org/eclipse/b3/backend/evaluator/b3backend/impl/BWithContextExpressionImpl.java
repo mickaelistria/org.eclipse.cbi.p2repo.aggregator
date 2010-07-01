@@ -13,7 +13,6 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
@@ -354,35 +353,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	}
 
 	/**
-	 * Evaluates a block of code with an instance as context.
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Object instance = expr.evaluate(ctx);
-
-		// if creator has a contextBlock and alias, these needs to be processed
-		BExpression cBlock = getContextBlock();
-		if(cBlock != null) {
-			// create a context for the object instance
-			// BInstanceContext iCtx = B3backendFactory.eINSTANCE.createBInstanceContext();
-			// iCtx.setInstance(instance);
-			// iCtx.setParentContext(ctx);
-			// iCtx.setOuterContext(ctx instanceof BInnerContext
-			// ? ((BInnerContext) ctx).getOuterContext()
-			// : ctx);
-			// create an inner context for the cBlock, and define the "this" and optional alias
-			// as immutable values.
-			// BExecutionContext iiCtx = iCtx.createInnerContext();
-			BExecutionContext iiCtx = ctx.createInnerContext();
-			// iiCtx.defineValue(B3BackendConstants.B3BACKEND_THIS, instance, instance.getClass());
-			if(getName() != null && getName().length() > 0)
-				iiCtx.defineValue(getName(), instance, instance.getClass());
-			cBlock.evaluate(iiCtx);
-		}
-		return instance;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -390,18 +360,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	 */
 	public BExpression getContextBlock() {
 		return contextBlock;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl#getDeclaredType(org.eclipse.b3.backend.evaluator
-	 * .b3backend.BExecutionContext)
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return expr.getDeclaredType(ctx);
 	}
 
 	/**

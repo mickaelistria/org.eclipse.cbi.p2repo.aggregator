@@ -11,6 +11,7 @@
 package org.eclipse.b3.build.impl;
 
 import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.build.B3BuildPackage;
@@ -217,9 +218,12 @@ public class SwitchUnitProviderImpl extends UnitProviderImpl implements SwitchUn
 	 */
 	@Override
 	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
+
 		BExecutionContext ictx = ctx.createInnerContext();
 		ictx.defineFinalValue(B3BuildConstants.B3_VAR_REQUEST, requiredCapability, RequiredCapability.class);
-		Object repoObject = repoSwitch.evaluate(ictx);
+		Object repoObject = evaluator.doEvaluate(repoSwitch, ictx);
+
 		// a null repo signals "not found"
 		if(repoObject == null)
 			return null;

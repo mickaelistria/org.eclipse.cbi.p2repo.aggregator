@@ -11,8 +11,6 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 import java.util.Collection;
-import java.util.Iterator;
-
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
@@ -507,20 +505,10 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 		if(eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer("B3FunctionType (");
-		Iterator<Type> typeItor = getParameterTypes().iterator();
-		int count = getParameterTypes().size();
-		while(typeItor.hasNext()) {
-			if(count-- == 1 && varArgs)
-				result.append("...");
-			result.append(typeItor.next().toString());
-			if(count > 0)
-				result.append(", ");
-		}
-		result.append(")=> ");
-		result.append(getReturnType() == null
-				? "inferred"
-				: getReturnType().toString());
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (varArgs: ");
+		result.append(varArgs);
+		result.append(')');
 		return result.toString();
 	}
 

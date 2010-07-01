@@ -11,6 +11,7 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.Iterator;
 
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
@@ -782,6 +783,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @generated NOT
 	 */
 	public EffectiveUnitFacade getEffectiveFacade(BExecutionContext ctx) throws Throwable {
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		// EFFECTIVE BUILD UNIT
 		BuildContext buildContext = ctx.getContext(BuildContext.class);
 		BuildUnit u = buildContext.getEffectiveBuildUnit(this);
@@ -829,7 +831,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		for(RequiredCapability req : getRequiredCapabilities()) {
 			BExpression c = req.getCondExpr();
 			if(c != null) {
-				Object include = c.evaluate(ctx);
+				Object include = evaluator.doEvaluate(c, ctx);
+				// Object include = c.evaluate(ctx);
 				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE)
 					continue; // skip this requirement
 			}
@@ -842,7 +845,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		for(RequiredCapability req : getMetaRequiredCapabilities()) {
 			BExpression c = req.getCondExpr();
 			if(c != null) {
-				Object include = c.evaluate(ctx);
+				Object include = evaluator.doEvaluate(c, ctx);
 				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE)
 					continue; // skip this requirement
 			}
@@ -857,7 +860,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		for(Capability cap : getProvidedCapabilities()) {
 			BExpression c = cap.getCondExpr();
 			if(c != null) {
-				Object include = c.evaluate(outer);
+				Object include = evaluator.doEvaluate(c, outer);
 				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE)
 					continue; // skip this requirement
 			}

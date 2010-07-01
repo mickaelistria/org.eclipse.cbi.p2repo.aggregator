@@ -36,6 +36,7 @@ import org.eclipse.b3.backend.core.LoadedPropertySetAdapterFactory;
 import org.eclipse.b3.backend.core.RegexpIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.BAdvice;
 import org.eclipse.b3.backend.evaluator.b3backend.BAndExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
@@ -63,6 +64,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
@@ -639,12 +641,15 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 	public Object evaluate(BFunctionConcernContext o, BExecutionContext ctx) throws Throwable {
 		// Find all functions that match the predicate
 		// Add wrappers for all found functions
-		Iterator<IFunction> itor = safeIFunctionIterator(doEvaluate(o.getNamePredicate(), ctx));
-		BackendWeaver weaver = ctx.getInjector().getInstance(BackendWeaver.class);
-		weaver.setFunctionConcern(o);
-		while(itor.hasNext())
-			weaver.weaveIfParametersMatch(itor.next(), ctx);
+		// BackendWeaver weaver = ctx.getInjector().getInstance(BackendWeaver.class);
+		// weaver.setFunctionConcern(o);
+		// while(itor.hasNext())
+		// weaver.weaveIfParametersMatch(itor.next(), ctx);
+		// return o;
+		ctx.getInjector().getInstance(IB3Weaver.class).doWeave(
+			o, safeIFunctionIterator(doEvaluate(o.getNamePredicate(), ctx)), ctx);
 		return o;
+
 	}
 
 	public Object evaluate(BFunctionNamePredicate o, BExecutionContext ctx) throws Throwable {
@@ -917,7 +922,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 	public Object evaluate(BWithExpression o, BExecutionContext ctx) throws Throwable {
 		if(o.getFuncExpr() == null)
 			return null;
-		return doEvaluate(o.getFuncExpr(), o.getEvaluationContext(ctx));
+		return doEvaluate(o.getFuncExpr(), doGetInnerContext(o, ctx));
 	}
 
 	public Object evaluateDefaults(BConditionalPropertyOperation o, BExecutionContext ctx, boolean allVisible)
@@ -964,6 +969,29 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 
 	public Object evaluateDefaults(BPropertySetOperation o, BExecutionContext ctx, boolean allVisible) throws Throwable {
 		return doEvaluateDefaults(o.getPropertySet(), ctx, allVisible);
+	}
+
+	/**
+	 * Set up the context for evaluation inside the BWithExpression
+	 * 
+	 * @param o
+	 * @param ctx
+	 * @return
+	 * @throws Throwable
+	 */
+	public Object getInnerContext(BWithExpression o, BExecutionContext ctx) throws Throwable {
+		BInnerContext ictx = ctx.createWrappedInnerContext();
+		BExecutionContext octx = ictx.getOuterContext();
+		// populate all referenced advice
+		for(BAdvice a : o.getReferencedAdvice())
+			doEvaluate(a, octx);
+		for(BConcern c : o.getConcerns())
+			doEvaluate(c, octx);
+		// populate properties
+		for(BPropertySet ps : o.getPropertySets())
+			doEvaluate(ps, octx);
+		return ictx;
+
 	}
 
 	public LValue lValue(BAtExpression o, BExecutionContext ctx) throws Throwable {

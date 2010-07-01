@@ -6,18 +6,12 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
 import java.util.Collection;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.evaluator.BackendHelper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTryExpression;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -252,34 +246,6 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 		super.eUnset(featureID);
 	}
 
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		try {
-			return tryExpr.evaluate(ctx);
-		}
-		catch(Throwable t) {
-			// select catch block, or if exception uncaught, re-throw
-			for(BCatch catchBlock : catchBlocks) {
-				if(TypeUtils.isAssignableFrom(catchBlock.getType(), t.getClass())) {
-					BExecutionContext inner = ctx.createInnerContext();
-					try {
-						inner.defineValue(catchBlock.getName(), t, catchBlock.getType());
-					}
-					catch(B3EngineException e) {
-						throw BackendHelper.createException(this, e, "Could not create closure to evaluate catch.");
-					}
-					return catchBlock.evaluate(inner);
-				}
-			}
-			// no match
-			throw t;
-		}
-		finally {
-			if(finallyExpr != null)
-				finallyExpr.evaluate(ctx);
-		}
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -292,22 +258,6 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 				BCatch.class, this, B3backendPackage.BTRY_EXPRESSION__CATCH_BLOCKS);
 		}
 		return catchBlocks;
-	}
-
-	/**
-	 * Returns the common super type of the try and all catch expressions.
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		Type[] types = new Type[catchBlocks.size() + 1];
-		types[0] = tryExpr.getDeclaredType(ctx);
-		int counter = 1;
-		for(BCatch catchBlock : catchBlocks) {
-			BExecutionContext inner = ctx.createInnerContext();
-			inner.defineValue(catchBlock.getName(), catchBlock.getType(), null);
-			types[counter++] = catchBlock.getDeclaredType(inner);
-		}
-		return TypeUtils.getCommonSuperType(types);
 	}
 
 	/**

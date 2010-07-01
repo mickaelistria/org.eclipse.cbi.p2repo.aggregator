@@ -14,7 +14,6 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -175,16 +174,6 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		return getDefinition().evaluate(ctx);
-	}
-
-	@Override
-	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
-		return getDefinition().evaluateDefaults(ctx, allVisible);
 	}
 
 	/**

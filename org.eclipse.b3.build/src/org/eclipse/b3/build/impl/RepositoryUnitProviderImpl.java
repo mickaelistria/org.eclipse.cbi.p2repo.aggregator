@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildUnit;
@@ -289,6 +290,7 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 */
 	@Override
 	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		// Evaluate options in a map and pass to BuildUnitRepository
 		BExecutionContext ictx = ctx.createInnerContext();
 		ictx.defineFinalValue(B3BuildConstants.B3_VAR_REQUEST, requiredCapability, RequiredCapability.class);
@@ -297,7 +299,7 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 		// create a map for evaluated options, and populate it
 		Map<String, Object> evaluatedOptions = new HashMap<String, Object>(opts.size());
 		for(RepoOption o : opts)
-			evaluatedOptions.put(o.getName(), o.getExpr().evaluate(ctx));
+			evaluatedOptions.put(o.getName(), evaluator.doEvaluate(o.getExpr(), ctx));
 
 		// TODO: Better error handling:
 		// If repository is null, buildUnitRepository *must* have been set manually.

@@ -12,16 +12,9 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.core.RegexpIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -178,31 +171,6 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/**
-	 * Returns an Iterator<IFunction> for matching functions.
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		// NOTE: does not use BNamePredicate#matches, since different iterators are needed based on
-		// the type of pattern used in BNamePredicate.
-		//
-		String name = namePredicate.getName();
-		if(name != null)
-			return ctx.getFunctionIterator(name);
-
-		// this is a name pattern of some sort
-		// currently supporting ANY, or Regexp - pattern matching not done as
-		// full expressions.
-		BExpression expr = namePredicate.getNamePattern();
-		if(expr instanceof BLiteralAny)
-			return ctx.getFunctionIterator();
-
-		if(expr instanceof BRegularExpression)
-			return new RegexpIterator(ctx.getFunctionIterator(), ((BRegularExpression) expr).getPattern());
-
-		throw new B3InternalError("Attempt to evaluate a BFunctionNamePredicate without a valid pattern type");
 	}
 
 	/**

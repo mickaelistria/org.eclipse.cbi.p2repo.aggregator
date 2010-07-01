@@ -695,21 +695,6 @@ public class TypeUtils {
 				typeDistance = new WeakReference<TypeDistance>(td = new TypeDistance());
 		}
 		return td.getMostSpecificCommonType(types);
-		// Class<?>[] classes = new Class[types.length];
-		// for(int i = 0; i < types.length; i++)
-		// classes[i] = getRaw(types[i]);
-		//
-		// int limit = classes.length;
-		// nexti: for(int i = 0; i < limit; i++) {
-		// nextj: for(int j = 0; j < limit; j++) {
-		// if(i == j)
-		// continue nextj;
-		// if(!classes[i].isAssignableFrom(classes[j]))
-		// continue nexti;
-		// }
-		// return classes[i];
-		// }
-		// return Object.class; // did not find any commonality
 	}
 
 	/**
@@ -736,47 +721,6 @@ public class TypeUtils {
 		// TODO: probably too relaxed
 		return Object.class;
 	}
-
-	// public static List<String> getMemberNamesOfType(Type t) {
-	// List<String> result = new ArrayList<String>();
-	// Class<?> traw = getRaw(t);
-	// Field[] fields = traw.getFields();
-	// Method[] methods = traw.getMethods();
-	// for(int i = 0; i < fields.length; i++) {
-	// result.add(fields[i].getName());
-	// }
-	// for(int i = 0; i < methods.length; i++) {
-	// result.add(methods[i].getName());
-	// }
-	// return result;
-	// }
-
-	// /**
-	// * Returns the (best) specificity distance for an interface. (A class may restate its implementation of an
-	// inherited
-	// * interface - this will give a shorter distance).
-	// *
-	// * @param ptc
-	// * @param pc
-	// * @return
-	// */
-	// @SuppressWarnings("rawtypes")
-	// public static int interfaceDistance(Class ptc, Class pc) {
-	// if(ptc == pc)
-	// return 0;
-	// int best = Integer.MAX_VALUE;
-	// for(Class i : pc.getInterfaces()) {
-	// int distance = interfaceDistance(ptc, i);
-	// if(distance < best) {
-	// best = distance;
-	// if(best == 0)
-	// break; // unbeatable
-	// }
-	// }
-	// return best != Integer.MAX_VALUE
-	// ? best + 1
-	// : best;
-	// }
 
 	private static Class<?> getPrimitiveTypeReflectively(Class<?> objectType) {
 		Field f;
@@ -898,13 +842,6 @@ public class TypeUtils {
 				(baseType instanceof GenericArrayType);
 	}
 
-	// public static int typeDistance(Type baseType, Type queriedType) {
-	// Class<?> baseClass = getRaw(baseType);
-	// if(baseClass.isInterface())
-	// return interfaceDistance(baseClass, getRaw(queriedType));
-	// return classDistance(baseClass, getRaw(queriedType));
-	// }
-
 	/**
 	 * Is equivalent to calling {@link #isAssignableFrom(Type, Type)} with baseType, value.getClass(), but handles the
 	 * special case when value is null.
@@ -925,22 +862,6 @@ public class TypeUtils {
 			return specialCase.booleanValue();
 		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
 	}
-
-	// public static boolean isNameMemberOfType(Type t, String name) {
-	// Class<?> traw = getRaw(t);
-	// Field[] fields = traw.getFields();
-	// Method[] methods = traw.getMethods();
-	// for(int i = 0; i < fields.length; i++) {
-	// if(fields[i].getName().equals(name))
-	// return true;
-	// }
-	// for(int i = 0; i < methods.length; i++) {
-	// if(methods[i].getName().equals(name))
-	// return true;
-	// }
-	// return false;
-	//
-	// }
 
 	protected static Boolean isAssignableFromSpecialCase(Type baseType, Type fromType) {
 		if(baseType instanceof B3FunctionType)

@@ -14,16 +14,12 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -220,26 +216,6 @@ public class BConditionalPropertyOperationImpl extends BPropertyOperationImpl im
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Object result = Boolean.TRUE;
-		if(condExpr != null)
-			result = condExpr.evaluate(ctx);
-		if(result != null && result instanceof Boolean && ((Boolean) result).booleanValue())
-			body.evaluate(ctx);
-		return this;
-	}
-
-	@Override
-	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
-		Object result = Boolean.TRUE;
-		if(condExpr != null)
-			result = condExpr.evaluate(ctx);
-		if(result != null && result instanceof Boolean && ((Boolean) result).booleanValue())
-			body.evaluateDefaults(ctx, allVisible);
-		return this;
 	}
 
 	/**

@@ -6,19 +6,9 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-import java.util.List;
-import java.util.Map;
-
-import org.eclipse.b3.backend.core.LValue;
-import org.eclipse.b3.backend.evaluator.BackendHelper;
-import org.eclipse.b3.backend.evaluator.ListLValue;
-import org.eclipse.b3.backend.evaluator.MapLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -220,31 +210,6 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 		super.eUnset(featureID);
 	}
 
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Object o = objExpr.evaluate(ctx);
-		Object i = indexExpr.evaluate(ctx);
-		if(o instanceof List<?>) {
-			int index = BackendHelper.intValue(i, indexExpr);
-			return ((List<?>) o).get(index);
-		}
-		if(o instanceof Map<?, ?>) {
-			return ((Map<?, ?>) o).get(i);
-		}
-		throw BackendHelper.createException(objExpr, "expression is neither a list or map - [] not applicable");
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		// TODO: Assumes that lhs is a list or map - if so, the value element type is returned
-		// or, if not list, map, or these are raw - then object is returned.
-		// This is probably not enough - should probably get <?> type instead if not known
-		// to be able to give editor/compiler a hint that specification is missing.
-		//
-		return TypeUtils.getElementType(objExpr.getDeclaredType(ctx));
-
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,21 +218,6 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	 */
 	public BExpression getIndexExpr() {
 		return indexExpr;
-	}
-
-	@SuppressWarnings("rawtypes")
-	@Override
-	public LValue getLValue(BExecutionContext ctx) throws Throwable {
-		Object o = objExpr.evaluate(ctx);
-		Object i = indexExpr.evaluate(ctx);
-		if(o instanceof List) {
-			int index = BackendHelper.intValue(i, indexExpr);
-			return new ListLValue((List) o, index, getDeclaredType(ctx));
-		}
-		if(o instanceof Map) {
-			return new MapLValue((Map) o, i, getDeclaredType(ctx));
-		}
-		throw BackendHelper.createException(objExpr, "expression is neither a list or map - [] not applicable");
 	}
 
 	/**

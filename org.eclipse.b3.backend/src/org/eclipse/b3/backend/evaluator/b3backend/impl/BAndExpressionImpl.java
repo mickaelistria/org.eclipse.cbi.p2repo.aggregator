@@ -6,12 +6,8 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAndExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -53,15 +49,4 @@ public class BAndExpressionImpl extends BBinaryExpressionImpl implements BAndExp
 		return B3backendPackage.Literals.BAND_EXPRESSION;
 	}
 
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		if(Boolean.FALSE.equals(leftExpr.evaluate(ctx)))
-			return Boolean.FALSE;
-		return rightExpr.evaluate(ctx);
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) {
-		return Boolean.class;
-	}
 } // BAndExpressionImpl

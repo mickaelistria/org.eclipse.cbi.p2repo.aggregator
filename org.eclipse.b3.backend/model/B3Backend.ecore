@@ -3,24 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="b3backend"
     nsURI="http://b3backend/1.0" nsPrefix="b3backend">
-  <eClassifiers xsi:type="ecore:EClass" name="BExpression" abstract="true">
-    <eOperations name="evaluate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        eExceptions="#//Throwable">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-    </eOperations>
-    <eOperations name="getLValue" eType="#//LValue">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-    </eOperations>
-    <eOperations name="getDeclaredType" eType="#//Type" eExceptions="#//Throwable">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-    </eOperations>
-    <eOperations name="getEffectiveType" eType="#//Type" eExceptions="#//Throwable">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-    </eOperations>
-    <eOperations name="getInferredType" eType="#//Type" eExceptions="#//Throwable">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-    </eOperations>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BExpression" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="BExecutionContext" abstract="true" eSuperTypes="#//ITypedValueContainer">
     <eOperations name="loadFunctions" eExceptions="#//B3EngineException">
       <eParameters name="clazz">
@@ -134,14 +117,6 @@
         eType="#//BCase" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BCase">
-    <eOperations name="evaluate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        eExceptions="#//Throwable">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-      <eParameters name="switchValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    </eOperations>
-    <eOperations name="getDeclaredType" eType="#//IType" eExceptions="#//Throwable">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditionExpr" eType="#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="thenExpr" eType="#//BExpression"
@@ -156,13 +131,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BCatch" eSuperTypes="#//ITypedValue">
-    <eOperations name="evaluate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        eExceptions="#//Throwable">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-    </eOperations>
-    <eOperations name="getDeclaredType" eType="#//Type" eExceptions="#//Throwable">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="catchExpr" eType="#//BExpression"
         containment="true"/>
   </eClassifiers>
@@ -343,11 +311,6 @@
   <eClassifiers xsi:type="ecore:EDataType" name="ValueMap" instanceClassName="org.eclipse.b3.backend.core.ValueMap"/>
   <eClassifiers xsi:type="ecore:EDataType" name="B3EngineException" instanceClassName="org.eclipse.b3.backend.core.B3EngineException"/>
   <eClassifiers xsi:type="ecore:EClass" name="BInvocationContext" eSuperTypes="#//BExecutionContext">
-    <eOperations name="evaluateIfNotCached" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        eExceptions="#//Throwable">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-      <eParameters name="cachedExpression" eType="#//BCachedExpression"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expressionCache" eType="#//B3ExpressionCache"
         transient="true"/>
   </eClassifiers>
@@ -491,11 +454,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="instance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BDefProperty" eSuperTypes="#//BDefValue">
-    <eOperations name="evaluateDefaults" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        eExceptions="#//Throwable">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-      <eParameters name="allVisible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         volatile="true" transient="true" derived="true"/>
   </eClassifiers>
@@ -571,11 +529,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="B3DynamicClassLoader" instanceClassName="org.eclipse.b3.backend.core.B3DynamicClassLoader"/>
   <eClassifiers xsi:type="ecore:EClass" name="BConcernContext" abstract="true" eSuperTypes="#//BExpression #//BFunctionContainer">
-    <eOperations name="evaluateIfMatching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        eExceptions="#//Throwable">
-      <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-    </eOperations>
     <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       <eParameters name="ctx" eType="#//BExecutionContext"/>

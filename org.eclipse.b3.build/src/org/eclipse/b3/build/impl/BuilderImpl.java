@@ -14,6 +14,7 @@ import java.util.Iterator;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.backend.core.SingletonIterator;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
@@ -710,6 +711,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * @generated NOT
 	 */
 	public Iterator<EffectiveCapabilityFacade> getEffectiveCapabilities(BExecutionContext ctx) throws Throwable {
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		ArrayList<EffectiveCapabilityFacade> list = new ArrayList<EffectiveCapabilityFacade>();
 		BExecutionContext ctxToUse = ctx;
 		BPropertySet defProp = getDefaultProperties();
@@ -720,7 +722,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		for(Capability cap : getProvidedCapabilities()) {
 			BExpression c = cap.getCondExpr();
 			if(c != null) {
-				Object include = c.evaluate(ctxToUse);
+				Object include = evaluator.doEvaluate(c, ctxToUse);
 				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE)
 					continue; // skip this requirement
 			}

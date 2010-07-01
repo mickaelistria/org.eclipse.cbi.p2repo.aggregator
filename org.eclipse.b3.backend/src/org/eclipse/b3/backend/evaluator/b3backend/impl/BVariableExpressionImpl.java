@@ -6,12 +6,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.emf.common.notify.Notification;
@@ -182,35 +177,6 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 		super.eUnset(featureID);
 	}
 
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		// TODO: in transition - can use both name and reference to name
-		String n = (getName() != null
-				? name
-				: getNamedValue().getName());
-		return ctx.getValue(n);
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		// TODO: in transition - can use both name and reference to name
-		String n = (getName() != null
-				? name
-				: getNamedValue().getName());
-
-		return ctx.getDeclaredValueType(n);
-	}
-
-	@Override
-	public LValue getLValue(BExecutionContext ctx) throws B3EngineException {
-		// TODO: in transition - can use both name and reference to name
-		String n = (getName() != null
-				? name
-				: getNamedValue().getName());
-
-		return ctx.getLValue(n);
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -283,10 +249,6 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", refName: ");
-		result.append(namedValue == null
-				? "null"
-				: namedValue.getName());
 		result.append(')');
 		return result.toString();
 	}

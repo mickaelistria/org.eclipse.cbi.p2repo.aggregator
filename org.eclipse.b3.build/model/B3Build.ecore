@@ -270,9 +270,6 @@
       <eParameters name="unit" eType="#//BuildUnit"/>
       <eParameters name="isWeaving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eOperations name="defineBeeModel" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3EngineException">
-      <eParameters name="beeModel" eType="#//BeeModel"/>
-    </eOperations>
     <eOperations name="getEffectiveBuildUnit" eType="#//BuildUnit">
       <eParameters name="unit" eType="#//BuildUnit"/>
     </eOperations>
@@ -366,12 +363,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuilderConcernContext" eSuperTypes="#//BuildConcernContext">
-    <eOperations name="evaluateIfMatching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
-      <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
-      <eParameters name="promoteToUnit" eType="#//BuildUnit"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="query" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputAdditions" upperBound="-1"

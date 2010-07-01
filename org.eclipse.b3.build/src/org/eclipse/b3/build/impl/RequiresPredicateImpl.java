@@ -6,19 +6,13 @@
  */
 package org.eclipse.b3.build.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 import org.eclipse.b3.build.B3BuildPackage;
-import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.CapabilityPredicate;
 import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.RequiresPredicate;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -202,28 +196,6 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	}
 
 	/**
-	 * Iterates over the BuildUnit referenced as the context value "@test" and returns true if one of the requirements
-	 * matches the predicate. Handles the distinction between meta/env requirements and regular requirements.
-	 */
-	@Override
-	@Deprecated
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		// pick up "@test" parameter from context
-		Object test = ctx.getValue("@test");
-		if(!(test instanceof BuildUnit))
-			throw new B3InternalError("Attempt to evaluate RequiresPredicate against non BuildUnit or Builder");
-		BuildUnit u = (BuildUnit) test;
-		EList<RequiredCapability> rcList = isMeta()
-				? u.getMetaRequiredCapabilities()
-				: u.getRequiredCapabilities();
-		for(RequiredCapability r : rcList) {
-			if(capabilityPredicate.matches(r))
-				return Boolean.TRUE;
-		}
-		return Boolean.FALSE;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -231,14 +203,6 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	 */
 	public CapabilityPredicate getCapabilityPredicate() {
 		return capabilityPredicate;
-	}
-
-	/**
-	 * Always returns Boolean.
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return Boolean.class;
 	}
 
 	/**

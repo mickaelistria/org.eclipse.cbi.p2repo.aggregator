@@ -14,8 +14,6 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -57,11 +55,4 @@ public class BDefaultPropertySetImpl extends BPropertySetImpl implements BDefaul
 		return B3backendPackage.Literals.BDEFAULT_PROPERTY_SET;
 	}
 
-	/**
-	 * Calls {@link #evaluateDefaults(BExecutionContext)}
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		return evaluateDefaults(ctx, true);
-	}
 } // BDefaultPropertySetImpl

@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -36,10 +37,13 @@ public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionO
 
 		Throwable lastError;
 
+		IB3Evaluator evaluator;
+
 		public Effective(BPropertySet propertySet, BExecutionContext ctx) {
 			super(propertySet);
 			evalCtx = ctx;
 			lastError = null;
+			evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		}
 
 		@Override
@@ -48,7 +52,7 @@ public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionO
 				BExpression condExpr = op.getCondExpr();
 				Object result = null;
 				if(condExpr != null) {
-					result = condExpr.evaluate(evalCtx);
+					result = evaluator.doEvaluate(condExpr, evalCtx);
 					if(result != null && result instanceof Boolean && !((Boolean) result).booleanValue())
 						return;
 					opSwitch(op.getBody());

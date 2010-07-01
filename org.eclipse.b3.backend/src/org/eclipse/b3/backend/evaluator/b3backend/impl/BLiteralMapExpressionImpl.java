@@ -8,17 +8,9 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import org.eclipse.b3.backend.evaluator.BackendHelper;
-import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -251,52 +243,6 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 		super.eUnset(featureID);
 	}
 
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Type kt = keyType == null
-				? String.class
-				: keyType;
-		Type vt = valueType == null
-				? Object.class
-				: valueType;
-		Map<Object, Object> map = new LinkedHashMap<Object, Object>(getEntries().size());
-		int counter = 0;
-		for(BMapEntry mapentry : entries) {
-			Object key = mapentry.getKey().evaluate(ctx);
-			Object value = mapentry.getValue().evaluate(ctx);
-			if(!TypeUtils.isAssignableFrom(kt, mapentry.getKey().getDeclaredType(ctx))) // key.getClass()))
-				throw BackendHelper.createException(mapentry.getKey(), "Map creation error for entry {0}. "
-						+ "A Map<{0},{0}>, does not accept a key of type {0}.", new Object[] {
-						new Integer(counter), kt, vt, mapentry.getKey().getDeclaredType(ctx) });
-			if(!TypeUtils.isAssignableFrom(vt, mapentry.getValue().getDeclaredType(ctx))) // value.getClass()))
-				throw BackendHelper.createException(mapentry.getKey(), "Map creation error for entry {0}. "
-						+ "A Map<{0},{0}>, does not accept a value of type {0}.", new Object[] {
-						new Integer(counter), kt, vt, mapentry.getValue().getDeclaredType(ctx) });
-			map.put(key, value);
-			counter++;
-		}
-		return map;
-	}
-
-	/**
-	 * Returns the declared key and value types or String for key, and Object for data if not specified.
-	 * TODO: the common super type could be computed instead.
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		Type kt = keyType == null
-				? String.class
-				: keyType;
-		Type vt = valueType == null
-				? Object.class
-				: valueType;
-		B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-		pt.setRawType(Map.class);
-		pt.getActualArgumentsList().add(kt);
-		pt.getActualArgumentsList().add(vt);
-		return pt;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,44 +255,6 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 				BMapEntry.class, this, B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES);
 		}
 		return entries;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl#getInferredType(org.eclipse.b3.backend.evaluator
-	 * .b3backend.BExecutionContext)
-	 */
-	@Override
-	public Type getInferredType(BExecutionContext ctx) throws Throwable {
-		Type[] keyTypes = new Type[2];
-		Type[] valTypes = new Type[2];
-		for(BMapEntry entry : getEntries()) {
-			// key
-			keyTypes[1] = entry.getKey().getInferredType(ctx);
-			if(keyTypes[0] == null)
-				keyTypes[0] = keyTypes[1];
-			else
-				keyTypes[0] = TypeUtils.getCommonSuperType(keyTypes);
-
-			// value
-			valTypes[1] = entry.getValue().getInferredType(ctx);
-			if(valTypes[0] == null)
-				valTypes[0] = valTypes[1];
-			else
-				valTypes[0] = TypeUtils.getCommonSuperType(valTypes);
-		}
-		// Construct List<T> type to return
-		B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-		pt.setRawType(Map.class);
-		pt.getActualArgumentsList().add(keyTypes[0] == null
-				? Object.class
-				: keyTypes[0]);
-		pt.getActualArgumentsList().add(valTypes[0] == null
-				? Object.class
-				: valTypes[0]);
-		return pt;
 	}
 
 	/**

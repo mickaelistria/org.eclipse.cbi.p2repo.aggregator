@@ -308,16 +308,35 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 					}
 					break;
 				case 2: // try loading the method in the java context
+				{
 					BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
 					if(!(systemCtx instanceof BSystemContext))
 						throw new B3InternalError(
 							"The parent of the invocation context must be an instance of BSystemContext");
-					IFunction loaded = null;
-					if((loaded = ((BSystemContext) systemCtx).loadMethod(functionName, types)) != null) {
-						weaveLoaded(loaded, this);
-						continue; // attempt calling the (possibly advised) function
+					Class<?> objectType = TypeUtils.getRaw(types[0]);
+
+					Method[] methods = objectType.getMethods();
+					boolean foundNamedMethod = false;
+					for(int i = 0; i < methods.length; i++) {
+						if(methods[i].getName().equals(functionName)) {
+							// load in system context
+							BJavaFunction f = systemCtx.loadFunction(methods[i]);
+							// weave in this context (and all contexts on the way to the system context).
+							weaveLoaded(f, this);
+							foundNamedMethod = true;
+						}
 					}
+					if(foundNamedMethod)
+						continue; // try again, now with all methods with wanted name loaded and wowen.
+
+					// // OLD WAY
+					// IFunction loaded = null;
+					// if((loaded = ((BSystemContext) systemCtx).loadMethod(functionName, types)) != null) {
+					// weaveLoaded(loaded, this);
+					// continue; // attempt calling the (possibly advised) function
+					// }
 					break ATTEMPTS;
+				}
 				default:
 					throw new B3InternalError("BExecutionContextImpl#callFunction() - broken call strategy loop :" +
 							String.valueOf(attempts));
@@ -669,6 +688,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * 
 	 * @generated NOT
 	 */
+	@Deprecated
 	public Type getDeclaredFunctionType(String functionName, Type[] types) throws Throwable {
 		B3FuncStore fStore = getEffectiveFuncStore();
 		if(fStore == null)

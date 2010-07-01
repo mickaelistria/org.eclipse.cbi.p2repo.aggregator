@@ -12,7 +12,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -259,30 +258,10 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
-	 */
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		return this.getCatchExpr().evaluate(ctx);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getCatchExpr() {
 		return catchExpr;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return this.getCatchExpr().getDeclaredType(ctx);
 	}
 
 	/**

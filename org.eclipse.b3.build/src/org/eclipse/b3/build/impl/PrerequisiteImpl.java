@@ -13,9 +13,9 @@ import java.util.List;
 
 import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.backend.core.SingletonIterator;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildResultReference;
@@ -24,14 +24,11 @@ import org.eclipse.b3.build.EffectiveBuilderReferenceFacade;
 import org.eclipse.b3.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.Prerequisite;
 import org.eclipse.b3.build.RequiredCapability;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreEList;
@@ -391,17 +388,18 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 */
 	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx)
 			throws Throwable {
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		SerialIterator<EffectiveBuilderReferenceFacade> itor = new SerialIterator<EffectiveBuilderReferenceFacade>();
 		BuildResultReference br = getBuildResult();
 		if(br != null) {
 			BExpression cond = getCondExpr();
 			Object r = (cond == null)
 					? null
-					: cond.evaluate(ctx);
+					: evaluator.doEvaluate(cond, ctx);
 			if(r == null || !(r instanceof Boolean) || r != Boolean.FALSE)
 				itor.addIterator(br.getEffectiveBuilderReferences(withExpr == null
 						? ctx
-						: withExpr.getEvaluationContext(ctx)));
+						: evaluator.doGetInnerContext(withExpr, ctx)));
 		}
 		return itor;
 	}
@@ -416,16 +414,17 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * @generated NOT
 	 */
 	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		BuildResultReference br = getBuildResult();
 		if(br != null) {
 			BExpression cond = getCondExpr();
 			Object r = (cond == null)
 					? null
-					: cond.evaluate(ctx);
+					: evaluator.doEvaluate(cond, ctx);
 			if(r == null || !(r instanceof Boolean) || r != Boolean.FALSE)
 				return br.getEffectiveRequirements(withExpr == null
 						? ctx
-						: withExpr.getEvaluationContext(ctx));
+						: evaluator.doGetInnerContext(withExpr, ctx));
 		}
 
 		return new SingletonIterator<EffectiveRequirementFacade>(null);

@@ -6,12 +6,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.core.LValue;
-import org.eclipse.b3.backend.evaluator.BackendHelper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression;
 
 import org.eclipse.emf.ecore.EClass;
@@ -53,20 +48,5 @@ public class BUnaryPostOpExpressionImpl extends BUnaryOpExpressionImpl implement
 	@Override
 	protected EClass eStaticClass() {
 		return B3backendPackage.Literals.BUNARY_POST_OP_EXPRESSION;
-	}
-
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		LValue lval = expr.getLValue(ctx);
-		if(lval == null)
-			throw BackendHelper.createException(expr, "Expression is not an assignable value");
-		Object preopValue = lval.get();
-		lval.set(ctx.callFunction(functionName, new Object[] { preopValue }, new Type[] { expr.getDeclaredType(ctx) }));
-		return preopValue;
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return expr.getLValue(ctx).getDeclaredType();
 	}
 } // BUnaryPostOpExpressionImpl

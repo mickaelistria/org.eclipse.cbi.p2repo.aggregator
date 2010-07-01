@@ -7,39 +7,18 @@
 package org.eclipse.b3.build.impl;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.core.TypePattern;
-import org.eclipse.b3.backend.core.TypePattern.Matcher;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
-import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
-import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.B3BuildPackage;
-import org.eclipse.b3.build.BuildUnit;
-import org.eclipse.b3.build.Builder;
 import org.eclipse.b3.build.BuilderConcernContext;
-import org.eclipse.b3.build.BuilderInput;
-import org.eclipse.b3.build.BuilderWrapper;
-import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.ConditionalPathVector;
-import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.InputPredicate;
 import org.eclipse.b3.build.OutputPredicate;
-import org.eclipse.b3.build.PathGroup;
 import org.eclipse.b3.build.Prerequisite;
 import org.eclipse.b3.build.ProvidesPredicate;
 import org.eclipse.b3.build.SourcePredicate;
-import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -48,7 +27,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -878,59 +856,6 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	}
 
 	/**
-	 * Applies the advice to all already defined builders matching the query and type pattern specified
-	 * in this context. Each matching builder is wrapped with a BuildWrapper and added to the context passed
-	 * as a parameter.
-	 * 
-	 * @deprecated use evaluator
-	 * @returns this
-	 */
-	@Override
-	@Deprecated
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		// Find all builders that match the predicate
-		// Add wrappers for all found builders
-		Iterator<IFunction> fItor = ctx.getFunctionIterator();
-		TypePattern pattern = TypePattern.compile(getParameters());
-
-		while(fItor.hasNext()) {
-			IFunction f = fItor.next();
-			if(f instanceof IBuilder && matchesQuery((IBuilder) f, ctx))
-				weaveIfParametersMatch(pattern, (IBuilder) f, ctx, null); // do not promote
-		}
-		return this;
-	}
-
-	/**
-	 * Performs the same operation as {@link #evaluate(BExecutionContext)} but for a single object (candidate).
-	 * 
-	 * @deprecated use Weaver
-	 */
-	@Deprecated
-	@Override
-	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
-		return evaluateIfMatching(candidate, ctx, null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Performs the same operation as {@link #evaluate(BExecutionContext)} but for a single object (candidate), and
-	 * with resulting wrapped builders being promoted to promoteToUnit (if set).
-	 * <!-- end-user-doc -->
-	 * 
-	 * @deprecated use Weaver
-	 * @generated NOT
-	 */
-	@Deprecated
-	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx, BuildUnit promoteToUnit)
-			throws Throwable {
-		TypePattern pattern = TypePattern.compile(getParameters());
-		if(candidate instanceof IBuilder && matchesQuery((IBuilder) candidate, ctx))
-			return weaveIfParametersMatch(pattern, (IBuilder) candidate, ctx, null); // do not promote
-		return false;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1188,50 +1113,6 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 */
 	public boolean isVarArgs() {
 		return varArgs;
-	}
-
-	/**
-	 * Returns true if the candidate object matches the query and parameter type pattern.
-	 * 
-	 * @deprecated use BuilderWeaver instead
-	 */
-	@Deprecated
-	@Override
-	public boolean matches(Object candidate, BExecutionContext ctx) {
-		if(!(candidate instanceof IBuilder))
-			return false;
-		IBuilder b = (IBuilder) candidate;
-		try {
-			if(matchParameters) {
-				TypePattern pattern = TypePattern.compile(getParameters());
-				Matcher matcher = pattern.match(b.getParameterTypes());
-				if(!matcher.isMatch())
-					return false;
-
-			}
-			return matchesQuery(b, ctx);
-
-		}
-		catch(Throwable e) {
-			throw new B3InternalError("Error while evaluating if BuilderConcernContext matches a Builder", e);
-		}
-	}
-
-	/**
-	 * Evaluates the query and returns true, if the candidate matches the query. This method does not include
-	 * parameter type matching.
-	 * 
-	 * @deprecated use BuilderWeaver instead
-	 * @param candidate
-	 * @param ctx
-	 * @return
-	 * @throws Throwable
-	 */
-	@Deprecated
-	private boolean matchesQuery(IBuilder candidate, BExecutionContext ctx) throws Throwable {
-		BExecutionContext ictx = ctx.createInnerContext();
-		ictx.defineVariableValue("@test", candidate, Builder.class);
-		return getQuery().evaluate(ictx) == Boolean.TRUE;
 	}
 
 	/**
@@ -1511,270 +1392,4 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		return result.toString();
 	}
 
-	/**
-	 * Performs parameter type matching and if parameters match, a wrapper is created and added to the context.
-	 * 
-	 * NOTE: the wrapper may have different parameter names than the original, and may only see a few of them. It may
-	 * however need to modify the first parameter (if the wrapper is promoting the builder to a specific unit).
-	 * So... the wraper needs a copy of the parameter declarations - and return this (modified) copy instead of the
-	 * original's - this will work since the wrapped first parameter is applicable to the unit even if it is
-	 * narrowed in the wrapper. This is all done in wrapper.promoteToUnit().
-	 * 
-	 * @deprecated use BuilderWeaver instead
-	 * @param pattern
-	 * @param b
-	 * @param ctx
-	 * @return
-	 * @throws B3EngineException
-	 */
-	@Deprecated
-	private boolean weaveIfParametersMatch(TypePattern pattern, IBuilder b, BExecutionContext ctx,
-			BuildUnit promoteToUnit) throws B3EngineException {
-		Matcher matcher = pattern.match(b.getParameterTypes());
-		if(matchParameters && !matcher.isMatch())
-			return false;
-
-		// create a map of parameter name in advise and parameter name in matched function
-		Map<String, String> nameMap = new HashMap<String, String>();
-		EList<BParameterPredicate> plist = getParameters(); // i.e. predicates
-		int limit = plist.size();
-		String pName = null;
-		// find predicates that have a name (only named predicates can be mapped)
-		for(int i = 0; i < limit; i++)
-			if((pName = plist.get(i).getName()) != null) {
-				int matchedIdx = matcher.getMatchStart(i);
-				if(matchedIdx < 0)
-					throw new B3InternalError("Matched parameter reported to have an index of -1");
-				nameMap.put(pName, b.getParameters().get(matcher.getMatchStart(matchedIdx)).getName());
-			}
-
-		// Create a wrapping function and define it in the context
-		BuilderWrapper wrapper = B3BuildFactory.eINSTANCE.createBuilderWrapper();
-		wrapper.setOriginal(b);
-		wrapper.setAroundExpr(this.funcExpr); // non containment, so ok to use this.funcExpr
-		wrapper.setParameterMap(nameMap);
-		if(promoteToUnit != null) {
-			wrapper.setUnitType(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(promoteToUnit).getIface());
-			wrapper.setUnitTypeAdvised(true);
-		}
-		// if function has varargs, and the varargs parameter was mapped, the wrapper needs to know this
-		if(isVarArgs() && ((pName = plist.get(plist.size() - 1).getName()) != null))
-			wrapper.setVarargsName(pName);
-
-		// WRAP ASSERTS by chaining any added condition with the original (unless original is removed).
-		B3backendFactory factory = B3backendFactory.eINSTANCE;
-		// --pre
-		if(b.getPrecondExpr() != null || isRemovePreCondition() || getPrecondExpr() != null) {
-			BChainedExpression pcExpr = factory.createBChainedExpression();
-			if(getPrecondExpr() != null) {
-				BExpressionWrapper ew = factory.createBExpressionWrapper();
-				ew.setOriginal(getPrecondExpr());
-				pcExpr.getExpressions().add(ew);
-			}
-			if(b.getPrecondExpr() != null && !removePreCondition) {
-				BExpressionWrapper ew = factory.createBExpressionWrapper();
-				ew.setOriginal(b.getPrecondExpr());
-				pcExpr.getExpressions().add(ew);
-			}
-			// set, and optimize if there is only one expression
-			wrapper.setPrecondExpr(pcExpr.getExpressions().size() == 1
-					? pcExpr.getExpressions().get(0)
-					: pcExpr);
-		}
-		// --postinput
-		if(b.getPostinputcondExpr() != null || isRemovePostInputCondition() || getPostinputcondExpr() != null) {
-			BChainedExpression pcExpr = factory.createBChainedExpression();
-			if(getPostinputcondExpr() != null) {
-				BExpressionWrapper ew = factory.createBExpressionWrapper();
-				ew.setOriginal(getPostinputcondExpr());
-				pcExpr.getExpressions().add(ew);
-			}
-			if(b.getPostinputcondExpr() != null && !removePostInputCondition) {
-				BExpressionWrapper ew = factory.createBExpressionWrapper();
-				ew.setOriginal(b.getPostinputcondExpr());
-				pcExpr.getExpressions().add(ew);
-			}
-			// set, and optimize if there is only one expression
-			wrapper.setPostinputcondExpr(pcExpr.getExpressions().size() == 1
-					? pcExpr.getExpressions().get(0)
-					: pcExpr);
-
-		}
-		// --post
-		if(b.getPostcondExpr() != null || isRemovePostCondition() || getPostcondExpr() != null) {
-			BChainedExpression pcExpr = factory.createBChainedExpression();
-			if(getPostcondExpr() != null) {
-				BExpressionWrapper ew = factory.createBExpressionWrapper();
-				ew.setOriginal(getPostcondExpr());
-				pcExpr.getExpressions().add(ew);
-			}
-			if(b.getPostcondExpr() != null && !removePostCondition) {
-				BExpressionWrapper ew = factory.createBExpressionWrapper();
-				ew.setOriginal(b.getPostcondExpr());
-				pcExpr.getExpressions().add(ew);
-			}
-			// set, and optimize if there is only one expression
-			wrapper.setPostcondExpr(pcExpr.getExpressions().size() == 1
-					? pcExpr.getExpressions().get(0)
-					: pcExpr);
-		}
-
-		// WRAP INPUT
-		// by copying original input, setting a flag that input is advised, and then first do removals,
-		// and then additions. Everything needs to be copied as input is by containment, and the input rules may
-		// be needed multiple times.
-
-		// is input advised?
-		ADVICEINPUT: if(getInputRemovals().size() > 0 || getInputAdditions().size() > 0) {
-			boolean modified = false;
-			BuilderInput input = null;
-			wrapper.setInput(input = BuilderInput.class.cast(EcoreUtil.copy(b.getInput())));
-			// removal
-			for(InputPredicate ip : getInputRemovals())
-				modified = ip.removeMatching(input) || modified;
-			// optimize if unchanged
-			if(!modified && getInputAdditions().size() == 0) {
-				wrapper.setInput(null);
-				break ADVICEINPUT;
-			}
-			// addition
-			EList<Prerequisite> prereqs = input.getPrerequisites();
-			for(Prerequisite p : getInputAdditions())
-				prereqs.add(Prerequisite.class.cast(EcoreUtil.copy(p)));
-
-			wrapper.setInputAdvised(true);
-		}
-
-		// WRAP OUTPUT
-		// by copying original output, setting a flag that output is advised, and then first do removals,
-		// and then additions. Everything needs to be copied as output is by containment, and the output rules
-		// may be needed multiple times.,
-
-		// is output advised ?
-		ADVICEOUTPUT: if(getOutputRemovals().size() > 0 || getOutputAdditions().size() > 0 ||
-				getOutputAnnotationsRemovals().size() > 0 || getOutputAnnotationAdditions() != null) {
-			boolean modified = false;
-			PathGroup pg = null;
-			PathGroup originalOutput = b.getOutput();
-			if(originalOutput != null)
-				wrapper.setOutput(pg = PathGroup.class.cast(EcoreUtil.copy(b.getOutput())));
-			else {
-				// TODO: Should probably log warning that empty output was created as a consequence of advice.
-				originalOutput = B3BuildFactory.eINSTANCE.createPathGroup();
-			}
-			// removal
-			for(OutputPredicate op : getOutputRemovals())
-				modified = op.removeMatching(pg) || modified;
-
-			// addition
-			EList<ConditionalPathVector> vectors = pg.getPathVectors();
-			for(ConditionalPathVector pv : getOutputAdditions())
-				vectors.add(ConditionalPathVector.class.cast(EcoreUtil.copy(pv)));
-
-			// WRAP ANNOTATIONS
-			// Same as Default properties, but for annotations.
-			// TODO: What to do if there is no output? It may still be useful to modify annotations in the produced
-			// result
-			// in input?? (Current impl will throw NPE if there is no output...)
-			if(getOutputAnnotationsRemovals().size() > 0 || getOutputAnnotationAdditions() != null) {
-				BPropertySet as = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
-				modified = processProperties(
-					as, getOutputAnnotationsRemovals(), b.getOutput().getAnnotations(), getOutputAnnotationAdditions()) ||
-						modified;
-				wrapper.getOutput().setAnnotations(as);
-			}
-			// optimize if unchanged
-			if(!modified && getOutputAdditions().size() == 0 && getOutputAnnotationAdditions() != null) {
-				wrapper.setOutput(null);
-				break ADVICEOUTPUT;
-			}
-			wrapper.setOutputAdvised(true);
-
-		}
-		//
-		// WRAP SOURCE
-		// by copying original source, setting a flag that source is advised, and then first do removals,
-		// and then additions. Everything needs to be copied as source is by containment, and the source rules
-		// may be needed multiple times.
-
-		// is source advised ?
-		ADVICESOURCE: if(getSourceRemovals().size() > 0 || getOutputAdditions().size() > 0 ||
-				getSourceAnnotationsRemovals().size() > 0 || getSourceAnnotationAdditions() != null) {
-			boolean modified = false;
-			PathGroup pg = null;
-			PathGroup originalSource = b.getSource();
-			if(originalSource != null)
-				wrapper.setSource(pg = PathGroup.class.cast(EcoreUtil.copy(b.getSource())));
-			else {
-				// TODO: Should probably log warning that empty source was created as a consequence of advice.
-				originalSource = B3BuildFactory.eINSTANCE.createPathGroup();
-			}
-			// removal
-			for(SourcePredicate sp : getSourceRemovals())
-				modified = sp.removeMatching(pg) || modified;
-
-			// addition
-			EList<ConditionalPathVector> vectors = pg.getPathVectors();
-			for(ConditionalPathVector pv : getSourceAdditions())
-				vectors.add(ConditionalPathVector.class.cast(EcoreUtil.copy(pv)));
-
-			// WRAP ANNOTATIONS
-			// Same as Default properties, but for annotations.
-			// TODO: What to do if there is no source? It may still be useful to modify annotations in the produced
-			// result
-			// in input?? (Current impl will throw NPE if there is no source...)
-			if(getSourceAnnotationsRemovals().size() > 0 || getSourceAnnotationAdditions() != null) {
-				BPropertySet as = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
-				modified = processProperties(
-					as, getSourceAnnotationsRemovals(), b.getSource().getAnnotations(), getSourceAnnotationAdditions()) ||
-						modified;
-				wrapper.getSource().setAnnotations(as);
-			}
-			// optimize if unchanged
-			if(!modified && getSourceAdditions().size() == 0 && getSourceAnnotationAdditions() != null) {
-				wrapper.setSource(null);
-				break ADVICESOURCE;
-			}
-			wrapper.setSourceAdvised(true);
-
-		}
-
-		//
-		// WRAP PROVIDED CAPABILITIES
-		ADVICEPROVIDES: if(getProvidesRemovals().size() > 0 || getProvidedCapabilities().size() > 0) {
-			boolean modified = false;
-			EList<Capability> provided = wrapper.getProvidedCapabilities();
-			for(Capability c : b.getProvidedCapabilities())
-				provided.add(Capability.class.cast(EcoreUtil.copy(c)));
-			// removal
-			for(ProvidesPredicate pp : getProvidesRemovals())
-				modified = pp.removeMatching(provided) || modified;
-			// optimize if unchanged
-			if(!modified && getProvidedCapabilities().size() == 0) {
-				provided.clear();
-				break ADVICEPROVIDES;
-			}
-			// addition
-			for(Capability c : getProvidedCapabilities())
-				provided.add(Capability.class.cast(EcoreUtil.copy(c)));
-
-			wrapper.setProvidesAdvised(true);
-		}
-
-		// WRAP DEFAULT PROPERTIES
-		// if there are removals or additions, copy the property set from the original and then remove
-		// specific property settings - nasty if other properties rely on previously set properties - but
-		// user has to worry about that, then add copied definitions from additions.
-		//
-		if(getDefaultPropertiesRemovals().size() > 0 || getDefaultPropertiesAdditions() != null) {
-			BPropertySet ps = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
-			wrapper.setDefaultProperties(ps);
-			processProperties(
-				ps, getDefaultPropertiesRemovals(), b.getDefaultProperties(), getDefaultPropertiesAdditions());
-		}
-
-		// define the wrapper, and we are done
-		ctx.defineFunction(wrapper);
-		return true;
-	}
 } // BuilderConcernContextImpl

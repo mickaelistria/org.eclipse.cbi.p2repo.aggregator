@@ -254,31 +254,6 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	}
 
 	/**
-	 * Populates the context with values from the property set.
-	 * Returns this.
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		loadProperties();
-		// start by populating context with extended sets
-		BPropertySet ps = getExtends();
-		if(ps != null)
-			ps.evaluate(ctx);
-		if(getPropertiesFile() != null) {
-			LoadedPropertySetAdapter adapter = LoadedPropertySetAdapterFactory.eINSTANCE.adapt(this);
-			List<BPropertyOperation> ops = adapter.getAssociatedOps();
-			if(ops != null) {
-				for(BPropertyOperation po : ops)
-					po.evaluate(ctx);
-			}
-		}
-		for(BPropertyOperation po : getOperations()) {
-			po.evaluate(ctx);
-		}
-		return this;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

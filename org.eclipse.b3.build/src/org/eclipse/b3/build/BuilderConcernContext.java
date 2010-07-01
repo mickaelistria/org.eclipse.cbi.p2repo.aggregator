@@ -6,9 +6,7 @@
  */
 package org.eclipse.b3.build;
 
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.emf.common.util.EList;
@@ -51,14 +49,14 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface BuilderConcernContext extends BuildConcernContext {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 * @generated
-	 */
-	boolean evaluateIfMatching(Object candidate, BExecutionContext ctx, BuildUnit promoteToUnit) throws Throwable;
+	// /**
+	// * <!-- begin-user-doc -->
+	// * <!-- end-user-doc -->
+	// *
+	// * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	// * @generated
+	// */
+	// boolean evaluateIfMatching(Object candidate, BExecutionContext ctx, BuildUnit promoteToUnit) throws Throwable;
 
 	/**
 	 * Returns the value of the '<em><b>Func Expr</b></em>' containment reference.

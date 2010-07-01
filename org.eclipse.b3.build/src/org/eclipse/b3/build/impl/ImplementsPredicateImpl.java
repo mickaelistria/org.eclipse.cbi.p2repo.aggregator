@@ -8,16 +8,11 @@ package org.eclipse.b3.build.impl;
 
 import java.lang.reflect.Type;
 
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.B3BuildPackage;
-import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.ImplementsPredicate;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -163,35 +158,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/**
-	 * Iterates over the BuildUnit referenced as the context value "@test" and returns true if one of the implements
-	 * in the unit matches the predicate.
-	 * A match is made testing if the specified implements is assignable to the type specified in this predicate.
-	 */
-	@Override
-	@Deprecated
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		// pick up "@test" parameter from context
-		Object test = ctx.getValue("@test");
-		if(!(test instanceof BuildUnit))
-			throw new B3InternalError("Attempt to evaluate ImplementsPredicate against non BuildUnit or Builder");
-		BuildUnit u = (BuildUnit) test;
-		EList<Type> iList = u.getImplements();
-		for(Type t : iList) {
-			if(TypeUtils.isAssignableFrom(type, t))
-				return Boolean.TRUE;
-		}
-		return Boolean.FALSE;
-	}
-
-	/**
-	 * Always returns Boolean.
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return Boolean.class;
 	}
 
 	/**

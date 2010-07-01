@@ -252,6 +252,9 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 		catch(IllegalArgumentException e) {
 			throw e.getCause();
 		}
+		catch(ClassCastException e) {
+			throw e;
+		}
 	}
 
 	/**

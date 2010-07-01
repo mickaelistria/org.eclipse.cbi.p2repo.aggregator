@@ -6,12 +6,10 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
 import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -155,30 +153,6 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/**
-	 * Returns the result of the last expression in the expression block, or if the expression
-	 * is a return expression, this value is returned without evaluating the rest of the expressions
-	 * in the list.
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Object result = null;
-		for(BExpression expr : getExpressions())
-			result = expr.evaluate(ctx);
-		return result;
-	}
-
-	/**
-	 * Returns the type of the last expression in the chain.
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		if(getExpressions().size() == 0)
-			return Object.class; // TODO: This may be too relaxed - should perhaps be <?>
-		// safe to use expressions directly here, as it was lazily created on get above
-		return expressions.get(expressions.size() - 1).getDeclaredType(ctx);
 	}
 
 	/**

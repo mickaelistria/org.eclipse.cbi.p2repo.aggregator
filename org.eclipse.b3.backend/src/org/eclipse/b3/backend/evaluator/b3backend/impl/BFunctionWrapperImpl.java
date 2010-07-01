@@ -19,7 +19,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -1061,17 +1060,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		return this;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getAroundExpr() {
@@ -1108,17 +1096,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 		if(eContainerFeatureID() != B3backendPackage.BFUNCTION_WRAPPER__CONTAINER)
 			return null;
 		return (BFunctionContainer) eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return getOriginal().getDeclaredType(ctx);
 	}
 
 	/**
@@ -1163,18 +1140,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 */
 	public BGuard getGuard() {
 		return guard;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Can't get an LValue from a Function nor Wrapper - always throws UnsupportedOperationException.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public LValue getLValue(BExecutionContext ctx) {
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -1300,17 +1265,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 */
 	public Type getReturnTypeForParameterTypes(Type[] types) {
 		return getOriginal().getReturnTypeForParameterTypes(types);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Type getSignature() {
-		// return getOriginal().getSignature();
-		return null;
 	}
 
 	// public Type getSignature() {

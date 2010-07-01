@@ -10,12 +10,7 @@
  */
 package org.eclipse.b3.build.impl;
 
-import java.lang.reflect.Type;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 import org.eclipse.b3.build.B3BuildPackage;
@@ -32,10 +27,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import com.google.inject.Injector;
-import com.google.inject.Key;
-import com.google.inject.name.Names;
 
 /**
  * <!-- begin-user-doc -->
@@ -370,31 +361,6 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 		super.eUnset(featureID);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 */
-	@Override
-	@Deprecated
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		EList<RepoOption> opts = getOptions();
-
-		// create a map for evaluated options, and populate it
-		Map<String, Object> evaluatedOptions = new HashMap<String, Object>(opts.size());
-		for(RepoOption o : opts)
-			evaluatedOptions.put(o.getName(), o.getExpr().evaluate(ctx));
-
-		// get the injector and create a build unit repository implementation for the
-		// handler-type.
-		Injector injector = ctx.getInjector(); // .getInstance(Names.named(getHandlerType()));
-		IBuildUnitRepository result = injector.getInstance(Key.get(
-			IBuildUnitRepository.class, Names.named(getHandlerType())));
-		result.initialize(ctx, this, evaluatedOptions);
-		setBuildUnitRepository(result);
-		return result;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -436,17 +402,6 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 			}
 		}
 		return buildUnitRepository;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return IBuildUnitRepository.class;
 	}
 
 	/**

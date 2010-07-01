@@ -7,15 +7,8 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-
-import org.eclipse.b3.backend.evaluator.BackendHelper;
-import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
@@ -206,41 +199,6 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 		super.eUnset(featureID);
 	}
 
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Type t = entryType == null
-				? Object.class
-				: entryType;
-		List<Object> list = new ArrayList<Object>(getEntries().size());
-		int counter = 0;
-		for(BExpression expr : entries) {
-			Object result = expr.evaluate(ctx);
-			if(!TypeUtils.isAssignableFrom(t, expr.getDeclaredType(ctx))) // result.getClass()))
-				throw BackendHelper.createException(
-					expr, "List creation error for index {0}. "
-							+ "A List<{1}>, does not accept an instance of type {2}.", new Object[] {
-							counter, t, result.getClass() });
-			list.add(result);
-			counter++;
-		}
-		return list;
-	}
-
-	/**
-	 * Returns the declared entry, type or Object if not specified.
-	 * TODO: the common super type could be computed instead.
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		Type eType = entryType == null
-				? Object.class
-				: entryType;
-		B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-		pt.setRawType(List.class);
-		pt.getActualArgumentsList().add(eType);
-		return pt;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -263,32 +221,6 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 */
 	public Type getEntryType() {
 		return entryType;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl#getInferredType(org.eclipse.b3.backend.evaluator
-	 * .b3backend.BExecutionContext)
-	 */
-	@Override
-	public Type getInferredType(BExecutionContext ctx) throws Throwable {
-		Type[] types = new Type[2];
-		for(BExpression expr : getEntries()) {
-			types[1] = expr.getInferredType(ctx);
-			if(types[0] == null)
-				types[0] = types[1];
-			else
-				types[0] = TypeUtils.getCommonSuperType(types);
-		}
-		// Construct List<T> type to return
-		B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-		pt.setRawType(List.class);
-		pt.getActualArgumentsList().add(types[0] == null
-				? Object.class
-				: types[0]);
-		return pt;
 	}
 
 	/**

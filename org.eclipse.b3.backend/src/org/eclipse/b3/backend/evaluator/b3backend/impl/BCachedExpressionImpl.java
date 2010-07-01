@@ -6,15 +6,8 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.evaluator.BackendHelper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -56,20 +49,4 @@ public class BCachedExpressionImpl extends BUnaryExpressionImpl implements BCach
 		return B3backendPackage.Literals.BCACHED_EXPRESSION;
 	}
 
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		BInvocationContext bctx = null;
-		try {
-			bctx = ctx.getInvocationContext();
-		}
-		catch(B3EngineException e) {
-			throw BackendHelper.createException(this, e, "Internal error - no invocation context found");
-		}
-		return bctx.evaluateIfNotCached(ctx, this);
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return expr.getDeclaredType(ctx);
-	}
 } // BCachedExpressionImpl

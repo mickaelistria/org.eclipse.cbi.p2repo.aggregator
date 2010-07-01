@@ -6,15 +6,8 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.core.B3NotLValueException;
-import org.eclipse.b3.backend.core.LValue;
-import org.eclipse.b3.backend.evaluator.Any;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -54,23 +47,6 @@ public class BLiteralAnyImpl extends BPatternLiteralExpressionImpl implements BL
 	@Override
 	protected EClass eStaticClass() {
 		return B3backendPackage.Literals.BLITERAL_ANY;
-	}
-
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws CoreException {
-		return Any.ANY;
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		// TODO: This may not be correct - should perhaps return Object.class
-		//
-		return Any.class;
-	}
-
-	@Override
-	public LValue getLValue(BExecutionContext ctx) throws Throwable {
-		throw new B3NotLValueException();
 	}
 
 	/*

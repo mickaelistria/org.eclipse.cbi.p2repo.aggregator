@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.B3BuildPackage;
@@ -175,7 +176,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	@Override
 	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, Map<String, Object> options)
 			throws Throwable {
-
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		// BRUTE FORCE IMPLMENTATION TODO: Optimize this
 		// This implementation create a new context for each bee model as the evaluation of capabilities
 		// etc. may require concerns, functions, etc.
@@ -189,7 +190,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 			// create a new context for each candidate unit
 			BuildContext bctx = B3BuildFactory.eINSTANCE.createBuildContext();
 			bctx.setParentContext(ctx);
-			bctx.defineBeeModel(beeModel); // define units, functions etc
+			evaluator.doEvaluate(beeModel, bctx); // define units, functions etc
 			for(BuildUnit u : beeModel.getBuildUnits()) {
 				Iterator<EffectiveCapabilityFacade> pcItor = u.getEffectiveFacade(bctx).getProvidedCapabilities().iterator();
 				while(pcItor.hasNext()) {

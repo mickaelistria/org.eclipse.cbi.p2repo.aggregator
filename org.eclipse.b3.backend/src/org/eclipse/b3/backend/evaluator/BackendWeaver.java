@@ -9,6 +9,7 @@
 package org.eclipse.b3.backend.evaluator;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
@@ -27,36 +28,31 @@ import org.eclipse.emf.common.util.EList;
  * Weaver for backend elements.
  * 
  */
-public class BackendWeaver {
-	BFunctionConcernContext theFunctionConcern;
+public class BackendWeaver extends DeclarativeB3Weaver {
 
-	TypePattern functionTypePattern;
+	public Boolean weave(BFunctionConcernContext theFunctionConcern, IFunction candidate, BExecutionContext ctx)
+			throws B3EngineException {
+		return weave(theFunctionConcern, candidate, ctx, TypePattern.compile(theFunctionConcern.getParameters()));
+	}
 
-	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
-		if(!(candidate instanceof IFunction))
+	public Boolean weave(BFunctionConcernContext theFunctionConcern, IFunction candidate, BExecutionContext ctx,
+			TypePattern functionTypePattern) throws B3EngineException {
+		if(!theFunctionConcern.getNamePredicate().matches((candidate).getName()))
 			return false;
-		if(!theFunctionConcern.getNamePredicate().matches(((IFunction) candidate).getName()))
-			return false;
-		return weaveIfParametersMatch((IFunction) candidate, ctx);
+		return weaveIfParametersMatch(theFunctionConcern, candidate, ctx, functionTypePattern);
 	}
 
-	/**
-	 * @return the theFunctionConcern
-	 */
-	public BFunctionConcernContext getFunctionConcern() {
-		return theFunctionConcern;
+	public Boolean weave(BFunctionConcernContext theFunctionConcern, Iterator<IFunction> functions,
+			BExecutionContext ctx) {
+		TypePattern functionTypePattern = TypePattern.compile(theFunctionConcern.getParameters());
+		boolean woven = false;
+		while(functions.hasNext())
+			woven = doWeave(theFunctionConcern, functions.next(), ctx, functionTypePattern) || woven;
+		return woven;
 	}
 
-	/**
-	 * @param theFunctionConcern
-	 *            the theFunctionConcern to set
-	 */
-	public void setFunctionConcern(BFunctionConcernContext theFunctionConcern) {
-		this.theFunctionConcern = theFunctionConcern;
-		functionTypePattern = TypePattern.compile(theFunctionConcern.getParameters());
-	}
-
-	public boolean weaveIfParametersMatch(IFunction f, BExecutionContext ctx) throws B3EngineException {
+	private boolean weaveIfParametersMatch(BFunctionConcernContext theFunctionConcern, IFunction f,
+			BExecutionContext ctx, TypePattern functionTypePattern) throws B3EngineException {
 		// TODO: FUNCTION EFFECTIVE PARAMETERS
 		Matcher matcher = functionTypePattern.match(f.getParameterTypes());
 		if(theFunctionConcern.isMatchParameters() && !matcher.isMatch())

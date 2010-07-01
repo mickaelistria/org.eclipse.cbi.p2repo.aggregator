@@ -77,6 +77,15 @@ public interface BWithExpression extends BExpression {
 	BExecutionContext getEvaluationContext(BExecutionContext ctx) throws Throwable;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	// BExecutionContext getEvaluationContext(BExecutionContext ctx) throws Throwable;
+
+	/**
 	 * Returns the value of the '<em><b>Func Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

@@ -7,6 +7,8 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -14,10 +16,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -65,11 +65,12 @@ public class BGuardExpressionImpl extends BGuardImpl implements BGuardExpression
 
 	// @Override
 	public boolean accepts(BFunction f, BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		String[] parameterNames = f.getParameterNames();
 		BExecutionContext octx = ctx.createOuterContext();
 		for(int i = 0; i < types.length; i++)
 			octx.defineFinalValue(parameterNames[i], types[i], types[i].getClass());
-		Object result = guardExpr.evaluate(octx);
+		Object result = evaluator.doEvaluate(guardExpr, octx);
 		return (result instanceof Boolean && ((Boolean) result) == Boolean.TRUE)
 				? true
 				: false;

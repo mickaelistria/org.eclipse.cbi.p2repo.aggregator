@@ -11,6 +11,7 @@ package org.eclipse.b3.build.core;
 import org.eclipse.b3.backend.evaluator.B3BackendLValProvider;
 import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.IB3LvalProvider;
+import org.eclipse.b3.backend.evaluator.IB3Weaver;
 import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.b3.backend.scoping.IFuncScopeProvider;
 import org.eclipse.b3.build.B3BuildPackage;
@@ -21,6 +22,7 @@ import org.eclipse.b3.build.repository.IBuildUnitResolver;
 import org.eclipse.b3.evaluator.B3BuildEvaluator;
 import org.eclipse.b3.evaluator.B3BuildFuncScopeProvider;
 import org.eclipse.b3.evaluator.B3BuildTypeProvider;
+import org.eclipse.b3.evaluator.Weaver;
 
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
@@ -92,6 +94,10 @@ public class DefaultB3Module extends AbstractB3Module {
 		bind(ITypeProvider.class).to(B3BuildTypeProvider.class);
 	}
 
+	protected void bindWeaver() {
+		bind(IB3Weaver.class).to(Weaver.class);
+	}
+
 	/**
 	 * Calls the bindXXX operations on this module.
 	 * 
@@ -100,6 +106,7 @@ public class DefaultB3Module extends AbstractB3Module {
 	@Override
 	protected void configure() {
 		super.configure();
+		bindWeaver();
 		bindBuildUnitRepository_Default();
 		bindBuildUnitRepository_b3();
 		bindBuildUnitResolver();

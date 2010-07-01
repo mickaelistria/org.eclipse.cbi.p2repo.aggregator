@@ -11,7 +11,6 @@ import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCase;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -220,39 +219,12 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns the evaluation of the thenExpression, checking of the condition is up
-	 * to the caller!
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Object evaluate(BExecutionContext ctx, Object switchValue) throws Throwable {
-		return thenExpr.evaluate(ctx);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public BExpression getConditionExpr() {
 		return conditionExpr;
-	}
-
-	/**
-	 * Returns the declared type of this case only
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return thenExpr.getDeclaredType(ctx);
-		// if(nextCase == null)
-		// return thenExpr.getDeclaredType(ctx);
-		// return TypeUtils.getCommonSuperType(
-		// new Type[] { thenExpr.getDeclaredType(ctx), nextCase.getDeclaredType(ctx)});
 	}
 
 	/**

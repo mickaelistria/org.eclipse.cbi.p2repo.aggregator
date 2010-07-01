@@ -3942,10 +3942,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		addEParameter(op, ecorePackage.getEBoolean(), "isWeaving", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getB3EngineException());
 
-		op = addEOperation(buildContextEClass, null, "defineBeeModel", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBeeModel(), "beeModel", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, theB3backendPackage.getB3EngineException());
-
 		op = addEOperation(
 			buildContextEClass, this.getBuildUnit(), "getEffectiveBuildUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBuildUnit(), "unit", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4188,13 +4184,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getBuilderConcernContext_SourceAnnotationAdditions(), theB3backendPackage.getBPropertySet(), null,
 			"sourceAnnotationAdditions", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE,
 			IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = addEOperation(
-			builderConcernContextEClass, ecorePackage.getEBoolean(), "evaluateIfMatching", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBuildUnit(), "promoteToUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, theB3backendPackage.getThrowable());
 
 		initEClass(
 			pathGroupPredicateEClass, PathGroupPredicate.class, "PathGroupPredicate", !IS_ABSTRACT, !IS_INTERFACE,

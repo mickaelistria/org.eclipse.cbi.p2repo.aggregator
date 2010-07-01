@@ -8,8 +8,8 @@
 
 package org.eclipse.b3.build.core;
 
-import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3NoSuchVariableException;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildContext;
@@ -30,6 +30,8 @@ import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 
+import com.google.inject.Inject;
+
 /**
  * A simplistic (brute force) resolver that resolves all units defined in the specified context.
  * An attempt is made to satisfy all effective requirements by resolving each against the
@@ -37,6 +39,8 @@ import org.eclipse.emf.common.util.EList;
  * 
  */
 public class SimpleResolver implements IBuildUnitResolver {
+	@Inject
+	IB3Evaluator evaluator;
 
 	/*
 	 * (non-Javadoc)
@@ -74,11 +78,11 @@ public class SimpleResolver implements IBuildUnitResolver {
 			ctx = outer;
 			try {
 				if(unit.eContainer() instanceof BeeModel)
-					ctx.defineBeeModel((BeeModel) unit.eContainer());
+					evaluator.doEvaluate(unit.eContainer(), ctx);
 				else
 					ctx.defineBuildUnit(unit, false);
 			}
-			catch(B3EngineException e) {
+			catch(Throwable e) {
 				ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
 				ri.setStatus(new Status(
 					IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),

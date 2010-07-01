@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
@@ -18,6 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BuildResultContext;
 import org.eclipse.b3.build.BuildSet;
@@ -39,6 +41,8 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 
+import com.google.inject.Injector;
+
 /**
  * A Job that executes a Builder.
  * A call to an IBuilder should return an (unscheduled) instance of B3BuilderJob that is configured to
@@ -58,6 +62,10 @@ public class B3BuilderJob extends Job {
 
 	private List<String> aliases;
 
+	private IB3Evaluator evaluator;
+
+	private ITypeProvider typer;
+
 	/**
 	 * Creates a B3BuilderJob that will run a builder for a unit identified by the value of "unit"
 	 * found in the context passed as an argument.
@@ -75,7 +83,10 @@ public class B3BuilderJob extends Job {
 			throw new IllegalArgumentException("Builder can not be null when creating a B3BuilderJob");
 		this.ctx = ctx;
 		this.builder = builder;
-		unit = (BuildUnit) ctx.getValue("unit");
+		Injector injector = ctx.getInjector();
+		this.evaluator = injector.getInstance(IB3Evaluator.class);
+		this.typer = injector.getInstance(ITypeProvider.class);
+		this.unit = (BuildUnit) ctx.getValue("unit");
 		if(unit == null)
 			throw new IllegalArgumentException(
 				"Context must have an instance of BuildUnit bound to context value 'unit'");
@@ -193,7 +204,7 @@ public class B3BuilderJob extends Job {
 			//
 			BExpression tmp = builder.getPrecondExpr();
 			if(tmp != null)
-				tmp.evaluate(ctx);
+				evaluator.doEvaluate(tmp, ctx);
 
 			// Iterate over all builder references, and call each builder to produce a build job.
 			// Collect all build jobs to be executed.
@@ -214,8 +225,8 @@ public class B3BuilderJob extends Job {
 				int idx = 1;
 				if(parameters != null)
 					for(BParameter p : parameters.getParameters()) {
-						values[idx] = p.getExpr().evaluate(ctxToUse);
-						types[idx++] = p.getExpr().getDeclaredType(ctxToUse);
+						values[idx] = evaluator.doEvaluate(p.getExpr(), ctxToUse);
+						types[idx++] = typer.doGetInferredType(p.getExpr());
 					}
 
 				// Get the resolved unit in the current resolution scope
@@ -325,7 +336,7 @@ public class B3BuilderJob extends Job {
 			//
 			tmp = builder.getPostinputcondExpr();
 			if(tmp != null)
-				tmp.evaluate(ctx);
+				evaluator.doEvaluate(tmp, ctx);
 
 			// EVALUATE THE FUNCTION BODY, OR PERFORM THE DEFAULT
 			// TODO: using "internalCall" ONLY WORKS FOR B3 FUNCTIONS
@@ -408,7 +419,7 @@ public class B3BuilderJob extends Job {
 			ctx.defineFinalValue("builder", buildResult, BuildSet.class);
 			tmp = builder.getPostcondExpr();
 			if(tmp != null)
-				tmp.evaluate(ctx);
+				evaluator.doEvaluate(tmp, ctx);
 
 			// All done, return an OK status with the result set. (Partial grouped/aliased results are not visible
 			// to caller).

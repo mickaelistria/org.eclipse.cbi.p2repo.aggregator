@@ -8,18 +8,15 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCase;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.util.B3backendValidator;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -212,28 +209,6 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 		super.eUnset(featureID);
 	}
 
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Object switchValue = switchExpression == null
-				? Boolean.TRUE
-				: switchExpression.evaluate(ctx);
-		for(BCase c : caseList) {
-			BExpression cond = c.getConditionExpr();
-			// "default"
-			if(cond == null)
-				return c.getThenExpr().evaluate(ctx);
-
-			Object result = cond.evaluate(ctx);
-			if(matches(result, switchValue))
-				return c.getThenExpr().evaluate(ctx);
-			// it is not at all certain that comparison is cumulative
-			else if(switchValue.equals(result) || result.equals(switchValue))
-				return c.getThenExpr().evaluate(ctx);
-		}
-		// no case matched - return null
-		return null;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,20 +221,6 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 				BCase.class, this, B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST);
 		}
 		return caseList;
-	}
-
-	/**
-	 * Returns the common type of all cases.
-	 * TODO: Optimize by caching - the type does not change over time, unless a case expression
-	 * is changed.
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		ArrayList<Type> typeList = new ArrayList<Type>();
-		for(BCase c : caseList) {
-			typeList.add(c.getDeclaredType(ctx));
-		}
-		return TypeUtils.getCommonSuperType(typeList.toArray(new Type[typeList.size()]));
 	}
 
 	/**

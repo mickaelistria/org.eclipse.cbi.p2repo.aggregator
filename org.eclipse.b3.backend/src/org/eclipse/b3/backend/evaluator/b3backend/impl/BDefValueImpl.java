@@ -14,12 +14,10 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 
-import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
@@ -378,39 +376,6 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Object result = (getValueExpr() == null
-				? null
-				: valueExpr.evaluate(ctx));
-
-		// simple inference
-		if(type == null)
-			type = valueExpr.getDeclaredType(ctx);
-
-		if(immutable) {
-			if(final_)
-				ctx.defineFinalValue(name, result, type);
-			else
-				ctx.defineValue(name, result, type);
-		}
-		else {
-			if(final_)
-				ctx.defineFinalVariableValue(name, result, type);
-			else
-				ctx.defineVariableValue(name, result, type);
-		}
-		return result;
-	}
-
-	@Override
-	public LValue getLValue(BExecutionContext ctx) throws Throwable {
-		// must define it if getLValue is called before evaluate
-		if(!ctx.getValueMap().containsKey(getName()))
-			evaluate(ctx);
-		return ctx.getLValue(name);
 	}
 
 	/**

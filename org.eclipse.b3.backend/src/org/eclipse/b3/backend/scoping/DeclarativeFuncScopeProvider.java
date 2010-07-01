@@ -44,7 +44,7 @@ public abstract class DeclarativeFuncScopeProvider implements IFuncScopeProvider
 	 */
 	protected IScope createScope(IScope outer, Iterable<IEObjectDescription> descriptions) {
 		return new SimpleScope(outer == null
-				? SimpleScope.NULLSCOPE
+				? IScope.NULLSCOPE
 				: outer, descriptions);
 	}
 

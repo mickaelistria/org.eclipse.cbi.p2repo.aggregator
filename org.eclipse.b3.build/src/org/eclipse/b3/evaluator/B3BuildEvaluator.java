@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.B3BackendEvaluator;
+import org.eclipse.b3.backend.evaluator.IB3Weaver;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
@@ -141,20 +142,8 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 	 * @returns this
 	 */
 	public Object evaluate(BuilderConcernContext o, BExecutionContext ctx) throws Throwable {
-		// Find all builders that match the predicate
-		// Add wrappers for all found builders
 		Iterator<IFunction> fItor = ctx.getFunctionIterator();
-		Weaver weaver = ctx.getInjector().getInstance(Weaver.class);
-		weaver.setBuilderConcern(o);
-		while(fItor.hasNext()) {
-			IFunction f = fItor.next();
-			if(f instanceof IBuilder) {
-				weaver.weaveIfMatching((IBuilder) f, ctx);
-			}
-			// if(f instanceof IBuilder && weaver.builderMatchesQuery((IBuilder) f, ctx)) {
-			// weaver.weaveIfParametersMatch((IBuilder) f, ctx, null); // do not promote
-			// }
-		}
+		ctx.getInjector().getInstance(IB3Weaver.class).doWeave(o, fItor, ctx);
 		return this;
 	}
 
@@ -361,12 +350,12 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 		BExecutionContext ictx = ctx.createInnerContext();
 		ictx.defineVariableValue("@test", null, BuildUnit.class);
 		LValue lval = ictx.getLValue("@test");
-		Weaver weaver = ctx.getInjector().getInstance(Weaver.class);
-		weaver.setUnitConcern(o);
-		for(BuildUnit u : new EffectiveUnitIterator(ctx)) {
-			lval.set(u);
-			weaver.weaveIfMatching(u, ictx);
-		}
+		ctx.getInjector().getInstance(IB3Weaver.class).doWeave(o, new EffectiveUnitIterator(ctx), ctx);
+		// weaver.setUnitConcern(o);
+		// for(BuildUnit u : new EffectiveUnitIterator(ctx)) {
+		// lval.set(u);
+		// weaver.weaveIfMatching(u, ictx);
+		// }
 		return this;
 	}
 

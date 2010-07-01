@@ -11,10 +11,7 @@ import java.util.Properties;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3ExpressionCache;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -147,26 +144,6 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * 
-	 * @deprecated now done by evaluator
-	 *             <!-- end-user-doc -->
-	 * 
-	 * @throws CoreException
-	 * @generated NOT
-	 */
-	@Deprecated
-	public Object evaluateIfNotCached(BExecutionContext ctx, BCachedExpression cachedExpression) throws Throwable {
-		synchronized(cachedExpression) {
-			if(getExpressionCache().isCached(cachedExpression))
-				return getExpressionCache().get(cachedExpression);
-			Object value = cachedExpression.getExpr().evaluate(ctx);
-			getExpressionCache().put(cachedExpression, value);
-			return value;
-		}
 	}
 
 	/**

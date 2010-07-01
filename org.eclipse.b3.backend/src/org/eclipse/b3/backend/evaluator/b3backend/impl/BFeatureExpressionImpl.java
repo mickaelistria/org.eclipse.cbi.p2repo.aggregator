@@ -6,22 +6,12 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.core.B3BackendConstants;
-import org.eclipse.b3.backend.core.LValue;
-import org.eclipse.b3.backend.evaluator.BackendHelper;
-import org.eclipse.b3.backend.evaluator.EcoreFeatureLValue;
-import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -212,44 +202,6 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 	}
 
 	/**
-	 * Returns a feature from an object. If the instance is an EObject, the feature is obtained using
-	 * Ecore technology. If the instance is a POJO, the feature is obtained using reflection and mapping
-	 * of feature name to a getter (using Java Beans naming convention).
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Object lhs = objExpr == null
-				? ctx.getValue(B3BackendConstants.B3BACKEND_THIS)
-				: objExpr.evaluate(ctx);
-		// for Ecore
-		if(lhs instanceof EObject) {
-			EObject eLhs = (EObject) lhs;
-			EStructuralFeature feature = eLhs.eClass().getEStructuralFeature(featureName);
-			if(feature == null)
-				throw BackendHelper.createException(
-					objExpr, "feature ''{0}'' is not a feature of the lhs expression", new Object[] { featureName });
-			return eLhs.eGet(feature);
-		}
-		// use pojo reflection
-		PojoFeatureLValue resultingLValue = new PojoFeatureLValue(lhs, featureName);
-		Object result = null;
-		try {
-			if(resultingLValue.isGetable())
-				result = resultingLValue.get();
-		}
-		catch(Throwable e) {
-			throw BackendHelper.createException(
-				objExpr, e, "failed to get feature ''{0}'' from lhs expression", new Object[] { featureName });
-		}
-		return result;
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return getLValue(ctx).getDeclaredType();
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -257,23 +209,6 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 	 */
 	public String getFeatureName() {
 		return featureName;
-	}
-
-	@Override
-	public LValue getLValue(BExecutionContext ctx) throws Throwable {
-		Object lhs = objExpr == null
-				? ctx.getValue(B3BackendConstants.B3BACKEND_THIS)
-				: objExpr.evaluate(ctx);
-		// for Ecore
-		if(lhs instanceof EObject) {
-			EObject eLhs = (EObject) lhs;
-			EStructuralFeature feature = eLhs.eClass().getEStructuralFeature(featureName);
-			if(feature == null)
-				throw BackendHelper.createException(
-					objExpr, "feature ''{0}'' is not a feature of the lhs expression", new Object[] { featureName });
-			return new EcoreFeatureLValue((EObject) lhs, feature);
-		}
-		return new PojoFeatureLValue(lhs, featureName);
 	}
 
 	/**

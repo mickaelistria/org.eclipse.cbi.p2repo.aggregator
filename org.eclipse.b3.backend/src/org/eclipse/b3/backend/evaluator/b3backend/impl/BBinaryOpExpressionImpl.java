@@ -6,12 +6,8 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.core.B3BackendException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -143,24 +139,6 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		try {
-			return ctx.callFunction(
-				functionName, new Object[] { leftExpr.evaluate(ctx), rightExpr.evaluate(ctx) },
-				new Type[] { leftExpr.getDeclaredType(ctx), rightExpr.getDeclaredType(ctx) });
-		}
-		catch(ArithmeticException e) {
-			throw B3BackendException.fromMessage(this, e, "Arithmetic error - {0}", e.getMessage());
-		}
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return ctx.getDeclaredFunctionType(
-			functionName, new Type[] { leftExpr.getDeclaredType(ctx), rightExpr.getDeclaredType(ctx) });
 	}
 
 	/**

@@ -7,26 +7,15 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
-import java.util.Iterator;
-import java.util.LinkedList;
 
-import org.eclipse.b3.backend.core.B3AmbiguousFunctionSignatureException;
-import org.eclipse.b3.backend.core.B3BackendConstants;
-import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
-import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
-import org.eclipse.b3.backend.evaluator.typesystem.ConstructorCandidate;
-import org.eclipse.b3.backend.evaluator.typesystem.ConstructorCandidateSource;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -66,15 +55,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
-
-	private static Type[] getAllParameterTypes(Type objectType, Type[] parameterTypes) {
-		Type[] allParameterTypes = new Type[parameterTypes.length + 1];
-
-		allParameterTypes[0] = objectType;
-		System.arraycopy(parameterTypes, 0, allParameterTypes, 1, parameterTypes.length);
-
-		return allParameterTypes;
-	}
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -370,82 +350,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	}
 
 	/**
-	 * Returns an instance of the Class represented by the type
-	 * TODO: Should handle a type referring to an Ecore model.
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Type objectType = (Type) typeExpr.evaluate(ctx);
-		Type[] parameterTypes;
-		Object[] parameters;
-
-		{
-			EList<BParameter> paramaterList = getParameterList().getParameters();
-			Iterator<BParameter> parameterIterator = paramaterList.iterator();
-			int parameterCount = paramaterList.size();
-
-			parameterTypes = new Type[parameterCount];
-			parameters = new Object[parameterCount];
-
-			for(int i = 0; i < parameterCount; ++i) {
-				BExpression expression = parameterIterator.next().getExpr();
-
-				parameterTypes[i] = expression.getDeclaredType(ctx);
-				parameters[i] = expression.evaluate(ctx);
-			}
-		}
-		Class<?> clazz = TypeUtils.getRaw(objectType);
-
-		// if trying to create an instance from an interface see if there is a guice binding for it.
-		//
-		if(clazz.isInterface()) {
-			ctx.getInjector().getInstance(clazz);
-		}
-
-		ConstructorCandidate constructorCandidate;
-		{
-			LinkedList<ConstructorCandidate> candidateConstructors = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
-				parameterTypes, new ConstructorCandidateSource(clazz));
-
-			switch(candidateConstructors.size()) {
-				case 0: // no candidate constructor found
-					throw new B3NoSuchFunctionSignatureException(
-						"new", getAllParameterTypes(objectType, parameterTypes));
-				case 1: // one candidate constructor found
-					constructorCandidate = candidateConstructors.getFirst();
-					break;
-				default: // more than one candidate constructor found (the constructor call is ambiguous)
-					throw new B3AmbiguousFunctionSignatureException("new", getAllParameterTypes(
-						objectType, parameterTypes));
-			}
-		}
-
-		Object[] callParameters = constructorCandidate.prepareJavaCallParameters(parameterTypes, parameters);
-		Object result = constructorCandidate.getConstructor().newInstance(callParameters);
-
-		// if creator has a contextBlock and alias, these needs to be processed
-		BExpression cBlock = getContextBlock();
-		if(cBlock != null) {
-			// // create a context for the object instance
-			// BInstanceContext iCtx = B3backendFactory.eINSTANCE.createBInstanceContext();
-			// iCtx.setInstance(result);
-			// iCtx.setParentContext(ctx);
-			// iCtx.setOuterContext(ctx instanceof BInnerContext
-			// ? ((BInnerContext) ctx).getOuterContext()
-			// : ctx);
-			// create an inner context for the cBlock, and define "this", and the optional alias
-			// as immutable values.
-			// BExecutionContext iiCtx = iCtx.createInnerContext();
-			BExecutionContext iiCtx = ctx.createInnerContext();
-			iiCtx.defineValue(B3BackendConstants.B3BACKEND_THIS, result, objectType);
-			if(getName() != null && getName().length() > 0)
-				iiCtx.defineValue(getName(), result, objectType);
-			cBlock.evaluate(iiCtx);
-		}
-		return result;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -453,12 +357,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 */
 	public BExpression getContextBlock() {
 		return contextBlock;
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return (Type) typeExpr.evaluate(ctx);
-
 	}
 
 	/**

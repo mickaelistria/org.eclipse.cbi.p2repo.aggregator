@@ -4,16 +4,19 @@ import java.util.Iterator;
 
 import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.backend.core.SingletonIterator;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.ConditionalPathVector;
 import org.eclipse.b3.build.PathGroup;
 import org.eclipse.b3.build.PathVector;
 
 public class EffectivePathVectorIterator implements Iterator<PathVector> {
+
 	private Iterator<PathVector> itor;
 
 	public EffectivePathVectorIterator(BExecutionContext ctx, ConditionalPathVector cpv) throws Throwable {
-		if(cpv != null && (cpv.getCondExpr() == null || cpv.getCondExpr().evaluate(ctx) != Boolean.FALSE))
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
+		if(cpv != null && (cpv.getCondExpr() == null || evaluator.doEvaluate(cpv.getCondExpr(), ctx) != Boolean.FALSE))
 			itor = cpv.getPathVectors().iterator();
 		else
 			itor = SingletonIterator.nullIterator(); // skip if condition is false

@@ -30,6 +30,13 @@ public class DeclarativeB3Evaluator implements IB3Evaluator {
 			}
 		});
 
+	private final PolymorphicDispatcher<BExecutionContext> getInnerDispatcher = new PolymorphicDispatcher<BExecutionContext>(
+		"getInnerContext", 2, 2, Collections.singletonList(this), new ErrorHandler<BExecutionContext>() {
+			public BExecutionContext handle(Object[] params, Throwable e) {
+				return handleContextError(params, e);
+			}
+		});
+
 	private final PolymorphicDispatcher<Object> evalDefaultsDispatcher = new PolymorphicDispatcher<Object>(
 		"evaluateDefaults", 3, 3, Collections.singletonList(this), new ErrorHandler<Object>() {
 			public Object handle(Object[] params, Throwable e) {
@@ -62,6 +69,15 @@ public class DeclarativeB3Evaluator implements IB3Evaluator {
 		}
 	}
 
+	public BExecutionContext doGetInnerContext(Object element, BExecutionContext ctx) throws Throwable {
+		try {
+			return getInnerDispatcher.invoke(element, ctx);
+		}
+		catch(WrappedException e) {
+			throw e.getCause();
+		}
+	}
+
 	// public Object doEvaluate(Object element, BExecutionContext ctx, Object arg) {
 	// return evalDispatcher.invoke(element, ctx, arg);
 	// }
@@ -77,6 +93,13 @@ public class DeclarativeB3Evaluator implements IB3Evaluator {
 	public Type evaluateDefaults(Object o, BExecutionContext ctx, boolean allVisible) {
 		throw new UnsupportedOperationException("No suitable evaluateDefault method for object of class:" +
 				o.getClass());
+	}
+
+	protected BExecutionContext handleContextError(Object[] params, Throwable e) {
+		if(e instanceof NullPointerException) {
+			return null;
+		}
+		return Exceptions.throwUncheckedException(e);
 	}
 
 	protected Object handleError(Object[] params, Throwable e) {

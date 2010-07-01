@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.SerialIterator;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
@@ -862,6 +863,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * @generated NOT
 	 */
 	public Iterator<EffectiveCapabilityFacade> getEffectiveCapabilities(BExecutionContext ctx) throws Throwable {
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		if(!isProvidesAdvised())
 			return ((IBuilder) getOriginal()).getEffectiveCapabilities(ctx);
 		ArrayList<EffectiveCapabilityFacade> list = new ArrayList<EffectiveCapabilityFacade>();
@@ -874,7 +876,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 		for(Capability cap : getProvidedCapabilities()) {
 			BExpression c = cap.getCondExpr();
 			if(c != null) {
-				Object include = c.evaluate(ctxToUse);
+				Object include = evaluator.doEvaluate(c, ctxToUse);
 				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE)
 					continue; // skip this requirement
 			}

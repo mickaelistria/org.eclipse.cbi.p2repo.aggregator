@@ -13,23 +13,12 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.core.TypePattern;
-import org.eclipse.b3.backend.core.TypePattern.Matcher;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -64,13 +53,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
-
-	@SuppressWarnings("unchecked")
-	private static Iterator<IFunction> safeIFunctionIterator(Object obj) {
-		if(!(obj instanceof Iterator<?>))
-			throw new B3InternalError("BNamePredicate did not return an Iterator");
-		return (Iterator<IFunction>) obj;
-	}
 
 	/**
 	 * The cached value of the '{@link #getNamePredicate() <em>Name Predicate</em>}' containment reference.
@@ -334,30 +316,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 		super.eUnset(featureID);
 	}
 
-	@Override
-	@Deprecated
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		// Find all functions that match the predicate
-		// Add wrappers for all found functions
-		Iterator<IFunction> itor = safeIFunctionIterator(getNamePredicate().evaluate(ctx));
-		TypePattern pattern = TypePattern.compile(getParameters());
-		while(itor.hasNext()) {
-			weaveIfParametersMatch(pattern, itor.next(), ctx);
-		}
-		return this;
-	}
-
-	@Override
-	@Deprecated
-	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
-		if(!(candidate instanceof IFunction))
-			return false;
-		if(!getNamePredicate().matches(((IFunction) candidate).getName()))
-			return false;
-		TypePattern pattern = TypePattern.compile(getParameters());
-		return weaveIfParametersMatch(pattern, (IFunction) candidate, ctx);
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -508,38 +466,5 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 		result.append(matchParameters);
 		result.append(')');
 		return result.toString();
-	}
-
-	@Deprecated
-	private boolean weaveIfParametersMatch(TypePattern pattern, IFunction f, BExecutionContext ctx)
-			throws B3EngineException {
-		// TODO: FUNCTION EFFECTIVE PARAMETERS
-		Matcher matcher = pattern.match(f.getParameterTypes());
-		if(matchParameters && !matcher.isMatch())
-			return false;
-
-		// create a map of parameter name in advise and parameter name in matched function
-		Map<String, String> nameMap = new HashMap<String, String>();
-		EList<BParameterPredicate> plist = getParameters(); // i.e. predicates
-		int limit = plist.size();
-		String pName = null;
-		// find predicates that have a name (only named predicates can be mapped)
-		for(int i = 0; i < limit; i++)
-			if((pName = plist.get(i).getName()) != null) {
-				int matchedIdx = matcher.getMatchStart(i);
-				if(matchedIdx < 0)
-					throw new B3InternalError("Matched parameter reported to have an index of -1");
-				nameMap.put(pName, f.getParameters().get(matcher.getMatchStart(matchedIdx)).getName());
-			}
-		// Create a wrapping function and define it in the context
-		BFunctionWrapper wrapper = B3backendFactory.eINSTANCE.createBFunctionWrapper();
-		wrapper.setOriginal(f);
-		wrapper.setAroundExpr(this.funcExpr);
-		wrapper.setParameterMap(nameMap);
-		// if function has varargs, and the varargs parameter was mapped, the wrapper needs to know this
-		if(isVarArgs() && ((pName = plist.get(plist.size() - 1).getName()) != null))
-			wrapper.setVarargsName(pName);
-		ctx.defineFunction(wrapper);
-		return true;
 	}
 } // BFunctionConcernContextImpl

@@ -10,8 +10,6 @@
  */
 package org.eclipse.b3.build.impl;
 
-import java.lang.reflect.Type;
-
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 import org.eclipse.b3.build.B3BuildPackage;
@@ -142,28 +140,6 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 */
-	@Override
-	@Deprecated
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		return this; // a unit provider is literal
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return UnitProvider.class;
 	}
 
 	/**

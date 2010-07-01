@@ -12,15 +12,8 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.core.B3BackendException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
-import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -60,28 +53,5 @@ public class BProceedExpressionImpl extends BExpressionImpl implements BProceedE
 	@Override
 	protected EClass eStaticClass() {
 		return B3backendPackage.Literals.BPROCEED_EXPRESSION;
-	}
-
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		// find the mapping context to proceed in
-		BWrappingContext wrappingCtx = ctx.getContext(BWrappingContext.class);
-		if(wrappingCtx == null)
-			throw B3BackendException.fromMessage(
-				this, "A proceed expression could not find a corresponding context to proceed in.");
-		IFunction original = wrappingCtx.getFunctionWrapper().getOriginal();
-		return original.internalCall(
-			wrappingCtx.getWrappedContext(), wrappingCtx.getParameters(), wrappingCtx.getParameterTypes());
-	}
-
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		// find the mapping context to proceed in
-		BWrappingContext wrappingCtx = ctx.getContext(BWrappingContext.class);
-		if(wrappingCtx == null)
-			throw B3BackendException.fromMessage(
-				this, "A proceed expression could not find a corresponding context to proceed in.");
-		IFunction original = wrappingCtx.getFunctionWrapper().getOriginal();
-		return original.getDeclaredType(ctx);
 	}
 } // BProceedExpressionImpl

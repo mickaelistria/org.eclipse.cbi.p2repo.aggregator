@@ -4213,26 +4213,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = addEOperation(
-			bExpressionEClass, ecorePackage.getEJavaObject(), "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
-
-		op = addEOperation(bExpressionEClass, this.getLValue(), "getLValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(bExpressionEClass, this.getType(), "getDeclaredType", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
-
-		op = addEOperation(bExpressionEClass, this.getType(), "getEffectiveType", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
-
-		op = addEOperation(bExpressionEClass, this.getType(), "getInferredType", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
-
 		initEClass(
 			bExecutionContextEClass, BExecutionContext.class, "BExecutionContext", IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
@@ -4258,7 +4238,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			getBExecutionContext_Injector(), this.getInjector(), "injector", null, 0, 1, BExecutionContext.class,
 			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(bExecutionContextEClass, null, "loadFunctions", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(bExecutionContextEClass, null, "loadFunctions", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -4394,15 +4374,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 			IS_ORDERED);
 
-		op = addEOperation(bCaseEClass, ecorePackage.getEJavaObject(), "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "switchValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
-
-		op = addEOperation(bCaseEClass, this.getIType(), "getDeclaredType", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
-
 		initEClass(
 			bTryExpressionEClass, BTryExpression.class, "BTryExpression", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
@@ -4424,14 +4395,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			getBCatch_CatchExpr(), this.getBExpression(), null, "catchExpr", null, 0, 1, BCatch.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 			IS_ORDERED);
-
-		op = addEOperation(bCatchEClass, ecorePackage.getEJavaObject(), "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
-
-		op = addEOperation(bCatchEClass, this.getType(), "getDeclaredType", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
 
 		initEClass(
 			bBinaryExpressionEClass, BBinaryExpression.class, "BBinaryExpression", IS_ABSTRACT, !IS_INTERFACE,
@@ -4695,8 +4658,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
 
-		addEOperation(iFunctionEClass, this.getIType(), "getSignature", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = addEOperation(
 			iFunctionEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4742,12 +4703,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			getBInvocationContext_ExpressionCache(), this.getB3ExpressionCache(), "expressionCache", null, 0, 1,
 			BInvocationContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
-
-		op = addEOperation(
-			bInvocationContextEClass, ecorePackage.getEJavaObject(), "evaluateIfNotCached", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBCachedExpression(), "cachedExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
 
 		initEClass(
 			bUnaryPreOpExpressionEClass, BUnaryPreOpExpression.class, "BUnaryPreOpExpression", !IS_ABSTRACT,
@@ -4996,12 +4951,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			getBDefProperty_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, BDefProperty.class,
 			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(
-			bDefPropertyEClass, ecorePackage.getEJavaObject(), "evaluateDefaults", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "allVisible", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
-
 		initEClass(
 			bPropertySetEClass, BPropertySet.class, "BPropertySet", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
@@ -5131,12 +5080,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			getBConcernContext_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1,
 			BConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
-
-		op = addEOperation(
-			bConcernContextEClass, ecorePackage.getEBoolean(), "evaluateIfMatching", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
 
 		op = addEOperation(bConcernContextEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);

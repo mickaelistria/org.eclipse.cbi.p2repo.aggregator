@@ -39,6 +39,18 @@ public interface IB3Evaluator {
 	public Object doEvaluateDefaults(Object element, BExecutionContext ctx, boolean allVisible) throws Throwable;
 
 	/**
+	 * Constructs an inside context and evaluates the element in this context. The context is returned.
+	 * (Used for special elements that provide advice to some inner elements).
+	 * 
+	 * @param element
+	 *            - the element that defines the context
+	 * @param ctx
+	 *            - the context of the defining element
+	 * @return a context representing the evaluated internal context of the element
+	 */
+	public BExecutionContext doGetInnerContext(Object element, BExecutionContext ctx) throws Throwable;
+
+	/**
 	 * Evaluates the given element in the given context and returns an LValue (assignable "left" value).
 	 * Should only be applied to elements that supports being a "lValue".
 	 * 

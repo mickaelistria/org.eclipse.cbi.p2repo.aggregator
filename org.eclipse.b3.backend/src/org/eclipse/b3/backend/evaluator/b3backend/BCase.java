@@ -6,8 +6,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
-import java.lang.reflect.Type;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -37,15 +35,6 @@ public interface BCase extends EObject {
 	String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 * @generated
-	 */
-	Object evaluate(BExecutionContext ctx, Object switchValue) throws CoreException, Throwable;
-
-	/**
 	 * Returns the value of the '<em><b>Condition Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -60,15 +49,6 @@ public interface BCase extends EObject {
 	 * @generated
 	 */
 	BExpression getConditionExpr();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 * @generated
-	 */
-	Type getDeclaredType(BExecutionContext ctx) throws Throwable;
 
 	/**
 	 * Returns the value of the '<em><b>Then Expr</b></em>' containment reference.

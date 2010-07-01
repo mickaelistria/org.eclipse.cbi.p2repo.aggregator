@@ -13,28 +13,23 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.util.Collection;
-
 import java.util.Iterator;
 
 import org.eclipse.b3.backend.core.SerialIterator;
+import org.eclipse.b3.backend.evaluator.IB3Weaver;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
-
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -335,21 +330,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		super.eUnset(featureID);
 	}
 
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		for(BConcern c : getSuperConcerns())
-			c.evaluate(ctx);
-		for(BPropertySet ps : getPropertySets())
-			ps.evaluate(ctx);
-		for(IFunction f : getFunctions())
-			ctx.defineFunction(f);
-		for(BConcernContext cc : getContexts())
-			cc.evaluate(ctx);
-		// record this concern into the context - for bequests
-		ctx.getEffectiveConcerns().add(this);
-		return this;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -358,11 +338,13 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 */
 	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
 		Boolean result = false;
+		IB3Weaver weaver = ctx.getInjector().getInstance(IB3Weaver.class);
+
 		for(BConcern c : getSuperConcerns())
 			if(c.evaluateIfMatching(candidate, ctx))
 				result = true;
 		for(BConcernContext cc : getContexts())
-			if(cc.evaluateIfMatching(candidate, ctx))
+			if(weaver.doWeave(cc, candidate, ctx))
 				result = true;
 		return result;
 	}

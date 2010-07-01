@@ -10,13 +10,8 @@
  */
 package org.eclipse.b3.build.impl;
 
-import java.lang.reflect.Type;
 import java.net.URI;
-import java.util.List;
-import java.util.regex.Pattern;
-
 import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
@@ -218,61 +213,6 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/**
-	 * Evaluates the output of the IBuilder assigned to the context variable "@test" and matches that against
-	 * either the path vector or pathPattern (a literal any or literal regexp). In the case of a path vector,
-	 * the output specification must contain all paths in the predicate path vector (i.e. containsAll semantics).
-	 * 
-	 * Note: Matching is performed on unfiltered output.
-	 */
-	@Override
-	@Deprecated
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		// pick up "@test.pathgroup" parameter from context
-		Object test = ctx.getValue("@test.pathgroup");
-		// if the value is null (as opposed to not defined at all) this means there is nothing to match against
-		// so result can never be true.
-		if(test == null)
-			return Boolean.FALSE;
-
-		if(!(test instanceof PathGroup))
-			throw new B3InternalError("Attempt to evaluate PathGroupPredicate against non PathGroup");
-
-		PathGroup pg = (PathGroup) test;
-		// strategy choice - either apply a pattern on all paths, or have a set of paths which must all be available
-
-		// choice 1 - compare against a path vector
-		if(pathPattern == null) {
-			if(pathVector == null)
-				throw new B3InternalError("OutputPredicate has neither pattern nor path vector");
-
-			List<URI> predicates = new PathIterator(getPathVector()).toList();
-			List<URI> candidate = new PathIterator(pg).toList();
-			return Boolean.valueOf(candidate.containsAll(predicates));
-		}
-		// choice 2 - compare against a regexp or wildcard == ANY
-		BExpression p = getPathPattern();
-		if(p instanceof BLiteralAny)
-			return Boolean.TRUE;
-		if(p instanceof BRegularExpression) {
-			Pattern pattern = ((BRegularExpression) p).getPattern();
-			PathIterator paths = new PathIterator(pg);
-			while(paths.hasNext()) {
-				if(pattern.matcher(paths.next().toString()).matches())
-					return Boolean.TRUE;
-			}
-		}
-		return Boolean.FALSE;
-	}
-
-	/**
-	 * Always returns Boolean.
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return Boolean.class;
 	}
 
 	/**

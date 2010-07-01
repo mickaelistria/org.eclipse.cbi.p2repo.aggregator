@@ -12,7 +12,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
 import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -23,15 +22,11 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -145,6 +140,7 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	 * 
 	 * @generated NOT
 	 */
+	@Deprecated
 	public BInnerContext createContext(BExecutionContext ctx) {
 		return ctx.createWrappedInnerContext();
 	}
@@ -276,19 +272,6 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	}
 
 	/**
-	 * Evaluates all advice and the funcExpr. If there is no funcExpression, null is returned, and no advice is
-	 * evaluated (the resulting context is of no value). If evaluation should take place regardless of funcExpr being
-	 * null use {@link #getEvaluationContext(BExecutionContext)} to get the context with advice, and the evaluate
-	 * the funcExpr (like this method does).
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		if(funcExpr == null)
-			return null;
-		return funcExpr.evaluate(getEvaluationContext(ctx));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -302,52 +285,77 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 		return concerns;
 	}
 
-	/**
-	 * Returns the type declared for the funcExpr if funcExpr is non null.
-	 * If null, Object.class is returned.
-	 */
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		// the evaluation of concerns is required as called functions may have been
-		// introduced in one such context.
-		//
-		BInnerContext ictx = createContext(ctx);
-		BExecutionContext octx = ictx.getOuterContext();
-		// populate all referenced advice
-		for(BAdvice a : getReferencedAdvice())
-			a.evaluate(octx);
-		for(BConcern c : getConcerns())
-			c.evaluate(octx);
-		// populate properties
-		for(BPropertySet ps : getPropertySets())
-			ps.evaluate(octx);
-
-		BExpression f = getFuncExpr();
-		if(f != null)
-			return f.getDeclaredType(ictx);
-		return Object.class;
-	}
+	// /**
+	// * Evaluates all advice and the funcExpr. If there is no funcExpression, null is returned, and no advice is
+	// * evaluated (the resulting context is of no value). If evaluation should take place regardless of funcExpr being
+	// * null use {@link #getEvaluationContext(BExecutionContext)} to get the context with advice, and the evaluate
+	// * the funcExpr (like this method does).
+	// */
+	// @Override
+	// public Object evaluate(BExecutionContext ctx) throws Throwable {
+	// if(funcExpr == null)
+	// return null;
+	// return funcExpr.evaluate(getEvaluationContext(ctx));
+	// }
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Evaluates everything in the with clause and returns the context to use for downstream evaluation.
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	public BExecutionContext getEvaluationContext(BExecutionContext ctx) throws Throwable {
-		BInnerContext ictx = createContext(ctx);
-		BExecutionContext octx = ictx.getOuterContext();
-		// populate all referenced advice
-		for(BAdvice a : getReferencedAdvice())
-			a.evaluate(octx);
-		for(BConcern c : getConcerns())
-			c.evaluate(octx);
-		// populate properties
-		for(BPropertySet ps : getPropertySets())
-			ps.evaluate(octx);
-		return ictx;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
+
+	// /**
+	// * Returns the type declared for the funcExpr if funcExpr is non null.
+	// * If null, Object.class is returned.
+	// */
+	// @Override
+	// public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+	// // the evaluation of concerns is required as called functions may have been
+	// // introduced in one such context.
+	// //
+	// BInnerContext ictx = createContext(ctx);
+	// BExecutionContext octx = ictx.getOuterContext();
+	// // populate all referenced advice
+	// for(BAdvice a : getReferencedAdvice())
+	// a.evaluate(octx);
+	// for(BConcern c : getConcerns())
+	// c.evaluate(octx);
+	// // populate properties
+	// for(BPropertySet ps : getPropertySets())
+	// ps.evaluate(octx);
+	//
+	// BExpression f = getFuncExpr();
+	// if(f != null)
+	// return f.getDeclaredType(ictx);
+	// return Object.class;
+	// }
+
+	// /**
+	// * <!-- begin-user-doc -->
+	// * Evaluates everything in the with clause and returns the context to use for downstream evaluation.
+	// * <!-- end-user-doc -->
+	// *
+	// * @generated NOT
+	// */
+	// public BExecutionContext getEvaluationContext(BExecutionContext ctx) throws Throwable {
+	// BInnerContext ictx = createContext(ctx);
+	// BExecutionContext octx = ictx.getOuterContext();
+	// // populate all referenced advice
+	// for(BAdvice a : getReferencedAdvice())
+	// a.evaluate(octx);
+	// for(BConcern c : getConcerns())
+	// c.evaluate(octx);
+	// // populate properties
+	// for(BPropertySet ps : getPropertySets())
+	// ps.evaluate(octx);
+	// return ictx;
+	// }
 
 	/**
 	 * <!-- begin-user-doc -->

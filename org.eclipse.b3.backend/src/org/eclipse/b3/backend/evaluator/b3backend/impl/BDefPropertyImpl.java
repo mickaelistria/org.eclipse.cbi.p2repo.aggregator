@@ -12,13 +12,9 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import org.eclipse.b3.backend.core.B3NoContextException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.osgi.util.NLS;
 
 /**
  * <!-- begin-user-doc -->
@@ -136,34 +132,6 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/**
-	 * Evaluation defines the property in the first found scope return true on isPropertyScope.
-	 * (i.e. a BContext).
-	 */
-	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		BExecutionContext ctxToUse = ctx;
-		while((!ctxToUse.isPropertyScope()) && ctxToUse.getParentContext() != null)
-			ctxToUse = ctxToUse.getParentContext();
-		if(ctxToUse == null || !ctxToUse.isPropertyScope())
-			throw new B3NoContextException(NLS.bind(
-				"No property context found for setting property {0} found.", getName()));
-		// use same semantics as for variables, immutable, variable, value, etc.
-		return super.evaluate(ctxToUse);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
-		if(ctx.containsValue(name, allVisible))
-			return this;
-		return evaluate(ctx);
 	}
 
 	/**
