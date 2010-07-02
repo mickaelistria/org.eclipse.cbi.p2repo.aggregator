@@ -18,6 +18,8 @@ import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.core.JavaToB3Helper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression;
@@ -167,12 +169,53 @@ public class FunctionUtils {
 	}
 
 	/**
+	 * Select a function (instance of static). Type parameters should have layout as for an instance
+	 * call.
+	 * 
+	 * @param name
+	 * @param candidates
+	 * @param types
+	 * @return
+	 * @throws B3NoSuchFunctionException
+	 * @throws B3NoSuchFunctionSignatureException
+	 * @throws B3AmbiguousFunctionSignatureException
+	 */
+	public IFunction selectFunction(String name, List<IFunction> candidates, Type[] types)
+			throws B3NoSuchFunctionException, B3NoSuchFunctionSignatureException, B3AmbiguousFunctionSignatureException {
+		Exception originalException;
+		try {
+			return selectInstanceFunction(name, candidates, types);
+		}
+		// NOTE: B3NoSuchFunctionException is passed on - if name does not exist, it is not static either
+		catch(B3NoSuchFunctionSignatureException e) {
+			originalException = e;
+		}
+		catch(B3AmbiguousFunctionSignatureException e) {
+			originalException = e;
+		}
+		// Try static, but throw original exception for those that were caught earlier
+		try {
+			return selectStaticFunction(name, candidates, types);
+		}
+		catch(B3NoSuchFunctionSignatureException e) {
+			if(originalException != null && originalException instanceof B3NoSuchFunctionSignatureException)
+				throw (B3NoSuchFunctionSignatureException) originalException;
+			throw e;
+		}
+		catch(B3AmbiguousFunctionSignatureException e) {
+			if(originalException != null && originalException instanceof B3AmbiguousFunctionSignatureException)
+				throw (B3AmbiguousFunctionSignatureException) originalException;
+			throw e;
+		}
+	}
+
+	/**
 	 * Select the best matching function given the types of the parameters.
-	 * The candidate list should not contain functions with identitical parameter types.
+	 * The candidate list should not contain functions with identical parameter types.
 	 * Although the name of all functions should be equal, the name is required (since the list may be
 	 * empty).
 	 */
-	public IFunction selectFunction(String name, List<IFunction> candidates, Type[] tparameters)
+	public IFunction selectInstanceFunction(String name, List<IFunction> candidates, Type[] tparameters)
 			throws B3NoSuchFunctionException, B3NoSuchFunctionSignatureException, B3AmbiguousFunctionSignatureException {
 		if(Strings.isEmpty(name))
 			throw new IllegalArgumentException("Name can not be null or empty");
@@ -192,4 +235,28 @@ public class FunctionUtils {
 		return candidateFunctions.getFirst().getTarget();
 	}
 
+	/**
+	 * Selects a static function (using the same parameter input as selectFunction). The input should
+	 * not contain a meta class at index 0 in types).
+	 * 
+	 * @param name
+	 * @param candidates
+	 * @param types
+	 * @return
+	 * @throws B3NoSuchFunctionException
+	 * @throws B3NoSuchFunctionSignatureException
+	 * @throws B3AmbiguousFunctionSignatureException
+	 */
+	public IFunction selectStaticFunction(String name, List<IFunction> candidates, Type[] types)
+			throws B3NoSuchFunctionException, B3NoSuchFunctionSignatureException, B3AmbiguousFunctionSignatureException {
+		if(types.length < 1)
+			throw new IllegalArgumentException("Types array can not have 0 size.");
+		B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+		metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+		Type[] newTypes = new Type[types.length + 1];
+		System.arraycopy(types, 0, newTypes, 1, types.length);
+		newTypes[0] = metaClass;
+
+		return selectInstanceFunction(name, candidates, newTypes);
+	}
 }

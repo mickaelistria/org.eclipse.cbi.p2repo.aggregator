@@ -132,7 +132,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getFunctionName(), lhsT);
 		try {
 			Type[] types = new Type[] { lhsT, rhsT };
-			IFunction f = functionUtils.selectFunction(o.getFunctionName(), candidates, types);
+			IFunction f = functionUtils.selectInstanceFunction(o.getFunctionName(), candidates, types);
 			return functionUtils.getReturnType(f, types);
 			// B3FunctionType t = FunctionUtils.getSignature(f);
 			// BTypeCalculator tc = t.getTypeCalculator();
@@ -155,6 +155,8 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	}
 
 	public Type type(BCallFeature o) {
+		// TODO: This method can be simplified by delegating to selectFunction instead of
+		// doing two lookups.
 		Type[] types = null;
 		boolean staticAttempt = false;
 		try {
@@ -162,7 +164,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 
 			types[0] = doGetInferredType(o.getFuncExpr());
 			List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
-			IFunction f = functionUtils.selectFunction(o.getName(), candidates, types);
+			IFunction f = functionUtils.selectInstanceFunction(o.getName(), candidates, types);
 			return functionUtils.getReturnType(f, types);
 		}
 		catch(InferenceExceptions e) {
@@ -192,7 +194,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 				List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
 				IFunction f;
 				try {
-					f = functionUtils.selectFunction(o.getName(), candidates, newTypes);
+					f = functionUtils.selectInstanceFunction(o.getName(), candidates, newTypes);
 					return functionUtils.getReturnType(f, types);
 				}
 				catch(B3EngineException e) {
@@ -241,7 +243,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, name, referenceType);
 		boolean staticAttempt = false;
 		try {
-			IFunction func = functionUtils.selectFunction(name, candidates, types);
+			IFunction func = functionUtils.selectInstanceFunction(name, candidates, types);
 			return functionUtils.getReturnType(func, types);
 		}
 		catch(B3NoSuchFunctionException e) {
@@ -266,7 +268,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 
 				try {
 					candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
-					IFunction f = functionUtils.selectFunction(o.getName(), candidates, newTypes);
+					IFunction f = functionUtils.selectInstanceFunction(o.getName(), candidates, newTypes);
 					return functionUtils.getReturnType(f, types);
 				}
 				catch(B3EngineException e) {
@@ -681,7 +683,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getFunctionName(), lhsT);
 		try {
 			Type[] types = new Type[] { lhsT };
-			IFunction f = functionUtils.selectFunction(o.getFunctionName(), candidates, types);
+			IFunction f = functionUtils.selectInstanceFunction(o.getFunctionName(), candidates, types);
 			return functionUtils.getReturnType(f, types);
 		}
 		catch(Exception e) {
