@@ -147,9 +147,17 @@ public class BuildUnitUtils {
 		buf.append(unitName);
 		if(version != null) {
 			buf.append("_");
-			buf.append(version.getOriginal());
+			buf.append(getClassnameSafeVersionString(version));
 		}
 		return buf.toString();
 
+	}
+
+	public static String getClassnameSafeVersionString(Version v) {
+		StringBuffer buf = new StringBuffer(v.getOriginal());
+		for(int i = 0; i < buf.length(); i++)
+			if(!Character.isJavaIdentifierPart(buf.charAt(i)))
+				buf.setCharAt(i, '_');
+		return buf.toString();
 	}
 }
