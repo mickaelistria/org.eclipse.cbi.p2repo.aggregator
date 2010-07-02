@@ -153,11 +153,27 @@ public class BuildUnitUtils {
 
 	}
 
+	/**
+	 * Version part is transformed as follows:
+	 * $ -> escaped as non identifier
+	 * . -> changed to _
+	 * non identifier -> $xx where xx in the hex code for the character
+	 * 
+	 * @param v
+	 * @return a string that can be part of a class name after an an initial letter.
+	 */
 	public static String getClassnameSafeVersionString(Version v) {
-		StringBuffer buf = new StringBuffer(v.getOriginal());
-		for(int i = 0; i < buf.length(); i++)
-			if(!Character.isJavaIdentifierPart(buf.charAt(i)))
-				buf.setCharAt(i, '_');
+		String s = v.getOriginal();
+		StringBuffer buf = new StringBuffer(s.length() + 10); // add 10 for funny char expansion
+		for(int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if(c == '.')
+				c = '_';
+			if(c != '$' && Character.isJavaIdentifierPart(c))
+				buf.append(c);
+			else
+				buf.append('$').append(Integer.toHexString(c));
+		}
 		return buf.toString();
 	}
 }
