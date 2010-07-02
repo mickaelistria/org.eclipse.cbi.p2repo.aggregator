@@ -49,7 +49,7 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 
 		@Override
 		public String getFormatSample() {
-			return sample;
+			return '"' + sample + '"';
 		}
 
 	}
