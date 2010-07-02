@@ -33,6 +33,7 @@ Export-Package: org.eclipse.b3,
  org.eclipse.b3.parser.antlr.internal,
  org.eclipse.b3.services,
  org.eclipse.b3.utils,
- org.eclipse.b3.validation
+ org.eclipse.b3.validation,
+ org.eclipse.b3.versions
 Import-Package: org.eclipse.b3.backend.evaluator.b3backend.impl,
  org.apache.log4j

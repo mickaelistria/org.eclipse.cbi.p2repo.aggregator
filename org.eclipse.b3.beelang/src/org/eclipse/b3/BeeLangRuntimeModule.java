@@ -15,8 +15,9 @@ package org.eclipse.b3;
 import org.eclipse.b3.formatting.BeeLangFormatter;
 import org.eclipse.b3.validation.BeeLangDiagnosticsConverter;
 import org.eclipse.b3.validation.BeeLangSyntaxErrorMessageProvider;
+import org.eclipse.b3.versions.DefaultVersionFormatManager;
+import org.eclipse.b3.versions.IVersionFormatManager;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.formatting.IFormatter;
 import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
@@ -24,7 +25,9 @@ import org.eclipse.xtext.resource.SynchronizedXtextResourceSet;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.validation.IDiagnosticConverter;
 
+import com.google.inject.Binder;
 import com.google.inject.Provider;
+import com.google.inject.Singleton;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -41,7 +44,7 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 		public XtextResourceSet get() {
 			SynchronizedXtextResourceSet rs = new SynchronizedXtextResourceSet();
 			URI uri = URI.createURI("b3engine:/default");
-			Resource r = rs.getResource(uri, true);
+			rs.getResource(uri, true);
 			// rs.getResources().add(r);
 			return rs;
 		}
@@ -82,7 +85,19 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 		return null; // return SynchronizedXtextResourceSet.class;
 	}
 
+	@Override
+	public void configure(Binder binder) {
+		super.configure(binder);
+		// don't know how to do this using Xtext declarative approach...
+		binder.bind(IVersionFormatManager.class).to(DefaultVersionFormatManager.class).in(Singleton.class);
+	}
+
 	public Class<? extends Provider<XtextResourceSet>> provideXtextResourceSet() {
 		return XtextResourceSetProvider.class;
 	}
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.AbstractBeeLangRuntimeModule#configure(com.google.inject.Binder)
+	 */
 }

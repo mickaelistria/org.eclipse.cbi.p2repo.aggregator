@@ -142,14 +142,12 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 					acceptor.addPosition(node.getOffset(), node.getLength(), BeeLangHighlightConfiguration.DEFAULT_ID);
 				}
 		}
-		provideHighlightingFor2(resource, acceptor);
+		// provideHighlightingFor2(resource, acceptor);
 	}
 
 	public void provideHighlightingFor2(XtextResource resource, IHighlightedPositionAcceptor acceptor) {
 		if(resource == null)
 			return;
-		// Iterable<AbstractNode> allNodes = NodeUtil.getAllContents(
-		// resource.getParseResult().getRootNode());
 		EList<EObject> contents = resource.getContents();
 		if(contents == null || contents.size() == 0)
 			return; // nothing there at all - probably an empty file

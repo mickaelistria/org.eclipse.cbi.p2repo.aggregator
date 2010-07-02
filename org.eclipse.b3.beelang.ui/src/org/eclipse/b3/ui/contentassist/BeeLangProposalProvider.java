@@ -16,6 +16,7 @@ import org.eclipse.b3.build.TriState;
 import org.eclipse.b3.build.core.RepositoryValidation;
 import org.eclipse.b3.enums.MergeConflictStrategyEnumHelper;
 import org.eclipse.b3.enums.TriStateEnumHelper;
+import org.eclipse.b3.versions.IVersionFormatManager;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.jface.viewers.StyledString;
@@ -26,11 +27,15 @@ import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 
 import com.google.common.collect.Lists;
+import com.google.inject.Inject;
 
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
 public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
+	@Inject
+	private IVersionFormatManager versionFormats;
+
 	/**
 	 * @see org.eclipse.xtext.ui.editor.contentassist.ContentProposalPriorities
 	 *      A priority higher than all other build in priorites.
@@ -63,6 +68,7 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 		super.complete_EscapedQualifiedName(model, ruleCall, context, acceptor);
 	}
 
+	@Override
 	public void complete_MergeStrategy(EObject model, RuleCall ruleCall, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
 		ICompletionProposal completionProposal;
@@ -105,6 +111,7 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 		super.complete_NamePredicate(model, ruleCall, context, acceptor);
 	}
 
+	@Override
 	public void complete_TriState(EObject model, RuleCall ruleCall, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
 		ICompletionProposal completionProposal;
@@ -112,6 +119,30 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 			completionProposal = createCompletionProposal(entry.getValue(), new StyledString(entry.getValue()), context);
 			acceptor.accept(completionProposal);
 		}
+	}
+
+	@Override
+	public void complete_VersionLiteral(EObject model, RuleCall ruleCall, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		ICompletionProposal completionProposal;
+		for(IVersionFormatManager.VersionProposal vp : versionFormats.getVersionProposals()) {
+			completionProposal = createCompletionProposal(
+				vp.getFormatSample(), new StyledString(vp.getFormatDescription()), context);
+			acceptor.accept(completionProposal);
+		}
+		super.complete_VersionLiteral(model, ruleCall, context, acceptor);
+	}
+
+	@Override
+	public void complete_VersionRangeLiteral(EObject model, RuleCall ruleCall, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		ICompletionProposal completionProposal;
+		for(IVersionFormatManager.VersionProposal vp : versionFormats.getVersionRangeProposals()) {
+			completionProposal = createCompletionProposal(
+				vp.getFormatSample(), new StyledString(vp.getFormatDescription()), context);
+			acceptor.accept(completionProposal);
+		}
+		super.complete_VersionRangeLiteral(model, ruleCall, context, acceptor);
 	}
 
 	/*

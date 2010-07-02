@@ -27,6 +27,7 @@ import org.eclipse.b3.build.TriState;
 import org.eclipse.b3.enums.MergeConflictStrategyEnumHelper;
 import org.eclipse.b3.enums.TriStateEnumHelper;
 import org.eclipse.b3.validation.FixableTimestampException;
+import org.eclipse.b3.versions.IVersionFormatManager;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.xtext.GrammarUtil;
@@ -38,10 +39,14 @@ import org.eclipse.xtext.conversion.impl.AbstractNullSafeConverter;
 import org.eclipse.xtext.parsetree.AbstractNode;
 import org.eclipse.xtext.util.Strings;
 
+import com.google.inject.Inject;
+
 /**
  * Converters for BeeLang terminals.
  */
 public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverterService {
+	@Inject
+	private IVersionFormatManager versionFormatManager;
 
 	@ValueConverter(rule = "BooleanValue")
 	public IValueConverter<Boolean> BooleanValue() {
@@ -412,7 +417,8 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 		return new IValueConverter<Version>() {
 
 			public String toString(Version value) {
-				return value.toString();
+				return versionFormatManager.toString(value);
+				// return value.toString();
 			}
 
 			public Version toValue(String string, AbstractNode node) throws ValueConverterException {
@@ -423,7 +429,9 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 					if(c == '"' || c == '\"')
 						string = Strings.convertFromJavaString(string.substring(1, string.length() - 1), true);
 
-					return Version.create(string);
+					// INJECT IVersionFormatManager and create Version
+					return versionFormatManager.toVersionValue(string);
+					// return Version.create(string);
 				}
 				catch(IllegalArgumentException e) {
 					throw new ValueConverterException("Version '" + string + "' is not a valid version: " +
@@ -450,7 +458,7 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 					if(c == '"' || c == '\"')
 						string = Strings.convertFromJavaString(string.substring(1, string.length() - 1), true);
 
-					return new VersionRange(string);
+					return versionFormatManager.toVersionRangeValue(string);
 				}
 				catch(IllegalArgumentException e) {
 					throw new ValueConverterException("VersionRange '" + string + "' is not a valid range: " +
