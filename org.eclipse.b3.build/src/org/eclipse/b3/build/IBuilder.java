@@ -6,10 +6,10 @@
  */
 package org.eclipse.b3.build;
 
-import java.lang.reflect.Type;
 import java.util.Iterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 
@@ -96,12 +96,12 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Explicit Unit Type</em>' containment reference.
-	 * @see #setExplicitUnitType(Type)
+	 * @see #setExplicitUnitType(BParameterDeclaration)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getIBuilder_ExplicitUnitType()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	Type getExplicitUnitType();
+	BParameterDeclaration getExplicitUnitType();
 
 	/**
 	 * Returns the value of the '<em><b>Input</b></em>' containment reference.
@@ -237,7 +237,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * @see #getExplicitUnitType()
 	 * @generated
 	 */
-	void setExplicitUnitType(Type value);
+	void setExplicitUnitType(BParameterDeclaration value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.IBuilder#getInput <em>Input</em>}' containment reference.

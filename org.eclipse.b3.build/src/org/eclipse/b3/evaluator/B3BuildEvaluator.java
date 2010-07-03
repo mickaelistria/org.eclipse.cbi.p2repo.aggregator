@@ -349,7 +349,7 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 	public Object evaluate(UnitConcernContext o, BExecutionContext ctx) throws Throwable {
 		BExecutionContext ictx = ctx.createInnerContext();
 		ictx.defineVariableValue("@test", null, BuildUnit.class);
-		LValue lval = ictx.getLValue("@test");
+		ictx.getLValue("@test");
 		ctx.getInjector().getInstance(IB3Weaver.class).doWeave(o, new EffectiveUnitIterator(ctx), ctx);
 		// weaver.setUnitConcern(o);
 		// for(BuildUnit u : new EffectiveUnitIterator(ctx)) {

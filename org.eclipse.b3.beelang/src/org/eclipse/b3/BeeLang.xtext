@@ -325,7 +325,7 @@ Builder returns build::Builder : {build::Builder}
 		// first parameter is always "unit", but is implied to "this unit" if builder is specified in
 		// a build unit
 		// TODO: validation and relevant content proposal
-		(( ((explicitUnitType = TypeRef "unit") | (parameters += ParameterDeclarationNotUnit))
+		(( ((explicitUnitType = ParameterDeclarationUnit) | (parameters += ParameterDeclarationNotUnit))
 			(',' parameters += ParameterDeclarationNotUnit)* 
 			(',' varArgs?="..." parameters += ParameterDeclarationNotUnit)?)
 		| 	(    varArgs?="..." parameters += ParameterDeclarationNotUnit))?
@@ -374,6 +374,10 @@ ParameterDeclarationOptType returns be::BParameterDeclaration : {be::BParameterD
 	
 ParameterDeclaration returns be::BParameterDeclaration : {be::BParameterDeclaration} 
 	type=TypeRef name = ID_or_KW 
+	;
+
+ParameterDeclarationUnit returns be::BParameterDeclaration : {be::BParameterDeclaration} 
+	type=TypeRef name = "unit" 
 	;
 	
 // Used in Builder where the first paramter can be called unit, but not others	

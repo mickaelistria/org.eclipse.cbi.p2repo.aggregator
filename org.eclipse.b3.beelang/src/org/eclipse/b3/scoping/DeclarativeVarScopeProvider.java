@@ -238,6 +238,12 @@ public class DeclarativeVarScopeProvider {
 		B3BuildEngineResource r = (B3BuildEngineResource) container.eResource().getResourceSet().getResource(uri, false);
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 
+		// Explicit "unit"
+		BParameterDeclaration explicitUnitType = container.getExplicitUnitType();
+		if(explicitUnitType != null) {
+			result.add(new EObjectDescription(explicitUnitType.getName(), explicitUnitType, null));
+		}
+
 		// Builder parameters
 		for(BParameterDeclaration param : container.getParameters()) {
 			result.add(new EObjectDescription(param.getName(), param, null));

@@ -170,7 +170,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * @generated
 	 * @ordered
 	 */
-	protected Type explicitUnitType;
+	protected BParameterDeclaration explicitUnitType;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
@@ -220,8 +220,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetExplicitUnitType(Type newExplicitUnitType, NotificationChain msgs) {
-		Type oldExplicitUnitType = explicitUnitType;
+	public NotificationChain basicSetExplicitUnitType(BParameterDeclaration newExplicitUnitType, NotificationChain msgs) {
+		BParameterDeclaration oldExplicitUnitType = explicitUnitType;
 		explicitUnitType = newExplicitUnitType;
 		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(
@@ -618,7 +618,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				setUnitType((Class<? extends BuildUnit>) newValue);
 				return;
 			case B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE:
-				setExplicitUnitType((Type) newValue);
+				setExplicitUnitType((BParameterDeclaration) newValue);
 				return;
 			case B3BuildPackage.BUILDER__SOURCE:
 				setSource((PathGroup) newValue);
@@ -672,7 +672,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				setUnitType((Class<? extends BuildUnit>) null);
 				return;
 			case B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE:
-				setExplicitUnitType((Type) null);
+				setExplicitUnitType((BParameterDeclaration) null);
 				return;
 			case B3BuildPackage.BUILDER__SOURCE:
 				setSource((PathGroup) null);
@@ -764,7 +764,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * 
 	 * @generated
 	 */
-	public Type getExplicitUnitType() {
+	public BParameterDeclaration getExplicitUnitType() {
 		return explicitUnitType;
 	}
 
@@ -869,10 +869,11 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				throw new B3InternalError(
 					"A builder was found that was neither contained in a BuildUnit nor has 'Class<? extends BuildUnit> unit' as its first parameter." +
 							this.toString());
-			if(!TypeUtils.isAssignableFrom(BuildUnit.class, explicitUnitType))
+			Type explicit = explicitUnitType.getType();
+			if(!TypeUtils.isAssignableFrom(BuildUnit.class, explicit))
 				throw new B3InternalError("A builder with explicit unit type had a non BuildUnit as its type." +
 						this.toString());
-			return (Class<? extends BuildUnit>) TypeUtils.getRaw(explicitUnitType);
+			return (Class<? extends BuildUnit>) TypeUtils.getRaw(explicit);
 		}
 		return BuildUnitProxyAdapterFactory.eINSTANCE.adapt((BuildUnit) c).getProxy().getClass();
 	}
@@ -908,7 +909,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * 
 	 * @generated
 	 */
-	public void setExplicitUnitType(Type newExplicitUnitType) {
+	public void setExplicitUnitType(BParameterDeclaration newExplicitUnitType) {
 		if(newExplicitUnitType != explicitUnitType) {
 			NotificationChain msgs = null;
 			if(explicitUnitType != null)

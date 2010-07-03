@@ -1,11 +1,11 @@
 package org.eclipse.b3.build.impl;
 
-import java.lang.reflect.Type;
 import java.util.Collection;
 
 import java.util.Iterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl;
@@ -158,7 +158,7 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * @generated
 	 * @ordered
 	 */
-	protected Type explicitUnitType;
+	protected BParameterDeclaration explicitUnitType;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
@@ -208,8 +208,8 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetExplicitUnitType(Type newExplicitUnitType, NotificationChain msgs) {
-		Type oldExplicitUnitType = explicitUnitType;
+	public NotificationChain basicSetExplicitUnitType(BParameterDeclaration newExplicitUnitType, NotificationChain msgs) {
+		BParameterDeclaration oldExplicitUnitType = explicitUnitType;
 		explicitUnitType = newExplicitUnitType;
 		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(
@@ -563,7 +563,7 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				setUnitType((Class<? extends BuildUnit>) newValue);
 				return;
 			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
-				setExplicitUnitType((Type) newValue);
+				setExplicitUnitType((BParameterDeclaration) newValue);
 				return;
 			case B3BuildPackage.BUILDER_JAVA__SOURCE:
 				setSource((PathGroup) newValue);
@@ -617,7 +617,7 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				setUnitType((Class<? extends BuildUnit>) null);
 				return;
 			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
-				setExplicitUnitType((Type) null);
+				setExplicitUnitType((BParameterDeclaration) null);
 				return;
 			case B3BuildPackage.BUILDER_JAVA__SOURCE:
 				setSource((PathGroup) null);
@@ -679,7 +679,7 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * 
 	 * @generated
 	 */
-	public Type getExplicitUnitType() {
+	public BParameterDeclaration getExplicitUnitType() {
 		return explicitUnitType;
 	}
 
@@ -798,7 +798,7 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * 
 	 * @generated
 	 */
-	public void setExplicitUnitType(Type newExplicitUnitType) {
+	public void setExplicitUnitType(BParameterDeclaration newExplicitUnitType) {
 		if(newExplicitUnitType != explicitUnitType) {
 			NotificationChain msgs = null;
 			if(explicitUnitType != null)

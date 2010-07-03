@@ -3165,10 +3165,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_7_1 = (Alternatives)cGroup_7.eContents().get(1);
 		private final Group cGroup_7_1_0 = (Group)cAlternatives_7_1.eContents().get(0);
 		private final Alternatives cAlternatives_7_1_0_0 = (Alternatives)cGroup_7_1_0.eContents().get(0);
-		private final Group cGroup_7_1_0_0_0 = (Group)cAlternatives_7_1_0_0.eContents().get(0);
-		private final Assignment cExplicitUnitTypeAssignment_7_1_0_0_0_0 = (Assignment)cGroup_7_1_0_0_0.eContents().get(0);
-		private final RuleCall cExplicitUnitTypeTypeRefParserRuleCall_7_1_0_0_0_0_0 = (RuleCall)cExplicitUnitTypeAssignment_7_1_0_0_0_0.eContents().get(0);
-		private final Keyword cUnitKeyword_7_1_0_0_0_1 = (Keyword)cGroup_7_1_0_0_0.eContents().get(1);
+		private final Assignment cExplicitUnitTypeAssignment_7_1_0_0_0 = (Assignment)cAlternatives_7_1_0_0.eContents().get(0);
+		private final RuleCall cExplicitUnitTypeParameterDeclarationUnitParserRuleCall_7_1_0_0_0_0 = (RuleCall)cExplicitUnitTypeAssignment_7_1_0_0_0.eContents().get(0);
 		private final Assignment cParametersAssignment_7_1_0_0_1 = (Assignment)cAlternatives_7_1_0_0.eContents().get(1);
 		private final RuleCall cParametersParameterDeclarationNotUnitParserRuleCall_7_1_0_0_1_0 = (RuleCall)cParametersAssignment_7_1_0_0_1.eContents().get(0);
 		private final Group cGroup_7_1_0_1 = (Group)cGroup_7_1_0.eContents().get(1);
@@ -3243,8 +3241,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Builder returns build::Builder:
 		//	{build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=ExecutionMode? final?="final"?
-		//	"builder" name=BuilderName ("(" ((explicitUnitType=TypeRef "unit" | parameters+=ParameterDeclarationNotUnit) (","
-		//	parameters+=ParameterDeclarationNotUnit)* ("," varArgs?="..." parameters+=ParameterDeclarationNotUnit)? // first parameter is always "unit", but is implied to "this unit" if builder is specified in
+		//	"builder" name=BuilderName ("(" ((explicitUnitType=ParameterDeclarationUnit | parameters+=ParameterDeclarationNotUnit)
+		//	("," parameters+=ParameterDeclarationNotUnit)* ("," varArgs?="..." parameters+=ParameterDeclarationNotUnit)? // first parameter is always "unit", but is implied to "this unit" if builder is specified in
 		//	// a build unit
 		//	// TODO: validation and relevant content proposal
 		//	| varArgs?="..." parameters+=ParameterDeclarationNotUnit)? ")")? //	(guard = GuardExpression)?
@@ -3256,8 +3254,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public ParserRule getRule() { return rule; }
 
 		//{build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=ExecutionMode? final?="final"?
-		//"builder" name=BuilderName ("(" ((explicitUnitType=TypeRef "unit" | parameters+=ParameterDeclarationNotUnit) (","
-		//parameters+=ParameterDeclarationNotUnit)* ("," varArgs?="..." parameters+=ParameterDeclarationNotUnit)? // first parameter is always "unit", but is implied to "this unit" if builder is specified in
+		//"builder" name=BuilderName ("(" ((explicitUnitType=ParameterDeclarationUnit | parameters+=ParameterDeclarationNotUnit)
+		//("," parameters+=ParameterDeclarationNotUnit)* ("," varArgs?="..." parameters+=ParameterDeclarationNotUnit)? // first parameter is always "unit", but is implied to "this unit" if builder is specified in
 		//// a build unit
 		//// TODO: validation and relevant content proposal
 		//| varArgs?="..." parameters+=ParameterDeclarationNotUnit)? ")")? //	(guard = GuardExpression)?
@@ -3304,7 +3302,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//BuilderName
 		public RuleCall getNameBuilderNameParserRuleCall_6_0() { return cNameBuilderNameParserRuleCall_6_0; }
 
-		//("(" ((explicitUnitType=TypeRef "unit" | parameters+=ParameterDeclarationNotUnit) (","
+		//("(" ((explicitUnitType=ParameterDeclarationUnit | parameters+=ParameterDeclarationNotUnit) (","
 		//parameters+=ParameterDeclarationNotUnit)* ("," varArgs?="..." parameters+=ParameterDeclarationNotUnit)? // first parameter is always "unit", but is implied to "this unit" if builder is specified in
 		//// a build unit
 		//// TODO: validation and relevant content proposal
@@ -3314,31 +3312,25 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_7_0() { return cLeftParenthesisKeyword_7_0; }
 
-		//((explicitUnitType=TypeRef "unit" | parameters+=ParameterDeclarationNotUnit) (","
+		//((explicitUnitType=ParameterDeclarationUnit | parameters+=ParameterDeclarationNotUnit) (","
 		//parameters+=ParameterDeclarationNotUnit)* ("," varArgs?="..." parameters+=ParameterDeclarationNotUnit)? // first parameter is always "unit", but is implied to "this unit" if builder is specified in
 		//// a build unit
 		//// TODO: validation and relevant content proposal
 		//| varArgs?="..." parameters+=ParameterDeclarationNotUnit)?
 		public Alternatives getAlternatives_7_1() { return cAlternatives_7_1; }
 
-		//(explicitUnitType=TypeRef "unit" | parameters+=ParameterDeclarationNotUnit) (","
+		//(explicitUnitType=ParameterDeclarationUnit | parameters+=ParameterDeclarationNotUnit) (","
 		//parameters+=ParameterDeclarationNotUnit)* ("," varArgs?="..." parameters+=ParameterDeclarationNotUnit)?
 		public Group getGroup_7_1_0() { return cGroup_7_1_0; }
 
-		//explicitUnitType=TypeRef "unit" | parameters+=ParameterDeclarationNotUnit
+		//explicitUnitType=ParameterDeclarationUnit | parameters+=ParameterDeclarationNotUnit
 		public Alternatives getAlternatives_7_1_0_0() { return cAlternatives_7_1_0_0; }
 
-		//explicitUnitType=TypeRef "unit"
-		public Group getGroup_7_1_0_0_0() { return cGroup_7_1_0_0_0; }
+		//explicitUnitType=ParameterDeclarationUnit
+		public Assignment getExplicitUnitTypeAssignment_7_1_0_0_0() { return cExplicitUnitTypeAssignment_7_1_0_0_0; }
 
-		//explicitUnitType=TypeRef
-		public Assignment getExplicitUnitTypeAssignment_7_1_0_0_0_0() { return cExplicitUnitTypeAssignment_7_1_0_0_0_0; }
-
-		//TypeRef
-		public RuleCall getExplicitUnitTypeTypeRefParserRuleCall_7_1_0_0_0_0_0() { return cExplicitUnitTypeTypeRefParserRuleCall_7_1_0_0_0_0_0; }
-
-		//"unit"
-		public Keyword getUnitKeyword_7_1_0_0_0_1() { return cUnitKeyword_7_1_0_0_0_1; }
+		//ParameterDeclarationUnit
+		public RuleCall getExplicitUnitTypeParameterDeclarationUnitParserRuleCall_7_1_0_0_0_0() { return cExplicitUnitTypeParameterDeclarationUnitParserRuleCall_7_1_0_0_0_0; }
 
 		//parameters+=ParameterDeclarationNotUnit
 		public Assignment getParametersAssignment_7_1_0_0_1() { return cParametersAssignment_7_1_0_0_1; }
@@ -3815,6 +3807,38 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ID_or_KW
 		public RuleCall getNameID_or_KWParserRuleCall_2_0() { return cNameID_or_KWParserRuleCall_2_0; }
+	}
+
+	public class ParameterDeclarationUnitElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterDeclarationUnit");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBParameterDeclarationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeTypeRefParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cNameUnitKeyword_2_0 = (Keyword)cNameAssignment_2.eContents().get(0);
+		
+		//ParameterDeclarationUnit returns be::BParameterDeclaration:
+		//	{be::BParameterDeclaration} type=TypeRef name="unit";
+		public ParserRule getRule() { return rule; }
+
+		//{be::BParameterDeclaration} type=TypeRef name="unit"
+		public Group getGroup() { return cGroup; }
+
+		//{be::BParameterDeclaration}
+		public Action getBParameterDeclarationAction_0() { return cBParameterDeclarationAction_0; }
+
+		//type=TypeRef
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+
+		//TypeRef
+		public RuleCall getTypeTypeRefParserRuleCall_1_0() { return cTypeTypeRefParserRuleCall_1_0; }
+
+		//name="unit"
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//"unit"
+		public Keyword getNameUnitKeyword_2_0() { return cNameUnitKeyword_2_0; }
 	}
 
 	public class ParameterDeclarationNotUnitElements extends AbstractParserRuleElementFinder {
@@ -12116,6 +12140,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private ClosureParameterElements pClosureParameter;
 	private ParameterDeclarationOptTypeElements pParameterDeclarationOptType;
 	private ParameterDeclarationElements pParameterDeclaration;
+	private ParameterDeclarationUnitElements pParameterDeclarationUnit;
 	private ParameterDeclarationNotUnitElements pParameterDeclarationNotUnit;
 	private BuilderInputElements pBuilderInput;
 	private RepositoryElements pRepository;
@@ -12751,8 +12776,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Builder returns build::Builder:
 	//	{build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=ExecutionMode? final?="final"?
-	//	"builder" name=BuilderName ("(" ((explicitUnitType=TypeRef "unit" | parameters+=ParameterDeclarationNotUnit) (","
-	//	parameters+=ParameterDeclarationNotUnit)* ("," varArgs?="..." parameters+=ParameterDeclarationNotUnit)? // first parameter is always "unit", but is implied to "this unit" if builder is specified in
+	//	"builder" name=BuilderName ("(" ((explicitUnitType=ParameterDeclarationUnit | parameters+=ParameterDeclarationNotUnit)
+	//	("," parameters+=ParameterDeclarationNotUnit)* ("," varArgs?="..." parameters+=ParameterDeclarationNotUnit)? // first parameter is always "unit", but is implied to "this unit" if builder is specified in
 	//	// a build unit
 	//	// TODO: validation and relevant content proposal
 	//	| varArgs?="..." parameters+=ParameterDeclarationNotUnit)? ")")? //	(guard = GuardExpression)?
@@ -12857,6 +12882,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getParameterDeclarationRule() {
 		return getParameterDeclarationAccess().getRule();
+	}
+
+	//ParameterDeclarationUnit returns be::BParameterDeclaration:
+	//	{be::BParameterDeclaration} type=TypeRef name="unit";
+	public ParameterDeclarationUnitElements getParameterDeclarationUnitAccess() {
+		return (pParameterDeclarationUnit != null) ? pParameterDeclarationUnit : (pParameterDeclarationUnit = new ParameterDeclarationUnitElements());
+	}
+	
+	public ParserRule getParameterDeclarationUnitRule() {
+		return getParameterDeclarationUnitAccess().getRule();
 	}
 
 	//// Used in Builder where the first paramter can be called unit, but not others	

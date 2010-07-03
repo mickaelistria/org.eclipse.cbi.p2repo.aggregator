@@ -84,7 +84,7 @@
         </eTypeArguments>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="explicitUnitType" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IType"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="explicitUnitType" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BParameterDeclaration"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//PathGroup"
         containment="true"/>

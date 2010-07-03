@@ -169,7 +169,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * @generated
 	 * @ordered
 	 */
-	protected Type explicitUnitType;
+	protected BParameterDeclaration explicitUnitType;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
@@ -351,8 +351,8 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetExplicitUnitType(Type newExplicitUnitType, NotificationChain msgs) {
-		Type oldExplicitUnitType = explicitUnitType;
+	public NotificationChain basicSetExplicitUnitType(BParameterDeclaration newExplicitUnitType, NotificationChain msgs) {
+		BParameterDeclaration oldExplicitUnitType = explicitUnitType;
 		explicitUnitType = newExplicitUnitType;
 		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(
@@ -730,7 +730,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				setUnitType((Class<? extends BuildUnit>) newValue);
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE:
-				setExplicitUnitType((Type) newValue);
+				setExplicitUnitType((BParameterDeclaration) newValue);
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__SOURCE:
 				setSource((PathGroup) newValue);
@@ -802,7 +802,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				setUnitType((Class<? extends BuildUnit>) null);
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE:
-				setExplicitUnitType((Type) null);
+				setExplicitUnitType((BParameterDeclaration) null);
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__SOURCE:
 				setSource((PathGroup) null);
@@ -921,7 +921,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * 
 	 * @generated
 	 */
-	public Type getExplicitUnitType() {
+	public BParameterDeclaration getExplicitUnitType() {
 		return explicitUnitType;
 	}
 
@@ -1187,7 +1187,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * 
 	 * @generated
 	 */
-	public void setExplicitUnitType(Type newExplicitUnitType) {
+	public void setExplicitUnitType(BParameterDeclaration newExplicitUnitType) {
 		if(newExplicitUnitType != explicitUnitType) {
 			NotificationChain msgs = null;
 			if(explicitUnitType != null)
