@@ -232,6 +232,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 */
 	@Override
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		B3InternalContextAccess.set(ctx);
 		try {
 			if(isSystemCall())
 				return method.invoke(null, ctx, parameters, types);
@@ -254,6 +255,10 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 		}
 		catch(ClassCastException e) {
 			throw e;
+		}
+		finally {
+			// Don't want thread to hold on to this value
+			B3InternalContextAccess.remove();
 		}
 	}
 
