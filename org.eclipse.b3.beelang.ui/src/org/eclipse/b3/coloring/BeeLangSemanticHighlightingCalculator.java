@@ -48,6 +48,7 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 
 		@Override
 		public void addPosition(int offset, int length, String... id) {
+			// FOR DEBUGGING
 			// StringBuffer buf = new StringBuffer();
 			// buf.append(offset);
 			// buf.append(", ");
