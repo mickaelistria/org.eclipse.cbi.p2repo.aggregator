@@ -39,6 +39,30 @@ import com.google.inject.Inject;
  */
 public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlightingCalculator {
 
+	private static class ZeroLengthFilteredAcceptorWrapper implements IHighlightedPositionAcceptor {
+		private IHighlightedPositionAcceptor wrapped;
+
+		public ZeroLengthFilteredAcceptorWrapper(IHighlightedPositionAcceptor wrapped) {
+			this.wrapped = wrapped;
+		}
+
+		@Override
+		public void addPosition(int offset, int length, String... id) {
+			// StringBuffer buf = new StringBuffer();
+			// buf.append(offset);
+			// buf.append(", ");
+			// buf.append(length);
+			// for(String s : id)
+			// buf.append(", ").append(s);
+			// buf.append("\n");
+			// System.err.print(buf.toString());
+			if(length == 0)
+				return;
+			wrapped.addPosition(offset, length, id);
+		}
+
+	}
+
 	@Inject
 	private IGrammarAccess grammarAccess;
 
@@ -129,20 +153,21 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 	public void provideHighlightingFor(XtextResource resource, IHighlightedPositionAcceptor acceptor) {
 		if(resource == null)
 			return;
+		acceptor = new ZeroLengthFilteredAcceptorWrapper(acceptor);
 		BeeLangGrammarAccess f = (BeeLangGrammarAccess) grammarAccess;
 		List<RuleCall> x = f.findRuleCalls(f.getID_or_KWRule());
 		Iterable<AbstractNode> allNodes = NodeUtil.getAllContents(resource.getParseResult().getRootNode());
 
 		for(AbstractNode node : allNodes) {
 			EObject gElem = node.getGrammarElement();
-			EObject elem = node.getElement();
+			// EObject elem = node.getElement();
 			// is this a RuleCall of the specified type
 			if(gElem instanceof RuleCall)
 				if(x != null && x.contains(gElem)) {
 					acceptor.addPosition(node.getOffset(), node.getLength(), BeeLangHighlightConfiguration.DEFAULT_ID);
 				}
 		}
-		// provideHighlightingFor2(resource, acceptor);
+		provideHighlightingFor2(resource, acceptor);
 	}
 
 	public void provideHighlightingFor2(XtextResource resource, IHighlightedPositionAcceptor acceptor) {
@@ -180,9 +205,6 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 			else if(o instanceof RepoOption)
 				highlightRepoOption((RepoOption) o, acceptor);
 
-			// TODO: fix highlighting of keywords when they appear in non KW semantic positions.
 		}
-
-		// DEBUG PRINT System.out.print("Highlight instance of: "+ o.getClass().getName() + "\n");
 	}
 }
