@@ -310,7 +310,9 @@ RULE_SIMPLE_PATTERN : '~' RULE_STRING;
 
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|'\''|'\\')|~(('\\'|'"'|'\r'|'\n')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|'\''|'\\')|~(('\\'|'\''|'\r'|'\n')))* '\'');
 
-RULE_DOCUMENTATION : '/**' ( options {greedy=false;} : . )*'*/';
+RULE_TEXT : '\u00AB' ( options {greedy=false;} : . )*'\u00BB';
+
+RULE_JAVADOC : '/**' ( options {greedy=false;} : . )*'*/';
 
 RULE_ML_COMMENT : '/*' ~('*') ( options {greedy=false;} : . )*'*/';
 

@@ -187,7 +187,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBuildUnitAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Assignment cExecutionModeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cExecutionModeExecutionModeEnumRuleCall_2_0 = (RuleCall)cExecutionModeAssignment_2.eContents().get(0);
 		private final Keyword cUnitKeyword_3 = (Keyword)cGroup.eContents().get(3);
@@ -355,7 +355,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//executionMode=ExecutionMode?
 		public Assignment getExecutionModeAssignment_2() { return cExecutionModeAssignment_2; }
@@ -3150,7 +3150,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBuilderAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Assignment cVisibilityAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cVisibilityVisibilityEnumRuleCall_2_0 = (RuleCall)cVisibilityAssignment_2.eContents().get(0);
 		private final Assignment cExecutionModeAssignment_3 = (Assignment)cGroup.eContents().get(3);
@@ -3273,7 +3273,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//visibility=Visibility?
 		public Assignment getVisibilityAssignment_2() { return cVisibilityAssignment_2; }
@@ -3919,7 +3919,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cRepositoryAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cRepositoryKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cHandlerTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cHandlerTypeIDTerminalRuleCall_3_0 = (RuleCall)cHandlerTypeAssignment_3.eContents().get(0);
@@ -3975,7 +3975,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"repository"
 		public Keyword getRepositoryKeyword_2() { return cRepositoryKeyword_2; }
@@ -4131,7 +4131,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBranchAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cBranchKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNameEscapedQualifiedNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
@@ -4248,7 +4248,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"branch"
 		public Keyword getBranchKeyword_2() { return cBranchKeyword_2; }
@@ -4563,7 +4563,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cRepositoryUnitProviderAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cRepositoryKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cRepositoryAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cRepositoryRepositoryCrossReference_3_0 = (CrossReference)cRepositoryAssignment_3.eContents().get(0);
@@ -4590,7 +4590,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"repository"
 		public Keyword getRepositoryKeyword_2() { return cRepositoryKeyword_2; }
@@ -4665,7 +4665,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cFirstFoundUnitProviderAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cResolutionKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
@@ -4694,7 +4694,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"resolution"
 		public Keyword getResolutionKeyword_2() { return cResolutionKeyword_2; }
@@ -4735,7 +4735,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cFirstFoundUnitProviderAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cSelectFirstKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
@@ -4763,7 +4763,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"select-first"
 		public Keyword getSelectFirstKeyword_2() { return cSelectFirstKeyword_2; }
@@ -4801,7 +4801,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBestFoundUnitProviderAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cSelectBestKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
@@ -4829,7 +4829,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"select-best"
 		public Keyword getSelectBestKeyword_2() { return cSelectBestKeyword_2; }
@@ -4867,7 +4867,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSwitchUnitProviderAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cSelectSwitchKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cRepoSwitchAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cRepoSwitchSelectSwitchExpressionParserRuleCall_3_0 = (RuleCall)cRepoSwitchAssignment_3.eContents().get(0);
@@ -4886,7 +4886,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"select-switch"
 		public Keyword getSelectSwitchKeyword_2() { return cSelectSwitchKeyword_2; }
@@ -4991,7 +4991,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cContainerConfigurationAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cContainerKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cAgentTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cAgentTypeTypeRefParserRuleCall_3_0 = (RuleCall)cAgentTypeAssignment_3.eContents().get(0);
@@ -5018,7 +5018,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"container"
 		public Keyword getContainerKeyword_2() { return cContainerKeyword_2; }
@@ -5065,7 +5065,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBConcernAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cConcernKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
@@ -5111,7 +5111,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"concern"
 		public Keyword getConcernKeyword_2() { return cConcernKeyword_2; }
@@ -5311,7 +5311,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cB3FunctionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Assignment cVisibilityAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cVisibilityVisibilityEnumRuleCall_2_0 = (RuleCall)cVisibilityAssignment_2.eContents().get(0);
 		private final Assignment cFinalAssignment_3 = (Assignment)cGroup.eContents().get(3);
@@ -5376,7 +5376,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//visibility=Visibility?
 		public Assignment getVisibilityAssignment_2() { return cVisibilityAssignment_2; }
@@ -7962,7 +7962,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBFunctionConcernContextAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cContextKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cFunctionKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cNamePredicateAssignment_4 = (Assignment)cGroup.eContents().get(4);
@@ -8013,7 +8013,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"context"
 		public Keyword getContextKeyword_2() { return cContextKeyword_2; }
@@ -8274,7 +8274,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cUnitConcernContextAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cUnitContextKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cSelectUnitsKeyword_4 = (Keyword)cGroup.eContents().get(4);
@@ -8385,7 +8385,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"unit-context"
 		public Keyword getUnitContextKeyword_2() { return cUnitContextKeyword_2; }
@@ -8626,7 +8626,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBuilderConcernContextAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cDocumentationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDocumentationDOCUMENTATIONTerminalRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
+		private final RuleCall cDocumentationDOCUMENTATIONParserRuleCall_1_0 = (RuleCall)cDocumentationAssignment_1.eContents().get(0);
 		private final Keyword cBuilderContextKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cSelectBuildersKeyword_4 = (Keyword)cGroup.eContents().get(4);
@@ -8889,7 +8889,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDocumentationAssignment_1() { return cDocumentationAssignment_1; }
 
 		//DOCUMENTATION
-		public RuleCall getDocumentationDOCUMENTATIONTerminalRuleCall_1_0() { return cDocumentationDOCUMENTATIONTerminalRuleCall_1_0; }
+		public RuleCall getDocumentationDOCUMENTATIONParserRuleCall_1_0() { return cDocumentationDOCUMENTATIONParserRuleCall_1_0; }
 
 		//"builder-context"
 		public Keyword getBuilderContextKeyword_2() { return cBuilderContextKeyword_2; }
@@ -11945,6 +11945,26 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getEXT_INTTerminalRuleCall_1_1_4() { return cEXT_INTTerminalRuleCall_1_1_4; }
 	}
 
+	public class DOCUMENTATIONElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DOCUMENTATION");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTEXTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cJAVADOCTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//DOCUMENTATION returns ecore::EString:
+		//	TEXT | JAVADOC;
+		public ParserRule getRule() { return rule; }
+
+		//TEXT | JAVADOC
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//TEXT
+		public RuleCall getTEXTTerminalRuleCall_0() { return cTEXTTerminalRuleCall_0; }
+
+		//JAVADOC
+		public RuleCall getJAVADOCTerminalRuleCall_1() { return cJAVADOCTerminalRuleCall_1; }
+	}
+
 	public class REALElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "REAL");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -12287,12 +12307,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private TIMESTAMPElements pTIMESTAMP;
 	private SeparatorElements pSeparator;
 	private AlfanumSymElements pAlfanumSym;
+	private DOCUMENTATIONElements pDOCUMENTATION;
 	private TerminalRule tID;
 	private TerminalRule tPID;
 	private TerminalRule tREGULAR_EXPR;
 	private TerminalRule tSIMPLE_PATTERN;
 	private TerminalRule tSTRING;
-	private TerminalRule tDOCUMENTATION;
+	private TerminalRule tTEXT;
+	private TerminalRule tJAVADOC;
 	private TerminalRule tML_COMMENT;
 	private TerminalRule tSL_COMMENT;
 	private TerminalRule tWS;
@@ -14525,6 +14547,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getAlfanumSymAccess().getRule();
 	}
 
+	//DOCUMENTATION returns ecore::EString:
+	//	TEXT | JAVADOC;
+	public DOCUMENTATIONElements getDOCUMENTATIONAccess() {
+		return (pDOCUMENTATION != null) ? pDOCUMENTATION : (pDOCUMENTATION = new DOCUMENTATIONElements());
+	}
+	
+	public ParserRule getDOCUMENTATIONRule() {
+		return getDOCUMENTATIONAccess().getRule();
+	}
+
 	//// --TERMINALS
 	//// (NOTE: Does not use standard terminals to have full control).
 	//// TODO: Possibly use some other char instead of ^ as escape mechanism for keywords??
@@ -14568,10 +14600,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return (tSTRING != null) ? tSTRING : (tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING"));
 	} 
 
-	//terminal DOCUMENTATION:
+	//terminal TEXT:
+	//	"«"->"»";
+	public TerminalRule getTEXTRule() {
+		return (tTEXT != null) ? tTEXT : (tTEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TEXT"));
+	} 
+
+	//terminal JAVADOC:
 	//	"/ **"->"* /";
-	public TerminalRule getDOCUMENTATIONRule() {
-		return (tDOCUMENTATION != null) ? tDOCUMENTATION : (tDOCUMENTATION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DOCUMENTATION"));
+	public TerminalRule getJAVADOCRule() {
+		return (tJAVADOC != null) ? tJAVADOC : (tJAVADOC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "JAVADOC"));
 	} 
 
 	//terminal ML_COMMENT:

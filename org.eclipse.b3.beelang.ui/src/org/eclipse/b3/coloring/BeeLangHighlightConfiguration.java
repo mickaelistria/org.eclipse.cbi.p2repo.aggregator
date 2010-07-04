@@ -8,7 +8,9 @@ import org.eclipse.xtext.ui.editor.utils.TextStyle;
 
 public class BeeLangHighlightConfiguration extends DefaultHighlightingConfiguration {
 
-	public static final String DOCUMENTATION_ID = "documentation";
+	public static final String TEXT_ID = "text";
+
+	public static final String JAVADOC_ID = "javadoc";
 
 	public static final String REGEXP_ID = "regexp";
 
@@ -27,7 +29,8 @@ public class BeeLangHighlightConfiguration extends DefaultHighlightingConfigurat
 	@Override
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		super.configure(acceptor);
-		acceptor.acceptDefaultHighlighting(DOCUMENTATION_ID, "Documentation", docTextStyle());
+		acceptor.acceptDefaultHighlighting(TEXT_ID, "Text", docTextStyle());
+		acceptor.acceptDefaultHighlighting(JAVADOC_ID, "Documentation", docJavaDocStyle());
 		acceptor.acceptDefaultHighlighting(REGEXP_ID, "Regular Expression", regexpTextStyle());
 		acceptor.acceptDefaultHighlighting(BOOLEAN_ID, "Boolean Literal", italicKeywordLightStyle());
 		acceptor.acceptDefaultHighlighting(NULL_ID, "Null Literal", nullTextStyle());
@@ -40,9 +43,17 @@ public class BeeLangHighlightConfiguration extends DefaultHighlightingConfigurat
 
 	}
 
+	public TextStyle docJavaDocStyle() {
+		TextStyle textStyle = defaultTextStyle().copy();
+		textStyle.setColor(new RGB(63, 95, 191));
+		return textStyle;
+	}
+
 	public TextStyle docTextStyle() {
 		TextStyle textStyle = defaultTextStyle().copy();
 		textStyle.setColor(new RGB(63, 95, 191));
+		textStyle.setBackgroundColor(new RGB(252, 255, 240)); // titanium white
+		textStyle.setStyle(SWT.ITALIC);
 		return textStyle;
 	}
 

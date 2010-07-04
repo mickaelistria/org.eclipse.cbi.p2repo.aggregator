@@ -67,51 +67,6 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 		};
 	}
 
-	@ValueConverter(rule = "DOCUMENTATION")
-	public IValueConverter<String> DOCUMENTATION() {
-		return new AbstractNullSafeConverter<String>() {
-			@Override
-			protected String internalToString(String value) {
-				String converted = Strings.convertToJavaString(value, true);
-				converted = converted.substring(2, converted.length() - 2);
-				return "/**\n" + converted + (converted.length() > 0
-						? "\n"
-						: "") + "*/\n";
-			}
-
-			@Override
-			protected String internalToValue(String string, AbstractNode node) {
-				String lines[] = string.split("[\n\r]");
-				StringBuffer buf = new StringBuffer();
-				for(int i = 0; i < lines.length; i++) {
-					// get rid of documentation start
-					String s = lines[i];
-					if(s.startsWith("/**"))
-						lines[i] = s = s.substring(3);
-					// get rid of documentation end
-					if(s.endsWith("*/"))
-						lines[i] = s = s.substring(0, s.length() - 2);
-					String trimmed = s.trim();
-					if(!trimmed.startsWith("*")) {
-						// no leading *, keep the whitespace at the beginning
-						int pos = s.indexOf(trimmed);
-						if(pos > 0)
-							lines[i] = s.substring(0, pos) + trimmed;
-					}
-					else {
-						while(trimmed.startsWith("*"))
-							trimmed = trimmed.substring(1, trimmed.length());
-						lines[i] = trimmed;
-					}
-					if(i != 0)
-						buf.append("\n");
-					buf.append(lines[i]);
-				}
-				return Strings.convertFromJavaString(buf.toString(), true);
-			}
-		};
-	}
-
 	@ValueConverter(rule = "ID")
 	public IValueConverter<String> ID() {
 		return new AbstractNullSafeConverter<String>() {
@@ -172,6 +127,51 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 				}
 			}
 
+		};
+	}
+
+	@ValueConverter(rule = "JAVADOC")
+	public IValueConverter<String> JAVADOC() {
+		return new AbstractNullSafeConverter<String>() {
+			@Override
+			protected String internalToString(String value) {
+				String converted = Strings.convertToJavaString(value, true);
+				converted = converted.substring(2, converted.length() - 2);
+				return "/**\n" + converted + (converted.length() > 0
+						? "\n"
+						: "") + "*/\n";
+			}
+
+			@Override
+			protected String internalToValue(String string, AbstractNode node) {
+				String lines[] = string.split("[\n\r]");
+				StringBuffer buf = new StringBuffer();
+				for(int i = 0; i < lines.length; i++) {
+					// get rid of documentation start
+					String s = lines[i];
+					if(s.startsWith("/**"))
+						lines[i] = s = s.substring(3);
+					// get rid of documentation end
+					if(s.endsWith("*/"))
+						lines[i] = s = s.substring(0, s.length() - 2);
+					String trimmed = s.trim();
+					if(!trimmed.startsWith("*")) {
+						// no leading *, keep the whitespace at the beginning
+						int pos = s.indexOf(trimmed);
+						if(pos > 0)
+							lines[i] = s.substring(0, pos) + trimmed;
+					}
+					else {
+						while(trimmed.startsWith("*"))
+							trimmed = trimmed.substring(1, trimmed.length());
+						lines[i] = trimmed;
+					}
+					if(i != 0)
+						buf.append("\n");
+					buf.append(lines[i]);
+				}
+				return Strings.convertFromJavaString(buf.toString(), true);
+			}
 		};
 	}
 
@@ -320,6 +320,36 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 			@Override
 			protected String internalToValue(String string, AbstractNode node) {
 				return Strings.convertFromJavaString(string.substring(1, string.length() - 1), true);
+			}
+		};
+	}
+
+	@ValueConverter(rule = "TEXT")
+	public IValueConverter<String> TEXT() {
+		return new AbstractNullSafeConverter<String>() {
+			@Override
+			protected String internalToString(String value) {
+				String converted = Strings.convertToJavaString(value, true);
+				converted = converted.substring(1, converted.length() - 2);
+				// any » must be converted to \»
+				converted.replace("»", "\\»");
+				return "«" + converted + "»";
+			}
+
+			@Override
+			protected String internalToValue(String string, AbstractNode node) {
+				if(string.startsWith("«"))
+					string = string.substring(1);
+				if(string.endsWith("»"))
+					string = string.substring(0, string.length() - 1);
+				String lines[] = string.split("[\n\r]");
+				StringBuffer buf = new StringBuffer();
+				for(int i = 0; i < lines.length; i++) {
+					if(i != 0)
+						buf.append("\n");
+					buf.append(lines[i].trim());
+				}
+				return Strings.convertFromJavaString(buf.toString(), true);
 			}
 		};
 	}

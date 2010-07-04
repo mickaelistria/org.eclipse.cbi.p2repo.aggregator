@@ -6,7 +6,8 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.DefaultAntlrTokenToAttri
 public class BeeLangTokenToAttributeIdMapper extends DefaultAntlrTokenToAttributeIdMapper {
 	@Override
 	protected String calculateId(String tokenName, int tokenType) {
-		// DEBUG PRINT System.out.print("Highlight id for token: "+tokenName+"\n");
+		// DEBUG PRINT
+		// System.out.print("Highlight id for token: " + tokenName + "\n");
 
 		// treat, 'true', 'false', and 'null' differently
 		if(tokenName.startsWith("'") && tokenName.endsWith("'")) {
@@ -15,8 +16,12 @@ public class BeeLangTokenToAttributeIdMapper extends DefaultAntlrTokenToAttribut
 			if(tokenName.equals("'null'"))
 				return BeeLangHighlightConfiguration.NULL_ID;
 		}
-		if("RULE_DOCUMENTATION".equals(tokenName)) {
-			return BeeLangHighlightConfiguration.DOCUMENTATION_ID;
+		if("RULE_JAVADOC".equals(tokenName)) {
+			return BeeLangHighlightConfiguration.JAVADOC_ID;
+		}
+
+		if("RULE_TEXT".equals(tokenName)) {
+			return BeeLangHighlightConfiguration.TEXT_ID;
 		}
 
 		if("RULE_REGULAR_EXPR".equals(tokenName)) {

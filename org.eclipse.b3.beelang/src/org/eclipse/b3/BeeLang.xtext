@@ -1239,6 +1239,8 @@ TIMESTAMP returns ecore::EDate : STRING ;
 Separator :  '-' | '!' | '@' | '$' | '%' | '&' |'+' | '=' | '*' | '<' | '>' | ':' | '?';
 AlfanumSym hidden() : (ID | INT | HEX | EXT_INT) ('.'?(Separator|ID|INT|HEX |EXT_INT))* ;
 
+DOCUMENTATION : TEXT | JAVADOC ;
+
 // --TERMINALS
 // (NOTE: Does not use standard terminals to have full control).
 
@@ -1268,7 +1270,8 @@ terminal STRING :
 '"' ('\\'('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|"'"|'\\') | !('\\'|'"'|'\r'|'\n') )* '"' |
 "'" ('\\'('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|"'"|'\\') | !('\\'|"'"|'\r'|'\n') )* "'";
 
-terminal DOCUMENTATION : '/**' -> '*/' ;
+terminal TEXT : '«' -> '»';
+terminal JAVADOC : '/**' -> '*/' ;
 terminal ML_COMMENT : '/*' (!'*') -> '*/' ;
 terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')? ;
 terminal WS : (' '|'\t'|'\r'|'\n')+ ;
