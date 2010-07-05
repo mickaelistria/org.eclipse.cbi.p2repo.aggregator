@@ -14,11 +14,11 @@ import org.eclipse.b3.backend.inference.B3BackendTypeProvider;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.BuilderInput;
 import org.eclipse.b3.build.BuilderNamePredicate;
 import org.eclipse.b3.build.ImplementsPredicate;
 import org.eclipse.b3.build.InputPredicate;
 import org.eclipse.b3.build.PathGroupPredicate;
-import org.eclipse.b3.build.Prerequisite;
 import org.eclipse.b3.build.ProvidesPredicate;
 import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.RequiresPredicate;
@@ -35,6 +35,14 @@ public class B3BuildTypeProvider extends B3BackendTypeProvider {
 
 	public Type type(BeeModel o) {
 		return BeeModel.class;
+	}
+
+	// Replaced by type(BuilderInput.o)
+	// public Type type(Prerequisite o) {
+	// return BuildSet.class;
+	// }
+	public Type type(BuilderInput o) {
+		return BuildSet.class;
 	}
 
 	public Type type(BuilderNamePredicate o) {
@@ -55,10 +63,6 @@ public class B3BuildTypeProvider extends B3BackendTypeProvider {
 
 	public Type type(PathGroupPredicate o) {
 		return Boolean.class;
-	}
-
-	public Type type(Prerequisite o) {
-		return BuildSet.class;
 	}
 
 	public Type type(ProvidesPredicate o) {

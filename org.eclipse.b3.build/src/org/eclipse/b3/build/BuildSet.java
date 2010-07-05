@@ -23,16 +23,16 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Build Set</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.BuildSet#getPathVectors <em>Path Vectors</em>}</li>
- * <li>{@link org.eclipse.b3.build.BuildSet#getValueMap <em>Value Map</em>}</li>
- * <li>{@link org.eclipse.b3.build.BuildSet#getPathIterator <em>Path Iterator</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuildSet#getPathVectors <em>Path Vectors</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuildSet#getValueMap <em>Value Map</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuildSet#getPathIterator <em>Path Iterator</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.B3BuildPackage#getBuildSet()
  * @model
  * @generated
@@ -46,11 +46,9 @@ public interface BuildSet extends ITypedValueContainer {
 	 * If the meaning of the '<em>Path Iterator</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Path Iterator</em>' attribute.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuildSet_PathIterator()
-	 * @model default="" unique="false" dataType="org.eclipse.b3.build.PathIterator" transient="true" changeable="false" volatile="true"
-	 *        derived="true" ordered="false"
+	 * @model default="" unique="false" dataType="org.eclipse.b3.build.PathIterator" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	PathIterator getPathIterator();
@@ -63,7 +61,6 @@ public interface BuildSet extends ITypedValueContainer {
 	 * If the meaning of the '<em>Path Vectors</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Path Vectors</em>' reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuildSet_PathVectors()
 	 * @model
@@ -78,7 +75,6 @@ public interface BuildSet extends ITypedValueContainer {
 	 * If the meaning of the '<em>Value Map</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Value Map</em>' attribute.
 	 * @see #setValueMap(ValueMap)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuildSet_ValueMap()
@@ -90,7 +86,6 @@ public interface BuildSet extends ITypedValueContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
@@ -100,9 +95,7 @@ public interface BuildSet extends ITypedValueContainer {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuildSet#getValueMap <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Value Map</em>' attribute.
+	 * @param value the new value of the '<em>Value Map</em>' attribute.
 	 * @see #getValueMap()
 	 * @generated
 	 */

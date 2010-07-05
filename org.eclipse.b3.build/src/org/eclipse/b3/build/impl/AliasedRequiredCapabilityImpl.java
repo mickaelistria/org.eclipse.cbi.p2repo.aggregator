@@ -22,10 +22,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.AliasedRequiredCapabilityImpl#getAlias <em>Alias</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.AliasedRequiredCapabilityImpl#getAlias <em>Alias</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implements AliasedRequiredCapability {
@@ -33,7 +33,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	 * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getAlias()
 	 * @generated
 	 * @ordered
@@ -44,7 +43,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getAlias()
 	 * @generated
 	 * @ordered
@@ -54,7 +52,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected AliasedRequiredCapabilityImpl() {
@@ -64,7 +61,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -79,7 +75,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -96,7 +91,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -112,7 +106,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -123,7 +116,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -139,7 +131,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getAlias() {
@@ -149,7 +140,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setAlias(String newAlias) {
@@ -163,7 +153,6 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

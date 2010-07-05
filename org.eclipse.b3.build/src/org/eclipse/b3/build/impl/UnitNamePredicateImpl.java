@@ -16,14 +16,13 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class UnitNamePredicateImpl extends CapabilityPredicateImpl implements UnitNamePredicate {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected UnitNamePredicateImpl() {
@@ -33,7 +32,6 @@ public class UnitNamePredicateImpl extends CapabilityPredicateImpl implements Un
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

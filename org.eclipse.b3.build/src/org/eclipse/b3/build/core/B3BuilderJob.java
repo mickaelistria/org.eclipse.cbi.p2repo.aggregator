@@ -24,8 +24,8 @@ import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BuildResultContext;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
-import org.eclipse.b3.build.BuilderReference;
-import org.eclipse.b3.build.EffectiveBuilderReferenceFacade;
+import org.eclipse.b3.build.BuilderCall;
+import org.eclipse.b3.build.EffectiveBuilderCallFacade;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.PathVector;
 import org.eclipse.b3.build.RequiredCapability;
@@ -210,10 +210,12 @@ public class B3BuilderJob extends Job {
 			// Collect all build jobs to be executed.
 			//
 			List<B3BuilderJob> jobsToRun = new ArrayList<B3BuilderJob>();
-			Iterator<EffectiveBuilderReferenceFacade> rItor = builder.getEffectiveBuilderReferences(ctx);
+			Iterator<EffectiveBuilderCallFacade> rItor = ctx.getInjector().getInstance(
+				BuilderCallIteratorProvider.class).doGetEffectiveIterator(builder, ctx);
+			// Iterator<EffectiveBuilderCallFacade> rItor = builder.getEffectiveBuilderReferences(ctx);
 			while(rItor.hasNext()) {
-				EffectiveBuilderReferenceFacade ebref = rItor.next();
-				BuilderReference bref = ebref.getBuilderReference();
+				EffectiveBuilderCallFacade ebref = rItor.next();
+				BuilderCall bref = ebref.getBuilderReference();
 				String builderName = bref.getBuilderName();
 				BExecutionContext ctxToUse = ebref.getContext();
 				BParameterList parameters = bref.getParameters();
@@ -233,9 +235,7 @@ public class B3BuilderJob extends Job {
 				//
 				BuildUnit unitToUse = unit; // default is a call on "self"
 				RequiredCapability rq = null;
-				rq = bref.getRequiredCapability(); // a contained requirement
-				if(rq == null)
-					rq = bref.getRequiredCapabilityReference(); // a requirement via reference
+				rq = ebref.getRequiredCapability(); // a contained requirement
 
 				// if call is on unit other than 'self', find the resolution
 				if(rq != null) {

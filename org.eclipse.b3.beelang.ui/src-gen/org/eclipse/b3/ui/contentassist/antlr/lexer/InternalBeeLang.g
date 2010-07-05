@@ -16,17 +16,17 @@ import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer;
 
 
 
-KEYWORD_141 : '@postinputcondition';
+KEYWORD_142 : '@postinputcondition';
 
-KEYWORD_139 : 'default-properties';
+KEYWORD_140 : 'default-properties';
 
-KEYWORD_140 : 'postinputcondition';
+KEYWORD_141 : 'postinputcondition';
 
-KEYWORD_137 : 'having-parameters';
+KEYWORD_138 : 'having-parameters';
 
-KEYWORD_138 : 'on-merge-conflict';
+KEYWORD_139 : 'on-merge-conflict';
 
-KEYWORD_136 : 'checkout-content';
+KEYWORD_137 : 'checkout-content';
 
 KEYWORD_132 : 'builder-context';
 
@@ -35,6 +35,8 @@ KEYWORD_133 : 'modify-selected';
 KEYWORD_134 : 'replace-content';
 
 KEYWORD_135 : 'select-builders';
+
+KEYWORD_136 : 'select-required';
 
 KEYWORD_129 : '@postcondition';
 

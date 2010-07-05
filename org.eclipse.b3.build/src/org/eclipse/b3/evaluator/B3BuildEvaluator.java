@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.B3BackendEvaluator;
 import org.eclipse.b3.backend.evaluator.IB3Weaver;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
@@ -33,10 +32,9 @@ import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.BuilderCallFacade;
 import org.eclipse.b3.build.BuilderConcernContext;
-import org.eclipse.b3.build.BuilderInput;
 import org.eclipse.b3.build.BuilderNamePredicate;
-import org.eclipse.b3.build.BuilderReference;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.IBuilder;
@@ -55,6 +53,7 @@ import org.eclipse.b3.build.UnitConcernContext;
 import org.eclipse.b3.build.UnitNamePredicate;
 import org.eclipse.b3.build.UnitProvider;
 import org.eclipse.b3.build.core.B3BuildConstants;
+import org.eclipse.b3.build.core.BuilderCallIteratorProvider;
 import org.eclipse.b3.build.core.EffectiveUnitIterator;
 import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
@@ -185,19 +184,20 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 		if(!(test instanceof IBuilder))
 			throw new B3InternalError("Attempt to evaluate InputPredicate against non IBuilder");
 		IBuilder b = (IBuilder) test;
-		BuilderInput input = b.getInput();
-		for(BuilderReference br : input.getBuilderReferences()) {
-			if(o.getBuilderPredicate() != null && !o.getBuilderPredicate().matches(br.getBuilderName()))
-				continue;
-			RequiredCapability rc = br.getRequiredCapability();
-			if(rc == null) {
-				rc = br.getRequiredCapabilityReference();
-				if(rc == null)
-					throw new B3InternalError(
-						"A BulderReference had neither a RequiredCapability nor a reference to one");
-			}
 
-			if(o.getCapabilityPredicate() != null && !o.getCapabilityPredicate().matches(rc))
+		Iterator<BuilderCallFacade> bIterator = ctx.getInjector().getInstance(BuilderCallIteratorProvider.class).doGetIterator(
+			b);
+		while(bIterator.hasNext()) {
+			BuilderCallFacade bn = bIterator.next();
+			if(o.getBuilderPredicate() != null &&
+					!o.getBuilderPredicate().matches(bn.getBuilderReference().getBuilderName()))
+				continue;
+			// RequiredCapability rc = bn.getRequiredCapability();
+			// if(rc == null) {
+			// throw new B3InternalError(
+			// "A BuilderCallFacade did not have a RequiredCapability reference");
+			// }
+			if(o.getCapabilityPredicate() != null && !o.getCapabilityPredicate().matches(bn.getRequiredCapability()))
 				continue;
 			return Boolean.TRUE;
 		}

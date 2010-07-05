@@ -12,17 +12,17 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Required Capability</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.RequiredCapability#getVersionRange <em>Version Range</em>}</li>
- * <li>{@link org.eclipse.b3.build.RequiredCapability#isGreedy <em>Greedy</em>}</li>
- * <li>{@link org.eclipse.b3.build.RequiredCapability#getMax <em>Max</em>}</li>
- * <li>{@link org.eclipse.b3.build.RequiredCapability#getMin <em>Min</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.RequiredCapability#getVersionRange <em>Version Range</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.RequiredCapability#isGreedy <em>Greedy</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.RequiredCapability#getMax <em>Max</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.RequiredCapability#getMin <em>Min</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.B3BuildPackage#getRequiredCapability()
  * @model
  * @generated
@@ -36,7 +36,6 @@ public interface RequiredCapability extends Capability {
 	 * If the meaning of the '<em>Max</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Max</em>' attribute.
 	 * @see #setMax(int)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRequiredCapability_Max()
@@ -53,7 +52,6 @@ public interface RequiredCapability extends Capability {
 	 * If the meaning of the '<em>Min</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Min</em>' attribute.
 	 * @see #setMin(int)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRequiredCapability_Min()
@@ -69,7 +67,6 @@ public interface RequiredCapability extends Capability {
 	 * If the meaning of the '<em>Version Range</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Version Range</em>' attribute.
 	 * @see #setVersionRange(VersionRange)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRequiredCapability_VersionRange()
@@ -85,7 +82,6 @@ public interface RequiredCapability extends Capability {
 	 * If the meaning of the '<em>Greedy</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Greedy</em>' attribute.
 	 * @see #setGreedy(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRequiredCapability_Greedy()
@@ -98,9 +94,7 @@ public interface RequiredCapability extends Capability {
 	 * Sets the value of the '{@link org.eclipse.b3.build.RequiredCapability#isGreedy <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Greedy</em>' attribute.
+	 * @param value the new value of the '<em>Greedy</em>' attribute.
 	 * @see #isGreedy()
 	 * @generated
 	 */
@@ -110,9 +104,7 @@ public interface RequiredCapability extends Capability {
 	 * Sets the value of the '{@link org.eclipse.b3.build.RequiredCapability#getMax <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Max</em>' attribute.
+	 * @param value the new value of the '<em>Max</em>' attribute.
 	 * @see #getMax()
 	 * @generated
 	 */
@@ -122,9 +114,7 @@ public interface RequiredCapability extends Capability {
 	 * Sets the value of the '{@link org.eclipse.b3.build.RequiredCapability#getMin <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Min</em>' attribute.
+	 * @param value the new value of the '<em>Min</em>' attribute.
 	 * @see #getMin()
 	 * @generated
 	 */
@@ -134,9 +124,7 @@ public interface RequiredCapability extends Capability {
 	 * Sets the value of the '{@link org.eclipse.b3.build.RequiredCapability#getVersionRange <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Version Range</em>' attribute.
+	 * @param value the new value of the '<em>Version Range</em>' attribute.
 	 * @see #getVersionRange()
 	 * @generated
 	 */

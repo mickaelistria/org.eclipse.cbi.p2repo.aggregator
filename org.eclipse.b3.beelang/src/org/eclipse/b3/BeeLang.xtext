@@ -267,12 +267,25 @@ Path returns be::URI hidden()
 	| ('/')? QID ('/' QID)* ('/')? 
 	;
 
-Prerequisite returns build::Prerequisite : {build::Prerequisite} 
-	('when' '(' condExpr=Expression ')' )?
-	(withExpr = WithClause ':')?
-	buildResult=BuildResultReference
-	("as" name=ID)? // ';'
+BuilderInputCondition returns build::BuilderInput : {build::BuilderInputCondition}
+	"when" '(' condExpr = Expression ')'
+		builderInput += BuilderInputUnnamed
 	;
+	
+BuilderInputContext returns build::BuilderInput : {build::BuilderInputContextDecorator}
+	withExpr = WithClause ':' builderInput += BuilderInputUnnamed
+	;
+	
+BuilderInputNamed returns build::BuilderInput :
+	BuilderInputUnnamed ({build::BuilderInputNameDecorator.builderInput+=current} "as" name=ID )?
+;	
+
+//Prerequisite returns build::Prerequisite : {build::Prerequisite} 
+//	('when' '(' condExpr=Expression ')' )?
+//	(withExpr = WithClause ':')?
+//	buildResult=BuilderInputUnnamed
+//	("as" name=ID)? // ';'
+//	;
 
 // Validation checks that there is at least one of references, properties or concern.
 WithClause returns be::BWithExpression : {be::BWithExpression}
@@ -284,34 +297,41 @@ WithClause returns be::BWithExpression : {be::BWithExpression}
 		)*
 		;
 			
-BuildResultReference returns build::BuildResultReference
-	: UnitBuildResultReference
-	| CapabilityBuildResultReference
-	| IndirectCapabilityBuildResultReference
-	| CompoundBuildResultReference
+BuilderInputUnnamed returns build::BuilderInput
+	: BuilderInputCondition
+	| BuilderInputContext
+	| BuildCallOnUnitRequirement
+	| BuildCallOnCapabilityRequirement
+	| BuildCallOnReferencedRequirement
+	| BuildCallOnSelectedRequirement
+	| BuilderInputGroup
 	;
 
 // A reference to a builder in the same unit
-UnitBuildResultReference returns build::BuildResultReference : {build::BuilderReference} 
+BuildCallOnUnitRequirement returns build::BuilderInput : {build::BuildCallOnDeclaredRequirement} 
 	"unit" '.' builderName=BuilderName ('(' parameters = ParameterList? ')') ; 
 
 // A reference to a builder in a unit providing a capability (or if build name is omitted to the
 // builder that provides the capability in that unit).
-CapabilityBuildResultReference returns build::BuildResultReference : {build::BuilderReference}
-	requiredCapability = RequiredCapability_Unfiltered ('.' builderName=BuilderName)?
+BuildCallOnCapabilityRequirement returns build::BuilderInput : {build::BuildCallOnDeclaredRequirement}
+	requiredCapabilityDeclaration = RequiredCapability_Unfiltered ('.' builderName=BuilderName)?
 	('(' parameters = ParameterList? ')')	 
 	;
 	
 // A reference to a builder in a unit providing a referenced capability (or if build name is omitted to the
 // builder that provides the capability in that unit).
 // TODO: validate that a referenced capability of unit has builderName set
-IndirectCapabilityBuildResultReference returns build::BuildResultReference : {build::BuilderReference}
+BuildCallOnReferencedRequirement returns build::BuilderInput : {build::BuildCallOnReferencedRequirement}
 	requiredCapabilityReference = [build::AliasedRequiredCapability | ID] ('.' builderName=BuilderName) ?
 	('(' parameters = ParameterList? ')')	 
 	;
-
-CompoundBuildResultReference returns build::BuildResultReference : {build::CompoundBuildResultReference}
-	'[' (prerequisites += Prerequisite (',' prerequisites += Prerequisite)*)? ']'
+	
+BuildCallOnSelectedRequirement returns build::BuilderInput : {build::BuildCallOnSelectedRequirements}
+	"select-required" requiredPredicate = CapabilityPredicate 
+	;
+	
+BuilderInputGroup returns build::BuilderInput : {build::BuilderInputGroup}
+	'[' (builderInput += BuilderInput (',' builderInput += BuilderInput)*)? ']'
 	;
 	
 Builder returns build::Builder : {build::Builder}
@@ -340,7 +360,7 @@ Builder returns build::Builder : {build::Builder}
 			        	 )';')?
 		& (defaultProperties = PropertySetDefault)?
 		)?
-	     ("input" ':' '[' input = BuilderInput? ']' ';' (postinputcondExpr = PostInputCondition)? )? 
+	     ("input" ':' (input = BuilderInputGroup) ';' (postinputcondExpr = PostInputCondition)? )? 
 	     ("source" ':' source = PathGroup ';' )?
 	     ("output" ':' output = PathGroup ';' )? 
 	     ("result" ':' funcExpr = Expression ';')?
@@ -385,9 +405,11 @@ ParameterDeclarationNotUnit returns be::BParameterDeclaration : {be::BParameterD
 	type=TypeRef name = ID_or_KW_NO_UNIT 
 	;
 
-BuilderInput returns build::BuilderInput : {build::BuilderInput}
-	prerequisites += Prerequisite (',' prerequisites += Prerequisite)*
+BuilderInput returns build::BuilderInput :
+	BuilderInputNamed
 	;
+//	prerequisites += Prerequisite (',' prerequisites += Prerequisite)*
+//	;
 	
 Repository returns build::Repository : {build::Repository}
 	(documentation = DOCUMENTATION)?
@@ -919,7 +941,7 @@ BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConc
 				('+' defaultPropertiesAdditions = PropertySetDefault )?
 			
 			("input" ':' '{'
-				( ('+' inputAdditions += Prerequisite ';') 
+				( ('+' inputAdditions += BuilderInput ';') 
 				| ('-' inputRemovals += InputPredicate ';')
 			)* '}' ';')?
 	

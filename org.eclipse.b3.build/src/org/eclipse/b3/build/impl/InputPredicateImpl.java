@@ -6,23 +6,14 @@
  */
 package org.eclipse.b3.build.impl;
 
-import java.util.ListIterator;
-
-import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 import org.eclipse.b3.build.B3BuildPackage;
-import org.eclipse.b3.build.BuildResultReference;
 import org.eclipse.b3.build.BuilderInput;
-import org.eclipse.b3.build.BuilderReference;
 import org.eclipse.b3.build.CapabilityPredicate;
-import org.eclipse.b3.build.CompoundBuildResultReference;
 import org.eclipse.b3.build.InputPredicate;
-import org.eclipse.b3.build.Prerequisite;
-import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -34,11 +25,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.InputPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.InputPredicateImpl#getBuilderPredicate <em>Builder Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.InputPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.InputPredicateImpl#getBuilderPredicate <em>Builder Predicate</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class InputPredicateImpl extends BExpressionImpl implements InputPredicate {
@@ -46,7 +37,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * The cached value of the '{@link #getCapabilityPredicate() <em>Capability Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getCapabilityPredicate()
 	 * @generated
 	 * @ordered
@@ -57,7 +47,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * The cached value of the '{@link #getBuilderPredicate() <em>Builder Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuilderPredicate()
 	 * @generated
 	 * @ordered
@@ -67,7 +56,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected InputPredicateImpl() {
@@ -77,7 +65,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetBuilderPredicate(BNamePredicate newBuilderPredicate, NotificationChain msgs) {
@@ -98,7 +85,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCapabilityPredicate(CapabilityPredicate newCapabilityPredicate,
@@ -120,7 +106,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -137,7 +122,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -154,7 +138,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -171,7 +154,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -190,7 +172,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -201,7 +182,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -220,7 +200,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BNamePredicate getBuilderPredicate() {
@@ -230,67 +209,54 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CapabilityPredicate getCapabilityPredicate() {
 		return capabilityPredicate;
 	}
 
-	private boolean removeMatches(ListIterator<Prerequisite> reqItor) {
-		boolean modified = false;
-		while(reqItor.hasNext()) {
-			BuildResultReference brr = reqItor.next().getBuildResult();
-			if(brr instanceof BuilderReference) {
-				BuilderReference br = (BuilderReference) brr;
-				if(builderPredicate != null && !builderPredicate.matches(br.getBuilderName()))
-					continue;
-				RequiredCapability rc = br.getRequiredCapability();
-				if(rc == null) {
-					rc = br.getRequiredCapabilityReference();
-					if(rc == null)
-						throw new B3InternalError(
-							"A BulderReference had neither a RequiredCapability nor a reference to one");
-				}
-				if(capabilityPredicate != null && !capabilityPredicate.matches(rc))
-					continue;
-
-				reqItor.remove();
-				modified = true;
-			}
-			else if(brr instanceof CompoundBuildResultReference) {
-				EList<Prerequisite> reqs = ((CompoundBuildResultReference) brr).getPrerequisites();
-				modified = removeMatches(reqs.listIterator()) || modified;
-				// compound may be empty after the operation - remove it
-				if(reqs.size() == 0) {
-					reqItor.remove();
-					modified = true;
-				}
-			}
-			else
-				throw new B3InternalError("InputPredicate can not handle unknown subclass of BuildResultReference :" +
-						brr.getClass().toString());
-		}
-		return modified;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Removes prerequisites in the input that matches the InputPredicate. Matching is performed without evaluating
-	 * filters. Empty compound input statements are removed
-	 * (side effect: empty are removed even if there were no other matches).
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public boolean removeMatching(BuilderInput input) {
-		return removeMatches(input.getPrerequisites().listIterator());
-	}
+	// private boolean removeMatches(ListIterator<BuilderInput> reqItor) {
+	// boolean modified = false;
+	// while(reqItor.hasNext()) {
+	// BuilderInput brr = reqItor.next();
+	//
+	// BuildResultReference brr = reqItor.next().getBuildResult();
+	// if(brr instanceof BuilderReference) {
+	// BuilderReference br = (BuilderReference) brr;
+	// if(builderPredicate != null && !builderPredicate.matches(br.getBuilderName()))
+	// continue;
+	// RequiredCapability rc = br.getRequiredCapability();
+	// if(rc == null) {
+	// rc = br.getRequiredCapabilityReference();
+	// if(rc == null)
+	// throw new B3InternalError(
+	// "A BulderReference had neither a RequiredCapability nor a reference to one");
+	// }
+	// if(capabilityPredicate != null && !capabilityPredicate.matches(rc))
+	// continue;
+	//
+	// reqItor.remove();
+	// modified = true;
+	// }
+	// else if(brr instanceof CompoundBuildResultReference) {
+	// EList<Prerequisite> reqs = ((CompoundBuildResultReference) brr).getPrerequisites();
+	// modified = removeMatches(reqs.listIterator()) || modified;
+	// // compound may be empty after the operation - remove it
+	// if(reqs.size() == 0) {
+	// reqItor.remove();
+	// modified = true;
+	// }
+	// }
+	// else
+	// throw new B3InternalError("InputPredicate can not handle unknown subclass of BuildResultReference :" +
+	// brr.getClass().toString());
+	// }
+	// return modified;
+	// }
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBuilderPredicate(BNamePredicate newBuilderPredicate) {
@@ -315,7 +281,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setCapabilityPredicate(CapabilityPredicate newCapabilityPredicate) {

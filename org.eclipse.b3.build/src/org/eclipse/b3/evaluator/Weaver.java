@@ -37,6 +37,7 @@ import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.BuilderConcernContext;
 import org.eclipse.b3.build.BuilderInput;
+import org.eclipse.b3.build.BuilderInputGroup;
 import org.eclipse.b3.build.BuilderWrapper;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.ConditionalPathVector;
@@ -44,7 +45,6 @@ import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.InputPredicate;
 import org.eclipse.b3.build.OutputPredicate;
 import org.eclipse.b3.build.PathGroup;
-import org.eclipse.b3.build.Prerequisite;
 import org.eclipse.b3.build.ProvidesPredicate;
 import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.RequiresPredicate;
@@ -52,19 +52,25 @@ import org.eclipse.b3.build.SourcePredicate;
 import org.eclipse.b3.build.UnitConcernContext;
 import org.eclipse.b3.build.VersionedCapability;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
+import org.eclipse.b3.build.core.BuilderInputRemover;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 /**
  * Weaver for Build
  * 
  */
+@Singleton
 public class Weaver extends BackendWeaver {
 
 	@Inject
 	private IB3Evaluator evaluator;
+
+	@Inject
+	private BuilderInputRemover inputRemover;
 
 	/**
 	 * Performs parameter type matching and if parameters match, a wrapper is created and added to the context.
@@ -189,18 +195,27 @@ public class Weaver extends BackendWeaver {
 			boolean modified = false;
 			BuilderInput input = null;
 			wrapper.setInput(input = BuilderInput.class.cast(EcoreUtil.copy(b.getInput())));
-			// removal
+
+			// removals
 			for(InputPredicate ip : theBuilderConcern.getInputRemovals())
-				modified = ip.removeMatching(input) || modified;
+				if(inputRemover.doRemoveMatching(input, ip))
+					wrapper.setInput(null);
+
+			modified = !EcoreUtil.equals(b.getInput(), wrapper.getInput());
 			// optimize if unchanged
 			if(!modified && theBuilderConcern.getInputAdditions().size() == 0) {
 				wrapper.setInput(null);
 				break ADVICEINPUT;
 			}
-			// addition
-			EList<Prerequisite> prereqs = input.getPrerequisites();
-			for(Prerequisite p : theBuilderConcern.getInputAdditions())
-				prereqs.add(Prerequisite.class.cast(EcoreUtil.copy(p)));
+
+			// additions
+			if(theBuilderConcern.getInputAdditions().size() > 0) {
+				BuilderInputGroup newInput = B3BuildFactory.eINSTANCE.createBuilderInputGroup();
+				if(wrapper.getInput() != null)
+					newInput.getBuilderInput().add(wrapper.getInput());
+				newInput.getBuilderInput().addAll(EcoreUtil.copyAll(theBuilderConcern.getInputAdditions()));
+				wrapper.setInput(newInput);
+			}
 
 			wrapper.setInputAdvised(true);
 		}

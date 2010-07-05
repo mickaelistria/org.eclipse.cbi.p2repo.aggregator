@@ -36,7 +36,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.Builder;
-import org.eclipse.b3.build.Prerequisite;
+import org.eclipse.b3.build.BuilderInputNameDecorator;
 import org.eclipse.b3.build.UnitProvider;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.engine.B3BuildEngineResource;
@@ -252,18 +252,21 @@ public class DeclarativeVarScopeProvider {
 		BDefValue varInput = r.getVarInput();
 		if(container.getInput() != null) {
 			result.add(new EObjectDescription(varInput.getName(), varInput, null));
+
+			// find all unique names in the input, and add a reference to one of them (does not matter which
+			// as they all have the same runtime type.
 			TreeIterator<EObject> itor = container.getInput().eAllContents();
-			Map<String, Prerequisite> aliasMap = new HashMap<String, Prerequisite>();
+			Map<String, BuilderInputNameDecorator> aliasMap = new HashMap<String, BuilderInputNameDecorator>();
 			while(itor.hasNext()) {
 				EObject e = itor.next();
-				if(e instanceof Prerequisite) {
-					Prerequisite p = (Prerequisite) e;
+				if(e instanceof BuilderInputNameDecorator) {
+					BuilderInputNameDecorator p = (BuilderInputNameDecorator) e;
 					String n = p.getName();
 					if(n != null && n.length() > 0 && !aliasMap.containsKey(n))
 						aliasMap.put(n, p);
 				}
 			}
-			for(Map.Entry<String, Prerequisite> element : aliasMap.entrySet())
+			for(Map.Entry<String, BuilderInputNameDecorator> element : aliasMap.entrySet())
 				result.add(new EObjectDescription(element.getValue().getName(), element.getValue(), null));
 		}
 		BDefValue varOutput = r.getVarOutput();
@@ -319,6 +322,10 @@ public class DeclarativeVarScopeProvider {
 	public IScope varScope(Object o) {
 		return null;
 	}
+
+	// public IScope varScope(UnitConcernContext container, EObject contained) {
+	//
+	// }
 
 	/**
 	 * Picks the "resource" variable from the engine resource

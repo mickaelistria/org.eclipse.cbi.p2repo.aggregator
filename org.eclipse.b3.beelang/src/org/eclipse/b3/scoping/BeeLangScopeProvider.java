@@ -12,8 +12,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.build.AliasedRequiredCapability;
 import org.eclipse.b3.build.BeeModel;
+import org.eclipse.b3.build.BuildCallOnReferencedRequirement;
 import org.eclipse.b3.build.BuildUnit;
-import org.eclipse.b3.build.BuilderReference;
 import org.eclipse.b3.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.RepositoryUnitProvider;
@@ -37,32 +37,6 @@ import org.eclipse.xtext.scoping.impl.SimpleScope;
  */
 public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 	// IScope scope_B3ParameterizedType_rawType(B3ParameterizedType ctx, EReference ref) {
-
-	/**
-	 * Finds aliased required capabilities in a containing element.
-	 * 
-	 * @param ctx
-	 * @param ref
-	 * @return
-	 */
-	IScope scope_AliasedRequiredCapability(BuilderReference ctx, EReference ref) {
-		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		EObject container = ctx.eContainer();
-		while(container != null) {
-			if(container instanceof IRequiredCapabilityContainer) {
-				for(RequiredCapability rc : ((IRequiredCapabilityContainer) container).getRequiredCapabilities())
-					if(rc instanceof AliasedRequiredCapability) {
-						String name = ((AliasedRequiredCapability) rc).getAlias();
-						if(name != null)
-							result.add(new EObjectDescription(name, rc, null));
-					}
-			}
-			container = container.eContainer();
-		}
-		if(result.isEmpty())
-			return IScope.NULLSCOPE;
-		return new SimpleScope(result);
-	}
 
 	/**
 	 * Find reference to advice in containing BuildUnit, or in the BeeModel.
@@ -153,5 +127,33 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 
 		return new SimpleScope(result);
 
+	}
+
+	/**
+	 * Finds aliased required capabilities in a containing element.
+	 * 1. scope_BuildCallOnReferencedRequirement_requiredCapabilityReference
+	 * 2. scope_RequiredCapability
+	 * 
+	 * @param ctx
+	 * @param ref
+	 * @return
+	 */
+	IScope scope_RequiredCapability(BuildCallOnReferencedRequirement ctx, EReference ref) {
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		EObject container = ctx.eContainer();
+		while(container != null) {
+			if(container instanceof IRequiredCapabilityContainer) {
+				for(RequiredCapability rc : ((IRequiredCapabilityContainer) container).getRequiredCapabilities())
+					if(rc instanceof AliasedRequiredCapability) {
+						String name = ((AliasedRequiredCapability) rc).getAlias();
+						if(name != null)
+							result.add(new EObjectDescription(name, rc, null));
+					}
+			}
+			container = container.eContainer();
+		}
+		if(result.isEmpty())
+			return IScope.NULLSCOPE;
+		return new SimpleScope(result);
 	}
 }

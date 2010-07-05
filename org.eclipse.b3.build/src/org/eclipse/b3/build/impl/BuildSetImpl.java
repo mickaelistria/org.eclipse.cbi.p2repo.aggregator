@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.core.B3FinalVariableRedefinitionException;
 import org.eclipse.b3.backend.core.B3NoSuchVariableException;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.core.ValueMap;
+import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.PathVector;
@@ -36,12 +37,12 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuildSetImpl#getPathVectors <em>Path Vectors</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuildSetImpl#getValueMap <em>Value Map</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuildSetImpl#getPathIterator <em>Path Iterator</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuildSetImpl#getPathVectors <em>Path Vectors</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuildSetImpl#getValueMap <em>Value Map</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuildSetImpl#getPathIterator <em>Path Iterator</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuildSetImpl extends EObjectImpl implements BuildSet {
@@ -81,7 +82,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	 * The cached value of the '{@link #getPathVectors() <em>Path Vectors</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPathVectors()
 	 * @generated
 	 * @ordered
@@ -92,7 +92,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	 * The default value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getValueMap()
 	 * @generated
 	 * @ordered
@@ -103,7 +102,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	 * The cached value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getValueMap()
 	 * @generated
 	 * @ordered
@@ -124,7 +122,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuildSetImpl() {
@@ -206,7 +203,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -225,7 +221,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -248,7 +243,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -269,7 +263,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -280,7 +273,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -332,7 +324,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<PathVector> getPathVectors() {
@@ -409,7 +400,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setValueMap(ValueMap newValueMap) {

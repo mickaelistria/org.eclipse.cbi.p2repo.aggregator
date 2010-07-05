@@ -12,19 +12,19 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Builder Wrapper</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.BuilderWrapper#isInputAdvised <em>Input Advised</em>}</li>
- * <li>{@link org.eclipse.b3.build.BuilderWrapper#isOutputAdvised <em>Output Advised</em>}</li>
- * <li>{@link org.eclipse.b3.build.BuilderWrapper#isUnitTypeAdvised <em>Unit Type Advised</em>}</li>
- * <li>{@link org.eclipse.b3.build.BuilderWrapper#isProvidesAdvised <em>Provides Advised</em>}</li>
- * <li>{@link org.eclipse.b3.build.BuilderWrapper#isDefaultPropertiesAdvised <em>Default Properties Advised</em>}</li>
- * <li>{@link org.eclipse.b3.build.BuilderWrapper#isSourceAdvised <em>Source Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderWrapper#isInputAdvised <em>Input Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderWrapper#isOutputAdvised <em>Output Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderWrapper#isUnitTypeAdvised <em>Unit Type Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderWrapper#isProvidesAdvised <em>Provides Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderWrapper#isDefaultPropertiesAdvised <em>Default Properties Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderWrapper#isSourceAdvised <em>Source Advised</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.B3BuildPackage#getBuilderWrapper()
  * @model
  * @generated
@@ -38,7 +38,6 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * If the meaning of the '<em>Default Properties Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Default Properties Advised</em>' attribute.
 	 * @see #setDefaultPropertiesAdvised(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderWrapper_DefaultPropertiesAdvised()
@@ -54,7 +53,6 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * If the meaning of the '<em>Input Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Input Advised</em>' attribute.
 	 * @see #setInputAdvised(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderWrapper_InputAdvised()
@@ -70,7 +68,6 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * If the meaning of the '<em>Output Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Output Advised</em>' attribute.
 	 * @see #setOutputAdvised(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderWrapper_OutputAdvised()
@@ -86,7 +83,6 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * If the meaning of the '<em>Provides Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Provides Advised</em>' attribute.
 	 * @see #setProvidesAdvised(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderWrapper_ProvidesAdvised()
@@ -102,7 +98,6 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * If the meaning of the '<em>Source Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Source Advised</em>' attribute.
 	 * @see #setSourceAdvised(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderWrapper_SourceAdvised()
@@ -118,7 +113,6 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * If the meaning of the '<em>Unit Type Advised</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Unit Type Advised</em>' attribute.
 	 * @see #setUnitTypeAdvised(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderWrapper_UnitTypeAdvised()
@@ -131,9 +125,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderWrapper#isDefaultPropertiesAdvised <em>Default Properties Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Default Properties Advised</em>' attribute.
+	 * @param value the new value of the '<em>Default Properties Advised</em>' attribute.
 	 * @see #isDefaultPropertiesAdvised()
 	 * @generated
 	 */
@@ -143,9 +135,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderWrapper#isInputAdvised <em>Input Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Input Advised</em>' attribute.
+	 * @param value the new value of the '<em>Input Advised</em>' attribute.
 	 * @see #isInputAdvised()
 	 * @generated
 	 */
@@ -155,9 +145,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderWrapper#isOutputAdvised <em>Output Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Output Advised</em>' attribute.
+	 * @param value the new value of the '<em>Output Advised</em>' attribute.
 	 * @see #isOutputAdvised()
 	 * @generated
 	 */
@@ -167,9 +155,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderWrapper#isProvidesAdvised <em>Provides Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Provides Advised</em>' attribute.
+	 * @param value the new value of the '<em>Provides Advised</em>' attribute.
 	 * @see #isProvidesAdvised()
 	 * @generated
 	 */
@@ -179,9 +165,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderWrapper#isSourceAdvised <em>Source Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Source Advised</em>' attribute.
+	 * @param value the new value of the '<em>Source Advised</em>' attribute.
 	 * @see #isSourceAdvised()
 	 * @generated
 	 */
@@ -191,9 +175,7 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderWrapper#isUnitTypeAdvised <em>Unit Type Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Unit Type Advised</em>' attribute.
+	 * @param value the new value of the '<em>Unit Type Advised</em>' attribute.
 	 * @see #isUnitTypeAdvised()
 	 * @generated
 	 */

@@ -25,14 +25,12 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -45,7 +43,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static B3BuildFactory init() {
@@ -65,7 +62,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public B3BuildFactoryImpl() {
@@ -75,7 +71,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertBranchPointTypeToString(EDataType eDataType, Object instanceValue) {
@@ -87,7 +82,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertIStatusToString(EDataType eDataType, Object instanceValue) {
@@ -97,7 +91,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertMergeConflictStrategyToString(EDataType eDataType, Object instanceValue) {
@@ -109,7 +102,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertPathIteratorToString(EDataType eDataType, Object instanceValue) {
@@ -119,7 +111,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -148,7 +139,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertTriStateToString(EDataType eDataType, Object instanceValue) {
@@ -160,7 +150,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertVersionRangeToString(EDataType eDataType, Object instanceValue) {
@@ -170,7 +159,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertVersionToString(EDataType eDataType, Object instanceValue) {
@@ -180,7 +168,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -194,12 +181,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createBuilderInput();
 			case B3BuildPackage.PATH_GROUP:
 				return createPathGroup();
-			case B3BuildPackage.PREREQUISITE:
-				return createPrerequisite();
-			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE:
-				return createCompoundBuildResultReference();
-			case B3BuildPackage.BUILDER_REFERENCE:
-				return createBuilderReference();
 			case B3BuildPackage.CAPABILITY:
 				return createCapability();
 			case B3BuildPackage.REQUIRED_CAPABILITY:
@@ -268,8 +249,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createEffectiveRequirementFacade();
 			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE:
 				return createEffectiveCapabilityFacade();
-			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE:
-				return createEffectiveBuilderReferenceFacade();
+			case B3BuildPackage.BUILDER_CALL_FACADE:
+				return createBuilderCallFacade();
 			case B3BuildPackage.BUILD_SET:
 				return createBuildSet();
 			case B3BuildPackage.BUILD_RESULT_CONTEXT:
@@ -298,6 +279,24 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createRepoOption();
 			case B3BuildPackage.UNIT_REPOSITORY_DESCRIPTION:
 				return createUnitRepositoryDescription();
+			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS:
+				return createBuildCallOnSelectedRequirements();
+			case B3BuildPackage.BUILDER_INPUT_NAME_DECORATOR:
+				return createBuilderInputNameDecorator();
+			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR:
+				return createBuilderInputContextDecorator();
+			case B3BuildPackage.BUILDER_INPUT_CONDITION:
+				return createBuilderInputCondition();
+			case B3BuildPackage.BUILD_CALL_MULTIPLE:
+				return createBuildCallMultiple();
+			case B3BuildPackage.BUILD_CALL_ON_DECLARED_REQUIREMENT:
+				return createBuildCallOnDeclaredRequirement();
+			case B3BuildPackage.BUILD_CALL_ON_REFERENCED_REQUIREMENT:
+				return createBuildCallOnReferencedRequirement();
+			case B3BuildPackage.BUILDER_INPUT_GROUP:
+				return createBuilderInputGroup();
+			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE:
+				return createEffectiveBuilderCallFacade();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -306,7 +305,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public AliasedRequiredCapability createAliasedRequiredCapability() {
@@ -317,7 +315,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BeeHive createBeeHive() {
@@ -328,7 +325,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BeeModel createBeeModel() {
@@ -339,7 +335,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BeeModelRepository createBeeModelRepository() {
@@ -350,7 +345,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BestFoundUnitProvider createBestFoundUnitProvider() {
@@ -361,7 +355,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Branch createBranch() {
@@ -372,7 +365,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BranchPointType createBranchPointTypeFromString(EDataType eDataType, String initialValue) {
@@ -386,7 +378,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuildConcernContext createBuildConcernContext() {
@@ -397,7 +388,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuildContext createBuildContext() {
@@ -408,7 +398,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Builder createBuilder() {
@@ -419,7 +408,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuilderConcernContext createBuilderConcernContext() {
@@ -430,7 +418,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuilderInput createBuilderInput() {
@@ -441,7 +428,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuilderJava createBuilderJava() {
@@ -452,7 +438,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuilderNamePredicate createBuilderNamePredicate() {
@@ -463,7 +448,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuilderQuery createBuilderQuery() {
@@ -474,18 +458,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public BuilderReference createBuilderReference() {
-		BuilderReferenceImpl builderReference = new BuilderReferenceImpl();
-		return builderReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuilderWrapper createBuilderWrapper() {
@@ -496,7 +468,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuildResultContext createBuildResultContext() {
@@ -507,7 +478,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuildSet createBuildSet() {
@@ -518,7 +488,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuildUnit createBuildUnit() {
@@ -529,7 +498,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Capability createCapability() {
@@ -540,7 +508,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CapabilityPredicate createCapabilityPredicate() {
@@ -551,18 +518,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public CompoundBuildResultReference createCompoundBuildResultReference() {
-		CompoundBuildResultReferenceImpl compoundBuildResultReference = new CompoundBuildResultReferenceImpl();
-		return compoundBuildResultReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CompoundFirstFoundRepository createCompoundFirstFoundRepository() {
@@ -573,7 +528,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ConditionalPathVector createConditionalPathVector() {
@@ -584,7 +538,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ContainerConfiguration createContainerConfiguration() {
@@ -595,7 +548,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public DelegatingUnitProvider createDelegatingUnitProvider() {
@@ -606,18 +558,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EffectiveBuilderReferenceFacade createEffectiveBuilderReferenceFacade() {
-		EffectiveBuilderReferenceFacadeImpl effectiveBuilderReferenceFacade = new EffectiveBuilderReferenceFacadeImpl();
-		return effectiveBuilderReferenceFacade;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EffectiveCapabilityFacade createEffectiveCapabilityFacade() {
@@ -628,7 +568,26 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated
+	 */
+	public BuilderCallFacade createBuilderCallFacade() {
+		BuilderCallFacadeImpl builderCallFacade = new BuilderCallFacadeImpl();
+		return builderCallFacade;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectiveBuilderCallFacade createEffectiveBuilderCallFacade() {
+		EffectiveBuilderCallFacadeImpl effectiveBuilderCallFacade = new EffectiveBuilderCallFacadeImpl();
+		return effectiveBuilderCallFacade;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EffectiveFacade createEffectiveFacade() {
@@ -639,7 +598,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EffectiveRequirementFacade createEffectiveRequirementFacade() {
@@ -650,7 +608,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EffectiveUnitFacade createEffectiveUnitFacade() {
@@ -661,7 +618,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ExecutionStackRepository createExecutionStackRepository() {
@@ -672,7 +628,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public FirstFoundUnitProvider createFirstFoundUnitProvider() {
@@ -683,7 +638,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -712,7 +666,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ImplementsPredicate createImplementsPredicate() {
@@ -723,7 +676,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public InputPredicate createInputPredicate() {
@@ -734,7 +686,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IStatus createIStatusFromString(EDataType eDataType, String initialValue) {
@@ -744,7 +695,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public MergeConflictStrategy createMergeConflictStrategyFromString(EDataType eDataType, String initialValue) {
@@ -758,7 +708,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NameSpacePredicate createNameSpacePredicate() {
@@ -769,7 +718,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public OutputPredicate createOutputPredicate() {
@@ -780,7 +728,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public PathGroup createPathGroup() {
@@ -791,7 +738,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public PathGroupPredicate createPathGroupPredicate() {
@@ -802,7 +748,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public PathIterator createPathIteratorFromString(EDataType eDataType, String initialValue) {
@@ -812,7 +757,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public PathVector createPathVector() {
@@ -823,18 +767,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Prerequisite createPrerequisite() {
-		PrerequisiteImpl prerequisite = new PrerequisiteImpl();
-		return prerequisite;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ProvidesPredicate createProvidesPredicate() {
@@ -845,7 +777,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RepoOption createRepoOption() {
@@ -856,7 +787,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Repository createRepository() {
@@ -867,7 +797,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RepositoryUnitProvider createRepositoryUnitProvider() {
@@ -878,7 +807,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RequiredCapability createRequiredCapability() {
@@ -889,7 +817,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RequiresPredicate createRequiresPredicate() {
@@ -900,7 +827,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ResolutionInfo createResolutionInfo() {
@@ -911,7 +837,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public SourcePredicate createSourcePredicate() {
@@ -922,7 +847,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public SwitchUnitProvider createSwitchUnitProvider() {
@@ -933,7 +857,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Synchronization createSynchronization() {
@@ -944,7 +867,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public TriState createTriStateFromString(EDataType eDataType, String initialValue) {
@@ -958,7 +880,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public UnitConcernContext createUnitConcernContext() {
@@ -969,7 +890,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public UnitNamePredicate createUnitNamePredicate() {
@@ -980,7 +900,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public UnitRepositoryDescription createUnitRepositoryDescription() {
@@ -991,7 +910,86 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated
+	 */
+	public BuildCallOnSelectedRequirements createBuildCallOnSelectedRequirements() {
+		BuildCallOnSelectedRequirementsImpl buildCallOnSelectedRequirements = new BuildCallOnSelectedRequirementsImpl();
+		return buildCallOnSelectedRequirements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderInputNameDecorator createBuilderInputNameDecorator() {
+		BuilderInputNameDecoratorImpl builderInputNameDecorator = new BuilderInputNameDecoratorImpl();
+		return builderInputNameDecorator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderInputContextDecorator createBuilderInputContextDecorator() {
+		BuilderInputContextDecoratorImpl builderInputContextDecorator = new BuilderInputContextDecoratorImpl();
+		return builderInputContextDecorator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderInputCondition createBuilderInputCondition() {
+		BuilderInputConditionImpl builderInputCondition = new BuilderInputConditionImpl();
+		return builderInputCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildCallMultiple createBuildCallMultiple() {
+		BuildCallMultipleImpl buildCallMultiple = new BuildCallMultipleImpl();
+		return buildCallMultiple;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildCallOnDeclaredRequirement createBuildCallOnDeclaredRequirement() {
+		BuildCallOnDeclaredRequirementImpl buildCallOnDeclaredRequirement = new BuildCallOnDeclaredRequirementImpl();
+		return buildCallOnDeclaredRequirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildCallOnReferencedRequirement createBuildCallOnReferencedRequirement() {
+		BuildCallOnReferencedRequirementImpl buildCallOnReferencedRequirement = new BuildCallOnReferencedRequirementImpl();
+		return buildCallOnReferencedRequirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderInputGroup createBuilderInputGroup() {
+		BuilderInputGroupImpl builderInputGroup = new BuilderInputGroupImpl();
+		return builderInputGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public UnitResolutionInfo createUnitResolutionInfo() {
@@ -1002,7 +1000,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public VersionedCapability createVersionedCapability() {
@@ -1013,7 +1010,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Version createVersionFromString(EDataType eDataType, String initialValue) {
@@ -1023,7 +1019,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public VersionRange createVersionRangeFromString(EDataType eDataType, String initialValue) {
@@ -1033,7 +1028,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public B3BuildPackage getB3BuildPackage() {

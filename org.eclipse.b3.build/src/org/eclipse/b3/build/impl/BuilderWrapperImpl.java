@@ -7,32 +7,22 @@
 package org.eclipse.b3.build.impl;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.SerialIterator;
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl;
-import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.BuilderInput;
 import org.eclipse.b3.build.BuilderWrapper;
 import org.eclipse.b3.build.Capability;
-import org.eclipse.b3.build.EffectiveBuilderReferenceFacade;
-import org.eclipse.b3.build.EffectiveCapabilityFacade;
-import org.eclipse.b3.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.PathGroup;
-import org.eclipse.b3.build.Prerequisite;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -50,25 +40,25 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getPrecondExpr <em>Precond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getInput <em>Input</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getOutput <em>Output</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getDefaultProperties <em>Default Properties</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getUnitType <em>Unit Type</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getSource <em>Source</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isInputAdvised <em>Input Advised</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isOutputAdvised <em>Output Advised</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isUnitTypeAdvised <em>Unit Type Advised</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isProvidesAdvised <em>Provides Advised</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isDefaultPropertiesAdvised <em>Default Properties Advised</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isSourceAdvised <em>Source Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getPrecondExpr <em>Precond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getInput <em>Input</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getOutput <em>Output</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getDefaultProperties <em>Default Properties</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getUnitType <em>Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isInputAdvised <em>Input Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isOutputAdvised <em>Output Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isUnitTypeAdvised <em>Unit Type Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isProvidesAdvised <em>Provides Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isDefaultPropertiesAdvised <em>Default Properties Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderWrapperImpl#isSourceAdvised <em>Source Advised</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderWrapper {
@@ -76,7 +66,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getProvidedCapabilities()
 	 * @generated
 	 * @ordered
@@ -87,7 +76,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #getPostcondExpr() <em>Postcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPostcondExpr()
 	 * @generated
 	 * @ordered
@@ -98,7 +86,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #getPrecondExpr() <em>Precond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPrecondExpr()
 	 * @generated
 	 * @ordered
@@ -109,7 +96,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getInput()
 	 * @generated
 	 * @ordered
@@ -120,7 +106,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
@@ -131,7 +116,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #getDefaultProperties() <em>Default Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getDefaultProperties()
 	 * @generated
 	 * @ordered
@@ -142,7 +126,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #getPostinputcondExpr() <em>Postinputcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPostinputcondExpr()
 	 * @generated
 	 * @ordered
@@ -153,7 +136,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getUnitType()
 	 * @generated
 	 * @ordered
@@ -164,7 +146,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #getExplicitUnitType() <em>Explicit Unit Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getExplicitUnitType()
 	 * @generated
 	 * @ordered
@@ -175,7 +156,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getSource()
 	 * @generated
 	 * @ordered
@@ -186,7 +166,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The default value of the '{@link #isInputAdvised() <em>Input Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isInputAdvised()
 	 * @generated
 	 * @ordered
@@ -197,7 +176,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #isInputAdvised() <em>Input Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isInputAdvised()
 	 * @generated
 	 * @ordered
@@ -208,7 +186,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The default value of the '{@link #isOutputAdvised() <em>Output Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isOutputAdvised()
 	 * @generated
 	 * @ordered
@@ -219,7 +196,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #isOutputAdvised() <em>Output Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isOutputAdvised()
 	 * @generated
 	 * @ordered
@@ -230,7 +206,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The default value of the '{@link #isUnitTypeAdvised() <em>Unit Type Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isUnitTypeAdvised()
 	 * @generated
 	 * @ordered
@@ -241,7 +216,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #isUnitTypeAdvised() <em>Unit Type Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isUnitTypeAdvised()
 	 * @generated
 	 * @ordered
@@ -252,7 +226,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The default value of the '{@link #isProvidesAdvised() <em>Provides Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isProvidesAdvised()
 	 * @generated
 	 * @ordered
@@ -263,7 +236,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #isProvidesAdvised() <em>Provides Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isProvidesAdvised()
 	 * @generated
 	 * @ordered
@@ -274,7 +246,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The default value of the '{@link #isDefaultPropertiesAdvised() <em>Default Properties Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isDefaultPropertiesAdvised()
 	 * @generated
 	 * @ordered
@@ -285,7 +256,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #isDefaultPropertiesAdvised() <em>Default Properties Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isDefaultPropertiesAdvised()
 	 * @generated
 	 * @ordered
@@ -296,7 +266,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The default value of the '{@link #isSourceAdvised() <em>Source Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isSourceAdvised()
 	 * @generated
 	 * @ordered
@@ -307,7 +276,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * The cached value of the '{@link #isSourceAdvised() <em>Source Advised</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isSourceAdvised()
 	 * @generated
 	 * @ordered
@@ -317,7 +285,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuilderWrapperImpl() {
@@ -327,7 +294,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetDefaultProperties(BPropertySet newDefaultProperties, NotificationChain msgs) {
@@ -348,7 +314,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetExplicitUnitType(BParameterDeclaration newExplicitUnitType, NotificationChain msgs) {
@@ -369,7 +334,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetInput(BuilderInput newInput, NotificationChain msgs) {
@@ -389,7 +353,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetOutput(PathGroup newOutput, NotificationChain msgs) {
@@ -409,7 +372,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPostcondExpr(BExpression newPostcondExpr, NotificationChain msgs) {
@@ -429,7 +391,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPostinputcondExpr(BExpression newPostinputcondExpr, NotificationChain msgs) {
@@ -450,7 +411,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPrecondExpr(BExpression newPrecondExpr, NotificationChain msgs) {
@@ -470,7 +430,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetSource(PathGroup newSource, NotificationChain msgs) {
@@ -490,7 +449,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -533,7 +491,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -576,7 +533,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -621,7 +577,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -652,7 +607,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -697,7 +651,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -760,7 +713,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -771,7 +723,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -844,81 +795,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx)
-			throws Throwable {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns the original's effective (provided) capabilities if {@link #isProvidesAdvised()} returns false,
-	 * otherwise the effective provided capabilities from this wrapper.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Iterator<EffectiveCapabilityFacade> getEffectiveCapabilities(BExecutionContext ctx) throws Throwable {
-		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
-		if(!isProvidesAdvised())
-			return ((IBuilder) getOriginal()).getEffectiveCapabilities(ctx);
-		ArrayList<EffectiveCapabilityFacade> list = new ArrayList<EffectiveCapabilityFacade>();
-		BExecutionContext ctxToUse = ctx;
-		BPropertySet defProp = getDefaultProperties();
-		if(defProp != null) {
-			ctxToUse = ctxToUse.createOuterContext();
-			defProp.evaluateDefaults(ctxToUse, true);
-		}
-		for(Capability cap : getProvidedCapabilities()) {
-			BExpression c = cap.getCondExpr();
-			if(c != null) {
-				Object include = evaluator.doEvaluate(c, ctxToUse);
-				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE)
-					continue; // skip this requirement
-			}
-			EffectiveCapabilityFacade facade = B3BuildFactory.eINSTANCE.createEffectiveCapabilityFacade();
-			facade.setContext(ctxToUse);
-			facade.setProvidedCapability(cap);
-			list.add(facade);
-		}
-		return list.iterator();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns the original's effective requirements if the wrapper is not InputAdviced ({@link #isInputAdvised()}.
-	 * Returns and iterator over effective requirements. Applies the builder's default properties in
-	 * a context before filter evaluation.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
-		if(!isInputAdvised())
-			return ((IBuilder) getOriginal()).getEffectiveRequirements(ctx);
-		SerialIterator<EffectiveRequirementFacade> result = new SerialIterator<EffectiveRequirementFacade>();
-		BExecutionContext ctxToUse = ctx;
-		BPropertySet defProp = getDefaultProperties();
-		if(defProp != null) {
-			ctxToUse = ctxToUse.createInnerContext();
-			defProp.evaluateDefaults(ctxToUse, true);
-		}
-		if(input != null) {
-			for(Prerequisite p : input.getPrerequisites()) {
-				result.addIterator(p.getEffectiveRequirements(ctxToUse));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BParameterDeclaration getExplicitUnitType() {
@@ -979,7 +855,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * Note, there is no advice flag - when creating a wrapper, the actual expression should be wrapped.
 	 * See {@link BuilderConcernContextImpl}.
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getPostcondExpr() {
@@ -991,7 +866,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * Note, there is no advice flag - when creating a wrapper, the actual expression should be wrapped.
 	 * See {@link BuilderConcernContextImpl}.
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getPostinputcondExpr() {
@@ -1003,7 +877,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * Note, there is no advice flag - when creating a wrapper, the actual expression should be wrapped.
 	 * See {@link BuilderConcernContextImpl}.
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getPrecondExpr() {
@@ -1029,7 +902,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public PathGroup getSource() {
@@ -1039,7 +911,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Class<? extends BuildUnit> getUnitType() {
@@ -1049,7 +920,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isDefaultPropertiesAdvised() {
@@ -1094,7 +964,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isInputAdvised() {
@@ -1104,7 +973,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isOutputAdvised() {
@@ -1114,7 +982,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isProvidesAdvised() {
@@ -1124,7 +991,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isSourceAdvised() {
@@ -1134,7 +1000,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isUnitTypeAdvised() {
@@ -1144,7 +1009,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDefaultProperties(BPropertySet newDefaultProperties) {
@@ -1169,7 +1033,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDefaultPropertiesAdvised(boolean newDefaultPropertiesAdvised) {
@@ -1184,7 +1047,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setExplicitUnitType(BParameterDeclaration newExplicitUnitType) {
@@ -1209,7 +1071,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setInput(BuilderInput newInput) {
@@ -1233,7 +1094,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setInputAdvised(boolean newInputAdvised) {
@@ -1258,7 +1118,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setOutput(PathGroup newOutput) {
@@ -1282,7 +1141,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setOutputAdvised(boolean newOutputAdvised) {
@@ -1306,7 +1164,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPostcondExpr(BExpression newPostcondExpr) {
@@ -1330,7 +1187,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPostinputcondExpr(BExpression newPostinputcondExpr) {
@@ -1355,7 +1211,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPrecondExpr(BExpression newPrecondExpr) {
@@ -1379,7 +1234,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setProvidesAdvised(boolean newProvidesAdvised) {
@@ -1394,7 +1248,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setSource(PathGroup newSource) {
@@ -1418,7 +1271,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setSourceAdvised(boolean newSourceAdvised) {
@@ -1481,7 +1333,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setUnitTypeAdvised(boolean newUnitTypeAdvised) {
@@ -1496,7 +1347,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

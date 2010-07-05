@@ -17,22 +17,22 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>IBuilder</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.IBuilder#getPostcondExpr <em>Postcond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.IBuilder#getPrecondExpr <em>Precond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.IBuilder#getInput <em>Input</em>}</li>
- * <li>{@link org.eclipse.b3.build.IBuilder#getOutput <em>Output</em>}</li>
- * <li>{@link org.eclipse.b3.build.IBuilder#getDefaultProperties <em>Default Properties</em>}</li>
- * <li>{@link org.eclipse.b3.build.IBuilder#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.IBuilder#getUnitType <em>Unit Type</em>}</li>
- * <li>{@link org.eclipse.b3.build.IBuilder#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
- * <li>{@link org.eclipse.b3.build.IBuilder#getSource <em>Source</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.IBuilder#getPostcondExpr <em>Postcond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.IBuilder#getPrecondExpr <em>Precond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.IBuilder#getInput <em>Input</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.IBuilder#getOutput <em>Output</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.IBuilder#getDefaultProperties <em>Default Properties</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.IBuilder#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.IBuilder#getUnitType <em>Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.IBuilder#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.IBuilder#getSource <em>Source</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.B3BuildPackage#getIBuilder()
  * @model interface="true" abstract="true"
  * @generated
@@ -45,7 +45,6 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * If the meaning of the '<em>Default Properties</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Default Properties</em>' containment reference.
 	 * @see #setDefaultProperties(BPropertySet)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getIBuilder_DefaultProperties()
@@ -55,46 +54,12 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	BPropertySet getDefaultProperties();
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Returns an iterator over the effective references to builders in this, and other units.
-	 * <!-- end-model-doc -->
-	 * 
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.EffectiveBuilderReferenceFacade>"
-	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 * @generated
-	 */
-	Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.EffectiveCapabilityFacade>"
-	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 * @generated
-	 */
-	Iterator<EffectiveCapabilityFacade> getEffectiveCapabilities(BExecutionContext ctx) throws Throwable;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.EffectiveRequirementFacade>"
-	 *        exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 * @generated
-	 */
-	Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable;
-
-	/**
 	 * Returns the value of the '<em><b>Explicit Unit Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Explicit Unit Type</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Explicit Unit Type</em>' containment reference.
 	 * @see #setExplicitUnitType(BParameterDeclaration)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getIBuilder_ExplicitUnitType()
@@ -110,7 +75,6 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * If the meaning of the '<em>Input</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Input</em>' containment reference.
 	 * @see #setInput(BuilderInput)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getIBuilder_Input()
@@ -126,7 +90,6 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * If the meaning of the '<em>Output</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Output</em>' containment reference.
 	 * @see #setOutput(PathGroup)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getIBuilder_Output()
@@ -142,7 +105,6 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * If the meaning of the '<em>Postcond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Postcond Expr</em>' containment reference.
 	 * @see #setPostcondExpr(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getIBuilder_PostcondExpr()
@@ -158,7 +120,6 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * If the meaning of the '<em>Postinputcond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Postinputcond Expr</em>' containment reference.
 	 * @see #setPostinputcondExpr(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getIBuilder_PostinputcondExpr()
@@ -174,7 +135,6 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * If the meaning of the '<em>Precond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Precond Expr</em>' containment reference.
 	 * @see #setPrecondExpr(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getIBuilder_PrecondExpr()
@@ -190,7 +150,6 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * If the meaning of the '<em>Source</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Source</em>' containment reference.
 	 * @see #setSource(PathGroup)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getIBuilder_Source()
@@ -206,7 +165,6 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * If the meaning of the '<em>Unit Type</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Unit Type</em>' attribute.
 	 * @see #setUnitType(Class)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getIBuilder_UnitType()
@@ -219,9 +177,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.build.IBuilder#getDefaultProperties <em>Default Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Default Properties</em>' containment reference.
+	 * @param value the new value of the '<em>Default Properties</em>' containment reference.
 	 * @see #getDefaultProperties()
 	 * @generated
 	 */
@@ -231,9 +187,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.build.IBuilder#getExplicitUnitType <em>Explicit Unit Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Explicit Unit Type</em>' containment reference.
+	 * @param value the new value of the '<em>Explicit Unit Type</em>' containment reference.
 	 * @see #getExplicitUnitType()
 	 * @generated
 	 */
@@ -243,9 +197,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.build.IBuilder#getInput <em>Input</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Input</em>' containment reference.
+	 * @param value the new value of the '<em>Input</em>' containment reference.
 	 * @see #getInput()
 	 * @generated
 	 */
@@ -255,9 +207,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.build.IBuilder#getOutput <em>Output</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Output</em>' containment reference.
+	 * @param value the new value of the '<em>Output</em>' containment reference.
 	 * @see #getOutput()
 	 * @generated
 	 */
@@ -267,9 +217,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.build.IBuilder#getPostcondExpr <em>Postcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Postcond Expr</em>' containment reference.
+	 * @param value the new value of the '<em>Postcond Expr</em>' containment reference.
 	 * @see #getPostcondExpr()
 	 * @generated
 	 */
@@ -279,9 +227,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.build.IBuilder#getPostinputcondExpr <em>Postinputcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Postinputcond Expr</em>' containment reference.
+	 * @param value the new value of the '<em>Postinputcond Expr</em>' containment reference.
 	 * @see #getPostinputcondExpr()
 	 * @generated
 	 */
@@ -291,9 +237,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.build.IBuilder#getPrecondExpr <em>Precond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Precond Expr</em>' containment reference.
+	 * @param value the new value of the '<em>Precond Expr</em>' containment reference.
 	 * @see #getPrecondExpr()
 	 * @generated
 	 */
@@ -303,9 +247,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.build.IBuilder#getSource <em>Source</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Source</em>' containment reference.
+	 * @param value the new value of the '<em>Source</em>' containment reference.
 	 * @see #getSource()
 	 * @generated
 	 */
@@ -315,9 +257,7 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.build.IBuilder#getUnitType <em>Unit Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Unit Type</em>' attribute.
+	 * @param value the new value of the '<em>Unit Type</em>' attribute.
 	 * @see #getUnitType()
 	 * @generated
 	 */
