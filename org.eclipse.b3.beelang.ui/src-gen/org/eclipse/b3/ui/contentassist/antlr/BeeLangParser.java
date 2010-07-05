@@ -270,6 +270,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuildCallOnReferencedRequirementAccess().getGroup_2(), "rule__BuildCallOnReferencedRequirement__Group_2__0");
 					put(grammarAccess.getBuildCallOnReferencedRequirementAccess().getGroup_3(), "rule__BuildCallOnReferencedRequirement__Group_3__0");
 					put(grammarAccess.getBuildCallOnSelectedRequirementAccess().getGroup(), "rule__BuildCallOnSelectedRequirement__Group__0");
+					put(grammarAccess.getBuildCallOnSelectedRequirementAccess().getGroup_3(), "rule__BuildCallOnSelectedRequirement__Group_3__0");
+					put(grammarAccess.getBuildCallOnSelectedRequirementAccess().getGroup_4(), "rule__BuildCallOnSelectedRequirement__Group_4__0");
 					put(grammarAccess.getBuilderInputGroupAccess().getGroup(), "rule__BuilderInputGroup__Group__0");
 					put(grammarAccess.getBuilderInputGroupAccess().getGroup_2(), "rule__BuilderInputGroup__Group_2__0");
 					put(grammarAccess.getBuilderInputGroupAccess().getGroup_2_1(), "rule__BuilderInputGroup__Group_2_1__0");
@@ -686,6 +688,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuildCallOnReferencedRequirementAccess().getBuilderNameAssignment_2_1(), "rule__BuildCallOnReferencedRequirement__BuilderNameAssignment_2_1");
 					put(grammarAccess.getBuildCallOnReferencedRequirementAccess().getParametersAssignment_3_1(), "rule__BuildCallOnReferencedRequirement__ParametersAssignment_3_1");
 					put(grammarAccess.getBuildCallOnSelectedRequirementAccess().getRequiredPredicateAssignment_2(), "rule__BuildCallOnSelectedRequirement__RequiredPredicateAssignment_2");
+					put(grammarAccess.getBuildCallOnSelectedRequirementAccess().getBuilderNameAssignment_3_1(), "rule__BuildCallOnSelectedRequirement__BuilderNameAssignment_3_1");
+					put(grammarAccess.getBuildCallOnSelectedRequirementAccess().getParametersAssignment_4_1(), "rule__BuildCallOnSelectedRequirement__ParametersAssignment_4_1");
 					put(grammarAccess.getBuilderInputGroupAccess().getBuilderInputAssignment_2_0(), "rule__BuilderInputGroup__BuilderInputAssignment_2_0");
 					put(grammarAccess.getBuilderInputGroupAccess().getBuilderInputAssignment_2_1_1(), "rule__BuilderInputGroup__BuilderInputAssignment_2_1_1");
 					put(grammarAccess.getBuilderAccess().getDocumentationAssignment_1(), "rule__Builder__DocumentationAssignment_1");

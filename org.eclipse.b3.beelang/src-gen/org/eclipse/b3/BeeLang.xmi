@@ -1287,6 +1287,19 @@
       <elements xsi:type="xtext:Assignment" feature="requiredPredicate" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.149"/>
       </elements>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="."/>
+        <elements xsi:type="xtext:Assignment" feature="builderName" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.189"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="parameters" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.43"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="BuilderInputGroup">

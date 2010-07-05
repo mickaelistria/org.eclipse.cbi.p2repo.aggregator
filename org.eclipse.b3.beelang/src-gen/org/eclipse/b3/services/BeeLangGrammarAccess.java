@@ -3151,12 +3151,23 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSelectRequiredKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cRequiredPredicateAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cRequiredPredicateCapabilityPredicateParserRuleCall_2_0 = (RuleCall)cRequiredPredicateAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cFullStopKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cBuilderNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cBuilderNameBuilderNameParserRuleCall_3_1_0 = (RuleCall)cBuilderNameAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cParametersAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cParametersParameterListParserRuleCall_4_1_0 = (RuleCall)cParametersAssignment_4_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		
 		//BuildCallOnSelectedRequirement returns build::BuilderInput:
-		//	{build::BuildCallOnSelectedRequirements} "select-required" requiredPredicate=CapabilityPredicate;
+		//	{build::BuildCallOnSelectedRequirements} "select-required" requiredPredicate=CapabilityPredicate ("."
+		//	builderName=BuilderName)? ("(" parameters=ParameterList? ")");
 		public ParserRule getRule() { return rule; }
 
-		//{build::BuildCallOnSelectedRequirements} "select-required" requiredPredicate=CapabilityPredicate
+		//{build::BuildCallOnSelectedRequirements} "select-required" requiredPredicate=CapabilityPredicate ("."
+		//builderName=BuilderName)? ("(" parameters=ParameterList? ")")
 		public Group getGroup() { return cGroup; }
 
 		//{build::BuildCallOnSelectedRequirements}
@@ -3170,6 +3181,33 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//CapabilityPredicate
 		public RuleCall getRequiredPredicateCapabilityPredicateParserRuleCall_2_0() { return cRequiredPredicateCapabilityPredicateParserRuleCall_2_0; }
+
+		//("." builderName=BuilderName)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"."
+		public Keyword getFullStopKeyword_3_0() { return cFullStopKeyword_3_0; }
+
+		//builderName=BuilderName
+		public Assignment getBuilderNameAssignment_3_1() { return cBuilderNameAssignment_3_1; }
+
+		//BuilderName
+		public RuleCall getBuilderNameBuilderNameParserRuleCall_3_1_0() { return cBuilderNameBuilderNameParserRuleCall_3_1_0; }
+
+		//"(" parameters=ParameterList? ")"
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_4_0() { return cLeftParenthesisKeyword_4_0; }
+
+		//parameters=ParameterList?
+		public Assignment getParametersAssignment_4_1() { return cParametersAssignment_4_1; }
+
+		//ParameterList
+		public RuleCall getParametersParameterListParserRuleCall_4_1_0() { return cParametersParameterListParserRuleCall_4_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_4_2() { return cRightParenthesisKeyword_4_2; }
 	}
 
 	public class BuilderInputGroupElements extends AbstractParserRuleElementFinder {
@@ -12859,7 +12897,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BuildCallOnSelectedRequirement returns build::BuilderInput:
-	//	{build::BuildCallOnSelectedRequirements} "select-required" requiredPredicate=CapabilityPredicate;
+	//	{build::BuildCallOnSelectedRequirements} "select-required" requiredPredicate=CapabilityPredicate ("."
+	//	builderName=BuilderName)? ("(" parameters=ParameterList? ")");
 	public BuildCallOnSelectedRequirementElements getBuildCallOnSelectedRequirementAccess() {
 		return (pBuildCallOnSelectedRequirement != null) ? pBuildCallOnSelectedRequirement : (pBuildCallOnSelectedRequirement = new BuildCallOnSelectedRequirementElements());
 	}

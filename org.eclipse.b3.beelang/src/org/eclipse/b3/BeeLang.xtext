@@ -327,7 +327,8 @@ BuildCallOnReferencedRequirement returns build::BuilderInput : {build::BuildCall
 	;
 	
 BuildCallOnSelectedRequirement returns build::BuilderInput : {build::BuildCallOnSelectedRequirements}
-	"select-required" requiredPredicate = CapabilityPredicate 
+	"select-required" requiredPredicate = CapabilityPredicate ('.' builderName=BuilderName)?
+	('(' parameters = ParameterList? ')')	
 	;
 	
 BuilderInputGroup returns build::BuilderInput : {build::BuilderInputGroup}

@@ -5892,6 +5892,66 @@ ruleBuildCallOnSelectedRequirement returns [EObject current=null]
 	    }
 
 )
+)(	'.' 
+    {
+        createLeafNode(grammarAccess.getBuildCallOnSelectedRequirementAccess().getFullStopKeyword_3_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getBuildCallOnSelectedRequirementAccess().getBuilderNameBuilderNameParserRuleCall_3_1_0(), currentNode); 
+	    }
+		lv_builderName_4_0=ruleBuilderName		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getBuildCallOnSelectedRequirementRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"builderName",
+	        		lv_builderName_4_0, 
+	        		"BuilderName", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))?(	'(' 
+    {
+        createLeafNode(grammarAccess.getBuildCallOnSelectedRequirementAccess().getLeftParenthesisKeyword_4_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getBuildCallOnSelectedRequirementAccess().getParametersParameterListParserRuleCall_4_1_0(), currentNode); 
+	    }
+		lv_parameters_6_0=ruleParameterList		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getBuildCallOnSelectedRequirementRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"parameters",
+	        		lv_parameters_6_0, 
+	        		"ParameterList", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)?	')' 
+    {
+        createLeafNode(grammarAccess.getBuildCallOnSelectedRequirementAccess().getRightParenthesisKeyword_4_2(), null); 
+    }
 ))
 ;
 
