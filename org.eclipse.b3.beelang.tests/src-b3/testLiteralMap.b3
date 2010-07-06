@@ -1,7 +1,7 @@
-import java.util.List;
-import java.lang.String;
-import java.lang.Integer;
-import java.util.Map;
+use java.util.List;
+use java.lang.String;
+use java.lang.Integer;
+use java.util.Map;
 
 function main(List argv) {
 	testLiteralMap();

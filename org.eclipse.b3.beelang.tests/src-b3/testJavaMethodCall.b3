@@ -1,12 +1,14 @@
-import java.lang.Object;
-import java.util.List;
-import java.lang.Integer;
-import java.lang.Math;
-import java.lang.StringBuilder;
-import java.lang.String;
-import java.lang.ProcessBuilder;
+use java.lang.Object;
+use java.util.List;
+use java.lang.Integer;
+use java.lang.Math;
+use java.lang.StringBuilder;
+use java.lang.String;
+use java.lang.ProcessBuilder;
 
 function Object main(List argv) {
+	assertAssignable("Should be a list", List, new ProcessBuilder().command("java","Test").command());
+	
 	testSubstring1();
 	testSubstring2();
 	testStartsWith();
@@ -14,7 +16,8 @@ function Object main(List argv) {
 	testMathMax();
 	testMathSin();
 	testStaticStringFormat();
-	testStringFormat();
+	assertTrue("should have worked", testStringFormat());
+	testNonObjectVararg();
 }
 function Object testSubstring1() {
 	assertEquals("'hello world'.substring(6) == 'world'", "world", "hello world".substring(6));

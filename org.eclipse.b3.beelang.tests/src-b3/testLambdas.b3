@@ -1,9 +1,9 @@
 // TODO: Test literal functions. Definition, Calling, passing,
 // TODO: Test closure parameter a(x| x+1);
-import java.lang.Object;
-import java.util.List;
-import java.lang.Integer;
-import java.lang.Number;
+use java.lang.Object;
+use java.util.List;
+use java.lang.Integer;
+use java.lang.Number;
 
 function Object main(List argv) {
 	testClosure();

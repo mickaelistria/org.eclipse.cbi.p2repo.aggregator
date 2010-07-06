@@ -1,8 +1,8 @@
-import java.lang.Integer;
-import java.util.List;
-import java.util.Map;
-import java.util.LinkedHashMap;
-import java.lang.Object;
+use java.lang.Integer;
+use java.util.List;
+use java.util.Map;
+use java.util.LinkedHashMap;
+use java.lang.Object;
 
 
 concern aMatterOfTaste {

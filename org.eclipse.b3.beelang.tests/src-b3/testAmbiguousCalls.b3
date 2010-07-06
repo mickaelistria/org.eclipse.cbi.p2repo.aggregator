@@ -1,4 +1,4 @@
-import java.util.List;
+use java.util.List;
 
 function main(List argv) {
 	testContainsAllTwice();

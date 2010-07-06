@@ -1,8 +1,8 @@
-import java.util.List;
-import java.lang.Integer;
-import java.lang.Boolean;
-import java.lang.Object;
-import java.lang.Double;
+use java.util.List;
+use java.lang.Integer;
+use java.lang.Boolean;
+use java.lang.Object;
+use java.lang.Double;
 
 function main(List argv) {
 	testInject();

@@ -1,7 +1,7 @@
-import java.lang.Object;
-import java.lang.Number;
-import java.util.List;
-import org.eclipse.b3.backend.core.B3AssertionFailedException;
+use java.lang.Object;
+use java.lang.Number;
+use java.util.List;
+use org.eclipse.b3.backend.core.B3AssertionFailedException;
 
 /**
 * Assert that true is returned.

@@ -1,5 +1,5 @@
-import java.lang.Integer;
-import java.util.List;
+use java.lang.Integer;
+use java.util.List;
 
 default-properties {
 	Integer ${property.a} = 0;

@@ -1,6 +1,6 @@
-import java.lang.Object;
-import java.util.List;
-import java.lang.Number;
+use java.lang.Object;
+use java.util.List;
+use java.lang.Number;
 
 function Object main(List argv) {
 	testLogical();

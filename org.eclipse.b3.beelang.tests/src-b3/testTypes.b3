@@ -1,11 +1,11 @@
-import java.lang.Object;
-import java.util.List;
-import java.util.Map;
-import java.lang.Integer;
-import java.lang.Double;
-import java.lang.Float;
-import java.lang.String;
-import java.lang.String as Text;
+use java.lang.Object;
+use java.util.List;
+use java.util.Map;
+use java.lang.Integer;
+use java.lang.Double;
+use java.lang.Float;
+use java.lang.String;
+use java.lang.String as Text;
 
 function Object main(List argv) {
 	testTypes();

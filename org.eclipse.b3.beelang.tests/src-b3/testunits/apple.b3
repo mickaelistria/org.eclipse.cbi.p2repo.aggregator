@@ -1,6 +1,6 @@
-import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
+use org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
 
-unit apple version 1.0.0  implements Fruit {
+unit apple version 1.0.0  is Fruit {
 	builder peel {
 	source : [  foo.txt ];
 	output : [ foo.txt ];

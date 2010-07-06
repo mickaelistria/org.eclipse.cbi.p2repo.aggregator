@@ -1,8 +1,8 @@
-import java.lang.Object;
-import java.util.List;
-import java.lang.Number;
-import java.util.Map;
-import java.lang.String;
+use java.lang.Object;
+use java.util.List;
+use java.lang.Number;
+use java.util.Map;
+use java.lang.String;
 
 /** Assert function returns true */
 function Object main(List argv) {

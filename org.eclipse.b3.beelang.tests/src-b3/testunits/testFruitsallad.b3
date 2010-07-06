@@ -1,9 +1,9 @@
-import java.lang.Iterable;
-import java.util.List;
-import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
-import org.eclipse.b3.build.BuildUnit;
-import org.eclipse.b3.beelang.tests.repo.TestRepo;
-import org.eclipse.b3.build.core.B3BuildEngine;
+use java.lang.Iterable;
+use java.util.List;
+use org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
+use org.eclipse.b3.build.BuildUnit;
+use org.eclipse.b3.beelang.tests.repo.TestRepo;
+use org.eclipse.b3.build.core.B3BuildEngine;
 
 /**
 * Used to advice 'Fruit' that the waste (seeds and peel) can be built.
@@ -127,7 +127,7 @@ unit fruitsallad version 1.0.0 {
 /**
 * A Fruit with the simplest form of builders (source).
 */
-unit apple version 1.0.0  implements Fruit {
+unit apple version 1.0.0  is Fruit {
 	source : "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/";
 	builder peel {
 		source : [ applepeel.txt ];
@@ -144,7 +144,7 @@ unit apple version 1.0.0  implements Fruit {
 * A Fruit with the simplest form of builders (source).
 * Has some extra provided capabilities.
 */
-unit banana version 1.0.0 implements Fruit {
+unit banana version 1.0.0 is Fruit {
 	source : "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/banana/";
 	
 //	provides : food.nutrition.vitamin B6;
@@ -166,7 +166,7 @@ unit banana version 1.0.0 implements Fruit {
 * A Fruit with the simplest form of builders (source).
 * Has some extra provided capabilities, and a capability provided by a builder.
 */
-unit orange version 1.0.0 implements Fruit {
+unit orange version 1.0.0 is Fruit {
 	source : "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/";
 	
 	provides : capability {name-space: food.nutrition.vitamin; name : "C";};

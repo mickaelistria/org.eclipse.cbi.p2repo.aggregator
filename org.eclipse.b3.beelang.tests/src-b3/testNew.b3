@@ -1,10 +1,10 @@
 // TODO: Test new model::class (parameters?)
-import java.util.List;
-import java.lang.StringBuffer;
-import java.util.HashMap;
-import java.lang.Float;
-import java.lang.Object;
-import org.eclipse.b3.beelang.tests.testmaterial.Person;
+use java.util.List;
+use java.lang.StringBuffer;
+use java.util.HashMap;
+use java.lang.Float;
+use java.lang.Object;
+use org.eclipse.b3.beelang.tests.testmaterial.Person;
 
 function main(List argv) {
 	testNew();

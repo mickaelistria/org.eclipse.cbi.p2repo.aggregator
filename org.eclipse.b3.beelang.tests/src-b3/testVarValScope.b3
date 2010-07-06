@@ -1,7 +1,7 @@
-import java.lang.Object;
-import java.lang.Integer;
-import java.util.List;
-import java.lang.Exception;
+use java.lang.Object;
+use java.lang.Integer;
+use java.util.List;
+use java.lang.Exception;
 
 function Object main(List argv) {
 	testVal();

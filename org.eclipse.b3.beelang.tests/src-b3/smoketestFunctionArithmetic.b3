@@ -1,5 +1,5 @@
-import java.util.List;
-import java.lang.Number;
+use java.util.List;
+use java.lang.Number;
 
 function main(List argv) : testArithmeticSmokeTest() ;
 function testArithmeticSmokeTest() :

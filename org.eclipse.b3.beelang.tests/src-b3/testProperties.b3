@@ -1,6 +1,6 @@
-import java.util.List;
-import java.lang.String;
-import java.lang.System;
+use java.util.List;
+use java.lang.String;
+use java.lang.System;
 
 default-properties {
 	String ${java.version} = "";

@@ -1,5 +1,5 @@
-import java.lang.Object;
-import java.util.List;
+use java.lang.Object;
+use java.util.List;
 
 /** Assert function returns true */
 function Object main(List argv) {

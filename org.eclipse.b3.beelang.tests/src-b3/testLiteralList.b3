@@ -1,6 +1,6 @@
-import java.util.List;
-import java.lang.String;
-import java.lang.Integer;
+use java.util.List;
+use java.lang.String;
+use java.lang.Integer;
 
 function main(List argv) {
 	testLiteralList();
@@ -24,6 +24,6 @@ function testAnyComparison() {
 }
 function testCallLambdaInList() {
 	Integer outside = 10;
-	var a = [<()=>Integer> {<Integer>| outside +10;}];
+	var a = [<()=>Integer> {<Integer>| outside +10 }];
 	assertEquals("calling a lambda in a list", 20, (a[0])());
 }

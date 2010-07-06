@@ -1,5 +1,5 @@
-import java.util.List;
-import java.lang.Integer;
+use java.util.List;
+use java.lang.Integer;
 
 function main(List argv) {
 	testCache();

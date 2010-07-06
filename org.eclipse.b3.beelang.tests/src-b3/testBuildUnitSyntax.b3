@@ -2,9 +2,9 @@
 * Test syntax of build unit and related concerns.
 * 
 */
-import java.util.List; // cheat, need a type, don't have the actual types yet...
-import java.util.Map; // - " - 
-import java.lang.String;
+use java.util.List; // cheat, need a type, don't have the actual types yet...
+use java.util.Map; // - " - 
+use java.lang.String;
 
 default-properties {
 	${this.property.is.set} = true;
@@ -24,11 +24,11 @@ concern TestingBuildUnitConcernSyntaxSimple {
 	// define functions intermixed with other things
 	function foo() : "foo"; 
 	
-	// implements with type reference
+	// is with type reference
 	unit-context {
-		select-units : implements == List ;
+		select-units : is == List ;
 		modify-selected :
-		 { /* what to do with units that implements List*/ };
+		 { /* what to do with units that is List*/ };
 	}
 	
 	function bar() : "bar";
@@ -101,8 +101,8 @@ concern TestingUnitContextSyntax {
 	unit-context { 
 	select-units: 
 			unit ~= { name ~= _; } 
-		&& 	implements == List 
-		&& 	implements == Map 
+		&& 	is == List 
+		&& 	is == Map 
 		&& 	requires ~= capability { name-space == a; name == b; version ~= [0.0.0, 9.9.9]; }
 		|| 	! unit ~= { name ~= ~/org\.myorg\.fixed/; };
 	modify-selected: { }; 
@@ -204,7 +204,7 @@ concern TestingUnitContextBody {
 			// TODO - group these rather than having them as :
 			requires : {
 			+ capability { name-space : foo;  name : "bar"; version : 1.0.0; };
-			+ capability { name-space : a;  name : "b"; }; // NO {} 
+			+ capability { name-space : a;  name : "b"; } as ordinaryStuff; // NO {} 
 			+ capability { 
 				name-space : something; 
 				name : "green" ;
@@ -267,7 +267,7 @@ unit aTestUnit version 1.0.0 {
 	builder pulp {
 		// test that groups in the input are available as variables in "result" 
 		// why does 
-		input : [ capability {name : "bar.a"; }.bar() as theBars, capability { name : "foo"; }.foo() as theFoos];
+		input : [ capability {name : "bar.a"; }.bar() as theBars , capability { name : "foo"; }.foo() as theFoos];
 		output : [ bananapulp.txt ] ;
 		result : theFoos.merge(theBars);
 	}

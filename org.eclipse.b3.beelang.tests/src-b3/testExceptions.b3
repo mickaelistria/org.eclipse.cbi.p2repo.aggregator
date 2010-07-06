@@ -1,9 +1,9 @@
-import java.util.List;
-import java.lang.Boolean;
-import java.lang.IllegalArgumentException;
-import java.lang.Exception;
-import java.lang.NullPointerException;
-import java.lang.Object;
+use java.util.List;
+use java.lang.Boolean;
+use java.lang.IllegalArgumentException;
+use java.lang.Exception;
+use java.lang.NullPointerException;
+use java.lang.Object;
 
 function main(List argv) {
 	testTryCatch();
