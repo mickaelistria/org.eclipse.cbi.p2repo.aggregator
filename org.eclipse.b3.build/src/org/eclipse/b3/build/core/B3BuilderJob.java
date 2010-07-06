@@ -191,9 +191,9 @@ public class B3BuilderJob extends Job {
 			if(unitProperties != null || builderProperties != null) {
 				BInnerContext ictx = ctx.createWrappedInnerContext();
 				if(unitProperties != null)
-					unitProperties.evaluateDefaults(ictx.getOuterContext(), true);
+					evaluator.doEvaluateDefaults(unitProperties, ictx, true);
 				if(builderProperties != null)
-					builderProperties.evaluateDefaults(ictx.getOuterContext(), true);
+					evaluator.doEvaluateDefaults(builderProperties, ictx, true);
 				ctx = ictx;
 			}
 
@@ -310,7 +310,9 @@ public class B3BuilderJob extends Job {
 							? ((BInnerContext) ctx).getOuterContext()
 							: ctx);
 					specialContext.getValueMap().merge(source.getValueMap());
-					propertySet.evaluateDefaults(specialContext.createInnerContext(), false);
+					evaluator.doEvaluateDefaults(propertySet, specialContext.createInnerContext(), false);
+
+					// propertySet.evaluateDefaults(specialContext.createInnerContext(), false);
 					source.setValueMap(specialContext.getValueMap());
 				}
 			}
@@ -405,7 +407,8 @@ public class B3BuilderJob extends Job {
 					// only the special context is consulted for already set values (i.e. to determine
 					// if the default should be used or not, as opposed to evaluating properties and values
 					// visible in the context).
-					propertySet.evaluateDefaults(specialContext.createInnerContext(), false);
+					evaluator.doEvaluateDefaults(propertySet, specialContext.createInnerContext(), false);
+					// propertySet.evaluateDefaults(specialContext.createInnerContext(), false);
 
 					// Steal the value map from the special context and use it in the result
 					// (the context is forgotten at this point and does not need its values).

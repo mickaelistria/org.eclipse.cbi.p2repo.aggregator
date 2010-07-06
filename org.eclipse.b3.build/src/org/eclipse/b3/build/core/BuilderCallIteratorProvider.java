@@ -86,7 +86,7 @@ public class BuilderCallIteratorProvider {
 	public Iterator<EffectiveBuilderCallFacade> effectiveIterator(BuildCallOnSelectedRequirements o,
 			BExecutionContext ctx) throws Throwable {
 		List<EffectiveBuilderCallFacade> result = Lists.newArrayList();
-		BuildUnit unit = (BuildUnit) ctx.getDeclaredValueType(B3BuildConstants.B3_VAR_UNIT);
+		BuildUnit unit = (BuildUnit) ctx.getValue(B3BuildConstants.B3_VAR_UNIT);
 
 		// Get the Effective Unit Requirements
 		for(EffectiveRequirementFacade uerf : unit.getEffectiveFacade(ctx).getUnitRequiredCapabilities()) {
@@ -163,7 +163,8 @@ public class BuilderCallIteratorProvider {
 		BPropertySet defProp = o.getDefaultProperties();
 		if(defProp != null) {
 			ctxToUse = ctxToUse.createInnerContext();
-			defProp.evaluateDefaults(ctxToUse, true);
+			ctx.getInjector().getInstance(IB3Evaluator.class).doEvaluateDefaults(defProp, ctxToUse, true);
+			// defProp.evaluateDefaults(ctxToUse, true);
 		}
 		return doGetEffectiveIterator(o.getInput(), ctxToUse);
 	}

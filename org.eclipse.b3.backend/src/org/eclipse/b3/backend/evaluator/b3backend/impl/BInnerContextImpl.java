@@ -26,17 +26,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BInnerContextImpl#getOuterContext <em>Outer Context</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BInnerContextImpl#getOuterContext <em>Outer Context</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BInnerContextImpl extends BExecutionContextImpl implements BInnerContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -45,7 +44,6 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 	 * The cached value of the '{@link #getOuterContext() <em>Outer Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getOuterContext()
 	 * @generated
 	 * @ordered
@@ -55,7 +53,6 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BInnerContextImpl() {
@@ -65,7 +62,6 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExecutionContext basicGetOuterContext() {
@@ -90,15 +86,13 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BINNER_CONTEXT__OUTER_CONTEXT:
-				if(resolve)
-					return getOuterContext();
+				if (resolve) return getOuterContext();
 				return basicGetOuterContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -107,12 +101,11 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BINNER_CONTEXT__OUTER_CONTEXT:
 				return outerContext != null;
 		}
@@ -122,14 +115,13 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BINNER_CONTEXT__OUTER_CONTEXT:
-				setOuterContext((BExecutionContext) newValue);
+				setOuterContext((BExecutionContext)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,7 +130,6 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -149,14 +140,13 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BINNER_CONTEXT__OUTER_CONTEXT:
-				setOuterContext((BExecutionContext) null);
+				setOuterContext((BExecutionContext)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -165,18 +155,15 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExecutionContext getOuterContext() {
-		if(outerContext != null && outerContext.eIsProxy()) {
-			InternalEObject oldOuterContext = (InternalEObject) outerContext;
-			outerContext = (BExecutionContext) eResolveProxy(oldOuterContext);
-			if(outerContext != oldOuterContext) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, B3backendPackage.BINNER_CONTEXT__OUTER_CONTEXT, oldOuterContext,
-						outerContext));
+		if (outerContext != null && outerContext.eIsProxy()) {
+			InternalEObject oldOuterContext = (InternalEObject)outerContext;
+			outerContext = (BExecutionContext)eResolveProxy(oldOuterContext);
+			if (outerContext != oldOuterContext) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BINNER_CONTEXT__OUTER_CONTEXT, oldOuterContext, outerContext));
 			}
 		}
 		return outerContext;
@@ -185,14 +172,12 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setOuterContext(BExecutionContext newOuterContext) {
 		BExecutionContext oldOuterContext = outerContext;
 		outerContext = newOuterContext;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BINNER_CONTEXT__OUTER_CONTEXT, oldOuterContext, outerContext));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BINNER_CONTEXT__OUTER_CONTEXT, oldOuterContext, outerContext));
 	}
 } // BInnerContextImpl

@@ -32,18 +32,17 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -52,7 +51,6 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -63,7 +61,6 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -74,7 +71,6 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	 * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getExpr()
 	 * @generated
 	 * @ordered
@@ -84,7 +80,6 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BParameterImpl() {
@@ -94,19 +89,14 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetExpr(BExpression newExpr, NotificationChain msgs) {
 		BExpression oldExpr = expr;
 		expr = newExpr;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BPARAMETER__EXPR, oldExpr, newExpr);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER__EXPR, oldExpr, newExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -114,12 +104,11 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPARAMETER__NAME:
 				return getName();
 			case B3backendPackage.BPARAMETER__EXPR:
@@ -131,12 +120,11 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPARAMETER__EXPR:
 				return basicSetExpr(null, msgs);
 		}
@@ -146,16 +134,13 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPARAMETER__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case B3backendPackage.BPARAMETER__EXPR:
 				return expr != null;
 		}
@@ -165,17 +150,16 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPARAMETER__NAME:
-				setName((String) newValue);
+				setName((String)newValue);
 				return;
 			case B3backendPackage.BPARAMETER__EXPR:
-				setExpr((BExpression) newValue);
+				setExpr((BExpression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -184,7 +168,6 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -195,17 +178,16 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPARAMETER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 			case B3backendPackage.BPARAMETER__EXPR:
-				setExpr((BExpression) null);
+				setExpr((BExpression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -214,7 +196,6 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getExpr() {
@@ -224,7 +205,6 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -234,49 +214,42 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setExpr(BExpression newExpr) {
-		if(newExpr != expr) {
+		if (newExpr != expr) {
 			NotificationChain msgs = null;
-			if(expr != null)
-				msgs = ((InternalEObject) expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BPARAMETER__EXPR, null, msgs);
-			if(newExpr != null)
-				msgs = ((InternalEObject) newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BPARAMETER__EXPR, null, msgs);
+			if (expr != null)
+				msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER__EXPR, null, msgs);
+			if (newExpr != null)
+				msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER__EXPR, null, msgs);
 			msgs = basicSetExpr(newExpr, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
+		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER__EXPR, newExpr, newExpr));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

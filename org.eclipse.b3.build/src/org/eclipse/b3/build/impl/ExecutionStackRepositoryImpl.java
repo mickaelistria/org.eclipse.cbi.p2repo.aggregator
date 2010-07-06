@@ -31,13 +31,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implements ExecutionStackRepository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ExecutionStackRepositoryImpl() {
@@ -47,6 +48,7 @@ public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

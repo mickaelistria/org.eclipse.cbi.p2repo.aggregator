@@ -36,7 +36,7 @@ BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT) : {build::Be
 	;
 
 Import returns be::IType : {be::B3JavaImport}
-	(reexport ?='reexport')? "import" qualifiedName = QID ("as" name=ID)? ';' 
+	(reexport ?='reexport')? "use" qualifiedName = QID ("as" name=ID)? ';' 
 	;
 
 // Wanted later 
@@ -50,8 +50,9 @@ Import returns be::IType : {be::B3JavaImport}
 BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::BuildUnit}
 	(documentation = DOCUMENTATION)?
 	(executionMode = ExecutionMode)?
-	'unit' (name=UnitName)? ('version' version = VersionLiteral)?
-		('implements' implements += SimpleTypeRef (',' implements+=SimpleTypeRef)*)? 
+	'unit' (name=EscapedQualifiedName)? ('version' version = VersionLiteral)?
+		('is' implements += SimpleTypeRef (',' implements+=SimpleTypeRef)*)? 
+	((
 	'{'
 		( ('source' ':' sourceLocation = Path ';') //?
 		| ('output' ':' outputLocation = Path ';') //?
@@ -79,8 +80,9 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 		| (repositories += Repository) //*
 		| (defaultProperties = PropertySetDefault) //?
 		)*
-		
-	'}';
+	'}' 
+	) | ';' )
+	;
 
 ProvidedCapability returns build::VersionedCapability : {build::VersionedCapability}
 	("unit" | "capability")
@@ -309,12 +311,12 @@ BuilderInputUnnamed returns build::BuilderInput
 
 // A reference to a builder in the same unit
 BuildCallOnUnitRequirement returns build::BuilderInput : {build::BuildCallOnDeclaredRequirement} 
-	"unit" '.' builderName=BuilderName ('(' parameters = ParameterList? ')') ; 
+	"unit" '.' builderName=EscapedQualifiedName ('(' parameters = ParameterList? ')') ; 
 
 // A reference to a builder in a unit providing a capability (or if build name is omitted to the
 // builder that provides the capability in that unit).
 BuildCallOnCapabilityRequirement returns build::BuilderInput : {build::BuildCallOnDeclaredRequirement}
-	requiredCapabilityDeclaration = RequiredCapability_Unfiltered ('.' builderName=BuilderName)?
+	requiredCapabilityDeclaration = RequiredCapability_Unfiltered ('.' builderName=EscapedQualifiedName)?
 	('(' parameters = ParameterList? ')')	 
 	;
 	
@@ -322,12 +324,12 @@ BuildCallOnCapabilityRequirement returns build::BuilderInput : {build::BuildCall
 // builder that provides the capability in that unit).
 // TODO: validate that a referenced capability of unit has builderName set
 BuildCallOnReferencedRequirement returns build::BuilderInput : {build::BuildCallOnReferencedRequirement}
-	requiredCapabilityReference = [build::AliasedRequiredCapability | ID] ('.' builderName=BuilderName) ?
+	requiredCapabilityReference = [build::AliasedRequiredCapability | ID] ('.' builderName=EscapedQualifiedName) ?
 	('(' parameters = ParameterList? ')')	 
 	;
 	
 BuildCallOnSelectedRequirement returns build::BuilderInput : {build::BuildCallOnSelectedRequirements}
-	"select-required" requiredPredicate = CapabilityPredicate ('.' builderName=BuilderName)?
+	"select-required" requiredPredicate = CapabilityPredicate ('.' builderName=EscapedQualifiedName)?
 	('(' parameters = ParameterList? ')')	
 	;
 	
@@ -341,7 +343,7 @@ Builder returns build::Builder : {build::Builder}
     (executionMode = ExecutionMode)?
   	(final ?= "final")?
     "builder"
-	name=BuilderName
+	name=EscapedQualifiedName
 	('(' 
 		// first parameter is always "unit", but is implied to "this unit" if builder is specified in
 		// a build unit
@@ -1001,7 +1003,7 @@ RequiresPredicate returns build::RequiresPredicate : {build::RequiresPredicate}
 	;
 	
 ImplementsPredcicate returns be::BExpression: {build::ImplementsPredicate}
-	"implements" "==" type = TypeRef 
+	"is" "==" type = TypeRef 
 	;
 	
 ProvidesPredicate returns build::ProvidesPredicate : {build::ProvidesPredicate}
@@ -1244,10 +1246,9 @@ QID hidden(): ID_or_KW (INT|HEX|ID_or_KW)* ('.' ID_or_KW (INT|HEX|ID_or_KW)*)* ;
 EscapedQualifiedName:  STRING | QID;
 CapabilityInterface	: QID ;
 
-// Aliases that help with unified naming (good for experiments - the indirection can be removed later)
-UnitName 		: EscapedQualifiedName ;
-BuilderName 	: EscapedQualifiedName ;
-CapabilityName 	: STRING ; // although nice to just write a.b.c it clashes with a.b.c.builder()
+//// Aliases that help with unified naming (good for experiments - the indirection can be removed later)
+//BuilderName 	: EscapedQualifiedName ;
+//CapabilityName 	: STRING ; // although nice to just write a.b.c it clashes with a.b.c.builder()
 
 enum Visibility 	returns be::Visibility : public | private ;
 enum ExecutionMode 	returns be::ExecutionMode: parallel | sequential ;

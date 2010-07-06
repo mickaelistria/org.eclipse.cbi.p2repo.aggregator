@@ -15,7 +15,6 @@ RULE_ML_COMMENT=14
 '>='=99
 'update-content'=76
 '=='=95
-'implements'=24
 'include'=80
 'select-units'=138
 'this'=134
@@ -26,6 +25,7 @@ RULE_ML_COMMENT=14
 'exclude'=79
 '=>'=105
 'load-from'=45
+'is'=24
 'parallel'=159
 'env'=34
 'select-required'=59
@@ -103,7 +103,6 @@ RULE_ML_COMMENT=14
 '.'=58
 'function'=88
 'proceed'=121
-'import'=19
 '$'=151
 'elseif'=133
 '++'=118
@@ -146,6 +145,7 @@ RULE_ML_COMMENT=14
 'capability'=36
 ')'=48
 '*='=91
+'use'=19
 'connection'=67
 '}'=35
 'tag'=155

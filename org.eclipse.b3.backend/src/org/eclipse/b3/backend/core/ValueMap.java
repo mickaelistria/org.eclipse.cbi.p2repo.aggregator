@@ -1,5 +1,6 @@
 package org.eclipse.b3.backend.core;
 
+import java.io.PrintStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -210,6 +211,37 @@ public class ValueMap {
 			else
 				// just store the entry (value, type, and final/etc)
 				values.put(key, add.values.get(key));
+		}
+	}
+
+	public void printDump(PrintStream x, int indent) {
+		if(values == null)
+			return;
+		final StringBuffer indentBuf = new StringBuffer(indent);
+		for(int i = 0; i < indent; i++)
+			indentBuf.append(" ");
+		x.printf("%sValues\n", indentBuf.toString());
+		indentBuf.append("  ");
+		final String is = indentBuf.toString();
+
+		for(Entry<String, ValueEntry> v : values.entrySet()) {
+			final StringBuffer buf = new StringBuffer();
+			buf.append(is);
+			ValueEntry value = v.getValue();
+			buf.append(value.isImmutable()
+					? "val "
+					: "var ");
+			buf.append(v.getKey());
+			buf.append(" ");
+			buf.append(value.type.toString());
+			buf.append(" ");
+			buf.append(value.isFinal()
+					? "final "
+					: "");
+			buf.append(" = ");
+			buf.append(value.value.toString());
+			buf.append("\n");
+			x.print(buf);
 		}
 	}
 

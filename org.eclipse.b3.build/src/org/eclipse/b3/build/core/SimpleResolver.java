@@ -10,8 +10,6 @@ package org.eclipse.b3.build.core;
 
 import org.eclipse.b3.backend.core.B3NoSuchVariableException;
 import org.eclipse.b3.backend.evaluator.IB3Evaluator;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
-import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BeeModel;
@@ -50,7 +48,9 @@ public class SimpleResolver implements IBuildUnitResolver {
 	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveAll(org.eclipse.b3.build.BuildContext)
 	 */
 	public IStatus resolveAll(BExecutionContext ctx) {
+		// System.err.print("RESOLVE ALL\n");
 		EffectiveUnitIterator uItor = new EffectiveUnitIterator(ctx);
+		// ctx.printStackTrace();
 		MultiStatus ms = new MultiStatus(B3BuildActivator.instance.getBundle().getSymbolicName(), 0, "", null);
 		while(uItor.hasNext())
 			ms.add(resolveUnit(uItor.next(), ctx));
@@ -63,13 +63,19 @@ public class SimpleResolver implements IBuildUnitResolver {
 	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveUnit(org.eclipse.b3.build.BuildUnit, org.eclipse.b3.build.BuildContext)
 	 */
 	public IStatus resolveUnit(BuildUnit unit, BExecutionContext ctx) {
+		// System.err.printf("RESOLVING UNIT: %s", unit.getName());
 
 		// ALREADY RESOLVED
 		// check if the unit is already resolved
 		ResolutionInfoAdapter unitAdapter = ResolutionInfoAdapterFactory.eINSTANCE.adapt(unit);
 		ResolutionInfo ri = unitAdapter.getAssociatedInfo(this);
-		if(ri != null && ri.getStatus().isOK())
+		if(ri != null && ri.getStatus().isOK()) {
+			// System.err.printf(" ALREADY RESOLVED - %s\n", ri.getStatus().getCode() == IStatus.OK
+			// ? "OK"
+			// : "FAIL");
 			return ri.getStatus();
+		}
+		// System.err.printf(" processing\n");
 
 		// DEFINE UNIT IF NOT DEFINED
 		// check if the unit is defined, and define it (and its parent BeeModel) if not
@@ -77,15 +83,19 @@ public class SimpleResolver implements IBuildUnitResolver {
 
 		// BuildUnit u = ctx.getEffectiveBuildUnit(unit);
 		if(u == null) {
-			BContext outer = B3backendFactory.eINSTANCE.createBContext();
-			outer.setParentContext(ctx);
-			ctx = outer;
+			// System.err.printf("Unit: %s, not defined - defining\n", unit.getName());
+
+			ctx = ctx.createOuterContext();
 			try {
 				if(unit.eContainer() instanceof BeeModel)
 					evaluator.doEvaluate(unit.eContainer(), ctx);
 				else
 					evaluator.doDefine(unit, ctx);
 				// ctx.defineBuildUnit(unit, false);
+				u = ctx.getSomeThing(BuildUnit.class, BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getIface());
+				// if(u == null) {
+				// System.err.printf("Definition of unit: %s failed\n", unit.getName());
+				// }
 			}
 			catch(Throwable e) {
 				ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
@@ -117,6 +127,7 @@ public class SimpleResolver implements IBuildUnitResolver {
 			ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
 			ri.setStatus(Status.OK_STATUS);
 			unitAdapter.setAssociatedInfo(this, ri);
+			// System.err.print("    OK - NO REQUIREMENTS\n");
 			return ri.getStatus();
 		}
 		// Satisfy all requirements
@@ -136,10 +147,17 @@ public class SimpleResolver implements IBuildUnitResolver {
 					IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
 					"Unit contains null requirement"));
 				unitAdapter.setAssociatedInfo(this, ri);
+				// System.err.print("    FAIL - NULL EFFECTIVE REQUIREMENTS\n");
 				return ri.getStatus();
 			}
 			ResolutionInfoAdapter reqAdapter = ResolutionInfoAdapterFactory.eINSTANCE.adapt(r);
 			ri = reqAdapter.getAssociatedInfo(this);
+
+			// System.err.printf("    REQUIREMENT %s, %s - has status: %s\n", r.getName(), r.getVersionRange(), ri == null
+			// ? "UNRESOLVED"
+			// : ri.getStatus().getCode() == IStatus.OK
+			// ? "OK"
+			// : "FAIL");
 			if(ri != null)
 				continue; // already processed and it has a status (ok, error, cancel)
 
@@ -170,12 +188,15 @@ public class SimpleResolver implements IBuildUnitResolver {
 				// note effective requirement has reference to the context to use
 				BuildUnit result = providerToUse.resolve(ereq);
 				if(result == null) {
+					// System.err.printf("        UNRESOLVED - provider did not find it.\n");
+
 					ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
 					ri.setStatus(new Status(
 						IStatus.WARNING, B3BuildActivator.instance.getBundle().getSymbolicName(), "Unresolved."));
 					reqAdapter.setAssociatedInfo(this, ri);
 				}
 				else {
+					// System.err.printf("        RESOLVED - provider found match.\n");
 					UnitResolutionInfo unitRi = B3BuildFactory.eINSTANCE.createUnitResolutionInfo();
 					unitRi.setUnit(result);
 					unitRi.setStatus(Status.OK_STATUS); // prevent recursion
@@ -185,6 +206,9 @@ public class SimpleResolver implements IBuildUnitResolver {
 				}
 			}
 			catch(Throwable e) {
+				// System.err.printf("        ERROR - %s, %s.\n", e.getClass().getName(), e.getMessage());
+				e.printStackTrace();
+
 				// associate the error information with the requirement
 				ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
 				ri.setStatus(new Status(
@@ -203,5 +227,4 @@ public class SimpleResolver implements IBuildUnitResolver {
 		unitAdapter.setAssociatedInfo(this, ri);
 		return ms;
 	}
-
 }

@@ -45,6 +45,24 @@ import com.google.inject.Inject;
  * Converters for BeeLang terminals.
  */
 public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverterService {
+
+	/**
+	 * Checks if a name is a Java Identifier and thus comply with a b3 QID
+	 * 
+	 * @param value
+	 * @return
+	 */
+	private static boolean needsQuoting(String value) {
+		if(value.length() < 1)
+			return true;
+		if(!Character.isJavaIdentifierStart(value.charAt(0)))
+			return true;
+		for(int i = 1; i < value.length(); i++)
+			if(Character.isJavaIdentifierPart(value.charAt(i)))
+				return true;
+		return false;
+	}
+
 	@Inject
 	private IVersionFormatManager versionFormatManager;
 
@@ -64,6 +82,32 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 						: Boolean.FALSE;
 			}
 
+		};
+	}
+
+	@ValueConverter(rule = "EscapedQualifiedName")
+	public IValueConverter<String> EscapedQualifiedName() {
+		return new AbstractNullSafeConverter<String>() {
+			@Override
+			protected String internalToString(String value) {
+				if(needsQuoting(value))
+					return '"' + Strings.convertToJavaString(value) + '"';
+				return Strings.convertToJavaString(value);
+			}
+
+			@Override
+			protected String internalToValue(String string, AbstractNode node) {
+				final int start = string.startsWith("\"") || string.startsWith("'")
+						? 1
+						: 0;
+				final int end = string.endsWith("\"") || string.endsWith("'")
+						? 1
+						: 0;
+				// System.err.print("EQN: Converting from: (" + string + ")=>(" +
+				// string.substring(start, string.length() - end) + ")\n");
+
+				return Strings.convertFromJavaString(string.substring(start, string.length() - end), true);
+			}
 		};
 	}
 
@@ -319,6 +363,8 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 
 			@Override
 			protected String internalToValue(String string, AbstractNode node) {
+				// System.err.print("STRING: Converting from: (" + string + ")=>(" +
+				// string.substring(1, string.length() - 1) + ")\n");
 				return Strings.convertFromJavaString(string.substring(1, string.length() - 1), true);
 			}
 		};

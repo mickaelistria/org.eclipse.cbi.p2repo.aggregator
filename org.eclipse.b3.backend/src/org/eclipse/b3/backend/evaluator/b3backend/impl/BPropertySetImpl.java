@@ -27,7 +27,6 @@ import org.eclipse.b3.backend.core.LoadedPropertySetAdapterFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
@@ -253,32 +252,32 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 		super.eUnset(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
-		loadProperties();
-		// start by populating context with extended sets
-		BPropertySet ps = getExtends();
-		if(ps != null)
-			ps.evaluateDefaults(ctx, allVisible);
-		if(getPropertiesFile() != null) {
-			LoadedPropertySetAdapter adapter = LoadedPropertySetAdapterFactory.eINSTANCE.adapt(this);
-			List<BPropertyOperation> ops = adapter.getAssociatedOps();
-			if(ops != null) {
-				for(BPropertyOperation po : ops)
-					po.evaluateDefaults(ctx, allVisible);
-			}
-		}
-
-		for(BPropertyOperation po : getOperations()) {
-			po.evaluateDefaults(ctx, allVisible);
-		}
-		return this;
-	}
+	// /**
+	// * <!-- begin-user-doc -->
+	// * <!-- end-user-doc -->
+	// *
+	// * @generated NOT
+	// */
+	// public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
+	// loadProperties();
+	// // start by populating context with extended sets
+	// BPropertySet ps = getExtends();
+	// if(ps != null)
+	// ps.evaluateDefaults(ctx, allVisible);
+	// if(getPropertiesFile() != null) {
+	// LoadedPropertySetAdapter adapter = LoadedPropertySetAdapterFactory.eINSTANCE.adapt(this);
+	// List<BPropertyOperation> ops = adapter.getAssociatedOps();
+	// if(ops != null) {
+	// for(BPropertyOperation po : ops)
+	// po.evaluateDefaults(ctx, allVisible);
+	// }
+	// }
+	//
+	// for(BPropertyOperation po : getOperations()) {
+	// po.evaluateDefaults(ctx, allVisible);
+	// }
+	// return this;
+	// }
 
 	/**
 	 * <!-- begin-user-doc -->

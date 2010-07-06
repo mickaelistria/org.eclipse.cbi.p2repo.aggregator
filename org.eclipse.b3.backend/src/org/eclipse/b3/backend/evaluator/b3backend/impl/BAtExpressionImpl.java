@@ -22,18 +22,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAtExpressionImpl#getObjExpr <em>Obj Expr</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAtExpressionImpl#getIndexExpr <em>Index Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAtExpressionImpl#getObjExpr <em>Obj Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAtExpressionImpl#getIndexExpr <em>Index Expr</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -42,7 +41,6 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	 * The cached value of the '{@link #getObjExpr() <em>Obj Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getObjExpr()
 	 * @generated
 	 * @ordered
@@ -53,7 +51,6 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	 * The cached value of the '{@link #getIndexExpr() <em>Index Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getIndexExpr()
 	 * @generated
 	 * @ordered
@@ -63,7 +60,6 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BAtExpressionImpl() {
@@ -73,19 +69,14 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetIndexExpr(BExpression newIndexExpr, NotificationChain msgs) {
 		BExpression oldIndexExpr = indexExpr;
 		indexExpr = newIndexExpr;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BAT_EXPRESSION__INDEX_EXPR, oldIndexExpr, newIndexExpr);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BAT_EXPRESSION__INDEX_EXPR, oldIndexExpr, newIndexExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -93,19 +84,14 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetObjExpr(BExpression newObjExpr, NotificationChain msgs) {
 		BExpression oldObjExpr = objExpr;
 		objExpr = newObjExpr;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BAT_EXPRESSION__OBJ_EXPR, oldObjExpr, newObjExpr);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BAT_EXPRESSION__OBJ_EXPR, oldObjExpr, newObjExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -113,12 +99,11 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BAT_EXPRESSION__OBJ_EXPR:
 				return getObjExpr();
 			case B3backendPackage.BAT_EXPRESSION__INDEX_EXPR:
@@ -130,12 +115,11 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BAT_EXPRESSION__OBJ_EXPR:
 				return basicSetObjExpr(null, msgs);
 			case B3backendPackage.BAT_EXPRESSION__INDEX_EXPR:
@@ -147,12 +131,11 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BAT_EXPRESSION__OBJ_EXPR:
 				return objExpr != null;
 			case B3backendPackage.BAT_EXPRESSION__INDEX_EXPR:
@@ -164,17 +147,16 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BAT_EXPRESSION__OBJ_EXPR:
-				setObjExpr((BExpression) newValue);
+				setObjExpr((BExpression)newValue);
 				return;
 			case B3backendPackage.BAT_EXPRESSION__INDEX_EXPR:
-				setIndexExpr((BExpression) newValue);
+				setIndexExpr((BExpression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,7 +165,6 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -194,17 +175,16 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BAT_EXPRESSION__OBJ_EXPR:
-				setObjExpr((BExpression) null);
+				setObjExpr((BExpression)null);
 				return;
 			case B3backendPackage.BAT_EXPRESSION__INDEX_EXPR:
-				setIndexExpr((BExpression) null);
+				setIndexExpr((BExpression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -213,7 +193,6 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getIndexExpr() {
@@ -223,7 +202,6 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getObjExpr() {
@@ -233,48 +211,38 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setIndexExpr(BExpression newIndexExpr) {
-		if(newIndexExpr != indexExpr) {
+		if (newIndexExpr != indexExpr) {
 			NotificationChain msgs = null;
-			if(indexExpr != null)
-				msgs = ((InternalEObject) indexExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BAT_EXPRESSION__INDEX_EXPR, null, msgs);
-			if(newIndexExpr != null)
-				msgs = ((InternalEObject) newIndexExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BAT_EXPRESSION__INDEX_EXPR, null, msgs);
+			if (indexExpr != null)
+				msgs = ((InternalEObject)indexExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BAT_EXPRESSION__INDEX_EXPR, null, msgs);
+			if (newIndexExpr != null)
+				msgs = ((InternalEObject)newIndexExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BAT_EXPRESSION__INDEX_EXPR, null, msgs);
 			msgs = basicSetIndexExpr(newIndexExpr, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BAT_EXPRESSION__INDEX_EXPR, newIndexExpr, newIndexExpr));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BAT_EXPRESSION__INDEX_EXPR, newIndexExpr, newIndexExpr));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setObjExpr(BExpression newObjExpr) {
-		if(newObjExpr != objExpr) {
+		if (newObjExpr != objExpr) {
 			NotificationChain msgs = null;
-			if(objExpr != null)
-				msgs = ((InternalEObject) objExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BAT_EXPRESSION__OBJ_EXPR, null, msgs);
-			if(newObjExpr != null)
-				msgs = ((InternalEObject) newObjExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BAT_EXPRESSION__OBJ_EXPR, null, msgs);
+			if (objExpr != null)
+				msgs = ((InternalEObject)objExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BAT_EXPRESSION__OBJ_EXPR, null, msgs);
+			if (newObjExpr != null)
+				msgs = ((InternalEObject)newObjExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BAT_EXPRESSION__OBJ_EXPR, null, msgs);
 			msgs = basicSetObjExpr(newObjExpr, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BAT_EXPRESSION__OBJ_EXPR, newObjExpr, newObjExpr));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BAT_EXPRESSION__OBJ_EXPR, newObjExpr, newObjExpr));
 	}
 } // BAtExpressionImpl

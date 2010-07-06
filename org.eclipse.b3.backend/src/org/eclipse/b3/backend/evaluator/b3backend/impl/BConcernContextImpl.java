@@ -35,18 +35,17 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl#getFunctions <em>Functions</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl#getFunctions <em>Functions</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class BConcernContextImpl extends BExpressionImpl implements BConcernContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -55,7 +54,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getFunctions()
 	 * @generated
 	 * @ordered
@@ -66,7 +64,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -77,7 +74,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -87,7 +83,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BConcernContextImpl() {
@@ -97,17 +92,14 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == BFunctionContainer.class) {
-			switch(derivedFeatureID) {
-				case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
-					return B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS;
-				default:
-					return -1;
+		if (baseClass == BFunctionContainer.class) {
+			switch (derivedFeatureID) {
+				case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS: return B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -116,17 +108,14 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == BFunctionContainer.class) {
-			switch(baseFeatureID) {
-				case B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS:
-					return B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS;
-				default:
-					return -1;
+		if (baseClass == BFunctionContainer.class) {
+			switch (baseFeatureID) {
+				case B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS: return B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -135,12 +124,11 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				return getFunctions();
 			case B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION:
@@ -152,15 +140,14 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
-				return ((InternalEList<InternalEObject>) (InternalEList<?>) getFunctions()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFunctions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -168,14 +155,13 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
-				return ((InternalEList<?>) getFunctions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -183,18 +169,15 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				return functions != null && !functions.isEmpty();
 			case B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION:
-				return DOCUMENTATION_EDEFAULT == null
-						? documentation != null
-						: !DOCUMENTATION_EDEFAULT.equals(documentation);
+				return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -202,19 +185,18 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				getFunctions().clear();
-				getFunctions().addAll((Collection<? extends IFunction>) newValue);
+				getFunctions().addAll((Collection<? extends IFunction>)newValue);
 				return;
 			case B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION:
-				setDocumentation((String) newValue);
+				setDocumentation((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,7 +205,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -234,12 +215,11 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				getFunctions().clear();
 				return;
@@ -253,7 +233,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getDocumentation() {
@@ -263,14 +242,11 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<IFunction> getFunctions() {
-		if(functions == null) {
-			functions = new EObjectContainmentWithInverseEList<IFunction>(
-				IFunction.class, this, B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS,
-				B3backendPackage.IFUNCTION__CONTAINER);
+		if (functions == null) {
+			functions = new EObjectContainmentWithInverseEList<IFunction>(IFunction.class, this, B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS, B3backendPackage.IFUNCTION__CONTAINER);
 		}
 		return functions;
 	}
@@ -278,7 +254,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean matches(Object candidate, BExecutionContext ctx) {
@@ -290,28 +265,23 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDocumentation(String newDocumentation) {
 		String oldDocumentation = documentation;
 		documentation = newDocumentation;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION, oldDocumentation,
-				documentation));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION, oldDocumentation, documentation));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (documentation: ");

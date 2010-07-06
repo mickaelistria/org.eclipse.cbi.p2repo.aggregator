@@ -26,17 +26,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterizedExpressionImpl#getParameterList <em>Parameter List</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterizedExpressionImpl#getParameterList <em>Parameter List</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class BParameterizedExpressionImpl extends BExpressionImpl implements BParameterizedExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -45,7 +44,6 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 	 * The cached value of the '{@link #getParameterList() <em>Parameter List</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getParameterList()
 	 * @generated
 	 * @ordered
@@ -55,7 +53,6 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BParameterizedExpressionImpl() {
@@ -65,20 +62,14 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetParameterList(BParameterList newParameterList, NotificationChain msgs) {
 		BParameterList oldParameterList = parameterList;
 		parameterList = newParameterList;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST, oldParameterList,
-				newParameterList);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST, oldParameterList, newParameterList);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -86,12 +77,11 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST:
 				return getParameterList();
 		}
@@ -101,12 +91,11 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST:
 				return basicSetParameterList(null, msgs);
 		}
@@ -116,12 +105,11 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST:
 				return parameterList != null;
 		}
@@ -131,14 +119,13 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST:
-				setParameterList((BParameterList) newValue);
+				setParameterList((BParameterList)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -147,7 +134,6 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -158,14 +144,13 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST:
-				setParameterList((BParameterList) null);
+				setParameterList((BParameterList)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -186,26 +171,20 @@ public abstract class BParameterizedExpressionImpl extends BExpressionImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setParameterList(BParameterList newParameterList) {
-		if(newParameterList != parameterList) {
+		if (newParameterList != parameterList) {
 			NotificationChain msgs = null;
-			if(parameterList != null)
-				msgs = ((InternalEObject) parameterList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST, null, msgs);
-			if(newParameterList != null)
-				msgs = ((InternalEObject) newParameterList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST, null, msgs);
+			if (parameterList != null)
+				msgs = ((InternalEObject)parameterList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST, null, msgs);
+			if (newParameterList != null)
+				msgs = ((InternalEObject)newParameterList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST, null, msgs);
 			msgs = basicSetParameterList(newParameterList, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST, newParameterList,
-				newParameterList));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETERIZED_EXPRESSION__PARAMETER_LIST, newParameterList, newParameterList));
 	}
 
 } // BParameterizedExpressionImpl

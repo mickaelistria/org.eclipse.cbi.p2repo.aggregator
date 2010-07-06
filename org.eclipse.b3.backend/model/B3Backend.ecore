@@ -82,6 +82,8 @@
       </eGenericType>
       <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
+    <eOperations name="printStack"/>
+    <eOperations name="printStackTrace"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//BExecutionContext"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueMap" lowerBound="1"
         eType="#//ValueMap" defaultValueLiteral=""/>
@@ -458,11 +460,6 @@
         volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BPropertySet" eSuperTypes="#//BAdvice">
-    <eOperations name="evaluateDefaults" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        eExceptions="#//Throwable">
-      <eParameters name="ctx" eType="#//BExecutionContext"/>
-      <eParameters name="allVisible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//BPropertySet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
         eType="#//BPropertyOperation" containment="true"/>

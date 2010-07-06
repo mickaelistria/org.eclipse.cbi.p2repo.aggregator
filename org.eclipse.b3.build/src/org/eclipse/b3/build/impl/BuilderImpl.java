@@ -50,19 +50,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getPrecondExpr <em>Precond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getInput <em>Input</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getOutput <em>Output</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getDefaultProperties <em>Default Properties</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getUnitType <em>Unit Type</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getSource <em>Source</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getPrecondExpr <em>Precond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getInput <em>Input</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getOutput <em>Output</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getDefaultProperties <em>Default Properties</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getUnitType <em>Unit Type</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderImpl#getSource <em>Source</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuilderImpl extends B3FunctionImpl implements Builder {
@@ -71,6 +71,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProvidedCapabilities()
 	 * @generated
 	 * @ordered
@@ -81,6 +82,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * The cached value of the '{@link #getPostcondExpr() <em>Postcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPostcondExpr()
 	 * @generated
 	 * @ordered
@@ -91,6 +93,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * The cached value of the '{@link #getPrecondExpr() <em>Precond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPrecondExpr()
 	 * @generated
 	 * @ordered
@@ -101,6 +104,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getInput()
 	 * @generated
 	 * @ordered
@@ -111,6 +115,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
@@ -121,6 +126,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * The cached value of the '{@link #getDefaultProperties() <em>Default Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDefaultProperties()
 	 * @generated
 	 * @ordered
@@ -131,6 +137,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * The cached value of the '{@link #getPostinputcondExpr() <em>Postinputcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPostinputcondExpr()
 	 * @generated
 	 * @ordered
@@ -141,6 +148,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * The cached value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUnitType()
 	 * @generated
 	 * @ordered
@@ -151,6 +159,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * The cached value of the '{@link #getExplicitUnitType() <em>Explicit Unit Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getExplicitUnitType()
 	 * @generated
 	 * @ordered
@@ -161,6 +170,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSource()
 	 * @generated
 	 * @ordered
@@ -170,6 +180,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuilderImpl() {
@@ -179,6 +190,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetDefaultProperties(BPropertySet newDefaultProperties, NotificationChain msgs) {
@@ -199,6 +211,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetExplicitUnitType(BParameterDeclaration newExplicitUnitType, NotificationChain msgs) {
@@ -219,6 +232,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetInput(BuilderInput newInput, NotificationChain msgs) {
@@ -238,6 +252,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetOutput(PathGroup newOutput, NotificationChain msgs) {
@@ -257,6 +272,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPostcondExpr(BExpression newPostcondExpr, NotificationChain msgs) {
@@ -276,6 +292,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPostinputcondExpr(BExpression newPostinputcondExpr, NotificationChain msgs) {
@@ -296,6 +313,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPrecondExpr(BExpression newPrecondExpr, NotificationChain msgs) {
@@ -315,6 +333,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetSource(PathGroup newSource, NotificationChain msgs) {
@@ -377,6 +396,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -419,6 +439,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -461,6 +482,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -493,6 +515,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -523,6 +546,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -555,6 +579,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -599,6 +624,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -609,6 +635,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -651,6 +678,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BPropertySet getDefaultProperties() {
@@ -670,7 +698,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		BPropertySet defProp = getDefaultProperties();
 		if(defProp != null) {
 			ctxToUse = ctxToUse.createOuterContext();
-			defProp.evaluateDefaults(ctxToUse, true);
+			evaluator.doEvaluateDefaults(defProp, ctxToUse, true);
+			// defProp.evaluateDefaults(ctxToUse, true);
 		}
 		for(Capability cap : getProvidedCapabilities()) {
 			BExpression c = cap.getCondExpr();
@@ -690,6 +719,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BParameterDeclaration getExplicitUnitType() {
@@ -699,6 +729,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BuilderInput getInput() {
@@ -708,6 +739,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public PathGroup getOutput() {
@@ -717,6 +749,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getPostcondExpr() {
@@ -726,6 +759,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getPostinputcondExpr() {
@@ -735,6 +769,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getPrecondExpr() {
@@ -744,6 +779,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Capability> getProvidedCapabilities() {
@@ -765,6 +801,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public PathGroup getSource() {
@@ -802,6 +839,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDefaultProperties(BPropertySet newDefaultProperties) {
@@ -826,6 +864,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setExplicitUnitType(BParameterDeclaration newExplicitUnitType) {
@@ -850,6 +889,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setInput(BuilderInput newInput) {
@@ -872,6 +912,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setOutput(PathGroup newOutput) {
@@ -894,6 +935,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPostcondExpr(BExpression newPostcondExpr) {
@@ -917,6 +959,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPostinputcondExpr(BExpression newPostinputcondExpr) {
@@ -941,6 +984,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPrecondExpr(BExpression newPrecondExpr) {
@@ -964,6 +1008,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSource(PathGroup newSource) {
@@ -986,6 +1031,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setUnitType(Class<? extends BuildUnit> newUnitType) {
@@ -999,6 +1045,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

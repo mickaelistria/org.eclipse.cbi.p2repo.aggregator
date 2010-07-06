@@ -1,5 +1,6 @@
 package org.eclipse.b3.backend.core;
 
+import java.io.PrintStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,10 +10,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
@@ -353,6 +356,40 @@ public class B3FuncStore {
 		}
 	}
 
+	public void printDump(PrintStream x, int indent) {
+		final StringBuffer indentBuf = new StringBuffer(indent);
+		for(int i = 0; i < indent; i++)
+			indentBuf.append(" ");
+		if(defined == null)
+			return;
+		x.printf("%sFunctions\n", indentBuf.toString());
+		indentBuf.append("  ");
+		final String is = indentBuf.toString();
+
+		for(Entry<String, List<IFunction>> v : defined.entrySet()) {
+			final StringBuffer buf = new StringBuffer();
+			List<IFunction> functions = v.getValue();
+			for(IFunction f : functions) {
+				buf.append(is);
+				buf.append("func ");
+				buf.append(f.getName());
+				buf.append("(");
+				boolean first = true;
+				for(BParameterDeclaration p : f.getParameters()) {
+					if(!first) {
+						buf.append(", ");
+						first = false;
+					}
+					buf.append(p.getType().toString());
+					buf.append(" ");
+					buf.append(p.getName());
+				}
+				buf.append(")\n");
+				x.print(buf);
+			}
+		}
+	}
+
 	public void undefineFunction(String name, BFunction func) {
 		dirtyFunctions.add(name);
 		effective.remove(name);
@@ -370,4 +407,5 @@ public class B3FuncStore {
 		effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
 		dirtyFunctions.remove(name);
 	}
+
 }

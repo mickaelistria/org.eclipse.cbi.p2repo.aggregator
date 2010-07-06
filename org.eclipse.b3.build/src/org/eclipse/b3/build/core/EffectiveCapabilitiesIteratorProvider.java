@@ -75,7 +75,7 @@ public class EffectiveCapabilitiesIteratorProvider {
 		BPropertySet defProp = o.getDefaultProperties();
 		if(defProp != null) {
 			ctxToUse = ctxToUse.createOuterContext();
-			defProp.evaluateDefaults(ctxToUse, true);
+			evaluator.doEvaluateDefaults(defProp, ctxToUse, true);
 		}
 		for(Capability cap : o.getProvidedCapabilities()) {
 			BExpression c = cap.getCondExpr();

@@ -22,61 +22,61 @@ public class InternalBeeLangLexer extends Lexer {
     public static final int KEYWORD_130=16;
     public static final int KEYWORD_133=11;
     public static final int KEYWORD_132=10;
-    public static final int KEYWORD_56=87;
-    public static final int KEYWORD_55=86;
-    public static final int KEYWORD_54=85;
-    public static final int KEYWORD_53=84;
-    public static final int KEYWORD_52=102;
+    public static final int KEYWORD_56=83;
+    public static final int KEYWORD_55=82;
+    public static final int KEYWORD_54=101;
+    public static final int KEYWORD_53=100;
+    public static final int KEYWORD_52=99;
     public static final int KEYWORD_127=19;
-    public static final int KEYWORD_51=101;
+    public static final int KEYWORD_51=98;
     public static final int KEYWORD_128=20;
     public static final int RULE_SIMPLE_PATTERN=150;
-    public static final int KEYWORD_50=100;
+    public static final int KEYWORD_50=97;
     public static final int KEYWORD_129=15;
     public static final int EOF=-1;
-    public static final int KEYWORD_59=90;
-    public static final int KEYWORD_58=89;
-    public static final int KEYWORD_57=88;
+    public static final int KEYWORD_59=86;
+    public static final int KEYWORD_58=85;
+    public static final int KEYWORD_57=84;
     public static final int KEYWORD_140=5;
     public static final int RULE_HEX=156;
     public static final int KEYWORD_142=4;
     public static final int KEYWORD_141=6;
-    public static final int KEYWORD_65=79;
-    public static final int KEYWORD_64=78;
-    public static final int KEYWORD_67=81;
-    public static final int KEYWORD_66=80;
-    public static final int KEYWORD_61=92;
-    public static final int KEYWORD_60=91;
+    public static final int KEYWORD_65=75;
+    public static final int KEYWORD_64=91;
+    public static final int KEYWORD_67=77;
+    public static final int KEYWORD_66=76;
+    public static final int KEYWORD_61=88;
+    public static final int KEYWORD_60=87;
     public static final int KEYWORD_138=7;
-    public static final int KEYWORD_63=77;
-    public static final int KEYWORD_62=93;
+    public static final int KEYWORD_63=90;
     public static final int KEYWORD_139=8;
-    public static final int KEYWORD_69=83;
-    public static final int KEYWORD_68=82;
+    public static final int KEYWORD_62=89;
+    public static final int KEYWORD_69=79;
+    public static final int KEYWORD_68=78;
     public static final int RULE_PID=147;
-    public static final int KEYWORD_111=34;
-    public static final int KEYWORD_110=33;
-    public static final int KEYWORD_113=36;
-    public static final int KEYWORD_112=35;
-    public static final int KEYWORD_115=38;
-    public static final int KEYWORD_114=37;
-    public static final int KEYWORD_30=107;
-    public static final int KEYWORD_105=42;
-    public static final int KEYWORD_106=43;
-    public static final int KEYWORD_107=30;
-    public static final int KEYWORD_108=31;
-    public static final int KEYWORD_34=111;
-    public static final int KEYWORD_109=32;
-    public static final int KEYWORD_33=110;
+    public static final int KEYWORD_111=33;
+    public static final int KEYWORD_110=32;
+    public static final int KEYWORD_113=35;
+    public static final int KEYWORD_112=34;
+    public static final int KEYWORD_115=37;
+    public static final int KEYWORD_114=36;
+    public static final int KEYWORD_30=106;
+    public static final int KEYWORD_105=40;
+    public static final int KEYWORD_106=41;
+    public static final int KEYWORD_107=42;
+    public static final int KEYWORD_108=30;
+    public static final int KEYWORD_34=110;
+    public static final int KEYWORD_109=31;
+    public static final int KEYWORD_33=109;
     public static final int RULE_TEXT=151;
-    public static final int KEYWORD_32=109;
-    public static final int KEYWORD_31=108;
-    public static final int KEYWORD_38=115;
-    public static final int KEYWORD_37=114;
-    public static final int KEYWORD_36=113;
-    public static final int KEYWORD_35=112;
+    public static final int KEYWORD_32=108;
+    public static final int KEYWORD_31=107;
+    public static final int KEYWORD_38=114;
+    public static final int KEYWORD_37=113;
+    public static final int KEYWORD_36=112;
+    public static final int KEYWORD_35=111;
     public static final int RULE_ML_COMMENT=153;
-    public static final int KEYWORD_39=116;
+    public static final int KEYWORD_39=115;
     public static final int RULE_STRING=149;
     public static final int KEYWORD_122=24;
     public static final int KEYWORD_121=23;
@@ -87,32 +87,32 @@ public class InternalBeeLangLexer extends Lexer {
     public static final int KEYWORD_123=25;
     public static final int KEYWORD_118=29;
     public static final int KEYWORD_119=21;
-    public static final int KEYWORD_41=118;
-    public static final int KEYWORD_116=39;
-    public static final int KEYWORD_40=117;
+    public static final int KEYWORD_41=117;
+    public static final int KEYWORD_116=38;
+    public static final int KEYWORD_40=116;
     public static final int KEYWORD_117=28;
-    public static final int KEYWORD_43=120;
-    public static final int KEYWORD_42=119;
-    public static final int KEYWORD_45=95;
-    public static final int KEYWORD_44=94;
-    public static final int KEYWORD_47=97;
-    public static final int KEYWORD_46=96;
-    public static final int KEYWORD_49=99;
-    public static final int KEYWORD_48=98;
+    public static final int KEYWORD_43=119;
+    public static final int KEYWORD_42=118;
+    public static final int KEYWORD_45=92;
+    public static final int KEYWORD_44=120;
+    public static final int KEYWORD_47=94;
+    public static final int KEYWORD_46=93;
+    public static final int KEYWORD_49=96;
+    public static final int KEYWORD_48=95;
     public static final int RULE_EXT_INT=158;
-    public static final int KEYWORD_97=45;
-    public static final int KEYWORD_98=46;
-    public static final int KEYWORD_99=47;
-    public static final int KEYWORD_93=60;
-    public static final int KEYWORD_94=61;
-    public static final int KEYWORD_95=62;
-    public static final int KEYWORD_96=44;
+    public static final int KEYWORD_97=43;
+    public static final int KEYWORD_98=44;
+    public static final int KEYWORD_99=45;
+    public static final int KEYWORD_93=58;
+    public static final int KEYWORD_94=59;
+    public static final int KEYWORD_95=60;
+    public static final int KEYWORD_96=61;
     public static final int KEYWORD_19=139;
-    public static final int KEYWORD_90=57;
+    public static final int KEYWORD_90=55;
     public static final int KEYWORD_17=137;
-    public static final int KEYWORD_92=59;
+    public static final int KEYWORD_92=57;
     public static final int KEYWORD_18=138;
-    public static final int KEYWORD_91=58;
+    public static final int KEYWORD_91=56;
     public static final int KEYWORD_15=135;
     public static final int KEYWORD_16=136;
     public static final int KEYWORD_13=133;
@@ -120,55 +120,55 @@ public class InternalBeeLangLexer extends Lexer {
     public static final int KEYWORD_11=131;
     public static final int KEYWORD_12=132;
     public static final int KEYWORD_10=130;
-    public static final int KEYWORD_103=40;
-    public static final int KEYWORD_104=41;
-    public static final int KEYWORD_101=49;
-    public static final int KEYWORD_102=50;
-    public static final int KEYWORD_100=48;
+    public static final int KEYWORD_103=49;
+    public static final int KEYWORD_104=39;
+    public static final int KEYWORD_101=47;
+    public static final int KEYWORD_102=48;
+    public static final int KEYWORD_100=46;
     public static final int KEYWORD_6=126;
     public static final int KEYWORD_7=127;
     public static final int KEYWORD_8=128;
     public static final int RULE_JAVADOC=152;
     public static final int KEYWORD_9=129;
-    public static final int KEYWORD_28=105;
-    public static final int KEYWORD_29=106;
+    public static final int KEYWORD_28=104;
+    public static final int KEYWORD_29=105;
     public static final int RULE_INT=157;
     public static final int KEYWORD_24=144;
     public static final int KEYWORD_25=145;
-    public static final int KEYWORD_26=103;
-    public static final int KEYWORD_27=104;
+    public static final int KEYWORD_26=102;
+    public static final int KEYWORD_27=103;
     public static final int KEYWORD_20=140;
     public static final int KEYWORD_21=141;
     public static final int KEYWORD_22=142;
     public static final int KEYWORD_23=143;
-    public static final int KEYWORD_79=72;
+    public static final int KEYWORD_79=69;
     public static final int RULE_REGULAR_EXPR=148;
-    public static final int KEYWORD_71=64;
-    public static final int KEYWORD_72=65;
-    public static final int KEYWORD_73=66;
-    public static final int KEYWORD_74=67;
-    public static final int KEYWORD_75=68;
-    public static final int KEYWORD_76=69;
-    public static final int KEYWORD_77=70;
-    public static final int KEYWORD_78=71;
+    public static final int KEYWORD_71=81;
+    public static final int KEYWORD_72=62;
+    public static final int KEYWORD_73=63;
+    public static final int KEYWORD_74=64;
+    public static final int KEYWORD_75=65;
+    public static final int KEYWORD_76=66;
+    public static final int KEYWORD_77=67;
+    public static final int KEYWORD_78=68;
     public static final int KEYWORD_1=121;
     public static final int KEYWORD_5=125;
     public static final int KEYWORD_4=124;
     public static final int KEYWORD_3=123;
-    public static final int KEYWORD_70=63;
+    public static final int KEYWORD_70=80;
     public static final int KEYWORD_2=122;
     public static final int Tokens=160;
     public static final int RULE_SL_COMMENT=154;
-    public static final int KEYWORD_84=51;
-    public static final int KEYWORD_85=52;
-    public static final int KEYWORD_82=75;
-    public static final int KEYWORD_83=76;
-    public static final int KEYWORD_88=55;
-    public static final int KEYWORD_89=56;
-    public static final int KEYWORD_86=53;
-    public static final int KEYWORD_87=54;
-    public static final int KEYWORD_81=74;
-    public static final int KEYWORD_80=73;
+    public static final int KEYWORD_84=74;
+    public static final int KEYWORD_85=50;
+    public static final int KEYWORD_82=72;
+    public static final int KEYWORD_83=73;
+    public static final int KEYWORD_88=53;
+    public static final int KEYWORD_89=54;
+    public static final int KEYWORD_86=51;
+    public static final int KEYWORD_87=52;
+    public static final int KEYWORD_81=71;
+    public static final int KEYWORD_80=70;
     public static final int RULE_WS=155;
     public InternalBeeLangLexer() {;} 
     public InternalBeeLangLexer(CharStream input) {
@@ -670,33 +670,14 @@ public class InternalBeeLangLexer extends Lexer {
     }
     // $ANTLR end KEYWORD_118
 
-    // $ANTLR start KEYWORD_107
-    public final void mKEYWORD_107() throws RecognitionException {
-        try {
-            int _type = KEYWORD_107;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:71:13: ( 'capability' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:71:15: 'capability'
-            {
-            match("capability"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_107
-
     // $ANTLR start KEYWORD_108
     public final void mKEYWORD_108() throws RecognitionException {
         try {
             int _type = KEYWORD_108;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:73:13: ( 'conditions' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:73:15: 'conditions'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:71:13: ( 'capability' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:71:15: 'capability'
             {
-            match("conditions"); 
+            match("capability"); 
 
 
             }
@@ -712,10 +693,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_109() throws RecognitionException {
         try {
             int _type = KEYWORD_109;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:75:13: ( 'connection' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:75:15: 'connection'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:73:13: ( 'conditions' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:73:15: 'conditions'
             {
-            match("connection"); 
+            match("conditions"); 
 
 
             }
@@ -731,10 +712,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_110() throws RecognitionException {
         try {
             int _type = KEYWORD_110;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:77:13: ( 'implements' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:77:15: 'implements'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:75:13: ( 'connection' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:75:15: 'connection'
             {
-            match("implements"); 
+            match("connection"); 
 
 
             }
@@ -750,8 +731,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_111() throws RecognitionException {
         try {
             int _type = KEYWORD_111;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:79:13: ( 'instanceof' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:79:15: 'instanceof'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:77:13: ( 'instanceof' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:77:15: 'instanceof'
             {
             match("instanceof"); 
 
@@ -769,8 +750,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_112() throws RecognitionException {
         try {
             int _type = KEYWORD_112;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:81:13: ( 'name-space' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:81:15: 'name-space'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:79:13: ( 'name-space' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:79:15: 'name-space'
             {
             match("name-space"); 
 
@@ -788,8 +769,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_113() throws RecognitionException {
         try {
             int _type = KEYWORD_113;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:83:13: ( 'properties' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:83:15: 'properties'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:81:13: ( 'properties' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:81:15: 'properties'
             {
             match("properties"); 
 
@@ -807,8 +788,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_114() throws RecognitionException {
         try {
             int _type = KEYWORD_114;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:85:13: ( 'repository' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:85:15: 'repository'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:83:13: ( 'repository' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:83:15: 'repository'
             {
             match("repository"); 
 
@@ -826,8 +807,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_115() throws RecognitionException {
         try {
             int _type = KEYWORD_115;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:87:13: ( 'resolution' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:87:15: 'resolution'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:85:13: ( 'resolution' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:85:15: 'resolution'
             {
             match("resolution"); 
 
@@ -845,8 +826,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_116() throws RecognitionException {
         try {
             int _type = KEYWORD_116;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:89:13: ( 'sequential' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:89:15: 'sequential'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:87:13: ( 'sequential' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:87:15: 'sequential'
             {
             match("sequential"); 
 
@@ -860,33 +841,14 @@ public class InternalBeeLangLexer extends Lexer {
     }
     // $ANTLR end KEYWORD_116
 
-    // $ANTLR start KEYWORD_103
-    public final void mKEYWORD_103() throws RecognitionException {
-        try {
-            int _type = KEYWORD_103;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:91:13: ( 'container' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:91:15: 'container'
-            {
-            match("container"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_103
-
     // $ANTLR start KEYWORD_104
     public final void mKEYWORD_104() throws RecognitionException {
         try {
             int _type = KEYWORD_104;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:93:13: ( 'endswitch' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:93:15: 'endswitch'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:89:13: ( 'container' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:89:15: 'container'
             {
-            match("endswitch"); 
+            match("container"); 
 
 
             }
@@ -902,10 +864,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_105() throws RecognitionException {
         try {
             int _type = KEYWORD_105;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:95:13: ( 'load-from' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:95:15: 'load-from'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:91:13: ( 'endswitch' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:91:15: 'endswitch'
             {
-            match("load-from"); 
+            match("endswitch"); 
 
 
             }
@@ -921,10 +883,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_106() throws RecognitionException {
         try {
             int _type = KEYWORD_106;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:97:13: ( 'timestamp' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:97:15: 'timestamp'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:93:13: ( 'load-from' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:93:15: 'load-from'
             {
-            match("timestamp"); 
+            match("load-from"); 
 
 
             }
@@ -936,14 +898,14 @@ public class InternalBeeLangLexer extends Lexer {
     }
     // $ANTLR end KEYWORD_106
 
-    // $ANTLR start KEYWORD_96
-    public final void mKEYWORD_96() throws RecognitionException {
+    // $ANTLR start KEYWORD_107
+    public final void mKEYWORD_107() throws RecognitionException {
         try {
-            int _type = KEYWORD_96;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:99:12: ( 'branches' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:99:14: 'branches'
+            int _type = KEYWORD_107;
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:95:13: ( 'timestamp' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:95:15: 'timestamp'
             {
-            match("branches"); 
+            match("timestamp"); 
 
 
             }
@@ -953,16 +915,16 @@ public class InternalBeeLangLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_96
+    // $ANTLR end KEYWORD_107
 
     // $ANTLR start KEYWORD_97
     public final void mKEYWORD_97() throws RecognitionException {
         try {
             int _type = KEYWORD_97;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:101:12: ( 'function' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:101:14: 'function'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:97:12: ( 'branches' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:97:14: 'branches'
             {
-            match("function"); 
+            match("branches"); 
 
 
             }
@@ -978,10 +940,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_98() throws RecognitionException {
         try {
             int _type = KEYWORD_98;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:103:12: ( 'parallel' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:103:14: 'parallel'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:99:12: ( 'function' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:99:14: 'function'
             {
-            match("parallel"); 
+            match("function"); 
 
 
             }
@@ -997,10 +959,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_99() throws RecognitionException {
         try {
             int _type = KEYWORD_99;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:105:12: ( 'provides' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:105:14: 'provides'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:101:12: ( 'parallel' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:101:14: 'parallel'
             {
-            match("provides"); 
+            match("parallel"); 
 
 
             }
@@ -1016,10 +978,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_100() throws RecognitionException {
         try {
             int _type = KEYWORD_100;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:107:13: ( 'reexport' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:107:15: 'reexport'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:103:13: ( 'provides' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:103:15: 'provides'
             {
-            match("reexport"); 
+            match("provides"); 
 
 
             }
@@ -1035,10 +997,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_101() throws RecognitionException {
         try {
             int _type = KEYWORD_101;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:109:13: ( 'requires' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:109:15: 'requires'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:105:13: ( 'reexport' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:105:15: 'reexport'
             {
-            match("requires"); 
+            match("reexport"); 
 
 
             }
@@ -1054,10 +1016,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_102() throws RecognitionException {
         try {
             int _type = KEYWORD_102;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:111:13: ( 'revision' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:111:15: 'revision'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:107:13: ( 'requires' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:107:15: 'requires'
             {
-            match("revision"); 
+            match("requires"); 
 
 
             }
@@ -1069,14 +1031,14 @@ public class InternalBeeLangLexer extends Lexer {
     }
     // $ANTLR end KEYWORD_102
 
-    // $ANTLR start KEYWORD_84
-    public final void mKEYWORD_84() throws RecognitionException {
+    // $ANTLR start KEYWORD_103
+    public final void mKEYWORD_103() throws RecognitionException {
         try {
-            int _type = KEYWORD_84;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:113:12: ( 'builder' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:113:14: 'builder'
+            int _type = KEYWORD_103;
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:109:13: ( 'revision' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:109:15: 'revision'
             {
-            match("builder"); 
+            match("revision"); 
 
 
             }
@@ -1086,16 +1048,16 @@ public class InternalBeeLangLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_84
+    // $ANTLR end KEYWORD_103
 
     // $ANTLR start KEYWORD_85
     public final void mKEYWORD_85() throws RecognitionException {
         try {
             int _type = KEYWORD_85;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:115:12: ( 'concern' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:115:14: 'concern'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:111:12: ( 'builder' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:111:14: 'builder'
             {
-            match("concern"); 
+            match("builder"); 
 
 
             }
@@ -1111,10 +1073,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_86() throws RecognitionException {
         try {
             int _type = KEYWORD_86;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:117:12: ( 'context' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:117:14: 'context'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:113:12: ( 'concern' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:113:14: 'concern'
             {
-            match("context"); 
+            match("concern"); 
 
 
             }
@@ -1130,10 +1092,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_87() throws RecognitionException {
         try {
             int _type = KEYWORD_87;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:119:12: ( 'default' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:119:14: 'default'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:115:12: ( 'context' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:115:14: 'context'
             {
-            match("default"); 
+            match("context"); 
 
 
             }
@@ -1149,10 +1111,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_88() throws RecognitionException {
         try {
             int _type = KEYWORD_88;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:121:12: ( 'exclude' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:121:14: 'exclude'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:117:12: ( 'default' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:117:14: 'default'
             {
-            match("exclude"); 
+            match("default"); 
 
 
             }
@@ -1168,10 +1130,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_89() throws RecognitionException {
         try {
             int _type = KEYWORD_89;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:123:12: ( 'extends' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:123:14: 'extends'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:119:12: ( 'exclude' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:119:14: 'exclude'
             {
-            match("extends"); 
+            match("exclude"); 
 
 
             }
@@ -1187,10 +1149,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_90() throws RecognitionException {
         try {
             int _type = KEYWORD_90;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:125:12: ( 'finally' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:125:14: 'finally'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:121:12: ( 'extends' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:121:14: 'extends'
             {
-            match("finally"); 
+            match("extends"); 
 
 
             }
@@ -1206,10 +1168,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_91() throws RecognitionException {
         try {
             int _type = KEYWORD_91;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:127:12: ( 'include' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:127:14: 'include'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:123:12: ( 'finally' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:123:14: 'finally'
             {
-            match("include"); 
+            match("finally"); 
 
 
             }
@@ -1225,10 +1187,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_92() throws RecognitionException {
         try {
             int _type = KEYWORD_92;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:129:12: ( 'mutable' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:129:14: 'mutable'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:125:12: ( 'include' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:125:14: 'include'
             {
-            match("mutable"); 
+            match("include"); 
 
 
             }
@@ -1244,10 +1206,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_93() throws RecognitionException {
         try {
             int _type = KEYWORD_93;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:131:12: ( 'private' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:131:14: 'private'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:127:12: ( 'mutable' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:127:14: 'mutable'
             {
-            match("private"); 
+            match("mutable"); 
 
 
             }
@@ -1263,10 +1225,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_94() throws RecognitionException {
         try {
             int _type = KEYWORD_94;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:133:12: ( 'proceed' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:133:14: 'proceed'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:129:12: ( 'private' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:129:14: 'private'
             {
-            match("proceed"); 
+            match("private"); 
 
 
             }
@@ -1282,10 +1244,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_95() throws RecognitionException {
         try {
             int _type = KEYWORD_95;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:135:12: ( 'version' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:135:14: 'version'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:131:12: ( 'proceed' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:131:14: 'proceed'
             {
-            match("version"); 
+            match("proceed"); 
 
 
             }
@@ -1297,14 +1259,14 @@ public class InternalBeeLangLexer extends Lexer {
     }
     // $ANTLR end KEYWORD_95
 
-    // $ANTLR start KEYWORD_70
-    public final void mKEYWORD_70() throws RecognitionException {
+    // $ANTLR start KEYWORD_96
+    public final void mKEYWORD_96() throws RecognitionException {
         try {
-            int _type = KEYWORD_70;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:137:12: ( 'branch' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:137:14: 'branch'
+            int _type = KEYWORD_96;
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:133:12: ( 'version' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:133:14: 'version'
             {
-            match("branch"); 
+            match("version"); 
 
 
             }
@@ -1314,35 +1276,16 @@ public class InternalBeeLangLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_70
-
-    // $ANTLR start KEYWORD_71
-    public final void mKEYWORD_71() throws RecognitionException {
-        try {
-            int _type = KEYWORD_71;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:139:12: ( 'cached' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:139:14: 'cached'
-            {
-            match("cached"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_71
+    // $ANTLR end KEYWORD_96
 
     // $ANTLR start KEYWORD_72
     public final void mKEYWORD_72() throws RecognitionException {
         try {
             int _type = KEYWORD_72;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:141:12: ( 'elseif' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:141:14: 'elseif'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:135:12: ( 'branch' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:135:14: 'branch'
             {
-            match("elseif"); 
+            match("branch"); 
 
 
             }
@@ -1358,10 +1301,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_73() throws RecognitionException {
         try {
             int _type = KEYWORD_73;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:143:12: ( 'endtry' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:143:14: 'endtry'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:137:12: ( 'cached' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:137:14: 'cached'
             {
-            match("endtry"); 
+            match("cached"); 
 
 
             }
@@ -1377,10 +1320,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_74() throws RecognitionException {
         try {
             int _type = KEYWORD_74;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:145:12: ( 'greedy' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:145:14: 'greedy'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:139:12: ( 'elseif' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:139:14: 'elseif'
             {
-            match("greedy"); 
+            match("elseif"); 
 
 
             }
@@ -1396,10 +1339,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_75() throws RecognitionException {
         try {
             int _type = KEYWORD_75;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:147:12: ( 'import' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:147:14: 'import'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:141:12: ( 'endtry' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:141:14: 'endtry'
             {
-            match("import"); 
+            match("endtry"); 
 
 
             }
@@ -1415,10 +1358,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_76() throws RecognitionException {
         try {
             int _type = KEYWORD_76;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:149:12: ( 'latest' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:149:14: 'latest'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:143:12: ( 'greedy' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:143:14: 'greedy'
             {
-            match("latest"); 
+            match("greedy"); 
 
 
             }
@@ -1434,10 +1377,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_77() throws RecognitionException {
         try {
             int _type = KEYWORD_77;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:151:12: ( 'modify' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:151:14: 'modify'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:145:12: ( 'latest' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:145:14: 'latest'
             {
-            match("modify"); 
+            match("latest"); 
 
 
             }
@@ -1453,10 +1396,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_78() throws RecognitionException {
         try {
             int _type = KEYWORD_78;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:153:12: ( 'output' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:153:14: 'output'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:147:12: ( 'modify' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:147:14: 'modify'
             {
-            match("output"); 
+            match("modify"); 
 
 
             }
@@ -1472,10 +1415,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_79() throws RecognitionException {
         try {
             int _type = KEYWORD_79;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:155:12: ( 'policy' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:155:14: 'policy'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:149:12: ( 'output' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:149:14: 'output'
             {
-            match("policy"); 
+            match("output"); 
 
 
             }
@@ -1491,10 +1434,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_80() throws RecognitionException {
         try {
             int _type = KEYWORD_80;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:157:12: ( 'public' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:157:14: 'public'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:151:12: ( 'policy' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:151:14: 'policy'
             {
-            match("public"); 
+            match("policy"); 
 
 
             }
@@ -1510,10 +1453,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_81() throws RecognitionException {
         try {
             int _type = KEYWORD_81;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:159:12: ( 'result' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:159:14: 'result'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:153:12: ( 'public' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:153:14: 'public'
             {
-            match("result"); 
+            match("public"); 
 
 
             }
@@ -1529,10 +1472,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_82() throws RecognitionException {
         try {
             int _type = KEYWORD_82;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:161:12: ( 'source' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:161:14: 'source'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:155:12: ( 'result' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:155:14: 'result'
             {
-            match("source"); 
+            match("result"); 
 
 
             }
@@ -1548,10 +1491,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_83() throws RecognitionException {
         try {
             int _type = KEYWORD_83;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:163:12: ( 'switch' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:163:14: 'switch'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:157:12: ( 'source' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:157:14: 'source'
             {
-            match("switch"); 
+            match("source"); 
 
 
             }
@@ -1563,14 +1506,14 @@ public class InternalBeeLangLexer extends Lexer {
     }
     // $ANTLR end KEYWORD_83
 
-    // $ANTLR start KEYWORD_63
-    public final void mKEYWORD_63() throws RecognitionException {
+    // $ANTLR start KEYWORD_84
+    public final void mKEYWORD_84() throws RecognitionException {
         try {
-            int _type = KEYWORD_63;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:165:12: ( 'catch' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:165:14: 'catch'
+            int _type = KEYWORD_84;
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:159:12: ( 'switch' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:159:14: 'switch'
             {
-            match("catch"); 
+            match("switch"); 
 
 
             }
@@ -1580,35 +1523,16 @@ public class InternalBeeLangLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_63
-
-    // $ANTLR start KEYWORD_64
-    public final void mKEYWORD_64() throws RecognitionException {
-        try {
-            int _type = KEYWORD_64;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:167:12: ( 'endif' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:167:14: 'endif'
-            {
-            match("endif"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_64
+    // $ANTLR end KEYWORD_84
 
     // $ANTLR start KEYWORD_65
     public final void mKEYWORD_65() throws RecognitionException {
         try {
             int _type = KEYWORD_65;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:169:12: ( 'false' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:169:14: 'false'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:161:12: ( 'catch' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:161:14: 'catch'
             {
-            match("false"); 
+            match("catch"); 
 
 
             }
@@ -1624,10 +1548,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_66() throws RecognitionException {
         try {
             int _type = KEYWORD_66;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:171:12: ( 'final' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:171:14: 'final'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:163:12: ( 'endif' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:163:14: 'endif'
             {
-            match("final"); 
+            match("endif"); 
 
 
             }
@@ -1643,10 +1567,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_67() throws RecognitionException {
         try {
             int _type = KEYWORD_67;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:173:12: ( 'input' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:173:14: 'input'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:165:12: ( 'false' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:165:14: 'false'
             {
-            match("input"); 
+            match("false"); 
 
 
             }
@@ -1662,10 +1586,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_68() throws RecognitionException {
         try {
             int _type = KEYWORD_68;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:175:12: ( 'super' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:175:14: 'super'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:167:12: ( 'final' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:167:14: 'final'
             {
-            match("super"); 
+            match("final"); 
 
 
             }
@@ -1681,10 +1605,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_69() throws RecognitionException {
         try {
             int _type = KEYWORD_69;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:177:12: ( 'throw' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:177:14: 'throw'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:169:12: ( 'input' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:169:14: 'input'
             {
-            match("throw"); 
+            match("input"); 
 
 
             }
@@ -1696,14 +1620,14 @@ public class InternalBeeLangLexer extends Lexer {
     }
     // $ANTLR end KEYWORD_69
 
-    // $ANTLR start KEYWORD_53
-    public final void mKEYWORD_53() throws RecognitionException {
+    // $ANTLR start KEYWORD_70
+    public final void mKEYWORD_70() throws RecognitionException {
         try {
-            int _type = KEYWORD_53;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:179:12: ( 'case' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:179:14: 'case'
+            int _type = KEYWORD_70;
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:171:12: ( 'super' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:171:14: 'super'
             {
-            match("case"); 
+            match("super"); 
 
 
             }
@@ -1713,16 +1637,16 @@ public class InternalBeeLangLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_53
+    // $ANTLR end KEYWORD_70
 
-    // $ANTLR start KEYWORD_54
-    public final void mKEYWORD_54() throws RecognitionException {
+    // $ANTLR start KEYWORD_71
+    public final void mKEYWORD_71() throws RecognitionException {
         try {
-            int _type = KEYWORD_54;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:181:12: ( 'else' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:181:14: 'else'
+            int _type = KEYWORD_71;
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:173:12: ( 'throw' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:173:14: 'throw'
             {
-            match("else"); 
+            match("throw"); 
 
 
             }
@@ -1732,16 +1656,16 @@ public class InternalBeeLangLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_54
+    // $ANTLR end KEYWORD_71
 
     // $ANTLR start KEYWORD_55
     public final void mKEYWORD_55() throws RecognitionException {
         try {
             int _type = KEYWORD_55;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:183:12: ( 'name' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:183:14: 'name'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:175:12: ( 'case' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:175:14: 'case'
             {
-            match("name"); 
+            match("case"); 
 
 
             }
@@ -1757,10 +1681,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_56() throws RecognitionException {
         try {
             int _type = KEYWORD_56;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:185:12: ( 'null' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:185:14: 'null'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:177:12: ( 'else' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:177:14: 'else'
             {
-            match("null"); 
+            match("else"); 
 
 
             }
@@ -1776,10 +1700,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_57() throws RecognitionException {
         try {
             int _type = KEYWORD_57;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:187:12: ( 'then' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:187:14: 'then'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:179:12: ( 'name' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:179:14: 'name'
             {
-            match("then"); 
+            match("name"); 
 
 
             }
@@ -1795,10 +1719,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_58() throws RecognitionException {
         try {
             int _type = KEYWORD_58;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:189:12: ( 'this' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:189:14: 'this'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:181:12: ( 'null' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:181:14: 'null'
             {
-            match("this"); 
+            match("null"); 
 
 
             }
@@ -1814,10 +1738,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_59() throws RecognitionException {
         try {
             int _type = KEYWORD_59;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:191:12: ( 'true' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:191:14: 'true'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:183:12: ( 'then' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:183:14: 'then'
             {
-            match("true"); 
+            match("then"); 
 
 
             }
@@ -1833,10 +1757,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_60() throws RecognitionException {
         try {
             int _type = KEYWORD_60;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:193:12: ( 'unit' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:193:14: 'unit'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:185:12: ( 'this' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:185:14: 'this'
             {
-            match("unit"); 
+            match("this"); 
 
 
             }
@@ -1852,10 +1776,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_61() throws RecognitionException {
         try {
             int _type = KEYWORD_61;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:195:12: ( 'when' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:195:14: 'when'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:187:12: ( 'true' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:187:14: 'true'
             {
-            match("when"); 
+            match("true"); 
 
 
             }
@@ -1871,10 +1795,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_62() throws RecognitionException {
         try {
             int _type = KEYWORD_62;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:197:12: ( 'with' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:197:14: 'with'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:189:12: ( 'unit' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:189:14: 'unit'
             {
-            match("with"); 
+            match("unit"); 
 
 
             }
@@ -1886,14 +1810,14 @@ public class InternalBeeLangLexer extends Lexer {
     }
     // $ANTLR end KEYWORD_62
 
-    // $ANTLR start KEYWORD_44
-    public final void mKEYWORD_44() throws RecognitionException {
+    // $ANTLR start KEYWORD_63
+    public final void mKEYWORD_63() throws RecognitionException {
         try {
-            int _type = KEYWORD_44;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:199:12: ( '!==' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:199:14: '!=='
+            int _type = KEYWORD_63;
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:191:12: ( 'when' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:191:14: 'when'
             {
-            match("!=="); 
+            match("when"); 
 
 
             }
@@ -1903,16 +1827,35 @@ public class InternalBeeLangLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_44
+    // $ANTLR end KEYWORD_63
+
+    // $ANTLR start KEYWORD_64
+    public final void mKEYWORD_64() throws RecognitionException {
+        try {
+            int _type = KEYWORD_64;
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:193:12: ( 'with' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:193:14: 'with'
+            {
+            match("with"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_64
 
     // $ANTLR start KEYWORD_45
     public final void mKEYWORD_45() throws RecognitionException {
         try {
             int _type = KEYWORD_45;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:201:12: ( '...' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:201:14: '...'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:195:12: ( '!==' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:195:14: '!=='
             {
-            match("..."); 
+            match("!=="); 
 
 
             }
@@ -1928,10 +1871,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_46() throws RecognitionException {
         try {
             int _type = KEYWORD_46;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:203:12: ( '===' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:203:14: '==='
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:197:12: ( '...' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:197:14: '...'
             {
-            match("==="); 
+            match("..."); 
 
 
             }
@@ -1947,10 +1890,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_47() throws RecognitionException {
         try {
             int _type = KEYWORD_47;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:205:12: ( 'env' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:205:14: 'env'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:199:12: ( '===' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:199:14: '==='
             {
-            match("env"); 
+            match("==="); 
 
 
             }
@@ -1966,10 +1909,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_48() throws RecognitionException {
         try {
             int _type = KEYWORD_48;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:207:12: ( 'new' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:207:14: 'new'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:201:12: ( 'env' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:201:14: 'env'
             {
-            match("new"); 
+            match("env"); 
 
 
             }
@@ -1985,10 +1928,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_49() throws RecognitionException {
         try {
             int _type = KEYWORD_49;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:209:12: ( 'tag' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:209:14: 'tag'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:203:12: ( 'new' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:203:14: 'new'
             {
-            match("tag"); 
+            match("new"); 
 
 
             }
@@ -2004,10 +1947,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_50() throws RecognitionException {
         try {
             int _type = KEYWORD_50;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:211:12: ( 'try' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:211:14: 'try'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:205:12: ( 'tag' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:205:14: 'tag'
             {
-            match("try"); 
+            match("tag"); 
 
 
             }
@@ -2023,10 +1966,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_51() throws RecognitionException {
         try {
             int _type = KEYWORD_51;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:213:12: ( 'val' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:213:14: 'val'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:207:12: ( 'try' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:207:14: 'try'
             {
-            match("val"); 
+            match("try"); 
 
 
             }
@@ -2042,10 +1985,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_52() throws RecognitionException {
         try {
             int _type = KEYWORD_52;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:215:12: ( 'var' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:215:14: 'var'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:209:12: ( 'use' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:209:14: 'use'
             {
-            match("var"); 
+            match("use"); 
 
 
             }
@@ -2057,12 +2000,50 @@ public class InternalBeeLangLexer extends Lexer {
     }
     // $ANTLR end KEYWORD_52
 
+    // $ANTLR start KEYWORD_53
+    public final void mKEYWORD_53() throws RecognitionException {
+        try {
+            int _type = KEYWORD_53;
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:211:12: ( 'val' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:211:14: 'val'
+            {
+            match("val"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_53
+
+    // $ANTLR start KEYWORD_54
+    public final void mKEYWORD_54() throws RecognitionException {
+        try {
+            int _type = KEYWORD_54;
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:213:12: ( 'var' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:213:14: 'var'
+            {
+            match("var"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_54
+
     // $ANTLR start KEYWORD_26
     public final void mKEYWORD_26() throws RecognitionException {
         try {
             int _type = KEYWORD_26;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:217:12: ( '!=' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:217:14: '!='
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:215:12: ( '!=' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:215:14: '!='
             {
             match("!="); 
 
@@ -2080,8 +2061,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_27() throws RecognitionException {
         try {
             int _type = KEYWORD_27;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:219:12: ( '%=' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:219:14: '%='
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:217:12: ( '%=' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:217:14: '%='
             {
             match("%="); 
 
@@ -2099,8 +2080,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_28() throws RecognitionException {
         try {
             int _type = KEYWORD_28;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:221:12: ( '&&' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:221:14: '&&'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:219:12: ( '&&' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:219:14: '&&'
             {
             match("&&"); 
 
@@ -2118,8 +2099,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_29() throws RecognitionException {
         try {
             int _type = KEYWORD_29;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:223:12: ( '*=' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:223:14: '*='
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:221:12: ( '*=' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:221:14: '*='
             {
             match("*="); 
 
@@ -2137,8 +2118,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_30() throws RecognitionException {
         try {
             int _type = KEYWORD_30;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:225:12: ( '++' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:225:14: '++'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:223:12: ( '++' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:223:14: '++'
             {
             match("++"); 
 
@@ -2156,8 +2137,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_31() throws RecognitionException {
         try {
             int _type = KEYWORD_31;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:227:12: ( '+=' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:227:14: '+='
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:225:12: ( '+=' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:225:14: '+='
             {
             match("+="); 
 
@@ -2175,8 +2156,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_32() throws RecognitionException {
         try {
             int _type = KEYWORD_32;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:229:12: ( '--' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:229:14: '--'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:227:12: ( '--' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:227:14: '--'
             {
             match("--"); 
 
@@ -2194,8 +2175,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_33() throws RecognitionException {
         try {
             int _type = KEYWORD_33;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:231:12: ( '-=' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:231:14: '-='
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:229:12: ( '-=' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:229:14: '-='
             {
             match("-="); 
 
@@ -2213,8 +2194,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_34() throws RecognitionException {
         try {
             int _type = KEYWORD_34;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:233:12: ( '..' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:233:14: '..'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:231:12: ( '..' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:231:14: '..'
             {
             match(".."); 
 
@@ -2232,8 +2213,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_35() throws RecognitionException {
         try {
             int _type = KEYWORD_35;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:235:12: ( '/=' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:235:14: '/='
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:233:12: ( '/=' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:233:14: '/='
             {
             match("/="); 
 
@@ -2251,8 +2232,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_36() throws RecognitionException {
         try {
             int _type = KEYWORD_36;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:237:12: ( '<=' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:237:14: '<='
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:235:12: ( '<=' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:235:14: '<='
             {
             match("<="); 
 
@@ -2270,8 +2251,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_37() throws RecognitionException {
         try {
             int _type = KEYWORD_37;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:239:12: ( '==' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:239:14: '=='
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:237:12: ( '==' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:237:14: '=='
             {
             match("=="); 
 
@@ -2289,8 +2270,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_38() throws RecognitionException {
         try {
             int _type = KEYWORD_38;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:241:12: ( '=>' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:241:14: '=>'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:239:12: ( '=>' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:239:14: '=>'
             {
             match("=>"); 
 
@@ -2308,8 +2289,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_39() throws RecognitionException {
         try {
             int _type = KEYWORD_39;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:243:12: ( '>=' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:243:14: '>='
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:241:12: ( '>=' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:241:14: '>='
             {
             match(">="); 
 
@@ -2327,8 +2308,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_40() throws RecognitionException {
         try {
             int _type = KEYWORD_40;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:245:12: ( 'as' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:245:14: 'as'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:243:12: ( 'as' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:243:14: 'as'
             {
             match("as"); 
 
@@ -2346,8 +2327,8 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_41() throws RecognitionException {
         try {
             int _type = KEYWORD_41;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:247:12: ( 'if' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:247:14: 'if'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:245:12: ( 'if' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:245:14: 'if'
             {
             match("if"); 
 
@@ -2365,10 +2346,10 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_42() throws RecognitionException {
         try {
             int _type = KEYWORD_42;
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:249:12: ( '||' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:249:14: '||'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:247:12: ( 'is' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:247:14: 'is'
             {
-            match("||"); 
+            match("is"); 
 
 
             }
@@ -2384,6 +2365,25 @@ public class InternalBeeLangLexer extends Lexer {
     public final void mKEYWORD_43() throws RecognitionException {
         try {
             int _type = KEYWORD_43;
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:249:12: ( '||' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:249:14: '||'
+            {
+            match("||"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_43
+
+    // $ANTLR start KEYWORD_44
+    public final void mKEYWORD_44() throws RecognitionException {
+        try {
+            int _type = KEYWORD_44;
             // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:251:12: ( '~=' )
             // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:251:14: '~='
             {
@@ -2397,7 +2397,7 @@ public class InternalBeeLangLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_43
+    // $ANTLR end KEYWORD_44
 
     // $ANTLR start KEYWORD_1
     public final void mKEYWORD_1() throws RecognitionException {
@@ -3753,7 +3753,7 @@ public class InternalBeeLangLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:8: ( KEYWORD_142 | KEYWORD_140 | KEYWORD_141 | KEYWORD_138 | KEYWORD_139 | KEYWORD_137 | KEYWORD_132 | KEYWORD_133 | KEYWORD_134 | KEYWORD_135 | KEYWORD_136 | KEYWORD_129 | KEYWORD_130 | KEYWORD_131 | KEYWORD_126 | KEYWORD_127 | KEYWORD_128 | KEYWORD_119 | KEYWORD_120 | KEYWORD_121 | KEYWORD_122 | KEYWORD_123 | KEYWORD_124 | KEYWORD_125 | KEYWORD_117 | KEYWORD_118 | KEYWORD_107 | KEYWORD_108 | KEYWORD_109 | KEYWORD_110 | KEYWORD_111 | KEYWORD_112 | KEYWORD_113 | KEYWORD_114 | KEYWORD_115 | KEYWORD_116 | KEYWORD_103 | KEYWORD_104 | KEYWORD_105 | KEYWORD_106 | KEYWORD_96 | KEYWORD_97 | KEYWORD_98 | KEYWORD_99 | KEYWORD_100 | KEYWORD_101 | KEYWORD_102 | KEYWORD_84 | KEYWORD_85 | KEYWORD_86 | KEYWORD_87 | KEYWORD_88 | KEYWORD_89 | KEYWORD_90 | KEYWORD_91 | KEYWORD_92 | KEYWORD_93 | KEYWORD_94 | KEYWORD_95 | KEYWORD_70 | KEYWORD_71 | KEYWORD_72 | KEYWORD_73 | KEYWORD_74 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_78 | KEYWORD_79 | KEYWORD_80 | KEYWORD_81 | KEYWORD_82 | KEYWORD_83 | KEYWORD_63 | KEYWORD_64 | KEYWORD_65 | KEYWORD_66 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_53 | KEYWORD_54 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_58 | KEYWORD_59 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_44 | KEYWORD_45 | KEYWORD_46 | KEYWORD_47 | KEYWORD_48 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_26 | KEYWORD_27 | KEYWORD_28 | KEYWORD_29 | KEYWORD_30 | KEYWORD_31 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_40 | KEYWORD_41 | KEYWORD_42 | KEYWORD_43 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | KEYWORD_20 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | RULE_ID | RULE_PID | RULE_REGULAR_EXPR | RULE_SIMPLE_PATTERN | RULE_STRING | RULE_TEXT | RULE_JAVADOC | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_HEX | RULE_INT | RULE_EXT_INT | RULE_ANY_OTHER )
+        // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:8: ( KEYWORD_142 | KEYWORD_140 | KEYWORD_141 | KEYWORD_138 | KEYWORD_139 | KEYWORD_137 | KEYWORD_132 | KEYWORD_133 | KEYWORD_134 | KEYWORD_135 | KEYWORD_136 | KEYWORD_129 | KEYWORD_130 | KEYWORD_131 | KEYWORD_126 | KEYWORD_127 | KEYWORD_128 | KEYWORD_119 | KEYWORD_120 | KEYWORD_121 | KEYWORD_122 | KEYWORD_123 | KEYWORD_124 | KEYWORD_125 | KEYWORD_117 | KEYWORD_118 | KEYWORD_108 | KEYWORD_109 | KEYWORD_110 | KEYWORD_111 | KEYWORD_112 | KEYWORD_113 | KEYWORD_114 | KEYWORD_115 | KEYWORD_116 | KEYWORD_104 | KEYWORD_105 | KEYWORD_106 | KEYWORD_107 | KEYWORD_97 | KEYWORD_98 | KEYWORD_99 | KEYWORD_100 | KEYWORD_101 | KEYWORD_102 | KEYWORD_103 | KEYWORD_85 | KEYWORD_86 | KEYWORD_87 | KEYWORD_88 | KEYWORD_89 | KEYWORD_90 | KEYWORD_91 | KEYWORD_92 | KEYWORD_93 | KEYWORD_94 | KEYWORD_95 | KEYWORD_96 | KEYWORD_72 | KEYWORD_73 | KEYWORD_74 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_78 | KEYWORD_79 | KEYWORD_80 | KEYWORD_81 | KEYWORD_82 | KEYWORD_83 | KEYWORD_84 | KEYWORD_65 | KEYWORD_66 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_70 | KEYWORD_71 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_58 | KEYWORD_59 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_63 | KEYWORD_64 | KEYWORD_45 | KEYWORD_46 | KEYWORD_47 | KEYWORD_48 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_53 | KEYWORD_54 | KEYWORD_26 | KEYWORD_27 | KEYWORD_28 | KEYWORD_29 | KEYWORD_30 | KEYWORD_31 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_40 | KEYWORD_41 | KEYWORD_42 | KEYWORD_43 | KEYWORD_44 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | KEYWORD_20 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | RULE_ID | RULE_PID | RULE_REGULAR_EXPR | RULE_SIMPLE_PATTERN | RULE_STRING | RULE_TEXT | RULE_JAVADOC | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_HEX | RULE_INT | RULE_EXT_INT | RULE_ANY_OTHER )
         int alt18=156;
         alt18 = dfa18.predict(input);
         switch (alt18) {
@@ -3940,639 +3940,639 @@ public class InternalBeeLangLexer extends Lexer {
                 }
                 break;
             case 27 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:322: KEYWORD_107
-                {
-                mKEYWORD_107(); 
-
-                }
-                break;
-            case 28 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:334: KEYWORD_108
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:322: KEYWORD_108
                 {
                 mKEYWORD_108(); 
 
                 }
                 break;
-            case 29 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:346: KEYWORD_109
+            case 28 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:334: KEYWORD_109
                 {
                 mKEYWORD_109(); 
 
                 }
                 break;
-            case 30 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:358: KEYWORD_110
+            case 29 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:346: KEYWORD_110
                 {
                 mKEYWORD_110(); 
 
                 }
                 break;
-            case 31 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:370: KEYWORD_111
+            case 30 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:358: KEYWORD_111
                 {
                 mKEYWORD_111(); 
 
                 }
                 break;
-            case 32 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:382: KEYWORD_112
+            case 31 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:370: KEYWORD_112
                 {
                 mKEYWORD_112(); 
 
                 }
                 break;
-            case 33 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:394: KEYWORD_113
+            case 32 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:382: KEYWORD_113
                 {
                 mKEYWORD_113(); 
 
                 }
                 break;
-            case 34 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:406: KEYWORD_114
+            case 33 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:394: KEYWORD_114
                 {
                 mKEYWORD_114(); 
 
                 }
                 break;
-            case 35 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:418: KEYWORD_115
+            case 34 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:406: KEYWORD_115
                 {
                 mKEYWORD_115(); 
 
                 }
                 break;
-            case 36 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:430: KEYWORD_116
+            case 35 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:418: KEYWORD_116
                 {
                 mKEYWORD_116(); 
 
                 }
                 break;
-            case 37 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:442: KEYWORD_103
-                {
-                mKEYWORD_103(); 
-
-                }
-                break;
-            case 38 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:454: KEYWORD_104
+            case 36 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:430: KEYWORD_104
                 {
                 mKEYWORD_104(); 
 
                 }
                 break;
-            case 39 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:466: KEYWORD_105
+            case 37 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:442: KEYWORD_105
                 {
                 mKEYWORD_105(); 
 
                 }
                 break;
-            case 40 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:478: KEYWORD_106
+            case 38 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:454: KEYWORD_106
                 {
                 mKEYWORD_106(); 
 
                 }
                 break;
-            case 41 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:490: KEYWORD_96
+            case 39 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:466: KEYWORD_107
                 {
-                mKEYWORD_96(); 
+                mKEYWORD_107(); 
 
                 }
                 break;
-            case 42 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:501: KEYWORD_97
+            case 40 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:478: KEYWORD_97
                 {
                 mKEYWORD_97(); 
 
                 }
                 break;
-            case 43 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:512: KEYWORD_98
+            case 41 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:489: KEYWORD_98
                 {
                 mKEYWORD_98(); 
 
                 }
                 break;
-            case 44 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:523: KEYWORD_99
+            case 42 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:500: KEYWORD_99
                 {
                 mKEYWORD_99(); 
 
                 }
                 break;
-            case 45 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:534: KEYWORD_100
+            case 43 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:511: KEYWORD_100
                 {
                 mKEYWORD_100(); 
 
                 }
                 break;
-            case 46 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:546: KEYWORD_101
+            case 44 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:523: KEYWORD_101
                 {
                 mKEYWORD_101(); 
 
                 }
                 break;
-            case 47 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:558: KEYWORD_102
+            case 45 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:535: KEYWORD_102
                 {
                 mKEYWORD_102(); 
 
                 }
                 break;
-            case 48 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:570: KEYWORD_84
+            case 46 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:547: KEYWORD_103
                 {
-                mKEYWORD_84(); 
+                mKEYWORD_103(); 
 
                 }
                 break;
-            case 49 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:581: KEYWORD_85
+            case 47 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:559: KEYWORD_85
                 {
                 mKEYWORD_85(); 
 
                 }
                 break;
-            case 50 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:592: KEYWORD_86
+            case 48 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:570: KEYWORD_86
                 {
                 mKEYWORD_86(); 
 
                 }
                 break;
-            case 51 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:603: KEYWORD_87
+            case 49 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:581: KEYWORD_87
                 {
                 mKEYWORD_87(); 
 
                 }
                 break;
-            case 52 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:614: KEYWORD_88
+            case 50 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:592: KEYWORD_88
                 {
                 mKEYWORD_88(); 
 
                 }
                 break;
-            case 53 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:625: KEYWORD_89
+            case 51 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:603: KEYWORD_89
                 {
                 mKEYWORD_89(); 
 
                 }
                 break;
-            case 54 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:636: KEYWORD_90
+            case 52 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:614: KEYWORD_90
                 {
                 mKEYWORD_90(); 
 
                 }
                 break;
-            case 55 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:647: KEYWORD_91
+            case 53 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:625: KEYWORD_91
                 {
                 mKEYWORD_91(); 
 
                 }
                 break;
-            case 56 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:658: KEYWORD_92
+            case 54 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:636: KEYWORD_92
                 {
                 mKEYWORD_92(); 
 
                 }
                 break;
-            case 57 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:669: KEYWORD_93
+            case 55 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:647: KEYWORD_93
                 {
                 mKEYWORD_93(); 
 
                 }
                 break;
-            case 58 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:680: KEYWORD_94
+            case 56 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:658: KEYWORD_94
                 {
                 mKEYWORD_94(); 
 
                 }
                 break;
-            case 59 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:691: KEYWORD_95
+            case 57 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:669: KEYWORD_95
                 {
                 mKEYWORD_95(); 
 
                 }
                 break;
-            case 60 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:702: KEYWORD_70
+            case 58 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:680: KEYWORD_96
                 {
-                mKEYWORD_70(); 
+                mKEYWORD_96(); 
 
                 }
                 break;
-            case 61 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:713: KEYWORD_71
-                {
-                mKEYWORD_71(); 
-
-                }
-                break;
-            case 62 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:724: KEYWORD_72
+            case 59 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:691: KEYWORD_72
                 {
                 mKEYWORD_72(); 
 
                 }
                 break;
-            case 63 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:735: KEYWORD_73
+            case 60 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:702: KEYWORD_73
                 {
                 mKEYWORD_73(); 
 
                 }
                 break;
-            case 64 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:746: KEYWORD_74
+            case 61 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:713: KEYWORD_74
                 {
                 mKEYWORD_74(); 
 
                 }
                 break;
-            case 65 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:757: KEYWORD_75
+            case 62 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:724: KEYWORD_75
                 {
                 mKEYWORD_75(); 
 
                 }
                 break;
-            case 66 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:768: KEYWORD_76
+            case 63 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:735: KEYWORD_76
                 {
                 mKEYWORD_76(); 
 
                 }
                 break;
-            case 67 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:779: KEYWORD_77
+            case 64 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:746: KEYWORD_77
                 {
                 mKEYWORD_77(); 
 
                 }
                 break;
-            case 68 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:790: KEYWORD_78
+            case 65 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:757: KEYWORD_78
                 {
                 mKEYWORD_78(); 
 
                 }
                 break;
-            case 69 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:801: KEYWORD_79
+            case 66 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:768: KEYWORD_79
                 {
                 mKEYWORD_79(); 
 
                 }
                 break;
-            case 70 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:812: KEYWORD_80
+            case 67 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:779: KEYWORD_80
                 {
                 mKEYWORD_80(); 
 
                 }
                 break;
-            case 71 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:823: KEYWORD_81
+            case 68 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:790: KEYWORD_81
                 {
                 mKEYWORD_81(); 
 
                 }
                 break;
-            case 72 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:834: KEYWORD_82
+            case 69 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:801: KEYWORD_82
                 {
                 mKEYWORD_82(); 
 
                 }
                 break;
-            case 73 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:845: KEYWORD_83
+            case 70 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:812: KEYWORD_83
                 {
                 mKEYWORD_83(); 
 
                 }
                 break;
-            case 74 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:856: KEYWORD_63
+            case 71 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:823: KEYWORD_84
                 {
-                mKEYWORD_63(); 
+                mKEYWORD_84(); 
 
                 }
                 break;
-            case 75 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:867: KEYWORD_64
-                {
-                mKEYWORD_64(); 
-
-                }
-                break;
-            case 76 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:878: KEYWORD_65
+            case 72 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:834: KEYWORD_65
                 {
                 mKEYWORD_65(); 
 
                 }
                 break;
-            case 77 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:889: KEYWORD_66
+            case 73 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:845: KEYWORD_66
                 {
                 mKEYWORD_66(); 
 
                 }
                 break;
-            case 78 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:900: KEYWORD_67
+            case 74 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:856: KEYWORD_67
                 {
                 mKEYWORD_67(); 
 
                 }
                 break;
-            case 79 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:911: KEYWORD_68
+            case 75 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:867: KEYWORD_68
                 {
                 mKEYWORD_68(); 
 
                 }
                 break;
-            case 80 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:922: KEYWORD_69
+            case 76 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:878: KEYWORD_69
                 {
                 mKEYWORD_69(); 
 
                 }
                 break;
-            case 81 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:933: KEYWORD_53
+            case 77 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:889: KEYWORD_70
                 {
-                mKEYWORD_53(); 
+                mKEYWORD_70(); 
 
                 }
                 break;
-            case 82 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:944: KEYWORD_54
+            case 78 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:900: KEYWORD_71
                 {
-                mKEYWORD_54(); 
+                mKEYWORD_71(); 
 
                 }
                 break;
-            case 83 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:955: KEYWORD_55
+            case 79 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:911: KEYWORD_55
                 {
                 mKEYWORD_55(); 
 
                 }
                 break;
-            case 84 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:966: KEYWORD_56
+            case 80 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:922: KEYWORD_56
                 {
                 mKEYWORD_56(); 
 
                 }
                 break;
-            case 85 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:977: KEYWORD_57
+            case 81 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:933: KEYWORD_57
                 {
                 mKEYWORD_57(); 
 
                 }
                 break;
-            case 86 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:988: KEYWORD_58
+            case 82 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:944: KEYWORD_58
                 {
                 mKEYWORD_58(); 
 
                 }
                 break;
-            case 87 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:999: KEYWORD_59
+            case 83 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:955: KEYWORD_59
                 {
                 mKEYWORD_59(); 
 
                 }
                 break;
-            case 88 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1010: KEYWORD_60
+            case 84 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:966: KEYWORD_60
                 {
                 mKEYWORD_60(); 
 
                 }
                 break;
-            case 89 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1021: KEYWORD_61
+            case 85 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:977: KEYWORD_61
                 {
                 mKEYWORD_61(); 
 
                 }
                 break;
-            case 90 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1032: KEYWORD_62
+            case 86 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:988: KEYWORD_62
                 {
                 mKEYWORD_62(); 
 
                 }
                 break;
-            case 91 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1043: KEYWORD_44
+            case 87 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:999: KEYWORD_63
                 {
-                mKEYWORD_44(); 
+                mKEYWORD_63(); 
 
                 }
                 break;
-            case 92 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1054: KEYWORD_45
+            case 88 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1010: KEYWORD_64
+                {
+                mKEYWORD_64(); 
+
+                }
+                break;
+            case 89 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1021: KEYWORD_45
                 {
                 mKEYWORD_45(); 
 
                 }
                 break;
-            case 93 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1065: KEYWORD_46
+            case 90 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1032: KEYWORD_46
                 {
                 mKEYWORD_46(); 
 
                 }
                 break;
-            case 94 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1076: KEYWORD_47
+            case 91 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1043: KEYWORD_47
                 {
                 mKEYWORD_47(); 
 
                 }
                 break;
-            case 95 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1087: KEYWORD_48
+            case 92 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1054: KEYWORD_48
                 {
                 mKEYWORD_48(); 
 
                 }
                 break;
-            case 96 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1098: KEYWORD_49
+            case 93 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1065: KEYWORD_49
                 {
                 mKEYWORD_49(); 
 
                 }
                 break;
-            case 97 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1109: KEYWORD_50
+            case 94 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1076: KEYWORD_50
                 {
                 mKEYWORD_50(); 
 
                 }
                 break;
-            case 98 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1120: KEYWORD_51
+            case 95 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1087: KEYWORD_51
                 {
                 mKEYWORD_51(); 
 
                 }
                 break;
-            case 99 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1131: KEYWORD_52
+            case 96 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1098: KEYWORD_52
                 {
                 mKEYWORD_52(); 
 
                 }
                 break;
-            case 100 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1142: KEYWORD_26
+            case 97 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1109: KEYWORD_53
+                {
+                mKEYWORD_53(); 
+
+                }
+                break;
+            case 98 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1120: KEYWORD_54
+                {
+                mKEYWORD_54(); 
+
+                }
+                break;
+            case 99 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1131: KEYWORD_26
                 {
                 mKEYWORD_26(); 
 
                 }
                 break;
-            case 101 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1153: KEYWORD_27
+            case 100 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1142: KEYWORD_27
                 {
                 mKEYWORD_27(); 
 
                 }
                 break;
-            case 102 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1164: KEYWORD_28
+            case 101 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1153: KEYWORD_28
                 {
                 mKEYWORD_28(); 
 
                 }
                 break;
-            case 103 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1175: KEYWORD_29
+            case 102 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1164: KEYWORD_29
                 {
                 mKEYWORD_29(); 
 
                 }
                 break;
-            case 104 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1186: KEYWORD_30
+            case 103 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1175: KEYWORD_30
                 {
                 mKEYWORD_30(); 
 
                 }
                 break;
-            case 105 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1197: KEYWORD_31
+            case 104 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1186: KEYWORD_31
                 {
                 mKEYWORD_31(); 
 
                 }
                 break;
-            case 106 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1208: KEYWORD_32
+            case 105 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1197: KEYWORD_32
                 {
                 mKEYWORD_32(); 
 
                 }
                 break;
-            case 107 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1219: KEYWORD_33
+            case 106 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1208: KEYWORD_33
                 {
                 mKEYWORD_33(); 
 
                 }
                 break;
-            case 108 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1230: KEYWORD_34
+            case 107 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1219: KEYWORD_34
                 {
                 mKEYWORD_34(); 
 
                 }
                 break;
-            case 109 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1241: KEYWORD_35
+            case 108 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1230: KEYWORD_35
                 {
                 mKEYWORD_35(); 
 
                 }
                 break;
-            case 110 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1252: KEYWORD_36
+            case 109 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1241: KEYWORD_36
                 {
                 mKEYWORD_36(); 
 
                 }
                 break;
-            case 111 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1263: KEYWORD_37
+            case 110 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1252: KEYWORD_37
                 {
                 mKEYWORD_37(); 
 
                 }
                 break;
-            case 112 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1274: KEYWORD_38
+            case 111 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1263: KEYWORD_38
                 {
                 mKEYWORD_38(); 
 
                 }
                 break;
-            case 113 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1285: KEYWORD_39
+            case 112 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1274: KEYWORD_39
                 {
                 mKEYWORD_39(); 
 
                 }
                 break;
-            case 114 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1296: KEYWORD_40
+            case 113 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1285: KEYWORD_40
                 {
                 mKEYWORD_40(); 
 
                 }
                 break;
-            case 115 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1307: KEYWORD_41
+            case 114 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1296: KEYWORD_41
                 {
                 mKEYWORD_41(); 
 
                 }
                 break;
-            case 116 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1318: KEYWORD_42
+            case 115 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1307: KEYWORD_42
                 {
                 mKEYWORD_42(); 
 
                 }
                 break;
-            case 117 :
-                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1329: KEYWORD_43
+            case 116 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1318: KEYWORD_43
                 {
                 mKEYWORD_43(); 
+
+                }
+                break;
+            case 117 :
+                // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/ui/contentassist/antlr/lexer/InternalBeeLang.g:1:1329: KEYWORD_44
+                {
+                mKEYWORD_44(); 
 
                 }
                 break;
@@ -4857,162 +4857,159 @@ public class InternalBeeLangLexer extends Lexer {
 
     protected DFA18 dfa18 = new DFA18(this);
     static final String DFA18_eotS =
-        "\1\uffff\1\71\24\73\1\154\1\156\1\161\1\163\1\165\1\167\1\172\1"+
-        "\175\1\u0081\1\u0083\1\u0085\1\u0087\1\67\1\u008c\10\uffff\1\u0095"+
-        "\2\uffff\1\67\1\uffff\3\67\1\uffff\2\u009c\3\uffff\1\73\1\uffff"+
-        "\26\73\1\u00c4\3\73\1\u00ca\24\73\1\u00e6\1\uffff\1\u00e8\1\uffff"+
-        "\1\u00ea\56\uffff\1\u009c\2\uffff\11\73\1\uffff\31\73\1\uffff\5"+
-        "\73\1\uffff\1\u011d\3\73\1\u0123\5\73\1\u0129\1\73\1\u012b\7\73"+
-        "\1\u0133\1\u0134\4\73\11\uffff\16\73\1\u0149\30\73\1\u0164\7\73"+
-        "\1\uffff\1\u016c\1\u016e\3\73\1\uffff\1\u0173\4\73\1\uffff\1\u0178"+
-        "\1\uffff\1\u0179\1\73\1\u017b\4\73\2\uffff\2\73\1\u0182\1\u0183"+
-        "\1\uffff\17\73\1\uffff\1\73\1\u0196\23\73\1\u01aa\3\73\2\uffff\3"+
-        "\73\1\u01b1\3\73\3\uffff\1\73\1\u01b6\2\73\1\uffff\2\73\1\uffff"+
-        "\1\73\2\uffff\1\u01bc\1\uffff\1\73\1\u01bf\1\u01c0\3\73\4\uffff"+
-        "\1\73\1\u01c5\10\73\1\u01ce\1\73\1\u01d0\2\73\1\u01d3\1\uffff\7"+
-        "\73\1\u01dc\1\u01de\7\73\1\u01e6\2\73\1\uffff\1\u01e9\1\u01ea\4"+
-        "\73\1\uffff\2\73\1\u01f1\1\u01f2\1\uffff\1\73\1\u01f4\2\73\1\u01f7"+
-        "\1\uffff\2\73\2\uffff\2\73\1\u01fc\1\u01fe\1\uffff\2\73\1\u0201"+
-        "\1\73\1\u0203\3\73\4\uffff\1\73\1\uffff\1\73\1\u0209\1\73\1\u020b"+
-        "\2\73\1\u020f\1\73\3\uffff\1\u0211\6\73\2\uffff\1\73\3\uffff\1\73"+
-        "\1\uffff\1\u021f\2\73\2\uffff\1\73\1\uffff\1\u0223\1\u0224\1\uffff"+
-        "\1\73\1\u0226\1\73\1\u0228\3\uffff\2\73\1\uffff\1\73\1\uffff\1\73"+
-        "\1\u022d\1\u022e\2\73\1\uffff\1\73\1\uffff\2\73\2\uffff\1\u0234"+
-        "\1\uffff\1\u0236\1\u0237\1\uffff\1\73\1\u0239\1\73\5\uffff\2\73"+
-        "\1\uffff\3\73\2\uffff\1\73\1\uffff\1\u0243\1\uffff\4\73\2\uffff"+
-        "\1\73\1\uffff\1\73\1\u024a\1\73\4\uffff\1\73\1\uffff\1\73\2\uffff"+
-        "\4\73\1\u0253\1\u0254\1\uffff\3\73\1\u0258\1\u0259\1\u025a\1\uffff"+
-        "\1\u025b\1\uffff\1\u025e\1\u025f\1\u0260\1\73\1\u0262\1\u0263\2"+
-        "\uffff\3\73\11\uffff\1\u0267\2\uffff\2\73\1\u026a\1\uffff\1\73\1"+
-        "\u026c\1\uffff\1\73\1\uffff\3\73\1\u0271\1\uffff";
+        "\1\uffff\1\71\24\73\1\155\1\157\1\162\1\164\1\166\1\170\1\173\1"+
+        "\176\1\u0082\1\u0084\1\u0086\1\u0088\1\67\1\u008d\10\uffff\1\u0096"+
+        "\2\uffff\1\67\1\uffff\3\67\1\uffff\2\u009d\3\uffff\1\73\1\uffff"+
+        "\27\73\1\u00c6\2\73\1\u00cb\1\u00cc\24\73\1\u00e8\1\uffff\1\u00ea"+
+        "\1\uffff\1\u00ec\56\uffff\1\u009d\2\uffff\11\73\1\uffff\26\73\1"+
+        "\u0116\3\73\1\uffff\4\73\2\uffff\1\u011e\2\73\1\u0121\6\73\1\u012a"+
+        "\1\73\1\u012c\7\73\1\u0134\1\u0135\4\73\11\uffff\17\73\1\u014b\26"+
+        "\73\1\uffff\1\u0164\6\73\1\uffff\1\u016b\1\u016d\1\uffff\3\73\1"+
+        "\u0172\4\73\1\uffff\1\u0177\1\uffff\1\73\1\u0179\1\u017a\4\73\2"+
+        "\uffff\2\73\1\u0181\1\u0182\1\uffff\17\73\1\u0194\1\uffff\24\73"+
+        "\1\u01a9\2\73\2\uffff\4\73\1\u01b0\1\73\3\uffff\1\u01b2\3\73\1\uffff"+
+        "\2\73\1\uffff\1\73\1\uffff\1\u01b9\2\uffff\1\73\1\u01bc\1\u01bd"+
+        "\3\73\4\uffff\3\73\1\u01c4\6\73\1\u01cb\1\73\1\u01cd\2\73\1\uffff"+
+        "\1\u01d0\7\73\1\u01d9\1\u01db\5\73\1\u01e1\4\73\1\uffff\1\u01e6"+
+        "\1\u01e7\4\73\1\uffff\1\73\1\uffff\1\u01ed\1\73\1\u01ef\2\73\1\u01f2"+
+        "\1\uffff\2\73\2\uffff\2\73\1\u01f7\1\u01f9\2\73\1\uffff\3\73\1\u01ff"+
+        "\1\u0200\1\73\3\uffff\1\73\2\uffff\1\73\1\u0204\2\73\1\u0207\1\73"+
+        "\1\u020a\1\73\3\uffff\1\u020c\4\73\1\uffff\2\73\1\uffff\1\73\3\uffff"+
+        "\1\73\1\uffff\1\u021a\1\73\1\uffff\1\73\1\uffff\1\u021d\1\u021e"+
+        "\1\uffff\1\73\1\u0220\1\73\1\u0222\3\uffff\4\73\1\u0227\2\uffff"+
+        "\1\u0228\2\73\1\uffff\2\73\1\uffff\1\73\2\uffff\1\u022e\1\uffff"+
+        "\1\u0230\1\u0231\1\u0232\2\73\6\uffff\2\73\1\uffff\2\73\2\uffff"+
+        "\1\73\1\uffff\1\u023c\1\uffff\4\73\2\uffff\1\73\1\uffff\1\u0242"+
+        "\2\73\5\uffff\2\73\2\uffff\3\73\1\u024b\1\u024c\1\uffff\3\73\1\u0250"+
+        "\1\u0251\1\uffff\1\u0252\1\u0253\1\uffff\1\u0256\1\u0257\1\u0258"+
+        "\1\73\1\u025a\2\uffff\3\73\11\uffff\1\u025e\1\uffff\2\73\1\u0261"+
+        "\1\uffff\1\73\1\u0263\1\uffff\1\73\1\uffff\3\73\1\u0268\1\uffff";
     static final String DFA18_eofS =
-        "\u0272\uffff";
+        "\u0269\uffff";
     static final String DFA18_minS =
         "\1\0\1\160\1\145\2\141\1\156\1\141\1\162\1\157\2\145\1\156\1\143"+
         "\1\146\1\141\1\154\4\141\1\162\1\150\1\75\1\56\2\75\1\46\1\75\1"+
         "\53\1\55\1\52\2\75\1\174\1\42\1\173\10\uffff\1\60\2\uffff\1\101"+
         "\1\uffff\3\0\1\uffff\2\60\1\uffff\1\157\1\uffff\1\146\1\uffff\1"+
         "\154\1\145\1\162\1\142\1\166\1\55\1\164\1\143\1\145\1\156\1\151"+
-        "\1\141\1\144\1\164\1\145\1\154\1\160\1\151\1\165\1\144\1\151\1\156"+
-        "\1\60\2\143\1\160\1\60\1\167\1\154\1\155\1\144\1\163\1\143\1\141"+
-        "\1\164\1\165\1\147\1\145\1\155\1\156\1\154\1\156\1\154\1\162\2\145"+
-        "\1\164\1\75\1\uffff\1\56\1\uffff\1\75\20\uffff\1\0\35\uffff\1\60"+
-        "\1\uffff\1\163\1\141\1\151\1\164\1\166\2\143\1\141\1\154\1\151\1"+
-        "\uffff\1\160\1\154\1\141\1\145\1\150\3\143\1\154\1\156\1\151\1\141"+
-        "\1\165\1\170\1\154\1\151\1\157\1\145\1\165\1\145\1\164\1\162\1\141"+
-        "\1\164\1\157\1\uffff\1\145\1\154\1\165\1\164\1\154\1\uffff\1\60"+
-        "\1\154\1\145\1\151\1\60\1\145\1\154\1\145\1\144\1\145\1\60\1\145"+
-        "\1\60\1\163\1\157\1\156\1\145\1\141\1\163\1\143\2\60\1\163\1\145"+
-        "\1\156\1\150\10\uffff\1\164\1\165\2\143\1\141\1\157\2\145\1\151"+
-        "\1\154\1\151\1\156\1\165\1\145\1\142\1\60\1\145\1\150\1\153\1\145"+
-        "\1\151\1\141\1\145\1\144\1\143\1\146\1\142\1\151\1\160\1\141\2\163"+
-        "\2\154\1\143\1\145\1\162\2\143\1\164\1\55\1\164\1\160\1\165\1\164"+
-        "\1\141\1\145\1\162\1\uffff\1\60\1\55\1\162\1\146\1\167\1\uffff\1"+
-        "\60\1\165\1\156\1\55\1\163\1\uffff\1\60\1\uffff\1\60\1\167\1\60"+
-        "\1\163\1\154\1\145\1\164\2\uffff\1\151\1\144\2\60\1\143\1\154\1"+
-        "\171\1\156\1\157\1\164\1\156\1\145\1\162\1\144\1\154\1\143\1\147"+
-        "\1\164\1\144\1\151\1\uffff\1\144\1\60\1\157\1\162\1\164\1\170\1"+
-        "\151\1\143\1\145\1\150\1\171\1\154\1\162\1\157\1\143\2\151\1\165"+
-        "\2\164\1\156\1\60\1\150\2\145\2\uffff\1\141\1\164\1\144\1\60\1\156"+
-        "\1\155\1\164\3\uffff\1\171\1\60\1\151\1\146\1\uffff\2\144\1\uffff"+
-        "\1\164\2\uffff\1\60\1\uffff\1\164\2\60\1\151\1\157\1\171\4\uffff"+
-        "\1\164\1\60\1\160\1\156\1\145\2\144\1\164\2\145\1\60\1\55\1\60\1"+
-        "\55\1\154\1\60\1\uffff\1\165\1\156\1\151\1\164\1\156\1\164\1\162"+
-        "\1\60\1\55\2\145\1\162\1\145\1\164\1\157\1\164\1\60\1\55\1\164\1"+
-        "\uffff\2\60\1\55\1\164\1\55\1\145\1\uffff\1\143\1\145\2\60\1\uffff"+
-        "\1\164\1\60\1\145\1\163\1\60\1\uffff\1\141\1\171\2\uffff\1\157\1"+
-        "\156\1\60\1\55\1\uffff\1\165\1\144\1\60\1\151\1\60\1\151\1\163\1"+
-        "\154\4\uffff\1\151\1\uffff\1\164\1\60\1\157\1\60\1\145\1\151\1\55"+
-        "\1\163\3\uffff\1\60\1\163\1\164\1\55\1\157\1\156\1\151\1\uffff\1"+
-        "\142\1\151\3\uffff\1\151\1\uffff\1\60\1\145\1\156\2\uffff\1\143"+
-        "\1\uffff\2\60\1\uffff\1\155\1\60\1\156\1\60\3\uffff\1\164\1\151"+
-        "\1\uffff\1\164\1\uffff\1\145\2\60\1\164\1\55\1\uffff\1\156\1\uffff"+
-        "\1\162\1\157\2\uffff\1\60\1\uffff\1\55\1\60\1\uffff\1\162\1\60\1"+
-        "\157\2\uffff\1\145\2\uffff\1\141\1\157\1\uffff\1\157\1\164\1\150"+
-        "\2\uffff\1\160\1\uffff\1\60\1\uffff\1\143\1\164\1\151\1\163\2\uffff"+
-        "\1\171\1\uffff\1\163\1\60\1\156\1\uffff\1\155\2\uffff\1\171\1\uffff"+
-        "\1\156\2\uffff\1\154\1\156\1\146\1\163\2\60\1\uffff\1\157\1\151"+
-        "\1\157\3\60\1\uffff\1\60\1\141\3\60\1\163\2\60\2\uffff\1\156\1\157"+
-        "\1\156\11\uffff\1\60\2\uffff\1\144\1\156\1\60\1\uffff\1\151\1\60"+
-        "\1\uffff\1\164\1\uffff\1\151\1\157\1\156\1\60\1\uffff";
+        "\1\141\1\144\1\164\1\145\1\154\1\160\1\165\1\151\1\145\1\151\1\144"+
+        "\1\156\1\60\2\143\2\60\1\167\1\154\1\155\1\144\1\163\1\143\1\141"+
+        "\1\164\1\147\1\165\1\145\1\155\1\156\1\154\1\156\1\154\1\162\1\145"+
+        "\1\164\1\145\1\75\1\uffff\1\56\1\uffff\1\75\20\uffff\1\0\35\uffff"+
+        "\1\60\1\uffff\1\163\1\141\1\164\1\151\2\143\1\166\1\141\1\154\1"+
+        "\151\1\uffff\1\160\1\141\1\154\1\143\1\145\1\150\2\143\1\154\1\156"+
+        "\1\151\1\141\1\165\1\170\1\151\1\157\1\154\1\145\1\165\1\145\1\162"+
+        "\1\164\1\60\1\164\1\141\1\157\1\uffff\1\145\1\154\1\165\1\164\2"+
+        "\uffff\1\60\1\154\1\145\1\60\1\151\1\145\1\154\1\145\1\144\1\145"+
+        "\1\60\1\145\1\60\1\157\1\163\1\156\1\145\1\141\1\163\1\143\2\60"+
+        "\1\163\1\145\1\150\1\156\10\uffff\1\164\1\165\2\143\1\157\1\145"+
+        "\1\151\1\145\1\141\1\154\1\151\1\156\1\165\1\142\1\145\1\150\1\60"+
+        "\1\145\1\153\1\141\2\145\1\151\1\144\1\143\1\146\1\142\1\151\1\160"+
+        "\1\163\2\154\1\163\1\141\1\143\1\145\1\162\2\143\1\uffff\1\55\2"+
+        "\164\1\160\1\165\1\164\1\141\1\uffff\1\60\1\55\1\uffff\1\146\1\162"+
+        "\1\167\1\60\1\165\1\156\1\55\1\163\1\uffff\1\60\1\uffff\1\167\2"+
+        "\60\1\163\1\154\1\145\1\164\2\uffff\1\151\1\144\2\60\1\143\1\154"+
+        "\1\156\1\157\1\171\1\156\1\162\1\144\1\145\1\164\1\154\1\143\1\147"+
+        "\1\164\1\151\1\144\1\60\1\uffff\1\144\1\157\1\170\1\151\1\143\1"+
+        "\162\1\164\1\145\1\150\1\171\1\154\1\162\1\157\1\151\1\165\1\164"+
+        "\1\151\1\143\1\164\1\156\1\60\1\145\1\150\2\uffff\1\145\1\141\1"+
+        "\164\1\144\1\60\1\156\3\uffff\1\60\1\171\1\151\1\146\1\uffff\2\144"+
+        "\1\uffff\1\164\1\uffff\1\60\2\uffff\1\164\2\60\1\151\1\157\1\171"+
+        "\4\uffff\1\164\1\160\1\156\1\60\1\144\1\164\1\145\1\144\2\145\1"+
+        "\60\1\55\1\60\1\154\1\55\1\uffff\1\60\1\165\1\164\1\156\1\164\1"+
+        "\156\1\151\1\162\1\60\1\55\2\145\1\162\1\157\1\164\1\60\1\164\1"+
+        "\145\1\55\1\164\1\uffff\2\60\1\55\1\164\1\55\1\145\1\uffff\1\143"+
+        "\1\uffff\1\60\1\164\1\60\1\145\1\163\1\60\1\uffff\1\141\1\171\2"+
+        "\uffff\1\157\1\156\1\60\1\55\1\165\1\144\1\uffff\2\151\1\163\2\60"+
+        "\1\154\3\uffff\1\151\2\uffff\1\164\1\60\1\145\1\151\1\60\1\157\1"+
+        "\55\1\163\3\uffff\1\60\1\163\1\164\1\156\1\151\1\uffff\1\157\1\55"+
+        "\1\142\1\151\3\uffff\1\151\1\uffff\1\60\1\145\1\uffff\1\143\1\uffff"+
+        "\2\60\1\uffff\1\155\1\60\1\156\1\60\3\uffff\1\164\1\151\1\164\1"+
+        "\145\1\60\2\uffff\1\60\1\164\1\55\1\uffff\1\162\1\157\1\uffff\1"+
+        "\156\2\uffff\1\60\1\uffff\1\55\2\60\1\157\1\162\3\uffff\1\145\2"+
+        "\uffff\1\141\1\157\1\uffff\1\157\1\150\2\uffff\1\160\1\uffff\1\60"+
+        "\1\uffff\1\143\1\164\1\151\1\163\2\uffff\1\171\1\uffff\1\60\1\156"+
+        "\1\163\1\uffff\1\155\3\uffff\1\156\1\171\2\uffff\1\154\1\156\1\146"+
+        "\2\60\1\uffff\1\157\1\151\1\157\2\60\1\uffff\2\60\1\141\3\60\1\163"+
+        "\1\60\2\uffff\1\156\1\157\1\156\11\uffff\1\60\1\uffff\1\144\1\156"+
+        "\1\60\1\uffff\1\151\1\60\1\uffff\1\164\1\uffff\1\151\1\157\1\156"+
+        "\1\60\1\uffff";
     static final String DFA18_maxS =
-        "\1\ufffe\1\160\1\145\1\165\1\141\1\165\1\157\2\165\1\145\1\167\1"+
-        "\160\1\163\1\156\1\165\1\170\1\157\1\162\1\165\1\145\1\162\1\151"+
-        "\1\75\1\56\1\76\1\75\1\46\6\75\1\174\1\75\1\173\10\uffff\1\172\2"+
-        "\uffff\1\172\1\uffff\3\ufffe\1\uffff\1\170\1\145\1\uffff\1\162\1"+
-        "\uffff\1\146\1\uffff\1\163\1\157\1\162\1\142\1\166\1\55\2\164\1"+
-        "\145\1\156\1\151\1\141\1\144\1\164\1\166\1\161\1\160\1\151\1\165"+
-        "\1\144\1\151\1\156\1\172\1\143\1\163\1\160\1\172\1\167\1\154\1\155"+
-        "\1\166\1\163\1\164\1\141\1\164\1\171\1\147\1\162\1\155\1\156\1\154"+
-        "\1\156\2\162\2\145\1\164\1\75\1\uffff\1\56\1\uffff\1\75\20\uffff"+
-        "\1\ufffe\35\uffff\1\145\1\uffff\1\163\1\141\1\151\1\164\1\166\1"+
-        "\143\1\166\1\141\1\154\1\151\1\uffff\1\160\1\154\1\141\1\145\1\150"+
-        "\2\143\1\164\1\154\1\156\1\151\1\141\1\165\1\170\1\157\1\151\1\165"+
-        "\1\145\1\165\1\145\1\164\1\162\1\141\1\164\1\157\1\uffff\1\145\1"+
-        "\154\1\165\1\164\1\157\1\uffff\1\172\1\154\1\145\1\164\1\172\1\145"+
-        "\1\154\1\145\1\144\1\145\1\172\1\145\1\172\1\163\1\157\1\156\1\145"+
-        "\1\141\1\163\1\143\2\172\1\163\1\145\1\156\1\150\10\uffff\1\164"+
-        "\1\165\1\143\1\151\1\141\1\157\2\145\1\151\1\154\1\151\1\156\1\165"+
-        "\1\145\1\142\1\172\1\145\1\150\1\153\1\145\1\151\2\145\1\144\1\143"+
-        "\1\146\1\142\1\151\1\160\1\141\2\163\2\154\1\143\1\145\1\162\2\143"+
-        "\1\164\1\172\1\164\1\160\1\165\1\164\1\141\1\145\1\162\1\uffff\2"+
-        "\172\1\162\1\146\1\167\1\uffff\1\172\1\165\1\156\1\55\1\163\1\uffff"+
-        "\1\172\1\uffff\1\172\1\167\1\172\1\163\1\154\1\145\1\164\2\uffff"+
-        "\1\151\1\144\2\172\1\151\1\154\1\171\1\156\1\157\1\164\1\156\1\145"+
-        "\1\162\1\144\1\154\1\143\1\147\1\164\1\144\1\151\1\uffff\1\144\1"+
-        "\172\1\157\1\162\1\164\1\170\1\151\1\143\1\145\1\150\1\171\1\154"+
-        "\1\162\1\157\1\143\2\151\1\165\2\164\1\156\1\172\1\150\2\145\2\uffff"+
-        "\1\141\1\164\1\144\1\172\1\156\1\155\1\164\3\uffff\1\171\1\172\1"+
-        "\151\1\146\1\uffff\2\144\1\uffff\1\164\2\uffff\1\172\1\uffff\1\164"+
-        "\2\172\1\151\1\157\1\171\4\uffff\1\164\1\172\1\160\1\156\1\145\2"+
-        "\144\1\164\2\145\1\172\1\55\1\172\1\55\1\154\1\172\1\uffff\1\165"+
-        "\1\156\1\151\1\164\1\156\1\164\1\162\2\172\2\145\1\162\1\145\1\164"+
-        "\1\157\1\164\1\172\1\55\1\164\1\uffff\2\172\1\55\1\164\1\55\1\145"+
-        "\1\uffff\1\143\1\145\2\172\1\uffff\1\164\1\172\1\145\1\163\1\172"+
-        "\1\uffff\1\141\1\171\2\uffff\1\157\1\156\2\172\1\uffff\1\165\1\144"+
-        "\1\172\1\151\1\172\1\151\1\163\1\154\4\uffff\1\151\1\uffff\1\164"+
-        "\1\172\1\157\1\172\1\145\1\151\1\172\1\163\3\uffff\1\172\1\163\1"+
-        "\164\1\55\1\157\1\156\1\151\1\uffff\1\165\1\151\3\uffff\1\151\1"+
-        "\uffff\1\172\1\145\1\156\2\uffff\1\143\1\uffff\2\172\1\uffff\1\155"+
-        "\1\172\1\156\1\172\3\uffff\1\164\1\151\1\uffff\1\164\1\uffff\1\145"+
-        "\2\172\1\164\1\55\1\uffff\1\156\1\uffff\1\162\1\157\2\uffff\1\172"+
-        "\1\uffff\2\172\1\uffff\1\162\1\172\1\157\2\uffff\1\165\2\uffff\1"+
-        "\141\1\157\1\uffff\1\157\1\164\1\150\2\uffff\1\160\1\uffff\1\172"+
-        "\1\uffff\1\143\1\164\1\151\1\163\2\uffff\1\171\1\uffff\1\163\1\172"+
-        "\1\156\1\uffff\1\155\2\uffff\1\171\1\uffff\1\156\2\uffff\1\154\1"+
-        "\156\1\146\1\163\2\172\1\uffff\1\157\1\151\1\157\3\172\1\uffff\1"+
-        "\172\1\151\3\172\1\163\2\172\2\uffff\1\156\1\157\1\156\11\uffff"+
-        "\1\172\2\uffff\1\144\1\156\1\172\1\uffff\1\151\1\172\1\uffff\1\164"+
+        "\1\ufffe\1\160\1\145\1\165\1\141\1\165\1\157\2\165\1\145\1\167\3"+
+        "\163\1\165\1\170\1\157\1\162\1\165\1\145\1\162\1\151\1\75\1\56\1"+
+        "\76\1\75\1\46\6\75\1\174\1\75\1\173\10\uffff\1\172\2\uffff\1\172"+
+        "\1\uffff\3\ufffe\1\uffff\1\170\1\145\1\uffff\1\162\1\uffff\1\146"+
+        "\1\uffff\1\163\1\157\1\162\1\142\1\166\1\55\2\164\1\145\1\156\1"+
+        "\151\1\141\1\144\1\164\1\166\1\161\1\160\1\165\1\151\1\145\1\151"+
+        "\1\144\1\156\1\172\1\143\1\163\2\172\1\167\1\154\1\155\1\166\1\163"+
+        "\1\164\1\141\1\164\1\147\1\171\1\162\1\155\1\156\1\154\1\156\2\162"+
+        "\1\145\1\164\1\145\1\75\1\uffff\1\56\1\uffff\1\75\20\uffff\1\ufffe"+
+        "\35\uffff\1\145\1\uffff\1\163\1\141\1\164\1\151\1\143\2\166\1\141"+
+        "\1\154\1\151\1\uffff\1\160\1\141\1\154\1\143\1\145\1\150\1\143\1"+
+        "\164\1\154\1\156\1\151\1\141\1\165\1\170\1\151\1\165\1\157\1\145"+
+        "\1\165\1\145\1\162\1\164\1\172\1\164\1\141\1\157\1\uffff\1\145\1"+
+        "\154\1\165\1\164\2\uffff\1\172\1\154\1\145\1\172\1\164\1\145\1\154"+
+        "\1\145\1\144\1\145\1\172\1\145\1\172\1\157\1\163\1\156\1\145\1\141"+
+        "\1\163\1\143\2\172\1\163\1\145\1\150\1\156\10\uffff\1\164\1\165"+
+        "\1\151\1\143\1\157\1\145\1\151\1\145\1\141\1\154\1\151\1\156\1\165"+
+        "\1\142\1\145\1\150\1\172\1\145\1\153\3\145\1\151\1\144\1\143\1\146"+
+        "\1\142\1\151\1\160\1\163\2\154\1\163\1\141\1\143\1\145\1\162\2\143"+
+        "\1\uffff\1\172\2\164\1\160\1\165\1\164\1\141\1\uffff\2\172\1\uffff"+
+        "\1\146\1\162\1\167\1\172\1\165\1\156\1\55\1\163\1\uffff\1\172\1"+
+        "\uffff\1\167\2\172\1\163\1\154\1\145\1\164\2\uffff\1\151\1\144\2"+
+        "\172\1\151\1\154\1\156\1\157\1\171\1\156\1\162\1\144\1\145\1\164"+
+        "\1\154\1\143\1\147\1\164\1\151\1\144\1\172\1\uffff\1\144\1\157\1"+
+        "\170\1\151\1\143\1\162\1\164\1\145\1\150\1\171\1\154\1\162\1\157"+
+        "\1\151\1\165\1\164\1\151\1\143\1\164\1\156\1\172\1\145\1\150\2\uffff"+
+        "\1\145\1\141\1\164\1\144\1\172\1\156\3\uffff\1\172\1\171\1\151\1"+
+        "\146\1\uffff\2\144\1\uffff\1\164\1\uffff\1\172\2\uffff\1\164\2\172"+
+        "\1\151\1\157\1\171\4\uffff\1\164\1\160\1\156\1\172\1\144\1\164\1"+
+        "\145\1\144\2\145\1\172\1\55\1\172\1\154\1\55\1\uffff\1\172\1\165"+
+        "\1\164\1\156\1\164\1\156\1\151\1\162\2\172\2\145\1\162\1\157\1\164"+
+        "\1\172\1\164\1\145\1\55\1\164\1\uffff\2\172\1\55\1\164\1\55\1\145"+
+        "\1\uffff\1\143\1\uffff\1\172\1\164\1\172\1\145\1\163\1\172\1\uffff"+
+        "\1\141\1\171\2\uffff\1\157\1\156\2\172\1\165\1\144\1\uffff\2\151"+
+        "\1\163\2\172\1\154\3\uffff\1\151\2\uffff\1\164\1\172\1\145\1\151"+
+        "\1\172\1\157\1\172\1\163\3\uffff\1\172\1\163\1\164\1\156\1\151\1"+
+        "\uffff\1\157\1\55\1\165\1\151\3\uffff\1\151\1\uffff\1\172\1\145"+
+        "\1\uffff\1\143\1\uffff\2\172\1\uffff\1\155\1\172\1\156\1\172\3\uffff"+
+        "\1\164\1\151\1\164\1\145\1\172\2\uffff\1\172\1\164\1\55\1\uffff"+
+        "\1\162\1\157\1\uffff\1\156\2\uffff\1\172\1\uffff\3\172\1\157\1\162"+
+        "\3\uffff\1\165\2\uffff\1\141\1\157\1\uffff\1\157\1\150\2\uffff\1"+
+        "\160\1\uffff\1\172\1\uffff\1\143\1\164\1\151\1\163\2\uffff\1\171"+
+        "\1\uffff\1\172\1\156\1\163\1\uffff\1\155\3\uffff\1\156\1\171\2\uffff"+
+        "\1\154\1\156\1\146\2\172\1\uffff\1\157\1\151\1\157\2\172\1\uffff"+
+        "\2\172\1\151\3\172\1\163\1\172\2\uffff\1\156\1\157\1\156\11\uffff"+
+        "\1\172\1\uffff\1\144\1\156\1\172\1\uffff\1\151\1\172\1\uffff\1\164"+
         "\1\uffff\1\151\1\157\1\156\1\172\1\uffff";
     static final String DFA18_acceptS =
         "\44\uffff\1\172\1\173\1\176\1\u0082\1\u0083\1\u0087\1\u0089\1\u008a"+
         "\1\uffff\1\u008c\1\u008e\1\uffff\1\u008f\3\uffff\1\u0098\2\uffff"+
-        "\1\u009c\1\uffff\1\u0088\1\uffff\1\u008f\60\uffff\1\166\1\uffff"+
-        "\1\u0080\1\uffff\1\160\1\u0085\1\145\1\170\1\146\1\171\1\147\1\174"+
-        "\1\151\1\150\1\175\1\153\1\152\1\177\1\155\1\u0097\1\uffff\1\u0081"+
-        "\1\156\1\u0084\1\161\1\u0086\1\164\1\u008d\1\165\1\u0091\1\u0092"+
+        "\1\u009c\1\uffff\1\u0088\1\uffff\1\u008f\61\uffff\1\166\1\uffff"+
+        "\1\u0080\1\uffff\1\157\1\u0085\1\144\1\170\1\145\1\171\1\146\1\174"+
+        "\1\147\1\150\1\175\1\151\1\152\1\177\1\154\1\u0097\1\uffff\1\u0081"+
+        "\1\155\1\u0084\1\160\1\u0086\1\164\1\u008d\1\165\1\u0091\1\u0092"+
         "\1\u0090\1\167\1\172\1\173\1\176\1\u0082\1\u0083\1\u0087\1\u0089"+
         "\1\u008a\1\u008b\1\u008c\1\u008e\1\u0093\1\u0094\1\u0098\1\u0099"+
-        "\1\u009a\1\u009b\1\uffff\1\17\12\uffff\1\5\31\uffff\1\162\5\uffff"+
-        "\1\163\32\uffff\1\133\1\144\1\134\1\154\1\135\1\157\1\u0096\1\u0095"+
-        "\60\uffff\1\137\5\uffff\1\136\5\uffff\1\141\1\uffff\1\140\7\uffff"+
-        "\1\142\1\143\24\uffff\1\121\31\uffff\1\30\1\130\7\uffff\1\124\1"+
-        "\40\1\123\4\uffff\1\122\2\uffff\1\47\1\uffff\1\127\1\126\1\uffff"+
-        "\1\125\6\uffff\1\131\1\132\1\1\1\14\20\uffff\1\112\23\uffff\1\117"+
-        "\6\uffff\1\116\4\uffff\1\113\5\uffff\1\120\2\uffff\1\115\1\114\4"+
-        "\uffff\1\105\10\uffff\1\106\1\4\1\104\1\15\1\uffff\1\75\10\uffff"+
-        "\1\74\1\10\1\103\7\uffff\1\107\2\uffff\1\111\1\110\1\16\1\uffff"+
-        "\1\22\3\uffff\1\101\1\77\1\uffff\1\76\2\uffff\1\102\4\uffff\1\100"+
-        "\1\2\1\63\2\uffff\1\71\1\uffff\1\72\5\uffff\1\61\1\uffff\1\62\2"+
-        "\uffff\1\7\1\60\1\uffff\1\70\2\uffff\1\11\3\uffff\1\13\1\26\1\uffff"+
-        "\1\21\1\27\2\uffff\1\67\3\uffff\1\64\1\65\1\uffff\1\66\1\uffff\1"+
-        "\73\4\uffff\1\54\1\53\1\uffff\1\6\3\uffff\1\51\1\uffff\1\56\1\55"+
-        "\1\uffff\1\57\1\uffff\1\12\1\32\6\uffff\1\52\6\uffff\1\45\10\uffff"+
-        "\1\46\1\50\3\uffff\1\41\1\33\1\34\1\35\1\25\1\24\1\42\1\43\1\44"+
-        "\1\uffff\1\37\1\36\3\uffff\1\31\2\uffff\1\23\1\uffff\1\20\4\uffff"+
-        "\1\3";
+        "\1\u009a\1\u009b\1\uffff\1\17\12\uffff\1\5\32\uffff\1\161\4\uffff"+
+        "\1\163\1\162\32\uffff\1\131\1\143\1\132\1\153\1\133\1\156\1\u0095"+
+        "\1\u0096\47\uffff\1\140\7\uffff\1\135\2\uffff\1\134\10\uffff\1\136"+
+        "\1\uffff\1\137\7\uffff\1\141\1\142\25\uffff\1\117\27\uffff\1\30"+
+        "\1\126\6\uffff\1\122\1\37\1\121\4\uffff\1\120\2\uffff\1\46\1\uffff"+
+        "\1\125\1\uffff\1\124\1\123\6\uffff\1\130\1\127\1\1\1\14\17\uffff"+
+        "\1\110\24\uffff\1\115\6\uffff\1\114\1\uffff\1\111\6\uffff\1\116"+
+        "\2\uffff\1\113\1\112\6\uffff\1\103\6\uffff\1\104\1\4\1\102\1\uffff"+
+        "\1\15\1\74\10\uffff\1\73\1\10\1\101\5\uffff\1\105\4\uffff\1\106"+
+        "\1\107\1\16\1\uffff\1\22\2\uffff\1\76\1\uffff\1\75\2\uffff\1\100"+
+        "\4\uffff\1\77\1\2\1\62\5\uffff\1\71\1\70\3\uffff\1\61\2\uffff\1"+
+        "\60\1\uffff\1\7\1\57\1\uffff\1\67\5\uffff\1\11\1\21\1\27\1\uffff"+
+        "\1\13\1\26\2\uffff\1\66\2\uffff\1\63\1\64\1\uffff\1\65\1\uffff\1"+
+        "\72\4\uffff\1\53\1\52\1\uffff\1\6\3\uffff\1\50\1\uffff\1\55\1\54"+
+        "\1\56\2\uffff\1\32\1\12\5\uffff\1\51\5\uffff\1\44\10\uffff\1\45"+
+        "\1\47\3\uffff\1\40\1\33\1\35\1\34\1\24\1\25\1\42\1\41\1\43\1\uffff"+
+        "\1\36\3\uffff\1\31\2\uffff\1\23\1\uffff\1\20\4\uffff\1\3";
     static final String DFA18_specialS =
-        "\u0272\uffff}>";
+        "\u0269\uffff}>";
     static final String[] DFA18_transitionS = {
             "\11\67\2\64\2\67\1\64\22\67\1\64\1\26\1\61\1\67\1\43\1\31\1"+
             "\32\1\62\1\44\1\45\1\33\1\34\1\46\1\35\1\27\1\36\1\65\11\66"+
@@ -5029,32 +5026,32 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\107\2\uffff\1\106",
             "\1\110\5\uffff\1\111",
             "\1\112",
-            "\1\113\11\uffff\1\116\5\uffff\1\114\1\uffff\1\115",
-            "\1\120\1\uffff\1\117",
-            "\1\123\12\uffff\1\121\4\uffff\1\122",
-            "\1\126\6\uffff\1\125\1\124",
-            "\1\131\3\uffff\1\127\17\uffff\1\130",
-            "\1\133\1\uffff\1\132\11\uffff\1\134",
-            "\1\136\15\uffff\1\135",
-            "\1\140\6\uffff\1\141\1\142\10\uffff\1\137",
-            "\1\144\7\uffff\1\143\13\uffff\1\145",
-            "\1\146\3\uffff\1\147",
-            "\1\150",
-            "\1\151\1\152",
-            "\1\153",
-            "\1\155",
-            "\1\157\1\160",
-            "\1\162",
-            "\1\164",
-            "\1\166",
-            "\1\171\21\uffff\1\170",
-            "\1\174\17\uffff\1\173",
-            "\1\u0080\4\uffff\1\177\15\uffff\1\176",
-            "\1\u0082",
-            "\1\u0084",
-            "\1\u0086",
-            "\1\u008a\4\uffff\1\u008a\7\uffff\1\u0089\15\uffff\1\u0088",
-            "\1\u008b",
+            "\1\113\11\uffff\1\115\5\uffff\1\114\1\uffff\1\116",
+            "\1\120\1\uffff\1\121\2\uffff\1\117",
+            "\1\124\12\uffff\1\122\4\uffff\1\123",
+            "\1\127\7\uffff\1\125\4\uffff\1\126",
+            "\1\132\3\uffff\1\130\17\uffff\1\131",
+            "\1\134\1\uffff\1\133\11\uffff\1\135",
+            "\1\137\15\uffff\1\136",
+            "\1\140\6\uffff\1\142\1\143\10\uffff\1\141",
+            "\1\145\7\uffff\1\144\13\uffff\1\146",
+            "\1\147\3\uffff\1\150",
+            "\1\151",
+            "\1\153\1\152",
+            "\1\154",
+            "\1\156",
+            "\1\160\1\161",
+            "\1\163",
+            "\1\165",
+            "\1\167",
+            "\1\171\21\uffff\1\172",
+            "\1\174\17\uffff\1\175",
+            "\1\u0081\4\uffff\1\u0080\15\uffff\1\177",
+            "\1\u0083",
+            "\1\u0085",
+            "\1\u0087",
+            "\1\u008b\4\uffff\1\u008b\7\uffff\1\u008a\15\uffff\1\u0089",
+            "\1\u008c",
             "",
             "",
             "",
@@ -5068,90 +5065,73 @@ public class InternalBeeLangLexer extends Lexer {
             "",
             "\32\73\4\uffff\1\73\1\uffff\32\73",
             "",
-            "\12\u0098\1\uffff\2\u0098\1\uffff\ufff1\u0098",
-            "\12\u0098\1\uffff\2\u0098\1\uffff\ufff1\u0098",
-            "\uffff\u0099",
+            "\12\u0099\1\uffff\2\u0099\1\uffff\ufff1\u0099",
+            "\12\u0099\1\uffff\2\u0099\1\uffff\ufff1\u0099",
+            "\uffff\u009a",
             "",
-            "\12\u009e\13\uffff\1\u009d\22\uffff\1\u009b\14\uffff\1\u009d"+
-            "\22\uffff\1\u009b",
-            "\12\u009e\13\uffff\1\u009d\37\uffff\1\u009d",
+            "\12\u009f\13\uffff\1\u009e\22\uffff\1\u009c\14\uffff\1\u009e"+
+            "\22\uffff\1\u009c",
+            "\12\u009f\13\uffff\1\u009e\37\uffff\1\u009e",
             "",
-            "\1\u00a0\2\uffff\1\u009f",
+            "\1\u00a1\2\uffff\1\u00a0",
             "",
-            "\1\u00a1",
+            "\1\u00a2",
             "",
-            "\1\u00a2\6\uffff\1\u00a3",
-            "\1\u00a5\3\uffff\1\u00a4\5\uffff\1\u00a6",
-            "\1\u00a7",
+            "\1\u00a4\6\uffff\1\u00a3",
+            "\1\u00a5\3\uffff\1\u00a7\5\uffff\1\u00a6",
             "\1\u00a8",
             "\1\u00a9",
             "\1\u00aa",
             "\1\u00ab",
-            "\1\u00af\10\uffff\1\u00ac\3\uffff\1\u00ad\2\uffff\1\u00ae\1"+
-            "\u00b0",
-            "\1\u00b1",
+            "\1\u00ac",
+            "\1\u00b1\10\uffff\1\u00ae\3\uffff\1\u00ad\2\uffff\1\u00b0\1"+
+            "\u00af",
             "\1\u00b2",
             "\1\u00b3",
             "\1\u00b4",
             "\1\u00b5",
             "\1\u00b6",
-            "\1\u00b8\12\uffff\1\u00b9\1\u00b7\1\uffff\1\u00bb\2\uffff\1"+
+            "\1\u00b7",
+            "\1\u00b9\12\uffff\1\u00bc\1\u00b8\1\uffff\1\u00bb\2\uffff\1"+
             "\u00ba",
-            "\1\u00bc\4\uffff\1\u00bd",
-            "\1\u00be",
+            "\1\u00bd\4\uffff\1\u00be",
             "\1\u00bf",
             "\1\u00c0",
             "\1\u00c1",
             "\1\u00c2",
             "\1\u00c3",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u00c4",
             "\1\u00c5",
-            "\1\u00c6\14\uffff\1\u00c7\2\uffff\1\u00c8",
-            "\1\u00c9",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u00cb",
-            "\1\u00cc",
+            "\1\u00c7",
+            "\1\u00c8\14\uffff\1\u00c9\2\uffff\1\u00ca",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\1\u00cd",
-            "\1\u00ce\21\uffff\1\u00cf",
-            "\1\u00d0",
-            "\1\u00d1\20\uffff\1\u00d2",
-            "\1\u00d3",
-            "\1\u00d4",
-            "\1\u00d6\3\uffff\1\u00d5",
+            "\1\u00ce",
+            "\1\u00cf",
+            "\1\u00d1\21\uffff\1\u00d0",
+            "\1\u00d2",
+            "\1\u00d3\20\uffff\1\u00d4",
+            "\1\u00d5",
+            "\1\u00d6",
             "\1\u00d7",
-            "\1\u00da\3\uffff\1\u00d8\10\uffff\1\u00d9",
-            "\1\u00db",
-            "\1\u00dc",
+            "\1\u00d8\3\uffff\1\u00d9",
+            "\1\u00dc\3\uffff\1\u00db\10\uffff\1\u00da",
             "\1\u00dd",
             "\1\u00de",
-            "\1\u00df\5\uffff\1\u00e0",
-            "\1\u00e1",
-            "\1\u00e2",
+            "\1\u00df",
+            "\1\u00e0",
+            "\1\u00e1\5\uffff\1\u00e2",
             "\1\u00e3",
             "\1\u00e4",
             "\1\u00e5",
-            "",
+            "\1\u00e6",
             "\1\u00e7",
             "",
             "\1\u00e9",
             "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\52\u00eb\1\u00ec\uffd4\u00eb",
-            "",
+            "\1\u00eb",
             "",
             "",
             "",
@@ -5168,6 +5148,7 @@ public class InternalBeeLangLexer extends Lexer {
             "",
             "",
             "",
+            "\52\u00ee\1\u00ed\uffd4\u00ee",
             "",
             "",
             "",
@@ -5180,86 +5161,103 @@ public class InternalBeeLangLexer extends Lexer {
             "",
             "",
             "",
-            "\12\u009e\13\uffff\1\u009d\37\uffff\1\u009d",
             "",
-            "\1\u00ed",
-            "\1\u00ee",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\12\u009f\13\uffff\1\u009e\37\uffff\1\u009e",
+            "",
             "\1\u00ef",
             "\1\u00f0",
             "\1\u00f1",
             "\1\u00f2",
-            "\1\u00f3\14\uffff\1\u00f4\5\uffff\1\u00f5",
-            "\1\u00f6",
+            "\1\u00f3",
+            "\1\u00f6\14\uffff\1\u00f4\5\uffff\1\u00f5",
             "\1\u00f7",
             "\1\u00f8",
-            "",
             "\1\u00f9",
             "\1\u00fa",
+            "",
             "\1\u00fb",
             "\1\u00fc",
             "\1\u00fd",
             "\1\u00fe",
             "\1\u00ff",
-            "\1\u0100\1\u0101\11\uffff\1\u0103\5\uffff\1\u0102",
-            "\1\u0104",
-            "\1\u0105",
+            "\1\u0100",
+            "\1\u0101",
+            "\1\u0104\1\u0105\11\uffff\1\u0103\5\uffff\1\u0102",
             "\1\u0106",
             "\1\u0107",
             "\1\u0108",
             "\1\u0109",
-            "\1\u010a\2\uffff\1\u010b",
+            "\1\u010a",
+            "\1\u010b",
             "\1\u010c",
             "\1\u010d\5\uffff\1\u010e",
-            "\1\u010f",
-            "\1\u0110",
+            "\1\u0110\2\uffff\1\u010f",
             "\1\u0111",
             "\1\u0112",
             "\1\u0113",
             "\1\u0114",
             "\1\u0115",
-            "\1\u0116",
-            "",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\1\u0117",
             "\1\u0118",
             "\1\u0119",
+            "",
             "\1\u011a",
-            "\1\u011b\2\uffff\1\u011c",
+            "\1\u011b",
+            "\1\u011c",
+            "\1\u011d",
+            "",
             "",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u011e",
             "\1\u011f",
-            "\1\u0121\11\uffff\1\u0122\1\u0120",
+            "\1\u0120",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u0124",
+            "\1\u0122\11\uffff\1\u0124\1\u0123",
             "\1\u0125",
             "\1\u0126",
             "\1\u0127",
             "\1\u0128",
+            "\1\u0129",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u012a",
+            "\1\u012b",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u012c",
             "\1\u012d",
             "\1\u012e",
             "\1\u012f",
             "\1\u0130",
             "\1\u0131",
             "\1\u0132",
+            "\1\u0133",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u0135",
             "\1\u0136",
             "\1\u0137",
             "\1\u0138",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\u0139",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\u013a",
             "\1\u013b",
             "\1\u013d\5\uffff\1\u013c",
@@ -5274,13 +5272,13 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u0146",
             "\1\u0147",
             "\1\u0148",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u0149",
             "\1\u014a",
-            "\1\u014b",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\1\u014c",
             "\1\u014d",
-            "\1\u014e",
-            "\1\u0150\3\uffff\1\u014f",
+            "\1\u014f\3\uffff\1\u014e",
+            "\1\u0150",
             "\1\u0151",
             "\1\u0152",
             "\1\u0153",
@@ -5299,6 +5297,7 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u0160",
             "\1\u0161",
             "\1\u0162",
+            "",
             "\1\u0163\2\uffff\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32"+
             "\73",
             "\1\u0165",
@@ -5307,37 +5306,37 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u0168",
             "\1\u0169",
             "\1\u016a",
-            "\1\u016b",
             "",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u016d\2\uffff\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32"+
+            "\1\u016c\2\uffff\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32"+
             "\73",
+            "",
+            "\1\u016e",
             "\1\u016f",
             "\1\u0170",
-            "\1\u0171",
-            "",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\10\73\1\u0172\21\73",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\10\73\1\u0171\21\73",
+            "\1\u0173",
             "\1\u0174",
             "\1\u0175",
             "\1\u0176",
-            "\1\u0177",
             "",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "",
+            "\1\u0178",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u017a",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u017b",
             "\1\u017c",
             "\1\u017d",
             "\1\u017e",
+            "",
+            "",
             "\1\u017f",
-            "",
-            "",
             "\1\u0180",
-            "\1\u0181",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u0185\5\uffff\1\u0184",
+            "\1\u0184\5\uffff\1\u0183",
+            "\1\u0185",
             "\1\u0186",
             "\1\u0187",
             "\1\u0188",
@@ -5352,10 +5351,10 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u0191",
             "\1\u0192",
             "\1\u0193",
-            "\1\u0194",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "",
             "\1\u0195",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u0196",
             "\1\u0197",
             "\1\u0198",
             "\1\u0199",
@@ -5374,285 +5373,274 @@ public class InternalBeeLangLexer extends Lexer {
             "\1\u01a6",
             "\1\u01a7",
             "\1\u01a8",
-            "\1\u01a9",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u01aa",
             "\1\u01ab",
+            "",
+            "",
             "\1\u01ac",
             "\1\u01ad",
-            "",
-            "",
             "\1\u01ae",
             "\1\u01af",
-            "\1\u01b0",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u01b2",
+            "\1\u01b1",
+            "",
+            "",
+            "",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\1\u01b3",
             "\1\u01b4",
-            "",
-            "",
-            "",
             "\1\u01b5",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "",
+            "\1\u01b6",
             "\1\u01b7",
+            "",
             "\1\u01b8",
             "",
-            "\1\u01b9",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "",
+            "",
             "\1\u01ba",
-            "",
-            "\1\u01bb",
-            "",
-            "",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\13\73\1\u01bb\16\73",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u01be",
+            "\1\u01bf",
+            "\1\u01c0",
             "",
-            "\1\u01bd",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\13\73\1\u01be\16\73",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "",
+            "",
+            "",
             "\1\u01c1",
             "\1\u01c2",
             "\1\u01c3",
-            "",
-            "",
-            "",
-            "",
-            "\1\u01c4",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u01c5",
             "\1\u01c6",
             "\1\u01c7",
             "\1\u01c8",
             "\1\u01c9",
             "\1\u01ca",
-            "\1\u01cb",
-            "\1\u01cc",
-            "\1\u01cd",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u01cc",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u01ce",
             "\1\u01cf",
+            "",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\1\u01d1",
             "\1\u01d2",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "",
+            "\1\u01d3",
             "\1\u01d4",
             "\1\u01d5",
             "\1\u01d6",
             "\1\u01d7",
-            "\1\u01d8",
-            "\1\u01d9",
-            "\1\u01da",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\4\73\1\u01db\25\73",
-            "\1\u01dd\2\uffff\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32"+
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\4\73\1\u01d8\25\73",
+            "\1\u01da\2\uffff\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32"+
             "\73",
+            "\1\u01dc",
+            "\1\u01dd",
+            "\1\u01de",
             "\1\u01df",
             "\1\u01e0",
-            "\1\u01e1",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\1\u01e2",
             "\1\u01e3",
             "\1\u01e4",
             "\1\u01e5",
+            "",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u01e7",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\1\u01e8",
-            "",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u01e9",
+            "\1\u01ea",
             "\1\u01eb",
-            "\1\u01ec",
-            "\1\u01ed",
-            "\1\u01ee",
             "",
-            "\1\u01ef",
-            "\1\u01f0",
+            "\1\u01ec",
+            "",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u01ee",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u01f0",
+            "\1\u01f1",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "",
             "\1\u01f3",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u01f4",
+            "",
+            "",
             "\1\u01f5",
             "\1\u01f6",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "",
-            "\1\u01f8",
-            "\1\u01f9",
-            "",
-            "",
+            "\1\u01f8\2\uffff\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32"+
+            "\73",
             "\1\u01fa",
             "\1\u01fb",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u01fd\2\uffff\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32"+
-            "\73",
             "",
-            "\1\u01ff",
-            "\1\u0200",
+            "\1\u01fc",
+            "\1\u01fd",
+            "\1\u01fe",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u0201",
+            "",
+            "",
+            "",
             "\1\u0202",
+            "",
+            "",
+            "\1\u0203",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u0204",
             "\1\u0205",
             "\1\u0206",
-            "",
-            "",
-            "",
-            "",
-            "\1\u0207",
-            "",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\1\u0208",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u020a",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u020c",
-            "\1\u020d",
-            "\1\u020e\2\uffff\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32"+
+            "\1\u0209\2\uffff\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32"+
             "\73",
+            "\1\u020b",
+            "",
+            "",
+            "",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u020d",
+            "\1\u020e",
+            "\1\u020f",
             "\1\u0210",
             "",
-            "",
-            "",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u0211",
             "\1\u0212",
-            "\1\u0213",
-            "\1\u0214",
-            "\1\u0215",
-            "\1\u0216",
-            "\1\u0217",
-            "",
-            "\1\u021a\3\uffff\1\u0219\13\uffff\1\u0218\1\u021b\1\uffff\1"+
-            "\u021c",
-            "\1\u021d",
+            "\1\u0215\3\uffff\1\u0217\13\uffff\1\u0216\1\u0213\1\uffff\1"+
+            "\u0214",
+            "\1\u0218",
             "",
             "",
             "",
-            "\1\u021e",
+            "\1\u0219",
             "",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u0220",
+            "\1\u021b",
+            "",
+            "\1\u021c",
+            "",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "",
+            "\1\u021f",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\1\u0221",
-            "",
-            "",
-            "\1\u0222",
-            "",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "",
+            "",
+            "",
+            "\1\u0223",
+            "\1\u0224",
             "\1\u0225",
+            "\1\u0226",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u0227",
+            "",
+            "",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "",
-            "",
-            "",
             "\1\u0229",
             "\1\u022a",
             "",
             "\1\u022b",
-            "",
             "\1\u022c",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u022f",
-            "\1\u0230",
             "",
-            "\1\u0231",
-            "",
-            "\1\u0232",
-            "\1\u0233",
+            "\1\u022d",
             "",
             "",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "",
-            "\1\u0235\2\uffff\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32"+
+            "\1\u022f\2\uffff\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32"+
             "\73",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "",
-            "\1\u0238",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u0233",
+            "\1\u0234",
+            "",
+            "",
+            "",
+            "\1\u0235\17\uffff\1\u0236",
+            "",
+            "",
+            "\1\u0237",
+            "\1\u0238",
+            "",
+            "\1\u0239",
             "\1\u023a",
             "",
             "",
-            "\1\u023c\17\uffff\1\u023b",
-            "",
-            "",
-            "\1\u023d",
-            "\1\u023e",
-            "",
-            "\1\u023f",
-            "\1\u0240",
-            "\1\u0241",
-            "",
-            "",
-            "\1\u0242",
+            "\1\u023b",
             "",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "",
+            "\1\u023d",
+            "\1\u023e",
+            "\1\u023f",
+            "\1\u0240",
+            "",
+            "",
+            "\1\u0241",
+            "",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u0243",
             "\1\u0244",
+            "",
             "\1\u0245",
+            "",
+            "",
+            "",
             "\1\u0246",
             "\1\u0247",
             "",
             "",
             "\1\u0248",
-            "",
             "\1\u0249",
+            "\1\u024a",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u024b",
-            "",
-            "\1\u024c",
-            "",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "",
             "\1\u024d",
-            "",
             "\1\u024e",
-            "",
-            "",
             "\1\u024f",
-            "\1\u0250",
-            "\1\u0251",
-            "\1\u0252",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "",
-            "\1\u0255",
-            "\1\u0256",
-            "\1\u0257",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u025d\7\uffff\1\u025c",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u0254\7\uffff\1\u0255",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "\1\u0261",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "\1\u0259",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "",
+            "",
+            "\1\u025b",
+            "\1\u025c",
+            "\1\u025d",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "",
+            "\1\u025f",
+            "\1\u0260",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
+            "",
+            "\1\u0262",
+            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             "",
             "\1\u0264",
+            "",
             "\1\u0265",
             "\1\u0266",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "",
-            "",
-            "\1\u0268",
-            "\1\u0269",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "",
-            "\1\u026b",
-            "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
-            "",
-            "\1\u026d",
-            "",
-            "\1\u026e",
-            "\1\u026f",
-            "\1\u0270",
+            "\1\u0267",
             "\12\73\7\uffff\32\73\4\uffff\1\73\1\uffff\32\73",
             ""
     };
@@ -5687,7 +5675,7 @@ public class InternalBeeLangLexer extends Lexer {
             this.transition = DFA18_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( KEYWORD_142 | KEYWORD_140 | KEYWORD_141 | KEYWORD_138 | KEYWORD_139 | KEYWORD_137 | KEYWORD_132 | KEYWORD_133 | KEYWORD_134 | KEYWORD_135 | KEYWORD_136 | KEYWORD_129 | KEYWORD_130 | KEYWORD_131 | KEYWORD_126 | KEYWORD_127 | KEYWORD_128 | KEYWORD_119 | KEYWORD_120 | KEYWORD_121 | KEYWORD_122 | KEYWORD_123 | KEYWORD_124 | KEYWORD_125 | KEYWORD_117 | KEYWORD_118 | KEYWORD_107 | KEYWORD_108 | KEYWORD_109 | KEYWORD_110 | KEYWORD_111 | KEYWORD_112 | KEYWORD_113 | KEYWORD_114 | KEYWORD_115 | KEYWORD_116 | KEYWORD_103 | KEYWORD_104 | KEYWORD_105 | KEYWORD_106 | KEYWORD_96 | KEYWORD_97 | KEYWORD_98 | KEYWORD_99 | KEYWORD_100 | KEYWORD_101 | KEYWORD_102 | KEYWORD_84 | KEYWORD_85 | KEYWORD_86 | KEYWORD_87 | KEYWORD_88 | KEYWORD_89 | KEYWORD_90 | KEYWORD_91 | KEYWORD_92 | KEYWORD_93 | KEYWORD_94 | KEYWORD_95 | KEYWORD_70 | KEYWORD_71 | KEYWORD_72 | KEYWORD_73 | KEYWORD_74 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_78 | KEYWORD_79 | KEYWORD_80 | KEYWORD_81 | KEYWORD_82 | KEYWORD_83 | KEYWORD_63 | KEYWORD_64 | KEYWORD_65 | KEYWORD_66 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_53 | KEYWORD_54 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_58 | KEYWORD_59 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_44 | KEYWORD_45 | KEYWORD_46 | KEYWORD_47 | KEYWORD_48 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_26 | KEYWORD_27 | KEYWORD_28 | KEYWORD_29 | KEYWORD_30 | KEYWORD_31 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_40 | KEYWORD_41 | KEYWORD_42 | KEYWORD_43 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | KEYWORD_20 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | RULE_ID | RULE_PID | RULE_REGULAR_EXPR | RULE_SIMPLE_PATTERN | RULE_STRING | RULE_TEXT | RULE_JAVADOC | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_HEX | RULE_INT | RULE_EXT_INT | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( KEYWORD_142 | KEYWORD_140 | KEYWORD_141 | KEYWORD_138 | KEYWORD_139 | KEYWORD_137 | KEYWORD_132 | KEYWORD_133 | KEYWORD_134 | KEYWORD_135 | KEYWORD_136 | KEYWORD_129 | KEYWORD_130 | KEYWORD_131 | KEYWORD_126 | KEYWORD_127 | KEYWORD_128 | KEYWORD_119 | KEYWORD_120 | KEYWORD_121 | KEYWORD_122 | KEYWORD_123 | KEYWORD_124 | KEYWORD_125 | KEYWORD_117 | KEYWORD_118 | KEYWORD_108 | KEYWORD_109 | KEYWORD_110 | KEYWORD_111 | KEYWORD_112 | KEYWORD_113 | KEYWORD_114 | KEYWORD_115 | KEYWORD_116 | KEYWORD_104 | KEYWORD_105 | KEYWORD_106 | KEYWORD_107 | KEYWORD_97 | KEYWORD_98 | KEYWORD_99 | KEYWORD_100 | KEYWORD_101 | KEYWORD_102 | KEYWORD_103 | KEYWORD_85 | KEYWORD_86 | KEYWORD_87 | KEYWORD_88 | KEYWORD_89 | KEYWORD_90 | KEYWORD_91 | KEYWORD_92 | KEYWORD_93 | KEYWORD_94 | KEYWORD_95 | KEYWORD_96 | KEYWORD_72 | KEYWORD_73 | KEYWORD_74 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_78 | KEYWORD_79 | KEYWORD_80 | KEYWORD_81 | KEYWORD_82 | KEYWORD_83 | KEYWORD_84 | KEYWORD_65 | KEYWORD_66 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_70 | KEYWORD_71 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_58 | KEYWORD_59 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_63 | KEYWORD_64 | KEYWORD_45 | KEYWORD_46 | KEYWORD_47 | KEYWORD_48 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_53 | KEYWORD_54 | KEYWORD_26 | KEYWORD_27 | KEYWORD_28 | KEYWORD_29 | KEYWORD_30 | KEYWORD_31 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_40 | KEYWORD_41 | KEYWORD_42 | KEYWORD_43 | KEYWORD_44 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | KEYWORD_20 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | RULE_ID | RULE_PID | RULE_REGULAR_EXPR | RULE_SIMPLE_PATTERN | RULE_STRING | RULE_TEXT | RULE_JAVADOC | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_HEX | RULE_INT | RULE_EXT_INT | RULE_ANY_OTHER );";
         }
     }
  

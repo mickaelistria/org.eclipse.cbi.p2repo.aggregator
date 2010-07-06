@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage
  * @generated
  */
@@ -36,7 +35,6 @@ public class B3backendSwitch<T> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -45,7 +43,6 @@ public class B3backendSwitch<T> {
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected static B3backendPackage modelPackage;
@@ -54,11 +51,10 @@ public class B3backendSwitch<T> {
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public B3backendSwitch() {
-		if(modelPackage == null) {
+		if (modelPackage == null) {
 			modelPackage = B3backendPackage.eINSTANCE;
 		}
 	}
@@ -69,9 +65,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>B3 Function</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -86,9 +80,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>B3 Function Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -103,9 +95,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>B3 Func Type Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -120,9 +110,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>B3 Java Import</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -137,9 +125,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>B3 Meta Class</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -154,9 +140,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>B3 Parameterized Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -171,9 +155,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>B3 Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -188,9 +170,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>B3 Wildcard Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -205,9 +185,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BAdvice</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -222,9 +200,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BAnd Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -239,9 +215,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BAssignment Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -256,9 +230,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BAt Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -273,9 +245,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BBinary Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -290,9 +260,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BBinary Op Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -307,9 +275,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BCached Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -324,9 +290,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BCall Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -341,9 +305,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BCall Feature</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -358,9 +320,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BCall Function</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -375,9 +335,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BCall Named Function</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -392,9 +350,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BCase</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -409,9 +365,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BCatch</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -426,9 +380,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BChained Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -443,9 +395,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BConcern</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -460,9 +410,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BConcern Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -477,9 +425,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BConditional Property Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -494,9 +440,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BContext</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -511,9 +455,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BCreate Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -528,9 +470,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BDefault Property Set</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -545,9 +485,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BDef Property</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -562,9 +500,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BDef Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -579,9 +515,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BDelegating Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -596,9 +530,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BExecution Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -613,9 +545,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BExpression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -630,9 +560,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BExpression Wrapper</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -647,9 +575,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BFeature Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -664,9 +590,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BFunction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -681,9 +605,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BFunction Concern Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -698,9 +620,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BFunction Container</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -715,9 +635,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BFunction Name Predicate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -732,9 +650,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BFunction Wrapper</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -749,9 +665,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BGuard</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -766,9 +680,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BGuard Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -783,9 +695,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BGuard Function</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -800,9 +710,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BIf Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -817,9 +725,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BInner Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -834,9 +740,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BInstance Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -851,9 +755,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BInvocation Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -868,9 +770,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BJava Function</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -885,9 +785,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BLiteral Any</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -902,9 +800,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BLiteral Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -919,9 +815,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BLiteral List Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -936,9 +830,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BLiteral Map Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -953,9 +845,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BLiteral Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -970,9 +860,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BMap Entry</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -987,9 +875,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BName Predicate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1004,9 +890,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BOr Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1021,9 +905,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BParameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1038,9 +920,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BParameter Declaration</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1055,9 +935,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BParameterized Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1072,9 +950,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BParameter List</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1089,9 +965,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BParameter Predicate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1106,9 +980,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BPattern Literal Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1123,9 +995,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BProceed Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1140,9 +1010,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BProperty Definition Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1157,9 +1025,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BProperty Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1174,9 +1040,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BProperty Set</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1191,9 +1055,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BProperty Set Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1208,9 +1070,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BRegular Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1225,9 +1085,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BSimple Pattern Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1242,9 +1100,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BSwitch Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1259,9 +1115,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BSystem Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1276,9 +1130,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BThrow Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1293,9 +1145,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BTry Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1310,9 +1160,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BType Calculator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1327,9 +1175,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BType Calculator Function</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1344,9 +1190,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BUnary Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1361,9 +1205,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BUnary Op Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1378,9 +1220,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BUnary Post Op Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1395,9 +1235,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BUnary Pre Op Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1412,9 +1250,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BVariable Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1429,9 +1265,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BWith Context Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1446,9 +1280,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BWith Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1463,9 +1295,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>BWrapping Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1480,9 +1310,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IFunction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1497,9 +1325,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IGeneric Declaration</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1514,9 +1340,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>INamed Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1531,9 +1355,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IParameterized Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1548,9 +1370,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IType</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1565,9 +1385,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>ITyped Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1582,9 +1400,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>ITyped Value Container</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1599,9 +1415,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IType Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1616,9 +1430,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IWildcard Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1633,9 +1445,7 @@ public class B3backendSwitch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch, but this is the last case anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
@@ -1648,19 +1458,19 @@ public class B3backendSwitch<T> {
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
 	protected T doSwitch(EClass theEClass, EObject theEObject) {
-		if(theEClass.eContainer() == modelPackage) {
+		if (theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
 		}
 		else {
 			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return eSuperTypes.isEmpty()
-					? defaultCase(theEObject)
-					: doSwitch(eSuperTypes.get(0), theEObject);
+			return
+				eSuperTypes.isEmpty() ?
+					defaultCase(theEObject) :
+					doSwitch(eSuperTypes.get(0), theEObject);
 		}
 	}
 
@@ -1668,7 +1478,6 @@ public class B3backendSwitch<T> {
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
@@ -1680,937 +1489,691 @@ public class B3backendSwitch<T> {
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
-		switch(classifierID) {
+		switch (classifierID) {
 			case B3backendPackage.BEXPRESSION: {
-				BExpression bExpression = (BExpression) theEObject;
+				BExpression bExpression = (BExpression)theEObject;
 				T result = caseBExpression(bExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BEXECUTION_CONTEXT: {
-				BExecutionContext bExecutionContext = (BExecutionContext) theEObject;
+				BExecutionContext bExecutionContext = (BExecutionContext)theEObject;
 				T result = caseBExecutionContext(bExecutionContext);
-				if(result == null)
-					result = caseITypedValueContainer(bExecutionContext);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseITypedValueContainer(bExecutionContext);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BIF_EXPRESSION: {
-				BIfExpression bIfExpression = (BIfExpression) theEObject;
+				BIfExpression bIfExpression = (BIfExpression)theEObject;
 				T result = caseBIfExpression(bIfExpression);
-				if(result == null)
-					result = caseBExpression(bIfExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bIfExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BSWITCH_EXPRESSION: {
-				BSwitchExpression bSwitchExpression = (BSwitchExpression) theEObject;
+				BSwitchExpression bSwitchExpression = (BSwitchExpression)theEObject;
 				T result = caseBSwitchExpression(bSwitchExpression);
-				if(result == null)
-					result = caseBExpression(bSwitchExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bSwitchExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCASE: {
-				BCase bCase = (BCase) theEObject;
+				BCase bCase = (BCase)theEObject;
 				T result = caseBCase(bCase);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BTRY_EXPRESSION: {
-				BTryExpression bTryExpression = (BTryExpression) theEObject;
+				BTryExpression bTryExpression = (BTryExpression)theEObject;
 				T result = caseBTryExpression(bTryExpression);
-				if(result == null)
-					result = caseBExpression(bTryExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bTryExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCATCH: {
-				BCatch bCatch = (BCatch) theEObject;
+				BCatch bCatch = (BCatch)theEObject;
 				T result = caseBCatch(bCatch);
-				if(result == null)
-					result = caseITypedValue(bCatch);
-				if(result == null)
-					result = caseINamedValue(bCatch);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseITypedValue(bCatch);
+				if (result == null) result = caseINamedValue(bCatch);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BBINARY_EXPRESSION: {
-				BBinaryExpression bBinaryExpression = (BBinaryExpression) theEObject;
+				BBinaryExpression bBinaryExpression = (BBinaryExpression)theEObject;
 				T result = caseBBinaryExpression(bBinaryExpression);
-				if(result == null)
-					result = caseBExpression(bBinaryExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bBinaryExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BOR_EXPRESSION: {
-				BOrExpression bOrExpression = (BOrExpression) theEObject;
+				BOrExpression bOrExpression = (BOrExpression)theEObject;
 				T result = caseBOrExpression(bOrExpression);
-				if(result == null)
-					result = caseBBinaryExpression(bOrExpression);
-				if(result == null)
-					result = caseBExpression(bOrExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBBinaryExpression(bOrExpression);
+				if (result == null) result = caseBExpression(bOrExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BAND_EXPRESSION: {
-				BAndExpression bAndExpression = (BAndExpression) theEObject;
+				BAndExpression bAndExpression = (BAndExpression)theEObject;
 				T result = caseBAndExpression(bAndExpression);
-				if(result == null)
-					result = caseBBinaryExpression(bAndExpression);
-				if(result == null)
-					result = caseBExpression(bAndExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBBinaryExpression(bAndExpression);
+				if (result == null) result = caseBExpression(bAndExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCHAINED_EXPRESSION: {
-				BChainedExpression bChainedExpression = (BChainedExpression) theEObject;
+				BChainedExpression bChainedExpression = (BChainedExpression)theEObject;
 				T result = caseBChainedExpression(bChainedExpression);
-				if(result == null)
-					result = caseBExpression(bChainedExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bChainedExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BUNARY_EXPRESSION: {
-				BUnaryExpression bUnaryExpression = (BUnaryExpression) theEObject;
+				BUnaryExpression bUnaryExpression = (BUnaryExpression)theEObject;
 				T result = caseBUnaryExpression(bUnaryExpression);
-				if(result == null)
-					result = caseBExpression(bUnaryExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bUnaryExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BTHROW_EXPRESSION: {
-				BThrowExpression bThrowExpression = (BThrowExpression) theEObject;
+				BThrowExpression bThrowExpression = (BThrowExpression)theEObject;
 				T result = caseBThrowExpression(bThrowExpression);
-				if(result == null)
-					result = caseBUnaryExpression(bThrowExpression);
-				if(result == null)
-					result = caseBExpression(bThrowExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBUnaryExpression(bThrowExpression);
+				if (result == null) result = caseBExpression(bThrowExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BUNARY_OP_EXPRESSION: {
-				BUnaryOpExpression bUnaryOpExpression = (BUnaryOpExpression) theEObject;
+				BUnaryOpExpression bUnaryOpExpression = (BUnaryOpExpression)theEObject;
 				T result = caseBUnaryOpExpression(bUnaryOpExpression);
-				if(result == null)
-					result = caseBUnaryExpression(bUnaryOpExpression);
-				if(result == null)
-					result = caseBExpression(bUnaryOpExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBUnaryExpression(bUnaryOpExpression);
+				if (result == null) result = caseBExpression(bUnaryOpExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BUNARY_POST_OP_EXPRESSION: {
-				BUnaryPostOpExpression bUnaryPostOpExpression = (BUnaryPostOpExpression) theEObject;
+				BUnaryPostOpExpression bUnaryPostOpExpression = (BUnaryPostOpExpression)theEObject;
 				T result = caseBUnaryPostOpExpression(bUnaryPostOpExpression);
-				if(result == null)
-					result = caseBUnaryOpExpression(bUnaryPostOpExpression);
-				if(result == null)
-					result = caseBUnaryExpression(bUnaryPostOpExpression);
-				if(result == null)
-					result = caseBExpression(bUnaryPostOpExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBUnaryOpExpression(bUnaryPostOpExpression);
+				if (result == null) result = caseBUnaryExpression(bUnaryPostOpExpression);
+				if (result == null) result = caseBExpression(bUnaryPostOpExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BBINARY_OP_EXPRESSION: {
-				BBinaryOpExpression bBinaryOpExpression = (BBinaryOpExpression) theEObject;
+				BBinaryOpExpression bBinaryOpExpression = (BBinaryOpExpression)theEObject;
 				T result = caseBBinaryOpExpression(bBinaryOpExpression);
-				if(result == null)
-					result = caseBBinaryExpression(bBinaryOpExpression);
-				if(result == null)
-					result = caseBExpression(bBinaryOpExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBBinaryExpression(bBinaryOpExpression);
+				if (result == null) result = caseBExpression(bBinaryOpExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCACHED_EXPRESSION: {
-				BCachedExpression bCachedExpression = (BCachedExpression) theEObject;
+				BCachedExpression bCachedExpression = (BCachedExpression)theEObject;
 				T result = caseBCachedExpression(bCachedExpression);
-				if(result == null)
-					result = caseBUnaryExpression(bCachedExpression);
-				if(result == null)
-					result = caseBExpression(bCachedExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBUnaryExpression(bCachedExpression);
+				if (result == null) result = caseBExpression(bCachedExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BLITERAL_EXPRESSION: {
-				BLiteralExpression bLiteralExpression = (BLiteralExpression) theEObject;
+				BLiteralExpression bLiteralExpression = (BLiteralExpression)theEObject;
 				T result = caseBLiteralExpression(bLiteralExpression);
-				if(result == null)
-					result = caseBExpression(bLiteralExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bLiteralExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION: {
-				BLiteralListExpression bLiteralListExpression = (BLiteralListExpression) theEObject;
+				BLiteralListExpression bLiteralListExpression = (BLiteralListExpression)theEObject;
 				T result = caseBLiteralListExpression(bLiteralListExpression);
-				if(result == null)
-					result = caseBExpression(bLiteralListExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bLiteralListExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BLITERAL_MAP_EXPRESSION: {
-				BLiteralMapExpression bLiteralMapExpression = (BLiteralMapExpression) theEObject;
+				BLiteralMapExpression bLiteralMapExpression = (BLiteralMapExpression)theEObject;
 				T result = caseBLiteralMapExpression(bLiteralMapExpression);
-				if(result == null)
-					result = caseBExpression(bLiteralMapExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bLiteralMapExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BMAP_ENTRY: {
-				BMapEntry bMapEntry = (BMapEntry) theEObject;
+				BMapEntry bMapEntry = (BMapEntry)theEObject;
 				T result = caseBMapEntry(bMapEntry);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BFEATURE_EXPRESSION: {
-				BFeatureExpression bFeatureExpression = (BFeatureExpression) theEObject;
+				BFeatureExpression bFeatureExpression = (BFeatureExpression)theEObject;
 				T result = caseBFeatureExpression(bFeatureExpression);
-				if(result == null)
-					result = caseBExpression(bFeatureExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bFeatureExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BAT_EXPRESSION: {
-				BAtExpression bAtExpression = (BAtExpression) theEObject;
+				BAtExpression bAtExpression = (BAtExpression)theEObject;
 				T result = caseBAtExpression(bAtExpression);
-				if(result == null)
-					result = caseBExpression(bAtExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bAtExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BVARIABLE_EXPRESSION: {
-				BVariableExpression bVariableExpression = (BVariableExpression) theEObject;
+				BVariableExpression bVariableExpression = (BVariableExpression)theEObject;
 				T result = caseBVariableExpression(bVariableExpression);
-				if(result == null)
-					result = caseBExpression(bVariableExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bVariableExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCALL_EXPRESSION: {
-				BCallExpression bCallExpression = (BCallExpression) theEObject;
+				BCallExpression bCallExpression = (BCallExpression)theEObject;
 				T result = caseBCallExpression(bCallExpression);
-				if(result == null)
-					result = caseBParameterizedExpression(bCallExpression);
-				if(result == null)
-					result = caseBExpression(bCallExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBParameterizedExpression(bCallExpression);
+				if (result == null) result = caseBExpression(bCallExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BPARAMETERIZED_EXPRESSION: {
-				BParameterizedExpression bParameterizedExpression = (BParameterizedExpression) theEObject;
+				BParameterizedExpression bParameterizedExpression = (BParameterizedExpression)theEObject;
 				T result = caseBParameterizedExpression(bParameterizedExpression);
-				if(result == null)
-					result = caseBExpression(bParameterizedExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bParameterizedExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BLITERAL_ANY: {
-				BLiteralAny bLiteralAny = (BLiteralAny) theEObject;
+				BLiteralAny bLiteralAny = (BLiteralAny)theEObject;
 				T result = caseBLiteralAny(bLiteralAny);
-				if(result == null)
-					result = caseBPatternLiteralExpression(bLiteralAny);
-				if(result == null)
-					result = caseBExpression(bLiteralAny);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBPatternLiteralExpression(bLiteralAny);
+				if (result == null) result = caseBExpression(bLiteralAny);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCREATE_EXPRESSION: {
-				BCreateExpression bCreateExpression = (BCreateExpression) theEObject;
+				BCreateExpression bCreateExpression = (BCreateExpression)theEObject;
 				T result = caseBCreateExpression(bCreateExpression);
-				if(result == null)
-					result = caseBParameterizedExpression(bCreateExpression);
-				if(result == null)
-					result = caseITypedValue(bCreateExpression);
-				if(result == null)
-					result = caseBExpression(bCreateExpression);
-				if(result == null)
-					result = caseINamedValue(bCreateExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBParameterizedExpression(bCreateExpression);
+				if (result == null) result = caseITypedValue(bCreateExpression);
+				if (result == null) result = caseBExpression(bCreateExpression);
+				if (result == null) result = caseINamedValue(bCreateExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.IFUNCTION: {
-				IFunction iFunction = (IFunction) theEObject;
+				IFunction iFunction = (IFunction)theEObject;
 				T result = caseIFunction(iFunction);
-				if(result == null)
-					result = caseIGenericDeclaration(iFunction);
-				if(result == null)
-					result = caseBExpression(iFunction);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseIGenericDeclaration(iFunction);
+				if (result == null) result = caseBExpression(iFunction);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BGUARD: {
-				BGuard bGuard = (BGuard) theEObject;
+				BGuard bGuard = (BGuard)theEObject;
 				T result = caseBGuard(bGuard);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BGUARD_EXPRESSION: {
-				BGuardExpression bGuardExpression = (BGuardExpression) theEObject;
+				BGuardExpression bGuardExpression = (BGuardExpression)theEObject;
 				T result = caseBGuardExpression(bGuardExpression);
-				if(result == null)
-					result = caseBGuard(bGuardExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBGuard(bGuardExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BSYSTEM_CONTEXT: {
-				BSystemContext bSystemContext = (BSystemContext) theEObject;
+				BSystemContext bSystemContext = (BSystemContext)theEObject;
 				T result = caseBSystemContext(bSystemContext);
-				if(result == null)
-					result = caseBExecutionContext(bSystemContext);
-				if(result == null)
-					result = caseITypedValueContainer(bSystemContext);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExecutionContext(bSystemContext);
+				if (result == null) result = caseITypedValueContainer(bSystemContext);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCONTEXT: {
-				BContext bContext = (BContext) theEObject;
+				BContext bContext = (BContext)theEObject;
 				T result = caseBContext(bContext);
-				if(result == null)
-					result = caseBExecutionContext(bContext);
-				if(result == null)
-					result = caseITypedValueContainer(bContext);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExecutionContext(bContext);
+				if (result == null) result = caseITypedValueContainer(bContext);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BINNER_CONTEXT: {
-				BInnerContext bInnerContext = (BInnerContext) theEObject;
+				BInnerContext bInnerContext = (BInnerContext)theEObject;
 				T result = caseBInnerContext(bInnerContext);
-				if(result == null)
-					result = caseBExecutionContext(bInnerContext);
-				if(result == null)
-					result = caseITypedValueContainer(bInnerContext);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExecutionContext(bInnerContext);
+				if (result == null) result = caseITypedValueContainer(bInnerContext);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BINVOCATION_CONTEXT: {
-				BInvocationContext bInvocationContext = (BInvocationContext) theEObject;
+				BInvocationContext bInvocationContext = (BInvocationContext)theEObject;
 				T result = caseBInvocationContext(bInvocationContext);
-				if(result == null)
-					result = caseBExecutionContext(bInvocationContext);
-				if(result == null)
-					result = caseITypedValueContainer(bInvocationContext);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExecutionContext(bInvocationContext);
+				if (result == null) result = caseITypedValueContainer(bInvocationContext);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BUNARY_PRE_OP_EXPRESSION: {
-				BUnaryPreOpExpression bUnaryPreOpExpression = (BUnaryPreOpExpression) theEObject;
+				BUnaryPreOpExpression bUnaryPreOpExpression = (BUnaryPreOpExpression)theEObject;
 				T result = caseBUnaryPreOpExpression(bUnaryPreOpExpression);
-				if(result == null)
-					result = caseBUnaryOpExpression(bUnaryPreOpExpression);
-				if(result == null)
-					result = caseBUnaryExpression(bUnaryPreOpExpression);
-				if(result == null)
-					result = caseBExpression(bUnaryPreOpExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBUnaryOpExpression(bUnaryPreOpExpression);
+				if (result == null) result = caseBUnaryExpression(bUnaryPreOpExpression);
+				if (result == null) result = caseBExpression(bUnaryPreOpExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BASSIGNMENT_EXPRESSION: {
-				BAssignmentExpression bAssignmentExpression = (BAssignmentExpression) theEObject;
+				BAssignmentExpression bAssignmentExpression = (BAssignmentExpression)theEObject;
 				T result = caseBAssignmentExpression(bAssignmentExpression);
-				if(result == null)
-					result = caseBBinaryOpExpression(bAssignmentExpression);
-				if(result == null)
-					result = caseBBinaryExpression(bAssignmentExpression);
-				if(result == null)
-					result = caseBExpression(bAssignmentExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBBinaryOpExpression(bAssignmentExpression);
+				if (result == null) result = caseBBinaryExpression(bAssignmentExpression);
+				if (result == null) result = caseBExpression(bAssignmentExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.B3_FUNCTION: {
-				B3Function b3Function = (B3Function) theEObject;
+				B3Function b3Function = (B3Function)theEObject;
 				T result = caseB3Function(b3Function);
-				if(result == null)
-					result = caseBFunction(b3Function);
-				if(result == null)
-					result = caseIFunction(b3Function);
-				if(result == null)
-					result = caseBExpression(b3Function);
-				if(result == null)
-					result = caseIGenericDeclaration(b3Function);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBFunction(b3Function);
+				if (result == null) result = caseIFunction(b3Function);
+				if (result == null) result = caseBExpression(b3Function);
+				if (result == null) result = caseIGenericDeclaration(b3Function);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BJAVA_FUNCTION: {
-				BJavaFunction bJavaFunction = (BJavaFunction) theEObject;
+				BJavaFunction bJavaFunction = (BJavaFunction)theEObject;
 				T result = caseBJavaFunction(bJavaFunction);
-				if(result == null)
-					result = caseBFunction(bJavaFunction);
-				if(result == null)
-					result = caseIFunction(bJavaFunction);
-				if(result == null)
-					result = caseBExpression(bJavaFunction);
-				if(result == null)
-					result = caseIGenericDeclaration(bJavaFunction);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBFunction(bJavaFunction);
+				if (result == null) result = caseIFunction(bJavaFunction);
+				if (result == null) result = caseBExpression(bJavaFunction);
+				if (result == null) result = caseIGenericDeclaration(bJavaFunction);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BFUNCTION_CONTAINER: {
-				BFunctionContainer bFunctionContainer = (BFunctionContainer) theEObject;
+				BFunctionContainer bFunctionContainer = (BFunctionContainer)theEObject;
 				T result = caseBFunctionContainer(bFunctionContainer);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BDEF_VALUE: {
-				BDefValue bDefValue = (BDefValue) theEObject;
+				BDefValue bDefValue = (BDefValue)theEObject;
 				T result = caseBDefValue(bDefValue);
-				if(result == null)
-					result = caseBExpression(bDefValue);
-				if(result == null)
-					result = caseITypedValue(bDefValue);
-				if(result == null)
-					result = caseINamedValue(bDefValue);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bDefValue);
+				if (result == null) result = caseITypedValue(bDefValue);
+				if (result == null) result = caseINamedValue(bDefValue);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BREGULAR_EXPRESSION: {
-				BRegularExpression bRegularExpression = (BRegularExpression) theEObject;
+				BRegularExpression bRegularExpression = (BRegularExpression)theEObject;
 				T result = caseBRegularExpression(bRegularExpression);
-				if(result == null)
-					result = caseBPatternLiteralExpression(bRegularExpression);
-				if(result == null)
-					result = caseBExpression(bRegularExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBPatternLiteralExpression(bRegularExpression);
+				if (result == null) result = caseBExpression(bRegularExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BPARAMETER_LIST: {
-				BParameterList bParameterList = (BParameterList) theEObject;
+				BParameterList bParameterList = (BParameterList)theEObject;
 				T result = caseBParameterList(bParameterList);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BPARAMETER: {
-				BParameter bParameter = (BParameter) theEObject;
+				BParameter bParameter = (BParameter)theEObject;
 				T result = caseBParameter(bParameter);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BPARAMETER_DECLARATION: {
-				BParameterDeclaration bParameterDeclaration = (BParameterDeclaration) theEObject;
+				BParameterDeclaration bParameterDeclaration = (BParameterDeclaration)theEObject;
 				T result = caseBParameterDeclaration(bParameterDeclaration);
-				if(result == null)
-					result = caseITypedValue(bParameterDeclaration);
-				if(result == null)
-					result = caseINamedValue(bParameterDeclaration);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseITypedValue(bParameterDeclaration);
+				if (result == null) result = caseINamedValue(bParameterDeclaration);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.B3_FUNCTION_TYPE: {
-				B3FunctionType b3FunctionType = (B3FunctionType) theEObject;
+				B3FunctionType b3FunctionType = (B3FunctionType)theEObject;
 				T result = caseB3FunctionType(b3FunctionType);
-				if(result == null)
-					result = caseIType(b3FunctionType);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseIType(b3FunctionType);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.B3_PARAMETERIZED_TYPE: {
-				B3ParameterizedType b3ParameterizedType = (B3ParameterizedType) theEObject;
+				B3ParameterizedType b3ParameterizedType = (B3ParameterizedType)theEObject;
 				T result = caseB3ParameterizedType(b3ParameterizedType);
-				if(result == null)
-					result = caseIParameterizedType(b3ParameterizedType);
-				if(result == null)
-					result = caseIType(b3ParameterizedType);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseIParameterizedType(b3ParameterizedType);
+				if (result == null) result = caseIType(b3ParameterizedType);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.B3_WILDCARD_TYPE: {
-				B3WildcardType b3WildcardType = (B3WildcardType) theEObject;
+				B3WildcardType b3WildcardType = (B3WildcardType)theEObject;
 				T result = caseB3WildcardType(b3WildcardType);
-				if(result == null)
-					result = caseIWildcardType(b3WildcardType);
-				if(result == null)
-					result = caseIType(b3WildcardType);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseIWildcardType(b3WildcardType);
+				if (result == null) result = caseIType(b3WildcardType);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE: {
-				B3FuncTypeVariable b3FuncTypeVariable = (B3FuncTypeVariable) theEObject;
+				B3FuncTypeVariable b3FuncTypeVariable = (B3FuncTypeVariable)theEObject;
 				T result = caseB3FuncTypeVariable(b3FuncTypeVariable);
-				if(result == null)
-					result = caseITypeVariable(b3FuncTypeVariable);
-				if(result == null)
-					result = caseIType(b3FuncTypeVariable);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseITypeVariable(b3FuncTypeVariable);
+				if (result == null) result = caseIType(b3FuncTypeVariable);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.B3_JAVA_IMPORT: {
-				B3JavaImport b3JavaImport = (B3JavaImport) theEObject;
+				B3JavaImport b3JavaImport = (B3JavaImport)theEObject;
 				T result = caseB3JavaImport(b3JavaImport);
-				if(result == null)
-					result = caseIType(b3JavaImport);
-				if(result == null)
-					result = caseITypedValue(b3JavaImport);
-				if(result == null)
-					result = caseINamedValue(b3JavaImport);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseIType(b3JavaImport);
+				if (result == null) result = caseITypedValue(b3JavaImport);
+				if (result == null) result = caseINamedValue(b3JavaImport);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BLITERAL_TYPE: {
-				BLiteralType bLiteralType = (BLiteralType) theEObject;
+				BLiteralType bLiteralType = (BLiteralType)theEObject;
 				T result = caseBLiteralType(bLiteralType);
-				if(result == null)
-					result = caseBExpression(bLiteralType);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bLiteralType);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BGUARD_FUNCTION: {
-				BGuardFunction bGuardFunction = (BGuardFunction) theEObject;
+				BGuardFunction bGuardFunction = (BGuardFunction)theEObject;
 				T result = caseBGuardFunction(bGuardFunction);
-				if(result == null)
-					result = caseBGuard(bGuardFunction);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBGuard(bGuardFunction);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BTYPE_CALCULATOR: {
-				BTypeCalculator bTypeCalculator = (BTypeCalculator) theEObject;
+				BTypeCalculator bTypeCalculator = (BTypeCalculator)theEObject;
 				T result = caseBTypeCalculator(bTypeCalculator);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION: {
-				BTypeCalculatorFunction bTypeCalculatorFunction = (BTypeCalculatorFunction) theEObject;
+				BTypeCalculatorFunction bTypeCalculatorFunction = (BTypeCalculatorFunction)theEObject;
 				T result = caseBTypeCalculatorFunction(bTypeCalculatorFunction);
-				if(result == null)
-					result = caseBTypeCalculator(bTypeCalculatorFunction);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBTypeCalculator(bTypeCalculatorFunction);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BINSTANCE_CONTEXT: {
-				BInstanceContext bInstanceContext = (BInstanceContext) theEObject;
+				BInstanceContext bInstanceContext = (BInstanceContext)theEObject;
 				T result = caseBInstanceContext(bInstanceContext);
-				if(result == null)
-					result = caseBInnerContext(bInstanceContext);
-				if(result == null)
-					result = caseBExecutionContext(bInstanceContext);
-				if(result == null)
-					result = caseITypedValueContainer(bInstanceContext);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBInnerContext(bInstanceContext);
+				if (result == null) result = caseBExecutionContext(bInstanceContext);
+				if (result == null) result = caseITypedValueContainer(bInstanceContext);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BDEF_PROPERTY: {
-				BDefProperty bDefProperty = (BDefProperty) theEObject;
+				BDefProperty bDefProperty = (BDefProperty)theEObject;
 				T result = caseBDefProperty(bDefProperty);
-				if(result == null)
-					result = caseBDefValue(bDefProperty);
-				if(result == null)
-					result = caseBExpression(bDefProperty);
-				if(result == null)
-					result = caseITypedValue(bDefProperty);
-				if(result == null)
-					result = caseINamedValue(bDefProperty);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBDefValue(bDefProperty);
+				if (result == null) result = caseBExpression(bDefProperty);
+				if (result == null) result = caseITypedValue(bDefProperty);
+				if (result == null) result = caseINamedValue(bDefProperty);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BPROPERTY_SET: {
-				BPropertySet bPropertySet = (BPropertySet) theEObject;
+				BPropertySet bPropertySet = (BPropertySet)theEObject;
 				T result = caseBPropertySet(bPropertySet);
-				if(result == null)
-					result = caseBAdvice(bPropertySet);
-				if(result == null)
-					result = caseBExpression(bPropertySet);
-				if(result == null)
-					result = caseITypedValue(bPropertySet);
-				if(result == null)
-					result = caseINamedValue(bPropertySet);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBAdvice(bPropertySet);
+				if (result == null) result = caseBExpression(bPropertySet);
+				if (result == null) result = caseITypedValue(bPropertySet);
+				if (result == null) result = caseINamedValue(bPropertySet);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BDEFAULT_PROPERTY_SET: {
-				BDefaultPropertySet bDefaultPropertySet = (BDefaultPropertySet) theEObject;
+				BDefaultPropertySet bDefaultPropertySet = (BDefaultPropertySet)theEObject;
 				T result = caseBDefaultPropertySet(bDefaultPropertySet);
-				if(result == null)
-					result = caseBPropertySet(bDefaultPropertySet);
-				if(result == null)
-					result = caseBAdvice(bDefaultPropertySet);
-				if(result == null)
-					result = caseBExpression(bDefaultPropertySet);
-				if(result == null)
-					result = caseITypedValue(bDefaultPropertySet);
-				if(result == null)
-					result = caseINamedValue(bDefaultPropertySet);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBPropertySet(bDefaultPropertySet);
+				if (result == null) result = caseBAdvice(bDefaultPropertySet);
+				if (result == null) result = caseBExpression(bDefaultPropertySet);
+				if (result == null) result = caseITypedValue(bDefaultPropertySet);
+				if (result == null) result = caseINamedValue(bDefaultPropertySet);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BPROPERTY_OPERATION: {
-				BPropertyOperation bPropertyOperation = (BPropertyOperation) theEObject;
+				BPropertyOperation bPropertyOperation = (BPropertyOperation)theEObject;
 				T result = caseBPropertyOperation(bPropertyOperation);
-				if(result == null)
-					result = caseBExpression(bPropertyOperation);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bPropertyOperation);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION: {
-				BPropertyDefinitionOperation bPropertyDefinitionOperation = (BPropertyDefinitionOperation) theEObject;
+				BPropertyDefinitionOperation bPropertyDefinitionOperation = (BPropertyDefinitionOperation)theEObject;
 				T result = caseBPropertyDefinitionOperation(bPropertyDefinitionOperation);
-				if(result == null)
-					result = caseBPropertyOperation(bPropertyDefinitionOperation);
-				if(result == null)
-					result = caseBExpression(bPropertyDefinitionOperation);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBPropertyOperation(bPropertyDefinitionOperation);
+				if (result == null) result = caseBExpression(bPropertyDefinitionOperation);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCONDITIONAL_PROPERTY_OPERATION: {
-				BConditionalPropertyOperation bConditionalPropertyOperation = (BConditionalPropertyOperation) theEObject;
+				BConditionalPropertyOperation bConditionalPropertyOperation = (BConditionalPropertyOperation)theEObject;
 				T result = caseBConditionalPropertyOperation(bConditionalPropertyOperation);
-				if(result == null)
-					result = caseBPropertyOperation(bConditionalPropertyOperation);
-				if(result == null)
-					result = caseBExpression(bConditionalPropertyOperation);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBPropertyOperation(bConditionalPropertyOperation);
+				if (result == null) result = caseBExpression(bConditionalPropertyOperation);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BPROPERTY_SET_OPERATION: {
-				BPropertySetOperation bPropertySetOperation = (BPropertySetOperation) theEObject;
+				BPropertySetOperation bPropertySetOperation = (BPropertySetOperation)theEObject;
 				T result = caseBPropertySetOperation(bPropertySetOperation);
-				if(result == null)
-					result = caseBPropertyOperation(bPropertySetOperation);
-				if(result == null)
-					result = caseBExpression(bPropertySetOperation);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBPropertyOperation(bPropertySetOperation);
+				if (result == null) result = caseBExpression(bPropertySetOperation);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BADVICE: {
-				BAdvice bAdvice = (BAdvice) theEObject;
+				BAdvice bAdvice = (BAdvice)theEObject;
 				T result = caseBAdvice(bAdvice);
-				if(result == null)
-					result = caseBExpression(bAdvice);
-				if(result == null)
-					result = caseITypedValue(bAdvice);
-				if(result == null)
-					result = caseINamedValue(bAdvice);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bAdvice);
+				if (result == null) result = caseITypedValue(bAdvice);
+				if (result == null) result = caseINamedValue(bAdvice);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCONCERN: {
-				BConcern bConcern = (BConcern) theEObject;
+				BConcern bConcern = (BConcern)theEObject;
 				T result = caseBConcern(bConcern);
-				if(result == null)
-					result = caseBAdvice(bConcern);
-				if(result == null)
-					result = caseBFunctionContainer(bConcern);
-				if(result == null)
-					result = caseBExpression(bConcern);
-				if(result == null)
-					result = caseITypedValue(bConcern);
-				if(result == null)
-					result = caseINamedValue(bConcern);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBAdvice(bConcern);
+				if (result == null) result = caseBFunctionContainer(bConcern);
+				if (result == null) result = caseBExpression(bConcern);
+				if (result == null) result = caseITypedValue(bConcern);
+				if (result == null) result = caseINamedValue(bConcern);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BWITH_EXPRESSION: {
-				BWithExpression bWithExpression = (BWithExpression) theEObject;
+				BWithExpression bWithExpression = (BWithExpression)theEObject;
 				T result = caseBWithExpression(bWithExpression);
-				if(result == null)
-					result = caseBExpression(bWithExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bWithExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCONCERN_CONTEXT: {
-				BConcernContext bConcernContext = (BConcernContext) theEObject;
+				BConcernContext bConcernContext = (BConcernContext)theEObject;
 				T result = caseBConcernContext(bConcernContext);
-				if(result == null)
-					result = caseBExpression(bConcernContext);
-				if(result == null)
-					result = caseBFunctionContainer(bConcernContext);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bConcernContext);
+				if (result == null) result = caseBFunctionContainer(bConcernContext);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BFUNCTION: {
-				BFunction bFunction = (BFunction) theEObject;
+				BFunction bFunction = (BFunction)theEObject;
 				T result = caseBFunction(bFunction);
-				if(result == null)
-					result = caseIFunction(bFunction);
-				if(result == null)
-					result = caseBExpression(bFunction);
-				if(result == null)
-					result = caseIGenericDeclaration(bFunction);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseIFunction(bFunction);
+				if (result == null) result = caseBExpression(bFunction);
+				if (result == null) result = caseIGenericDeclaration(bFunction);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BFUNCTION_WRAPPER: {
-				BFunctionWrapper bFunctionWrapper = (BFunctionWrapper) theEObject;
+				BFunctionWrapper bFunctionWrapper = (BFunctionWrapper)theEObject;
 				T result = caseBFunctionWrapper(bFunctionWrapper);
-				if(result == null)
-					result = caseIFunction(bFunctionWrapper);
-				if(result == null)
-					result = caseBExpression(bFunctionWrapper);
-				if(result == null)
-					result = caseIGenericDeclaration(bFunctionWrapper);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseIFunction(bFunctionWrapper);
+				if (result == null) result = caseBExpression(bFunctionWrapper);
+				if (result == null) result = caseIGenericDeclaration(bFunctionWrapper);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BNAME_PREDICATE: {
-				BNamePredicate bNamePredicate = (BNamePredicate) theEObject;
+				BNamePredicate bNamePredicate = (BNamePredicate)theEObject;
 				T result = caseBNamePredicate(bNamePredicate);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BFUNCTION_NAME_PREDICATE: {
-				BFunctionNamePredicate bFunctionNamePredicate = (BFunctionNamePredicate) theEObject;
+				BFunctionNamePredicate bFunctionNamePredicate = (BFunctionNamePredicate)theEObject;
 				T result = caseBFunctionNamePredicate(bFunctionNamePredicate);
-				if(result == null)
-					result = caseBExpression(bFunctionNamePredicate);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bFunctionNamePredicate);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT: {
-				BFunctionConcernContext bFunctionConcernContext = (BFunctionConcernContext) theEObject;
+				BFunctionConcernContext bFunctionConcernContext = (BFunctionConcernContext)theEObject;
 				T result = caseBFunctionConcernContext(bFunctionConcernContext);
-				if(result == null)
-					result = caseBConcernContext(bFunctionConcernContext);
-				if(result == null)
-					result = caseBExpression(bFunctionConcernContext);
-				if(result == null)
-					result = caseBFunctionContainer(bFunctionConcernContext);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBConcernContext(bFunctionConcernContext);
+				if (result == null) result = caseBExpression(bFunctionConcernContext);
+				if (result == null) result = caseBFunctionContainer(bFunctionConcernContext);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BPARAMETER_PREDICATE: {
-				BParameterPredicate bParameterPredicate = (BParameterPredicate) theEObject;
+				BParameterPredicate bParameterPredicate = (BParameterPredicate)theEObject;
 				T result = caseBParameterPredicate(bParameterPredicate);
-				if(result == null)
-					result = caseITypedValue(bParameterPredicate);
-				if(result == null)
-					result = caseINamedValue(bParameterPredicate);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseITypedValue(bParameterPredicate);
+				if (result == null) result = caseINamedValue(bParameterPredicate);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BPROCEED_EXPRESSION: {
-				BProceedExpression bProceedExpression = (BProceedExpression) theEObject;
+				BProceedExpression bProceedExpression = (BProceedExpression)theEObject;
 				T result = caseBProceedExpression(bProceedExpression);
-				if(result == null)
-					result = caseBExpression(bProceedExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bProceedExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BDELEGATING_CONTEXT: {
-				BDelegatingContext bDelegatingContext = (BDelegatingContext) theEObject;
+				BDelegatingContext bDelegatingContext = (BDelegatingContext)theEObject;
 				T result = caseBDelegatingContext(bDelegatingContext);
-				if(result == null)
-					result = caseBInnerContext(bDelegatingContext);
-				if(result == null)
-					result = caseBExecutionContext(bDelegatingContext);
-				if(result == null)
-					result = caseITypedValueContainer(bDelegatingContext);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBInnerContext(bDelegatingContext);
+				if (result == null) result = caseBExecutionContext(bDelegatingContext);
+				if (result == null) result = caseITypedValueContainer(bDelegatingContext);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BWRAPPING_CONTEXT: {
-				BWrappingContext bWrappingContext = (BWrappingContext) theEObject;
+				BWrappingContext bWrappingContext = (BWrappingContext)theEObject;
 				T result = caseBWrappingContext(bWrappingContext);
-				if(result == null)
-					result = caseBDelegatingContext(bWrappingContext);
-				if(result == null)
-					result = caseBInnerContext(bWrappingContext);
-				if(result == null)
-					result = caseBExecutionContext(bWrappingContext);
-				if(result == null)
-					result = caseITypedValueContainer(bWrappingContext);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBDelegatingContext(bWrappingContext);
+				if (result == null) result = caseBInnerContext(bWrappingContext);
+				if (result == null) result = caseBExecutionContext(bWrappingContext);
+				if (result == null) result = caseITypedValueContainer(bWrappingContext);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.B3_META_CLASS: {
-				B3MetaClass b3MetaClass = (B3MetaClass) theEObject;
+				B3MetaClass b3MetaClass = (B3MetaClass)theEObject;
 				T result = caseB3MetaClass(b3MetaClass);
-				if(result == null)
-					result = caseIType(b3MetaClass);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseIType(b3MetaClass);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BEXPRESSION_WRAPPER: {
-				BExpressionWrapper bExpressionWrapper = (BExpressionWrapper) theEObject;
+				BExpressionWrapper bExpressionWrapper = (BExpressionWrapper)theEObject;
 				T result = caseBExpressionWrapper(bExpressionWrapper);
-				if(result == null)
-					result = caseBExpression(bExpressionWrapper);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bExpressionWrapper);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION: {
-				BWithContextExpression bWithContextExpression = (BWithContextExpression) theEObject;
+				BWithContextExpression bWithContextExpression = (BWithContextExpression)theEObject;
 				T result = caseBWithContextExpression(bWithContextExpression);
-				if(result == null)
-					result = caseBExpression(bWithContextExpression);
-				if(result == null)
-					result = caseITypedValue(bWithContextExpression);
-				if(result == null)
-					result = caseINamedValue(bWithContextExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bWithContextExpression);
+				if (result == null) result = caseITypedValue(bWithContextExpression);
+				if (result == null) result = caseINamedValue(bWithContextExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.ITYPED_VALUE_CONTAINER: {
-				ITypedValueContainer iTypedValueContainer = (ITypedValueContainer) theEObject;
+				ITypedValueContainer iTypedValueContainer = (ITypedValueContainer)theEObject;
 				T result = caseITypedValueContainer(iTypedValueContainer);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCALL_FEATURE: {
-				BCallFeature bCallFeature = (BCallFeature) theEObject;
+				BCallFeature bCallFeature = (BCallFeature)theEObject;
 				T result = caseBCallFeature(bCallFeature);
-				if(result == null)
-					result = caseBCallExpression(bCallFeature);
-				if(result == null)
-					result = caseBParameterizedExpression(bCallFeature);
-				if(result == null)
-					result = caseBExpression(bCallFeature);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBCallExpression(bCallFeature);
+				if (result == null) result = caseBParameterizedExpression(bCallFeature);
+				if (result == null) result = caseBExpression(bCallFeature);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCALL_NAMED_FUNCTION: {
-				BCallNamedFunction bCallNamedFunction = (BCallNamedFunction) theEObject;
+				BCallNamedFunction bCallNamedFunction = (BCallNamedFunction)theEObject;
 				T result = caseBCallNamedFunction(bCallNamedFunction);
-				if(result == null)
-					result = caseBCallExpression(bCallNamedFunction);
-				if(result == null)
-					result = caseBParameterizedExpression(bCallNamedFunction);
-				if(result == null)
-					result = caseBExpression(bCallNamedFunction);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBCallExpression(bCallNamedFunction);
+				if (result == null) result = caseBParameterizedExpression(bCallNamedFunction);
+				if (result == null) result = caseBExpression(bCallNamedFunction);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BCALL_FUNCTION: {
-				BCallFunction bCallFunction = (BCallFunction) theEObject;
+				BCallFunction bCallFunction = (BCallFunction)theEObject;
 				T result = caseBCallFunction(bCallFunction);
-				if(result == null)
-					result = caseBCallExpression(bCallFunction);
-				if(result == null)
-					result = caseBParameterizedExpression(bCallFunction);
-				if(result == null)
-					result = caseBExpression(bCallFunction);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBCallExpression(bCallFunction);
+				if (result == null) result = caseBParameterizedExpression(bCallFunction);
+				if (result == null) result = caseBExpression(bCallFunction);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BPATTERN_LITERAL_EXPRESSION: {
-				BPatternLiteralExpression bPatternLiteralExpression = (BPatternLiteralExpression) theEObject;
+				BPatternLiteralExpression bPatternLiteralExpression = (BPatternLiteralExpression)theEObject;
 				T result = caseBPatternLiteralExpression(bPatternLiteralExpression);
-				if(result == null)
-					result = caseBExpression(bPatternLiteralExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBExpression(bPatternLiteralExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION: {
-				BSimplePatternExpression bSimplePatternExpression = (BSimplePatternExpression) theEObject;
+				BSimplePatternExpression bSimplePatternExpression = (BSimplePatternExpression)theEObject;
 				T result = caseBSimplePatternExpression(bSimplePatternExpression);
-				if(result == null)
-					result = caseBPatternLiteralExpression(bSimplePatternExpression);
-				if(result == null)
-					result = caseBExpression(bSimplePatternExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseBPatternLiteralExpression(bSimplePatternExpression);
+				if (result == null) result = caseBExpression(bSimplePatternExpression);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.INAMED_VALUE: {
-				INamedValue iNamedValue = (INamedValue) theEObject;
+				INamedValue iNamedValue = (INamedValue)theEObject;
 				T result = caseINamedValue(iNamedValue);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.B3_TYPE: {
-				B3Type b3Type = (B3Type) theEObject;
+				B3Type b3Type = (B3Type)theEObject;
 				T result = caseB3Type(b3Type);
-				if(result == null)
-					result = caseIType(b3Type);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseIType(b3Type);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case B3backendPackage.ITYPED_VALUE: {
-				ITypedValue iTypedValue = (ITypedValue) theEObject;
+				ITypedValue iTypedValue = (ITypedValue)theEObject;
 				T result = caseITypedValue(iTypedValue);
-				if(result == null)
-					result = caseINamedValue(iTypedValue);
-				if(result == null)
-					result = defaultCase(theEObject);
+				if (result == null) result = caseINamedValue(iTypedValue);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			default:
-				return defaultCase(theEObject);
+			default: return defaultCase(theEObject);
 		}
 	}
 

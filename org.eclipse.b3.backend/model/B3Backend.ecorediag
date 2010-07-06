@@ -1097,6 +1097,14 @@
           <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getConcernIterator"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_s6hF8Q4BEd-FNbuD04-m8g"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_LO1oQIlBEd-7yJOqoN24_w" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/printStack"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_LO1oQYlBEd-7yJOqoN24_w"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_PtngsIlBEd-7yJOqoN24_w" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/printStackTrace"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_PtngsYlBEd-7yJOqoN24_w"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_bBrzVg0pEd-FNbuD04-m8g"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_bBrzVw0pEd-FNbuD04-m8g"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_bBrzWA0pEd-FNbuD04-m8g"/>
@@ -3520,7 +3528,6 @@
       </children>
       <children xmi:type="notation:Node" xmi:id="_SuvV8O6OEd67DZoMEVprfQ" type="5002">
         <children xmi:type="notation:Node" xmi:id="_4NK_YAQQEd-J54ZOjN0g9g" type="2002">
-          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BPropertySet/evaluateDefaults"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_4NK_YQQQEd-J54ZOjN0g9g"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_SuvV8e6OEd67DZoMEVprfQ"/>

@@ -41,6 +41,7 @@ public class BuildFunctions {
 		while(unitItor.hasNext()) {
 			if((unitToUse = unitItor.next()).getName().equals(unitName))
 				break;
+			// System.err.print("Unit name:" + unitToUse.getName() + "\n");
 			unitToUse = null;
 		}
 		if(unitToUse != null) {

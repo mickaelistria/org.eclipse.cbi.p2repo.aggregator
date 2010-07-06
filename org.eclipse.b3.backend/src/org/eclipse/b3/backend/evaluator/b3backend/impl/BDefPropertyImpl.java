@@ -23,17 +23,16 @@ import org.eclipse.emf.ecore.EClass;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefPropertyImpl#isMutable <em>Mutable</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefPropertyImpl#isMutable <em>Mutable</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -42,7 +41,6 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 	 * The default value of the '{@link #isMutable() <em>Mutable</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isMutable()
 	 * @generated
 	 * @ordered
@@ -64,12 +62,11 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BDEF_PROPERTY__MUTABLE:
 				return isMutable();
 		}
@@ -79,12 +76,11 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BDEF_PROPERTY__MUTABLE:
 				return isMutable() != MUTABLE_EDEFAULT;
 		}
@@ -94,14 +90,13 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BDEF_PROPERTY__MUTABLE:
-				setMutable((Boolean) newValue);
+				setMutable((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -110,7 +105,6 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -121,12 +115,11 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BDEF_PROPERTY__MUTABLE:
 				setMutable(MUTABLE_EDEFAULT);
 				return;

@@ -30,20 +30,19 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getExpr <em>Expr</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getContextBlock <em>Context Block</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithContextExpressionImpl#getContextBlock <em>Context Block</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BWithContextExpressionImpl extends BExpressionImpl implements BWithContextExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -63,7 +62,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -74,7 +72,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -85,7 +82,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	 * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getExpr()
 	 * @generated
 	 * @ordered
@@ -96,7 +92,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	 * The cached value of the '{@link #getContextBlock() <em>Context Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getContextBlock()
 	 * @generated
 	 * @ordered
@@ -106,7 +101,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BWithContextExpressionImpl() {
@@ -116,20 +110,14 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetContextBlock(BExpression newContextBlock, NotificationChain msgs) {
 		BExpression oldContextBlock = contextBlock;
 		contextBlock = newContextBlock;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK, oldContextBlock,
-				newContextBlock);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK, oldContextBlock, newContextBlock);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -137,19 +125,14 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetExpr(BExpression newExpr, NotificationChain msgs) {
 		BExpression oldExpr = expr;
 		expr = newExpr;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR, oldExpr, newExpr);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR, oldExpr, newExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -157,19 +140,14 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
 		Type oldType = type;
 		type = newType;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE, oldType, newType);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -177,25 +155,20 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == INamedValue.class) {
-			switch(derivedFeatureID) {
-				case B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME:
-					return B3backendPackage.INAMED_VALUE__NAME;
-				default:
-					return -1;
+		if (baseClass == INamedValue.class) {
+			switch (derivedFeatureID) {
+				case B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME: return B3backendPackage.INAMED_VALUE__NAME;
+				default: return -1;
 			}
 		}
-		if(baseClass == ITypedValue.class) {
-			switch(derivedFeatureID) {
-				case B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE:
-					return B3backendPackage.ITYPED_VALUE__TYPE;
-				default:
-					return -1;
+		if (baseClass == ITypedValue.class) {
+			switch (derivedFeatureID) {
+				case B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE: return B3backendPackage.ITYPED_VALUE__TYPE;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -204,25 +177,20 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == INamedValue.class) {
-			switch(baseFeatureID) {
-				case B3backendPackage.INAMED_VALUE__NAME:
-					return B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME;
-				default:
-					return -1;
+		if (baseClass == INamedValue.class) {
+			switch (baseFeatureID) {
+				case B3backendPackage.INAMED_VALUE__NAME: return B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME;
+				default: return -1;
 			}
 		}
-		if(baseClass == ITypedValue.class) {
-			switch(baseFeatureID) {
-				case B3backendPackage.ITYPED_VALUE__TYPE:
-					return B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE;
-				default:
-					return -1;
+		if (baseClass == ITypedValue.class) {
+			switch (baseFeatureID) {
+				case B3backendPackage.ITYPED_VALUE__TYPE: return B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -231,12 +199,11 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME:
 				return getName();
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE:
@@ -252,12 +219,11 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE:
 				return basicSetType(null, msgs);
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR:
@@ -271,16 +237,13 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE:
 				return type != null;
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR:
@@ -294,23 +257,22 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME:
-				setName((String) newValue);
+				setName((String)newValue);
 				return;
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE:
-				setType((Type) newValue);
+				setType((Type)newValue);
 				return;
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR:
-				setExpr((BExpression) newValue);
+				setExpr((BExpression)newValue);
 				return;
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK:
-				setContextBlock((BExpression) newValue);
+				setContextBlock((BExpression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -319,7 +281,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -330,23 +291,22 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE:
-				setType((Type) null);
+				setType((Type)null);
 				return;
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR:
-				setExpr((BExpression) null);
+				setExpr((BExpression)null);
 				return;
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK:
-				setContextBlock((BExpression) null);
+				setContextBlock((BExpression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -355,7 +315,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getContextBlock() {
@@ -365,7 +324,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getExpr() {
@@ -375,7 +333,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -385,7 +342,6 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Type getType() {
@@ -395,100 +351,80 @@ public class BWithContextExpressionImpl extends BExpressionImpl implements BWith
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setContextBlock(BExpression newContextBlock) {
-		if(newContextBlock != contextBlock) {
+		if (newContextBlock != contextBlock) {
 			NotificationChain msgs = null;
-			if(contextBlock != null)
-				msgs = ((InternalEObject) contextBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK, null, msgs);
-			if(newContextBlock != null)
-				msgs = ((InternalEObject) newContextBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK, null, msgs);
+			if (contextBlock != null)
+				msgs = ((InternalEObject)contextBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK, null, msgs);
+			if (newContextBlock != null)
+				msgs = ((InternalEObject)newContextBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK, null, msgs);
 			msgs = basicSetContextBlock(newContextBlock, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK, newContextBlock,
-				newContextBlock));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK, newContextBlock, newContextBlock));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setExpr(BExpression newExpr) {
-		if(newExpr != expr) {
+		if (newExpr != expr) {
 			NotificationChain msgs = null;
-			if(expr != null)
-				msgs = ((InternalEObject) expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR, null, msgs);
-			if(newExpr != null)
-				msgs = ((InternalEObject) newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR, null, msgs);
+			if (expr != null)
+				msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR, null, msgs);
+			if (newExpr != null)
+				msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR, null, msgs);
 			msgs = basicSetExpr(newExpr, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR, newExpr, newExpr));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__EXPR, newExpr, newExpr));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME, oldName, name));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setType(Type newType) {
-		if(newType != type) {
+		if (newType != type) {
 			NotificationChain msgs = null;
-			if(type != null)
-				msgs = ((InternalEObject) type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE, null, msgs);
-			if(newType != null)
-				msgs = ((InternalEObject) newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE, null, msgs);
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE, null, msgs);
 			msgs = basicSetType(newType, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE, newType, newType));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BWITH_CONTEXT_EXPRESSION__TYPE, newType, newType));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

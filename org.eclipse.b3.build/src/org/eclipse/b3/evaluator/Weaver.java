@@ -10,7 +10,6 @@ package org.eclipse.b3.evaluator;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.ListIterator;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
@@ -47,10 +46,8 @@ import org.eclipse.b3.build.OutputPredicate;
 import org.eclipse.b3.build.PathGroup;
 import org.eclipse.b3.build.ProvidesPredicate;
 import org.eclipse.b3.build.RequiredCapability;
-import org.eclipse.b3.build.RequiresPredicate;
 import org.eclipse.b3.build.SourcePredicate;
 import org.eclipse.b3.build.UnitConcernContext;
-import org.eclipse.b3.build.VersionedCapability;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.core.BuilderInputRemover;
 import org.eclipse.emf.common.util.EList;
@@ -379,37 +376,37 @@ public class Weaver extends BackendWeaver {
 	private boolean adviseUnit(UnitConcernContext theUnitConcern, BuildUnit u, BContext ctx) throws Throwable {
 		boolean modified = false;
 
-		// removal of provided capabilities
-		ListIterator<Capability> pcItor = theUnitConcern.getProvidedCapabilities().listIterator();
-		while(pcItor.hasNext()) {
-			Capability pc = pcItor.next();
-			for(ProvidesPredicate prem : theUnitConcern.getProvidesRemovals())
-				if(pc instanceof VersionedCapability
-						? prem.matches((VersionedCapability.class.cast(pc)))
-						: prem.matches(pc)) {
-					pcItor.remove();
-					modified = true;
-				}
-		}
-		// addition of provided capabilities
-		for(Capability pc : theUnitConcern.getProvidedCapabilities()) {
-			pcItor.add(Capability.class.cast(EcoreUtil.copy(pc)));
-			modified = true;
-		}
-		// removal of required capabilities
-		ListIterator<RequiredCapability> rcItor = theUnitConcern.getRequiredCapabilities().listIterator();
-		while(rcItor.hasNext()) {
-			RequiredCapability rc = rcItor.next();
-			for(RequiresPredicate rrem : theUnitConcern.getRequiresRemovals()) {
-				if(rrem.matches(rc)) {
-					rcItor.remove();
-					modified = true;
-				}
-			}
-		}
+		// // removal of provided capabilities
+		// ListIterator<Capability> pcItor = theUnitConcern.getProvidedCapabilities().listIterator();
+		// while(pcItor.hasNext()) {
+		// Capability pc = pcItor.next();
+		// for(ProvidesPredicate prem : theUnitConcern.getProvidesRemovals())
+		// if(pc instanceof VersionedCapability
+		// ? prem.matches((VersionedCapability.class.cast(pc)))
+		// : prem.matches(pc)) {
+		// pcItor.remove();
+		// modified = true;
+		// }
+		// }
+		// // addition of provided capabilities
+		// for(Capability pc : theUnitConcern.getProvidedCapabilities()) {
+		// pcItor.add(Capability.class.cast(EcoreUtil.copy(pc)));
+		// modified = true;
+		// }
+		// // removal of required capabilities
+		// ListIterator<RequiredCapability> rcItor = theUnitConcern.getRequiredCapabilities().listIterator();
+		// while(rcItor.hasNext()) {
+		// RequiredCapability rc = rcItor.next();
+		// for(RequiresPredicate rrem : theUnitConcern.getRequiresRemovals()) {
+		// if(rrem.matches(rc)) {
+		// rcItor.remove();
+		// modified = true;
+		// }
+		// }
+		// }
 		// addition of required capabilities
 		for(RequiredCapability rc : theUnitConcern.getRequiredCapabilities()) {
-			rcItor.add(RequiredCapability.class.cast(EcoreUtil.copy(rc)));
+			u.getRequiredCapabilities().add(RequiredCapability.class.cast(EcoreUtil.copy(rc)));
 			modified = true;
 		}
 
@@ -711,6 +708,10 @@ public class Weaver extends BackendWeaver {
 		return true;
 	}
 
+	public Boolean weave(UnitConcernContext o, IFunction element, BExecutionContext ctx) {
+		return false; // A Unit Context does not want to weave IFunction or IBuilder
+	}
+
 	/**
 	 * Weaves a collection of BuildUnits.
 	 * 
@@ -730,4 +731,5 @@ public class Weaver extends BackendWeaver {
 		}
 		return woven;
 	}
+
 }

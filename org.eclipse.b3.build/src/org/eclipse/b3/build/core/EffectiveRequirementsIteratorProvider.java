@@ -124,7 +124,8 @@ public class EffectiveRequirementsIteratorProvider {
 		BPropertySet defProp = o.getDefaultProperties();
 		if(defProp != null) {
 			ctxToUse = ctxToUse.createInnerContext();
-			defProp.evaluateDefaults(ctxToUse, true);
+			ctx.getInjector().getInstance(IB3Evaluator.class).doEvaluateDefaults(defProp, ctxToUse, true);
+			// defProp.evaluateDefaults(ctxToUse, true);
 		}
 		if(o.getInput() != null)
 			result.addIterator(doGetIterator(o.getInput(), ctxToUse));

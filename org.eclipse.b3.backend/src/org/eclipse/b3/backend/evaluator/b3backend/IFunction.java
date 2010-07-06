@@ -22,41 +22,39 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>IFunction</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVisibility <em>Visibility</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isFinal <em>Final</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getExecutionMode <em>Execution Mode</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getGuard <em>Guard</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes <em>Parameter Types</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getExceptionTypes <em>Exception Types</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getTypeParameters <em>Type Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames <em>Parameter Names</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameters <em>Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isVarArgs <em>Var Args</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getDocumentation <em>Documentation</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnType <em>Return Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getClosure <em>Closure</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getTypeCalculator <em>Type Calculator</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getContainer <em>Container</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isClassFunction <em>Class Function</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType <em>Vararg Array Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVisibility <em>Visibility</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isFinal <em>Final</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getExecutionMode <em>Execution Mode</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getGuard <em>Guard</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes <em>Parameter Types</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getExceptionTypes <em>Exception Types</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getTypeParameters <em>Type Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames <em>Parameter Names</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isVarArgs <em>Var Args</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getClosure <em>Closure</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getTypeCalculator <em>Type Calculator</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isClassFunction <em>Class Function</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType <em>Vararg Array Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction()
- * @model interface="true" abstract="true"
- *        superTypes="org.eclipse.b3.backend.evaluator.b3backend.IGenericDeclaration org.eclipse.b3.backend.evaluator.b3backend.BExpression"
+ * @model interface="true" abstract="true" superTypes="org.eclipse.b3.backend.evaluator.b3backend.IGenericDeclaration org.eclipse.b3.backend.evaluator.b3backend.BExpression"
  * @generated
  */
 public interface IFunction extends GenericDeclaration, BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -65,14 +63,10 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Calls the function and returns its value. The context passed to this method is used as the context in which the function may store its
-	 * parameter bindings.
+	 * Calls the function and returns its value. The context passed to this method is used as the context in which the function may store its parameter bindings.
 	 * 
 	 * <!-- end-model-doc -->
-	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 *        parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray"
-	 *        typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
 	Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable;
@@ -84,7 +78,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Closure</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Closure</em>' reference.
 	 * @see #setClosure(BExecutionContext)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_Closure()
@@ -95,14 +88,12 @@ public interface IFunction extends GenericDeclaration, BExpression {
 
 	/**
 	 * Returns the value of the '<em><b>Container</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getFunctions <em>Functions</em>}
-	 * '.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getFunctions <em>Functions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Container</em>' container reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Container</em>' container reference.
 	 * @see #setContainer(BFunctionContainer)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_Container()
@@ -119,7 +110,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Documentation</em>' attribute.
 	 * @see #setDocumentation(String)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_Documentation()
@@ -135,7 +125,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Exception Types</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Exception Types</em>' attribute.
 	 * @see #setExceptionTypes(Type[])
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_ExceptionTypes()
@@ -152,7 +141,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Execution Mode</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Execution Mode</em>' attribute.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
 	 * @see #setExecutionMode(ExecutionMode)
@@ -169,7 +157,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Guard</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Guard</em>' containment reference.
 	 * @see #setGuard(BGuard)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_Guard()
@@ -185,7 +172,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_Name()
@@ -201,7 +187,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Parameter Names</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Parameter Names</em>' attribute.
 	 * @see #setParameterNames(String[])
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_ParameterNames()
@@ -216,10 +201,8 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The parameters are the declared parameters. Some parameters may be implicit. Use {@link #getEffetiveParameters} to get all of the parameter
-	 * declarations.
+	 * The parameters are the declared parameters. Some parameters may be implicit. Use {@link #getEffetiveParameters} to get all of the parameter declarations.
 	 * <!-- end-model-doc -->
-	 * 
 	 * @return the value of the '<em>Parameters</em>' containment reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_Parameters()
 	 * @model containment="true"
@@ -234,7 +217,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Parameter Types</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Parameter Types</em>' attribute.
 	 * @see #setParameterTypes(Type[])
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_ParameterTypes()
@@ -250,7 +232,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Return Type</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Return Type</em>' containment reference.
 	 * @see #setReturnType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_ReturnType()
@@ -262,7 +243,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
@@ -284,7 +264,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Type Calculator</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Type Calculator</em>' containment reference.
 	 * @see #setTypeCalculator(BTypeCalculator)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_TypeCalculator()
@@ -316,7 +295,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Vararg Array Type</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Vararg Array Type</em>' attribute.
 	 * @see #setVarargArrayType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_VarargArrayType()
@@ -333,7 +311,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Visibility</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Visibility</em>' attribute.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.Visibility
 	 * @see #setVisibility(Visibility)
@@ -346,10 +323,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 *        parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray"
-	 *        typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
 	Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable;
@@ -361,7 +335,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Class Function</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Class Function</em>' attribute.
 	 * @see #setClassFunction(boolean)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_ClassFunction()
@@ -377,7 +350,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Final</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Final</em>' attribute.
 	 * @see #setFinal(boolean)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_Final()
@@ -393,7 +365,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Var Args</em>' attribute.
 	 * @see #setVarArgs(boolean)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_VarArgs()
@@ -409,10 +380,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Prepares the call (if needed) by processing the parameters and types and updating the context.
 	 * Does not perform the actual call.
 	 * <!-- end-model-doc -->
-	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 *        parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray"
-	 *        typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
 	BExecutionContext prepareCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable;
@@ -421,9 +389,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isClassFunction <em>Class Function</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Class Function</em>' attribute.
+	 * @param value the new value of the '<em>Class Function</em>' attribute.
 	 * @see #isClassFunction()
 	 * @generated
 	 */
@@ -433,9 +399,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getClosure <em>Closure</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Closure</em>' reference.
+	 * @param value the new value of the '<em>Closure</em>' reference.
 	 * @see #getClosure()
 	 * @generated
 	 */
@@ -445,9 +409,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getContainer <em>Container</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Container</em>' container reference.
+	 * @param value the new value of the '<em>Container</em>' container reference.
 	 * @see #getContainer()
 	 * @generated
 	 */
@@ -457,9 +419,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getDocumentation <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Documentation</em>' attribute.
+	 * @param value the new value of the '<em>Documentation</em>' attribute.
 	 * @see #getDocumentation()
 	 * @generated
 	 */
@@ -469,9 +429,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getExceptionTypes <em>Exception Types</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Exception Types</em>' attribute.
+	 * @param value the new value of the '<em>Exception Types</em>' attribute.
 	 * @see #getExceptionTypes()
 	 * @generated
 	 */
@@ -481,9 +439,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getExecutionMode <em>Execution Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Execution Mode</em>' attribute.
+	 * @param value the new value of the '<em>Execution Mode</em>' attribute.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
 	 * @see #getExecutionMode()
 	 * @generated
@@ -494,9 +450,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isFinal <em>Final</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Final</em>' attribute.
+	 * @param value the new value of the '<em>Final</em>' attribute.
 	 * @see #isFinal()
 	 * @generated
 	 */
@@ -506,9 +460,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getGuard <em>Guard</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Guard</em>' containment reference.
+	 * @param value the new value of the '<em>Guard</em>' containment reference.
 	 * @see #getGuard()
 	 * @generated
 	 */
@@ -518,9 +470,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Name</em>' attribute.
+	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -530,9 +480,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames <em>Parameter Names</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Parameter Names</em>' attribute.
+	 * @param value the new value of the '<em>Parameter Names</em>' attribute.
 	 * @see #getParameterNames()
 	 * @generated
 	 */
@@ -542,9 +490,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes <em>Parameter Types</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Parameter Types</em>' attribute.
+	 * @param value the new value of the '<em>Parameter Types</em>' attribute.
 	 * @see #getParameterTypes()
 	 * @generated
 	 */
@@ -554,22 +500,17 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnType <em>Return Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Return Type</em>' containment reference.
+	 * @param value the new value of the '<em>Return Type</em>' containment reference.
 	 * @see #getReturnType()
 	 * @generated
 	 */
 	void setReturnType(Type value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getTypeCalculator <em>Type Calculator</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getTypeCalculator <em>Type Calculator</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Type Calculator</em>' containment reference.
+	 * @param value the new value of the '<em>Type Calculator</em>' containment reference.
 	 * @see #getTypeCalculator()
 	 * @generated
 	 */
@@ -592,9 +533,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType <em>Vararg Array Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Vararg Array Type</em>' attribute.
+	 * @param value the new value of the '<em>Vararg Array Type</em>' attribute.
 	 * @see #getVarargArrayType()
 	 * @generated
 	 */
@@ -604,9 +543,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isVarArgs <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Var Args</em>' attribute.
+	 * @param value the new value of the '<em>Var Args</em>' attribute.
 	 * @see #isVarArgs()
 	 * @generated
 	 */
@@ -616,9 +553,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVisibility <em>Visibility</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Visibility</em>' attribute.
+	 * @param value the new value of the '<em>Visibility</em>' attribute.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.Visibility
 	 * @see #getVisibility()
 	 * @generated

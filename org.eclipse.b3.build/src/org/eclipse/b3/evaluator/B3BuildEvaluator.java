@@ -173,8 +173,10 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 		}
 		// Define all BUILD UNITS
 		for(BuildUnit u : o.getBuildUnits())
-			if(u != null)
+			if(u != null) {
+				// System.err.print("DEFINING UNIT: " + u.getName() + "\n");
 				doDefine(u, ctx);
+			}
 		// bctx.defineBuildUnit(u, false);
 
 		return this;
