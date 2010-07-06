@@ -25,6 +25,7 @@ import org.eclipse.b3.backend.core.B3AmbiguousFunctionSignatureException;
 import org.eclipse.b3.backend.core.B3BackendConstants;
 import org.eclipse.b3.backend.core.B3BackendException;
 import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.B3IllegalInjectionArgumentsException;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.B3NoContextException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
@@ -482,9 +483,9 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		Object[] parameters;
 
 		{
-			EList<BParameter> paramaterList = o.getParameterList().getParameters();
-			Iterator<BParameter> parameterIterator = paramaterList.iterator();
-			int parameterCount = paramaterList.size();
+			final EList<BParameter> paramaterList = o.getParameterList().getParameters();
+			final Iterator<BParameter> parameterIterator = paramaterList.iterator();
+			final int parameterCount = paramaterList.size();
 
 			parameterTypes = new Type[parameterCount];
 			parameters = new Object[parameterCount];
@@ -501,7 +502,14 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		// if trying to create an instance from an interface see if there is a guice binding for it.
 		//
 		if(clazz.isInterface()) {
-			ctx.getInjector().getInstance(clazz);
+			Object result = ctx.getInjector().getInstance(clazz);
+			if(result == null)
+				throw new B3InternalError(
+					"NEW on Interface without error from injector - should not have reached this point for interface: " +
+							clazz.getName());
+			if(o.getParameterList().getParameters().size() > 1)
+				throw new B3IllegalInjectionArgumentsException();
+			return result;
 		}
 
 		ConstructorCandidate constructorCandidate;
