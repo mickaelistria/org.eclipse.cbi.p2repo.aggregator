@@ -30,10 +30,10 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.EffectiveFacadeImpl#getContext <em>Context</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.EffectiveFacadeImpl#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade {
@@ -41,6 +41,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getContext()
 	 * @generated
 	 * @ordered
@@ -50,6 +51,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EffectiveFacadeImpl() {
@@ -59,6 +61,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExecutionContext basicGetContext() {
@@ -68,6 +71,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -84,6 +88,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -98,6 +103,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -113,6 +119,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -123,6 +130,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -138,6 +146,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExecutionContext getContext() {
@@ -156,6 +165,7 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setContext(BExecutionContext newContext) {

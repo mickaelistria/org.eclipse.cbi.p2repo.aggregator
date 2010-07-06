@@ -18,20 +18,20 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Repository Handler</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.Repository#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Repository#getBranches <em>Branches</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Repository#getDocumentation <em>Documentation</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Repository#getHandlerType <em>Handler Type</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Repository#getOptions <em>Options</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Repository#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Repository#getAddress <em>Address</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Repository#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Repository#getBranches <em>Branches</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Repository#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Repository#getHandlerType <em>Handler Type</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Repository#getOptions <em>Options</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Repository#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Repository#getAddress <em>Address</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.build.B3BuildPackage#getRepository()
  * @model
  * @generated
@@ -44,6 +44,7 @@ public interface Repository extends BExpression {
 	 * If the meaning of the '<em>Address</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Address</em>' containment reference.
 	 * @see #setAddress(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRepository_Address()
@@ -60,6 +61,7 @@ public interface Repository extends BExpression {
 	 * If the meaning of the '<em>Branches</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Branches</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRepository_Branches()
 	 * @model containment="true"
@@ -74,6 +76,7 @@ public interface Repository extends BExpression {
 	 * If the meaning of the '<em>Build Unit Repository</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Build Unit Repository</em>' reference.
 	 * @see #setBuildUnitRepository(IBuildUnitRepository)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRepository_BuildUnitRepository()
@@ -90,6 +93,7 @@ public interface Repository extends BExpression {
 	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Documentation</em>' attribute.
 	 * @see #setDocumentation(String)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRepository_Documentation()
@@ -105,6 +109,7 @@ public interface Repository extends BExpression {
 	 * If the meaning of the '<em>Handler Type</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Handler Type</em>' attribute.
 	 * @see #setHandlerType(String)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRepository_HandlerType()
@@ -120,6 +125,7 @@ public interface Repository extends BExpression {
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRepository_Name()
@@ -136,6 +142,7 @@ public interface Repository extends BExpression {
 	 * If the meaning of the '<em>Options</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Options</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRepository_Options()
 	 * @model containment="true"
@@ -147,7 +154,9 @@ public interface Repository extends BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Repository#getAddress <em>Address</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Address</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Address</em>' containment reference.
 	 * @see #getAddress()
 	 * @generated
 	 */
@@ -157,7 +166,9 @@ public interface Repository extends BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Repository#getBuildUnitRepository <em>Build Unit Repository</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Build Unit Repository</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Build Unit Repository</em>' reference.
 	 * @see #getBuildUnitRepository()
 	 * @generated
 	 */
@@ -167,7 +178,9 @@ public interface Repository extends BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Repository#getDocumentation <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Documentation</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Documentation</em>' attribute.
 	 * @see #getDocumentation()
 	 * @generated
 	 */
@@ -177,7 +190,9 @@ public interface Repository extends BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Repository#getHandlerType <em>Handler Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Handler Type</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Handler Type</em>' attribute.
 	 * @see #getHandlerType()
 	 * @generated
 	 */
@@ -187,7 +202,9 @@ public interface Repository extends BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Repository#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */

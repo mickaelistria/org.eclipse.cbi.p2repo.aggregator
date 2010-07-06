@@ -36,12 +36,12 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getBuilderReference <em>Builder Reference</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getAliases <em>Aliases</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getRequiredCapability <em>Required Capability</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getBuilderReference <em>Builder Reference</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getAliases <em>Aliases</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getRequiredCapability <em>Required Capability</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFacade {
@@ -49,6 +49,7 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	 * The cached value of the '{@link #getBuilderReference() <em>Builder Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBuilderReference()
 	 * @generated
 	 * @ordered
@@ -59,6 +60,7 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	 * The cached value of the '{@link #getAliases() <em>Aliases</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAliases()
 	 * @generated
 	 * @ordered
@@ -69,6 +71,7 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	 * The cached value of the '{@link #getRequiredCapability() <em>Required Capability</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiredCapability()
 	 * @generated
 	 * @ordered
@@ -78,6 +81,7 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuilderCallFacadeImpl() {
@@ -87,35 +91,7 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_CALL_FACADE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BuilderCall getBuilderReference() {
-		if(builderReference != null && builderReference.eIsProxy()) {
-			InternalEObject oldBuilderReference = (InternalEObject) builderReference;
-			builderReference = (BuilderCall) eResolveProxy(oldBuilderReference);
-			if(builderReference != oldBuilderReference) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, B3BuildPackage.BUILDER_CALL_FACADE__BUILDER_REFERENCE,
-						oldBuilderReference, builderReference));
-			}
-		}
-		return builderReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BuilderCall basicGetBuilderReference() {
@@ -125,51 +101,7 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBuilderReference(BuilderCall newBuilderReference) {
-		BuilderCall oldBuilderReference = builderReference;
-		builderReference = newBuilderReference;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.BUILDER_CALL_FACADE__BUILDER_REFERENCE, oldBuilderReference,
-				builderReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<String> getAliases() {
-		if(aliases == null) {
-			aliases = new EDataTypeUniqueEList<String>(String.class, this, B3BuildPackage.BUILDER_CALL_FACADE__ALIASES);
-		}
-		return aliases;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RequiredCapability getRequiredCapability() {
-		if(requiredCapability != null && requiredCapability.eIsProxy()) {
-			InternalEObject oldRequiredCapability = (InternalEObject) requiredCapability;
-			requiredCapability = (RequiredCapability) eResolveProxy(oldRequiredCapability);
-			if(requiredCapability != oldRequiredCapability) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, B3BuildPackage.BUILDER_CALL_FACADE__REQUIRED_CAPABILITY,
-						oldRequiredCapability, requiredCapability));
-			}
-		}
-		return requiredCapability;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RequiredCapability basicGetRequiredCapability() {
@@ -179,20 +111,7 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequiredCapability(RequiredCapability newRequiredCapability) {
-		RequiredCapability oldRequiredCapability = requiredCapability;
-		requiredCapability = newRequiredCapability;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.BUILDER_CALL_FACADE__REQUIRED_CAPABILITY, oldRequiredCapability,
-				requiredCapability));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -215,6 +134,26 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_CALL_FACADE__BUILDER_REFERENCE:
+				return builderReference != null;
+			case B3BuildPackage.BUILDER_CALL_FACADE__ALIASES:
+				return aliases != null && !aliases.isEmpty();
+			case B3BuildPackage.BUILDER_CALL_FACADE__REQUIRED_CAPABILITY:
+				return requiredCapability != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -238,6 +177,18 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_CALL_FACADE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -259,24 +210,90 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_CALL_FACADE__BUILDER_REFERENCE:
-				return builderReference != null;
-			case B3BuildPackage.BUILDER_CALL_FACADE__ALIASES:
-				return aliases != null && !aliases.isEmpty();
-			case B3BuildPackage.BUILDER_CALL_FACADE__REQUIRED_CAPABILITY:
-				return requiredCapability != null;
+	public EList<String> getAliases() {
+		if(aliases == null) {
+			aliases = new EDataTypeUniqueEList<String>(String.class, this, B3BuildPackage.BUILDER_CALL_FACADE__ALIASES);
 		}
-		return super.eIsSet(featureID);
+		return aliases;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BuilderCall getBuilderReference() {
+		if(builderReference != null && builderReference.eIsProxy()) {
+			InternalEObject oldBuilderReference = (InternalEObject) builderReference;
+			builderReference = (BuilderCall) eResolveProxy(oldBuilderReference);
+			if(builderReference != oldBuilderReference) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3BuildPackage.BUILDER_CALL_FACADE__BUILDER_REFERENCE,
+						oldBuilderReference, builderReference));
+			}
+		}
+		return builderReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public RequiredCapability getRequiredCapability() {
+		if(requiredCapability != null && requiredCapability.eIsProxy()) {
+			InternalEObject oldRequiredCapability = (InternalEObject) requiredCapability;
+			requiredCapability = (RequiredCapability) eResolveProxy(oldRequiredCapability);
+			if(requiredCapability != oldRequiredCapability) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3BuildPackage.BUILDER_CALL_FACADE__REQUIRED_CAPABILITY,
+						oldRequiredCapability, requiredCapability));
+			}
+		}
+		return requiredCapability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setBuilderReference(BuilderCall newBuilderReference) {
+		BuilderCall oldBuilderReference = builderReference;
+		builderReference = newBuilderReference;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILDER_CALL_FACADE__BUILDER_REFERENCE, oldBuilderReference,
+				builderReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setRequiredCapability(RequiredCapability newRequiredCapability) {
+		RequiredCapability oldRequiredCapability = requiredCapability;
+		requiredCapability = newRequiredCapability;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILDER_CALL_FACADE__REQUIRED_CAPABILITY, oldRequiredCapability,
+				requiredCapability));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -291,4 +308,4 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 		return result.toString();
 	}
 
-} //BuilderCallFacadeImpl
+} // BuilderCallFacadeImpl

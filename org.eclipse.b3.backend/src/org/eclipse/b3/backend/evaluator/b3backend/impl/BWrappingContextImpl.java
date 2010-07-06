@@ -39,20 +39,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getFunctionWrapper <em>Function Wrapper</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getWrappedContext <em>Wrapped Context</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameterTypes <em>Parameter Types</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getVarargsName <em>Varargs Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getFunctionWrapper <em>Function Wrapper</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getWrappedContext <em>Wrapped Context</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameters <em>Parameters</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameterTypes <em>Parameter Types</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getVarargsName <em>Varargs Name</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BWrappingContextImpl extends BDelegatingContextImpl implements BWrappingContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -61,6 +62,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	 * The cached value of the '{@link #getFunctionWrapper() <em>Function Wrapper</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFunctionWrapper()
 	 * @generated
 	 * @ordered
@@ -71,6 +73,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	 * The cached value of the '{@link #getWrappedContext() <em>Wrapped Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getWrappedContext()
 	 * @generated
 	 * @ordered
@@ -81,6 +84,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	 * The default value of the '{@link #getParameters() <em>Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
@@ -91,6 +95,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
@@ -101,6 +106,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	 * The default value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParameterTypes()
 	 * @generated
 	 * @ordered
@@ -111,6 +117,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	 * The cached value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParameterTypes()
 	 * @generated
 	 * @ordered
@@ -121,6 +128,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	 * The default value of the '{@link #getVarargsName() <em>Varargs Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVarargsName()
 	 * @generated
 	 * @ordered
@@ -131,6 +139,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	 * The cached value of the '{@link #getVarargsName() <em>Varargs Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVarargsName()
 	 * @generated
 	 * @ordered
@@ -140,6 +149,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BWrappingContextImpl() {
@@ -149,6 +159,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BFunctionWrapper basicGetFunctionWrapper() {
@@ -158,6 +169,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExecutionContext basicGetWrappedContext() {
@@ -167,16 +179,19 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BWRAPPING_CONTEXT__FUNCTION_WRAPPER:
-				if (resolve) return getFunctionWrapper();
+				if(resolve)
+					return getFunctionWrapper();
 				return basicGetFunctionWrapper();
 			case B3backendPackage.BWRAPPING_CONTEXT__WRAPPED_CONTEXT:
-				if (resolve) return getWrappedContext();
+				if(resolve)
+					return getWrappedContext();
 				return basicGetWrappedContext();
 			case B3backendPackage.BWRAPPING_CONTEXT__PARAMETERS:
 				return getParameters();
@@ -191,21 +206,28 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BWRAPPING_CONTEXT__FUNCTION_WRAPPER:
 				return functionWrapper != null;
 			case B3backendPackage.BWRAPPING_CONTEXT__WRAPPED_CONTEXT:
 				return wrappedContext != null;
 			case B3backendPackage.BWRAPPING_CONTEXT__PARAMETERS:
-				return PARAMETERS_EDEFAULT == null ? parameters != null : !PARAMETERS_EDEFAULT.equals(parameters);
+				return PARAMETERS_EDEFAULT == null
+						? parameters != null
+						: !PARAMETERS_EDEFAULT.equals(parameters);
 			case B3backendPackage.BWRAPPING_CONTEXT__PARAMETER_TYPES:
-				return PARAMETER_TYPES_EDEFAULT == null ? parameterTypes != null : !PARAMETER_TYPES_EDEFAULT.equals(parameterTypes);
+				return PARAMETER_TYPES_EDEFAULT == null
+						? parameterTypes != null
+						: !PARAMETER_TYPES_EDEFAULT.equals(parameterTypes);
 			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_NAME:
-				return VARARGS_NAME_EDEFAULT == null ? varargsName != null : !VARARGS_NAME_EDEFAULT.equals(varargsName);
+				return VARARGS_NAME_EDEFAULT == null
+						? varargsName != null
+						: !VARARGS_NAME_EDEFAULT.equals(varargsName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -213,25 +235,26 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BWRAPPING_CONTEXT__FUNCTION_WRAPPER:
-				setFunctionWrapper((BFunctionWrapper)newValue);
+				setFunctionWrapper((BFunctionWrapper) newValue);
 				return;
 			case B3backendPackage.BWRAPPING_CONTEXT__WRAPPED_CONTEXT:
-				setWrappedContext((BExecutionContext)newValue);
+				setWrappedContext((BExecutionContext) newValue);
 				return;
 			case B3backendPackage.BWRAPPING_CONTEXT__PARAMETERS:
-				setParameters((Object[])newValue);
+				setParameters((Object[]) newValue);
 				return;
 			case B3backendPackage.BWRAPPING_CONTEXT__PARAMETER_TYPES:
-				setParameterTypes((Type[])newValue);
+				setParameterTypes((Type[]) newValue);
 				return;
 			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_NAME:
-				setVarargsName((String)newValue);
+				setVarargsName((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,6 +263,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -250,16 +274,17 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BWRAPPING_CONTEXT__FUNCTION_WRAPPER:
-				setFunctionWrapper((BFunctionWrapper)null);
+				setFunctionWrapper((BFunctionWrapper) null);
 				return;
 			case B3backendPackage.BWRAPPING_CONTEXT__WRAPPED_CONTEXT:
-				setWrappedContext((BExecutionContext)null);
+				setWrappedContext((BExecutionContext) null);
 				return;
 			case B3backendPackage.BWRAPPING_CONTEXT__PARAMETERS:
 				setParameters(PARAMETERS_EDEFAULT);
@@ -277,15 +302,18 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BFunctionWrapper getFunctionWrapper() {
-		if (functionWrapper != null && functionWrapper.eIsProxy()) {
-			InternalEObject oldFunctionWrapper = (InternalEObject)functionWrapper;
-			functionWrapper = (BFunctionWrapper)eResolveProxy(oldFunctionWrapper);
-			if (functionWrapper != oldFunctionWrapper) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BWRAPPING_CONTEXT__FUNCTION_WRAPPER, oldFunctionWrapper, functionWrapper));
+		if(functionWrapper != null && functionWrapper.eIsProxy()) {
+			InternalEObject oldFunctionWrapper = (InternalEObject) functionWrapper;
+			functionWrapper = (BFunctionWrapper) eResolveProxy(oldFunctionWrapper);
+			if(functionWrapper != oldFunctionWrapper) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3backendPackage.BWRAPPING_CONTEXT__FUNCTION_WRAPPER,
+						oldFunctionWrapper, functionWrapper));
 			}
 		}
 		return functionWrapper;
@@ -307,6 +335,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Type[] getParameterTypes() {
@@ -332,6 +361,7 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getVarargsName() {
@@ -341,15 +371,18 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExecutionContext getWrappedContext() {
-		if (wrappedContext != null && wrappedContext.eIsProxy()) {
-			InternalEObject oldWrappedContext = (InternalEObject)wrappedContext;
-			wrappedContext = (BExecutionContext)eResolveProxy(oldWrappedContext);
-			if (wrappedContext != oldWrappedContext) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BWRAPPING_CONTEXT__WRAPPED_CONTEXT, oldWrappedContext, wrappedContext));
+		if(wrappedContext != null && wrappedContext.eIsProxy()) {
+			InternalEObject oldWrappedContext = (InternalEObject) wrappedContext;
+			wrappedContext = (BExecutionContext) eResolveProxy(oldWrappedContext);
+			if(wrappedContext != oldWrappedContext) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3backendPackage.BWRAPPING_CONTEXT__WRAPPED_CONTEXT,
+						oldWrappedContext, wrappedContext));
 			}
 		}
 		return wrappedContext;
@@ -370,37 +403,45 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFunctionWrapper(BFunctionWrapper newFunctionWrapper) {
 		BFunctionWrapper oldFunctionWrapper = functionWrapper;
 		functionWrapper = newFunctionWrapper;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BWRAPPING_CONTEXT__FUNCTION_WRAPPER, oldFunctionWrapper, functionWrapper));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BWRAPPING_CONTEXT__FUNCTION_WRAPPER, oldFunctionWrapper,
+				functionWrapper));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setParameters(Object[] newParameters) {
 		Object[] oldParameters = parameters;
 		parameters = newParameters;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BWRAPPING_CONTEXT__PARAMETERS, oldParameters, parameters));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BWRAPPING_CONTEXT__PARAMETERS, oldParameters, parameters));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setParameterTypes(Type[] newParameterTypes) {
 		Type[] oldParameterTypes = parameterTypes;
 		parameterTypes = newParameterTypes;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BWRAPPING_CONTEXT__PARAMETER_TYPES, oldParameterTypes, parameterTypes));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BWRAPPING_CONTEXT__PARAMETER_TYPES, oldParameterTypes,
+				parameterTypes));
 	}
 
 	/**
@@ -433,23 +474,28 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setWrappedContext(BExecutionContext newWrappedContext) {
 		BExecutionContext oldWrappedContext = wrappedContext;
 		wrappedContext = newWrappedContext;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BWRAPPING_CONTEXT__WRAPPED_CONTEXT, oldWrappedContext, wrappedContext));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BWRAPPING_CONTEXT__WRAPPED_CONTEXT, oldWrappedContext,
+				wrappedContext));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (parameters: ");

@@ -33,18 +33,19 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getTypePredicateOp <em>Type Predicate Op</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getTypePredicateOp <em>Type Predicate Op</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BParameterPredicateImpl extends EObjectImpl implements BParameterPredicate {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -53,6 +54,7 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -63,6 +65,7 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -73,6 +76,7 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -83,6 +87,7 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	 * The default value of the '{@link #getTypePredicateOp() <em>Type Predicate Op</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTypePredicateOp()
 	 * @generated
 	 * @ordered
@@ -93,6 +98,7 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	 * The cached value of the '{@link #getTypePredicateOp() <em>Type Predicate Op</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTypePredicateOp()
 	 * @generated
 	 * @ordered
@@ -102,6 +108,7 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BParameterPredicateImpl() {
@@ -111,14 +118,19 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
 		Type oldType = type;
 		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__TYPE, oldType, newType);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -126,11 +138,12 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
 				return getName();
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
@@ -144,11 +157,12 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
 				return basicSetType(null, msgs);
 		}
@@ -158,17 +172,22 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
 				return type != null;
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
-				return TYPE_PREDICATE_OP_EDEFAULT == null ? typePredicateOp != null : !TYPE_PREDICATE_OP_EDEFAULT.equals(typePredicateOp);
+				return TYPE_PREDICATE_OP_EDEFAULT == null
+						? typePredicateOp != null
+						: !TYPE_PREDICATE_OP_EDEFAULT.equals(typePredicateOp);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -176,19 +195,20 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
-				setType((Type)newValue);
+				setType((Type) newValue);
 				return;
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
-				setTypePredicateOp((String)newValue);
+				setTypePredicateOp((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -197,6 +217,7 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -207,16 +228,17 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
-				setType((Type)null);
+				setType((Type) null);
 				return;
 			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
 				setTypePredicateOp(TYPE_PREDICATE_OP_EDEFAULT);
@@ -228,6 +250,7 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -237,6 +260,7 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Type getType() {
@@ -246,6 +270,7 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getTypePredicateOp() {
@@ -255,54 +280,66 @@ public class BParameterPredicateImpl extends EObjectImpl implements BParameterPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__NAME, oldName, name));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setType(Type newType) {
-		if (newType != type) {
+		if(newType != type) {
 			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER_PREDICATE__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER_PREDICATE__TYPE, null, msgs);
+			if(type != null)
+				msgs = ((InternalEObject) type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BPARAMETER_PREDICATE__TYPE, null, msgs);
+			if(newType != null)
+				msgs = ((InternalEObject) newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BPARAMETER_PREDICATE__TYPE, null, msgs);
 			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__TYPE, newType, newType));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__TYPE, newType, newType));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTypePredicateOp(String newTypePredicateOp) {
 		String oldTypePredicateOp = typePredicateOp;
 		typePredicateOp = newTypePredicateOp;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP, oldTypePredicateOp, typePredicateOp));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP, oldTypePredicateOp,
+				typePredicateOp));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

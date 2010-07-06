@@ -27,16 +27,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BRegularExpressionImpl#getPattern <em>Pattern</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BRegularExpressionImpl#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implements BRegularExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -45,6 +46,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPattern()
 	 * @generated
 	 * @ordered
@@ -55,6 +57,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	 * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPattern()
 	 * @generated
 	 * @ordered
@@ -64,6 +67,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BRegularExpressionImpl() {
@@ -73,11 +77,12 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BREGULAR_EXPRESSION__PATTERN:
 				return getPattern();
 		}
@@ -87,13 +92,16 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BREGULAR_EXPRESSION__PATTERN:
-				return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
+				return PATTERN_EDEFAULT == null
+						? pattern != null
+						: !PATTERN_EDEFAULT.equals(pattern);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -101,13 +109,14 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BREGULAR_EXPRESSION__PATTERN:
-				setPattern((Pattern)newValue);
+				setPattern((Pattern) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -116,6 +125,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -126,11 +136,12 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BREGULAR_EXPRESSION__PATTERN:
 				setPattern(PATTERN_EDEFAULT);
 				return;
@@ -141,6 +152,7 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Pattern getPattern() {
@@ -160,23 +172,27 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPattern(Pattern newPattern) {
 		Pattern oldPattern = pattern;
 		pattern = newPattern;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BREGULAR_EXPRESSION__PATTERN, oldPattern, pattern));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BREGULAR_EXPRESSION__PATTERN, oldPattern, pattern));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (pattern: ");

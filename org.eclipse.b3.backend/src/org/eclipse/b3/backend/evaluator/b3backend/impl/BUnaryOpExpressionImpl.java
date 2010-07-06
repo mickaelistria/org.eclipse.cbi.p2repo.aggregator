@@ -22,16 +22,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BUnaryOpExpressionImpl#getFunctionName <em>Function Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BUnaryOpExpressionImpl#getFunctionName <em>Function Name</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUnaryOpExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -40,6 +41,7 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 	 * The default value of the '{@link #getFunctionName() <em>Function Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFunctionName()
 	 * @generated
 	 * @ordered
@@ -50,6 +52,7 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 	 * The cached value of the '{@link #getFunctionName() <em>Function Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFunctionName()
 	 * @generated
 	 * @ordered
@@ -59,6 +62,7 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BUnaryOpExpressionImpl() {
@@ -68,11 +72,12 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BUNARY_OP_EXPRESSION__FUNCTION_NAME:
 				return getFunctionName();
 		}
@@ -82,13 +87,16 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BUNARY_OP_EXPRESSION__FUNCTION_NAME:
-				return FUNCTION_NAME_EDEFAULT == null ? functionName != null : !FUNCTION_NAME_EDEFAULT.equals(functionName);
+				return FUNCTION_NAME_EDEFAULT == null
+						? functionName != null
+						: !FUNCTION_NAME_EDEFAULT.equals(functionName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -96,13 +104,14 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BUNARY_OP_EXPRESSION__FUNCTION_NAME:
-				setFunctionName((String)newValue);
+				setFunctionName((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -111,6 +120,7 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -121,11 +131,12 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BUNARY_OP_EXPRESSION__FUNCTION_NAME:
 				setFunctionName(FUNCTION_NAME_EDEFAULT);
 				return;
@@ -136,6 +147,7 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getFunctionName() {
@@ -145,23 +157,28 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFunctionName(String newFunctionName) {
 		String oldFunctionName = functionName;
 		functionName = newFunctionName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BUNARY_OP_EXPRESSION__FUNCTION_NAME, oldFunctionName, functionName));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BUNARY_OP_EXPRESSION__FUNCTION_NAME, oldFunctionName,
+				functionName));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (functionName: ");

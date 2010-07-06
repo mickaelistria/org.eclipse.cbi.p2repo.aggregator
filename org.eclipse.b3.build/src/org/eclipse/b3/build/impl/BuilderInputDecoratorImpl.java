@@ -33,10 +33,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderInputDecoratorImpl#getBuilderInput <em>Builder Input</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderInputDecoratorImpl#getBuilderInput <em>Builder Input</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl implements BuilderInputDecorator {
@@ -44,6 +44,7 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	 * The cached value of the '{@link #getBuilderInput() <em>Builder Input</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBuilderInput()
 	 * @generated
 	 * @ordered
@@ -53,6 +54,7 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuilderInputDecoratorImpl() {
@@ -62,43 +64,7 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_INPUT_DECORATOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<BuilderInput> getBuilderInput() {
-		if(builderInput == null) {
-			builderInput = new EObjectContainmentEList<BuilderInput>(
-				BuilderInput.class, this, B3BuildPackage.BUILDER_INPUT_DECORATOR__BUILDER_INPUT);
-		}
-		return builderInput;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_DECORATOR__BUILDER_INPUT:
-				return ((InternalEList<?>) getBuilderInput()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -113,6 +79,37 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_DECORATOR__BUILDER_INPUT:
+				return ((InternalEList<?>) getBuilderInput()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_DECORATOR__BUILDER_INPUT:
+				return builderInput != null && !builderInput.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -130,6 +127,18 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_INPUT_DECORATOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,15 +154,15 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_DECORATOR__BUILDER_INPUT:
-				return builderInput != null && !builderInput.isEmpty();
+	public EList<BuilderInput> getBuilderInput() {
+		if(builderInput == null) {
+			builderInput = new EObjectContainmentEList<BuilderInput>(
+				BuilderInput.class, this, B3BuildPackage.BUILDER_INPUT_DECORATOR__BUILDER_INPUT);
 		}
-		return super.eIsSet(featureID);
+		return builderInput;
 	}
 
-} //BuilderInputDecoratorImpl
+} // BuilderInputDecoratorImpl

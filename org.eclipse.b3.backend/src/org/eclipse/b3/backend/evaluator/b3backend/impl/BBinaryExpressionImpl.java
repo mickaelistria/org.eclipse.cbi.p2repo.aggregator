@@ -25,17 +25,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BBinaryExpressionImpl#getLeftExpr <em>Left Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BBinaryExpressionImpl#getRightExpr <em>Right Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BBinaryExpressionImpl#getLeftExpr <em>Left Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BBinaryExpressionImpl#getRightExpr <em>Right Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class BBinaryExpressionImpl extends BExpressionImpl implements BBinaryExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -44,6 +45,7 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	 * The cached value of the '{@link #getLeftExpr() <em>Left Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLeftExpr()
 	 * @generated
 	 * @ordered
@@ -54,6 +56,7 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	 * The cached value of the '{@link #getRightExpr() <em>Right Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRightExpr()
 	 * @generated
 	 * @ordered
@@ -63,6 +66,7 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BBinaryExpressionImpl() {
@@ -72,14 +76,19 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetLeftExpr(BExpression newLeftExpr, NotificationChain msgs) {
 		BExpression oldLeftExpr = leftExpr;
 		leftExpr = newLeftExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR, oldLeftExpr, newLeftExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR, oldLeftExpr, newLeftExpr);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -87,14 +96,19 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetRightExpr(BExpression newRightExpr, NotificationChain msgs) {
 		BExpression oldRightExpr = rightExpr;
 		rightExpr = newRightExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR, oldRightExpr, newRightExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR, oldRightExpr, newRightExpr);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -102,11 +116,12 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR:
 				return getLeftExpr();
 			case B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR:
@@ -118,11 +133,12 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR:
 				return basicSetLeftExpr(null, msgs);
 			case B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR:
@@ -134,11 +150,12 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR:
 				return leftExpr != null;
 			case B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR:
@@ -150,16 +167,17 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR:
-				setLeftExpr((BExpression)newValue);
+				setLeftExpr((BExpression) newValue);
 				return;
 			case B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR:
-				setRightExpr((BExpression)newValue);
+				setRightExpr((BExpression) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -168,6 +186,7 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -178,16 +197,17 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR:
-				setLeftExpr((BExpression)null);
+				setLeftExpr((BExpression) null);
 				return;
 			case B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR:
-				setRightExpr((BExpression)null);
+				setRightExpr((BExpression) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -196,6 +216,7 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getLeftExpr() {
@@ -205,6 +226,7 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getRightExpr() {
@@ -214,39 +236,49 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setLeftExpr(BExpression newLeftExpr) {
-		if (newLeftExpr != leftExpr) {
+		if(newLeftExpr != leftExpr) {
 			NotificationChain msgs = null;
-			if (leftExpr != null)
-				msgs = ((InternalEObject)leftExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR, null, msgs);
-			if (newLeftExpr != null)
-				msgs = ((InternalEObject)newLeftExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR, null, msgs);
+			if(leftExpr != null)
+				msgs = ((InternalEObject) leftExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR, null, msgs);
+			if(newLeftExpr != null)
+				msgs = ((InternalEObject) newLeftExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR, null, msgs);
 			msgs = basicSetLeftExpr(newLeftExpr, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR, newLeftExpr, newLeftExpr));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR, newLeftExpr, newLeftExpr));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRightExpr(BExpression newRightExpr) {
-		if (newRightExpr != rightExpr) {
+		if(newRightExpr != rightExpr) {
 			NotificationChain msgs = null;
-			if (rightExpr != null)
-				msgs = ((InternalEObject)rightExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR, null, msgs);
-			if (newRightExpr != null)
-				msgs = ((InternalEObject)newRightExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR, null, msgs);
+			if(rightExpr != null)
+				msgs = ((InternalEObject) rightExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR, null, msgs);
+			if(newRightExpr != null)
+				msgs = ((InternalEObject) newRightExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR, null, msgs);
 			msgs = basicSetRightExpr(newRightExpr, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR, newRightExpr, newRightExpr));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR, newRightExpr, newRightExpr));
 	}
 
 } // BBinaryExpressionImpl

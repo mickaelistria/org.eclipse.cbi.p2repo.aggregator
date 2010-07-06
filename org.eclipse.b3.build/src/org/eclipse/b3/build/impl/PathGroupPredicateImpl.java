@@ -34,11 +34,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.PathGroupPredicateImpl#getPathVector <em>Path Vector</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.PathGroupPredicateImpl#getPathPattern <em>Path Pattern</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.PathGroupPredicateImpl#getPathVector <em>Path Vector</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.PathGroupPredicateImpl#getPathPattern <em>Path Pattern</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroupPredicate {
@@ -46,6 +46,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	 * The cached value of the '{@link #getPathVector() <em>Path Vector</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPathVector()
 	 * @generated
 	 * @ordered
@@ -56,6 +57,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	 * The cached value of the '{@link #getPathPattern() <em>Path Pattern</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPathPattern()
 	 * @generated
 	 * @ordered
@@ -65,6 +67,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected PathGroupPredicateImpl() {
@@ -74,6 +77,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPathPattern(BExpression newPathPattern, NotificationChain msgs) {
@@ -94,6 +98,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPathVector(PathVector newPathVector, NotificationChain msgs) {
@@ -113,6 +118,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -129,6 +135,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,6 +152,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -161,6 +169,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -179,6 +188,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -189,6 +199,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -207,6 +218,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getPathPattern() {
@@ -216,6 +228,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public PathVector getPathVector() {
@@ -276,6 +289,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPathPattern(BExpression newPathPattern) {
@@ -300,6 +314,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPathVector(PathVector newPathVector) {

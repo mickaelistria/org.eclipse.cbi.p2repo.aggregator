@@ -36,31 +36,31 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getQuery <em>Query</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getInputAdditions <em>Input Additions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getInputRemovals <em>Input Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getOutputAdditions <em>Output Additions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getOutputRemovals <em>Output Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getFuncExpr <em>Func Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#isVarArgs <em>Var Args</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#isMatchParameters <em>Match Parameters</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#isRemovePreCondition <em>Remove Pre Condition</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#isRemovePostCondition <em>Remove Post Condition</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#isRemovePostInputCondition <em>Remove Post Input Condition</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getPrecondExpr <em>Precond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getProvidesRemovals <em>Provides Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getOutputAnnotationsRemovals <em>Output Annotations Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getSourceRemovals <em>Source Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getSourceAdditions <em>Source Additions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getSourceAnnotationsRemovals <em>Source Annotations Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getQuery <em>Query</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getInputAdditions <em>Input Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getInputRemovals <em>Input Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getOutputAdditions <em>Output Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getOutputRemovals <em>Output Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getFuncExpr <em>Func Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#isVarArgs <em>Var Args</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getParameters <em>Parameters</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#isMatchParameters <em>Match Parameters</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#isRemovePreCondition <em>Remove Pre Condition</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#isRemovePostCondition <em>Remove Post Condition</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#isRemovePostInputCondition <em>Remove Post Input Condition</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getPrecondExpr <em>Precond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getProvidesRemovals <em>Provides Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getOutputAnnotationsRemovals <em>Output Annotations Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getSourceRemovals <em>Source Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getSourceAdditions <em>Source Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getSourceAnnotationsRemovals <em>Source Annotations Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuilderConcernContextImpl extends BuildConcernContextImpl implements BuilderConcernContext {
@@ -68,6 +68,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getQuery() <em>Query</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getQuery()
 	 * @generated
 	 * @ordered
@@ -78,6 +79,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getInputAdditions() <em>Input Additions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getInputAdditions()
 	 * @generated
 	 * @ordered
@@ -88,6 +90,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getInputRemovals() <em>Input Removals</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getInputRemovals()
 	 * @generated
 	 * @ordered
@@ -98,6 +101,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getOutputAdditions() <em>Output Additions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOutputAdditions()
 	 * @generated
 	 * @ordered
@@ -108,6 +112,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getOutputRemovals() <em>Output Removals</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOutputRemovals()
 	 * @generated
 	 * @ordered
@@ -118,6 +123,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getFuncExpr() <em>Func Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFuncExpr()
 	 * @generated
 	 * @ordered
@@ -128,6 +134,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The default value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isVarArgs()
 	 * @generated
 	 * @ordered
@@ -138,6 +145,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isVarArgs()
 	 * @generated
 	 * @ordered
@@ -148,6 +156,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
@@ -158,6 +167,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The default value of the '{@link #isMatchParameters() <em>Match Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isMatchParameters()
 	 * @generated
 	 * @ordered
@@ -168,6 +178,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #isMatchParameters() <em>Match Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isMatchParameters()
 	 * @generated
 	 * @ordered
@@ -178,6 +189,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The default value of the '{@link #isRemovePreCondition() <em>Remove Pre Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isRemovePreCondition()
 	 * @generated
 	 * @ordered
@@ -188,6 +200,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #isRemovePreCondition() <em>Remove Pre Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isRemovePreCondition()
 	 * @generated
 	 * @ordered
@@ -198,6 +211,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The default value of the '{@link #isRemovePostCondition() <em>Remove Post Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isRemovePostCondition()
 	 * @generated
 	 * @ordered
@@ -208,6 +222,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #isRemovePostCondition() <em>Remove Post Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isRemovePostCondition()
 	 * @generated
 	 * @ordered
@@ -218,6 +233,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The default value of the '{@link #isRemovePostInputCondition() <em>Remove Post Input Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isRemovePostInputCondition()
 	 * @generated
 	 * @ordered
@@ -228,6 +244,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #isRemovePostInputCondition() <em>Remove Post Input Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isRemovePostInputCondition()
 	 * @generated
 	 * @ordered
@@ -238,6 +255,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getPrecondExpr() <em>Precond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPrecondExpr()
 	 * @generated
 	 * @ordered
@@ -248,6 +266,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getPostcondExpr() <em>Postcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPostcondExpr()
 	 * @generated
 	 * @ordered
@@ -258,6 +277,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getPostinputcondExpr() <em>Postinputcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPostinputcondExpr()
 	 * @generated
 	 * @ordered
@@ -268,6 +288,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getProvidesRemovals() <em>Provides Removals</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProvidesRemovals()
 	 * @generated
 	 * @ordered
@@ -278,6 +299,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getOutputAnnotationsRemovals() <em>Output Annotations Removals</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOutputAnnotationsRemovals()
 	 * @generated
 	 * @ordered
@@ -288,6 +310,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getOutputAnnotationAdditions() <em>Output Annotation Additions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOutputAnnotationAdditions()
 	 * @generated
 	 * @ordered
@@ -298,6 +321,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getSourceRemovals() <em>Source Removals</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceRemovals()
 	 * @generated
 	 * @ordered
@@ -308,6 +332,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getSourceAdditions() <em>Source Additions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceAdditions()
 	 * @generated
 	 * @ordered
@@ -318,6 +343,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getSourceAnnotationsRemovals() <em>Source Annotations Removals</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceAnnotationsRemovals()
 	 * @generated
 	 * @ordered
@@ -328,6 +354,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * The cached value of the '{@link #getSourceAnnotationAdditions() <em>Source Annotation Additions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceAnnotationAdditions()
 	 * @generated
 	 * @ordered
@@ -337,6 +364,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuilderConcernContextImpl() {
@@ -346,6 +374,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetFuncExpr(BExpression newFuncExpr, NotificationChain msgs) {
@@ -365,6 +394,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetOutputAnnotationAdditions(BPropertySet newOutputAnnotationAdditions,
@@ -386,6 +416,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPostcondExpr(BExpression newPostcondExpr, NotificationChain msgs) {
@@ -406,6 +437,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPostinputcondExpr(BExpression newPostinputcondExpr, NotificationChain msgs) {
@@ -426,6 +458,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPrecondExpr(BExpression newPrecondExpr, NotificationChain msgs) {
@@ -446,6 +479,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetQuery(BExpression newQuery, NotificationChain msgs) {
@@ -465,6 +499,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetSourceAnnotationAdditions(BPropertySet newSourceAnnotationAdditions,
@@ -486,6 +521,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -542,6 +578,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -584,6 +621,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -640,6 +678,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -729,6 +768,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -739,6 +779,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -817,6 +858,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getFuncExpr() {
@@ -826,6 +868,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BuilderInput> getInputAdditions() {
@@ -839,6 +882,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<InputPredicate> getInputRemovals() {
@@ -852,6 +896,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ConditionalPathVector> getOutputAdditions() {
@@ -865,6 +910,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BPropertySet getOutputAnnotationAdditions() {
@@ -874,6 +920,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<String> getOutputAnnotationsRemovals() {
@@ -887,6 +934,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<OutputPredicate> getOutputRemovals() {
@@ -900,6 +948,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BParameterPredicate> getParameters() {
@@ -913,6 +962,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getPostcondExpr() {
@@ -922,6 +972,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getPostinputcondExpr() {
@@ -931,6 +982,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getPrecondExpr() {
@@ -940,6 +992,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ProvidesPredicate> getProvidesRemovals() {
@@ -953,6 +1006,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getQuery() {
@@ -962,6 +1016,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ConditionalPathVector> getSourceAdditions() {
@@ -975,6 +1030,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BPropertySet getSourceAnnotationAdditions() {
@@ -984,6 +1040,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<String> getSourceAnnotationsRemovals() {
@@ -997,6 +1054,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<SourcePredicate> getSourceRemovals() {
@@ -1010,6 +1068,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isMatchParameters() {
@@ -1019,6 +1078,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isRemovePostCondition() {
@@ -1028,6 +1088,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isRemovePostInputCondition() {
@@ -1037,6 +1098,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isRemovePreCondition() {
@@ -1046,6 +1108,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isVarArgs() {
@@ -1055,6 +1118,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFuncExpr(BExpression newFuncExpr) {
@@ -1078,6 +1142,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMatchParameters(boolean newMatchParameters) {
@@ -1092,6 +1157,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setOutputAnnotationAdditions(BPropertySet newOutputAnnotationAdditions) {
@@ -1116,6 +1182,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPostcondExpr(BExpression newPostcondExpr) {
@@ -1140,6 +1207,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPostinputcondExpr(BExpression newPostinputcondExpr) {
@@ -1164,6 +1232,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPrecondExpr(BExpression newPrecondExpr) {
@@ -1188,6 +1257,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setQuery(BExpression newQuery) {
@@ -1211,6 +1281,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRemovePostCondition(boolean newRemovePostCondition) {
@@ -1225,6 +1296,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRemovePostInputCondition(boolean newRemovePostInputCondition) {
@@ -1239,6 +1311,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRemovePreCondition(boolean newRemovePreCondition) {
@@ -1253,6 +1326,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSourceAnnotationAdditions(BPropertySet newSourceAnnotationAdditions) {
@@ -1277,6 +1351,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setVarArgs(boolean newVarArgs) {
@@ -1290,6 +1365,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

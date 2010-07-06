@@ -16,8 +16,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Builder Input Name Decorator</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.build.B3BuildPackage#getBuilderInputNameDecorator()
  * @model
  * @generated

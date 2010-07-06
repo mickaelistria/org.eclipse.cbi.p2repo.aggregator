@@ -30,16 +30,17 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3MetaClassImpl#getInstanceClass <em>Instance Class</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3MetaClassImpl#getInstanceClass <em>Instance Class</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -48,6 +49,7 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	 * The cached value of the '{@link #getInstanceClass() <em>Instance Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getInstanceClass()
 	 * @generated
 	 * @ordered
@@ -57,6 +59,7 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3MetaClassImpl() {
@@ -66,11 +69,12 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_META_CLASS__INSTANCE_CLASS:
 				return getInstanceClass();
 		}
@@ -80,11 +84,12 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_META_CLASS__INSTANCE_CLASS:
 				return instanceClass != null;
 		}
@@ -94,13 +99,14 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_META_CLASS__INSTANCE_CLASS:
-				setInstanceClass((Class<?>)newValue);
+				setInstanceClass((Class<?>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -109,6 +115,7 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -119,13 +126,14 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_META_CLASS__INSTANCE_CLASS:
-				setInstanceClass((Class<?>)null);
+				setInstanceClass((Class<?>) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -134,6 +142,7 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Class<?> getInstanceClass() {
@@ -156,23 +165,27 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setInstanceClass(Class<?> newInstanceClass) {
 		Class<?> oldInstanceClass = instanceClass;
 		instanceClass = newInstanceClass;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_META_CLASS__INSTANCE_CLASS, oldInstanceClass, instanceClass));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.B3_META_CLASS__INSTANCE_CLASS, oldInstanceClass, instanceClass));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (instanceClass: ");

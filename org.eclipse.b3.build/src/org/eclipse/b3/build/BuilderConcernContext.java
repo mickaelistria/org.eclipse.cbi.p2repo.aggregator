@@ -15,35 +15,35 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Builder Concern Context</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getQuery <em>Query</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getInputAdditions <em>Input Additions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getInputRemovals <em>Input Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getOutputAdditions <em>Output Additions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getOutputRemovals <em>Output Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getFuncExpr <em>Func Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#isVarArgs <em>Var Args</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#isMatchParameters <em>Match Parameters</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePreCondition <em>Remove Pre Condition</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePostCondition <em>Remove Post Condition</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input Condition</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getPrecondExpr <em>Precond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getPostcondExpr <em>Postcond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getProvidesRemovals <em>Provides Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getOutputAnnotationsRemovals <em>Output Annotations Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getSourceRemovals <em>Source Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getSourceAdditions <em>Source Additions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getSourceAnnotationsRemovals <em>Source Annotations Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.BuilderConcernContext#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getQuery <em>Query</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getInputAdditions <em>Input Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getInputRemovals <em>Input Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getOutputAdditions <em>Output Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getOutputRemovals <em>Output Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getFuncExpr <em>Func Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#isVarArgs <em>Var Args</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getParameters <em>Parameters</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#isMatchParameters <em>Match Parameters</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePreCondition <em>Remove Pre Condition</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePostCondition <em>Remove Post Condition</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input Condition</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getPrecondExpr <em>Precond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getPostcondExpr <em>Postcond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getProvidesRemovals <em>Provides Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getOutputAnnotationsRemovals <em>Output Annotations Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getSourceRemovals <em>Source Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getSourceAdditions <em>Source Additions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getSourceAnnotationsRemovals <em>Source Annotations Removals</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuilderConcernContext#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext()
  * @model
  * @generated
@@ -65,6 +65,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Func Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Func Expr</em>' containment reference.
 	 * @see #setFuncExpr(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_FuncExpr()
@@ -81,6 +82,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Input Additions</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Input Additions</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_InputAdditions()
 	 * @model containment="true"
@@ -96,6 +98,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Input Removals</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Input Removals</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_InputRemovals()
 	 * @model containment="true"
@@ -111,6 +114,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Output Additions</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Output Additions</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_OutputAdditions()
 	 * @model containment="true"
@@ -126,6 +130,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Output Annotation Additions</em>' containment reference.
 	 * @see #setOutputAnnotationAdditions(BPropertySet)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_OutputAnnotationAdditions()
@@ -142,6 +147,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Output Annotations Removals</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Output Annotations Removals</em>' attribute list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_OutputAnnotationsRemovals()
 	 * @model
@@ -157,6 +163,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Output Removals</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Output Removals</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_OutputRemovals()
 	 * @model containment="true"
@@ -172,6 +179,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Parameters</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_Parameters()
 	 * @model containment="true"
@@ -186,6 +194,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Postcond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Postcond Expr</em>' containment reference.
 	 * @see #setPostcondExpr(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_PostcondExpr()
@@ -201,6 +210,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Postinputcond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Postinputcond Expr</em>' containment reference.
 	 * @see #setPostinputcondExpr(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_PostinputcondExpr()
@@ -216,6 +226,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Precond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Precond Expr</em>' containment reference.
 	 * @see #setPrecondExpr(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_PrecondExpr()
@@ -232,6 +243,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Provides Removals</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Provides Removals</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_ProvidesRemovals()
 	 * @model containment="true"
@@ -246,6 +258,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Query</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Query</em>' containment reference.
 	 * @see #setQuery(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_Query()
@@ -262,6 +275,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Source Additions</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Source Additions</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_SourceAdditions()
 	 * @model containment="true"
@@ -277,6 +291,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Source Annotation Additions</em>' containment reference.
 	 * @see #setSourceAnnotationAdditions(BPropertySet)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_SourceAnnotationAdditions()
@@ -293,6 +308,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Source Annotations Removals</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Source Annotations Removals</em>' attribute list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_SourceAnnotationsRemovals()
 	 * @model
@@ -308,6 +324,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Source Removals</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Source Removals</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_SourceRemovals()
 	 * @model containment="true"
@@ -322,6 +339,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Match Parameters</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Match Parameters</em>' attribute.
 	 * @see #setMatchParameters(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_MatchParameters()
@@ -337,6 +355,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Remove Post Condition</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Remove Post Condition</em>' attribute.
 	 * @see #setRemovePostCondition(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_RemovePostCondition()
@@ -352,6 +371,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Remove Post Input Condition</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Remove Post Input Condition</em>' attribute.
 	 * @see #setRemovePostInputCondition(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_RemovePostInputCondition()
@@ -367,6 +387,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Remove Pre Condition</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Remove Pre Condition</em>' attribute.
 	 * @see #setRemovePreCondition(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_RemovePreCondition()
@@ -382,6 +403,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Var Args</em>' attribute.
 	 * @see #setVarArgs(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderConcernContext_VarArgs()
@@ -394,7 +416,9 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getFuncExpr <em>Func Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Func Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Func Expr</em>' containment reference.
 	 * @see #getFuncExpr()
 	 * @generated
 	 */
@@ -404,17 +428,22 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#isMatchParameters <em>Match Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Match Parameters</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Match Parameters</em>' attribute.
 	 * @see #isMatchParameters()
 	 * @generated
 	 */
 	void setMatchParameters(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}'
+	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Output Annotation Additions</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Output Annotation Additions</em>' containment reference.
 	 * @see #getOutputAnnotationAdditions()
 	 * @generated
 	 */
@@ -424,17 +453,22 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getPostcondExpr <em>Postcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Postcond Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Postcond Expr</em>' containment reference.
 	 * @see #getPostcondExpr()
 	 * @generated
 	 */
 	void setPostcondExpr(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getPostinputcondExpr <em>Postinputcond Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getPostinputcondExpr <em>Postinputcond Expr</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Postinputcond Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Postinputcond Expr</em>' containment reference.
 	 * @see #getPostinputcondExpr()
 	 * @generated
 	 */
@@ -444,7 +478,9 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getPrecondExpr <em>Precond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Precond Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Precond Expr</em>' containment reference.
 	 * @see #getPrecondExpr()
 	 * @generated
 	 */
@@ -454,7 +490,9 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getQuery <em>Query</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Query</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Query</em>' containment reference.
 	 * @see #getQuery()
 	 * @generated
 	 */
@@ -464,17 +502,22 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePostCondition <em>Remove Post Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Remove Post Condition</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Remove Post Condition</em>' attribute.
 	 * @see #isRemovePostCondition()
 	 * @generated
 	 */
 	void setRemovePostCondition(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input Condition</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input Condition</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Remove Post Input Condition</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Remove Post Input Condition</em>' attribute.
 	 * @see #isRemovePostInputCondition()
 	 * @generated
 	 */
@@ -484,17 +527,22 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#isRemovePreCondition <em>Remove Pre Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Remove Pre Condition</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Remove Pre Condition</em>' attribute.
 	 * @see #isRemovePreCondition()
 	 * @generated
 	 */
 	void setRemovePreCondition(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}'
+	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source Annotation Additions</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Source Annotation Additions</em>' containment reference.
 	 * @see #getSourceAnnotationAdditions()
 	 * @generated
 	 */
@@ -504,7 +552,9 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderConcernContext#isVarArgs <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Var Args</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Var Args</em>' attribute.
 	 * @see #isVarArgs()
 	 * @generated
 	 */

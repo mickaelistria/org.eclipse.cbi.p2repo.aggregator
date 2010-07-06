@@ -35,16 +35,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getBranches <em>Branches</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getDocumentation <em>Documentation</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getHandlerType <em>Handler Type</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getAddress <em>Address</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getBranches <em>Branches</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getHandlerType <em>Handler Type</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getOptions <em>Options</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getBuildUnitRepository <em>Build Unit Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.RepositoryImpl#getAddress <em>Address</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class RepositoryImpl extends BExpressionImpl implements Repository {
@@ -52,6 +52,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -62,6 +63,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -72,6 +74,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * The cached value of the '{@link #getBranches() <em>Branches</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBranches()
 	 * @generated
 	 * @ordered
@@ -82,6 +85,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -92,6 +96,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -102,6 +107,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * The default value of the '{@link #getHandlerType() <em>Handler Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getHandlerType()
 	 * @generated
 	 * @ordered
@@ -112,6 +118,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * The cached value of the '{@link #getHandlerType() <em>Handler Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getHandlerType()
 	 * @generated
 	 * @ordered
@@ -122,6 +129,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOptions()
 	 * @generated
 	 * @ordered
@@ -132,6 +140,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * The cached value of the '{@link #getBuildUnitRepository() <em>Build Unit Repository</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBuildUnitRepository()
 	 * @generated
 	 * @ordered
@@ -142,6 +151,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * The cached value of the '{@link #getAddress() <em>Address</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAddress()
 	 * @generated
 	 * @ordered
@@ -151,6 +161,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RepositoryImpl() {
@@ -160,6 +171,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IBuildUnitRepository basicGetBuildUnitRepository() {
@@ -169,6 +181,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetAddress(BExpression newAddress, NotificationChain msgs) {
@@ -188,6 +201,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -216,6 +230,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -234,6 +249,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -266,6 +282,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -302,6 +319,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -312,6 +330,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -345,6 +364,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getAddress() {
@@ -354,6 +374,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Branch> getBranches() {
@@ -366,6 +387,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IBuildUnitRepository getBuildUnitRepository() {
@@ -385,6 +407,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getDocumentation() {
@@ -394,6 +417,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getHandlerType() {
@@ -403,6 +427,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -412,6 +437,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<RepoOption> getOptions() {
@@ -425,6 +451,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setAddress(BExpression newAddress) {
@@ -448,6 +475,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setBuildUnitRepository(IBuildUnitRepository newBuildUnitRepository) {
@@ -462,6 +490,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDocumentation(String newDocumentation) {
@@ -475,6 +504,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setHandlerType(String newHandlerType) {
@@ -488,6 +518,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -500,6 +531,7 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

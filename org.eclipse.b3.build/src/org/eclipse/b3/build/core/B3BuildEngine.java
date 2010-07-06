@@ -41,20 +41,6 @@ public class B3BuildEngine extends B3Engine {
 		initialize();
 	}
 
-	/**
-	 * For testing purposes it is useful to bind units to properties to be able to inspect results.
-	 * 
-	 * @throws B3EngineException
-	 */
-	public void bindUnitsToProperties() throws B3EngineException {
-		// EffectiveUnitIterator uItor = new EffectiveUnitIterator(getBuildContext());
-		// while(uItor.hasNext()) {
-		// BuildUnit unit = uItor.next();
-		// BuildUnit unitProxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
-		// buildContext.defineFinalValue("${test." + unitProxy.getName() + "}", unitProxy, unitProxy.getClass());
-		// }
-	}
-
 	public Object callFunction(String name, Object[] parameters, Type[] types) throws Throwable {
 		return getContext().callFunction(name, parameters, types);
 	}

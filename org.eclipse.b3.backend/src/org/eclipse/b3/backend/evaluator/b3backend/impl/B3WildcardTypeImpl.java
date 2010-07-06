@@ -37,17 +37,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl#getLowerBoundsList <em>Lower Bounds List</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl#getUpperBoundsList <em>Upper Bounds List</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl#getLowerBoundsList <em>Lower Bounds List</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl#getUpperBoundsList <em>Upper Bounds List</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -56,6 +57,7 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	 * The cached value of the '{@link #getLowerBoundsList() <em>Lower Bounds List</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLowerBoundsList()
 	 * @generated
 	 * @ordered
@@ -66,6 +68,7 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	 * The cached value of the '{@link #getUpperBoundsList() <em>Upper Bounds List</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUpperBoundsList()
 	 * @generated
 	 * @ordered
@@ -75,6 +78,7 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3WildcardTypeImpl() {
@@ -84,11 +88,12 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST:
 				return getLowerBoundsList();
 			case B3backendPackage.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST:
@@ -100,15 +105,16 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST:
-				return ((InternalEList<?>)getLowerBoundsList()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getLowerBoundsList()).basicRemove(otherEnd, msgs);
 			case B3backendPackage.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST:
-				return ((InternalEList<?>)getUpperBoundsList()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getUpperBoundsList()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -116,11 +122,12 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST:
 				return lowerBoundsList != null && !lowerBoundsList.isEmpty();
 			case B3backendPackage.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST:
@@ -132,19 +139,20 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST:
 				getLowerBoundsList().clear();
-				getLowerBoundsList().addAll((Collection<? extends Type>)newValue);
+				getLowerBoundsList().addAll((Collection<? extends Type>) newValue);
 				return;
 			case B3backendPackage.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST:
 				getUpperBoundsList().clear();
-				getUpperBoundsList().addAll((Collection<? extends Type>)newValue);
+				getUpperBoundsList().addAll((Collection<? extends Type>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -153,6 +161,7 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -163,11 +172,12 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST:
 				getLowerBoundsList().clear();
 				return;
@@ -191,11 +201,13 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Type> getLowerBoundsList() {
-		if (lowerBoundsList == null) {
-			lowerBoundsList = new EObjectContainmentEList<Type>(Type.class, this, B3backendPackage.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST);
+		if(lowerBoundsList == null) {
+			lowerBoundsList = new EObjectContainmentEList<Type>(
+				Type.class, this, B3backendPackage.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST);
 		}
 		return lowerBoundsList;
 	}
@@ -213,11 +225,13 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Type> getUpperBoundsList() {
-		if (upperBoundsList == null) {
-			upperBoundsList = new EObjectContainmentEList<Type>(Type.class, this, B3backendPackage.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST);
+		if(upperBoundsList == null) {
+			upperBoundsList = new EObjectContainmentEList<Type>(
+				Type.class, this, B3backendPackage.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST);
 		}
 		return upperBoundsList;
 	}

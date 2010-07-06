@@ -39,11 +39,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.ConditionalPathVectorImpl#getCondExpr <em>Cond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.ConditionalPathVectorImpl#getPathVectors <em>Path Vectors</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.ConditionalPathVectorImpl#getCondExpr <em>Cond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.ConditionalPathVectorImpl#getPathVectors <em>Path Vectors</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ConditionalPathVectorImpl extends EObjectImpl implements ConditionalPathVector {
@@ -51,6 +51,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	 * The cached value of the '{@link #getCondExpr() <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCondExpr()
 	 * @generated
 	 * @ordered
@@ -61,6 +62,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	 * The cached value of the '{@link #getPathVectors() <em>Path Vectors</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPathVectors()
 	 * @generated
 	 * @ordered
@@ -70,6 +72,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ConditionalPathVectorImpl() {
@@ -79,6 +82,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCondExpr(BExpression newCondExpr, NotificationChain msgs) {
@@ -98,6 +102,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -114,6 +119,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -130,6 +136,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -146,6 +153,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -166,6 +174,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -176,6 +185,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -194,6 +204,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getCondExpr() {
@@ -203,6 +214,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<PathVector> getPathVectors() {
@@ -216,6 +228,7 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCondExpr(BExpression newCondExpr) {

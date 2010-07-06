@@ -31,11 +31,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.RepoOptionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.RepoOptionImpl#getExpr <em>Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.RepoOptionImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.RepoOptionImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class RepoOptionImpl extends EObjectImpl implements RepoOption {
@@ -43,6 +43,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -53,6 +54,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -63,6 +65,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	 * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getExpr()
 	 * @generated
 	 * @ordered
@@ -72,6 +75,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RepoOptionImpl() {
@@ -81,6 +85,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetExpr(BExpression newExpr, NotificationChain msgs) {
@@ -100,6 +105,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -116,6 +122,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -130,6 +137,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -148,6 +156,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -166,6 +175,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -176,6 +186,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -194,6 +205,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getExpr() {
@@ -203,6 +215,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -212,6 +225,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setExpr(BExpression newExpr) {
@@ -234,6 +248,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -246,6 +261,7 @@ public class RepoOptionImpl extends EObjectImpl implements RepoOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

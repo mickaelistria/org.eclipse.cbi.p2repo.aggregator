@@ -30,10 +30,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderInputContextDecoratorImpl#getWithExpr <em>With Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderInputContextDecoratorImpl#getWithExpr <em>With Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl implements BuilderInputContextDecorator {
@@ -41,6 +41,7 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	 * The cached value of the '{@link #getWithExpr() <em>With Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getWithExpr()
 	 * @generated
 	 * @ordered
@@ -50,6 +51,7 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuilderInputContextDecoratorImpl() {
@@ -59,25 +61,7 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_INPUT_CONTEXT_DECORATOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BWithExpression getWithExpr() {
-		return withExpr;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetWithExpr(BWithExpression newWithExpr, NotificationChain msgs) {
@@ -98,6 +82,105 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR:
+				return getWithExpr();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR:
+				return basicSetWithExpr(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR:
+				return withExpr != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR:
+				setWithExpr((BWithExpression) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_INPUT_CONTEXT_DECORATOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR:
+				setWithExpr((BWithExpression) null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BWithExpression getWithExpr() {
+		return withExpr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setWithExpr(BWithExpression newWithExpr) {
@@ -119,76 +202,4 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 				newWithExpr));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR:
-				return basicSetWithExpr(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR:
-				return getWithExpr();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR:
-				setWithExpr((BWithExpression) newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR:
-				setWithExpr((BWithExpression) null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR:
-				return withExpr != null;
-		}
-		return super.eIsSet(featureID);
-	}
-
-} //BuilderInputContextDecoratorImpl
+} // BuilderInputContextDecoratorImpl

@@ -30,10 +30,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderInputConditionImpl#getCondExpr <em>Cond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderInputConditionImpl#getCondExpr <em>Cond Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl implements BuilderInputCondition {
@@ -41,6 +41,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	 * The cached value of the '{@link #getCondExpr() <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCondExpr()
 	 * @generated
 	 * @ordered
@@ -50,6 +51,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuilderInputConditionImpl() {
@@ -59,25 +61,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_INPUT_CONDITION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BExpression getCondExpr() {
-		return condExpr;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCondExpr(BExpression newCondExpr, NotificationChain msgs) {
@@ -97,6 +81,105 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR:
+				return getCondExpr();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR:
+				return basicSetCondExpr(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR:
+				return condExpr != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR:
+				setCondExpr((BExpression) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_INPUT_CONDITION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR:
+				setCondExpr((BExpression) null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BExpression getCondExpr() {
+		return condExpr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCondExpr(BExpression newCondExpr) {
@@ -117,76 +200,4 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 				this, Notification.SET, B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR, newCondExpr, newCondExpr));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR:
-				return basicSetCondExpr(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR:
-				return getCondExpr();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR:
-				setCondExpr((BExpression) newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR:
-				setCondExpr((BExpression) null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR:
-				return condExpr != null;
-		}
-		return super.eIsSet(featureID);
-	}
-
-} //BuilderInputConditionImpl
+} // BuilderInputConditionImpl

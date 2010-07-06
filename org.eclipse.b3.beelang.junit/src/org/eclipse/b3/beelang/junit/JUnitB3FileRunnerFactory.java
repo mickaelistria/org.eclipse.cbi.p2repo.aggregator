@@ -230,11 +230,6 @@ class JUnitB3FileRunnerFactory {
 			argv.add(engine);
 			// ctx.defineFinalValue("${test.engine}", engine, B3BuildEngine.class);
 
-			// Questionable if this should be kept - it binds the names of all found units to
-			// properties named after the units.
-			//
-			engine.bindUnitsToProperties();
-
 			testFunctionDescriptors = new ArrayList<TestFunctionDescriptor>();
 
 			// Define all functions and create descriptors of test functions

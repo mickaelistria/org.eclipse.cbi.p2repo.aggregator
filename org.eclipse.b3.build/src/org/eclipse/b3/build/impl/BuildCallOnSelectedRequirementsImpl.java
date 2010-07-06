@@ -29,10 +29,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BuildCallOnSelectedRequirementsImpl#getRequiredPredicate <em>Required Predicate</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildCallOnSelectedRequirementsImpl#getRequiredPredicate <em>Required Predicate</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl implements
@@ -41,6 +41,7 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	 * The cached value of the '{@link #getRequiredPredicate() <em>Required Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiredPredicate()
 	 * @generated
 	 * @ordered
@@ -50,6 +51,7 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuildCallOnSelectedRequirementsImpl() {
@@ -59,25 +61,7 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_CALL_ON_SELECTED_REQUIREMENTS;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CapabilityPredicate getRequiredPredicate() {
-		return requiredPredicate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetRequiredPredicate(CapabilityPredicate newRequiredPredicate, NotificationChain msgs) {
@@ -98,6 +82,105 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE:
+				return getRequiredPredicate();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE:
+				return basicSetRequiredPredicate(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE:
+				return requiredPredicate != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE:
+				setRequiredPredicate((CapabilityPredicate) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_CALL_ON_SELECTED_REQUIREMENTS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE:
+				setRequiredPredicate((CapabilityPredicate) null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public CapabilityPredicate getRequiredPredicate() {
+		return requiredPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRequiredPredicate(CapabilityPredicate newRequiredPredicate) {
@@ -119,76 +202,4 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 				newRequiredPredicate, newRequiredPredicate));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE:
-				return basicSetRequiredPredicate(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE:
-				return getRequiredPredicate();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE:
-				setRequiredPredicate((CapabilityPredicate) newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE:
-				setRequiredPredicate((CapabilityPredicate) null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE:
-				return requiredPredicate != null;
-		}
-		return super.eIsSet(featureID);
-	}
-
-} //BuildCallOnSelectedRequirementsImpl
+} // BuildCallOnSelectedRequirementsImpl

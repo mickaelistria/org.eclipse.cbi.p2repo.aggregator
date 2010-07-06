@@ -11,24 +11,15 @@
 package org.eclipse.b3.build.impl;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import java.util.Collection;
-
 import org.eclipse.b3.build.B3BuildPackage;
-import org.eclipse.b3.build.BuilderCall;
 import org.eclipse.b3.build.EffectiveBuilderCallFacade;
 import org.eclipse.b3.build.IEffectiveFacade;
-import org.eclipse.b3.build.RequiredCapability;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,10 +28,10 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.EffectiveBuilderCallFacadeImpl#getContext <em>Context</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.EffectiveBuilderCallFacadeImpl#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implements EffectiveBuilderCallFacade {
@@ -48,6 +39,7 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getContext()
 	 * @generated
 	 * @ordered
@@ -57,6 +49,7 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EffectiveBuilderCallFacadeImpl() {
@@ -66,6 +59,104 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BExecutionContext basicGetContext() {
+		return context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if(baseClass == IEffectiveFacade.class) {
+			switch(derivedFeatureID) {
+				case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT:
+					return B3BuildPackage.IEFFECTIVE_FACADE__CONTEXT;
+				default:
+					return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if(baseClass == IEffectiveFacade.class) {
+			switch(baseFeatureID) {
+				case B3BuildPackage.IEFFECTIVE_FACADE__CONTEXT:
+					return B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT;
+				default:
+					return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT:
+				if(resolve)
+					return getContext();
+				return basicGetContext();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT:
+				return context != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT:
+				setContext((BExecutionContext) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -76,6 +167,23 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT:
+				setContext((BExecutionContext) null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExecutionContext getContext() {
@@ -95,15 +203,7 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BExecutionContext basicGetContext() {
-		return context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setContext(BExecutionContext newContext) {
@@ -114,101 +214,4 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 				this, Notification.SET, B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT, oldContext, context));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT:
-				if(resolve)
-					return getContext();
-				return basicGetContext();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT:
-				setContext((BExecutionContext) newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT:
-				setContext((BExecutionContext) null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT:
-				return context != null;
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == IEffectiveFacade.class) {
-			switch(derivedFeatureID) {
-				case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT:
-					return B3BuildPackage.IEFFECTIVE_FACADE__CONTEXT;
-				default:
-					return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == IEffectiveFacade.class) {
-			switch(baseFeatureID) {
-				case B3BuildPackage.IEFFECTIVE_FACADE__CONTEXT:
-					return B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE__CONTEXT;
-				default:
-					return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-} //EffectiveBuilderCallFacadeImpl
+} // EffectiveBuilderCallFacadeImpl

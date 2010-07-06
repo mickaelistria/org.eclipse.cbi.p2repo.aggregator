@@ -29,16 +29,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardFunctionImpl#getFunc <em>Func</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardFunctionImpl#getFunc <em>Func</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -47,6 +48,7 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	 * The cached value of the '{@link #getFunc() <em>Func</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFunc()
 	 * @generated
 	 * @ordered
@@ -56,6 +58,7 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BGuardFunctionImpl() {
@@ -81,6 +84,7 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IFunction basicGetFunc() {
@@ -90,13 +94,15 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BGUARD_FUNCTION__FUNC:
-				if (resolve) return getFunc();
+				if(resolve)
+					return getFunc();
 				return basicGetFunc();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -105,11 +111,12 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BGUARD_FUNCTION__FUNC:
 				return func != null;
 		}
@@ -119,13 +126,14 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BGUARD_FUNCTION__FUNC:
-				setFunc((IFunction)newValue);
+				setFunc((IFunction) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -134,6 +142,7 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -144,13 +153,14 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BGUARD_FUNCTION__FUNC:
-				setFunc((IFunction)null);
+				setFunc((IFunction) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -159,15 +169,17 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IFunction getFunc() {
-		if (func != null && func.eIsProxy()) {
-			InternalEObject oldFunc = (InternalEObject)func;
-			func = (IFunction)eResolveProxy(oldFunc);
-			if (func != oldFunc) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BGUARD_FUNCTION__FUNC, oldFunc, func));
+		if(func != null && func.eIsProxy()) {
+			InternalEObject oldFunc = (InternalEObject) func;
+			func = (IFunction) eResolveProxy(oldFunc);
+			if(func != oldFunc) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3backendPackage.BGUARD_FUNCTION__FUNC, oldFunc, func));
 			}
 		}
 		return func;
@@ -176,12 +188,13 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFunc(IFunction newFunc) {
 		IFunction oldFunc = func;
 		func = newFunc;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BGUARD_FUNCTION__FUNC, oldFunc, func));
 	}
 } // BGuardFunctionImpl

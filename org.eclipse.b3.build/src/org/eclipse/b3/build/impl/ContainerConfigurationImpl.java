@@ -29,13 +29,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.ContainerConfigurationImpl#getDocumentation <em>Documentation</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.ContainerConfigurationImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.ContainerConfigurationImpl#getAgentType <em>Agent Type</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.ContainerConfigurationImpl#getContextBlock <em>Context Block</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.ContainerConfigurationImpl#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.ContainerConfigurationImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.ContainerConfigurationImpl#getAgentType <em>Agent Type</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.ContainerConfigurationImpl#getContextBlock <em>Context Block</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ContainerConfigurationImpl extends EObjectImpl implements ContainerConfiguration {
@@ -43,6 +43,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -53,6 +54,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -63,6 +65,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -73,6 +76,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -83,6 +87,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 * The cached value of the '{@link #getAgentType() <em>Agent Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAgentType()
 	 * @generated
 	 * @ordered
@@ -93,6 +98,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 * The cached value of the '{@link #getContextBlock() <em>Context Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getContextBlock()
 	 * @generated
 	 * @ordered
@@ -102,6 +108,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ContainerConfigurationImpl() {
@@ -111,6 +118,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetAgentType(Type newAgentType, NotificationChain msgs) {
@@ -130,6 +138,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetContextBlock(BExpression newContextBlock, NotificationChain msgs) {
@@ -150,6 +159,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -170,6 +180,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -186,6 +197,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -210,6 +222,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -234,6 +247,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -244,6 +258,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -268,6 +283,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Type getAgentType() {
@@ -277,6 +293,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getContextBlock() {
@@ -286,6 +303,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getDocumentation() {
@@ -295,6 +313,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -304,6 +323,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setAgentType(Type newAgentType) {
@@ -327,6 +347,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setContextBlock(BExpression newContextBlock) {
@@ -351,6 +372,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDocumentation(String newDocumentation) {
@@ -365,6 +387,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -378,6 +401,7 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

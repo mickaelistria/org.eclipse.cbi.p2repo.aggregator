@@ -27,11 +27,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getMethod <em>Method</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getCallType <em>Call Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getMethod <em>Method</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getCallType <em>Call Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
@@ -39,6 +39,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -47,6 +48,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMethod()
 	 * @generated
 	 * @ordered
@@ -57,6 +59,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMethod()
 	 * @generated
 	 * @ordered
@@ -67,6 +70,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The default value of the '{@link #getCallType() <em>Call Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCallType()
 	 * @generated
 	 * @ordered
@@ -77,6 +81,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The cached value of the '{@link #getCallType() <em>Call Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCallType()
 	 * @generated
 	 * @ordered
@@ -86,6 +91,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BJavaFunctionImpl() {
@@ -111,11 +117,12 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
 				return getMethod();
 			case B3backendPackage.BJAVA_FUNCTION__CALL_TYPE:
@@ -127,13 +134,16 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
-				return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
+				return METHOD_EDEFAULT == null
+						? method != null
+						: !METHOD_EDEFAULT.equals(method);
 			case B3backendPackage.BJAVA_FUNCTION__CALL_TYPE:
 				return callType != CALL_TYPE_EDEFAULT;
 		}
@@ -143,16 +153,17 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
-				setMethod((Method)newValue);
+				setMethod((Method) newValue);
 				return;
 			case B3backendPackage.BJAVA_FUNCTION__CALL_TYPE:
-				setCallType((BJavaCallType)newValue);
+				setCallType((BJavaCallType) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -161,6 +172,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -171,11 +183,12 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
 				setMethod(METHOD_EDEFAULT);
 				return;
@@ -189,6 +202,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BJavaCallType getCallType() {
@@ -198,6 +212,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Method getMethod() {
@@ -280,35 +295,43 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCallType(BJavaCallType newCallType) {
 		BJavaCallType oldCallType = callType;
-		callType = newCallType == null ? CALL_TYPE_EDEFAULT : newCallType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__CALL_TYPE, oldCallType, callType));
+		callType = newCallType == null
+				? CALL_TYPE_EDEFAULT
+				: newCallType;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__CALL_TYPE, oldCallType, callType));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMethod(Method newMethod) {
 		Method oldMethod = method;
 		method = newMethod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__METHOD, oldMethod, method));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__METHOD, oldMethod, method));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (method: ");

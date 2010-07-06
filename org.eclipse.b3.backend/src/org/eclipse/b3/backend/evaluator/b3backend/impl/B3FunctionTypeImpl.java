@@ -31,20 +31,21 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getFunctionType <em>Function Type</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getReturnType <em>Return Type</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getParameterTypes <em>Parameter Types</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#isVarArgs <em>Var Args</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getTypeCalculator <em>Type Calculator</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getFunctionType <em>Function Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getReturnType <em>Return Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getParameterTypes <em>Parameter Types</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#isVarArgs <em>Var Args</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
@@ -53,6 +54,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * The cached value of the '{@link #getFunctionType() <em>Function Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFunctionType()
 	 * @generated
 	 * @ordered
@@ -63,6 +65,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getReturnType()
 	 * @generated
 	 * @ordered
@@ -73,6 +76,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * The cached value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParameterTypes()
 	 * @generated
 	 * @ordered
@@ -83,6 +87,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * The default value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isVarArgs()
 	 * @generated
 	 * @ordered
@@ -93,6 +98,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * The cached value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isVarArgs()
 	 * @generated
 	 * @ordered
@@ -103,6 +109,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * The cached value of the '{@link #getTypeCalculator() <em>Type Calculator</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTypeCalculator()
 	 * @generated
 	 * @ordered
@@ -112,6 +119,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3FunctionTypeImpl() {
@@ -121,6 +129,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Type basicGetFunctionType() {
@@ -130,6 +139,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Type basicGetReturnType() {
@@ -139,6 +149,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BTypeCalculator basicGetTypeCalculator() {
@@ -148,23 +159,27 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE:
-				if (resolve) return getFunctionType();
+				if(resolve)
+					return getFunctionType();
 				return basicGetFunctionType();
 			case B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE:
-				if (resolve) return getReturnType();
+				if(resolve)
+					return getReturnType();
 				return basicGetReturnType();
 			case B3backendPackage.B3_FUNCTION_TYPE__PARAMETER_TYPES:
 				return getParameterTypes();
 			case B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS:
 				return isVarArgs();
 			case B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR:
-				if (resolve) return getTypeCalculator();
+				if(resolve)
+					return getTypeCalculator();
 				return basicGetTypeCalculator();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -173,11 +188,12 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE:
 				return functionType != null;
 			case B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE:
@@ -195,27 +211,28 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE:
-				setFunctionType((Type)newValue);
+				setFunctionType((Type) newValue);
 				return;
 			case B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE:
-				setReturnType((Type)newValue);
+				setReturnType((Type) newValue);
 				return;
 			case B3backendPackage.B3_FUNCTION_TYPE__PARAMETER_TYPES:
 				getParameterTypes().clear();
-				getParameterTypes().addAll((Collection<? extends Type>)newValue);
+				getParameterTypes().addAll((Collection<? extends Type>) newValue);
 				return;
 			case B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS:
-				setVarArgs((Boolean)newValue);
+				setVarArgs((Boolean) newValue);
 				return;
 			case B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR:
-				setTypeCalculator((BTypeCalculator)newValue);
+				setTypeCalculator((BTypeCalculator) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -224,6 +241,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -234,16 +252,17 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE:
-				setFunctionType((Type)null);
+				setFunctionType((Type) null);
 				return;
 			case B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE:
-				setReturnType((Type)null);
+				setReturnType((Type) null);
 				return;
 			case B3backendPackage.B3_FUNCTION_TYPE__PARAMETER_TYPES:
 				getParameterTypes().clear();
@@ -252,7 +271,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 				setVarArgs(VAR_ARGS_EDEFAULT);
 				return;
 			case B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR:
-				setTypeCalculator((BTypeCalculator)null);
+				setTypeCalculator((BTypeCalculator) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -284,11 +303,13 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Type> getParameterTypes() {
-		if (parameterTypes == null) {
-			parameterTypes = new EObjectResolvingEList<Type>(Type.class, this, B3backendPackage.B3_FUNCTION_TYPE__PARAMETER_TYPES);
+		if(parameterTypes == null) {
+			parameterTypes = new EObjectResolvingEList<Type>(
+				Type.class, this, B3backendPackage.B3_FUNCTION_TYPE__PARAMETER_TYPES);
 		}
 		return parameterTypes;
 	}
@@ -312,15 +333,18 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * <!-- begin-user-doc -->
 	 * The generated version casts the return type to EObject. It may be just a java.lang.reflect imlementation.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Type getReturnType() {
-		if (returnType != null && ((EObject)returnType).eIsProxy()) {
-			InternalEObject oldReturnType = (InternalEObject)returnType;
-			returnType = (Type)eResolveProxy(oldReturnType);
-			if (returnType != oldReturnType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, oldReturnType, returnType));
+		if(returnType != null && ((EObject) returnType).eIsProxy()) {
+			InternalEObject oldReturnType = (InternalEObject) returnType;
+			returnType = (Type) eResolveProxy(oldReturnType);
+			if(returnType != oldReturnType) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, oldReturnType,
+						returnType));
 			}
 		}
 		return returnType;
@@ -342,15 +366,18 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BTypeCalculator getTypeCalculator() {
-		if (typeCalculator != null && typeCalculator.eIsProxy()) {
-			InternalEObject oldTypeCalculator = (InternalEObject)typeCalculator;
-			typeCalculator = (BTypeCalculator)eResolveProxy(oldTypeCalculator);
-			if (typeCalculator != oldTypeCalculator) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR, oldTypeCalculator, typeCalculator));
+		if(typeCalculator != null && typeCalculator.eIsProxy()) {
+			InternalEObject oldTypeCalculator = (InternalEObject) typeCalculator;
+			typeCalculator = (BTypeCalculator) eResolveProxy(oldTypeCalculator);
+			if(typeCalculator != oldTypeCalculator) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR,
+						oldTypeCalculator, typeCalculator));
 			}
 		}
 		return typeCalculator;
@@ -386,6 +413,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isVarArgs() {
@@ -404,13 +432,15 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * <!-- begin-user-doc -->
 	 * functionType may not be an EObject, if not, no notification is generated.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFunctionTypeGen(Type newFunctionType) {
 		Type oldFunctionType = functionType;
 		functionType = newFunctionType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, oldFunctionType, functionType));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, oldFunctionType, functionType));
 	}
 
 	/**
@@ -424,47 +454,56 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * <!-- begin-user-doc -->
 	 * returnType may not be an EObject (in which case no eInverseRemove or eInverseAdd is performed).
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setReturnTypeGen(Type newReturnType) {
 		Type oldReturnType = returnType;
 		returnType = newReturnType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, oldReturnType, returnType));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, oldReturnType, returnType));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTypeCalculator(BTypeCalculator newTypeCalculator) {
 		BTypeCalculator oldTypeCalculator = typeCalculator;
 		typeCalculator = newTypeCalculator;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR, oldTypeCalculator, typeCalculator));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR, oldTypeCalculator,
+				typeCalculator));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setVarArgs(boolean newVarArgs) {
 		boolean oldVarArgs = varArgs;
 		varArgs = newVarArgs;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS, oldVarArgs, varArgs));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS, oldVarArgs, varArgs));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (varArgs: ");
