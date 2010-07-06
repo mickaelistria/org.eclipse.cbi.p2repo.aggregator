@@ -9,6 +9,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -23,6 +24,7 @@ import org.eclipse.b3.backend.core.B3NoSuchVariableException;
 import org.eclipse.b3.backend.core.B3WeavingFailedException;
 import org.eclipse.b3.backend.core.JavaToB3Helper;
 import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.core.ParentContextIterator;
 import org.eclipse.b3.backend.core.ValueMap;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
@@ -49,6 +51,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import com.google.common.collect.Maps;
 import com.google.inject.Binder;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -228,6 +231,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	protected Injector injector = INJECTOR_EDEFAULT;
 
 	private boolean isWeaving = false; // TODO: add as parameter to defineFunction instead
+
+	private Map<Class<?>, Map<Object, Object>> allThings;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -492,6 +497,46 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		if(!woven)
 			funcStore.defineFunction(function.getName(), function);
 		return function;
+	}
+
+	/**
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineSomeThing(java.lang.Class, java.lang.Object, java.lang.Object, boolean)
+	 * @generated NOT
+	 */
+	@Override
+	public <T> void defineSomeThing(Class<T> kind, Object key, T value, boolean isWeaving) throws Throwable {
+		// generic definition of something weaveable
+		Map<Object, Object> thingMap = null;
+		if(allThings == null) {
+			allThings = Maps.newHashMap();
+			allThings.put(kind, thingMap = Maps.newHashMap());
+		}
+		else {
+			thingMap = allThings.get(kind);
+			if(thingMap == null)
+				allThings.put(kind, thingMap = Maps.newHashMap());
+		}
+		if(thingMap.containsKey(key))
+			throw new IllegalArgumentException("Attempt to redefine a: " + kind.getName() + " having key: " +
+					key.toString());
+
+		boolean woven = false;
+		// check for advice is not weaving
+		if(!isWeaving) {
+			for(BExecutionContext ctx = this; ctx.getParentContext() != null; ctx = ctx.getParentContext()) {
+				for(BConcern c : ctx.getEffectiveConcerns())
+					try {
+						if(c.evaluateIfMatching(value, this))
+							woven = true;
+					}
+					catch(Throwable e) {
+						throw new B3WeavingFailedException(e);
+					}
+			}
+		}
+		// do not store original if it was woven
+		if(!woven)
+			thingMap.put(key, value);
 	}
 
 	/**
@@ -901,6 +946,14 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		return new ValueMapLVal(name);
 	}
 
+	public Map<Object, Object> getMapOfThings(Class<?> kind) {
+		Map<Object, Object> m;
+		if(allThings == null || (m = allThings.get(kind)) == null) {
+			return Collections.emptyMap();
+		}
+		return Collections.unmodifiableMap(m);
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -936,6 +989,31 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			return getParentContext().getProgressMonitor();
 		setProgressMonitor(new NullProgressMonitor());
 		return progressMonitor;
+	}
+
+	/**
+	 * @generated NOT
+	 *            BuildUnit u = ctx.getBuildUnitStore().get(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getIface());
+	 */
+	public <T> T getSomeThing(Class<T> clazz, Object key) {
+		T result = null;
+		ParentContextIterator pitor = new ParentContextIterator(this);
+		while(pitor.hasNext()) {
+			BExecutionContextImpl ctx = (BExecutionContextImpl) pitor.next();
+			if((result = getThingFromMap(clazz, key, ctx.allThings)) != null)
+				return result;
+		}
+		return null; // TODO: Should probably throw "NoSuchUnit" instead
+	}
+
+	private <T> T getThingFromMap(Class<T> clazz, Object key, Map<Class<?>, Map<Object, Object>> allMap) {
+		if(allMap == null)
+			return null;
+		Map<Object, Object> map = allMap.get(clazz);
+		Object result = map.get(key);
+		return result == null
+				? null
+				: clazz.cast(result);
 	}
 
 	/**

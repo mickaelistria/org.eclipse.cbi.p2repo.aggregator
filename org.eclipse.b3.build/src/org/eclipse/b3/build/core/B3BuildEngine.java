@@ -7,11 +7,11 @@ import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.IB3Engine;
 import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.inference.FunctionUtils;
-import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BeeModel;
-import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.functions.BuildFunctions;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
 import org.eclipse.core.runtime.IStatus;
@@ -22,7 +22,7 @@ import com.google.inject.util.Modules;
 
 public class B3BuildEngine extends B3Engine {
 
-	protected BuildContext buildContext;
+	protected BContext buildContext;
 
 	/**
 	 * Creates and initializes the engine with a default runtime guice module.
@@ -71,7 +71,7 @@ public class B3BuildEngine extends B3Engine {
 		}
 	}
 
-	private BuildContext getBuildContext() {
+	private BExecutionContext getBuildContext() {
 		return buildContext;
 	}
 
@@ -94,7 +94,7 @@ public class B3BuildEngine extends B3Engine {
 	}
 
 	private void initialize() throws B3EngineException {
-		buildContext = B3BuildFactory.eINSTANCE.createBuildContext();
+		buildContext = B3backendFactory.eINSTANCE.createBContext();
 		buildContext.setParentContext(invocationContext);
 		try {
 			buildContext.defineFinalValue("b3", this, IB3Engine.class);

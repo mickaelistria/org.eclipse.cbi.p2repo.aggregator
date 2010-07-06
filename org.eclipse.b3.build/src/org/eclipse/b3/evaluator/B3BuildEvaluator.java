@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.B3BackendEvaluator;
 import org.eclipse.b3.backend.evaluator.IB3Weaver;
@@ -23,6 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
@@ -30,7 +32,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.BeeModel;
-import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.BuilderCallFacade;
 import org.eclipse.b3.build.BuilderConcernContext;
@@ -53,11 +54,14 @@ import org.eclipse.b3.build.UnitConcernContext;
 import org.eclipse.b3.build.UnitNamePredicate;
 import org.eclipse.b3.build.UnitProvider;
 import org.eclipse.b3.build.core.B3BuildConstants;
+import org.eclipse.b3.build.core.BuildUnitProxyAdapter;
+import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.core.BuilderCallIteratorProvider;
 import org.eclipse.b3.build.core.EffectiveUnitIterator;
 import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.osgi.util.NLS;
 
 import com.google.inject.Injector;
 import com.google.inject.Key;
@@ -68,18 +72,60 @@ import com.google.inject.name.Names;
  * 
  */
 public class B3BuildEvaluator extends B3BackendEvaluator {
+	public Object define(BuildUnit unit, BExecutionContext ctx) throws Throwable {
+		return define(unit, ctx, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Define a build unit. Any bequested matching advice is applied.
+	 * TODO: SEMANTICS OF REDEFINING A UNIT (All sorts of bad things happen) - now exception is thrown
+	 * <!-- end-user-doc -->
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the unit has been defined in this context.
+	 * @generated NOT
+	 */
+	public Object define(BuildUnit unit, BExecutionContext ctx, boolean isWeaving) throws Throwable {
+		BuildUnitProxyAdapter p = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit);
+		Class<? extends BuildUnit> iface = p.getIface();
+		ctx.defineSomeThing(BuildUnit.class, iface, unit, false);
+		// define all of the unit's builders
+		for(IBuilder b : unit.getBuilders())
+			ctx.defineFunction(b);
+
+		// Evaluate REPOSITORIES
+		// (This will create the repository impl instances
+		// Resolvers using the repositories links to the repository instances and will pick up
+		// the impl instances).
+		Repository x = null; // remembered if there is an error
+		for(Repository r : unit.getRepositories())
+			try {
+				x = r;
+				doEvaluate(r, ctx);
+			}
+			catch(Throwable e) {
+				throw new B3EngineException(NLS.bind(
+					"Evaluation of repositories in unit {0} failed for repository {1}.", new Object[] {
+							unit.getName(), x == null
+									? "null"
+									: x.getName() }), e);
+			}
+		return unit;
+	}
 
 	public Object evaluate(BeeModel o, BExecutionContext ctx) throws Throwable {
 		// A BeeModel is a BChainedExpression, and can this contain any type of expression
 		// evaluate these first. Return value is ignored.
 		evaluate(((BChainedExpression) o), ctx);
 
-		if(!(ctx instanceof BuildContext))
-			throw new B3InternalError("A BeeModel must be defined in a BuildContext - got a context of class: " +
+		// if(!(ctx instanceof BuildContext))
+		if(!(ctx instanceof BContext))
+			throw new B3InternalError("A BeeModel must be defined in a BContext - got a context of class: " +
 					ctx.getClass().toString());
 
-		BuildContext bctx = (BuildContext) ctx;
-
+		// BuildContext bctx = (BuildContext) ctx;
+		BExecutionContext bctx = ctx;
 		// Define all IMPORTS as constants
 		for(Type t : o.getImports()) {
 			if(t instanceof B3JavaImport) {
@@ -125,10 +171,11 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 
 			}
 		}
-		// Define all BUILD UNITS (currently only one - could easily have more than one)
+		// Define all BUILD UNITS
 		for(BuildUnit u : o.getBuildUnits())
 			if(u != null)
-				bctx.defineBuildUnit(u, false);
+				doDefine(u, ctx);
+		// bctx.defineBuildUnit(u, false);
 
 		return this;
 	}
@@ -371,5 +418,4 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 	public Object evaluate(UnitProvider o, BExecutionContext ctx) throws Throwable {
 		return o; // a unit provider is literal
 	}
-
 }

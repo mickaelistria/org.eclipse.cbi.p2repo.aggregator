@@ -8,7 +8,7 @@
 
 package org.eclipse.b3.build.repository;
 
-import org.eclipse.b3.build.BuildContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.core.runtime.IStatus;
 
@@ -20,7 +20,7 @@ public interface IBuildUnitResolver {
 	 * @param ctx
 	 * @return a MultiStatus describing the outcome of the resolution of all found build units
 	 */
-	public IStatus resolveAll(BuildContext ctx);
+	public IStatus resolveAll(BExecutionContext ctx);
 
 	/**
 	 * Transitively resolve one defined BuildUnit instances defined in the given BuildContext.
@@ -30,6 +30,6 @@ public interface IBuildUnitResolver {
 	 * @param ctx
 	 * @return a MultiStatus describing the outcome of the resolution
 	 */
-	public IStatus resolveUnit(BuildUnit unit, BuildContext ctx);
+	public IStatus resolveUnit(BuildUnit unit, BExecutionContext ctx);
 
 }

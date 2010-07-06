@@ -23,7 +23,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.B3BuildPackage;
-import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.Builder;
 import org.eclipse.b3.build.Capability;
@@ -757,8 +756,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		IB3Evaluator evaluator = injector.getInstance(IB3Evaluator.class);
 
 		// EFFECTIVE BUILD UNIT
-		BuildContext buildContext = ctx.getContext(BuildContext.class);
-		BuildUnit u = buildContext.getEffectiveBuildUnit(this);
+		// TODO: Remove when working BuildContext buildContext = ctx.getContext(BuildContext.class);
+		BuildUnit u = ctx.getSomeThing(BuildUnit.class, BuildUnitProxyAdapterFactory.eINSTANCE.adapt(this).getIface());
+		//
+		// BuildUnit u = buildContext.getEffectiveBuildUnit(this);
 		if(u == null)
 			throw new IllegalArgumentException(
 				"The unit must have been defined in a context prior to calling getEffectiveFacade(...)");

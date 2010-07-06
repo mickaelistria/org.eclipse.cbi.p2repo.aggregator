@@ -6,16 +6,18 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
-import com.google.inject.Injector;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.ValueMap;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EList;
+
+import com.google.inject.Injector;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +41,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface BExecutionContext extends ITypedValueContainer {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,6 +105,13 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * @generated
 	 */
 	IFunction defineFunction(IFunction function) throws B3EngineException;
+
+	/**
+	 * This is not generated because it seems impossible to define this signature in the ecore model...
+	 * 
+	 * @generated NOT
+	 */
+	public <T> void defineSomeThing(Class<T> kind, Object key, T value, boolean isWeaving) throws Throwable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,6 +231,14 @@ public interface BExecutionContext extends ITypedValueContainer {
 	BInvocationContext getInvocationContext() throws B3EngineException;
 
 	/**
+	 * This is not generated because it seems impossible to define this signature in the ecore model...
+	 * Returns an immutable view of the thing map of a particular kind.
+	 * 
+	 * @generated NOT
+	 */
+	public Map<Object, Object> getMapOfThings(Class<?> kind);
+
+	/**
 	 * Returns the value of the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -253,6 +269,13 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * @generated
 	 */
 	IProgressMonitor getProgressMonitor();
+
+	/**
+	 * This is not generated because it seems impossible to define this signature in the ecore model...
+	 * 
+	 * @generated NOT
+	 */
+	public <T> T getSomeThing(Class<T> kind, Object key);
 
 	/**
 	 * Returns the value of the '<em><b>Value Map</b></em>' attribute.

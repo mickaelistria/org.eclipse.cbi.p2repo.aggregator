@@ -15,12 +15,12 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BeeModelRepository;
-import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.EffectiveCapabilityFacade;
@@ -37,10 +37,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BeeModelRepositoryImpl#getBeeModels <em>Bee Models</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BeeModelRepositoryImpl#getBeeModels <em>Bee Models</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements BeeModelRepository {
@@ -48,6 +48,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	 * The cached value of the '{@link #getBeeModels() <em>Bee Models</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBeeModels()
 	 * @generated
 	 * @ordered
@@ -57,6 +58,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BeeModelRepositoryImpl() {
@@ -66,6 +68,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -80,6 +83,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -94,6 +98,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -111,6 +116,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -121,6 +127,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -136,6 +143,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BeeModel> getBeeModels() {
@@ -180,7 +188,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 
 		for(BeeModel beeModel : getBeeModels()) {
 			// create a new context for each candidate unit
-			BuildContext bctx = B3BuildFactory.eINSTANCE.createBuildContext();
+			BContext bctx = B3backendFactory.eINSTANCE.createBContext();
 			bctx.setParentContext(ctx);
 			evaluator.doEvaluate(beeModel, bctx); // define units, functions etc
 			for(BuildUnit u : beeModel.getBuildUnits()) {

@@ -3,12 +3,12 @@ package org.eclipse.b3.build.core;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.b3.backend.core.ParentContextIterator;
+import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildUnit;
-import org.eclipse.b3.build.impl.BuildContextImpl;
 
 /**
  * Iterates over the effective "horizon" of build units (advised units have been supplanted).
@@ -21,16 +21,20 @@ public class EffectiveUnitIterator implements Iterator<BuildUnit>, Iterable<Buil
 	private Iterator<BuildUnit> itor;
 
 	public EffectiveUnitIterator(BExecutionContext ctx) {
-		ParentContextIterator pitor = new ParentContextIterator(ctx, BuildContext.class);
+		ParentContextIterator pitor = new ParentContextIterator(ctx, BContext.class);
 		if(pitor.hasNext())
-			collectUnits((BuildContext) pitor.next(), pitor);
+			collectUnits(pitor.next(), pitor);
 		itor = unitStore.values().iterator();
 	}
 
-	private void collectUnits(BuildContext ctx, Iterator<BExecutionContext> pitor) {
+	@SuppressWarnings("unchecked")
+	private void collectUnits(BExecutionContext ctx, Iterator<BExecutionContext> pitor) {
 		if(pitor.hasNext())
-			collectUnits((BuildContext) pitor.next(), pitor);
-		unitStore.putAll(((BuildContextImpl) ctx).getBuildUnitStore());
+			collectUnits(pitor.next(), pitor);
+		Map<Object, Object> m = ctx.getMapOfThings(BuildUnit.class);
+		// unitStore.putAll(((BuildContextImpl) ctx).getBuildUnitStore());
+		for(Entry<Object, Object> entry : m.entrySet())
+			unitStore.put((Class<? extends BuildUnit>) entry.getKey(), (BuildUnit) entry.getValue());
 	}
 
 	public boolean hasNext() {

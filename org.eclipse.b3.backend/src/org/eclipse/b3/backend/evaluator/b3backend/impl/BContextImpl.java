@@ -6,10 +6,12 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.emf.ecore.EClass;
+
 
 /**
  * <!-- begin-user-doc -->

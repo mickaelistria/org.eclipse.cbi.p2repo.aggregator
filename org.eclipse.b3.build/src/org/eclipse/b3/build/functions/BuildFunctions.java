@@ -4,8 +4,8 @@ import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.evaluator.IB3Engine;
+import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.core.B3BuilderJob;
@@ -36,7 +36,7 @@ public class BuildFunctions {
 		System.arraycopy(types, 2, argTypes, 0, argTypes.length);
 
 		// find and set the unit as parameter and with correct type
-		EffectiveUnitIterator unitItor = new EffectiveUnitIterator(ctx.getContext(BuildContext.class));
+		EffectiveUnitIterator unitItor = new EffectiveUnitIterator(ctx.getContext(BContext.class));
 		BuildUnit unitToUse = null;
 		while(unitItor.hasNext()) {
 			if((unitToUse = unitItor.next()).getName().equals(unitName))

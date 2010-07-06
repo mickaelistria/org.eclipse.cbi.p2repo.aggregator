@@ -13,9 +13,9 @@ package org.eclipse.b3.build.impl;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildPackage;
-import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.EffectiveCapabilityFacade;
@@ -74,7 +74,7 @@ public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implem
 	@Override
 	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability, Map<String, Object> options)
 			throws Throwable {
-		BuildContext bctx = ctx.getContext(BuildContext.class);
+		BContext bctx = ctx.getContext(BContext.class);
 		EffectiveUnitIterator uItor = new EffectiveUnitIterator(bctx);
 		while(uItor.hasNext()) {
 			BuildUnit u = uItor.next();

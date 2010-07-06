@@ -19,6 +19,10 @@ import com.google.inject.ImplementedBy;
 @ImplementedBy(B3BackendEvaluator.class)
 public interface IB3Evaluator {
 
+	public Object doDefine(Object element, BExecutionContext ctx) throws Throwable;
+
+	public Object doDefine(Object element, BExecutionContext ctx, boolean isWeaving) throws Throwable;
+
 	/**
 	 * Evaluates an object in the given context.
 	 * 
@@ -37,6 +41,9 @@ public interface IB3Evaluator {
 	 * @return the result of the evaluation.
 	 */
 	public Object doEvaluateDefaults(Object element, BExecutionContext ctx, boolean allVisible) throws Throwable;
+
+	// TODO: for completeness, add "isLvalExpression", and "isDefaultExpression" to flag if
+	// lValue and doEvaluateDefaults are possible.
 
 	/**
 	 * Constructs an inside context and evaluates the element in this context. The context is returned.
@@ -59,8 +66,5 @@ public interface IB3Evaluator {
 	 * @return the result of the evaluation.
 	 */
 	public LValue doLValue(Object element, BExecutionContext ctx) throws Throwable;
-
-	// TODO: for completeness, add "isLvalExpression", and "isDefaultExpression" to flag if
-	// lValue and doEvaluateDefaults are possible.
 
 }

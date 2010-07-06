@@ -23,6 +23,8 @@ public class ParentContextIterator implements Iterator<BExecutionContext> {
 	public ParentContextIterator(BExecutionContext start, Class<? extends BExecutionContext> limit) {
 		current = start;
 		this.limit = limit;
+		if(current != null && !limit.isAssignableFrom(current.getClass()))
+			next();
 	}
 
 	public boolean hasNext() {

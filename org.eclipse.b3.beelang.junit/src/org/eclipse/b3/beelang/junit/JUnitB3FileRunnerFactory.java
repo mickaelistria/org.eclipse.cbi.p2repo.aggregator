@@ -224,7 +224,6 @@ class JUnitB3FileRunnerFactory {
 
 			// TODO: Use an Engine with test bindings for repositories
 			BeeModel beeModel = (BeeModel) resource.getParseResult().getRootASTElement();
-			// BuildContext ctx = (engine = new B3BuildEngine()).getBuildContext();
 			engine = new B3BuildEngine();
 			engine.defineBeeModel(beeModel);
 			final List<Object> argv = new ArrayList<Object>();
@@ -235,18 +234,6 @@ class JUnitB3FileRunnerFactory {
 			// properties named after the units.
 			//
 			engine.bindUnitsToProperties();
-			// EffectiveUnitIterator uItor = new EffectiveUnitIterator(engine.getBuildContext());
-			// while(uItor.hasNext()) {
-			// BuildUnit unit = uItor.next();
-			// BuildUnit unitProxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
-			// argv.add(unitProxy);
-			// ctx.defineFinalValue("${test." + unitProxy.getName() + "}", unitProxy, unitProxy.getClass());
-			// }
-			// ctx.defineFinalValue("${test.argv}", argv, List.class);
-
-			// TODO: This can not be performed like this as the result is only valid while the resolver is
-			// still alive.
-			// performResolution();
 
 			testFunctionDescriptors = new ArrayList<TestFunctionDescriptor>();
 
@@ -265,14 +252,6 @@ class JUnitB3FileRunnerFactory {
 			if(testFunctionDescriptors.isEmpty())
 				throw new Exception("No test functions");
 		}
-
-		// private void performResolution() throws Exception {
-		// IBuildUnitResolver resolver = engine.getContext().getInjector().getInstance(IBuildUnitResolver.class);
-		// IStatus status = resolver.resolveAll(engine.getBuildContext());
-		// if(!status.isOK()) {
-		// throw new Exception(status.toString());
-		// }
-		// }
 
 		@Override
 		protected void runChild(TestFunctionDescriptor child, RunNotifier notifier) {

@@ -199,8 +199,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createBestFoundUnitProvider();
 			case B3BuildPackage.CONTAINER_CONFIGURATION:
 				return createContainerConfiguration();
-			case B3BuildPackage.BUILD_CONTEXT:
-				return createBuildContext();
 			case B3BuildPackage.BUILD_CONCERN_CONTEXT:
 				return createBuildConcernContext();
 			case B3BuildPackage.REQUIRES_PREDICATE:
@@ -383,16 +381,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public BuildConcernContext createBuildConcernContext() {
 		BuildConcernContextImpl buildConcernContext = new BuildConcernContextImpl();
 		return buildConcernContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BuildContext createBuildContext() {
-		BuildContextImpl buildContext = new BuildContextImpl();
-		return buildContext;
 	}
 
 	/**

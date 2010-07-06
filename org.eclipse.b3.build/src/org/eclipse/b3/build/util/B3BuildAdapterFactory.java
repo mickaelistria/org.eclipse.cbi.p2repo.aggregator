@@ -147,11 +147,6 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseBuildContext(BuildContext object) {
-			return createBuildContextAdapter();
-		}
-
-		@Override
 		public Adapter caseBuildConcernContext(BuildConcernContext object) {
 			return createBuildConcernContextAdapter();
 		}
@@ -452,16 +447,6 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseITypedValueContainer(ITypedValueContainer object) {
-			return createITypedValueContainerAdapter();
-		}
-
-		@Override
-		public Adapter caseBExecutionContext(BExecutionContext object) {
-			return createBExecutionContextAdapter();
-		}
-
-		@Override
 		public Adapter caseBConcernContext(BConcernContext object) {
 			return createBConcernContextAdapter();
 		}
@@ -489,6 +474,16 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseBChainedExpression(BChainedExpression object) {
 			return createBChainedExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseITypedValueContainer(ITypedValueContainer object) {
+			return createITypedValueContainerAdapter();
+		}
+
+		@Override
+		public Adapter caseBExecutionContext(BExecutionContext object) {
+			return createBExecutionContextAdapter();
 		}
 
 		@Override
@@ -762,20 +757,6 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBuildConcernContextAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.BuildContext <em>Build Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.BuildContext
-	 * @generated
-	 */
-	public Adapter createBuildContextAdapter() {
 		return null;
 	}
 

@@ -159,15 +159,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contextBlock" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BuildContext" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext">
-    <eOperations name="defineBuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3EngineException">
-      <eParameters name="unit" eType="#//BuildUnit"/>
-      <eParameters name="isWeaving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eOperations>
-    <eOperations name="getEffectiveBuildUnit" eType="#//BuildUnit">
-      <eParameters name="unit" eType="#//BuildUnit"/>
-    </eOperations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildConcernContext" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BConcernContext #//IProvidedCapabilityContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultPropertiesRemovals"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

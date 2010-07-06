@@ -1485,16 +1485,6 @@ public interface B3BuildPackage extends EPackage {
 		EReference CONTAINER_CONFIGURATION__CONTEXT_BLOCK = eINSTANCE.getContainerConfiguration_ContextBlock();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.impl.BuildContextImpl <em>Build Context</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.b3.build.impl.BuildContextImpl
-		 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuildContext()
-		 * @generated
-		 */
-		EClass BUILD_CONTEXT = eINSTANCE.getBuildContext();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.impl.BuildConcernContextImpl <em>Build Concern Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2519,7 +2509,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuilder()
 	 * @generated
 	 */
-	int BUILDER = 35;
+	int BUILDER = 34;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.BuilderJavaImpl <em>Builder Java</em>}' class.
@@ -2529,7 +2519,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuilderJava()
 	 * @generated
 	 */
-	int BUILDER_JAVA = 36;
+	int BUILDER_JAVA = 35;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.BuilderInputImpl <em>Builder Input</em>}' class.
@@ -2592,16 +2582,6 @@ public interface B3BuildPackage extends EPackage {
 	int CONTAINER_CONFIGURATION = 17;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.impl.BuildContextImpl <em>Build Context</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.impl.BuildContextImpl
-	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuildContext()
-	 * @generated
-	 */
-	int BUILD_CONTEXT = 18;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.BuildConcernContextImpl <em>Build Concern Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2609,7 +2589,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuildConcernContext()
 	 * @generated
 	 */
-	int BUILD_CONCERN_CONTEXT = 19;
+	int BUILD_CONCERN_CONTEXT = 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.RequiresPredicateImpl <em>Requires Predicate</em>}' class.
@@ -2619,7 +2599,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getRequiresPredicate()
 	 * @generated
 	 */
-	int REQUIRES_PREDICATE = 20;
+	int REQUIRES_PREDICATE = 19;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.CapabilityPredicateImpl <em>Capability Predicate</em>}' class.
@@ -2629,7 +2609,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getCapabilityPredicate()
 	 * @generated
 	 */
-	int CAPABILITY_PREDICATE = 21;
+	int CAPABILITY_PREDICATE = 20;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.ImplementsPredicateImpl <em>Implements Predicate</em>}' class.
@@ -2639,7 +2619,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getImplementsPredicate()
 	 * @generated
 	 */
-	int IMPLEMENTS_PREDICATE = 22;
+	int IMPLEMENTS_PREDICATE = 21;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.ProvidesPredicateImpl <em>Provides Predicate</em>}' class.
@@ -2649,7 +2629,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getProvidesPredicate()
 	 * @generated
 	 */
-	int PROVIDES_PREDICATE = 23;
+	int PROVIDES_PREDICATE = 22;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.NameSpacePredicateImpl <em>Name Space Predicate</em>}' class.
@@ -2659,7 +2639,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getNameSpacePredicate()
 	 * @generated
 	 */
-	int NAME_SPACE_PREDICATE = 24;
+	int NAME_SPACE_PREDICATE = 23;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.UnitNamePredicateImpl <em>Unit Name Predicate</em>}' class.
@@ -2669,7 +2649,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getUnitNamePredicate()
 	 * @generated
 	 */
-	int UNIT_NAME_PREDICATE = 25;
+	int UNIT_NAME_PREDICATE = 24;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.BuilderNamePredicateImpl <em>Builder Name Predicate</em>}' class.
@@ -2679,7 +2659,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuilderNamePredicate()
 	 * @generated
 	 */
-	int BUILDER_NAME_PREDICATE = 26;
+	int BUILDER_NAME_PREDICATE = 25;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.InputPredicateImpl <em>Input Predicate</em>}' class.
@@ -2689,7 +2669,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getInputPredicate()
 	 * @generated
 	 */
-	int INPUT_PREDICATE = 27;
+	int INPUT_PREDICATE = 26;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.UnitConcernContextImpl <em>Unit Concern Context</em>}' class.
@@ -2699,7 +2679,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getUnitConcernContext()
 	 * @generated
 	 */
-	int UNIT_CONCERN_CONTEXT = 28;
+	int UNIT_CONCERN_CONTEXT = 27;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.
@@ -2709,7 +2689,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuilderConcernContext()
 	 * @generated
 	 */
-	int BUILDER_CONCERN_CONTEXT = 29;
+	int BUILDER_CONCERN_CONTEXT = 28;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.AliasedRequiredCapabilityImpl <em>Aliased Required Capability</em>}' class.
@@ -2719,7 +2699,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getAliasedRequiredCapability()
 	 * @generated
 	 */
-	int ALIASED_REQUIRED_CAPABILITY = 31;
+	int ALIASED_REQUIRED_CAPABILITY = 30;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}' class.
@@ -2729,7 +2709,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getIRequiredCapabilityContainer()
 	 * @generated
 	 */
-	int IREQUIRED_CAPABILITY_CONTAINER = 32;
+	int IREQUIRED_CAPABILITY_CONTAINER = 31;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}' class.
@@ -2739,7 +2719,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getIProvidedCapabilityContainer()
 	 * @generated
 	 */
-	int IPROVIDED_CAPABILITY_CONTAINER = 33;
+	int IPROVIDED_CAPABILITY_CONTAINER = 32;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -3525,69 +3505,6 @@ public interface B3BuildPackage extends EPackage {
 	int CONTAINER_CONFIGURATION_FEATURE_COUNT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Parent Context</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT__PARENT_CONTEXT = B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT;
-
-	/**
-	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT__VALUE_MAP = B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP;
-
-	/**
-	 * The feature id for the '<em><b>Func Store</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT__FUNC_STORE = B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE;
-
-	/**
-	 * The feature id for the '<em><b>Effective Concerns</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT__EFFECTIVE_CONCERNS = B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS;
-
-	/**
-	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT__PROGRESS_MONITOR = B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR;
-
-	/**
-	 * The feature id for the '<em><b>Injector</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT__INJECTOR = B3backendPackage.BEXECUTION_CONTEXT__INJECTOR;
-
-	/**
-	 * The number of structural features of the '<em>Build Context</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT_FEATURE_COUNT = B3backendPackage.BEXECUTION_CONTEXT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4216,7 +4133,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getPathGroupPredicate()
 	 * @generated
 	 */
-	int PATH_GROUP_PREDICATE = 30;
+	int PATH_GROUP_PREDICATE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
@@ -4352,7 +4269,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuilderQuery()
 	 * @generated
 	 */
-	int BUILDER_QUERY = 34;
+	int BUILDER_QUERY = 33;
 
 	/**
 	 * The feature id for the '<em><b>Builder Queries</b></em>' containment reference list.
@@ -4938,7 +4855,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuilderWrapper()
 	 * @generated
 	 */
-	int BUILDER_WRAPPER = 37;
+	int BUILDER_WRAPPER = 36;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -5299,7 +5216,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBeeModel()
 	 * @generated
 	 */
-	int BEE_MODEL = 38;
+	int BEE_MODEL = 37;
 
 	/**
 	 * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -5399,7 +5316,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBeeHive()
 	 * @generated
 	 */
-	int BEE_HIVE = 39;
+	int BEE_HIVE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Bee Models</b></em>' reference list.
@@ -5445,7 +5362,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getResolutionInfo()
 	 * @generated
 	 */
-	int RESOLUTION_INFO = 40;
+	int RESOLUTION_INFO = 39;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -5473,7 +5390,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getIEffectiveFacade()
 	 * @generated
 	 */
-	int IEFFECTIVE_FACADE = 72;
+	int IEFFECTIVE_FACADE = 71;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -5501,7 +5418,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getEffectiveFacade()
 	 * @generated
 	 */
-	int EFFECTIVE_FACADE = 41;
+	int EFFECTIVE_FACADE = 40;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -5529,7 +5446,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getEffectiveUnitFacade()
 	 * @generated
 	 */
-	int EFFECTIVE_UNIT_FACADE = 42;
+	int EFFECTIVE_UNIT_FACADE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -5602,7 +5519,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getEffectiveRequirementFacade()
 	 * @generated
 	 */
-	int EFFECTIVE_REQUIREMENT_FACADE = 43;
+	int EFFECTIVE_REQUIREMENT_FACADE = 42;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -5639,7 +5556,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getEffectiveCapabilityFacade()
 	 * @generated
 	 */
-	int EFFECTIVE_CAPABILITY_FACADE = 44;
+	int EFFECTIVE_CAPABILITY_FACADE = 43;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -5676,7 +5593,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuilderCallFacade()
 	 * @generated
 	 */
-	int BUILDER_CALL_FACADE = 45;
+	int BUILDER_CALL_FACADE = 44;
 
 	/**
 	 * The feature id for the '<em><b>Builder Reference</b></em>' reference.
@@ -5722,7 +5639,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getEffectiveBuilderCallFacade()
 	 * @generated
 	 */
-	int EFFECTIVE_BUILDER_CALL_FACADE = 73;
+	int EFFECTIVE_BUILDER_CALL_FACADE = 72;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.BuildSetImpl <em>Build Set</em>}' class.
@@ -5732,7 +5649,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuildSet()
 	 * @generated
 	 */
-	int BUILD_SET = 46;
+	int BUILD_SET = 45;
 
 	/**
 	 * The feature id for the '<em><b>Path Vectors</b></em>' reference list.
@@ -5778,7 +5695,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuildResultContext()
 	 * @generated
 	 */
-	int BUILD_RESULT_CONTEXT = 47;
+	int BUILD_RESULT_CONTEXT = 46;
 
 	/**
 	 * The feature id for the '<em><b>Parent Context</b></em>' reference.
@@ -5860,7 +5777,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getOutputPredicate()
 	 * @generated
 	 */
-	int OUTPUT_PREDICATE = 48;
+	int OUTPUT_PREDICATE = 47;
 
 	/**
 	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
@@ -5897,7 +5814,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getSourcePredicate()
 	 * @generated
 	 */
-	int SOURCE_PREDICATE = 49;
+	int SOURCE_PREDICATE = 48;
 
 	/**
 	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
@@ -5934,7 +5851,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getIBuildUnitRepository()
 	 * @generated
 	 */
-	int IBUILD_UNIT_REPOSITORY = 55;
+	int IBUILD_UNIT_REPOSITORY = 54;
 
 	/**
 	 * The number of structural features of the '<em>IBuild Unit Repository</em>' class.
@@ -5953,7 +5870,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuildUnitRepository()
 	 * @generated
 	 */
-	int BUILD_UNIT_REPOSITORY = 50;
+	int BUILD_UNIT_REPOSITORY = 49;
 
 	/**
 	 * The number of structural features of the '<em>Build Unit Repository</em>' class.
@@ -5972,7 +5889,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getCompoundBuildUnitRepository()
 	 * @generated
 	 */
-	int COMPOUND_BUILD_UNIT_REPOSITORY = 51;
+	int COMPOUND_BUILD_UNIT_REPOSITORY = 50;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' reference list.
@@ -6000,7 +5917,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getCompoundFirstFoundRepository()
 	 * @generated
 	 */
-	int COMPOUND_FIRST_FOUND_REPOSITORY = 52;
+	int COMPOUND_FIRST_FOUND_REPOSITORY = 51;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' reference list.
@@ -6028,7 +5945,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getExecutionStackRepository()
 	 * @generated
 	 */
-	int EXECUTION_STACK_REPOSITORY = 53;
+	int EXECUTION_STACK_REPOSITORY = 52;
 
 	/**
 	 * The number of structural features of the '<em>Execution Stack Repository</em>' class.
@@ -6047,7 +5964,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBeeModelRepository()
 	 * @generated
 	 */
-	int BEE_MODEL_REPOSITORY = 54;
+	int BEE_MODEL_REPOSITORY = 53;
 
 	/**
 	 * The feature id for the '<em><b>Bee Models</b></em>' reference list.
@@ -6075,7 +5992,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getUnitResolutionInfo()
 	 * @generated
 	 */
-	int UNIT_RESOLUTION_INFO = 56;
+	int UNIT_RESOLUTION_INFO = 55;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -6121,7 +6038,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getSwitchUnitProvider()
 	 * @generated
 	 */
-	int SWITCH_UNIT_PROVIDER = 57;
+	int SWITCH_UNIT_PROVIDER = 56;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -6158,7 +6075,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getRepository()
 	 * @generated
 	 */
-	int REPOSITORY = 58;
+	int REPOSITORY = 57;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6240,7 +6157,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBranch()
 	 * @generated
 	 */
-	int BRANCH = 59;
+	int BRANCH = 58;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6358,7 +6275,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getDelegatingUnitProvider()
 	 * @generated
 	 */
-	int DELEGATING_UNIT_PROVIDER = 60;
+	int DELEGATING_UNIT_PROVIDER = 59;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -6395,7 +6312,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getRepoOption()
 	 * @generated
 	 */
-	int REPO_OPTION = 61;
+	int REPO_OPTION = 60;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6432,7 +6349,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getUnitRepositoryDescription()
 	 * @generated
 	 */
-	int UNIT_REPOSITORY_DESCRIPTION = 62;
+	int UNIT_REPOSITORY_DESCRIPTION = 61;
 
 	/**
 	 * The feature id for the '<em><b>Repository</b></em>' reference.
@@ -6469,7 +6386,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuildCallMultiple()
 	 * @generated
 	 */
-	int BUILD_CALL_MULTIPLE = 67;
+	int BUILD_CALL_MULTIPLE = 66;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference.
@@ -6506,7 +6423,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuildCallOnSelectedRequirements()
 	 * @generated
 	 */
-	int BUILD_CALL_ON_SELECTED_REQUIREMENTS = 63;
+	int BUILD_CALL_ON_SELECTED_REQUIREMENTS = 62;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference.
@@ -6552,7 +6469,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuilderInputNameDecorator()
 	 * @generated
 	 */
-	int BUILDER_INPUT_NAME_DECORATOR = 64;
+	int BUILDER_INPUT_NAME_DECORATOR = 63;
 
 	/**
 	 * The feature id for the '<em><b>Builder Input</b></em>' containment reference list.
@@ -6589,7 +6506,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuilderInputContextDecorator()
 	 * @generated
 	 */
-	int BUILDER_INPUT_CONTEXT_DECORATOR = 65;
+	int BUILDER_INPUT_CONTEXT_DECORATOR = 64;
 
 	/**
 	 * The feature id for the '<em><b>Builder Input</b></em>' containment reference list.
@@ -6626,7 +6543,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuilderInputCondition()
 	 * @generated
 	 */
-	int BUILDER_INPUT_CONDITION = 66;
+	int BUILDER_INPUT_CONDITION = 65;
 
 	/**
 	 * The feature id for the '<em><b>Builder Input</b></em>' containment reference list.
@@ -6663,7 +6580,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuildCallSingle()
 	 * @generated
 	 */
-	int BUILD_CALL_SINGLE = 68;
+	int BUILD_CALL_SINGLE = 67;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference.
@@ -6709,7 +6626,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuildCallOnDeclaredRequirement()
 	 * @generated
 	 */
-	int BUILD_CALL_ON_DECLARED_REQUIREMENT = 69;
+	int BUILD_CALL_ON_DECLARED_REQUIREMENT = 68;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference.
@@ -6764,7 +6681,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuildCallOnReferencedRequirement()
 	 * @generated
 	 */
-	int BUILD_CALL_ON_REFERENCED_REQUIREMENT = 70;
+	int BUILD_CALL_ON_REFERENCED_REQUIREMENT = 69;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference.
@@ -6819,7 +6736,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBuilderInputGroup()
 	 * @generated
 	 */
-	int BUILDER_INPUT_GROUP = 71;
+	int BUILDER_INPUT_GROUP = 70;
 
 	/**
 	 * The feature id for the '<em><b>Builder Input</b></em>' containment reference list.
@@ -6892,7 +6809,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getMergeConflictStrategy()
 	 * @generated
 	 */
-	int MERGE_CONFLICT_STRATEGY = 74;
+	int MERGE_CONFLICT_STRATEGY = 73;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.BranchPointType <em>Branch Point Type</em>}' enum.
@@ -6902,7 +6819,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBranchPointType()
 	 * @generated
 	 */
-	int BRANCH_POINT_TYPE = 75;
+	int BRANCH_POINT_TYPE = 74;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.TriState <em>Tri State</em>}' enum.
@@ -6912,7 +6829,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getTriState()
 	 * @generated
 	 */
-	int TRI_STATE = 76;
+	int TRI_STATE = 75;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -6922,7 +6839,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 77;
+	int VERSION_RANGE = 76;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -6932,7 +6849,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 78;
+	int VERSION = 77;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -6942,7 +6859,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 79;
+	int ISTATUS = 78;
 
 	/**
 	 * The meta object id for the '<em>Path Iterator</em>' data type.
@@ -6952,7 +6869,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getPathIterator()
 	 * @generated
 	 */
-	int PATH_ITERATOR = 80;
+	int PATH_ITERATOR = 79;
 
 	/**
 	 * The meta object id for the '<em>B3 Builder Job</em>' data type.
@@ -6962,7 +6879,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getB3BuilderJob()
 	 * @generated
 	 */
-	int B3_BUILDER_JOB = 81;
+	int B3_BUILDER_JOB = 80;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
@@ -7349,16 +7266,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBuildConcernContext_DefaultPropertiesRemovals();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.BuildContext <em>Build Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Build Context</em>'.
-	 * @see org.eclipse.b3.build.BuildContext
-	 * @generated
-	 */
-	EClass getBuildContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.Builder <em>Builder</em>}'.

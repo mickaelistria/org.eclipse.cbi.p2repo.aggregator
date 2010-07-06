@@ -24,6 +24,7 @@ import org.eclipse.b3.backend.evaluator.BackendWeaver;
 import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
@@ -33,7 +34,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BuildConcernContext;
-import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.BuilderConcernContext;
 import org.eclipse.b3.build.BuilderInput;
@@ -376,7 +376,7 @@ public class Weaver extends BackendWeaver {
 	 * @return true if the given unit was modified
 	 * @throws Throwable
 	 */
-	private boolean adviseUnit(UnitConcernContext theUnitConcern, BuildUnit u, BuildContext ctx) throws Throwable {
+	private boolean adviseUnit(UnitConcernContext theUnitConcern, BuildUnit u, BContext ctx) throws Throwable {
 		boolean modified = false;
 
 		// removal of provided capabilities
@@ -703,10 +703,11 @@ public class Weaver extends BackendWeaver {
 		// weave by creating a copy an then advice it
 		BuildUnit clone = BuildUnit.class.cast(EcoreUtil.copy(candidate));
 		// modify the build unit, and store it
-		BuildContext bctx = BuildContext.class.cast(ictx.getParentContext());
+		BContext bctx = BContext.class.cast(ictx.getParentContext());
 		// but only if the unit itself was advised (NOTE: modifying builders does not affect the build unit)
 		if(adviseUnit(o, clone, bctx))
-			bctx.defineBuildUnit(clone, true);
+			evaluator.doDefine(clone, bctx, true);
+		// bctx.defineBuildUnit(clone, true);
 		return true;
 	}
 

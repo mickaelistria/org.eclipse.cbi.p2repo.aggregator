@@ -10,9 +10,11 @@ package org.eclipse.b3.build.core;
 
 import org.eclipse.b3.backend.core.B3NoSuchVariableException;
 import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.BContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BeeModel;
-import org.eclipse.b3.build.BuildContext;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.DelegatingUnitProvider;
 import org.eclipse.b3.build.EffectiveRequirementFacade;
@@ -47,7 +49,7 @@ public class SimpleResolver implements IBuildUnitResolver {
 	 * 
 	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveAll(org.eclipse.b3.build.BuildContext)
 	 */
-	public IStatus resolveAll(BuildContext ctx) {
+	public IStatus resolveAll(BExecutionContext ctx) {
 		EffectiveUnitIterator uItor = new EffectiveUnitIterator(ctx);
 		MultiStatus ms = new MultiStatus(B3BuildActivator.instance.getBundle().getSymbolicName(), 0, "", null);
 		while(uItor.hasNext())
@@ -60,7 +62,7 @@ public class SimpleResolver implements IBuildUnitResolver {
 	 * 
 	 * @see org.eclipse.b3.build.core.IBuildUnitResolver#resolveUnit(org.eclipse.b3.build.BuildUnit, org.eclipse.b3.build.BuildContext)
 	 */
-	public IStatus resolveUnit(BuildUnit unit, BuildContext ctx) {
+	public IStatus resolveUnit(BuildUnit unit, BExecutionContext ctx) {
 
 		// ALREADY RESOLVED
 		// check if the unit is already resolved
@@ -71,16 +73,19 @@ public class SimpleResolver implements IBuildUnitResolver {
 
 		// DEFINE UNIT IF NOT DEFINED
 		// check if the unit is defined, and define it (and its parent BeeModel) if not
-		BuildUnit u = ctx.getEffectiveBuildUnit(unit);
+		BuildUnit u = ctx.getSomeThing(BuildUnit.class, BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getIface());
+
+		// BuildUnit u = ctx.getEffectiveBuildUnit(unit);
 		if(u == null) {
-			BuildContext outer = B3BuildFactory.eINSTANCE.createBuildContext();
+			BContext outer = B3backendFactory.eINSTANCE.createBContext();
 			outer.setParentContext(ctx);
 			ctx = outer;
 			try {
 				if(unit.eContainer() instanceof BeeModel)
 					evaluator.doEvaluate(unit.eContainer(), ctx);
 				else
-					ctx.defineBuildUnit(unit, false);
+					evaluator.doDefine(unit, ctx);
+				// ctx.defineBuildUnit(unit, false);
 			}
 			catch(Throwable e) {
 				ri = B3BuildFactory.eINSTANCE.createResolutionInfo();

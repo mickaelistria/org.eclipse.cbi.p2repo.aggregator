@@ -320,21 +320,6 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Build Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Build Context</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBuildContext(BuildContext object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Builder</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1616,17 +1601,6 @@ public class B3BuildSwitch<T> {
 			case B3BuildPackage.CONTAINER_CONFIGURATION: {
 				ContainerConfiguration containerConfiguration = (ContainerConfiguration) theEObject;
 				T result = caseContainerConfiguration(containerConfiguration);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILD_CONTEXT: {
-				BuildContext buildContext = (BuildContext) theEObject;
-				T result = caseBuildContext(buildContext);
-				if(result == null)
-					result = caseBExecutionContext(buildContext);
-				if(result == null)
-					result = caseITypedValueContainer(buildContext);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

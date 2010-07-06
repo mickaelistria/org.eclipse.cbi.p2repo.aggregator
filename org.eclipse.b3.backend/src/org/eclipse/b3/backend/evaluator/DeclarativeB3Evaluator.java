@@ -51,6 +51,40 @@ public class DeclarativeB3Evaluator implements IB3Evaluator {
 			}
 		});
 
+	private final PolymorphicDispatcher<Object> definitionDispatcher = new PolymorphicDispatcher<Object>(
+		"define", 2, 3, Collections.singletonList(this), new ErrorHandler<Object>() {
+			public Object handle(Object[] params, Throwable e) {
+				return handleError(params, e);
+			}
+		});
+
+	public Type define(Object o, BExecutionContext ctx) {
+		throw new UnsupportedOperationException("No suitable 'define' method for object of class:" + o.getClass());
+	}
+
+	public Type define(Object o, BExecutionContext ctx, boolean isWeaving) {
+		throw new UnsupportedOperationException("No suitable 'define weaving' method for object of class:" +
+				o.getClass());
+	}
+
+	public Object doDefine(Object element, BExecutionContext ctx) throws Throwable {
+		try {
+			return definitionDispatcher.invoke(element, ctx);
+		}
+		catch(WrappedException e) {
+			throw e.getCause();
+		}
+	}
+
+	public Object doDefine(Object element, BExecutionContext ctx, boolean isWeaving) throws Throwable {
+		try {
+			return definitionDispatcher.invoke(element, ctx, isWeaving);
+		}
+		catch(WrappedException e) {
+			throw e.getCause();
+		}
+	}
+
 	public Object doEvaluate(Object element, BExecutionContext ctx) throws Throwable {
 		try {
 			return evalDispatcher.invoke(element, ctx);
@@ -59,6 +93,10 @@ public class DeclarativeB3Evaluator implements IB3Evaluator {
 			throw e.getCause();
 		}
 	}
+
+	// public Object doEvaluate(Object element, BExecutionContext ctx, Object arg) {
+	// return evalDispatcher.invoke(element, ctx, arg);
+	// }
 
 	public Object doEvaluateDefaults(Object element, BExecutionContext ctx, boolean allVisible) throws Throwable {
 		try {
@@ -77,10 +115,6 @@ public class DeclarativeB3Evaluator implements IB3Evaluator {
 			throw e.getCause();
 		}
 	}
-
-	// public Object doEvaluate(Object element, BExecutionContext ctx, Object arg) {
-	// return evalDispatcher.invoke(element, ctx, arg);
-	// }
 
 	public LValue doLValue(Object element, BExecutionContext ctx) throws Throwable {
 		return lvalueDispatcher.invoke(element, ctx);
