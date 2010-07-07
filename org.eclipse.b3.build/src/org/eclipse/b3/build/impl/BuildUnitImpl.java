@@ -42,6 +42,7 @@ import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.core.EffectiveCapabilitiesIteratorProvider;
 import org.eclipse.b3.build.core.EffectiveRequirementsIteratorProvider;
+import org.eclipse.b3.build.internal.BuildUnitUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -974,12 +975,12 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			buf.append("b3output:/");
 			String n = getName();
 			if(n == null || n.length() < 1)
-				n = "UNNAMED-UNIT@" + String.valueOf(hashCode());
+				n = "UNNAMED_UNIT__" + String.valueOf(hashCode());
 			buf.append(getName());
 			Version v = getVersion();
 			if(v != null) {
 				buf.append("_");
-				v.toString(buf);
+				buf.append(BuildUnitUtils.getClassnameSafeVersionString(v));
 			}
 			buf.append("/");
 			setOutputLocation(URI.create(buf.toString()));

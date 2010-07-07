@@ -433,7 +433,8 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (annotations: ");
-		valueMap.toString(result);
+		if(valueMap != null)
+			valueMap.toString(result);
 		result.append(')');
 
 		result.append(" (pathVectors: ");
