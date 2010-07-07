@@ -1055,20 +1055,21 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
-	public URI createURIFromString(EDataType eDataType, String initialValue) {
-		return (URI) super.createFromString(eDataType, initialValue);
+	public java.net.URI createURIFromString(EDataType eDataType, String initialValue) {
+		return (java.net.URI) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public Version createVersionFromString(EDataType eDataType, String initialValue) {
-		return (Version) super.createFromString(eDataType, initialValue);
+		return Version.create(initialValue);
+		// return (Version) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
