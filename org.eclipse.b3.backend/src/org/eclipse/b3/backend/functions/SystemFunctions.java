@@ -105,6 +105,12 @@ public class SystemFunctions {
 		return null;
 	}
 
+	@B3Backend(hideOriginal = true, funcNames = { "do" }, systemFunction = "__do", varargs = true, typeFunction = "returnTypeOfLastLambda")
+	public static Object _do(@B3Backend(name = "iterable") Iterator<?> iterator,
+			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
+		return null;
+	}
+
 	@B3Backend(system = true, typeFunction = "returnTypeOfFirstLambda")
 	public static Object _evaluate(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		if(params == null || params.length < 1 || !(params[0] instanceof BFunction))
@@ -319,6 +325,12 @@ public class SystemFunctions {
 		return null;
 	}
 
+	@B3Backend(systemFunction = "_all", varargs = true)
+	public static Boolean all(@B3Backend(name = "iterator") Iterator<?> iterable,
+			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
+		return null;
+	}
+
 	/**
 	 * Asserts that a variable of type <code>expected</code> can be assigned the value <code>actual</code>.
 	 * 
@@ -405,6 +417,12 @@ public class SystemFunctions {
 		return null;
 	}
 
+	@B3Backend(systemFunction = "_collect", varargs = true)
+	public static List<Object> collect(@B3Backend(name = "iterator") Iterator<?> iterable,
+			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
+		return null;
+	}
+
 	/**
 	 * Evaluate a function - the same as calling it.
 	 * 
@@ -425,6 +443,12 @@ public class SystemFunctions {
 		return null;
 	}
 
+	@B3Backend(systemFunction = "_exists", varargs = true)
+	public static Boolean exists(@B3Backend(name = "iterator") Iterator<?> iterator,
+			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
+		return null;
+	}
+
 	/**
 	 * Organizes the parameters in a curried call.
 	 * 
@@ -436,7 +460,6 @@ public class SystemFunctions {
 	private static Curry hurryCurry(Object[] params, Type[] types, String name) {
 		Curry cur = new Curry();
 
-		Iterable<?> iterable = (Iterable<?>) params[0];
 		int nParameters = params.length;
 		if(nParameters < 2)
 			throw new IllegalArgumentException("system function '" + name + "' expected 2 or more arguments");
@@ -458,7 +481,10 @@ public class SystemFunctions {
 				}
 			nLambdaParameters = nParameters - 2; // -1 for iterator, -1 for lambda
 		}
-		cur.itor = iterable.iterator();
+
+		cur.itor = params[0] instanceof Iterator
+				? ((Iterator<?>) params[0])
+				: ((Iterable<?>) params[0]).iterator();
 		cur.p = new Object[nLambdaParameters];
 		cur.t = new Type[nLambdaParameters];
 		for(int i = 0; i < nLambdaParameters; i++) {
@@ -479,8 +505,20 @@ public class SystemFunctions {
 		return null;
 	}
 
+	@B3Backend(systemFunction = "_inject", varargs = true, typeFunction = "returnTypeOfLastLambda")
+	public static Object inject(@B3Backend(name = "iterator") Iterator<?> iterator,
+			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
+		return null;
+	}
+
 	@B3Backend(systemFunction = "_reject", varargs = true)
 	public static List<Object> reject(@B3Backend(name = "iterable") Iterable<?> iterable,
+			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
+		return null;
+	}
+
+	@B3Backend(systemFunction = "_reject", varargs = true)
+	public static List<Object> reject(@B3Backend(name = "iterator") Iterator<?> iterable,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
 		return null;
 	}
@@ -506,6 +544,12 @@ public class SystemFunctions {
 
 	@B3Backend(systemFunction = "_select", varargs = true)
 	public static List<Object> select(@B3Backend(name = "iterable") Iterable<?> iterable,
+			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
+		return null;
+	}
+
+	@B3Backend(systemFunction = "_select", varargs = true)
+	public static List<Object> select(@B3Backend(name = "iterator") Iterator<?> iterator,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
 		return null;
 	}
