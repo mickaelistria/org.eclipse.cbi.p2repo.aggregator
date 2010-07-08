@@ -16,6 +16,7 @@ import org.eclipse.b3.backend.evaluator.B3BackendLValProvider;
 import org.eclipse.b3.backend.evaluator.IB3LvalProvider;
 import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.b3.backend.scoping.IFuncScopeProvider;
+import org.eclipse.b3.build.engine.B3BuildEngineResource;
 import org.eclipse.b3.evaluator.B3BuildFuncScopeProvider;
 import org.eclipse.b3.evaluator.B3BuildTypeProvider;
 import org.eclipse.b3.formatting.BeeLangFormatter;
@@ -39,7 +40,6 @@ import com.google.inject.Singleton;
  * Use this class to register components to be used within the IDE.
  */
 public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeModule {
-
 	/**
 	 * Override the binding of the XtextResourceSetProvider with an implementation
 	 * that adds the "b3engine:/" resource
@@ -51,7 +51,6 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 			SynchronizedXtextResourceSet rs = new SynchronizedXtextResourceSet();
 			URI uri = URI.createURI("b3engine:/default");
 			rs.getResource(uri, true);
-			// rs.getResources().add(r);
 			return rs;
 		}
 	}
@@ -110,6 +109,8 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 		super.configure(binder);
 		// don't know how to do this using Xtext declarative approach...
 		binder.bind(IVersionFormatManager.class).to(DefaultVersionFormatManager.class).in(Singleton.class);
+		// Needs access to injector
+		binder.requestStaticInjection(B3BuildEngineResource.class);
 	}
 
 	public Class<? extends Provider<XtextResourceSet>> provideXtextResourceSet() {

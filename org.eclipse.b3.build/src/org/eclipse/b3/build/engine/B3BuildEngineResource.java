@@ -14,8 +14,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.JavaToB3Helper;
 import org.eclipse.b3.backend.evaluator.IB3Engine;
+import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
@@ -23,25 +25,39 @@ import org.eclipse.b3.backend.functions.ArithmeticFunctions;
 import org.eclipse.b3.backend.functions.RelationalFunctions;
 import org.eclipse.b3.backend.functions.StringFunctions;
 import org.eclipse.b3.backend.functions.SystemFunctions;
+import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.functions.BuildFunctions;
+import org.eclipse.b3.build.internal.B3BuildActivator;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ContentHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.resource.XtextResourceSet;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 
 /**
  * The Engine Resource is a b3 model loaded from the environment. It can not be saved.
  * 
  */
 public class B3BuildEngineResource extends ResourceImpl {
+
+	@Inject
+	private static Injector injector;
 
 	private static BDefValue createValue(String name, Type type, boolean isFinal) {
 		BDefValue var = B3backendFactory.eINSTANCE.createBDefValue();
@@ -174,6 +190,107 @@ public class B3BuildEngineResource extends ResourceImpl {
 			// should not happen...
 			throw new IllegalArgumentException("A system class could not be loaded", e);
 		}
+		// load default resources
+		// loadDefaultResources();
+		loadDefaultExports();
+		B3JavaImport o = null;
+		content.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("java.lang.Object");
+		content.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("java.lang.String");
+		content.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("java.lang.Boolean");
+		content.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("java.lang.Integer");
+		content.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("java.lang.Double");
+		content.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("java.lang.StringBuffer");
+		content.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("java.util.List");
+		content.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("java.util.ArrayList");
+		content.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("java.util.Map");
+		content.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("java.util.HashMap");
+
+	}
+
+	private void loadDefaultExports() {
+		IConfigurationElement[] configs = Platform.getExtensionRegistry().getConfigurationElementsFor(
+			B3BuildActivator.EXTENSION__KLUDGY_IMPORT);
+		List<IKludgyImportProvider> useExports = Lists.newArrayList();
+		for(IConfigurationElement e : configs) {
+			try {
+				if(e.getName().equals("exportprovider"))
+					useExports.add(IKludgyImportProvider.class.cast(e.createExecutableExtension("clazz")));
+			}
+			catch(CoreException e1) {
+				e1.printStackTrace();
+				throw new B3InternalError("Loading of exported 'use java.class.x.y' failed with exception", e1);
+			}
+		}
+		EList<EObject> content = getContents();
+		for(IKludgyImportProvider p : useExports) {
+			for(B3JavaImport j : p.getImports())
+				content.add(j);
+		}
+	}
+
+	private void loadDefaultResources() {
+		// Get files from extension points...
+		XtextResourceSet beeLangResourceSet = injector.getProvider(XtextResourceSet.class).get();
+		beeLangResourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
+
+		// load build plugin's own b3 files
+		URI b3FileURI = URI.createPlatformPluginURI("/org.eclipse.b3.build/src-b3/javaimports.b3", true);
+		XtextResource resource = (XtextResource) beeLangResourceSet.createResource(
+			b3FileURI, ContentHandler.UNSPECIFIED_CONTENT_TYPE);
+
+		try {
+			resource.load(null);
+		}
+		catch(IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// // List<org.eclipse.emf.common.util.Diagnostic> syntaxErrors = resource.validateConcreteSyntax();
+		//
+		// EList<Diagnostic> errors = resource.getErrors();
+		// if(errors.size() > 0 /* || syntaxErrors.size() > 0 */) {
+		// ArrayList<Throwable> problems = new ArrayList<Throwable>(errors.size());
+		//
+		// for(Diagnostic error : errors) {
+		// try {
+		// if(error instanceof AbstractDiagnostic)
+		// throw new Exception("Error at line: " + error.getLine() + ": " + error.getMessage());
+		// throw new Exception("Error at unspecified location: " + error.getMessage());
+		// }
+		// catch(Throwable t) {
+		// problems.add(t);
+		// }
+		// }
+		// // for(org.eclipse.emf.common.util.Diagnostic error : syntaxErrors) {
+		// // try {
+		// // if(error instanceof AbstractDiagnostic)
+		// // throw new Exception("Error at line: " + ((AbstractDiagnostic) error).getLine() + ": " +
+		// // error.getMessage());
+		// // throw new Exception("Error at unspecified location: " + error.getMessage());
+		// // }
+		// // catch(Throwable t) {
+		// // problems.add(t);
+		// // }
+		// // }
+		//
+		// throw new MultiProblemException("There were parse errors in the file", problems);
+		// }
+		//
+		// TODO: Use an Engine with test bindings for repositories
+		BeeModel beeModel = (BeeModel) resource.getParseResult().getRootASTElement();
+		beeModel.getImports();
+		//
 	}
 
 	private void processFunctions(Multimap<IFunction, String> functions) {

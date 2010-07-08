@@ -67,14 +67,20 @@ public class SimpleResolver implements IBuildUnitResolver {
 
 		// ALREADY RESOLVED
 		// check if the unit is already resolved
-		ResolutionInfoAdapter unitAdapter = ResolutionInfoAdapterFactory.eINSTANCE.adapt(unit);
-		ResolutionInfo ri = unitAdapter.getAssociatedInfo(this);
-		if(ri != null && ri.getStatus().isOK()) {
+		final ResolutionInfoAdapter unitAdapter = ResolutionInfoAdapterFactory.eINSTANCE.adapt(unit);
+		final UnitResolutionInfo knownUnitResolutionInfo = (UnitResolutionInfo) unitAdapter.getAssociatedInfo(this);
+
+		if(knownUnitResolutionInfo != null && knownUnitResolutionInfo.getStatus().isOK()) {
 			// System.err.printf(" ALREADY RESOLVED - %s\n", ri.getStatus().getCode() == IStatus.OK
 			// ? "OK"
 			// : "FAIL");
-			return ri.getStatus();
+			return knownUnitResolutionInfo.getStatus();
 		}
+		// GIVE THE UNIT A NEW RESOLUTION INFO
+		final UnitResolutionInfo resultingUnitResolutionInfo = B3BuildFactory.eINSTANCE.createUnitResolutionInfo();
+		unitAdapter.setAssociatedInfo(this, resultingUnitResolutionInfo);
+		resultingUnitResolutionInfo.setUnit(unit);
+
 		// System.err.printf(" processing\n");
 
 		// DEFINE UNIT IF NOT DEFINED
@@ -98,11 +104,11 @@ public class SimpleResolver implements IBuildUnitResolver {
 				// }
 			}
 			catch(Throwable e) {
-				ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
-				ri.setStatus(new Status(
+				resultingUnitResolutionInfo.setContext(ctx); // may be bad...
+				resultingUnitResolutionInfo.setStatus(new Status(
 					IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
 					"Resolution failed with exception when defining a candidate unit", e));
-				return ri.getStatus(); // give up on unit
+				return resultingUnitResolutionInfo.getStatus(); // give up on unit
 			}
 		}
 
@@ -110,13 +116,14 @@ public class SimpleResolver implements IBuildUnitResolver {
 		EffectiveUnitFacade uFacade;
 		try {
 			uFacade = unit.getEffectiveFacade(ctx);
+			ctx = uFacade.getContext();
 		}
 		catch(Throwable e1) {
-			ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
-			ri.setStatus(new Status(
+			resultingUnitResolutionInfo.setContext(ctx); // may be bad...
+			resultingUnitResolutionInfo.setStatus(new Status(
 				IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
 				"Resolution failed with exception when getting effective unit", e1));
-			return ri.getStatus(); // give up on unit
+			return resultingUnitResolutionInfo.getStatus(); // give up on unit
 		}
 
 		// PROCESS ALL REQUIREMENTS
@@ -124,15 +131,17 @@ public class SimpleResolver implements IBuildUnitResolver {
 		EList<EffectiveRequirementFacade> requiredCapabilities = uFacade.getRequiredCapabilities();
 		// trivial case - no requirements
 		if(requiredCapabilities.size() < 1) {
-			ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
-			ri.setStatus(Status.OK_STATUS);
-			unitAdapter.setAssociatedInfo(this, ri);
+			resultingUnitResolutionInfo.setStatus(Status.OK_STATUS);
+			resultingUnitResolutionInfo.setContext(ctx);
 			// System.err.print("    OK - NO REQUIREMENTS\n");
-			return ri.getStatus();
+			return resultingUnitResolutionInfo.getStatus();
 		}
+
 		// Satisfy all requirements
 		//
-		MultiStatus ms = new MultiStatus(B3BuildActivator.instance.getBundle().getSymbolicName(), 0, "", null);
+		final MultiStatus ms = new MultiStatus(B3BuildActivator.instance.getBundle().getSymbolicName(), 0, "", null);
+		resultingUnitResolutionInfo.setStatus(ms);
+
 		// create a stack provider (to be used in front of any defined providers)
 		final RepositoryUnitProvider stackProvider = B3BuildFactory.eINSTANCE.createRepositoryUnitProvider();
 		stackProvider.setBuildUnitRepository(B3BuildFactory.eINSTANCE.createExecutionStackRepository());
@@ -140,25 +149,30 @@ public class SimpleResolver implements IBuildUnitResolver {
 		for(EffectiveRequirementFacade ereq : requiredCapabilities) {
 			RequiredCapability r = ereq.getRequirement();
 
+			// POSSIBLE BAD MODEL STATE
 			if(r == null) {
 				// bad model state (should have been caught by validation).
-				ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
-				ri.setStatus(new Status(
+				// override the ms already set, it is not needed, better to set the error status directly
+				// as there are no other statuses to collect (requirements are null).
+				resultingUnitResolutionInfo.setStatus(new Status(
 					IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
 					"Unit contains null requirement"));
-				unitAdapter.setAssociatedInfo(this, ri);
+				resultingUnitResolutionInfo.setContext(ctx); // possibly bad state...
 				// System.err.print("    FAIL - NULL EFFECTIVE REQUIREMENTS\n");
-				return ri.getStatus();
+				return resultingUnitResolutionInfo.getStatus();
 			}
-			ResolutionInfoAdapter reqAdapter = ResolutionInfoAdapterFactory.eINSTANCE.adapt(r);
-			ri = reqAdapter.getAssociatedInfo(this);
+			// GET regAdapter, to associate result with requirement (i.e. what it resolved to).
+			final ResolutionInfoAdapter reqAdapter = ResolutionInfoAdapterFactory.eINSTANCE.adapt(r);
 
 			// System.err.printf("    REQUIREMENT %s, %s - has status: %s\n", r.getName(), r.getVersionRange(), ri == null
 			// ? "UNRESOLVED"
 			// : ri.getStatus().getCode() == IStatus.OK
 			// ? "OK"
 			// : "FAIL");
-			if(ri != null)
+
+			// A single requirement can be used multiple times (declared in unit, used in several builders),
+			// so it may already have been processed
+			if(reqAdapter.getAssociatedInfo(this) != null)
 				continue; // already processed and it has a status (ok, error, cancel)
 
 			// get the effective unit providers to use for resolution
@@ -185,24 +199,29 @@ public class SimpleResolver implements IBuildUnitResolver {
 					plist.add(delegate);
 					providerToUse = ff;
 				}
+
+				// GET THE UNIT FROM THE REPOSITORY CONFIGURATION
 				// note effective requirement has reference to the context to use
 				BuildUnit result = providerToUse.resolve(ereq);
 				if(result == null) {
 					// System.err.printf("        UNRESOLVED - provider did not find it.\n");
 
-					ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
-					ri.setStatus(new Status(
+					resultingUnitResolutionInfo.setStatus(new Status(
 						IStatus.WARNING, B3BuildActivator.instance.getBundle().getSymbolicName(), "Unresolved."));
-					reqAdapter.setAssociatedInfo(this, ri);
+					reqAdapter.setAssociatedInfo(this, resultingUnitResolutionInfo);
 				}
 				else {
 					// System.err.printf("        RESOLVED - provider found match.\n");
-					UnitResolutionInfo unitRi = B3BuildFactory.eINSTANCE.createUnitResolutionInfo();
+					// SET THE REQUIREMENT's RESOLUTION INFO -> Resolved Unit
+					final UnitResolutionInfo unitRi = B3BuildFactory.eINSTANCE.createUnitResolutionInfo();
 					unitRi.setUnit(result);
 					unitRi.setStatus(Status.OK_STATUS); // prevent recursion
-					reqAdapter.setAssociatedInfo(this, unitRi);
-					unitRi.setStatus(resolveUnit(result, ctx)); // update status with resulting status graph
+					unitRi.setContext(ereq.getContext()); // the context in which the requirement was resolved.
+					// update status with resulting status graph (i.e. both on requirement, and result for unit being
+					// resolved.
+					unitRi.setStatus(resolveUnit(result, ctx));
 					ms.add(unitRi.getStatus());
+					reqAdapter.setAssociatedInfo(this, unitRi);
 				}
 			}
 			catch(Throwable e) {
@@ -210,21 +229,19 @@ public class SimpleResolver implements IBuildUnitResolver {
 				e.printStackTrace();
 
 				// associate the error information with the requirement
-				ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
+				final ResolutionInfo ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
 				ri.setStatus(new Status(
 					IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
 					"Resolution failed with exception", e));
-				// TODO: do something better than print stack trace
-				// e.printStackTrace();
 				reqAdapter.setAssociatedInfo(this, ri);
 				ms.add(ri.getStatus());
 			}
 
 		}
-		// update the unit with the status information from resolving all of its requirements
-		ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
-		ri.setStatus(ms);
-		unitAdapter.setAssociatedInfo(this, ri);
+		// // update the unit with the status information from resolving all of its requirements
+		// ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
+		// ri.setStatus(ms);
+		// unitAdapter.setAssociatedInfo(this, ri);
 		return ms;
 	}
 }

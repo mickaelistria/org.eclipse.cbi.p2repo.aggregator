@@ -43,7 +43,7 @@ import org.eclipse.b3.build.engine.B3BuildEngineResource;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
@@ -99,6 +99,14 @@ public class DeclarativeVarScopeProvider {
 			return scope;
 		}
 		return null;
+	}
+
+	private B3BuildEngineResource getDefaultResource(EObject o) {
+		ResourceSet rs = o.eResource().getResourceSet();
+
+		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
+		return (B3BuildEngineResource) rs.getResource(uri, true);
+
 	}
 
 	protected Object handleError(Object[] params, Throwable e) {
@@ -179,8 +187,9 @@ public class DeclarativeVarScopeProvider {
 			result.add(new EObjectDescription(defProp.getName(), defProp, null));
 
 		}
-		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
-		B3BuildEngineResource r = (B3BuildEngineResource) container.eResource().getResourceSet().getResource(uri, false);
+		// URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
+		// B3BuildEngineResource r = (B3BuildEngineResource) container.eResource().getResourceSet().getResource(uri, true);
+		B3BuildEngineResource r = getDefaultResource(container);
 
 		if(result.size() < 1)
 			return doGetVarScope(r);
@@ -234,8 +243,10 @@ public class DeclarativeVarScopeProvider {
 	 * @return
 	 */
 	IScope varScope(Builder container, EObject contained) {
-		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
-		B3BuildEngineResource r = (B3BuildEngineResource) container.eResource().getResourceSet().getResource(uri, false);
+		// URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
+		// B3BuildEngineResource r = (B3BuildEngineResource) container.eResource().getResourceSet().getResource(uri, true);
+		B3BuildEngineResource r = getDefaultResource(container);
+
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 
 		// Explicit "unit"
@@ -319,13 +330,13 @@ public class DeclarativeVarScopeProvider {
 		return doGetVarScope(container.eContainer(), container);
 	}
 
-	public IScope varScope(Object o) {
-		return null;
-	}
-
 	// public IScope varScope(UnitConcernContext container, EObject contained) {
 	//
 	// }
+
+	public IScope varScope(Object o) {
+		return null;
+	}
 
 	/**
 	 * Picks the "resource" variable from the engine resource
@@ -335,9 +346,10 @@ public class DeclarativeVarScopeProvider {
 	 * @return
 	 */
 	IScope varScope(UnitProvider container, EObject contained) {
-		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
-		Resource r = container.eResource().getResourceSet().getResource(uri, false);
-		BDefValue req = ((B3BuildEngineResource) r).getVarRequest();
+		// URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
+		// Resource r = container.eResource().getResourceSet().getResource(uri, true);
+		// BDefValue req = ((B3BuildEngineResource) r).getVarRequest();
+		BDefValue req = getDefaultResource(container).getVarRequest();
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		result.add(new EObjectDescription(req.getName(), req, null));
 		return createScope(doGetVarScope(container.eContainer(), container), result);

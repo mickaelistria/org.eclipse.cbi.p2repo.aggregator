@@ -12,6 +12,8 @@
    <extension-point id="BuildUnitInterface" name="BuildUnitInterface" schema="schema/BuildUnitInterface.exsd"/>
    <extension-point id="RepositoryScheme" name="RepositoryScheme" schema="schema/RepositoryScheme.exsd"/>
    <extension-point id="RepositoryValidator" name="RepositoryValidator" schema="schema/RepositoryValidator.exsd"/>
+   <extension-point id="B3File" name="org.eclipse.b3.build.B3File" schema="schema/B3File.exsd"/>
+   <extension-point id="B3KludgeImport" name="B3KludgeImport" schema="schema/B3KludgeImport.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
@@ -67,6 +69,13 @@
             class="org.eclipse.b3.build.engine.B3BuildEngineResourceFactory"
             protocolName="b3engine">
       </parser>
+   </extension>
+   <extension
+         point="org.eclipse.b3.build.B3File">
+      <b3extension
+            b3id="b3.use.export"
+            extensionURI="platform:/plugin/org.eclipse.b3.build/b3-src/javaimports.b3">
+      </b3extension>
    </extension>
 
 </plugin>

@@ -5,6 +5,10 @@ import org.osgi.framework.BundleContext;
 
 public class B3BuildActivator extends Plugin {
 
+	public static final String EXTENSION__B3_FILE = "org.eclipse.b3.build.B3File";
+
+	public static final String EXTENSION__KLUDGY_IMPORT = "org.eclipse.b3.build.B3KludgeImport";
+
 	public static B3BuildActivator instance;
 
 	public B3BuildActivator() {

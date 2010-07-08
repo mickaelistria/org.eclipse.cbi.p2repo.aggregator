@@ -18,15 +18,22 @@ import org.eclipse.b3.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.RequiredCapability;
+import org.eclipse.b3.build.core.B3BuildConstants;
+import org.eclipse.b3.build.engine.B3BuildEngineResource;
+import org.eclipse.b3.build.engine.B3ExtensionLoader;
 import org.eclipse.b3.evaluator.B3BuildFuncScopeProvider;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 import org.eclipse.xtext.scoping.impl.SimpleScope;
+
+import com.google.inject.Inject;
 
 /**
  * This class contains custom scoping description.
@@ -37,6 +44,45 @@ import org.eclipse.xtext.scoping.impl.SimpleScope;
  */
 public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 	// IScope scope_B3ParameterizedType_rawType(B3ParameterizedType ctx, EReference ref) {
+
+	@Inject
+	private B3ExtensionLoader b3ExtensionLoader;
+
+	private B3BuildEngineResource getDefaultResource(EObject o) {
+		ResourceSet rs = o.eResource().getResourceSet();
+
+		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
+		return (B3BuildEngineResource) rs.getResource(uri, true);
+
+	}
+
+	private IScope internalJavaImportsScope(EObject e) {
+		EList<EObject> x = e.eResource().getContents();
+		// create an Iterable of IEObjectDescription - instances of EObjectDescription
+		//
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		for(EObject y : x) {
+			if(y instanceof BeeModel) {
+				for(Type t : ((BeeModel) y).getImports())
+					if(t instanceof B3JavaImport)
+						result.add(new EObjectDescription(((B3JavaImport) t).getName(), (B3JavaImport) t, null));
+			}
+		}
+		B3BuildEngineResource r = getDefaultResource(e);
+		for(EObject t : r.getContents())
+			if(t instanceof B3JavaImport)
+				result.add(new EObjectDescription(((B3JavaImport) t).getName(), t, null));
+
+		// // pick up types from all loaded
+		// for(BeeModel m : b3ExtensionLoader.getModelsByKey(
+		// e.eResource().getResourceSet(), B3ExtensionLoader.B3EXTENSION__USE_EXPORT))
+		// for(Type t : m.getImports())
+		// if(t instanceof B3JavaImport)
+		// result.add(new EObjectDescription(((B3JavaImport) t).getName(), (B3JavaImport) t, null));
+
+		return new SimpleScope(result);
+
+	}
 
 	/**
 	 * Find reference to advice in containing BuildUnit, or in the BeeModel.
@@ -84,33 +130,36 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 	}
 
 	IScope scope_IType(B3FunctionType ctx, EReference ref) {
-		EList<EObject> x = ctx.eResource().getContents();
-		// create an Iterable of IEObjectDescription - instances of EObjectDescription
-		//
-		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		for(EObject y : x) {
-			if(y instanceof BeeModel) {
-				for(Type t : ((BeeModel) y).getImports())
-					if(t instanceof B3JavaImport)
-						result.add(new EObjectDescription(((B3JavaImport) t).getName(), (B3JavaImport) t, null));
-			}
-		}
-		return new SimpleScope(result);
+		return internalJavaImportsScope(ctx);
+
+		// EList<EObject> x = ctx.eResource().getContents();
+		// // create an Iterable of IEObjectDescription - instances of EObjectDescription
+		// //
+		// ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		// for(EObject y : x) {
+		// if(y instanceof BeeModel) {
+		// for(Type t : ((BeeModel) y).getImports())
+		// if(t instanceof B3JavaImport)
+		// result.add(new EObjectDescription(((B3JavaImport) t).getName(), (B3JavaImport) t, null));
+		// }
+		// }
+		// return new SimpleScope(result);
 	}
 
 	IScope scope_IType(B3ParameterizedType ctx, EReference ref) {
-		EList<EObject> x = ctx.eResource().getContents();
-		// create an Iterable of IEObjectDescription - instances of EObjectDescription
-		//
-		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		for(EObject y : x) {
-			if(y instanceof BeeModel) {
-				for(Type t : ((BeeModel) y).getImports())
-					if(t instanceof B3JavaImport)
-						result.add(new EObjectDescription(((B3JavaImport) t).getName(), (B3JavaImport) t, null));
-			}
-		}
-		return new SimpleScope(result);
+		return internalJavaImportsScope(ctx);
+		// EList<EObject> x = ctx.eResource().getContents();
+		// // create an Iterable of IEObjectDescription - instances of EObjectDescription
+		// //
+		// ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		// for(EObject y : x) {
+		// if(y instanceof BeeModel) {
+		// for(Type t : ((BeeModel) y).getImports())
+		// if(t instanceof B3JavaImport)
+		// result.add(new EObjectDescription(((B3JavaImport) t).getName(), (B3JavaImport) t, null));
+		// }
+		// }
+		// return new SimpleScope(result);
 	}
 
 	IScope scope_Repository(RepositoryUnitProvider ctx, EReference ref) {
@@ -156,4 +205,5 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 			return IScope.NULLSCOPE;
 		return new SimpleScope(result);
 	}
+
 }
