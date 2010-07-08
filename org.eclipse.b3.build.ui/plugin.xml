@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension
+       point="org.eclipse.ui.commands">
+    <command
+          description="Runs the function called main"
+          id="org.eclipse.b3.beelang.ui.execute"
+          name="Run Main Function">
+    </command>
+    <command
+          description="Resolves and Runs the function called main"
+          id="org.eclipse.b3.beelang.ui.resolve"
+          name="Run Resolve Main Function">
+    </command>
+ </extension>
+ <extension
+       point="org.eclipse.ui.handlers">
+    <handler
+          class="org.eclipse.b3.build.ui.commands.ResolveHandler"
+          commandId="org.eclipse.b3.beelang.ui.resolve">
+    </handler>
+    <handler
+          class="org.eclipse.b3.build.ui.commands.ExecuteHandler"
+          commandId="org.eclipse.b3.beelang.ui.execute">
+    </handler>
+ </extension>
+ <extension
+       point="org.eclipse.ui.menus">
+    <menuContribution
+          locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
+       <command
+             commandId="org.eclipse.b3.beelang.ui.resolve"
+             label="Resolve and Run Main Function"
+             style="push">
+          <visibleWhen
+                checkEnabled="false">
+             <iterate>
+                <adapt
+                      type="org.eclipse.b3.build.BeeModel">
+                </adapt>
+             </iterate>
+          </visibleWhen>
+       </command>
+    </menuContribution>
+    <menuContribution
+          locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
+       <command
+             commandId="org.eclipse.b3.beelang.ui.execute"
+             label="Run Main Function"
+             style="push">
+          <visibleWhen
+                checkEnabled="false">
+             <iterate>
+                <adapt
+                      type="org.eclipse.b3.build.BeeModel">
+                </adapt>
+             </iterate>
+          </visibleWhen>
+       </command>
+    </menuContribution>
+ </extension>
+
+</plugin>
