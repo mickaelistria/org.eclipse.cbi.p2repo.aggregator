@@ -8,6 +8,7 @@
 
 package org.eclipse.b3.backend.core;
 
+import java.io.File;
 import java.net.URI;
 
 import org.eclipse.b3.backend.evaluator.B3ContextAccess;
@@ -39,12 +40,12 @@ public class B3OutputLocationProvider {
 				break ROOTDIRSELECTION;
 
 			if((tmpDir = safeGetStringProperty("user.home", null)) != null) {
-				rootURI = "file:" + tmpDir + "/tmp/b3output";
+				rootURI = new File(tmpDir + "/tmp/b3output").toURI().toString();
 				break ROOTDIRSELECTION;
 			}
 
 			if((tmpDir = safeGetStringProperty("java.io.tmpdir", null)) != null) {
-				rootURI = "file:" + tmpDir + "/b3output";
+				rootURI = new File(tmpDir + "/b3output").toURI().toString();
 				break ROOTDIRSELECTION;
 			}
 			throw new AssertionFailedException(
