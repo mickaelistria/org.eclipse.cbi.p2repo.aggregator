@@ -145,7 +145,7 @@ class JUnitB3FileRunnerFactory {
 		}
 
 		private void beforeChildren() throws Exception {
-			resolutionScope = engine.getContext().getInjector().getInstance(B3BuildConstants.KEY_RESOLUTION_SCOPE);
+			resolutionScope = engine.getInjector().getInstance(B3BuildConstants.KEY_RESOLUTION_SCOPE);
 			resolutionScope.enter();
 			IStatus status = engine.resolveAllUnits();
 			if(!status.isOK()) {
@@ -240,7 +240,7 @@ class JUnitB3FileRunnerFactory {
 				String functionName = function.getName();
 
 				if(functionName.length() > TEST_FUNCTION_PREFIX.length() &&
-						functionName.startsWith(TEST_FUNCTION_PREFIX) && function.getParameterTypes().length == 0)
+						functionName.startsWith(TEST_FUNCTION_PREFIX) && function.getParameters().size() == 0)
 					testFunctionDescriptors.add(new TestFunctionDescriptor(functionName));
 			}
 

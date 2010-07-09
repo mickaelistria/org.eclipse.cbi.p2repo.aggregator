@@ -853,7 +853,12 @@ public class TypeUtils {
 	public static boolean isAssignableFrom(Type baseType, Object value) {
 		if(value == null)
 			return true;
-		return isAssignableFrom(baseType, value.getClass());
+		Boolean specialCase = isAssignableFromSpecialCase(baseType, value.getClass());
+		if(specialCase != null)
+			return specialCase.booleanValue();
+
+		return getRaw(baseType).isInstance(value);
+		// return isAssignableFrom(baseType, value.getClass());
 	}
 
 	public static boolean isAssignableFrom(Type baseType, Type fromType) {

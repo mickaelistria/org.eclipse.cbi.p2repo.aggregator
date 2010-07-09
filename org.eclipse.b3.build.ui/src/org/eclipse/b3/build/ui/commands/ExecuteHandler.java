@@ -101,7 +101,8 @@ public class ExecuteHandler extends AbstractHandler {
 					final List<Object> argv = new ArrayList<Object>();
 					argv.add(engine);
 					try {
-						return engine.getContext().callFunction(
+						engine.callFunction(
+//						return engine.getContext().callFunction(
 							"main", new Object[] { argv }, new Type[] { List.class });
 					}
 					catch(B3BackendException exprException) {

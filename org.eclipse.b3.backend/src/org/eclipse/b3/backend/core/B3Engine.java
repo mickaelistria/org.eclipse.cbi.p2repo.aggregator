@@ -53,11 +53,11 @@ public class B3Engine implements IB3Engine {
 
 	}
 
-	public BExecutionContext getContext() {
+	protected BExecutionContext getContext() {
 		return invocationContext;
 	}
 
-	public Module getExtensionModules() throws B3EngineException {
+	protected Module getExtensionModules() throws B3EngineException {
 		IConfigurationElement[] configs = Platform.getExtensionRegistry().getConfigurationElementsFor(
 			B3BackendActivator.EXTENSION__RUNTIME_MODULE);
 		List<Module> modules = Lists.newArrayList();

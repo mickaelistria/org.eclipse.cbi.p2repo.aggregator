@@ -110,10 +110,10 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	}
 
 	public Type type(BAssignmentExpression o) {
-		Type t = null;
-		return (t = doGetInferredType(o.getLeftExpr()) == null
-				? doGetInferredType(o.getRightExpr())
-				: t);
+		Type t = doGetInferredType(o.getLeftExpr());
+		if(t == null)
+			t = doGetInferredType(o.getRightExpr());
+		return t;
 	}
 
 	public Type type(BAtExpression o) {

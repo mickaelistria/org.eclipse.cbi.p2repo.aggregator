@@ -61,7 +61,10 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 	}
 
 	public Type type(Object o) {
-		throw new UnsupportedOperationException("No suitable method for object of class:" + o.getClass());
+		// if loglevel is debug
+		// System.err.print("DEBUG: INFO: Default Type inference of class: " + o.getClass() + "\n");
+		return o.getClass();
+		// throw new UnsupportedOperationException("No suitable method for object of class:" + o.getClass());
 		// return o.getClass();
 	}
 

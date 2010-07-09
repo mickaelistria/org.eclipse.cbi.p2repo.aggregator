@@ -9,10 +9,12 @@ import java.util.List;
 import org.eclipse.b3.backend.core.B3AssertionFailedException;
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.evaluator.Any;
+import org.eclipse.b3.backend.evaluator.B3ContextAccess;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.backend.inference.ITypeProvider;
 
 public class SystemFunctions {
 
@@ -191,7 +193,7 @@ public class SystemFunctions {
 	@B3Backend(hideOriginal = true, funcNames = { "instanceof" })
 	public static Boolean _instanceOf(@B3Backend(name = "instance") Object o, @B3Backend(name = "type") Type t) {
 		// TODO: this is cheating - it only compares raw
-		return TypeUtils.isAssignableFrom(t, o.getClass())
+		return TypeUtils.isAssignableFrom(t, o)
 				? Boolean.TRUE
 				: Boolean.FALSE;
 	}
@@ -459,7 +461,8 @@ public class SystemFunctions {
 	 */
 	private static Curry hurryCurry(Object[] params, Type[] types, String name) {
 		Curry cur = new Curry();
-
+		BExecutionContext ctx = B3ContextAccess.get();
+		ITypeProvider typer = ctx.getInjector().getInstance(ITypeProvider.class);
 		int nParameters = params.length;
 		if(nParameters < 2)
 			throw new IllegalArgumentException("system function '" + name + "' expected 2 or more arguments");
@@ -489,12 +492,14 @@ public class SystemFunctions {
 		cur.t = new Type[nLambdaParameters];
 		for(int i = 0; i < nLambdaParameters; i++) {
 			cur.p[i] = params[i + 1];
-			cur.t[i] = params[i + 1].getClass();
+			cur.t[i] = typer.doGetInferredType(params[i + 1]);
+			// cur.t[i] = params[i + 1].getClass();
 		}
 		if(cur.curry != -1) {
 			// TODO: get the type of the itor - cheating now by getting type of parameter
 			// from called function
-			cur.t[cur.curry] = cur.lambda.getParameterTypes()[cur.curry];
+			cur.t[cur.curry] = typer.doGetInferredType(cur.lambda.getParameters().get(cur.curry));
+			// cur.t[cur.curry] = cur.lambda.getParameterTypes()[cur.curry];
 		}
 		return cur;
 	}
@@ -509,6 +514,13 @@ public class SystemFunctions {
 	public static Object inject(@B3Backend(name = "iterator") Iterator<?> iterator,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
 		return null;
+	}
+
+	@B3Backend
+	public static Object print(@B3Backend(name = "anObject") Object object) {
+		System.out.print(object.toString());
+		System.out.print("\n");
+		return object;
 	}
 
 	@B3Backend(systemFunction = "_reject", varargs = true)
@@ -583,4 +595,5 @@ public class SystemFunctions {
 			@B3Backend(name = "functionBlock") BFunction body) {
 		return null;
 	}
+
 }

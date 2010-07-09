@@ -19,6 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Job;
 import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BuildResultContext;
@@ -38,7 +39,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 
 import com.google.inject.Injector;
@@ -50,9 +50,7 @@ import com.google.inject.Injector;
  * the constructor of a B3BuilderJob, together with a reference to the builder).
  * 
  */
-public class B3BuilderJob extends Job {
-
-	private BExecutionContext ctx;
+public class B3BuilderJob extends AbstractB3Job {
 
 	private IBuilder builder;
 
@@ -76,7 +74,7 @@ public class B3BuilderJob extends Job {
 	 *             if the value "unit" is not defined in the context.
 	 */
 	public B3BuilderJob(BExecutionContext ctx, IBuilder builder) throws B3EngineException {
-		super("builder job"); // dummy name, replaced below
+		super(ctx, "builder job"); // dummy name, replaced below
 		if(ctx == null)
 			throw new IllegalArgumentException("Context can not be null when creating a B3BuilderJob");
 		if(builder == null)
@@ -181,7 +179,7 @@ public class B3BuilderJob extends Job {
 	}
 
 	@Override
-	protected IStatus run(IProgressMonitor monitor) {
+	protected IStatus runb3(IProgressMonitor monitor) {
 		try {
 			// set the UNIT DEFAULT PROPERTIES and BUILDER DEFAULT PROPERTIES in a
 			// context visible downstream

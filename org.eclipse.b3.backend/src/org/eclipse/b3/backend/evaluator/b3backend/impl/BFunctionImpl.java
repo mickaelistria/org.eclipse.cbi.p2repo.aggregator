@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.core.B3BackendException;
 import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
+import org.eclipse.b3.backend.evaluator.B3ContextAccess;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -32,6 +33,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.backend.inference.FunctionUtils;
+import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -525,6 +527,8 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 
 	protected void computeParameters() {
 		if(parameterNames == null || parameterTypes == null) {
+			BExecutionContext ctx = B3ContextAccess.get();
+			ITypeProvider typer = ctx.getInjector().getInstance(ITypeProvider.class);
 			EList<BParameterDeclaration> pList = getParameters();
 			int pCount = pList.size();
 
@@ -536,7 +540,17 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 			for(int i = 0; i < pCount; ++i) {
 				BParameterDeclaration p = pIterator.next();
 				parameterNames[i] = p.getName();
-				parameterTypes[i] = p.getType();
+				Type tx1 = p.getType();
+				Type tx2 = typer.doGetInferredType(p);
+				// if(tx2 instanceof EObject && ((EObject) tx2).eIsProxy())
+				// tx2 = (Type) EcoreUtil.resolve((EObject) tx2, this.eResource());
+				if(isVarArgs() && i == pCount - 1 && tx2 instanceof B3ParameterizedType)
+					tx2 = TypeUtils.getElementType(tx2);
+				// if(isVarArgs() && i == pCount - 1) {
+				// System.err.print("DEBUG: varargs compare:\n  T1:" + tx1.toString() + "\n  T2:" + tx2.toString() +
+				// "\n");
+				// }
+				parameterTypes[i] = tx2; // TypeUtils.getRaw(typer.doGetInferredType(p));
 			}
 		}
 	}

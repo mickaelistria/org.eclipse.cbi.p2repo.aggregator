@@ -10,11 +10,15 @@ import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Executor;
 import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.functions.BuildFunctions;
+import org.eclipse.b3.build.internal.B3BuildActivator;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 
 import com.google.inject.Injector;
 import com.google.inject.Module;
@@ -41,8 +45,14 @@ public class B3BuildEngine extends B3Engine {
 		initialize();
 	}
 
-	public Object callFunction(String name, Object[] parameters, Type[] types) throws Throwable {
-		return getContext().callFunction(name, parameters, types);
+	public Object callFunction(final String name, final Object[] parameters, final Type[] types) throws Throwable {
+		return new AbstractB3Executor(getContext()) {
+
+			@Override
+			protected Object runb3(IProgressMonitor monitor) throws Throwable {
+				return getContext().callFunction(name, parameters, types);
+			}
+		}.run();
 	}
 
 	public void defineBeeModel(BeeModel model) throws B3EngineException {
@@ -65,7 +75,7 @@ public class B3BuildEngine extends B3Engine {
 	 * Returns the build context parented by the invocation context.
 	 */
 	@Override
-	public BExecutionContext getContext() {
+	protected BExecutionContext getContext() {
 		return buildContext;
 	}
 
@@ -100,11 +110,24 @@ public class B3BuildEngine extends B3Engine {
 	/**
 	 * Can only be called when a resolution scope has been entered.
 	 * 
-	 * @return
 	 */
 	public IStatus resolveAllUnits() {
-		IBuildUnitResolver resolver = getInjector().getInstance(IBuildUnitResolver.class);
+		final IBuildUnitResolver resolver = getInjector().getInstance(IBuildUnitResolver.class);
+		try {
+			return (IStatus) new AbstractB3Executor(getContext()) {
 
-		return resolver.resolveAll(getBuildContext());
+				@Override
+				protected Object runb3(IProgressMonitor monitor) throws Throwable {
+					return resolver.resolveAll(getBuildContext());
+				}
+			}.run();
+		}
+		catch(Exception e) {
+			return new Status(
+				IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
+				"Running the resolver.ResolveAll ended with exception", e);
+		}
+
+		// return resolver.resolveAll(getBuildContext());
 	}
 }

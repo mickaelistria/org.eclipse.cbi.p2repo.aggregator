@@ -14,7 +14,7 @@ import org.eclipse.b3.build.BuildUnit;
  * Iterates over the effective "horizon" of build units (advised units have been supplanted).
  * 
  */
-public class EffectiveUnitIterator implements Iterator<BuildUnit>, Iterable<BuildUnit> {
+public class EffectiveUnitIterator implements Iterator<BuildUnit> {
 
 	private Map<Class<? extends BuildUnit>, BuildUnit> unitStore = new HashMap<Class<? extends BuildUnit>, BuildUnit>();
 

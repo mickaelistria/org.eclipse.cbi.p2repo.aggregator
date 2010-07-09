@@ -297,11 +297,11 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	 * @generated NOT
 	 */
 	public Type getType() {
-		if(type != null)
-			return type;
-		B3ParameterizedType t = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-		t.setRawType(Object.class);
-		type = t;
+		// if(type != null)
+		// return type;
+		// B3ParameterizedType t = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+		// t.setRawType(Object.class);
+		// type = t;
 		return type;
 
 	}

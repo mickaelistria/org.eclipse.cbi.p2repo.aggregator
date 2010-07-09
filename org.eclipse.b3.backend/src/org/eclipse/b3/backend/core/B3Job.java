@@ -1,16 +1,17 @@
 package org.eclipse.b3.backend.core;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Job;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.jobs.Job;
 
 /**
  * Unfinished. Intended to be used to run any IFunction as a job. See B3BuilderJob.
  */
-public class B3Job extends Job {
+public class B3Job extends AbstractB3Job {
 
-	public B3Job(String name) {
-		super(name);
+	public B3Job(BExecutionContext ctx, String name) {
+		super(ctx, name);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -21,7 +22,7 @@ public class B3Job extends Job {
 	}
 
 	@Override
-	protected IStatus run(IProgressMonitor monitor) {
+	protected IStatus runb3(IProgressMonitor monitor) {
 		// TODO Auto-generated method stub
 		return null;
 	}
