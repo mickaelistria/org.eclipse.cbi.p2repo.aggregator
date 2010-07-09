@@ -142,7 +142,7 @@ public class BuildFunctions {
 	@B3Backend
 	public static Iterator<BuildUnit> allDefinedUnits( //
 			@B3Backend(name = "engine") IB3Engine engine) {
-		return new EffectiveUnitIterator(B3ContextAccess.get());
+		return new EffectiveUnitIterator.UnitProxies(B3ContextAccess.get());
 	}
 
 	/**

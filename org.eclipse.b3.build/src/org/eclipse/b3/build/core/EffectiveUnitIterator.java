@@ -1,5 +1,6 @@
 package org.eclipse.b3.build.core;
 
+import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -15,6 +16,20 @@ import org.eclipse.b3.build.BuildUnit;
  * 
  */
 public class EffectiveUnitIterator implements Iterator<BuildUnit> {
+
+	public static class UnitProxies extends EffectiveUnitIterator {
+		public UnitProxies(BExecutionContext ctx) {
+			super(ctx);
+		}
+
+		@Override
+		public BuildUnit next() {
+			BuildUnit u = super.next();
+			if(Proxy.isProxyClass(u.getClass()))
+				return u;
+			return BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getProxy();
+		}
+	}
 
 	private Map<Class<? extends BuildUnit>, BuildUnit> unitStore = new HashMap<Class<? extends BuildUnit>, BuildUnit>();
 
@@ -52,5 +67,4 @@ public class EffectiveUnitIterator implements Iterator<BuildUnit> {
 	public void remove() {
 		throw new UnsupportedOperationException();
 	}
-
 }
