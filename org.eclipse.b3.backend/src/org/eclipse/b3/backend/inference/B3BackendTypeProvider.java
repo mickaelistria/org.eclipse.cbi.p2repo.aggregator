@@ -548,6 +548,34 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 				// currently not possible to infer the type. TODO. revisit when calls know what they are calling.
 
 				t = null; // placeholder
+				// ////
+				// TODO: This method can be simplified by delegating to selectFunction instead of
+				// doing two lookups.
+				// Type[] types = null;
+				// try {
+				// BParameterizedExpression called = (BParameterizedExpression) funcContainer.eContainer().eContainer();
+				// types = functionUtils.asTypeArray(called, true);
+				// types[0] = doGetInferredType(called.getFuncExpr());
+				// List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
+				// IFunction f = functionUtils.selectInstanceFunction(o.getName(), candidates, types);
+				// return functionUtils.getReturnType(f, types);
+				// }
+				// catch(InferenceExceptions e) {
+				// // TODO Auto-generated catch block
+				// e.printStackTrace();
+				// }
+				// catch(B3NoSuchFunctionException e) {
+				// // TODO Auto-generated catch block
+				// e.printStackTrace();
+				// }
+				// catch(B3NoSuchFunctionSignatureException e) {
+				// staticAttempt = true;
+				// }
+				// catch(B3AmbiguousFunctionSignatureException e) {
+				// staticAttempt = true;
+				// }
+
+				// ////
 
 			}
 			else if(funcContainer instanceof BCallFunction) {

@@ -3,6 +3,9 @@
  */
 package org.eclipse.b3.ui;
 
+import org.eclipse.b3.beelang.ui.BeeLangResourceForIEditorInputFactory;
+import org.eclipse.b3.beelang.ui.xtext.EFSExtendedDocumentProvider;
+import org.eclipse.b3.beelang.ui.xtext.EFSExtendedXtextEditor;
 import org.eclipse.b3.coloring.BeeLangHighlightConfiguration;
 import org.eclipse.b3.coloring.BeeLangSemanticHighlightingCalculator;
 import org.eclipse.b3.coloring.BeeLangTokenToAttributeIdMapper;
@@ -10,11 +13,16 @@ import org.eclipse.b3.outline.BeeLangOutlineNodeAdapterFactory;
 import org.eclipse.b3.ui.contentassist.BeeLangAutoEditStrategy;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
+import org.eclipse.xtext.ui.editor.XtextEditor;
+import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
+import org.eclipse.xtext.ui.editor.model.XtextDocumentProvider;
 import org.eclipse.xtext.ui.editor.outline.actions.IContentOutlineNodeAdapterFactory;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
 import org.eclipse.xtext.ui.editor.validation.ValidatingEditorCallback;
+
+import com.google.inject.Binder;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -38,6 +46,14 @@ public class BeeLangUiModule extends org.eclipse.b3.ui.AbstractBeeLangUiModule {
 		return BeeLangHighlightConfiguration.class;
 	}
 
+	/*
+	 * Added to be able to open files in the file system
+	 */
+	@Override
+	public Class<? extends IResourceForEditorInputFactory> bindIResourceForEditorInputFactory() {
+		return BeeLangResourceForIEditorInputFactory.class;
+	}
+
 	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
 		return BeeLangSemanticHighlightingCalculator.class;
 	}
@@ -49,5 +65,17 @@ public class BeeLangUiModule extends org.eclipse.b3.ui.AbstractBeeLangUiModule {
 
 	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {
 		return BeeLangTokenToAttributeIdMapper.class;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.xtext.ui.DefaultUiModule#configure(com.google.inject.Binder)
+	 */
+	@Override
+	public void configure(Binder binder) {
+		binder.bind(XtextDocumentProvider.class).to(EFSExtendedDocumentProvider.class);
+		binder.bind(XtextEditor.class).to(EFSExtendedXtextEditor.class);
+		super.configure(binder);
 	}
 }

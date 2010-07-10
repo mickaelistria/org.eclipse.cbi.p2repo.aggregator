@@ -143,5 +143,12 @@
           class="org.eclipse.b3.beelang.ui.internal.EclipseConsoleLogReceiver">
     </logreceiver>
  </extension>
+ <extension
+       point="org.eclipse.ui.elementFactories">
+    <factory
+          class="org.eclipse.ui.part.EFSEditorInputFactory"
+          id="org.eclipse.ui.part.EFSEditorInputFactory">
+    </factory>
+ </extension>
 
 </plugin>
