@@ -3,7 +3,7 @@
  */
 package org.eclipse.b3.ui;
 
-import org.eclipse.b3.beelang.ui.BeeLangResourceForIEditorInputFactory;
+import org.eclipse.b3.beelang.ui.xtext.EFSResourceForIEditorInputFactory;
 import org.eclipse.b3.beelang.ui.xtext.EFSExtendedDocumentProvider;
 import org.eclipse.b3.beelang.ui.xtext.EFSExtendedXtextEditor;
 import org.eclipse.b3.coloring.BeeLangHighlightConfiguration;
@@ -51,7 +51,7 @@ public class BeeLangUiModule extends org.eclipse.b3.ui.AbstractBeeLangUiModule {
 	 */
 	@Override
 	public Class<? extends IResourceForEditorInputFactory> bindIResourceForEditorInputFactory() {
-		return BeeLangResourceForIEditorInputFactory.class;
+		return EFSResourceForIEditorInputFactory.class;
 	}
 
 	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {

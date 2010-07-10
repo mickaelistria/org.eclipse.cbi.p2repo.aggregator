@@ -9,11 +9,13 @@
 package org.eclipse.b3.beelang.ui.xtext;
 
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IStorageEditorInput;
+import org.eclipse.ui.IURIEditorInput;
 
 /**
  * An Editor Input marker for EFSEditorInput
  * 
  */
-public interface IEFSEditorInput extends IEditorInput {
+public interface IEFSEditorInput extends IEditorInput, IStorageEditorInput, IURIEditorInput {
 
 }

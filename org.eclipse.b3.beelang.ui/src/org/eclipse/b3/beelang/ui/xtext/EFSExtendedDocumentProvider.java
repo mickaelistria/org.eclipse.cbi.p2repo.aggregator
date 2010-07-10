@@ -56,6 +56,25 @@ public class EFSExtendedDocumentProvider extends XtextDocumentProvider {
 	}
 
 	/*
+	 * @see IStorageDocumentProvider#getEncoding(Object)
+	 * 
+	 * @since 2.0
+	 */
+	@Override
+	public String getEncoding(Object element) {
+		if(element instanceof IEFSEditorInput) {
+			// Don't think encoding is all that simple to get for EFS
+			// Assuming it is used for "file system files" and should use
+			// the default for the platform...
+			String encoding = getDefaultEncoding();
+			if(encoding == null)
+				return "UTF-8";
+			return encoding;
+		}
+		return super.getEncoding(element);
+	}
+
+	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see org.eclipse.xtext.ui.editor.model.XtextDocumentProvider#setDocumentContent(org.eclipse.jface.text.IDocument, org.eclipse.ui.IEditorInput,

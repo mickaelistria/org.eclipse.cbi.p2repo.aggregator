@@ -109,8 +109,7 @@ public class EFSEditorInput extends PlatformObject implements IEFSEditorInput, I
 	 */
 	@Override
 	public String getFactoryId() {
-		// TODO Auto-generated method stub
-		return null;
+		return EFSEditorInputFactory.getFactoryId();
 	}
 
 	/*
