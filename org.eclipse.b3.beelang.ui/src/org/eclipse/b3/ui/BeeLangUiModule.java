@@ -4,8 +4,7 @@
 package org.eclipse.b3.ui;
 
 import org.eclipse.b3.beelang.ui.xtext.EFSResourceForIEditorInputFactory;
-import org.eclipse.b3.beelang.ui.xtext.EFSExtendedDocumentProvider;
-import org.eclipse.b3.beelang.ui.xtext.EFSExtendedXtextEditor;
+import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedXtextEditor;
 import org.eclipse.b3.coloring.BeeLangHighlightConfiguration;
 import org.eclipse.b3.coloring.BeeLangSemanticHighlightingCalculator;
 import org.eclipse.b3.coloring.BeeLangTokenToAttributeIdMapper;
@@ -15,7 +14,6 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
-import org.eclipse.xtext.ui.editor.model.XtextDocumentProvider;
 import org.eclipse.xtext.ui.editor.outline.actions.IContentOutlineNodeAdapterFactory;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
@@ -74,8 +72,8 @@ public class BeeLangUiModule extends org.eclipse.b3.ui.AbstractBeeLangUiModule {
 	 */
 	@Override
 	public void configure(Binder binder) {
-		binder.bind(XtextDocumentProvider.class).to(EFSExtendedDocumentProvider.class);
-		binder.bind(XtextEditor.class).to(EFSExtendedXtextEditor.class);
+		// binder.bind(XtextDocumentProvider.class).to(EFSExtendedDocumentProvider.class);
+		binder.bind(XtextEditor.class).to(ExtLinkedXtextEditor.class);
 		super.configure(binder);
 	}
 }
