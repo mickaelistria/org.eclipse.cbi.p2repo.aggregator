@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<fragment>
+ <extension
+       point="org.eclipse.ui.menus">
+    <menuContribution
+          locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
+       <command
+             commandId="org.eclipse.b3.beelang.ui.run.debugmain"
+             label="Run main() in dev-mode"
+             style="push">
+          <visibleWhen
+                checkEnabled="false">
+             <iterate>
+                <adapt
+                      type="org.eclipse.b3.build.BeeModel">
+                </adapt>
+             </iterate>
+          </visibleWhen>
+       </command>
+    </menuContribution>
+    <menuContribution
+          locationURI="popup:org.eclipse.b3.BeeLang.EditorContext?after=additions">
+       <command
+             commandId="org.eclipse.b3.beelang.ui.execute"
+             label="Run Main Function"
+             style="push">
+          <visibleWhen
+                checkEnabled="false">
+			    <with variable="activeEditorId">
+			        <equals value="org.eclipse.b3.BeeLang"/>
+			    </with>
+              </visibleWhen>
+       </command>
+    </menuContribution>
+ </extension>
+
+</fragment>
