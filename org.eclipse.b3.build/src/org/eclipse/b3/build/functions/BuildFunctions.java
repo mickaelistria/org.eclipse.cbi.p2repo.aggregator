@@ -55,7 +55,7 @@ public class BuildFunctions {
 		resolutionScope = injector.getInstance(B3BuildConstants.KEY_RESOLUTION_SCOPE);
 		resolutionScope.enter(); // !remember to call exit()
 		try {
-			if(unitToUse != null) {
+			if(unitToUse == null) {
 				// find unit via name
 				EffectiveUnitIterator unitItor = new EffectiveUnitIterator(ctx.getContext(BContext.class));
 
