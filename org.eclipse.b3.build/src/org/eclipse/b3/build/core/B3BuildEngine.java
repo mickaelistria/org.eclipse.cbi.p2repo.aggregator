@@ -1,5 +1,6 @@
 package org.eclipse.b3.build.core;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.core.B3Engine;
@@ -13,18 +14,23 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Executor;
 import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.build.BeeModel;
+import org.eclipse.b3.build.engine.AbstractB3EngineExecutor;
+import org.eclipse.b3.build.engine.IB3EngineRuntime;
+import org.eclipse.b3.build.engine.IB3Runnable;
 import org.eclipse.b3.build.functions.BuildFunctions;
 import org.eclipse.b3.build.internal.B3BuildActivator;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.util.Modules;
 
-public class B3BuildEngine extends B3Engine {
+public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 
 	protected BContext buildContext;
 
@@ -45,14 +51,24 @@ public class B3BuildEngine extends B3Engine {
 		initialize();
 	}
 
-	public Object callFunction(final String name, final Object[] parameters, final Type[] types) throws Throwable {
-		return new AbstractB3Executor(getContext()) {
+	@Override
+	public Object callFunction(final String name, final Object[] parameters, final Type[] types) throws CoreException {
+		try {
+			return new AbstractB3Executor<Object>(getContext()) {
 
-			@Override
-			protected Object runb3(IProgressMonitor monitor) throws Throwable {
-				return getContext().callFunction(name, parameters, types);
-			}
-		}.run();
+				@Override
+				protected Object runb3(IProgressMonitor monitor) throws Throwable {
+					return getContext().callFunction(name, parameters, types);
+				}
+			}.run();
+		}
+		catch(InterruptedException e) {
+			throw new CoreException(new Status(IStatus.CANCEL, B3BuildActivator.PLUGIN_ID, "Cancelled", e));
+		}
+		catch(InvocationTargetException e) {
+			throw new CoreException(new Status(
+				IStatus.ERROR, B3BuildActivator.PLUGIN_ID, "Exception while calling funcion: " + name, e));
+		}
 	}
 
 	public void defineBeeModel(BeeModel model) throws B3EngineException {
@@ -67,7 +83,12 @@ public class B3BuildEngine extends B3Engine {
 		}
 	}
 
-	private BExecutionContext getBuildContext() {
+	/**
+	 * Although this method is package private, it should only be used to set up the engine in a thread.
+	 * 
+	 * @return
+	 */
+	BExecutionContext getBuildContext() {
 		return buildContext;
 	}
 
@@ -114,10 +135,10 @@ public class B3BuildEngine extends B3Engine {
 	public IStatus resolveAllUnits() {
 		final IBuildUnitResolver resolver = getInjector().getInstance(IBuildUnitResolver.class);
 		try {
-			return (IStatus) new AbstractB3Executor(getContext()) {
+			return new AbstractB3Executor<IStatus>(getContext()) {
 
 				@Override
-				protected Object runb3(IProgressMonitor monitor) throws Throwable {
+				protected IStatus runb3(IProgressMonitor monitor) throws Throwable {
 					return resolver.resolveAll(getBuildContext());
 				}
 			}.run();
@@ -129,5 +150,52 @@ public class B3BuildEngine extends B3Engine {
 		}
 
 		// return resolver.resolveAll(getBuildContext());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.backend.core.IB3EngineRuntime#run(org.eclipse.b3.backend.core.IB3Runnable)
+	 */
+	@Override
+	public IStatus run(IB3Runnable runnable) {
+		return run(runnable, new NullProgressMonitor());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.backend.core.IB3EngineRuntime#run(org.eclipse.b3.backend.core.IB3Runnable, org.eclipse.core.runtime.IProgressMonitor)
+	 */
+	@Override
+	public IStatus run(final IB3Runnable runnable, IProgressMonitor monitor) {
+		final BExecutionContext ctx = getBuildContext();
+		ctx.setProgressMonitor(monitor);
+		try {
+			return new AbstractB3EngineExecutor(this, ctx) {
+
+				@Override
+				protected IStatus runb3(IB3EngineRuntime engine, IProgressMonitor monitor)
+						throws InvocationTargetException, InterruptedException {
+					return runnable.run(engine, monitor);
+				}
+			}.run();
+
+			// ;(this, getContext()) {
+			//
+			// @Override
+			// protected IStatus runb3(IB3EngineRuntime engine, IProgressMonitor monitor) {
+			// return runnable.run(engine, monitor);
+			// }
+			// }.run(IStatus.class);
+
+		}
+		catch(Throwable e) {
+			throw new RuntimeException(
+				"Should not happen - AbstractB3EngineExecutor should have baked exception into returned status", e);
+		}
+		finally {
+			ctx.setProgressMonitor(null);
+		}
 	}
 }

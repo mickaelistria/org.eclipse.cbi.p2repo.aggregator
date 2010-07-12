@@ -9,56 +9,30 @@
           name="Run Main Function">
     </command>
     <command
-          description="Resolves and Runs the function called main"
-          id="org.eclipse.b3.beelang.ui.resolve"
-          name="Run Resolve Main Function">
+          description="Runs the function main() in dev mode"
+          id="org.eclipse.b3.beelang.ui.run.debugmain"
+          name="Run function main() (dev mode)">
     </command>
  </extension>
  <extension
        point="org.eclipse.ui.handlers">
     <handler
-          class="org.eclipse.b3.build.ui.commands.ResolveHandler"
-          commandId="org.eclipse.b3.beelang.ui.resolve">
-    </handler>
-    <handler
-          class="org.eclipse.b3.build.ui.commands.ExecuteHandler"
+          class="org.eclipse.b3.build.ui.commands.RunMainFunctionInActiveEditorHandler"
           commandId="org.eclipse.b3.beelang.ui.execute">
     </handler>
- </extension>
- <extension
-       point="org.eclipse.ui.menus">
-    <menuContribution
-          locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
-       <command
-             commandId="org.eclipse.b3.beelang.ui.resolve"
-             label="Resolve and Run Main Function"
-             style="push">
-          <visibleWhen
+    <handler
+          class="org.eclipse.b3.build.ui.commands.RunMainFunctionInModelHandler"
+          commandId="org.eclipse.b3.beelang.ui.run.debugmain">
+		  <activeWhen
                 checkEnabled="false">
              <iterate>
                 <adapt
                       type="org.eclipse.b3.build.BeeModel">
                 </adapt>
              </iterate>
-          </visibleWhen>
-       </command>
-    </menuContribution>
-    <menuContribution
-          locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
-       <command
-             commandId="org.eclipse.b3.beelang.ui.execute"
-             label="Run Main Function"
-             style="push">
-          <visibleWhen
-                checkEnabled="false">
-             <iterate>
-                <adapt
-                      type="org.eclipse.b3.build.BeeModel">
-                </adapt>
-             </iterate>
-          </visibleWhen>
-       </command>
-    </menuContribution>
+          </activeWhen>
+          
+    </handler>
  </extension>
 
 </plugin>

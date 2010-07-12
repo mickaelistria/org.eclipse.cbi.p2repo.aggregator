@@ -8,7 +8,10 @@
 
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
@@ -16,7 +19,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
  * A B3 Job handles the B3 stack aspects of running Jobs.
  * A derived class should implement the protected method runb3(IProgressMonitor).
  */
-public abstract class AbstractB3Executor {
+public abstract class AbstractB3Executor<T> {
 	/**
 	 * Initially set to the context used when the executor was created. This context forms the
 	 * starting context in thread local access. A subclass may change this at any time without fear of affecting
@@ -30,34 +33,49 @@ public abstract class AbstractB3Executor {
 	 * @param ctx
 	 *            Initial context
 	 */
-	public AbstractB3Executor(BExecutionContext ctx) throws Exception {
+	public AbstractB3Executor(BExecutionContext ctx) {
 		this.ctx = ctx;
 	}
 
+	// /**
+	// * Invokes runb3 in a safe way. No cast of return value is performed.
+	// */
+	// final public Object run() throws InterruptedException, InvocationTargetException {
+	// return run(new NullProgressMonitor(), Object.class);
+	// }
+
 	/**
-	 * Invokes runb3 in a safe way.
+	 * Invokes runb3 in a safe way. The returned value is casted to the given class.
 	 */
-	final public Object run() throws Exception {
+	final public T run() throws InterruptedException, InvocationTargetException, CoreException {
 		return run(new NullProgressMonitor());
 	}
 
 	/**
 	 * Invokes runb3 in a safe way.
-	 * All THrowables that are neither Exception nor Error are wrapped in a RuntimeException before
-	 * thrown.
+	 * Exceptions are processed as follows:
+	 * - Declared expressions are passed through unwrapped
+	 * - All other Exceptions and Errors are wrapped in an InvocationTargetException and thrown
+	 * - Other exceptions are thrown as a RuntimeException (for very special cases when someone derived directly
+	 * from Throwable).
 	 */
-	final public Object run(IProgressMonitor monitor) throws Exception {
+	final public T run(IProgressMonitor monitor) throws InterruptedException, InvocationTargetException, CoreException {
 		// make the ctx available in the thread.
 		RuntimeException nasty = new RuntimeException();
 		final BExecutionContext previous = B3InternalContextAccess.set(ctx);
 		try {
-			return runb3(monitor);
+			return (runb3(monitor));
+		}
+		catch(CoreException e) {
+			throw e;
 		}
 		catch(Exception e) {
-			throw e;
+			if(e instanceof InterruptedException)
+				throw (InterruptedException) e;
+			throw new InvocationTargetException(e);
 		}
 		catch(Error e) {
-			throw e;
+			throw new InvocationTargetException(e);
 		}
 		catch(Throwable e) {
 			// Runtime exception created earlier, because it is not known if "new" is a safe operation
@@ -71,5 +89,5 @@ public abstract class AbstractB3Executor {
 		}
 	}
 
-	abstract protected Object runb3(IProgressMonitor monitor) throws Throwable;
+	abstract protected T runb3(IProgressMonitor monitor) throws Throwable;
 }

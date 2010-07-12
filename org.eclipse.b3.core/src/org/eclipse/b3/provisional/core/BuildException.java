@@ -31,6 +31,17 @@ import org.xml.sax.SAXParseException;
 @SuppressWarnings("serial")
 public abstract class BuildException extends CoreException {
 
+	private static void appendLevelString(PrintStream strm, int level) {
+		if(level > 0) {
+			strm.print("[0"); //$NON-NLS-1$
+			for(int idx = 1; idx < level; ++idx) {
+				strm.print('.');
+				strm.print(level);
+			}
+			strm.print(']');
+		}
+	}
+
 	public static IStatus createStatus(String message, Object... args) {
 		return createStatus(null, message, args);
 	}
@@ -47,8 +58,53 @@ public abstract class BuildException extends CoreException {
 		return new Status(IStatus.ERROR, BuildBundle.PLUGIN_ID, IStatus.OK, message, cause);
 	}
 
+	private static void deeplyPrint(CoreException ce, PrintStream strm, boolean stackTrace, int level) {
+		appendLevelString(strm, level);
+		if(stackTrace)
+			ce.printStackTrace(strm);
+		deeplyPrint(ce.getStatus(), strm, stackTrace, level);
+	}
+
+	private static void deeplyPrint(IStatus status, PrintStream strm, boolean stackTrace, int level) {
+		appendLevelString(strm, level);
+		String msg = status.getMessage();
+		strm.println(msg);
+		Throwable cause = status.getException();
+		if(cause != null) {
+			strm.print("Caused by: "); //$NON-NLS-1$
+			if(stackTrace || !(msg.equals(cause.getMessage()) || msg.equals(cause.toString())))
+				deeplyPrint(cause, strm, stackTrace, level);
+		}
+
+		if(status.isMultiStatus()) {
+			IStatus[] children = status.getChildren();
+			for(int i = 0; i < children.length; i++)
+				deeplyPrint(children[i], strm, stackTrace, level + 1);
+		}
+	}
+
 	public static void deeplyPrint(Throwable e, PrintStream strm, boolean stackTrace) {
+		if(e == null)
+			return;
 		deeplyPrint(e, strm, stackTrace, 0);
+	}
+
+	private static void deeplyPrint(Throwable t, PrintStream strm, boolean stackTrace, int level) {
+		if(t instanceof CoreException)
+			deeplyPrint((CoreException) t, strm, stackTrace, level);
+		else {
+			appendLevelString(strm, level);
+			if(stackTrace)
+				t.printStackTrace(strm);
+			else {
+				strm.println(t.toString());
+				Throwable cause = t.getCause();
+				if(cause != null) {
+					strm.print("Caused by: "); //$NON-NLS-1$
+					deeplyPrint(cause, strm, stackTrace, level);
+				}
+			}
+		}
 	}
 
 	public static CoreException fromMessage(String message, Object... args) {
@@ -124,60 +180,6 @@ public abstract class BuildException extends CoreException {
 			msg = bld.toString();
 		}
 		return fromMessage(t, msg);
-	}
-
-	private static void appendLevelString(PrintStream strm, int level) {
-		if(level > 0) {
-			strm.print("[0"); //$NON-NLS-1$
-			for(int idx = 1; idx < level; ++idx) {
-				strm.print('.');
-				strm.print(level);
-			}
-			strm.print(']');
-		}
-	}
-
-	private static void deeplyPrint(CoreException ce, PrintStream strm, boolean stackTrace, int level) {
-		appendLevelString(strm, level);
-		if(stackTrace)
-			ce.printStackTrace(strm);
-		deeplyPrint(ce.getStatus(), strm, stackTrace, level);
-	}
-
-	private static void deeplyPrint(IStatus status, PrintStream strm, boolean stackTrace, int level) {
-		appendLevelString(strm, level);
-		String msg = status.getMessage();
-		strm.println(msg);
-		Throwable cause = status.getException();
-		if(cause != null) {
-			strm.print("Caused by: "); //$NON-NLS-1$
-			if(stackTrace || !(msg.equals(cause.getMessage()) || msg.equals(cause.toString())))
-				deeplyPrint(cause, strm, stackTrace, level);
-		}
-
-		if(status.isMultiStatus()) {
-			IStatus[] children = status.getChildren();
-			for(int i = 0; i < children.length; i++)
-				deeplyPrint(children[i], strm, stackTrace, level + 1);
-		}
-	}
-
-	private static void deeplyPrint(Throwable t, PrintStream strm, boolean stackTrace, int level) {
-		if(t instanceof CoreException)
-			deeplyPrint((CoreException) t, strm, stackTrace, level);
-		else {
-			appendLevelString(strm, level);
-			if(stackTrace)
-				t.printStackTrace(strm);
-			else {
-				strm.println(t.toString());
-				Throwable cause = t.getCause();
-				if(cause != null) {
-					strm.print("Caused by: "); //$NON-NLS-1$
-					deeplyPrint(cause, strm, stackTrace, level);
-				}
-			}
-		}
 	}
 
 	protected BuildException(IStatus status) {

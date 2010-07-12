@@ -9,6 +9,8 @@ public class B3BuildActivator extends Plugin {
 
 	public static final String EXTENSION__KLUDGY_IMPORT = "org.eclipse.b3.build.B3KludgeImport";
 
+	public static final String PLUGIN_ID = "org.eclipse.b3.build";
+
 	public static B3BuildActivator instance;
 
 	public B3BuildActivator() {

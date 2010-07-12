@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * The code, documentation and other materials contained herein have been
+ * licensed under the Eclipse Public License - v 1.0 by the copyright holder
+ * listed above, as the Initial Contributor under such license. The text of
+ * such license is available at www.eclipse.org.
+ */
 package org.eclipse.b3.build.ui.commands;
 
 import java.io.PrintStream;
@@ -23,7 +30,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.xtext.ui.editor.outline.ContentOutlineNode;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
-
 
 public class ExecuteHandler extends AbstractHandler {
 	private boolean performResolve;
@@ -102,7 +108,7 @@ public class ExecuteHandler extends AbstractHandler {
 					argv.add(engine);
 					try {
 						engine.callFunction(
-//						return engine.getContext().callFunction(
+						// return engine.getContext().callFunction(
 							"main", new Object[] { argv }, new Type[] { List.class });
 					}
 					catch(B3BackendException exprException) {

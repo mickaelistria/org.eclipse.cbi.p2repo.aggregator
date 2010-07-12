@@ -9,6 +9,8 @@ public class B3BackendActivator extends Plugin {
 
 	public static final String EXTENSION__RUNTIME_MODULE = "org.eclipse.b3.backend.B3RuntimeModule";
 
+	public static final String PLUGIN_IN = "org.eclipse.b3.backend";
+
 	public B3BackendActivator() {
 	}
 
