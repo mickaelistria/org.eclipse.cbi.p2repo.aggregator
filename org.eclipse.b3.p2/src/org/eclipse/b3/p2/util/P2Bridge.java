@@ -12,6 +12,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -74,6 +75,7 @@ import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
+import org.eclipse.equinox.p2.query.ExpressionMatchQuery;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.query.QueryUtil;
@@ -93,6 +95,54 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 public class P2Bridge {
 
 	public static final IQuery<IInstallableUnit> QUERY_ALL_IUS = QueryUtil.createIUAnyQuery();
+
+	public static final IQuery<IArtifactKey> QUERY_ALL_ARTIFACTS = new ExpressionMatchQuery<IArtifactKey>(
+		IArtifactKey.class, ExpressionUtil.TRUE_EXPRESSION);
+
+	public static void exportFromModel(IArtifactRepositoryManager arMgr, IArtifactRepository ar,
+			IProgressMonitor monitor) throws CoreException {
+		exportFromModel(arMgr, ar, ar.getLocation(), monitor, false);
+	}
+
+	public static void exportFromModel(IArtifactRepositoryManager arMgr, IArtifactRepository ar, URI targetLocation,
+			IProgressMonitor monitor, boolean sortArtifacts) throws CoreException {
+
+		IArtifactRepository target = arMgr.createRepository(
+			targetLocation, ar.getName(), ar.getType(), ar.getProperties());
+
+		monitor = MonitorUtils.ensureNotNull(monitor);
+		IQueryResult<IArtifactKey> result = ar.query(QUERY_ALL_ARTIFACTS, monitor);
+		Iterator<IArtifactKey> itor = result.iterator();
+		ArrayList<IArtifactKey> artifacts = new ArrayList<IArtifactKey>();
+		while(itor.hasNext())
+			artifacts.add(itor.next());
+		if(sortArtifacts)
+			Collections.sort(artifacts, new Comparator<IArtifactKey>() {
+
+				public int compare(IArtifactKey a1, IArtifactKey a2) {
+					int result = a1.getId().compareTo(a2.getId());
+					if(result == 0)
+						return a1.getVersion().compareTo(a2.getVersion());
+
+					return result;
+				}
+
+			});
+		for(IArtifactKey key : artifacts) {
+			IArtifactDescriptor[] descriptors = ar.getArtifactDescriptors(key);
+			for(IArtifactDescriptor descriptor : descriptors) {
+				if(descriptor instanceof SimpleArtifactDescriptorImpl) {
+					SimpleArtifactDescriptor p2native = new SimpleArtifactDescriptor(descriptor);
+					p2native.setRepositoryProperty(
+						SimpleArtifactDescriptor.ARTIFACT_REFERENCE,
+						((SimpleArtifactDescriptorImpl) descriptor).getRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE));
+					target.addDescriptor(p2native);
+				}
+				else
+					target.addDescriptor(descriptor);
+			}
+		}
+	}
 
 	public static void exportFromModel(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr,
 			IProgressMonitor monitor) throws CoreException {
