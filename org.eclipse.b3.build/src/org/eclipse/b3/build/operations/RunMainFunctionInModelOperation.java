@@ -1,7 +1,6 @@
 package org.eclipse.b3.build.operations;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.b3.backend.core.B3EngineException;
@@ -16,13 +15,18 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
+import com.google.inject.internal.Lists;
+
 public class RunMainFunctionInModelOperation implements IB3Runnable {
 	final BeeModel model;
 
-	public RunMainFunctionInModelOperation(BeeModel model) {
+	private Object[] argv;
+
+	public RunMainFunctionInModelOperation(BeeModel model, Object... argv) {
 		if(model == null)
 			throw new IllegalArgumentException();
 		this.model = model;
+		this.argv = argv;
 	}
 
 	@Override
@@ -47,12 +51,10 @@ public class RunMainFunctionInModelOperation implements IB3Runnable {
 
 		if(main == null)
 			return new Status(Status.ERROR, B3BuildActivator.PLUGIN_ID, "There was no main() function to call");
-
-		final List<Object> argv = new ArrayList<Object>();
-		argv.add(engine);
+		final List<Object> argVector = Lists.newArrayList(argv);
 		try {
 			return new OkResultStatus(
-				engine.callFunction("main", new Object[] { argv }, new Type[] { List.class }),
+				engine.callFunction("main", new Object[] { argVector }, new Type[] { List.class }),
 				B3BuildActivator.PLUGIN_ID);
 
 		}

@@ -16,6 +16,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 
+import com.google.inject.Injector;
+
 /**
  * The B3Engine as seen from the Java Runtime side.
  * 
@@ -41,6 +43,14 @@ public interface IB3EngineRuntime {
 	 * @throws B3EngineException
 	 */
 	void defineBeeModel(BeeModel state) throws B3EngineException;
+
+	/**
+	 * Returns the guice injector used by this engine. Note that this injector may have different configuration
+	 * over time. Always use this injector to get instances instead of using new Something().
+	 * 
+	 * @return
+	 */
+	Injector getInjector();
 
 	/**
 	 * Run the runnable in the engine with a Null progress monitor.

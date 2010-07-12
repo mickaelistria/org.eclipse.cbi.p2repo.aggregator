@@ -28,8 +28,11 @@ public class RunMainFunctionInResourceOperation implements IB3Runnable {
 
 	private XtextResource resource;
 
-	public RunMainFunctionInResourceOperation(XtextResource resource) {
+	private Object[] argv;
+
+	public RunMainFunctionInResourceOperation(XtextResource resource, Object... argv) {
 		this.resource = resource;
+		this.argv = argv;
 	}
 
 	/*
@@ -43,7 +46,7 @@ public class RunMainFunctionInResourceOperation implements IB3Runnable {
 
 		for(EObject e : resource.getContents())
 			if(e instanceof BeeModel)
-				return new RunMainFunctionInModelOperation((BeeModel) e).run(engine, monitor);
+				return new RunMainFunctionInModelOperation((BeeModel) e, argv).run(engine, monitor);
 		return new Status(IStatus.ERROR, B3BuildActivator.PLUGIN_ID, "No Model of b3 type found in resource:" +
 				resource.getURI());
 	}
