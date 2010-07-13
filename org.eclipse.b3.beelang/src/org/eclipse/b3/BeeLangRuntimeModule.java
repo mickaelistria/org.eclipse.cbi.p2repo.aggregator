@@ -46,7 +46,6 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 	 * 
 	 */
 	public static class XtextResourceSetProvider implements Provider<XtextResourceSet> {
-		@Override
 		public XtextResourceSet get() {
 			SynchronizedXtextResourceSet rs = new SynchronizedXtextResourceSet();
 			URI uri = URI.createURI("b3engine:/default");
