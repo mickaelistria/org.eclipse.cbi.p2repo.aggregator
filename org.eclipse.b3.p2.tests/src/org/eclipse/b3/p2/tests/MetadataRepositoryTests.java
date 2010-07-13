@@ -105,7 +105,7 @@ public class MetadataRepositoryTests {
 		mdr.getInstallableUnits().add(iu1);
 		mdr.getInstallableUnits().add(iu2);
 
-		P2Bridge.exportFromModel(mdrMgr, mdr, null);
+		P2Bridge.exportFromModel(mdrMgr, mdr, true, null);
 
 		return mdr;
 	}
