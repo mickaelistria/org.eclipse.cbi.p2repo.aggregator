@@ -228,6 +228,9 @@ public class SimpleResolver implements IBuildUnitResolver {
 					unitRi.setStatus(resolveUnit(result, ctx));
 					ms.add(unitRi.getStatus());
 					reqAdapter.setAssociatedInfo(this, unitRi);
+
+					// destroy to see error output
+					resultingUnitResolutionInfo.setContext(null); // CRASH !!
 				}
 			}
 			catch(Throwable e) {
