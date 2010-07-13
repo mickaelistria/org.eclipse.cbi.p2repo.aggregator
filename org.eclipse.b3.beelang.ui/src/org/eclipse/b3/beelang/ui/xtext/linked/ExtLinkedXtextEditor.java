@@ -8,25 +8,42 @@
 
 package org.eclipse.b3.beelang.ui.xtext.linked;
 
+import java.io.File;
+
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.filesystem.URIUtil;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
+import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.window.Window;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IURIEditorInput;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.FileStoreEditorInput;
+import org.eclipse.ui.internal.editors.text.EditorsPlugin;
 import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 
 /**
@@ -41,21 +58,6 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 	 */
 	public ExtLinkedXtextEditor() {
 		super();
-	}
-
-	private void createLink(IProject project, IFile linkFile, java.net.URI uri) throws CoreException {
-		IPath path = linkFile.getFullPath();
-
-		IPath folders = path.removeLastSegments(1).removeFirstSegments(1);
-		IPath checkPath = Path.ROOT;
-		int segmentCount = folders.segmentCount();
-		for(int i = 0; i < segmentCount; i++) {
-			checkPath = checkPath.addTrailingSeparator().append(folders.segment(i));
-			IFolder folder = project.getFolder(checkPath);
-			if(!folder.exists())
-				folder.create(true, true, null);
-		}
-		linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
 	}
 
 	/*
@@ -127,6 +129,128 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 			return;
 		}
 		super.init(site, input);
+	}
+
+	// SaveAs support for linked files - saves them on local disc, not to workspace
+	@Override
+	protected void performSaveAs(IProgressMonitor progressMonitor) {
+
+		Shell shell = getSite().getShell();
+		final IEditorInput input = getEditorInput();
+
+		if(input instanceof IFileEditorInput && ((IFileEditorInput) input).getFile().isLinked()) {
+			final IEditorInput newInput;
+			IDocumentProvider provider = getDocumentProvider();
+
+			FileDialog dialog = new FileDialog(shell, SWT.SAVE);
+			IPath oldPath = URIUtil.toPath(((IURIEditorInput) input).getURI());
+			if(oldPath != null) {
+				dialog.setFileName(oldPath.lastSegment());
+				dialog.setFilterPath(oldPath.toOSString());
+			}
+
+			dialog.setFilterExtensions(new String[] { "*.b3", "*.*" });
+			String path = dialog.open();
+			if(path == null) {
+				if(progressMonitor != null)
+					progressMonitor.setCanceled(true);
+				return;
+			}
+
+			// Check whether file exists and if so, confirm overwrite
+			final File localFile = new File(path);
+			if(localFile.exists()) {
+				MessageDialog overwriteDialog = new MessageDialog(shell, "Save As", null, path +
+						" already exists.\nDo you want to replace it?", MessageDialog.WARNING, new String[] {
+						IDialogConstants.YES_LABEL, IDialogConstants.NO_LABEL }, 1); // 'No' is the default
+				if(overwriteDialog.open() != Window.OK) {
+					if(progressMonitor != null) {
+						progressMonitor.setCanceled(true);
+						return;
+					}
+				}
+			}
+
+			IFileStore fileStore;
+			try {
+				fileStore = EFS.getStore(localFile.toURI());
+			}
+			catch(CoreException ex) {
+				EditorsPlugin.log(ex.getStatus());
+				String title = "Problems During Save As...";
+				String msg = "Save could not be completed. " + ex.getMessage();
+				MessageDialog.openError(shell, title, msg);
+				return;
+			}
+
+			IFile file = getWorkspaceFile(fileStore);
+			if(file != null)
+				newInput = new FileEditorInput(file);
+			else {
+				IURIEditorInput uriInput = new FileStoreEditorInput(fileStore);
+				java.net.URI uri = uriInput.getURI();
+				IFile linkedFile = obtainLink(uri);
+
+				newInput = new FileEditorInput(linkedFile);
+			}
+
+			if(provider == null) {
+				// editor has programmatically been closed while the dialog was open
+				return;
+			}
+
+			boolean success = false;
+			try {
+
+				provider.aboutToChange(newInput);
+				provider.saveDocument(progressMonitor, newInput, provider.getDocument(input), true);
+				success = true;
+
+			}
+			catch(CoreException x) {
+				final IStatus status = x.getStatus();
+				if(status == null || status.getSeverity() != IStatus.CANCEL) {
+					String title = "Problems During Save As...";
+					String msg = "Save could not be completed. " + x.getMessage();
+					MessageDialog.openError(shell, title, msg);
+				}
+			}
+			finally {
+				provider.changed(newInput);
+				if(success)
+					setInput(newInput);
+			}
+
+			if(progressMonitor != null)
+				progressMonitor.setCanceled(!success);
+
+			return;
+		}
+
+		super.performSaveAs(progressMonitor);
+	}
+
+	private void createLink(IProject project, IFile linkFile, java.net.URI uri) throws CoreException {
+		IPath path = linkFile.getFullPath();
+
+		IPath folders = path.removeLastSegments(1).removeFirstSegments(1);
+		IPath checkPath = Path.ROOT;
+		int segmentCount = folders.segmentCount();
+		for(int i = 0; i < segmentCount; i++) {
+			checkPath = checkPath.addTrailingSeparator().append(folders.segment(i));
+			IFolder folder = project.getFolder(checkPath);
+			if(!folder.exists())
+				folder.create(true, true, null);
+		}
+		linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
+	}
+
+	private IFile getWorkspaceFile(IFileStore fileStore) {
+		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+		IFile[] files = workspaceRoot.findFilesForLocationURI(fileStore.toURI());
+		if(files != null && files.length == 1)
+			return files[0];
+		return null;
 	}
 
 	/**
