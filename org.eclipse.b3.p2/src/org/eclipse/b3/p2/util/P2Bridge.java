@@ -8,6 +8,7 @@
 
 package org.eclipse.b3.p2.util;
 
+import java.io.File;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -54,6 +55,7 @@ import org.eclipse.b3.p2.impl.SimpleArtifactRepositoryImpl;
 import org.eclipse.b3.p2.impl.TouchpointInstructionImpl;
 import org.eclipse.b3.p2.impl.TouchpointTypeImpl;
 import org.eclipse.b3.p2.impl.UpdateDescriptorImpl;
+import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -100,12 +102,15 @@ public class P2Bridge {
 		IArtifactKey.class, ExpressionUtil.TRUE_EXPRESSION);
 
 	public static void exportFromModel(IArtifactRepositoryManager arMgr, IArtifactRepository ar,
-			IProgressMonitor monitor) throws CoreException {
-		exportFromModel(arMgr, ar, ar.getLocation(), monitor, false);
+			boolean overwriteExisting, IProgressMonitor monitor) throws CoreException {
+		exportFromModel(arMgr, ar, ar.getLocation(), overwriteExisting, false, monitor);
 	}
 
 	public static void exportFromModel(IArtifactRepositoryManager arMgr, IArtifactRepository ar, URI targetLocation,
-			IProgressMonitor monitor, boolean sortArtifacts) throws CoreException {
+			boolean overwriteExisting, boolean sortArtifacts, IProgressMonitor monitor) throws CoreException {
+
+		if(overwriteExisting)
+			deleteIfExists(targetLocation, "artifacts.xml", "artifacts.jar", "compositeArtifacts.jar");
 
 		IArtifactRepository target = arMgr.createRepository(
 			targetLocation, ar.getName(), ar.getType(), ar.getProperties());
@@ -145,12 +150,15 @@ public class P2Bridge {
 	}
 
 	public static void exportFromModel(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr,
-			IProgressMonitor monitor) throws CoreException {
-		exportFromModel(mdrMgr, mdr, mdr.getLocation(), monitor, false);
+			boolean overwriteExisting, IProgressMonitor monitor) throws CoreException {
+		exportFromModel(mdrMgr, mdr, mdr.getLocation(), overwriteExisting, false, monitor);
 	}
 
 	public static void exportFromModel(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr, URI targetLocation,
-			IProgressMonitor monitor, boolean sortIUs) throws CoreException {
+			boolean overwriteExisting, boolean sortIUs, IProgressMonitor monitor) throws CoreException {
+
+		if(overwriteExisting)
+			deleteIfExists(targetLocation, "content.xml", "content.jar", "compositeContent.jar");
 
 		IMetadataRepository target = mdrMgr.createRepository(
 			targetLocation, mdr.getName(), mdr.getType(), mdr.getProperties());
@@ -457,5 +465,15 @@ public class P2Bridge {
 		mud.setSeverity(ud.getSeverity());
 		mud.setLocation(ud.getLocation());
 		return mud;
+	}
+
+	private static void deleteIfExists(URI location, String... fileNames) throws CoreException {
+		File folder = new File(location);
+		for(String fileName : fileNames) {
+			File file = new File(folder, fileName);
+			if(file.exists())
+				if(!file.delete())
+					throw ExceptionUtils.fromMessage("Unable to delete %s", file.getAbsolutePath());
+		}
 	}
 }
