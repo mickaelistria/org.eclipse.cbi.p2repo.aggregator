@@ -109,8 +109,10 @@ public class P2Bridge {
 	public static void exportFromModel(IArtifactRepositoryManager arMgr, IArtifactRepository ar, URI targetLocation,
 			boolean overwriteExisting, boolean sortArtifacts, IProgressMonitor monitor) throws CoreException {
 
-		if(overwriteExisting)
+		if(overwriteExisting) {
 			deleteIfExists(targetLocation, "artifacts.xml", "artifacts.jar", "compositeArtifacts.jar");
+			arMgr.removeRepository(targetLocation);
+		}
 
 		IArtifactRepository target = arMgr.createRepository(
 			targetLocation, ar.getName(), ar.getType(), ar.getProperties());
@@ -157,8 +159,10 @@ public class P2Bridge {
 	public static void exportFromModel(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr, URI targetLocation,
 			boolean overwriteExisting, boolean sortIUs, IProgressMonitor monitor) throws CoreException {
 
-		if(overwriteExisting)
+		if(overwriteExisting) {
 			deleteIfExists(targetLocation, "content.xml", "content.jar", "compositeContent.jar");
+			mdrMgr.removeRepository(targetLocation);
+		}
 
 		IMetadataRepository target = mdrMgr.createRepository(
 			targetLocation, mdr.getName(), mdr.getType(), mdr.getProperties());
