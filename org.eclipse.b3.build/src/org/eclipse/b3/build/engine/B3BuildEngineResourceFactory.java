@@ -23,7 +23,6 @@ public class B3BuildEngineResourceFactory implements Factory {
 	 * 
 	 * @see org.eclipse.emf.ecore.resource.Resource.Factory#createResource(org.eclipse.emf.common.util.URI)
 	 */
-	@Override
 	public Resource createResource(URI uri) {
 		return new B3BuildEngineResource(uri);
 	}
