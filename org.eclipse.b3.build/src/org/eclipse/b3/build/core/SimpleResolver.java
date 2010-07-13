@@ -8,6 +8,7 @@
 
 package org.eclipse.b3.build.core;
 
+import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.B3NoSuchVariableException;
 import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -125,6 +126,9 @@ public class SimpleResolver implements IBuildUnitResolver {
 				"Resolution failed with exception when getting effective unit", e1));
 			return resultingUnitResolutionInfo.getStatus(); // give up on unit
 		}
+		// the unit being resolved should always have this context
+		// it's status may be set
+		resultingUnitResolutionInfo.setContext(ctx);
 
 		// PROCESS ALL REQUIREMENTS
 		// If there are no requirements, return OK status after having updated the Unit's resolution Info.
@@ -132,7 +136,6 @@ public class SimpleResolver implements IBuildUnitResolver {
 		// trivial case - no requirements
 		if(requiredCapabilities.size() < 1) {
 			resultingUnitResolutionInfo.setStatus(Status.OK_STATUS);
-			resultingUnitResolutionInfo.setContext(ctx);
 			// System.err.print("    OK - NO REQUIREMENTS\n");
 			return resultingUnitResolutionInfo.getStatus();
 		}
@@ -157,7 +160,6 @@ public class SimpleResolver implements IBuildUnitResolver {
 				resultingUnitResolutionInfo.setStatus(new Status(
 					IStatus.ERROR, B3BuildActivator.instance.getBundle().getSymbolicName(),
 					"Unit contains null requirement"));
-				resultingUnitResolutionInfo.setContext(ctx); // possibly bad state...
 				// System.err.print("    FAIL - NULL EFFECTIVE REQUIREMENTS\n");
 				return resultingUnitResolutionInfo.getStatus();
 			}
@@ -206,7 +208,7 @@ public class SimpleResolver implements IBuildUnitResolver {
 				if(result == null) {
 					// System.err.printf("        UNRESOLVED - provider did not find it.\n");
 
-					resultingUnitResolutionInfo.setStatus(new Status(
+					ms.add(new Status(
 						IStatus.WARNING, B3BuildActivator.instance.getBundle().getSymbolicName(), "Unresolved."));
 					reqAdapter.setAssociatedInfo(this, resultingUnitResolutionInfo);
 				}
@@ -216,6 +218,10 @@ public class SimpleResolver implements IBuildUnitResolver {
 					final UnitResolutionInfo unitRi = B3BuildFactory.eINSTANCE.createUnitResolutionInfo();
 					unitRi.setUnit(result);
 					unitRi.setStatus(Status.OK_STATUS); // prevent recursion
+
+					if(ereq.getContext() == null) {
+						throw new B3InternalError("Effective Requirement found with null context");
+					}
 					unitRi.setContext(ereq.getContext()); // the context in which the requirement was resolved.
 					// update status with resulting status graph (i.e. both on requirement, and result for unit being
 					// resolved.
@@ -238,6 +244,8 @@ public class SimpleResolver implements IBuildUnitResolver {
 			}
 
 		}
+		resultingUnitResolutionInfo.setStatus(ms);
+
 		// // update the unit with the status information from resolving all of its requirements
 		// ri = B3BuildFactory.eINSTANCE.createResolutionInfo();
 		// ri.setStatus(ms);

@@ -34,6 +34,7 @@ import org.eclipse.b3.build.ResolutionInfo;
 import org.eclipse.b3.build.UnitResolutionInfo;
 import org.eclipse.b3.build.internal.B3BuildActivator;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
@@ -157,7 +158,7 @@ public class B3BuilderJob extends AbstractB3Job {
 		IStatus r = getResult();
 		if(r != null && r.isOK())
 			return ((B3BuilderStatus) r).getBuildResult();
-		throw new IllegalStateException("Can not obtain result when job state is not OK");
+		throw new IllegalStateException("Can not obtain result when job state is not OK", new CoreException(r));
 	}
 
 	/**
@@ -353,17 +354,19 @@ public class B3BuilderJob extends AbstractB3Job {
 			// first specified of "output", "source", or "input" should be returned
 			// Lastly, if none of these were specified, empty output is returned.
 			//
+			String returnedBuildSetName = "result";
+			;
 			if(br == null)
 				br = builder.getOutput() != null
-						? ctx.getValue("output")
+						? ctx.getValue(returnedBuildSetName = "output")
 						: null;
 			if(br == null)
 				br = builder.getSource() != null
-						? ctx.getValue("source")
+						? ctx.getValue(returnedBuildSetName = "source")
 						: null;
 			if(br == null)
 				br = builder.getInput() != null
-						? ctx.getValue("input")
+						? ctx.getValue(returnedBuildSetName = "input")
 						: null;
 
 			// if still null, use an empty output result
@@ -371,7 +374,8 @@ public class B3BuilderJob extends AbstractB3Job {
 				br = B3BuildFactory.eINSTANCE.createBuildSet();
 
 			if(!(br instanceof BuildSet))
-				throw new B3WrongBuilderReturnType(builder.getName(), br.getClass());
+				throw new B3WrongBuilderReturnType(
+					unit.getName(), builder.getName(), returnedBuildSetName, br.getClass());
 
 			BuildSet buildResult = (BuildSet) br;
 

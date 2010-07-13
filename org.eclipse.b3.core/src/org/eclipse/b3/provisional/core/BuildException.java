@@ -68,6 +68,12 @@ public abstract class BuildException extends CoreException {
 	private static void deeplyPrint(IStatus status, PrintStream strm, boolean stackTrace, int level) {
 		appendLevelString(strm, level);
 		String msg = status.getMessage();
+		if(msg == null || msg.length() < 1)
+			msg = status.isOK()
+					? "status OK"
+					: status.matches(IStatus.CANCEL)
+							? "status CANCEL"
+							: "status ERROR";
 		strm.println(msg);
 		Throwable cause = status.getException();
 		if(cause != null) {
