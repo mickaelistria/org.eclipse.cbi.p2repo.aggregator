@@ -29,7 +29,7 @@ public class OkResultStatus extends Status implements IResultStatus {
 	 * 
 	 * @see org.eclipse.b3.backend.core.IResultStatus#getResult()
 	 */
-	@Override
+	// @Override
 	public Object getResult() {
 		// TODO Auto-generated method stub
 		return result;

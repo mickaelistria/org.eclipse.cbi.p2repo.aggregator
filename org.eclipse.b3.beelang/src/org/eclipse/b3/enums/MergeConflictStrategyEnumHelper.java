@@ -43,7 +43,7 @@ public class MergeConflictStrategyEnumHelper {
 	public static IValueConverter<MergeConflictStrategy> getValueConverter() {
 		return new IValueConverter<MergeConflictStrategy>() {
 
-			@Override
+			// @Override
 			public String toString(MergeConflictStrategy value) {
 				String r = converterMap.get(value);
 				return r == null
@@ -51,7 +51,7 @@ public class MergeConflictStrategyEnumHelper {
 						: r;
 			}
 
-			@Override
+			// @Override
 			public MergeConflictStrategy toValue(String string, AbstractNode node) throws ValueConverterException {
 				MergeConflictStrategy x = converterMap.inverse().get(string);
 				if(x != null)

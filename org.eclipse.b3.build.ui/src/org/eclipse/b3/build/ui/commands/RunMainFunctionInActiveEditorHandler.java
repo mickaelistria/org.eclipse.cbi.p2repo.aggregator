@@ -45,7 +45,7 @@ public class RunMainFunctionInActiveEditorHandler extends AbstractHandlerWithB3C
 			return null;
 		}
 		IStatus result = xtextDocument.readOnly(new IUnitOfWork<IStatus, XtextResource>() {
-			@Override
+			// @Override
 			public IStatus exec(XtextResource state) throws Exception {
 				return new B3BuildEngine().run(new RunMainFunctionInResourceOperation(state));
 			}

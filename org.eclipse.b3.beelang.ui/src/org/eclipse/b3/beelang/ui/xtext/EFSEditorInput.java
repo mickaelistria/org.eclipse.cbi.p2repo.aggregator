@@ -55,7 +55,7 @@ public class EFSEditorInput extends PlatformObject implements IEFSEditorInput, I
 	 * 
 	 * @see org.eclipse.ui.IEditorInput#exists()
 	 */
-	@Override
+	// @Override
 	public boolean exists() {
 		try {
 			// TODO: Could be long running, needs to run in the background with a progress monitor
@@ -107,7 +107,7 @@ public class EFSEditorInput extends PlatformObject implements IEFSEditorInput, I
 	 * 
 	 * @see org.eclipse.ui.IPersistableElement#getFactoryId()
 	 */
-	@Override
+	// @Override
 	public String getFactoryId() {
 		return EFSEditorInputFactory.getFactoryId();
 	}
@@ -117,7 +117,7 @@ public class EFSEditorInput extends PlatformObject implements IEFSEditorInput, I
 	 * 
 	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
 	 */
-	@Override
+	// @Override
 	public ImageDescriptor getImageDescriptor() {
 		// IDE specific concept, try without it, as IContentType impl is internal
 		// IContentType contentType = IDE.getContentType(file);
@@ -131,7 +131,7 @@ public class EFSEditorInput extends PlatformObject implements IEFSEditorInput, I
 	 * 
 	 * @see org.eclipse.ui.IEditorInput#getName()
 	 */
-	@Override
+	// @Override
 	public String getName() {
 		return name;
 	}
@@ -152,7 +152,7 @@ public class EFSEditorInput extends PlatformObject implements IEFSEditorInput, I
 	 * 
 	 * @see org.eclipse.ui.IEditorInput#getPersistable()
 	 */
-	@Override
+	// @Override
 	public IPersistableElement getPersistable() {
 		return this;
 	}
@@ -162,32 +162,32 @@ public class EFSEditorInput extends PlatformObject implements IEFSEditorInput, I
 	 * 
 	 * @see org.eclipse.ui.IStorageEditorInput#getStorage()
 	 */
-	@Override
+	// @Override
 	public IStorage getStorage() throws CoreException {
 		return new IStorage() {
 
-			@Override
+			// @Override
 			public Object getAdapter(@SuppressWarnings("rawtypes") Class adapter) {
 				return EFSEditorInput.this.getAdapter(adapter);
 			}
 
-			@Override
+			// @Override
 			public InputStream getContents() throws CoreException {
 				// TODO: Don't know where to get the progress monitor
 				return EFS.getStore(uri).openInputStream(EFS.NONE, new NullProgressMonitor());
 			}
 
-			@Override
+			// @Override
 			public IPath getFullPath() {
 				return new Path(uri.getPath());
 			}
 
-			@Override
+			// @Override
 			public String getName() {
 				return EFSEditorInput.this.getName();
 			}
 
-			@Override
+			// @Override
 			public boolean isReadOnly() {
 				try {
 					return EFS.getStore(uri).fetchInfo().getAttribute(EFS.ATTRIBUTE_READ_ONLY);
@@ -207,7 +207,7 @@ public class EFSEditorInput extends PlatformObject implements IEFSEditorInput, I
 	 * 
 	 * @see org.eclipse.ui.IEditorInput#getToolTipText()
 	 */
-	@Override
+	// @Override
 	public String getToolTipText() {
 		return getName();
 	}
@@ -217,7 +217,7 @@ public class EFSEditorInput extends PlatformObject implements IEFSEditorInput, I
 	 * 
 	 * @see org.eclipse.ui.IURIEditorInput#getURI()
 	 */
-	@Override
+	// @Override
 	public URI getURI() {
 		return uri;
 	}
@@ -227,7 +227,7 @@ public class EFSEditorInput extends PlatformObject implements IEFSEditorInput, I
 	 * 
 	 * @see org.eclipse.ui.IPersistable#saveState(org.eclipse.ui.IMemento)
 	 */
-	@Override
+	// @Override
 	public void saveState(IMemento memento) {
 		EFSEditorInputFactory.saveState(memento, this);
 	}

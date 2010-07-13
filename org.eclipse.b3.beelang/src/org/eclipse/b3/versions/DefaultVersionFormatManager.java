@@ -37,17 +37,17 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 			this.sample = sample;
 		}
 
-		@Override
+		// @Override
 		public String getFormatDescription() {
 			return "sample in format '" + format + "' - " + sample;
 		}
 
-		@Override
+		// @Override
 		public String getFormatName() {
 			return format;
 		}
 
-		@Override
+		// @Override
 		public String getFormatSample() {
 			return '"' + sample + '"';
 		}
@@ -136,7 +136,7 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 	 * 
 	 * @see org.eclipse.b3.versions.IVersionFormatManager#getVersionProposals()
 	 */
-	@Override
+	// @Override
 	public List<VersionProposal> getVersionProposals() {
 		return Collections.unmodifiableList(versionProposals);
 	}
@@ -146,7 +146,7 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 	 * 
 	 * @see org.eclipse.b3.versions.IVersionFormatManager#getVersionRangeProposals()
 	 */
-	@Override
+	// @Override
 	public List<VersionProposal> getVersionRangeProposals() {
 		return Collections.unmodifiableList(versionRangeProposals);
 	}

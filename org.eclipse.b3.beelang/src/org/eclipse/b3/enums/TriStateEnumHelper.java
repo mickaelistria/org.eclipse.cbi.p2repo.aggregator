@@ -39,7 +39,7 @@ public class TriStateEnumHelper {
 	public static IValueConverter<TriState> getValueConverter() {
 		return new IValueConverter<TriState>() {
 
-			@Override
+			// @Override
 			public String toString(TriState value) {
 				String r = converterMap.get(value);
 				return r == null
@@ -47,7 +47,7 @@ public class TriStateEnumHelper {
 						: r;
 			}
 
-			@Override
+			// @Override
 			public TriState toValue(String string, AbstractNode node) throws ValueConverterException {
 				TriState x = converterMap.inverse().get(string);
 				if(x != null)

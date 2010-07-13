@@ -38,7 +38,7 @@ public abstract class AbstractHandlerWithB3Console extends AbstractHandler {
 
 	protected PrintStream b3err;
 
-	@Override
+	// @Override
 	final public Object execute(ExecutionEvent event) throws ExecutionException {
 		final MessageConsole b3Console = BeeLangConsoleUtils.getBeeLangConsole();
 

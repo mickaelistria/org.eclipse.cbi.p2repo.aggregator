@@ -94,12 +94,12 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 			this.label = label;
 		}
 
-		@Override
+		// @Override
 		public String getLabel() {
 			return label;
 		}
 
-		@Override
+		// @Override
 		public String getProposal() {
 			return proposal;
 		}
@@ -123,7 +123,7 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.RepoOption,
 		 * java.lang.Object, org.eclipse.xtext.validation.ValidationMessageAcceptor)
 		 */
-		@Override
+		// @Override
 		public void validate(Repository candidate, RepoOption option, Object value, ValidationMessageAcceptor acceptor) {
 			// do nothing
 
@@ -135,7 +135,7 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.RepoOption,
 		 * org.eclipse.xtext.validation.ValidationMessageAcceptor)
 		 */
-		@Override
+		// @Override
 		public void validateExpression(Repository candidate, RepoOption option, ValidationMessageAcceptor acceptor) {
 			// Do nothing
 
@@ -160,7 +160,7 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.RepoOption,
 		 * java.lang.Object, org.eclipse.xtext.validation.ValidationMessageAcceptor)
 		 */
-		@Override
+		// @Override
 		public void validate(RepositoryUnitProvider candidate, RepoOption option, Object value,
 				ValidationMessageAcceptor acceptor) {
 			// do nothing
@@ -173,7 +173,7 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 		 * @see org.eclipse.b3.build.repository.IRepositoryValidator.IOption#validate(java.lang.Object, org.eclipse.b3.build.RepoOption,
 		 * org.eclipse.xtext.validation.ValidationMessageAcceptor)
 		 */
-		@Override
+		// @Override
 		public void validateExpression(RepositoryUnitProvider candidate, RepoOption option,
 				ValidationMessageAcceptor acceptor) {
 			// do nothing

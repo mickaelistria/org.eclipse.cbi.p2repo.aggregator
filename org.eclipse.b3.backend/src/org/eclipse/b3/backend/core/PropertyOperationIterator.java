@@ -48,7 +48,7 @@ public class PropertyOperationIterator implements Iterator<BPropertyOperation> {
 		addAllSets(set.getExtends());
 		itor.addIterator(Iterators.filter(set.getOperations().iterator(), new Predicate<BPropertyOperation>() {
 
-			@Override
+			// @Override
 			public boolean apply(BPropertyOperation input) {
 				if(excludedOperations != null)
 					for(int i = 0; i < excludedOperations.length; i++) {

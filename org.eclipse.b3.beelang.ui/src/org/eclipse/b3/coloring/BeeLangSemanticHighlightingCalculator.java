@@ -46,7 +46,7 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 			this.wrapped = wrapped;
 		}
 
-		@Override
+		// @Override
 		public void addPosition(int offset, int length, String... id) {
 			// FOR DEBUGGING
 			// StringBuffer buf = new StringBuffer();

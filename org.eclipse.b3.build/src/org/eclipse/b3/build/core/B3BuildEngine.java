@@ -9,7 +9,6 @@ import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.IB3Engine;
 import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
-import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Executor;
 import org.eclipse.b3.backend.inference.FunctionUtils;
@@ -32,7 +31,9 @@ import com.google.inject.util.Modules;
 
 public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 
-	protected BContext buildContext;
+	protected BExecutionContext engineTopOfStack;
+
+	protected BExecutionContext engineBottomOfStack;
 
 	/**
 	 * Creates and initializes the engine with a default runtime guice module.
@@ -51,7 +52,7 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 		initialize();
 	}
 
-	@Override
+	// @Override
 	public Object callFunction(final String name, final Object[] parameters, final Type[] types) throws CoreException {
 		try {
 			return new AbstractB3Executor<Object>(getContext()) {
@@ -89,7 +90,7 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 	 * @return
 	 */
 	BExecutionContext getBuildContext() {
-		return buildContext;
+		return engineTopOfStack;
 	}
 
 	/**
@@ -97,7 +98,7 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 	 */
 	@Override
 	protected BExecutionContext getContext() {
-		return buildContext;
+		return engineTopOfStack;
 	}
 
 	/**
@@ -111,10 +112,11 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 	}
 
 	private void initialize() throws B3EngineException {
-		buildContext = B3backendFactory.eINSTANCE.createBContext();
-		buildContext.setParentContext(invocationContext);
+		engineBottomOfStack = B3backendFactory.eINSTANCE.createBContext();
+		engineBottomOfStack.setParentContext(invocationContext);
+		engineTopOfStack = engineBottomOfStack;
 		try {
-			buildContext.defineFinalValue("b3", this, IB3Engine.class);
+			engineTopOfStack.defineFinalValue("b3", this, IB3Engine.class);
 		}
 		catch(B3EngineException e) {
 			throw new B3InternalError("Initialization of B3BuildEngine failed with exception", e);
@@ -126,6 +128,39 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 		FunctionUtils.instance = getInjector().getInstance(FunctionUtils.class);
 		invocationContext.loadFunctions(BuildFunctions.class);
 
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.build.engine.IB3EngineRuntime#pop()
+	 */
+	// @Override
+	public boolean pop() {
+		if(engineTopOfStack == engineBottomOfStack)
+			return false;
+		engineTopOfStack = engineTopOfStack.getParentContext();
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.build.engine.IB3EngineRuntime#printStackTrace()
+	 */
+	// @Override
+	public void printStackTrace() {
+		getBuildContext().printStackTrace();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.build.engine.IB3EngineRuntime#push()
+	 */
+	// @Override
+	public void push() {
+		engineTopOfStack = engineTopOfStack.createOuterContext();
 	}
 
 	/**
@@ -157,7 +192,7 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 	 * 
 	 * @see org.eclipse.b3.backend.core.IB3EngineRuntime#run(org.eclipse.b3.backend.core.IB3Runnable)
 	 */
-	@Override
+	// @Override
 	public IStatus run(IB3Runnable runnable) {
 		return run(runnable, new NullProgressMonitor());
 	}
@@ -167,7 +202,7 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 	 * 
 	 * @see org.eclipse.b3.backend.core.IB3EngineRuntime#run(org.eclipse.b3.backend.core.IB3Runnable, org.eclipse.core.runtime.IProgressMonitor)
 	 */
-	@Override
+	// @Override
 	public IStatus run(final IB3Runnable runnable, IProgressMonitor monitor) {
 		final BExecutionContext ctx = getBuildContext();
 		ctx.setProgressMonitor(monitor);

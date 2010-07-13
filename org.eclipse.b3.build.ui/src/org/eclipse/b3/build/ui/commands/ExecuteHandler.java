@@ -34,7 +34,6 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 public class ExecuteHandler extends AbstractHandler {
 	private boolean performResolve;
 
-	@Override
 	@SuppressWarnings("unchecked")
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		final MessageConsole b3Console = BeeLangConsoleUtils.getBeeLangConsole();
@@ -45,7 +44,7 @@ public class ExecuteHandler extends AbstractHandler {
 			List<ContentOutlineNode> nodes = (List<ContentOutlineNode>) ctx.getDefaultVariable();
 			ContentOutlineNode node = nodes.get(0);
 			Object result = node.getEObjectHandle().readOnly(new IUnitOfWork<Object, EObject>() {
-				@Override
+				// @Override
 				public Object exec(EObject state) throws Exception {
 					B3BuildEngine engine = new B3BuildEngine();
 					try {

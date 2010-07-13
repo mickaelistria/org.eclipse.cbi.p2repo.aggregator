@@ -35,7 +35,7 @@ public class DeclarativeB3Weaver implements IB3Weaver {
 	 * @see org.eclipse.b3.backend.evaluator.IB3Weaver#doWeave(org.eclipse.b3.backend.evaluator.b3backend.BConcernContext, java.util.Iterator,
 	 * org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
 	 */
-	@Override
+	// @Override
 	public boolean doWeave(BConcernContext concern, Iterator<?> candidateIterator, BExecutionContext ctx) {
 		return weaveDispatcher.invoke(concern, candidateIterator, ctx);
 	}
@@ -43,7 +43,7 @@ public class DeclarativeB3Weaver implements IB3Weaver {
 	/**
 	 * Default impl throws UnsupportedOperationException.
 	 */
-	@Override
+	// @Override
 	public boolean doWeave(BConcernContext concern, Object candidate, BExecutionContext ctx) {
 		return weaveDispatcher.invoke(concern, candidate, ctx);
 	}
@@ -54,7 +54,7 @@ public class DeclarativeB3Weaver implements IB3Weaver {
 	 * @see org.eclipse.b3.backend.evaluator.IB3Weaver#doWeave(org.eclipse.b3.backend.evaluator.b3backend.BConcernContext, java.lang.Object,
 	 * org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object)
 	 */
-	@Override
+	// @Override
 	public boolean doWeave(BConcernContext concern, Object candidate, BExecutionContext ctx, Object arg) {
 		return weaveDispatcher.invoke(concern, candidate, ctx, arg);
 	}

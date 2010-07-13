@@ -11,6 +11,7 @@ package org.eclipse.b3.build.operations;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.b3.build.BeeModel;
+import org.eclipse.b3.build.core.B3BuildErrorCodes;
 import org.eclipse.b3.build.engine.IB3EngineRuntime;
 import org.eclipse.b3.build.engine.IB3Runnable;
 import org.eclipse.b3.build.internal.B3BuildActivator;
@@ -30,9 +31,25 @@ public class RunMainFunctionInResourceOperation implements IB3Runnable {
 
 	private Object[] argv;
 
-	public RunMainFunctionInResourceOperation(XtextResource resource, Object... argv) {
+	private String functionName;
+
+	/**
+	 * Runs the given function with signature (List<Object>)=>Object
+	 */
+	public RunMainFunctionInResourceOperation(String functionName, XtextResource resource, Object... argv) {
+		this.functionName = functionName;
 		this.resource = resource;
 		this.argv = argv;
+	}
+
+	/**
+	 * Runs the "main" function main(List<Object>)
+	 * 
+	 * @param resource
+	 * @param argv
+	 */
+	public RunMainFunctionInResourceOperation(XtextResource resource, Object... argv) {
+		this("main", resource, argv);
 	}
 
 	/*
@@ -40,14 +57,15 @@ public class RunMainFunctionInResourceOperation implements IB3Runnable {
 	 * 
 	 * @see org.eclipse.b3.build.engine.IB3Runnable#run(org.eclipse.b3.build.engine.IB3EngineRuntime, org.eclipse.core.runtime.IProgressMonitor)
 	 */
-	@Override
+	// @Override
 	public IStatus run(IB3EngineRuntime engine, IProgressMonitor monitor) throws InterruptedException,
 			InvocationTargetException {
 
 		for(EObject e : resource.getContents())
 			if(e instanceof BeeModel)
-				return new RunMainFunctionInModelOperation((BeeModel) e, argv).run(engine, monitor);
-		return new Status(IStatus.ERROR, B3BuildActivator.PLUGIN_ID, "No Model of b3 type found in resource:" +
-				resource.getURI());
+				return new RunMainFunctionInModelOperation(functionName, (BeeModel) e, argv).run(engine, monitor);
+		return new Status(
+			IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.INVALID_B3_RESOURCE,
+			"No Model of b3 type found in resource:" + resource.getURI(), null);
 	}
 }

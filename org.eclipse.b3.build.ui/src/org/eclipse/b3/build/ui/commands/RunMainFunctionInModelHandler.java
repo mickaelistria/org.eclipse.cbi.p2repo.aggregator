@@ -40,7 +40,7 @@ public class RunMainFunctionInModelHandler extends AbstractHandlerWithB3Console 
 		List<ContentOutlineNode> nodes = (List<ContentOutlineNode>) ctx.getDefaultVariable();
 		ContentOutlineNode node = nodes.get(0);
 		IStatus result = node.getEObjectHandle().readOnly(new IUnitOfWork<IStatus, EObject>() {
-			@Override
+			// @Override
 			public IStatus exec(EObject state) throws Exception {
 				return new B3BuildEngine().run(new RunMainFunctionInModelOperation((BeeModel) state));
 			}

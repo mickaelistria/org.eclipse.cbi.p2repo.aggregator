@@ -527,7 +527,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineSomeThing(java.lang.Class, java.lang.Object, java.lang.Object, boolean)
 	 * @generated NOT
 	 */
-	@Override
+	// @Override
 	public <T> void defineSomeThing(Class<T> kind, Object key, T value, boolean isWeaving) throws Throwable {
 		// generic definition of something weaveable
 		Map<Object, Object> thingMap = null;

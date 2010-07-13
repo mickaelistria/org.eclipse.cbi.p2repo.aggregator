@@ -53,6 +53,23 @@ public interface IB3EngineRuntime {
 	Injector getInjector();
 
 	/**
+	 * Pops one execution context in the b3 engine runtime stack. It is the callers
+	 * responsability to balance the push and pops, although The engine will only pop to its initial context.
+	 * 
+	 * @return false if there is nothing more to pop.
+	 */
+	boolean pop();
+
+	void printStackTrace();
+
+	/**
+	 * Pushes a new execution context on the b3 engine runtime stack.
+	 * This is useful for loading several BeeModels, and where subsequent loads should
+	 * override what is already loaded (as opposed to potentially clash).
+	 */
+	void push();
+
+	/**
 	 * Run the runnable in the engine with a Null progress monitor.
 	 * A result may be passed back by using an IStatusResult.
 	 * 
@@ -69,5 +86,4 @@ public interface IB3EngineRuntime {
 	 * @return
 	 */
 	IStatus run(IB3Runnable runnable, IProgressMonitor monitor);
-
 }

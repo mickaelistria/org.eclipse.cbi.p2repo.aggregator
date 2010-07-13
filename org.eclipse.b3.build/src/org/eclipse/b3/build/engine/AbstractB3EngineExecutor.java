@@ -59,6 +59,12 @@ public abstract class AbstractB3EngineExecutor extends AbstractB3Executor<IStatu
 			catch(CoreException e) {
 				return e.getStatus();
 			}
+			catch(InterruptedException e) {
+				throw e;
+			}
+			catch(Exception e) {
+				throw new InvocationTargetException(e);
+			}
 		}
 		catch(InvocationTargetException e) {
 			return new Status(Status.ERROR, B3BackendActivator.PLUGIN_IN, "Uncaught exception caused by: " +

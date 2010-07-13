@@ -780,10 +780,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		IB3Evaluator evaluator = injector.getInstance(IB3Evaluator.class);
 
 		// EFFECTIVE BUILD UNIT
-		// TODO: Remove when working BuildContext buildContext = ctx.getContext(BuildContext.class);
+		// TODO: Remove when working BuildContext engineTopOfStack = ctx.getContext(BuildContext.class);
 		BuildUnit u = ctx.getSomeThing(BuildUnit.class, BuildUnitProxyAdapterFactory.eINSTANCE.adapt(this).getIface());
 		//
-		// BuildUnit u = buildContext.getEffectiveBuildUnit(this);
+		// BuildUnit u = engineTopOfStack.getEffectiveBuildUnit(this);
 		if(u == null)
 			throw new IllegalArgumentException(
 				"The unit must have been defined in a context prior to calling getEffectiveFacade(...)");

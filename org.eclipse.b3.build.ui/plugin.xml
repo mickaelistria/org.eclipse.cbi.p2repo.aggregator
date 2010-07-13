@@ -13,6 +13,16 @@
           id="org.eclipse.b3.beelang.ui.run.debugmain"
           name="Run function main() (dev mode)">
     </command>
+    <command
+          description="runs a parameter given b3 command on b3 resource"
+          id="org.eclipse.b3.ui.run.b3cmd"
+          name="Run b3 command">
+       <commandParameter
+             id="org.eclipse.b3.ui.run.b3cmd.pathParameter"
+             name="cmdPath"
+             optional="false">
+       </commandParameter>
+    </command>
  </extension>
  <extension
        point="org.eclipse.ui.handlers">
@@ -23,8 +33,7 @@
     <handler
           class="org.eclipse.b3.build.ui.commands.RunMainFunctionInModelHandler"
           commandId="org.eclipse.b3.beelang.ui.run.debugmain">
-		  <activeWhen
-                checkEnabled="false">
+		  <activeWhen>
              <iterate>
                 <adapt
                       type="org.eclipse.b3.build.BeeModel">
@@ -32,6 +41,10 @@
              </iterate>
           </activeWhen>
           
+    </handler>
+    <handler
+          class="org.eclipse.b3.build.ui.commands.RunCmdOnResourceHandler"
+          commandId="org.eclipse.b3.ui.run.b3cmd">
     </handler>
  </extension>
 
