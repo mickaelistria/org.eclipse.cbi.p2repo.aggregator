@@ -19,6 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Executor;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Job;
 import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.b3.build.B3BuildFactory;
@@ -194,8 +195,28 @@ public class B3BuilderJob extends AbstractB3Job {
 				if(builderProperties != null)
 					evaluator.doEvaluateDefaults(builderProperties, ictx, true);
 				ctx = ictx;
-			}
+				return new AbstractB3Executor<IStatus>(ictx) {
 
+					@Override
+					protected IStatus runb3(IProgressMonitor monitor) throws Throwable {
+						// TODO Auto-generated method stub
+						return runInInnerContext(monitor);
+					}
+				}.run();
+			}
+			return runInInnerContext(monitor);
+		}
+		catch(OperationCanceledException e) {
+			return B3BuilderStatus.CANCEL_STATUS;
+
+		}
+		catch(Throwable t) {
+			return B3BuilderStatus.error("Builder Job Failed - see details", t);
+		}
+	}
+
+	protected IStatus runInInnerContext(IProgressMonitor monitor) {
+		try {
 			// PRECONDITION
 			// just evaluate, supposed to throw exception if not acceptable
 			// The precondition sees the input context, and unit+builder default properties
@@ -215,20 +236,30 @@ public class B3BuilderJob extends AbstractB3Job {
 			while(rItor.hasNext()) {
 				EffectiveBuilderCallFacade ebref = rItor.next();
 				BuilderCall bref = ebref.getBuilderReference();
-				String builderName = bref.getBuilderName();
-				BExecutionContext ctxToUse = ebref.getContext();
-				BParameterList parameters = bref.getParameters();
+				final String builderName = bref.getBuilderName();
+
+				final BExecutionContext ctxToUse = ebref.getContext();
+				final BParameterList parameters = bref.getParameters();
 				int size = 1 + (parameters == null
 						? 0
 						: parameters.getParameters().size());
-				Object[] values = new Object[size];
-				Type[] types = new Type[size];
-				int idx = 1;
-				if(parameters != null)
-					for(BParameter p : parameters.getParameters()) {
-						values[idx] = evaluator.doEvaluate(p.getExpr(), ctxToUse);
-						types[idx++] = typer.doGetInferredType(p.getExpr());
+				final Object[] values = new Object[size];
+				final Type[] types = new Type[size];
+
+				// run in correct context
+				new AbstractB3Executor<Object>(ctxToUse) {
+
+					@Override
+					protected Object runb3(IProgressMonitor monitor) throws Throwable {
+						int idx = 1;
+						if(parameters != null)
+							for(BParameter p : parameters.getParameters()) {
+								values[idx] = evaluator.doEvaluate(p.getExpr(), ctxToUse);
+								types[idx++] = typer.doGetInferredType(p.getExpr());
+							}
+						return null;
 					}
+				}.run();
 
 				// Get the resolved unit in the current resolution scope
 				//
@@ -263,7 +294,14 @@ public class B3BuilderJob extends AbstractB3Job {
 					throw new UnsupportedOperationException(
 						"Calling builder that provided a capability is not yet implemented!");
 				}
-				Object buildJobObject = ctxToUse.callFunction(builderName, values, types);
+				Object buildJobObject = new AbstractB3Executor<Object>(ctxToUse) {
+
+					@Override
+					protected Object runb3(IProgressMonitor monitor) throws Throwable {
+						return ctxToUse.callFunction(builderName, values, types);
+					}
+				}.run();
+				// Object buildJobObject = ctxToUse.callFunction(builderName, values, types);
 				if(!(buildJobObject instanceof B3BuilderJob))
 					throw new B3InternalError("Builder did not return a B3BuilderJob: " + builderName);
 				B3BuilderJob buildJob = (B3BuilderJob) buildJobObject;

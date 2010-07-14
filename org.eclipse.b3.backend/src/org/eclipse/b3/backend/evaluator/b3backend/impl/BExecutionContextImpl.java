@@ -110,6 +110,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		}
 	}
 
+	protected static int counter = 0;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,7 +121,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	public static void printStackOnStream(BExecutionContext ctx, PrintStream x) {
-		x.printf("Stack Type: %s\n", ctx.getClass().getName());
+		x.printf("[%s] Stack Type: %s\n", ((BExecutionContextImpl) ctx).ctxIdentifier, ctx.getClass().getName());
 		ValueMap vm = ctx.getValueMap();
 		if(vm != null)
 			vm.printDump(x, 4);
@@ -258,6 +260,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 
 	private Map<Class<?>, Map<Object, Object>> allThings;
 
+	public String ctxIdentifier;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -267,6 +271,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	protected BExecutionContextImpl() {
 		super();
 		this.valueMap = new ValueMap();
+		ctxIdentifier = Integer.toString(counter++);
 	}
 
 	/**
@@ -1238,7 +1243,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
@@ -1246,14 +1251,15 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (valueMap: ");
-		result.append(valueMap);
-		result.append(", funcStore: ");
-		result.append(funcStore);
-		result.append(", progressMonitor: ");
-		result.append(progressMonitor);
-		result.append(", injector: ");
-		result.append(injector);
+		result.append(" (ctxIdentifier: " + this.ctxIdentifier);
+		// result.append(" (valueMap : ");
+		// result.append(valueMap);
+		// result.append(", funcStore: ");
+		// result.append(funcStore);
+		// result.append(", progressMonitor: ");
+		// result.append(progressMonitor);
+		// result.append(", injector: ");
+		// result.append(injector);
 		result.append(')');
 		return result.toString();
 	}

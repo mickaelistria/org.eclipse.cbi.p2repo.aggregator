@@ -105,6 +105,7 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 	 */
 	protected BSystemContextImpl() {
 		super();
+		BExecutionContextImpl.counter = 0;
 		// must have a func store as functions are added after children are created.
 		// A system context also never gets parent set, so there is no other chance of doing this.
 		createFuncStore();
