@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Experiments
+Bundle-SymbolicName: org.eclipse.b3.beelang.ui.experiments
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.b3.beelang.ui.experiments.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
