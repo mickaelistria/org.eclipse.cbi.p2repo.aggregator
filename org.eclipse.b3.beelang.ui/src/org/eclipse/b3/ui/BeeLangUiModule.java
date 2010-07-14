@@ -3,7 +3,6 @@
  */
 package org.eclipse.b3.ui;
 
-import org.eclipse.b3.beelang.ui.xtext.EFSResourceForIEditorInputFactory;
 import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedXtextEditor;
 import org.eclipse.b3.coloring.BeeLangHighlightConfiguration;
 import org.eclipse.b3.coloring.BeeLangSemanticHighlightingCalculator;
@@ -13,7 +12,6 @@ import org.eclipse.b3.ui.contentassist.BeeLangAutoEditStrategy;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.XtextEditor;
-import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
 import org.eclipse.xtext.ui.editor.outline.actions.IContentOutlineNodeAdapterFactory;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
@@ -42,14 +40,6 @@ public class BeeLangUiModule extends org.eclipse.b3.ui.AbstractBeeLangUiModule {
 
 	public Class<? extends IHighlightingConfiguration> bindILexicalHighlightingConfiguration() {
 		return BeeLangHighlightConfiguration.class;
-	}
-
-	/*
-	 * Added to be able to open files in the file system
-	 */
-	@Override
-	public Class<? extends IResourceForEditorInputFactory> bindIResourceForEditorInputFactory() {
-		return EFSResourceForIEditorInputFactory.class;
 	}
 
 	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
