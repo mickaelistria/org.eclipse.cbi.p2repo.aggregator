@@ -199,7 +199,6 @@ public class B3BuilderJob extends AbstractB3Job {
 
 					@Override
 					protected IStatus runb3(IProgressMonitor monitor) throws Throwable {
-						// TODO Auto-generated method stub
 						return runInInnerContext(monitor);
 					}
 				}.run();
