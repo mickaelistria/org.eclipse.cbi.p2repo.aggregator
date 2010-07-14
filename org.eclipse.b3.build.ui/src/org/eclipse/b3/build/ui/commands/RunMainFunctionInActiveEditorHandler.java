@@ -11,7 +11,7 @@ package org.eclipse.b3.build.ui.commands;
 
 import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedXtextEditor;
 import org.eclipse.b3.build.core.B3BuildEngine;
-import org.eclipse.b3.build.operations.RunMainFunctionInResourceOperation;
+import org.eclipse.b3.build.operations.RunFunctionInResourceOperation;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.expressions.EvaluationContext;
@@ -47,7 +47,7 @@ public class RunMainFunctionInActiveEditorHandler extends AbstractHandlerWithB3C
 		IStatus result = xtextDocument.readOnly(new IUnitOfWork<IStatus, XtextResource>() {
 			// @Override
 			public IStatus exec(XtextResource state) throws Exception {
-				return new B3BuildEngine().run(new RunMainFunctionInResourceOperation(state));
+				return new B3BuildEngine().run(new RunFunctionInResourceOperation(state));
 			}
 		});
 		RunMainFunctionInActiveEditorHandler.this.printResult(result, true);

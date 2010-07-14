@@ -13,7 +13,7 @@ import java.util.List;
 
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.core.B3BuildEngine;
-import org.eclipse.b3.build.operations.RunMainFunctionInModelOperation;
+import org.eclipse.b3.build.operations.RunFunctionInModelOperation;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.expressions.EvaluationContext;
@@ -42,7 +42,7 @@ public class RunMainFunctionInModelHandler extends AbstractHandlerWithB3Console 
 		IStatus result = node.getEObjectHandle().readOnly(new IUnitOfWork<IStatus, EObject>() {
 			// @Override
 			public IStatus exec(EObject state) throws Exception {
-				return new B3BuildEngine().run(new RunMainFunctionInModelOperation((BeeModel) state));
+				return new B3BuildEngine().run(new RunFunctionInModelOperation((BeeModel) state));
 			}
 		});
 		RunMainFunctionInModelHandler.this.printResult(result, true);
