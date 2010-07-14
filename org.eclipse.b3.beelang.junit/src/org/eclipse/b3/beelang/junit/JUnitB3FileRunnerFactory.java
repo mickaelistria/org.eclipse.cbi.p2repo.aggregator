@@ -149,7 +149,9 @@ class JUnitB3FileRunnerFactory {
 			resolutionScope.enter();
 			IStatus status = engine.resolveAllUnits();
 			if(!status.isOK()) {
-				throw new Exception(status.toString());
+				// accept warning, but not error or cancel
+				if(!status.matches(IStatus.WARNING))
+					throw new Exception(status.toString());
 			}
 
 		}
