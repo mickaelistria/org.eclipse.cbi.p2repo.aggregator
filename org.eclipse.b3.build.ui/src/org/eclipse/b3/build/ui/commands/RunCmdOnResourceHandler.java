@@ -12,6 +12,7 @@ package org.eclipse.b3.build.ui.commands;
 import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedXtextEditor;
 import org.eclipse.b3.build.core.B3BuildEngine;
 import org.eclipse.b3.build.core.B3BuildErrorCodes;
+import org.eclipse.b3.build.operations.RunCmdOnResourceOperation;
 import org.eclipse.b3.build.ui.Activator;
 import org.eclipse.b3.build.ui.core.B3BuildUIErrorCodes;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -37,7 +38,7 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 public class RunCmdOnResourceHandler extends AbstractHandlerWithB3Console {
 
 	@Override
-	public Object executeWithConsole(ExecutionEvent event) throws ExecutionException {
+	public Object executeWithConsole(final ExecutionEvent event) throws ExecutionException {
 		b3out.println("b3: Running function main()...");
 
 		EvaluationContext ctx = (EvaluationContext) event.getApplicationContext();
@@ -47,12 +48,15 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithB3Console {
 			b3err.println("Handler invoked on wrong type of editor: RunMainFunctionInActiveEditorHandler");
 			return null;
 		}
-		final Object cmdPath = event.getParameter("org.eclipse.b3.ui.run.b3cmd.pathParameter");
+		final String cmdPath = event.getParameter("org.eclipse.b3.ui.run.b3cmd.pathParameter");
+		final String cmdFunction = getParameter(event, "org.eclipse.b3.ui.run.b3cmd.cmdFunction", "main");
+
 		if(cmdPath == null) {
 			b3err.println("Bad configuration - org.eclipse.b3.ui.run.b3cmd.pathParameter not specified.");
 			return null;
 		}
 
+		// prepare a Map with all parameters
 		ExtLinkedXtextEditor b3Editor = (ExtLinkedXtextEditor) editor;
 		IXtextDocument xtextDocument = XtextDocumentUtil.get(b3Editor);
 		if(xtextDocument == null) {
@@ -62,10 +66,10 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithB3Console {
 		IStatus result = xtextDocument.readOnly(new IUnitOfWork<IStatus, XtextResource>() {
 			// @Override
 			public IStatus exec(XtextResource state) throws Exception {
-				// 1. if the path starts with b3: it means try workspace, then plugin schemes
+				// 1. if the path starts with b3: it means try resource:, then plugin: schemes
 				// 2. Else, the path should be a URI and only one attempt is made
-				// 3. If the result in any case is a bad URI, the conig is bad
-				String cmdURI = (String) cmdPath;
+				// 3. If the result in any case is a bad URI, the configuration is bad
+				String cmdURI = cmdPath;
 				URI uris[] = null;
 				try {
 					if(cmdURI.startsWith("b3:")) {
@@ -88,7 +92,9 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithB3Console {
 				for(int i = 0; i < uris.length; i++) {
 					URI uri = uris[i];
 					// Try different URIs - the first to succeed is used
-					IStatus result = new B3BuildEngine().run(new RunCmdOnResourceOperation(uri, state));
+					@SuppressWarnings("unchecked")
+					IStatus result = new B3BuildEngine().run(new RunCmdOnResourceOperation(
+						uri, cmdFunction, (event.getParameters()), state));
 					if(result.isOK())
 						return result;
 					if(result.getCode() != B3BuildErrorCodes.COULD_NOT_LOAD_RESOURCE)
@@ -102,5 +108,12 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithB3Console {
 		RunCmdOnResourceHandler.this.printResult(result, true);
 
 		return null; // dictated by Handler API
+	}
+
+	private String getParameter(ExecutionEvent event, String name, String defaultValue) {
+		String value = event.getParameter(name);
+		return value == null
+				? defaultValue
+				: value;
 	}
 }

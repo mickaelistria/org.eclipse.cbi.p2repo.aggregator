@@ -2,6 +2,7 @@ package org.eclipse.b3.build.operations;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.OkResultStatus;
@@ -18,22 +19,28 @@ import org.eclipse.core.runtime.Status;
 import com.google.inject.internal.Lists;
 
 public class RunMainFunctionInModelOperation implements IB3Runnable {
+
 	final BeeModel model;
 
 	private String functionName;
 
+	private int callStyle;
+
 	private Object[] argv;
 
 	public RunMainFunctionInModelOperation(BeeModel model, Object... argv) {
-		this("main", model, argv);
+		this("main", model, RunOptions.CALL_LIST, argv);
 	}
 
-	public RunMainFunctionInModelOperation(String functionName, BeeModel model, Object... argv) {
+	public RunMainFunctionInModelOperation(String functionName, BeeModel model, int callStyle, Object... argv) {
 		if(model == null)
 			throw new IllegalArgumentException();
 		this.model = model;
 		this.argv = argv;
 		this.functionName = functionName;
+		this.callStyle = callStyle;
+		if(callStyle == RunOptions.CALL_MAP && !(argv.length == 1 && argv[0] instanceof Map<?, ?>))
+			throw new IllegalArgumentException("Argument(s) must be a single Map");
 	}
 
 	// @Override
@@ -47,26 +54,29 @@ public class RunMainFunctionInModelOperation implements IB3Runnable {
 				Status.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.ENGINE_ERROR,
 				"B3Engine Error while loading model for evaluation", e);
 		}
-		//
-		// Not needed, engine will take care of this after model is defined - also, the search needs to take parameters
-		// into account.
-		// // find a function called main (use the first found) and call it with a List<Object> argv
-		// IFunction main = null;
-		// for(IFunction f : (model).getFunctions()) {
-		// if("main".equals(f.getName())) {
-		// main = f;
-		// break;
-		// }
-		// }
-		//
-		// if(main == null)
-		// return new Status(Status.ERROR, B3BuildActivator.PLUGIN_ID, "There was no main() function to call");
-		final List<Object> argVector = argv == null
-				? Lists.newArrayList()
-				: Lists.newArrayList(argv);
+
+		Object[] args = null;
+		Type[] types = null;
+		switch(callStyle) {
+			case RunOptions.CALL_VARARG:
+				args = argv;
+				types = new Type[argv.length];
+				for(int i = 0; i < argv.length; i++)
+					types[i] = argv[i].getClass();
+				break;
+			case RunOptions.CALL_LIST:
+				args = new Object[] { argv == null
+						? Lists.newArrayList()
+						: Lists.newArrayList(argv) };
+				types = new Type[] { List.class };
+				break;
+			case RunOptions.CALL_MAP:
+				args = argv;
+				types = new Type[] { argv[0].getClass() };
+				break;
+		}
 		try {
-			return new OkResultStatus(engine.callFunction(
-				functionName, new Object[] { argVector }, new Type[] { List.class }), B3BuildActivator.PLUGIN_ID);
+			return new OkResultStatus(engine.callFunction(functionName, args, types), B3BuildActivator.PLUGIN_ID);
 
 		}
 		catch(CoreException e) {
