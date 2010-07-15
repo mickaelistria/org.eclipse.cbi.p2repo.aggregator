@@ -142,7 +142,7 @@ public class RunCmdOnResourceOperation implements IB3Runnable {
 			// make the file being executed "wrapped" by the library, overload names that are not final
 			engine.push();
 			return loaded
-					? new RunMainFunctionInResourceOperation(cmdFunction, resource, RunOptions.CALL_MAP, parameters).run(
+					? new RunFunctionInResourceOperation(cmdFunction, resource, RunOptions.CALL_MAP, parameters).run(
 						engine, monitor)
 					: new Status(
 						IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.INVALID_B3_RESOURCE,

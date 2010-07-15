@@ -12,10 +12,12 @@ package org.eclipse.b3.build.ui.commands;
 import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedXtextEditor;
 import org.eclipse.b3.build.core.B3BuildEngine;
 import org.eclipse.b3.build.operations.RunFunctionInResourceOperation;
+import org.eclipse.b3.build.ui.Activator;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.expressions.EvaluationContext;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.XtextDocumentUtil;
@@ -25,24 +27,23 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
  * Runs the BeeModel associated with the current editor (if it is an XtextEditor and
  * has b3 content - i.e. a BeeModel).
  */
-public class RunMainFunctionInActiveEditorHandler extends AbstractHandlerWithB3Console {
+public class RunMainFunctionInActiveEditorHandler extends AbstractHandlerWithDialog {
 
 	@Override
-	public Object executeWithConsole(ExecutionEvent event) throws ExecutionException {
-		b3out.println("b3: Running function main()...");
+	public IStatus executeWithDialogSupport(ExecutionEvent event) throws ExecutionException {
 
 		EvaluationContext ctx = (EvaluationContext) event.getApplicationContext();
 
 		Object editor = ctx.getVariable("activeEditor");
 		if(editor == null || !(editor instanceof ExtLinkedXtextEditor)) {
-			b3err.println("Handler invoked on wrong type of editor: RunMainFunctionInActiveEditorHandler");
-			return null;
+			return new Status(
+				IStatus.ERROR, Activator.PLUGIN_ID,
+				"Handler invoked on wrong type of editor: RunMainFunctionInActiveEditorHandler");
 		}
 		ExtLinkedXtextEditor b3Editor = (ExtLinkedXtextEditor) editor;
 		IXtextDocument xtextDocument = XtextDocumentUtil.get(b3Editor);
 		if(xtextDocument == null) {
-			b3err.println("No b3 document found in current editor.");
-			return null;
+			return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "No b3 document found in current editor.");
 		}
 		IStatus result = xtextDocument.readOnly(new IUnitOfWork<IStatus, XtextResource>() {
 			// @Override
@@ -50,8 +51,15 @@ public class RunMainFunctionInActiveEditorHandler extends AbstractHandlerWithB3C
 				return new B3BuildEngine().run(new RunFunctionInResourceOperation(state));
 			}
 		});
-		RunMainFunctionInActiveEditorHandler.this.printResult(result, true);
+		return result;
+		// B3MessageDialog.openQuestion(
+		// HandlerUtil.getActiveShell(event), "Operation failed...", "message", result.getException(), 0);
+		// This dialog is quite useless, but it does not require the IDE.
+		// ErrorDialog.openError(HandlerUtil.getActiveShell(event), "Operation failed...", null, result, IStatus.OK |
+		// IStatus.CANCEL | IStatus.ERROR | IStatus.WARNING | IStatus.INFO);
 
-		return null; // dictated by Handler API
+		// RunMainFunctionInActiveEditorHandler.this.printResult(result, true);
+
+		// return null; // dictated by Handler API
 	}
 }

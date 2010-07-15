@@ -7,7 +7,7 @@
           locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
        <command
              commandId="org.eclipse.b3.beelang.ui.run.debugmain"
-             label="Run main() in dev-mode"
+             label="B3 Run Main (console)"
              style="push">
           <visibleWhen
                 checkEnabled="false">
@@ -23,7 +23,7 @@
           locationURI="popup:org.eclipse.b3.BeeLang.EditorContext?after=additions">
        <command
              commandId="org.eclipse.b3.beelang.ui.execute"
-             label="Run Main Function"
+             label="B3 Run Function main()"
              style="push">
           <visibleWhen
                 checkEnabled="false">

@@ -140,9 +140,9 @@ public class DeclarativeB3Evaluator implements IB3Evaluator {
 		// TODO: don't know how this is supposed to work - callers should expect a type at all times,
 		// and get a "type can not be inferred exception" with some info about why.
 		//
-		if(e instanceof NullPointerException) {
-			return Object.class;
-		}
+		// if(e instanceof NullPointerException) {
+		// return Object.class;
+		// }
 		return Exceptions.throwUncheckedException(e);
 	}
 

@@ -18,7 +18,7 @@ import org.eclipse.core.runtime.Status;
 
 import com.google.inject.internal.Lists;
 
-public class RunMainFunctionInModelOperation implements IB3Runnable {
+public class RunFunctionInModelOperation implements IB3Runnable {
 
 	final BeeModel model;
 
@@ -28,11 +28,11 @@ public class RunMainFunctionInModelOperation implements IB3Runnable {
 
 	private Object[] argv;
 
-	public RunMainFunctionInModelOperation(BeeModel model, Object... argv) {
+	public RunFunctionInModelOperation(BeeModel model, Object... argv) {
 		this("main", model, RunOptions.CALL_LIST, argv);
 	}
 
-	public RunMainFunctionInModelOperation(String functionName, BeeModel model, int callStyle, Object... argv) {
+	public RunFunctionInModelOperation(String functionName, BeeModel model, int callStyle, Object... argv) {
 		if(model == null)
 			throw new IllegalArgumentException();
 		this.model = model;

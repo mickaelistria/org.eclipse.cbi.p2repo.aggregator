@@ -6,21 +6,26 @@
     <command
           description="Runs the function called main"
           id="org.eclipse.b3.beelang.ui.execute"
-          name="Run Main Function">
+          name="B3 Run Main">
     </command>
     <command
           description="Runs the function main() in dev mode"
           id="org.eclipse.b3.beelang.ui.run.debugmain"
-          name="Run function main() (dev mode)">
+          name="B3 Run Main (Console)">
     </command>
     <command
           description="runs a parameter given b3 command on b3 resource"
           id="org.eclipse.b3.ui.run.b3cmd"
-          name="Run b3 command">
+          name="B3 Run Command (w. params)">
        <commandParameter
              id="org.eclipse.b3.ui.run.b3cmd.pathParameter"
              name="cmdPath"
              optional="false">
+       </commandParameter>
+       <commandParameter
+             id="org.eclipse.b3.ui.run.b3cmd.cmdFunction"
+             name="cmdFunction"
+             optional="true">
        </commandParameter>
     </command>
  </extension>

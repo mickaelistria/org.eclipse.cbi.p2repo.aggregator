@@ -25,7 +25,7 @@ import org.eclipse.xtext.resource.XtextResource;
  * Runs the main function in a b3 Resource.
  * 
  */
-public class RunMainFunctionInResourceOperation implements IB3Runnable {
+public class RunFunctionInResourceOperation implements IB3Runnable {
 
 	private XtextResource resource;
 
@@ -38,7 +38,7 @@ public class RunMainFunctionInResourceOperation implements IB3Runnable {
 	/**
 	 * Runs the given function with signature (List<Object>)=>Object
 	 */
-	public RunMainFunctionInResourceOperation(String functionName, XtextResource resource, int callStyle,
+	public RunFunctionInResourceOperation(String functionName, XtextResource resource, int callStyle,
 			Object... argv) {
 		this.functionName = functionName;
 		this.resource = resource;
@@ -52,7 +52,7 @@ public class RunMainFunctionInResourceOperation implements IB3Runnable {
 	 * @param resource
 	 * @param argv
 	 */
-	public RunMainFunctionInResourceOperation(XtextResource resource, Object... argv) {
+	public RunFunctionInResourceOperation(XtextResource resource, Object... argv) {
 		this("main", resource, RunOptions.CALL_LIST, argv);
 	}
 
@@ -67,7 +67,7 @@ public class RunMainFunctionInResourceOperation implements IB3Runnable {
 
 		for(EObject e : resource.getContents())
 			if(e instanceof BeeModel)
-				return new RunMainFunctionInModelOperation(functionName, (BeeModel) e, callStyle, argv).run(
+				return new RunFunctionInModelOperation(functionName, (BeeModel) e, callStyle, argv).run(
 					engine, monitor);
 		return new Status(
 			IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.INVALID_B3_RESOURCE,
