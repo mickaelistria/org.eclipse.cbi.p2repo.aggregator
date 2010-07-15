@@ -53,8 +53,9 @@ public abstract class BuildException extends CoreException {
 	}
 
 	public static IStatus createStatus(Throwable cause, String message, Object... args) {
-		if(args.length > 0)
+		if(args == null || args.length > 0)
 			message = NLS.bind(message, args);
+		// TODO, the error code should be selectable
 		return new Status(IStatus.ERROR, BuildBundle.PLUGIN_ID, IStatus.OK, message, cause);
 	}
 
