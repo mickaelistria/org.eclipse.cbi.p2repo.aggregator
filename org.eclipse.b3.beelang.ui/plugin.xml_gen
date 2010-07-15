@@ -180,11 +180,5 @@
             class="org.eclipse.b3.ui.BeeLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator">
       </markerResolutionGenerator>
    </extension>
-    <extension
-       point="org.eclipse.b3.core.logReceivers">
-    <logreceiver
-          class="org.eclipse.b3.beelang.ui.internal.EclipseConsoleLogReceiver">
-    </logreceiver>
- </extension>
-   
+
 </plugin>

@@ -46,8 +46,9 @@ public class BuildFunctions {
 		}
 		else {
 			if(!(params[1] instanceof String))
-				throw new IllegalArgumentException("Unit is neither a Unit instance nor a String name: was a:" +
-						params[1].getClass().getName());
+				throw new IllegalArgumentException(
+					"The argument 'unit' is neither a BuildUnit nor a String with a unit's name. Got: " +
+							params[1].getClass().getName());
 			unitName = (String) params[1];
 		}
 		SharedScope resolutionScope = null;
@@ -91,8 +92,9 @@ public class BuildFunctions {
 		}
 		else {
 			if(!(params[1] instanceof String))
-				throw new IllegalArgumentException("Unit is neither a Unit instance nor a String name: was a:" +
-						params[1].getClass().getName());
+				throw new IllegalArgumentException(
+					"The argument 'unit' is neither a BuildUnit nor a String with a unit's name. Got: " +
+							params[1].getClass().getName());
 			unitName = (String) params[1];
 		}
 
@@ -178,6 +180,24 @@ public class BuildFunctions {
 
 	/**
 	 * Dynamically Resolve and run a Builder.
+	 * TODO: THis is cheating because type inference does not work when doing select etc.
+	 * 
+	 * @param engine
+	 * @param functionName
+	 * @param variable
+	 * @return
+	 */
+	@B3Backend(systemFunction = "_resolveAndRunBuilder", varargs = true)
+	public static BuildSet resolveAndRunBuilder( //
+			@B3Backend(name = "engine") IB3Engine engine, //
+			@B3Backend(name = "unitName") Object unit, //
+			@B3Backend(name = "builderName") String builderName, //
+			@B3Backend(name = "arguments") Object... variable) {
+		return null;
+	}
+
+	/**
+	 * Dynamically Resolve and run a Builder.
 	 * 
 	 * @param engine
 	 * @param functionName
@@ -205,6 +225,25 @@ public class BuildFunctions {
 	public static BuildSet runBuilder( //
 			@B3Backend(name = "engine") IB3Engine engine, //
 			@B3Backend(name = "unit") BuildUnit unit, //
+			@B3Backend(name = "builderName") String builderName, //
+			@B3Backend(name = "arguments") Object... variable) {
+		return null;
+	}
+
+	/**
+	 * Dynamically run a Builder.
+	 * TODO: This is cheating - the type system should have detected that a Unit is found when using
+	 * select, etc.
+	 * 
+	 * @param engine
+	 * @param functionName
+	 * @param variable
+	 * @return
+	 */
+	@B3Backend(systemFunction = "_runBuilder", varargs = true)
+	public static BuildSet runBuilder( //
+			@B3Backend(name = "engine") IB3Engine engine, //
+			@B3Backend(name = "unit") Object unit, //
 			@B3Backend(name = "builderName") String builderName, //
 			@B3Backend(name = "arguments") Object... variable) {
 		return null;
