@@ -80,9 +80,24 @@ public class RunFunctionInModelOperation implements IB3Runnable {
 
 		}
 		catch(CoreException e) {
+			String argType = null;
+			switch(callStyle) {
+				case RunOptions.CALL_MAP:
+					argType = "(Map<String, String>)";
+					break;
+				case RunOptions.CALL_VARARG:
+					argType = "(Object...)";
+					break;
+				case RunOptions.CALL_LIST:
+					argType = "(List<Object>)";
+					break;
+				default:
+					argType = "";
+					break;
+			}
 			return new Status(
 				Status.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.EVALUATION_ERROR, "Evaluation of " +
-						functionName + "(List) ended with exception.", e);
+						functionName + argType + " ended with exception.", e);
 		}
 
 	}

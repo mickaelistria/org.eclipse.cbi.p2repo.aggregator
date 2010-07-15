@@ -60,13 +60,18 @@ public abstract class AbstractHandlerWithDialog extends AbstractHandler {
 
 	abstract public IStatus executeWithDialogSupport(ExecutionEvent event) throws ExecutionException;
 
-	protected void reportOKStatus(ExecutionEvent event, IStatus status) {
-
-	}
-
 	protected Object reportResult(ExecutionEvent event, IStatus status) {
 		final Shell shell = HandlerUtil.getActiveShell(event);
 
+		if(status == null) {
+			try {
+				throw new IllegalArgumentException("Internal error, can not report result.");
+			}
+			catch(IllegalArgumentException e) {
+				e.printStackTrace();
+				B3MessageDialog.openStackTrace(shell, "Internal Serious Error", e.getMessage(), e, 0);
+			}
+		}
 		if(status.isOK() && shouldThisOkBeReported(status))
 			B3MessageDialog.openInformation(shell, "Info", status.getMessage());
 

@@ -35,33 +35,33 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
  * mean first found of resource:/pluginId/path.b3, and plugin:/pluginId/path.b3 - or be a URI that can
  * be loaded as an Xtext Resource.
  */
-public class RunCmdOnResourceHandler extends AbstractHandlerWithB3Console {
+public class RunCmdOnResourceHandler extends AbstractHandlerWithDialog {
 
 	@Override
-	public Object executeWithConsole(final ExecutionEvent event) throws ExecutionException {
-		b3out.println("b3: Running function main()...");
+	public IStatus executeWithDialogSupport(final ExecutionEvent event) throws ExecutionException {
 
 		EvaluationContext ctx = (EvaluationContext) event.getApplicationContext();
 
 		Object editor = ctx.getVariable("activeEditor");
 		if(editor == null || !(editor instanceof ExtLinkedXtextEditor)) {
-			b3err.println("Handler invoked on wrong type of editor: RunMainFunctionInActiveEditorHandler");
-			return null;
+			return new Status(
+				IStatus.ERROR, Activator.PLUGIN_ID, B3BuildUIErrorCodes.BAD_UI_CONFIGURATION,
+				"Handler invoked on wrong type of editor: RunMainFunctionInActiveEditorHandler", null);
 		}
 		final String cmdPath = event.getParameter("org.eclipse.b3.ui.run.b3cmd.pathParameter");
 		final String cmdFunction = getParameter(event, "org.eclipse.b3.ui.run.b3cmd.cmdFunction", "main");
 
 		if(cmdPath == null) {
-			b3err.println("Bad configuration - org.eclipse.b3.ui.run.b3cmd.pathParameter not specified.");
-			return null;
+			return new Status(
+				IStatus.ERROR, Activator.PLUGIN_ID, B3BuildUIErrorCodes.BAD_UI_CONFIGURATION,
+				"Bad configuration - org.eclipse.b3.ui.run.b3cmd.pathParameter not specified.", null);
 		}
 
 		// prepare a Map with all parameters
 		ExtLinkedXtextEditor b3Editor = (ExtLinkedXtextEditor) editor;
 		IXtextDocument xtextDocument = XtextDocumentUtil.get(b3Editor);
 		if(xtextDocument == null) {
-			b3err.println("No b3 document found in current editor.");
-			return null;
+			return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "No b3 document found in current editor.");
 		}
 		IStatus result = xtextDocument.readOnly(new IUnitOfWork<IStatus, XtextResource>() {
 			// @Override
@@ -105,9 +105,8 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithB3Console {
 					"Bad menu/command configuration - could not find cmd: " + cmdURI, null);
 			}
 		});
-		RunCmdOnResourceHandler.this.printResult(result, true);
 
-		return null; // dictated by Handler API
+		return result;
 	}
 
 	private String getParameter(ExecutionEvent event, String name, String defaultValue) {
