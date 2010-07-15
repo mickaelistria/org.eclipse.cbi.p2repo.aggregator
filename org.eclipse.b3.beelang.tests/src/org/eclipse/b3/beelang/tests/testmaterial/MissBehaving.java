@@ -8,11 +8,28 @@
 
 package org.eclipse.b3.beelang.tests.testmaterial;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+
 /**
  * A class used to generate exceptions
  * 
  */
 public class MissBehaving {
+	public void coreException() throws CoreException {
+		throw new CoreException(new Status(IStatus.ERROR, "bad.plugin.id", "CoreException with only a message"));
+	}
+
+	public void coreExceptionWithCause() throws CoreException {
+		try {
+			error();
+		}
+		catch(Throwable t) {
+			throw new CoreException(new Status(IStatus.ERROR, "bad.plugin.id", "CoreException with only a message", t));
+		}
+	}
+
 	public void error() throws Error {
 		throw new Error("An error");
 	}

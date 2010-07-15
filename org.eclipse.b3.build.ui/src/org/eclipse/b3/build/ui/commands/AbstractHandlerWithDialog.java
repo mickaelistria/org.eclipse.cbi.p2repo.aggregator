@@ -84,7 +84,7 @@ public abstract class AbstractHandlerWithDialog extends AbstractHandler {
 
 		else if(status.matches(IStatus.ERROR)) {
 			if(shouldThisErrorBeReportedWithStackTrace(status))
-				B3MessageDialog.openQuestion(shell, "Serious Error", status.getMessage(), status.getException(), 0);
+				B3MessageDialog.openStackTrace(shell, "Serious Error", status.getMessage(), status.getException(), 0);
 			else
 				ErrorDialog.openError(shell, "Error", "Operation ended with Error", status, IStatus.ERROR);
 		}

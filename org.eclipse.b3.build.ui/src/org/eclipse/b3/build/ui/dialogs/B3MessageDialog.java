@@ -85,17 +85,18 @@ public class B3MessageDialog extends MessageDialog {
 	public static void openStackTrace(Shell parent, String title, String message, Throwable detail, int defaultIndex) {
 		String[] labels;
 		if(detail == null) {
-			labels = new String[] { IDialogConstants.YES_LABEL, IDialogConstants.NO_LABEL };
+			labels = new String[] { IDialogConstants.OK_LABEL };
+			defaultIndex = 0;
 		}
 		else {
-			labels = new String[] {
-					IDialogConstants.YES_LABEL, IDialogConstants.NO_LABEL, IDialogConstants.SHOW_DETAILS_LABEL };
+			labels = new String[] { IDialogConstants.OK_LABEL, IDialogConstants.SHOW_DETAILS_LABEL };
+			defaultIndex = 0;
 		}
 
 		B3MessageDialog dialog = new B3MessageDialog(parent, title, null, // accept the default window icon
-		message, detail, QUESTION, labels, defaultIndex);
+		message, detail, MessageDialog.ERROR, labels, defaultIndex);
 		if(detail != null) {
-			dialog.setDetailButton(2);
+			dialog.setDetailButton(1);
 		}
 		dialog.open();
 	}
@@ -187,6 +188,16 @@ public class B3MessageDialog extends MessageDialog {
 		data.heightHint = text.getLineHeight() * TEXT_LINE_COUNT;
 		data.horizontalSpan = 2;
 		text.setLayoutData(data);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.dialogs.Dialog#isResizable()
+	 */
+	@Override
+	protected boolean isResizable() {
+		return true;
 	}
 
 	// Workaround. SWT does not seem to set rigth the default button if
