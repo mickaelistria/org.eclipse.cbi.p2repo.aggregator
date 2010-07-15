@@ -33,6 +33,18 @@
               </visibleWhen>
        </command>
     </menuContribution>
- </extension>
 
+ </extension>
+ <!--
+<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="org.eclipse.b3.BeeLang.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+</extension>
+-->
 </fragment>

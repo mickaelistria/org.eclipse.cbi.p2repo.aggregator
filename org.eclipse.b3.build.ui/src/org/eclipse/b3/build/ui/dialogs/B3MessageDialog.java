@@ -67,6 +67,39 @@ public class B3MessageDialog extends MessageDialog {
 		return dialog.open() == 0;
 	}
 
+	/**
+	 * Convenience method to open an error dialog with a stack trace
+	 * 
+	 * @param parent
+	 *            the parent shell of the dialog, or <code>null</code> if none
+	 * @param title
+	 *            the dialog's title, or <code>null</code> if none
+	 * @param message
+	 *            the message
+	 * @param detail
+	 *            the error
+	 * @param defaultIndex
+	 *            the default index of the button to select
+	 * @return <code>true</code> if the user presses the OK button, <code>false</code> otherwise
+	 */
+	public static void openStackTrace(Shell parent, String title, String message, Throwable detail, int defaultIndex) {
+		String[] labels;
+		if(detail == null) {
+			labels = new String[] { IDialogConstants.YES_LABEL, IDialogConstants.NO_LABEL };
+		}
+		else {
+			labels = new String[] {
+					IDialogConstants.YES_LABEL, IDialogConstants.NO_LABEL, IDialogConstants.SHOW_DETAILS_LABEL };
+		}
+
+		B3MessageDialog dialog = new B3MessageDialog(parent, title, null, // accept the default window icon
+		message, detail, QUESTION, labels, defaultIndex);
+		if(detail != null) {
+			dialog.setDetailButton(2);
+		}
+		dialog.open();
+	}
+
 	private Throwable detail;
 
 	private int detailButtonID = -1;
