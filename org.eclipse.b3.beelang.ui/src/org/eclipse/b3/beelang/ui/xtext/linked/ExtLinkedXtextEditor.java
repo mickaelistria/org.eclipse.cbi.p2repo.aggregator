@@ -24,6 +24,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
@@ -52,6 +53,8 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
  */
 public class ExtLinkedXtextEditor extends XtextEditor {
 	private static final String AUTOLINK_PROJECT_NAME = "AutoLinked_B3ExternalFiles";
+
+	private static final String ENCODING_UTF8 = "utf-8";
 
 	/**
 	 * Does nothing except server as a place to set a breakpoint :)
@@ -264,13 +267,18 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 			IWorkspace ws = ResourcesPlugin.getWorkspace();
 			// get, or create project if non existing
 			IProject project = ws.getRoot().getProject(AUTOLINK_PROJECT_NAME);
+			boolean newProject = false;
 			if(!project.exists()) {
 				project.create(null);
+				newProject = true;
 			}
 			if(!project.isOpen()) {
 				project.open(null);
 				project.setHidden(true);
 			}
+
+			if(newProject)
+				project.setDefaultCharset(ENCODING_UTF8, new NullProgressMonitor());
 
 			// path in project that is the same as the external file's path
 			IFile linkFile = project.getFile(uri.getPath());
