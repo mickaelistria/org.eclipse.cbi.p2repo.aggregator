@@ -400,11 +400,6 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 		ictx.defineVariableValue("@test", null, BuildUnit.class);
 		ictx.getLValue("@test");
 		ctx.getInjector().getInstance(IB3Weaver.class).doWeave(o, new EffectiveUnitIterator(ctx), ctx);
-		// weaver.setUnitConcern(o);
-		// for(BuildUnit u : new EffectiveUnitIterator(ctx)) {
-		// lval.set(u);
-		// weaver.weaveIfMatching(u, ictx);
-		// }
 		return this;
 	}
 
