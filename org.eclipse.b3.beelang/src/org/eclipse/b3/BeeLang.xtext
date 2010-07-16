@@ -66,6 +66,11 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 				(',' requiredCapabilities += AliasedRequiredCapability)* ']')
 			| requiredCapabilities += AliasedRequiredCapability) 
 			';') //?
+		| ('select-required' ':' (
+			( '[' requiredPredicates += CapabilityPredicate 
+				(',' requiredPredicates += CapabilityPredicate)* ']' )
+			| requiredPredicates += CapabilityPredicate)
+			';')
 		| ('requires' 'env' ':' (
 			('[' metaRequiredCapabilities += RequiredCapability 
 				(',' metaRequiredCapabilities += RequiredCapability)* ']')
@@ -145,6 +150,7 @@ RequiredCapability_Unfiltered returns build::RequiredCapability : {build::Requir
 	
 // A named sequence of property statements
 PropertySet_Named returns be::BPropertySet : {be::BPropertySet} 
+	(documentation = DOCUMENTATION)?
 	"properties" name = ID ("extends" extends=[be::BPropertySet | QIDREF])? 
 	(('{' (operations += PropertyOperation )* '}' )
 	|(':' "load-from" ':' propertiesFile = URI ';')
@@ -153,6 +159,7 @@ PropertySet_Named returns be::BPropertySet : {be::BPropertySet}
 
 // Sequence of possibly filtered property statements
 PropertySet returns be::BPropertySet :  {be::BPropertySet}
+	(documentation = DOCUMENTATION)?
 	"properties" ("extends" extends=[be::BPropertySet | QIDREF])? 
 	(('{' (operations += PropertyOperation )* '}' )
 	|(':' "load-from" ':' propertiesFile = URI ';')
@@ -177,6 +184,7 @@ PropertySet_noKw returns be::BPropertySet :  {be::BPropertySet}
 // - default sets can not have conditional declaration of properties
 // TODO: only allowed to extend another default property set
 PropertySetDefault returns be::BPropertySet :  {be::BDefaultPropertySet}
+	(documentation = DOCUMENTATION)?
 	"default-properties" ("extends" extends=[be::BPropertySet | QIDREF])?
 	'{' (operations += PropertyOperationDefault )*  '}'
 	;
@@ -901,7 +909,10 @@ UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContex
 				( ('-' requiresRemovals += RequiresPredicate ';')
 				| ('+' requiredCapabilities += AliasedRequiredCapability ';')
 			)* '}' ';')?
-
+			("select-required" ':' '{'
+				( ('-' requiredPredicatesRemovals += CapabilityPredicate ';' )
+				| ('+' requiredPredicates += CapabilityPredicate ';' )
+			)* '}' ';')?
 			( (functions += Builder)
 			| (builderContexts += BuilderConcernContext)
 			)*

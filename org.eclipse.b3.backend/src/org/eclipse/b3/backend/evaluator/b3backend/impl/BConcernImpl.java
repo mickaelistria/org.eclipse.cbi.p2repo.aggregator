@@ -24,12 +24,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -43,7 +41,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getFunctions <em>Functions</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getDocumentation <em>Documentation</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getSuperConcerns <em>Super Concerns</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getContexts <em>Contexts</em>}</li>
@@ -71,28 +68,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * @ordered
 	 */
 	protected EList<IFunction> functions;
-
-	/**
-	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getDocumentation()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DOCUMENTATION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getDocumentation()
-	 * @generated
-	 * @ordered
-	 */
-	protected String documentation = DOCUMENTATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSuperConcerns() <em>Super Concerns</em>}' reference list.
@@ -186,8 +161,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		switch(featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				return getFunctions();
-			case B3backendPackage.BCONCERN__DOCUMENTATION:
-				return getDocumentation();
 			case B3backendPackage.BCONCERN__SUPER_CONCERNS:
 				return getSuperConcerns();
 			case B3backendPackage.BCONCERN__PROPERTY_SETS:
@@ -244,10 +217,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		switch(featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				return functions != null && !functions.isEmpty();
-			case B3backendPackage.BCONCERN__DOCUMENTATION:
-				return DOCUMENTATION_EDEFAULT == null
-						? documentation != null
-						: !DOCUMENTATION_EDEFAULT.equals(documentation);
 			case B3backendPackage.BCONCERN__SUPER_CONCERNS:
 				return superConcerns != null && !superConcerns.isEmpty();
 			case B3backendPackage.BCONCERN__PROPERTY_SETS:
@@ -271,9 +240,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				getFunctions().clear();
 				getFunctions().addAll((Collection<? extends IFunction>) newValue);
-				return;
-			case B3backendPackage.BCONCERN__DOCUMENTATION:
-				setDocumentation((String) newValue);
 				return;
 			case B3backendPackage.BCONCERN__SUPER_CONCERNS:
 				getSuperConcerns().clear();
@@ -313,9 +279,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		switch(featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				getFunctions().clear();
-				return;
-			case B3backendPackage.BCONCERN__DOCUMENTATION:
-				setDocumentation(DOCUMENTATION_EDEFAULT);
 				return;
 			case B3backendPackage.BCONCERN__SUPER_CONCERNS:
 				getSuperConcerns().clear();
@@ -385,16 +348,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * 
 	 * @generated
 	 */
-	public String getDocumentation() {
-		return documentation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EList<IFunction> getFunctions() {
 		if(functions == null) {
 			functions = new EObjectContainmentWithInverseEList<IFunction>(
@@ -429,37 +382,5 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 				BConcern.class, this, B3backendPackage.BCONCERN__SUPER_CONCERNS);
 		}
 		return superConcerns;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setDocumentation(String newDocumentation) {
-		String oldDocumentation = documentation;
-		documentation = newDocumentation;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BCONCERN__DOCUMENTATION, oldDocumentation, documentation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if(eIsProxy())
-			return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (documentation: ");
-		result.append(documentation);
-		result.append(')');
-		return result.toString();
 	}
 } // BConcernImpl

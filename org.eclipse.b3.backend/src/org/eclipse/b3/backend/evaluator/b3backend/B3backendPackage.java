@@ -2249,6 +2249,15 @@ public interface B3backendPackage extends EPackage {
 		EClass BADVICE = eINSTANCE.getBAdvice();
 
 		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BADVICE__DOCUMENTATION = eINSTANCE.getBAdvice_Documentation();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl <em>BConcern</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2258,15 +2267,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BCONCERN = eINSTANCE.getBConcern();
-
-		/**
-		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute BCONCERN__DOCUMENTATION = eINSTANCE.getBConcern_Documentation();
 
 		/**
 		 * The meta object literal for the '<em><b>Super Concerns</b></em>' reference list feature.
@@ -6272,6 +6272,16 @@ public interface B3backendPackage extends EPackage {
 	int BADVICE__TYPE = BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BADVICE__DOCUMENTATION = BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>BAdvice</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6279,7 +6289,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BADVICE_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
+	int BADVICE_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl <em>BProperty Set</em>}' class.
@@ -6311,6 +6321,16 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BPROPERTY_SET__TYPE = BADVICE__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_SET__DOCUMENTATION = BADVICE__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference.
@@ -6383,6 +6403,16 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BDEFAULT_PROPERTY_SET__TYPE = BPROPERTY_SET__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BDEFAULT_PROPERTY_SET__DOCUMENTATION = BPROPERTY_SET__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference.
@@ -6583,6 +6613,16 @@ public interface B3backendPackage extends EPackage {
 	int BCONCERN__TYPE = BADVICE__TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BCONCERN__DOCUMENTATION = BADVICE__DOCUMENTATION;
+
+	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6593,16 +6633,6 @@ public interface B3backendPackage extends EPackage {
 	int BCONCERN__FUNCTIONS = BADVICE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BCONCERN__DOCUMENTATION = BADVICE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Super Concerns</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6610,7 +6640,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN__SUPER_CONCERNS = BADVICE_FEATURE_COUNT + 2;
+	int BCONCERN__SUPER_CONCERNS = BADVICE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
@@ -6620,7 +6650,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN__PROPERTY_SETS = BADVICE_FEATURE_COUNT + 3;
+	int BCONCERN__PROPERTY_SETS = BADVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
@@ -6630,7 +6660,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN__CONTEXTS = BADVICE_FEATURE_COUNT + 4;
+	int BCONCERN__CONTEXTS = BADVICE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>BConcern</em>' class.
@@ -6640,7 +6670,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN_FEATURE_COUNT = BADVICE_FEATURE_COUNT + 5;
+	int BCONCERN_FEATURE_COUNT = BADVICE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl <em>BWith Expression</em>}' class.
@@ -8441,6 +8471,18 @@ public interface B3backendPackage extends EPackage {
 	EClass getBAdvice();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BAdvice#getDocumentation()
+	 * @see #getBAdvice()
+	 * @generated
+	 */
+	EAttribute getBAdvice_Documentation();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BAndExpression <em>BAnd Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8760,19 +8802,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBConcern_Contexts();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getDocumentation <em>Documentation</em>}
-	 * '.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Documentation</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern#getDocumentation()
-	 * @see #getBConcern()
-	 * @generated
-	 */
-	EAttribute getBConcern_Documentation();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getPropertySets

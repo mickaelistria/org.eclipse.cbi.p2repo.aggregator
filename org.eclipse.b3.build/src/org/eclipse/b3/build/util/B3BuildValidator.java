@@ -12,6 +12,7 @@ package org.eclipse.b3.build.util;
 
 import java.util.Map;
 
+import org.eclipse.b3.build.*;
 import org.eclipse.b3.build.AliasedRequiredCapability;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BeeHive;
@@ -365,6 +366,8 @@ public class B3BuildValidator extends EObjectValidator {
 				return validateIEffectiveFacade((IEffectiveFacade) value, diagnostics, context);
 			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE:
 				return validateEffectiveBuilderCallFacade((EffectiveBuilderCallFacade) value, diagnostics, context);
+			case B3BuildPackage.IBUILD_UNIT_CONTAINER:
+				return validateIBuildUnitContainer((IBuildUnitContainer) value, diagnostics, context);
 			case B3BuildPackage.MERGE_CONFLICT_STRATEGY:
 				return validateMergeConflictStrategy((MergeConflictStrategy) value, diagnostics, context);
 			case B3BuildPackage.BRANCH_POINT_TYPE:
@@ -959,6 +962,17 @@ public class B3BuildValidator extends EObjectValidator {
 	 */
 	public boolean validateIBuilder(IBuilder iBuilder, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(iBuilder, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateIBuildUnitContainer(IBuildUnitContainer iBuildUnitContainer, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(iBuildUnitContainer, diagnostics, context);
 	}
 
 	/**

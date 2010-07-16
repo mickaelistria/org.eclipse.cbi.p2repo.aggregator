@@ -24,7 +24,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getDocumentation <em>Documentation</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getSuperConcerns <em>Super Concerns</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getContexts <em>Contexts</em>}</li>
@@ -80,22 +79,6 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	EList<BConcernContext> getContexts();
 
 	/**
-	 * Returns the value of the '<em><b>Documentation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Documentation</em>' attribute.
-	 * @see #setDocumentation(String)
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBConcern_Documentation()
-	 * @model
-	 * @generated
-	 */
-	String getDocumentation();
-
-	/**
 	 * Returns the value of the '<em><b>Property Sets</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
 	 * <!-- begin-user-doc -->
@@ -126,17 +109,5 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	 * @generated
 	 */
 	EList<BConcern> getSuperConcerns();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getDocumentation <em>Documentation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Documentation</em>' attribute.
-	 * @see #getDocumentation()
-	 * @generated
-	 */
-	void setDocumentation(String value);
 
 } // BConcern

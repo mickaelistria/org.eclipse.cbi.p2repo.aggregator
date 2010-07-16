@@ -60,6 +60,7 @@ import org.eclipse.b3.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.EffectiveUnitFacade;
 import org.eclipse.b3.build.ExecutionStackRepository;
 import org.eclipse.b3.build.FirstFoundUnitProvider;
+import org.eclipse.b3.build.IBuildUnitContainer;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.IEffectiveFacade;
 import org.eclipse.b3.build.IProvidedCapabilityContainer;
@@ -273,6 +274,14 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EClass effectiveBuilderCallFacadeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iBuildUnitContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -988,6 +997,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(unitConcernContextEClass, UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS);
 		createEAttribute(unitConcernContextEClass, UNIT_CONCERN_CONTEXT__SOURCE_LOCATION);
 		createEAttribute(unitConcernContextEClass, UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION);
+		createEReference(unitConcernContextEClass, UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES_REMOVALS);
 
 		builderConcernContextEClass = createEClass(BUILDER_CONCERN_CONTEXT);
 		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__QUERY);
@@ -1022,6 +1032,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		iRequiredCapabilityContainerEClass = createEClass(IREQUIRED_CAPABILITY_CONTAINER);
 		createEReference(iRequiredCapabilityContainerEClass, IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES);
+		createEReference(iRequiredCapabilityContainerEClass, IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_PREDICATES);
 
 		iProvidedCapabilityContainerEClass = createEClass(IPROVIDED_CAPABILITY_CONTAINER);
 		createEReference(iProvidedCapabilityContainerEClass, IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES);
@@ -1046,7 +1057,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(beeModelEClass, BEE_MODEL__IMPORTS);
 		createEReference(beeModelEClass, BEE_MODEL__FUNCTIONS);
 		createEReference(beeModelEClass, BEE_MODEL__CONCERNS);
-		createEReference(beeModelEClass, BEE_MODEL__BUILD_UNITS);
 		createEReference(beeModelEClass, BEE_MODEL__PROPERTY_SETS);
 		createEReference(beeModelEClass, BEE_MODEL__REPOSITORIES);
 		createEReference(beeModelEClass, BEE_MODEL__PROVIDERS);
@@ -1176,6 +1186,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		effectiveBuilderCallFacadeEClass = createEClass(EFFECTIVE_BUILDER_CALL_FACADE);
 
+		iBuildUnitContainerEClass = createEClass(IBUILD_UNIT_CONTAINER);
+		createEReference(iBuildUnitContainerEClass, IBUILD_UNIT_CONTAINER__BUILD_UNITS);
+
 		// Create enums
 		mergeConflictStrategyEEnum = createEEnum(MERGE_CONFLICT_STRATEGY);
 		branchPointTypeEEnum = createEEnum(BRANCH_POINT_TYPE);
@@ -1285,16 +1298,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
-	public EReference getBeeModel_BuildUnits() {
-		return (EReference) beeModelEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EReference getBeeModel_Concerns() {
 		return (EReference) beeModelEClass.getEStructuralFeatures().get(2);
 	}
@@ -1306,7 +1309,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	public EReference getBeeModel_DefaultProperties() {
-		return (EReference) beeModelEClass.getEStructuralFeatures().get(7);
+		return (EReference) beeModelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1336,7 +1339,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	public EReference getBeeModel_PropertySets() {
-		return (EReference) beeModelEClass.getEStructuralFeatures().get(4);
+		return (EReference) beeModelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1346,7 +1349,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	public EReference getBeeModel_Providers() {
-		return (EReference) beeModelEClass.getEStructuralFeatures().get(6);
+		return (EReference) beeModelEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1356,7 +1359,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	public EReference getBeeModel_Repositories() {
-		return (EReference) beeModelEClass.getEStructuralFeatures().get(5);
+		return (EReference) beeModelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2845,6 +2848,26 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getIBuildUnitContainer() {
+		return iBuildUnitContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getIBuildUnitContainer_BuildUnits() {
+		return (EReference) iBuildUnitContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getIBuildUnitRepository() {
 		return iBuildUnitRepositoryEClass;
 	}
@@ -2957,6 +2980,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EReference getIRequiredCapabilityContainer_RequiredCapabilities() {
 		return (EReference) iRequiredCapabilityContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getIRequiredCapabilityContainer_RequiredPredicates() {
+		return (EReference) iRequiredCapabilityContainerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3495,6 +3528,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EReference getUnitConcernContext_RequiredPredicatesRemovals() {
+		return (EReference) unitConcernContextEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EReference getUnitConcernContext_RequiresRemovals() {
 		return (EReference) unitConcernContextEClass.getEStructuralFeatures().get(2);
 	}
@@ -3702,6 +3745,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		builderWrapperEClass.getESuperTypes().add(theB3backendPackage.getBFunctionWrapper());
 		builderWrapperEClass.getESuperTypes().add(this.getIBuilder());
 		beeModelEClass.getESuperTypes().add(theB3backendPackage.getBChainedExpression());
+		beeModelEClass.getESuperTypes().add(this.getIBuildUnitContainer());
 		effectiveFacadeEClass.getESuperTypes().add(this.getIEffectiveFacade());
 		effectiveUnitFacadeEClass.getESuperTypes().add(this.getEffectiveFacade());
 		effectiveRequirementFacadeEClass.getESuperTypes().add(this.getEffectiveFacade());
@@ -4154,6 +4198,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getUnitConcernContext_OutputLocation(), theB3backendPackage.getURI(), "outputLocation", null, 0, 1,
 			UnitConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getUnitConcernContext_RequiredPredicatesRemovals(), this.getCapabilityPredicate(), null,
+			"requiredPredicatesRemovals", null, 0, -1, UnitConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			builderConcernContextEClass, BuilderConcernContext.class, "BuilderConcernContext", !IS_ABSTRACT,
@@ -4278,6 +4326,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getIRequiredCapabilityContainer_RequiredCapabilities(), this.getRequiredCapability(), null,
 			"requiredCapabilities", null, 0, -1, IRequiredCapabilityContainer.class, !IS_TRANSIENT, !IS_VOLATILE,
 			IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIRequiredCapabilityContainer_RequiredPredicates(), this.getCapabilityPredicate(), null,
+			"requiredPredicates", null, 0, -1, IRequiredCapabilityContainer.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			iProvidedCapabilityContainerEClass, IProvidedCapabilityContainer.class, "IProvidedCapabilityContainer",
@@ -4344,10 +4396,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getBeeModel_Concerns(), theB3backendPackage.getBConcern(), null, "concerns", null, 0, -1, BeeModel.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBeeModel_BuildUnits(), this.getBuildUnit(), null, "buildUnits", null, 0, -1, BeeModel.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 		initEReference(
@@ -4754,6 +4802,14 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEClass(
 			effectiveBuilderCallFacadeEClass, EffectiveBuilderCallFacade.class, "EffectiveBuilderCallFacade",
 			!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			iBuildUnitContainerEClass, IBuildUnitContainer.class, "IBuildUnitContainer", IS_ABSTRACT, IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getIBuildUnitContainer_BuildUnits(), this.getBuildUnit(), null, "buildUnits", null, 0, -1,
+			IBuildUnitContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(mergeConflictStrategyEEnum, MergeConflictStrategy.class, "MergeConflictStrategy");

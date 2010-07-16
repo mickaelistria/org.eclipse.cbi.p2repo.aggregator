@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.build.UnitConcernContext#getProvidesRemovals <em>Provides Removals</em>}</li>
  * <li>{@link org.eclipse.b3.build.UnitConcernContext#getSourceLocation <em>Source Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.UnitConcernContext#getOutputLocation <em>Output Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.UnitConcernContext#getRequiredPredicatesRemovals <em>Required Predicates Removals</em>}</li>
  * </ul>
  * </p>
  * 
@@ -96,6 +97,23 @@ public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabi
 	 * @generated
 	 */
 	BExpression getQuery();
+
+	/**
+	 * Returns the value of the '<em><b>Required Predicates Removals</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.CapabilityPredicate}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Required Predicates Removals</em>' containment reference list isn't clear, there really should be more of a
+	 * description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Required Predicates Removals</em>' containment reference list.
+	 * @see org.eclipse.b3.build.B3BuildPackage#getUnitConcernContext_RequiredPredicatesRemovals()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<CapabilityPredicate> getRequiredPredicatesRemovals();
 
 	/**
 	 * Returns the value of the '<em><b>Requires Removals</b></em>' containment reference list.

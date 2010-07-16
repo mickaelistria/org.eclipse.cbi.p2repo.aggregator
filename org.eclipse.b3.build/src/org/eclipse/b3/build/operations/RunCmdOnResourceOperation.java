@@ -13,6 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.backend.core.B3BackendErrorCodes;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.core.B3BuildErrorCodes;
@@ -116,7 +117,7 @@ public class RunCmdOnResourceOperation implements IB3Runnable {
 			// MultiStatus ms = new MultiStatus()
 			if(errors.size() > 1)
 				return new Status(
-					IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.DIAGNOSTICS_ERROR,
+					IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BackendErrorCodes.DIAGNOSTICS_ERROR,
 					"Loading encountered diagnostics errors", null);
 		}
 		// final BeeModel beeModel = (BeeModel) mainResource.getParseResult().getRootASTElement();

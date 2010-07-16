@@ -339,6 +339,11 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseIBuildUnitContainer(IBuildUnitContainer object) {
+			return createIBuildUnitContainerAdapter();
+		}
+
+		@Override
 		public Adapter caseIBuildUnitRepository(IBuildUnitRepository object) {
 			return createIBuildUnitRepositoryAdapter();
 		}
@@ -1386,6 +1391,21 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIBuilderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.IBuildUnitContainer <em>IBuild Unit Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.IBuildUnitContainer
+	 * @generated
+	 */
+	public Adapter createIBuildUnitContainerAdapter() {
 		return null;
 	}
 

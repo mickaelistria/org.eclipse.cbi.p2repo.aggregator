@@ -488,7 +488,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertySet" eType="#//BPropertySet"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BAdvice" eSuperTypes="#//BExpression #//ITypedValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BAdvice" eSuperTypes="#//BExpression #//ITypedValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BConcern" eSuperTypes="#//BAdvice #//BFunctionContainer">
     <eOperations name="evaluateIfMatching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         eExceptions="#//Throwable">
@@ -500,7 +502,6 @@
         <eTypeArguments eClassifier="#//BConcernContext"/>
       </eGenericType>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superConcerns" upperBound="-1"
         eType="#//BConcern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"

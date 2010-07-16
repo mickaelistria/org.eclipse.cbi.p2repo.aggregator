@@ -22,6 +22,7 @@ import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.FirstFoundUnitProvider;
+import org.eclipse.b3.build.IBuildUnitContainer;
 import org.eclipse.b3.build.Repository;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -39,10 +40,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link org.eclipse.b3.build.impl.BeeModelImpl#getBuildUnits <em>Build Units</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BeeModelImpl#getImports <em>Imports</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BeeModelImpl#getFunctions <em>Functions</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BeeModelImpl#getConcerns <em>Concerns</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BeeModelImpl#getBuildUnits <em>Build Units</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BeeModelImpl#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BeeModelImpl#getRepositories <em>Repositories</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BeeModelImpl#getProviders <em>Providers</em>}</li>
@@ -53,6 +54,17 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
+	/**
+	 * The cached value of the '{@link #getBuildUnits() <em>Build Units</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getBuildUnits()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BuildUnit> buildUnits;
+
 	/**
 	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -85,17 +97,6 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * @ordered
 	 */
 	protected EList<BConcern> concerns;
-
-	/**
-	 * The cached value of the '{@link #getBuildUnits() <em>Build Units</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getBuildUnits()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BuildUnit> buildUnits;
 
 	/**
 	 * The cached value of the '{@link #getPropertySets() <em>Property Sets</em>}' containment reference list.
@@ -179,16 +180,54 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if(baseClass == IBuildUnitContainer.class) {
+			switch(derivedFeatureID) {
+				case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+					return B3BuildPackage.IBUILD_UNIT_CONTAINER__BUILD_UNITS;
+				default:
+					return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if(baseClass == IBuildUnitContainer.class) {
+			switch(baseFeatureID) {
+				case B3BuildPackage.IBUILD_UNIT_CONTAINER__BUILD_UNITS:
+					return B3BuildPackage.BEE_MODEL__BUILD_UNITS;
+				default:
+					return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
+			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+				return getBuildUnits();
 			case B3BuildPackage.BEE_MODEL__IMPORTS:
 				return getImports();
 			case B3BuildPackage.BEE_MODEL__FUNCTIONS:
 				return getFunctions();
 			case B3BuildPackage.BEE_MODEL__CONCERNS:
 				return getConcerns();
-			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
-				return getBuildUnits();
 			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 				return getPropertySets();
 			case B3BuildPackage.BEE_MODEL__REPOSITORIES:
@@ -210,14 +249,14 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
+			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+				return ((InternalEList<?>) getBuildUnits()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BEE_MODEL__IMPORTS:
 				return ((InternalEList<?>) getImports()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BEE_MODEL__FUNCTIONS:
 				return ((InternalEList<?>) getFunctions()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BEE_MODEL__CONCERNS:
 				return ((InternalEList<?>) getConcerns()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
-				return ((InternalEList<?>) getBuildUnits()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 				return ((InternalEList<?>) getPropertySets()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BEE_MODEL__REPOSITORIES:
@@ -239,14 +278,14 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
+			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+				return buildUnits != null && !buildUnits.isEmpty();
 			case B3BuildPackage.BEE_MODEL__IMPORTS:
 				return imports != null && !imports.isEmpty();
 			case B3BuildPackage.BEE_MODEL__FUNCTIONS:
 				return functions != null && !functions.isEmpty();
 			case B3BuildPackage.BEE_MODEL__CONCERNS:
 				return concerns != null && !concerns.isEmpty();
-			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
-				return buildUnits != null && !buildUnits.isEmpty();
 			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 				return propertySets != null && !propertySets.isEmpty();
 			case B3BuildPackage.BEE_MODEL__REPOSITORIES:
@@ -269,6 +308,10 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
+			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+				getBuildUnits().clear();
+				getBuildUnits().addAll((Collection<? extends BuildUnit>) newValue);
+				return;
 			case B3BuildPackage.BEE_MODEL__IMPORTS:
 				getImports().clear();
 				getImports().addAll((Collection<? extends Type>) newValue);
@@ -280,10 +323,6 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 			case B3BuildPackage.BEE_MODEL__CONCERNS:
 				getConcerns().clear();
 				getConcerns().addAll((Collection<? extends BConcern>) newValue);
-				return;
-			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
-				getBuildUnits().clear();
-				getBuildUnits().addAll((Collection<? extends BuildUnit>) newValue);
 				return;
 			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 				getPropertySets().clear();
@@ -324,6 +363,9 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
+			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+				getBuildUnits().clear();
+				return;
 			case B3BuildPackage.BEE_MODEL__IMPORTS:
 				getImports().clear();
 				return;
@@ -332,9 +374,6 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 				return;
 			case B3BuildPackage.BEE_MODEL__CONCERNS:
 				getConcerns().clear();
-				return;
-			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
-				getBuildUnits().clear();
 				return;
 			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 				getPropertySets().clear();

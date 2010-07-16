@@ -10,6 +10,7 @@ package org.eclipse.b3.evaluator;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
@@ -39,6 +40,7 @@ import org.eclipse.b3.build.BuilderInput;
 import org.eclipse.b3.build.BuilderInputGroup;
 import org.eclipse.b3.build.BuilderWrapper;
 import org.eclipse.b3.build.Capability;
+import org.eclipse.b3.build.CapabilityPredicate;
 import org.eclipse.b3.build.ConditionalPathVector;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.InputPredicate;
@@ -46,8 +48,10 @@ import org.eclipse.b3.build.OutputPredicate;
 import org.eclipse.b3.build.PathGroup;
 import org.eclipse.b3.build.ProvidesPredicate;
 import org.eclipse.b3.build.RequiredCapability;
+import org.eclipse.b3.build.RequiresPredicate;
 import org.eclipse.b3.build.SourcePredicate;
 import org.eclipse.b3.build.UnitConcernContext;
+import org.eclipse.b3.build.VersionedCapability;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.core.BuilderInputRemover;
 import org.eclipse.emf.common.util.EList;
@@ -376,38 +380,55 @@ public class Weaver extends BackendWeaver {
 	private boolean adviseUnit(UnitConcernContext theUnitConcern, BuildUnit u, BContext ctx) throws Throwable {
 		boolean modified = false;
 
-		// // removal of provided capabilities
-		// ListIterator<Capability> pcItor = theUnitConcern.getProvidedCapabilities().listIterator();
-		// while(pcItor.hasNext()) {
-		// Capability pc = pcItor.next();
-		// for(ProvidesPredicate prem : theUnitConcern.getProvidesRemovals())
-		// if(pc instanceof VersionedCapability
-		// ? prem.matches((VersionedCapability.class.cast(pc)))
-		// : prem.matches(pc)) {
-		// pcItor.remove();
-		// modified = true;
-		// }
-		// }
-		// // addition of provided capabilities
-		// for(Capability pc : theUnitConcern.getProvidedCapabilities()) {
-		// pcItor.add(Capability.class.cast(EcoreUtil.copy(pc)));
-		// modified = true;
-		// }
-		// // removal of required capabilities
-		// ListIterator<RequiredCapability> rcItor = theUnitConcern.getRequiredCapabilities().listIterator();
-		// while(rcItor.hasNext()) {
-		// RequiredCapability rc = rcItor.next();
-		// for(RequiresPredicate rrem : theUnitConcern.getRequiresRemovals()) {
-		// if(rrem.matches(rc)) {
-		// rcItor.remove();
-		// modified = true;
-		// }
-		// }
-		// }
+		// removal of provided capabilities
+		final ListIterator<Capability> pcItor = u.getProvidedCapabilities().listIterator();
+		while(pcItor.hasNext()) {
+			Capability pc = pcItor.next();
+			for(ProvidesPredicate prem : theUnitConcern.getProvidesRemovals())
+				if(pc instanceof VersionedCapability
+						? prem.matches((VersionedCapability.class.cast(pc)))
+						: prem.matches(pc)) {
+					pcItor.remove();
+					modified = true;
+				}
+		}
+
+		// addition of provided capabilities
+		for(Capability pc : theUnitConcern.getProvidedCapabilities()) {
+			u.getProvidedCapabilities().add(Capability.class.cast(EcoreUtil.copy(pc)));
+			modified = true;
+		}
+
+		// removal of required capabilities
+		final ListIterator<RequiredCapability> rcItor = u.getRequiredCapabilities().listIterator();
+		while(rcItor.hasNext()) {
+			RequiredCapability rc = rcItor.next();
+			for(RequiresPredicate rrem : theUnitConcern.getRequiresRemovals()) {
+				if(rrem.matches(rc)) {
+					rcItor.remove();
+					modified = true;
+				}
+			}
+		}
 		// addition of required capabilities
 		for(RequiredCapability rc : theUnitConcern.getRequiredCapabilities()) {
 			u.getRequiredCapabilities().add(RequiredCapability.class.cast(EcoreUtil.copy(rc)));
 			modified = true;
+		}
+
+		// removal of requiredPredicates
+		final ListIterator<CapabilityPredicate> rqpItor = u.getRequiredPredicates().listIterator();
+		while(rqpItor.hasNext()) {
+			CapabilityPredicate candidate = rqpItor.next();
+			for(CapabilityPredicate p : theUnitConcern.getRequiredPredicatesRemovals())
+				if(p.equals(candidate)) {
+					rqpItor.remove();
+					modified = true;
+				}
+		}
+		// addition of requiredPredicates
+		for(CapabilityPredicate rcp : theUnitConcern.getRequiredPredicates()) {
+			u.getRequiredPredicates().add(CapabilityPredicate.class.cast(EcoreUtil.copy(rcp)));
 		}
 
 		// SOURCE AND OUTPUT LOCATIONA

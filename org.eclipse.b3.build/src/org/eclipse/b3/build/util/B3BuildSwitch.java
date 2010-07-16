@@ -1019,6 +1019,23 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IBuild Unit Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IBuild Unit Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIBuildUnitContainer(IBuildUnitContainer object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IBuild Unit Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2019,6 +2036,8 @@ public class B3BuildSwitch<T> {
 				if(result == null)
 					result = caseBChainedExpression(beeModel);
 				if(result == null)
+					result = caseIBuildUnitContainer(beeModel);
+				if(result == null)
 					result = caseBExpression(beeModel);
 				if(result == null)
 					result = defaultCase(theEObject);
@@ -2372,6 +2391,13 @@ public class B3BuildSwitch<T> {
 					result = caseBuilderCallFacade(effectiveBuilderCallFacade);
 				if(result == null)
 					result = caseIEffectiveFacade(effectiveBuilderCallFacade);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.IBUILD_UNIT_CONTAINER: {
+				IBuildUnitContainer iBuildUnitContainer = (IBuildUnitContainer) theEObject;
+				T result = caseIBuildUnitContainer(iBuildUnitContainer);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

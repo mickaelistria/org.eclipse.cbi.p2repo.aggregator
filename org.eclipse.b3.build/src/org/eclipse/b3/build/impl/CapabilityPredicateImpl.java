@@ -8,21 +8,16 @@ package org.eclipse.b3.build.impl;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
-
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.CapabilityPredicate;
 import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.VersionedCapability;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 

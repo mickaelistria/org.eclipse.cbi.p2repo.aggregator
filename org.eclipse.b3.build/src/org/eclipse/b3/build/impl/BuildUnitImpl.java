@@ -26,11 +26,13 @@ import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.Builder;
 import org.eclipse.b3.build.Capability;
+import org.eclipse.b3.build.CapabilityPredicate;
 import org.eclipse.b3.build.ContainerConfiguration;
 import org.eclipse.b3.build.EffectiveCapabilityFacade;
 import org.eclipse.b3.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.EffectiveUnitFacade;
 import org.eclipse.b3.build.FirstFoundUnitProvider;
+import org.eclipse.b3.build.IBuildUnitContainer;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.IRequiredCapabilityContainer;
@@ -47,6 +49,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -54,6 +57,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 
 import com.google.inject.Injector;
 
@@ -66,6 +70,7 @@ import com.google.inject.Injector;
  * <ul>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getFunctions <em>Functions</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getRequiredPredicates <em>Required Predicates</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getBuilders <em>Builders</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getDocumentation <em>Documentation</em>}</li>
@@ -108,6 +113,17 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @ordered
 	 */
 	protected EList<RequiredCapability> requiredCapabilities;
+
+	/**
+	 * The cached value of the '{@link #getRequiredPredicates() <em>Required Predicates</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getRequiredPredicates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CapabilityPredicate> requiredPredicates;
 
 	/**
 	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
@@ -362,6 +378,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			switch(derivedFeatureID) {
 				case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
 					return B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES;
+				case B3BuildPackage.BUILD_UNIT__REQUIRED_PREDICATES:
+					return B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_PREDICATES;
 				default:
 					return -1;
 			}
@@ -397,6 +415,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			switch(baseFeatureID) {
 				case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES:
 					return B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES;
+				case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_PREDICATES:
+					return B3BuildPackage.BUILD_UNIT__REQUIRED_PREDICATES;
 				default:
 					return -1;
 			}
@@ -425,6 +445,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getFunctions();
 			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
 				return getRequiredCapabilities();
+			case B3BuildPackage.BUILD_UNIT__REQUIRED_PREDICATES:
+				return getRequiredPredicates();
 			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
 				return getProvidedCapabilities();
 			case B3BuildPackage.BUILD_UNIT__BUILDERS:
@@ -488,6 +510,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return ((InternalEList<?>) getFunctions()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
 				return ((InternalEList<?>) getRequiredCapabilities()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__REQUIRED_PREDICATES:
+				return ((InternalEList<?>) getRequiredPredicates()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
 				return ((InternalEList<?>) getProvidedCapabilities()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
@@ -525,6 +549,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return functions != null && !functions.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
 				return requiredCapabilities != null && !requiredCapabilities.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__REQUIRED_PREDICATES:
+				return requiredPredicates != null && !requiredPredicates.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
 				return providedCapabilities != null && !providedCapabilities.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__BUILDERS:
@@ -582,6 +608,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
 				getRequiredCapabilities().clear();
 				getRequiredCapabilities().addAll((Collection<? extends RequiredCapability>) newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__REQUIRED_PREDICATES:
+				getRequiredPredicates().clear();
+				getRequiredPredicates().addAll((Collection<? extends CapabilityPredicate>) newValue);
 				return;
 			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
 				getProvidedCapabilities().clear();
@@ -645,6 +675,17 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_UNIT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
@@ -652,6 +693,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return;
 			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
 				getRequiredCapabilities().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__REQUIRED_PREDICATES:
+				getRequiredPredicates().clear();
 				return;
 			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
 				getProvidedCapabilities().clear();
@@ -780,10 +824,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		IB3Evaluator evaluator = injector.getInstance(IB3Evaluator.class);
 
 		// EFFECTIVE BUILD UNIT
-		// TODO: Remove when working BuildContext engineTopOfStack = ctx.getContext(BuildContext.class);
-		BuildUnit u = ctx.getSomeThing(BuildUnit.class, BuildUnitProxyAdapterFactory.eINSTANCE.adapt(this).getIface());
-		//
-		// BuildUnit u = engineTopOfStack.getEffectiveBuildUnit(this);
+		final BuildUnit u = ctx.getSomeThing(
+			BuildUnit.class, BuildUnitProxyAdapterFactory.eINSTANCE.adapt(this).getIface());
 		if(u == null)
 			throw new IllegalArgumentException(
 				"The unit must have been defined in a context prior to calling getEffectiveFacade(...)");
@@ -820,25 +862,52 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		facade.setContext(outer);
 
 		// Add unit's effective REQUIRED, META REQUIRED AND PROVIDED to facade
-		EList<EffectiveCapabilityFacade> provided = facade.getProvidedCapabilities();
-		EList<EffectiveRequirementFacade> required = facade.getRequiredCapabilities();
-		EList<EffectiveRequirementFacade> mRequired = facade.getMetaRequiredCapabilities();
-		EList<EffectiveRequirementFacade> uRequired = facade.getUnitRequiredCapabilities();
+		final EList<EffectiveCapabilityFacade> provided = facade.getProvidedCapabilities();
+		final EList<EffectiveRequirementFacade> required = facade.getRequiredCapabilities();
+		final EList<EffectiveRequirementFacade> mRequired = facade.getMetaRequiredCapabilities();
+		final EList<EffectiveRequirementFacade> uRequired = facade.getUnitRequiredCapabilities();
 
 		// REQUIRED
 		for(RequiredCapability req : getRequiredCapabilities()) {
-			BExpression c = req.getCondExpr();
+			final BExpression c = req.getCondExpr();
 			if(c != null) {
 				Object include = evaluator.doEvaluate(c, ctx);
-				// Object include = c.evaluate(ctx);
 				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE)
 					continue; // skip this requirement
 			}
-			EffectiveRequirementFacade rf = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
+			final EffectiveRequirementFacade rf = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
 			rf.setRequirement(req);
 			rf.setContext(outer);
 			required.add(rf); // containment (all requirements)
 			uRequired.add(rf); // non containment (only those in unit)
+		}
+		// REQUIRED PREDICATES
+		// all matching units in any parent being a unit container (except 'self' naturally).
+		for(CapabilityPredicate q : getRequiredPredicates()) {
+			for(EObject parent = eContainer(); parent != null; parent = parent.eContainer()) {
+				if(!(parent instanceof IBuildUnitContainer))
+					continue;
+				for(BuildUnit u2 : ((IBuildUnitContainer) parent).getBuildUnits()) {
+					if(u2 == this || !q.matches(u2))
+						continue;
+					final RequiredCapability req = B3BuildFactory.eINSTANCE.createRequiredCapability();
+					req.setMin(1);
+					req.setMax(1);
+					req.setGreedy(false);
+					req.setName(u2.getName());
+					req.setNameSpace(B3BuildConstants.B3_NS_BUILDUNIT);
+					if(u2.getVersion() != null) {
+						// if version is specified, use an exact range
+						VersionRange range = new VersionRange(u2.getVersion(), true, u2.getVersion(), true);
+						req.setVersionRange(range);
+					}
+					final EffectiveRequirementFacade rf = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
+					rf.setRequirement(req);
+					rf.setContext(outer);
+					required.add(rf); // containment (all requirements)
+					uRequired.add(rf); // non containment (only those in unit)
+				}
+			}
 		}
 		// META REQUIRED
 		for(RequiredCapability req : getMetaRequiredCapabilities()) {
@@ -1049,6 +1118,20 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<CapabilityPredicate> getRequiredPredicates() {
+		if(requiredPredicates == null) {
+			requiredPredicates = new EObjectContainmentEList<CapabilityPredicate>(
+				CapabilityPredicate.class, this, B3BuildPackage.BUILD_UNIT__REQUIRED_PREDICATES);
+		}
+		return requiredPredicates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Returns the source location of the build unit. If not explicitly set, the URI
 	 * resource:/component-name/ is returned. If the component name is not set, a
 	 * UNNAMED-UNIT@hascode is used as the name (which likely will lead to other issues
@@ -1208,17 +1291,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		result.append(outputLocation);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_UNIT;
 	}
 
 } // BuildUnitImpl

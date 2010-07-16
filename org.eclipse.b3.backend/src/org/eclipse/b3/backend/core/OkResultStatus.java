@@ -8,6 +8,7 @@
 
 package org.eclipse.b3.backend.core;
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
 public class OkResultStatus extends Status implements IResultStatus {
@@ -20,7 +21,7 @@ public class OkResultStatus extends Status implements IResultStatus {
 	 * @param message
 	 */
 	public OkResultStatus(Object result, String pluginId) {
-		super(Status.OK, pluginId, "OK Result");
+		super(IStatus.OK, pluginId, "OK Result");
 		this.result = result;
 	}
 

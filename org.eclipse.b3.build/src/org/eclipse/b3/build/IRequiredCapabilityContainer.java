@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.build.IRequiredCapabilityContainer#getRequiredCapabilities <em>Required Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.IRequiredCapabilityContainer#getRequiredPredicates <em>Required Predicates</em>}</li>
  * </ul>
  * </p>
  * 
@@ -43,5 +44,22 @@ public interface IRequiredCapabilityContainer extends EObject {
 	 * @generated
 	 */
 	EList<RequiredCapability> getRequiredCapabilities();
+
+	/**
+	 * Returns the value of the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.CapabilityPredicate}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Required Predicates</em>' containment reference list isn't clear, there really should be more of a description
+	 * here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Required Predicates</em>' containment reference list.
+	 * @see org.eclipse.b3.build.B3BuildPackage#getIRequiredCapabilityContainer_RequiredPredicates()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<CapabilityPredicate> getRequiredPredicates();
 
 } // IRequiredCapabilityContainer

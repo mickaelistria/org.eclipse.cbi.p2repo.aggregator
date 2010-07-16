@@ -240,6 +240,8 @@
         eType="#//ProvidesPredicate" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredPredicatesRemovals"
+        upperBound="-1" eType="#//CapabilityPredicate" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuilderConcernContext" eSuperTypes="#//BuildConcernContext">
     <eStructuralFeatures xsi:type="ecore:EReference" name="query" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
@@ -305,6 +307,8 @@
       interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCapabilities" upperBound="-1"
         eType="#//RequiredCapability" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredPredicates" upperBound="-1"
+        eType="#//CapabilityPredicate" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IProvidedCapabilityContainer" abstract="true"
       interface="true">
@@ -329,7 +333,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceAdvised" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BeeModel" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BChainedExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="BeeModel" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BChainedExpression #//IBuildUnitContainer">
     <eOperations name="getUnitProvider" eType="#//FirstFoundUnitProvider">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the first (and only allowed) provider from the reference &quot;providers&quot;."/>
@@ -344,8 +348,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="concerns" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BConcern"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="buildUnits" upperBound="-1"
-        eType="#//BuildUnit" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
@@ -595,4 +597,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EffectiveBuilderCallFacade" eSuperTypes="#//BuilderCallFacade #//IEffectiveFacade"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IBuildUnitContainer" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildUnits" upperBound="-1"
+        eType="#//BuildUnit" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

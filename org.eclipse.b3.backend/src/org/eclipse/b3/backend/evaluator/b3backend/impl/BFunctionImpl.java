@@ -540,7 +540,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 			for(int i = 0; i < pCount; ++i) {
 				BParameterDeclaration p = pIterator.next();
 				parameterNames[i] = p.getName();
-				Type tx1 = p.getType();
+				p.getType();
 				Type tx2 = typer.doGetInferredType(p);
 				// if(tx2 instanceof EObject && ((EObject) tx2).eIsProxy())
 				// tx2 = (Type) EcoreUtil.resolve((EObject) tx2, this.eResource());

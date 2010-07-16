@@ -38,8 +38,7 @@ public class RunFunctionInResourceOperation implements IB3Runnable {
 	/**
 	 * Runs the given function with signature (List<Object>)=>Object
 	 */
-	public RunFunctionInResourceOperation(String functionName, XtextResource resource, int callStyle,
-			Object... argv) {
+	public RunFunctionInResourceOperation(String functionName, XtextResource resource, int callStyle, Object... argv) {
 		this.functionName = functionName;
 		this.resource = resource;
 		this.argv = argv;
@@ -67,8 +66,7 @@ public class RunFunctionInResourceOperation implements IB3Runnable {
 
 		for(EObject e : resource.getContents())
 			if(e instanceof BeeModel)
-				return new RunFunctionInModelOperation(functionName, (BeeModel) e, callStyle, argv).run(
-					engine, monitor);
+				return new RunFunctionInModelOperation(functionName, (BeeModel) e, callStyle, argv).run(engine, monitor);
 		return new Status(
 			IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.INVALID_B3_RESOURCE,
 			"No Model of b3 type found in resource:" + resource.getURI(), null);

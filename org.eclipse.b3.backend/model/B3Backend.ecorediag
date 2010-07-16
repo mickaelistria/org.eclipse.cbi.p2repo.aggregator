@@ -3654,7 +3654,6 @@
       <children xmi:type="notation:Node" xmi:id="_IvXVU_R5Ed6fhZ-cYf2Uvg" type="4001"/>
       <children xmi:type="notation:Node" xmi:id="_IvXVVPR5Ed6fhZ-cYf2Uvg" type="5001">
         <children xmi:type="notation:Node" xmi:id="_4CDUYPSBEd6fhZ-cYf2Uvg" type="2001">
-          <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//BConcern/documentation"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_4CDUYfSBEd6fhZ-cYf2Uvg"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_IvXVVfR5Ed6fhZ-cYf2Uvg"/>
@@ -3909,6 +3908,10 @@
     <children xmi:type="notation:Node" xmi:id="_jG_7-QLLEd-J54ZOjN0g9g" type="1001">
       <children xmi:type="notation:Node" xmi:id="_jG_7-gLLEd-J54ZOjN0g9g" type="4001"/>
       <children xmi:type="notation:Node" xmi:id="_jG_7-wLLEd-J54ZOjN0g9g" type="5001">
+        <children xmi:type="notation:Node" xmi:id="__AJ5UJCdEd-kJKMY8tE8ag" type="2001">
+          <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//BAdvice/documentation"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="__AJ5UZCdEd-kJKMY8tE8ag"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_jG_7_gLLEd-J54ZOjN0g9g"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_jG_7_wLLEd-J54ZOjN0g9g"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_jG_8AALLEd-J54ZOjN0g9g"/>
@@ -3925,10 +3928,6 @@
     <children xmi:type="notation:Node" xmi:id="_jG_8BwLLEd-J54ZOjN0g9g" type="1001">
       <children xmi:type="notation:Node" xmi:id="_jG_8CALLEd-J54ZOjN0g9g" type="4001"/>
       <children xmi:type="notation:Node" xmi:id="_jG_8CQLLEd-J54ZOjN0g9g" type="5001">
-        <children xmi:type="notation:Node" xmi:id="_jG_8CgLLEd-J54ZOjN0g9g" type="2001">
-          <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//BConcern/documentation"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_jG_8CwLLEd-J54ZOjN0g9g"/>
-        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_jG_8DALLEd-J54ZOjN0g9g"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_jG_8DQLLEd-J54ZOjN0g9g"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_jG_8DgLLEd-J54ZOjN0g9g"/>

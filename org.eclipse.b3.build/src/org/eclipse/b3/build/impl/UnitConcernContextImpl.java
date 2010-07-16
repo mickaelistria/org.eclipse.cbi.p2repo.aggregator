@@ -17,6 +17,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuilderConcernContext;
+import org.eclipse.b3.build.CapabilityPredicate;
 import org.eclipse.b3.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.ProvidesPredicate;
 import org.eclipse.b3.build.RequiredCapability;
@@ -39,12 +40,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.build.impl.UnitConcernContextImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.UnitConcernContextImpl#getRequiredPredicates <em>Required Predicates</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.UnitConcernContextImpl#getBuilderContexts <em>Builder Contexts</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.UnitConcernContextImpl#getQuery <em>Query</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.UnitConcernContextImpl#getRequiresRemovals <em>Requires Removals</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.UnitConcernContextImpl#getProvidesRemovals <em>Provides Removals</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.UnitConcernContextImpl#getSourceLocation <em>Source Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.UnitConcernContextImpl#getOutputLocation <em>Output Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.UnitConcernContextImpl#getRequiredPredicatesRemovals <em>Required Predicates Removals</em>}</li>
  * </ul>
  * </p>
  * 
@@ -61,6 +64,17 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * @ordered
 	 */
 	protected EList<RequiredCapability> requiredCapabilities;
+
+	/**
+	 * The cached value of the '{@link #getRequiredPredicates() <em>Required Predicates</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getRequiredPredicates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CapabilityPredicate> requiredPredicates;
 
 	/**
 	 * The cached value of the '{@link #getBuilderContexts() <em>Builder Contexts</em>}' containment reference list.
@@ -149,6 +163,17 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * @ordered
 	 */
 	protected URI outputLocation = OUTPUT_LOCATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRequiredPredicatesRemovals() <em>Required Predicates Removals</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getRequiredPredicatesRemovals()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CapabilityPredicate> requiredPredicatesRemovals;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -311,6 +336,8 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			switch(derivedFeatureID) {
 				case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
 					return B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES;
+				case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES:
+					return B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_PREDICATES;
 				default:
 					return -1;
 			}
@@ -330,6 +357,8 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			switch(baseFeatureID) {
 				case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES:
 					return B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES;
+				case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_PREDICATES:
+					return B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES;
 				default:
 					return -1;
 			}
@@ -348,6 +377,8 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		switch(featureID) {
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
 				return getRequiredCapabilities();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES:
+				return getRequiredPredicates();
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
 				return getBuilderContexts();
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
@@ -360,6 +391,8 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 				return getSourceLocation();
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
 				return getOutputLocation();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES_REMOVALS:
+				return getRequiredPredicatesRemovals();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -375,6 +408,8 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		switch(featureID) {
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
 				return ((InternalEList<?>) getRequiredCapabilities()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES:
+				return ((InternalEList<?>) getRequiredPredicates()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
 				return ((InternalEList<?>) getBuilderContexts()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
@@ -383,6 +418,8 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 				return ((InternalEList<?>) getRequiresRemovals()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS:
 				return ((InternalEList<?>) getProvidesRemovals()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES_REMOVALS:
+				return ((InternalEList<?>) getRequiredPredicatesRemovals()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -398,6 +435,8 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		switch(featureID) {
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
 				return requiredCapabilities != null && !requiredCapabilities.isEmpty();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES:
+				return requiredPredicates != null && !requiredPredicates.isEmpty();
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
 				return builderContexts != null && !builderContexts.isEmpty();
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
@@ -414,6 +453,8 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 				return OUTPUT_LOCATION_EDEFAULT == null
 						? outputLocation != null
 						: !OUTPUT_LOCATION_EDEFAULT.equals(outputLocation);
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES_REMOVALS:
+				return requiredPredicatesRemovals != null && !requiredPredicatesRemovals.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -431,6 +472,10 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
 				getRequiredCapabilities().clear();
 				getRequiredCapabilities().addAll((Collection<? extends RequiredCapability>) newValue);
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES:
+				getRequiredPredicates().clear();
+				getRequiredPredicates().addAll((Collection<? extends CapabilityPredicate>) newValue);
 				return;
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
 				getBuilderContexts().clear();
@@ -453,19 +498,12 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
 				setOutputLocation((URI) newValue);
 				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES_REMOVALS:
+				getRequiredPredicatesRemovals().clear();
+				getRequiredPredicatesRemovals().addAll((Collection<? extends CapabilityPredicate>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.UNIT_CONCERN_CONTEXT;
 	}
 
 	// /**
@@ -505,10 +543,24 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.UNIT_CONCERN_CONTEXT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
 				getRequiredCapabilities().clear();
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES:
+				getRequiredPredicates().clear();
 				return;
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
 				getBuilderContexts().clear();
@@ -527,6 +579,9 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 				return;
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__OUTPUT_LOCATION:
 				setOutputLocation(OUTPUT_LOCATION_EDEFAULT);
+				return;
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES_REMOVALS:
+				getRequiredPredicatesRemovals().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -604,6 +659,34 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 				RequiredCapability.class, this, B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES);
 		}
 		return requiredCapabilities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<CapabilityPredicate> getRequiredPredicates() {
+		if(requiredPredicates == null) {
+			requiredPredicates = new EObjectContainmentEList<CapabilityPredicate>(
+				CapabilityPredicate.class, this, B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES);
+		}
+		return requiredPredicates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<CapabilityPredicate> getRequiredPredicatesRemovals() {
+		if(requiredPredicatesRemovals == null) {
+			requiredPredicatesRemovals = new EObjectContainmentEList<CapabilityPredicate>(
+				CapabilityPredicate.class, this, B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_PREDICATES_REMOVALS);
+		}
+		return requiredPredicatesRemovals;
 	}
 
 	/**

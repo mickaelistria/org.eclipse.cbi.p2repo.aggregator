@@ -1414,9 +1414,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bPropertySetOperationEClass, BPROPERTY_SET_OPERATION__PROPERTY_SET);
 
 		bAdviceEClass = createEClass(BADVICE);
+		createEAttribute(bAdviceEClass, BADVICE__DOCUMENTATION);
 
 		bConcernEClass = createEClass(BCONCERN);
-		createEAttribute(bConcernEClass, BCONCERN__DOCUMENTATION);
 		createEReference(bConcernEClass, BCONCERN__SUPER_CONCERNS);
 		createEReference(bConcernEClass, BCONCERN__PROPERTY_SETS);
 		createEReference(bConcernEClass, BCONCERN__CONTEXTS);
@@ -1844,6 +1844,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	public EAttribute getBAdvice_Documentation() {
+		return (EAttribute) bAdviceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getBAndExpression() {
 		return bAndExpressionEClass;
 	}
@@ -2105,26 +2115,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EReference getBConcern_Contexts() {
-		return (EReference) bConcernEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getBConcern_Documentation() {
-		return (EAttribute) bConcernEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getBConcern_PropertySets() {
 		return (EReference) bConcernEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2134,8 +2124,18 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	public EReference getBConcern_SuperConcerns() {
+	public EReference getBConcern_PropertySets() {
 		return (EReference) bConcernEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getBConcern_SuperConcerns() {
+		return (EReference) bConcernEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5013,11 +5013,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bAdviceEClass, BAdvice.class, "BAdvice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getBAdvice_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, BAdvice.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bConcernEClass, BConcern.class, "BConcern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBConcern_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, BConcern.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getBConcern_SuperConcerns(), this.getBConcern(), null, "superConcerns", null, 0, -1, BConcern.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,

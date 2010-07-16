@@ -26,7 +26,6 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.build.BeeModel#getImports <em>Imports</em>}</li>
  * <li>{@link org.eclipse.b3.build.BeeModel#getFunctions <em>Functions</em>}</li>
  * <li>{@link org.eclipse.b3.build.BeeModel#getConcerns <em>Concerns</em>}</li>
- * <li>{@link org.eclipse.b3.build.BeeModel#getBuildUnits <em>Build Units</em>}</li>
  * <li>{@link org.eclipse.b3.build.BeeModel#getPropertySets <em>Property Sets</em>}</li>
  * <li>{@link org.eclipse.b3.build.BeeModel#getRepositories <em>Repositories</em>}</li>
  * <li>{@link org.eclipse.b3.build.BeeModel#getProviders <em>Providers</em>}</li>
@@ -38,23 +37,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface BeeModel extends BChainedExpression {
-	/**
-	 * Returns the value of the '<em><b>Build Units</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.BuildUnit}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Build Units</em>' containment reference isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Build Units</em>' containment reference list.
-	 * @see org.eclipse.b3.build.B3BuildPackage#getBeeModel_BuildUnits()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<BuildUnit> getBuildUnits();
-
+public interface BeeModel extends BChainedExpression, IBuildUnitContainer {
 	/**
 	 * Returns the value of the '<em><b>Concerns</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern}.

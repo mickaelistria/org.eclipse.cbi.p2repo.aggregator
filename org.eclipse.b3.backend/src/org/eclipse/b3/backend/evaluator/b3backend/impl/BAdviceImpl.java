@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAdviceImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAdviceImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAdviceImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
  * 
@@ -81,6 +82,28 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	 * @ordered
 	 */
 	protected Type type;
+
+	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,6 +202,8 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 				return getName();
 			case B3backendPackage.BADVICE__TYPE:
 				return getType();
+			case B3backendPackage.BADVICE__DOCUMENTATION:
+				return getDocumentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -213,6 +238,10 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 						: !NAME_EDEFAULT.equals(name);
 			case B3backendPackage.BADVICE__TYPE:
 				return type != null;
+			case B3backendPackage.BADVICE__DOCUMENTATION:
+				return DOCUMENTATION_EDEFAULT == null
+						? documentation != null
+						: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -231,6 +260,9 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 				return;
 			case B3backendPackage.BADVICE__TYPE:
 				setType((Type) newValue);
+				return;
+			case B3backendPackage.BADVICE__DOCUMENTATION:
+				setDocumentation((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -262,8 +294,21 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 			case B3backendPackage.BADVICE__TYPE:
 				setType((Type) null);
 				return;
+			case B3backendPackage.BADVICE__DOCUMENTATION:
+				setDocumentation(DOCUMENTATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getDocumentation() {
+		return documentation;
 	}
 
 	/**
@@ -284,6 +329,20 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	 */
 	public Type getType() {
 		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BADVICE__DOCUMENTATION, oldDocumentation, documentation));
 	}
 
 	/**
@@ -336,6 +395,8 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", documentation: ");
+		result.append(documentation);
 		result.append(')');
 		return result.toString();
 	}

@@ -4,6 +4,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.backend.core.B3BackendErrorCodes;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.OkResultStatus;
 import org.eclipse.b3.build.BeeModel;
@@ -51,7 +52,7 @@ public class RunFunctionInModelOperation implements IB3Runnable {
 		}
 		catch(B3EngineException e) {
 			return new Status(
-				Status.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.ENGINE_ERROR,
+				IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.ENGINE_ERROR,
 				"B3Engine Error while loading model for evaluation", e);
 		}
 
@@ -96,7 +97,7 @@ public class RunFunctionInModelOperation implements IB3Runnable {
 					break;
 			}
 			return new Status(
-				Status.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.EVALUATION_ERROR, "Evaluation of " +
+				IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BackendErrorCodes.EVALUATION_ERROR, "Evaluation of " +
 						functionName + argType + " ended with exception.", e);
 		}
 
