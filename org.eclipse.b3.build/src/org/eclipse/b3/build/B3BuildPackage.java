@@ -184,6 +184,15 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILD_UNIT__PROVIDERS = eINSTANCE.getBuildUnit_Providers();
 
 		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference BUILD_UNIT__PARENT = eINSTANCE.getBuildUnit_Parent();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.IBuilder <em>IBuilder</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2428,7 +2437,7 @@ public interface B3BuildPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.build.core.PathIterator
+		 * @see org.eclipse.b3.build.core.iterators.PathIterator
 		 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getPathIterator()
 		 * @generated
 		 */
@@ -2827,6 +2836,16 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_UNIT__PROVIDERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 17;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_UNIT__PARENT = VERSIONED_CAPABILITY_FEATURE_COUNT + 18;
+
+	/**
 	 * The number of structural features of the '<em>Build Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2834,7 +2853,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 18;
+	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 19;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.BuilderImpl <em>Builder</em>}' class.
@@ -7741,7 +7760,7 @@ public interface B3BuildPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.build.core.PathIterator
+	 * @see org.eclipse.b3.build.core.iterators.PathIterator
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getPathIterator()
 	 * @generated
 	 */
@@ -9102,6 +9121,18 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuildUnit_OutputLocation();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.BuildUnit#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @see org.eclipse.b3.build.BuildUnit#getParent()
+	 * @see #getBuildUnit()
+	 * @generated
+	 */
+	EReference getBuildUnit_Parent();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.BuildUnit#getPropertySets <em>Property Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10027,12 +10058,12 @@ public interface B3BuildPackage extends EPackage {
 	EReference getPathGroupPredicate_PathVector();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.b3.build.core.PathIterator <em>Path Iterator</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.b3.build.core.iterators.PathIterator <em>Path Iterator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Path Iterator</em>'.
-	 * @see org.eclipse.b3.build.core.PathIterator
+	 * @see org.eclipse.b3.build.core.iterators.PathIterator
 	 * @model instanceClass="org.eclipse.b3.build.core.PathIterator"
 	 * @generated
 	 */

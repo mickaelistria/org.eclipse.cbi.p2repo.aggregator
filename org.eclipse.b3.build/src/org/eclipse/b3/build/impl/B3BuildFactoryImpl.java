@@ -8,7 +8,7 @@ package org.eclipse.b3.build.impl;
 
 import org.eclipse.b3.build.*;
 
-import org.eclipse.b3.build.core.PathIterator;
+import org.eclipse.b3.build.core.iterators.PathIterator;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;

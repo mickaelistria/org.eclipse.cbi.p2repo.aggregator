@@ -91,7 +91,7 @@ import org.eclipse.b3.build.UnitRepositoryDescription;
 import org.eclipse.b3.build.UnitResolutionInfo;
 import org.eclipse.b3.build.VersionedCapability;
 import org.eclipse.b3.build.core.B3BuilderJob;
-import org.eclipse.b3.build.core.PathIterator;
+import org.eclipse.b3.build.core.iterators.PathIterator;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.b3.build.util.B3BuildValidator;
 import org.eclipse.core.runtime.IStatus;
@@ -889,6 +889,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEAttribute(buildUnitEClass, BUILD_UNIT__SOURCE_LOCATION);
 		createEAttribute(buildUnitEClass, BUILD_UNIT__OUTPUT_LOCATION);
 		createEReference(buildUnitEClass, BUILD_UNIT__PROVIDERS);
+		createEReference(buildUnitEClass, BUILD_UNIT__PARENT);
 
 		iBuilderEClass = createEClass(IBUILDER);
 		createEReference(iBuilderEClass, IBUILDER__POSTCOND_EXPR);
@@ -2320,6 +2321,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EAttribute getBuildUnit_OutputLocation() {
 		return (EAttribute) buildUnitEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getBuildUnit_Parent() {
+		return (EReference) buildUnitEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -3834,6 +3845,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getBuildUnit_Providers(), this.getFirstFoundUnitProvider(), null, "providers", null, 0, -1,
 			BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getBuildUnit_Parent(), this.getIBuildUnitContainer(), null, "parent", null, 0, 1, BuildUnit.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(
 			buildUnitEClass, this.getEffectiveUnitFacade(), "getEffectiveFacade", 0, 1, IS_UNIQUE, IS_ORDERED);

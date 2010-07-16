@@ -37,6 +37,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.build.BuildUnit#getSourceLocation <em>Source Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.BuildUnit#getOutputLocation <em>Output Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.BuildUnit#getProviders <em>Providers</em>}</li>
+ * <li>{@link org.eclipse.b3.build.BuildUnit#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  * 
@@ -204,6 +205,22 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	URI getOutputLocation();
 
 	/**
+	 * Returns the value of the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Parent</em>' reference.
+	 * @see #setParent(IBuildUnitContainer)
+	 * @see org.eclipse.b3.build.B3BuildPackage#getBuildUnit_Parent()
+	 * @model
+	 * @generated
+	 */
+	IBuildUnitContainer getParent();
+
+	/**
 	 * Returns the value of the '<em><b>Property Sets</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
 	 * <!-- begin-user-doc -->
@@ -344,6 +361,18 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * @generated
 	 */
 	void setOutputLocation(URI value);
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuildUnit#getParent <em>Parent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Parent</em>' reference.
+	 * @see #getParent()
+	 * @generated
+	 */
+	void setParent(IBuildUnitContainer value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuildUnit#getSourceLocation <em>Source Location</em>}' attribute.

@@ -13,6 +13,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Executor;
 import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.build.BeeModel;
+import org.eclipse.b3.build.core.runtime.DefaultB3Module;
 import org.eclipse.b3.build.engine.AbstractB3EngineExecutor;
 import org.eclipse.b3.build.engine.IB3EngineRuntime;
 import org.eclipse.b3.build.engine.IB3Runnable;

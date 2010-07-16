@@ -21,7 +21,7 @@ import org.eclipse.b3.backend.core.ValueMap;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.PathVector;
-import org.eclipse.b3.build.core.PathIterator;
+import org.eclipse.b3.build.core.iterators.PathIterator;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;

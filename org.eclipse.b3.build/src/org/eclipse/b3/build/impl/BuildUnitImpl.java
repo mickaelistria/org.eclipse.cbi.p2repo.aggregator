@@ -10,6 +10,7 @@ import java.lang.reflect.Type;
 import java.net.URI;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
@@ -41,9 +42,11 @@ import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.Synchronization;
 import org.eclipse.b3.build.UnitProvider;
 import org.eclipse.b3.build.core.B3BuildConstants;
-import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
-import org.eclipse.b3.build.core.EffectiveCapabilitiesIteratorProvider;
-import org.eclipse.b3.build.core.EffectiveRequirementsIteratorProvider;
+import org.eclipse.b3.build.core.adapters.BuildUnitProxyAdapterFactory;
+import org.eclipse.b3.build.core.adapters.SyntheticRequirementsAdapter;
+import org.eclipse.b3.build.core.adapters.SyntheticRequirementsAdapterFactory;
+import org.eclipse.b3.build.core.iterators.EffectiveCapabilitiesIteratorProvider;
+import org.eclipse.b3.build.core.iterators.EffectiveRequirementsIteratorProvider;
 import org.eclipse.b3.build.internal.BuildUnitUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -60,6 +63,7 @@ import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 
 import com.google.inject.Injector;
+import com.google.inject.internal.Lists;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,6 +90,7 @@ import com.google.inject.Injector;
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getSourceLocation <em>Source Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getOutputLocation <em>Output Location</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getProviders <em>Providers</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  * 
@@ -325,6 +330,17 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	protected EList<FirstFoundUnitProvider> providers;
 
 	/**
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected IBuildUnitContainer parent;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -335,6 +351,16 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		// TODO: is there a better way to set this?
 		// i.e. the default name space for build units
 		setNameSpace(B3BuildConstants.B3_NS_BUILDUNIT);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IBuildUnitContainer basicGetParent() {
+		return parent;
 	}
 
 	/**
@@ -477,6 +503,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getOutputLocation();
 			case B3BuildPackage.BUILD_UNIT__PROVIDERS:
 				return getProviders();
+			case B3BuildPackage.BUILD_UNIT__PARENT:
+				if(resolve)
+					return getParent();
+				return basicGetParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -587,6 +617,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 						: !OUTPUT_LOCATION_EDEFAULT.equals(outputLocation);
 			case B3BuildPackage.BUILD_UNIT__PROVIDERS:
 				return providers != null && !providers.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__PARENT:
+				return parent != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -664,6 +696,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				getProviders().clear();
 				getProviders().addAll((Collection<? extends FirstFoundUnitProvider>) newValue);
 				return;
+			case B3BuildPackage.BUILD_UNIT__PARENT:
+				setParent((IBuildUnitContainer) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -738,6 +773,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return;
 			case B3BuildPackage.BUILD_UNIT__PROVIDERS:
 				getProviders().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__PARENT:
+				setParent((IBuildUnitContainer) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -883,31 +921,55 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		}
 		// REQUIRED PREDICATES
 		// all matching units in any parent being a unit container (except 'self' naturally).
-		for(CapabilityPredicate q : getRequiredPredicates()) {
-			for(EObject parent = eContainer(); parent != null; parent = parent.eContainer()) {
-				if(!(parent instanceof IBuildUnitContainer))
-					continue;
-				for(BuildUnit u2 : ((IBuildUnitContainer) parent).getBuildUnits()) {
-					if(u2 == this || !q.matches(u2))
-						continue;
-					final RequiredCapability req = B3BuildFactory.eINSTANCE.createRequiredCapability();
-					req.setMin(1);
-					req.setMax(1);
-					req.setGreedy(false);
-					req.setName(u2.getName());
-					req.setNameSpace(B3BuildConstants.B3_NS_BUILDUNIT);
-					if(u2.getVersion() != null) {
-						// if version is specified, use an exact range
-						VersionRange range = new VersionRange(u2.getVersion(), true, u2.getVersion(), true);
-						req.setVersionRange(range);
+		// The result is kept in an adapter, if it exists it is reused
+		//
+		final SyntheticRequirementsAdapter reqAdapter = SyntheticRequirementsAdapterFactory.eINSTANCE.adapt(this);
+		// processed already?
+		List<RequiredCapability> syntheticRequirements = reqAdapter.getAssociatedInfo(ctx.getInvocationContext());
+		if(syntheticRequirements == null) {
+			// cache the synthetic requirements
+			syntheticRequirements = Lists.newArrayList();
+			reqAdapter.setAssociatedInfo(ctx.getInvocationContext(), syntheticRequirements);
+			final CapabilityPredicate selfPredicate = B3BuildFactory.eINSTANCE.createCapabilityPredicate();
+			selfPredicate.setNamePredicate(B3backendFactory.eINSTANCE.createBNamePredicate());
+			selfPredicate.getNamePredicate().setName(getName());
+			selfPredicate.setNameSpacePredicate(B3backendFactory.eINSTANCE.createBNamePredicate());
+			selfPredicate.getNameSpacePredicate().setName(getNameSpace());
+			if(getVersion() != null)
+				selfPredicate.setVersionRange(new VersionRange(getVersion(), true, getVersion(), true));
+
+			for(CapabilityPredicate q : getRequiredPredicates()) {
+				for(IBuildUnitContainer parent = getParent(); parent != null; parent = parent instanceof BuildUnit
+						? ((BuildUnit) parent).getParent()
+						: null) {
+					for(BuildUnit u2 : (parent).getBuildUnits()) {
+						if(selfPredicate.matches(u2) || !q.matches(u2))
+							continue;
+						final RequiredCapability req = B3BuildFactory.eINSTANCE.createRequiredCapability();
+						req.setMin(1);
+						req.setMax(1);
+						req.setGreedy(false);
+						req.setName(u2.getName());
+						req.setNameSpace(B3BuildConstants.B3_NS_BUILDUNIT);
+						if(u2.getVersion() != null) {
+							// if version is specified, use an exact range
+							VersionRange range = new VersionRange(u2.getVersion(), true, u2.getVersion(), true);
+							req.setVersionRange(range);
+						}
+						syntheticRequirements.add(req);
 					}
-					final EffectiveRequirementFacade rf = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
-					rf.setRequirement(req);
-					rf.setContext(outer);
-					required.add(rf); // containment (all requirements)
-					uRequired.add(rf); // non containment (only those in unit)
+
 				}
 			}
+		}
+		for(RequiredCapability synthetic : syntheticRequirements) {
+			final EffectiveRequirementFacade rf = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
+			rf.setRequirement(synthetic);
+			rf.setContext(outer);
+
+			required.add(rf); // containment (all requirements)
+			uRequired.add(rf); // non containment (only those in unit)
+
 		}
 		// META REQUIRED
 		for(RequiredCapability req : getMetaRequiredCapabilities()) {
@@ -1044,6 +1106,31 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			setOutputLocation(URI.create(buf.toString()));
 		}
 		return outputLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IBuildUnitContainer getParent() {
+		if(parent != null && parent.eIsProxy()) {
+			InternalEObject oldParent = (InternalEObject) parent;
+			parent = (IBuildUnitContainer) eResolveProxy(oldParent);
+			if(parent != oldParent) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3BuildPackage.BUILD_UNIT__PARENT, oldParent, parent));
+			}
+		}
+		// return first parent being a IBuildUnitContainer
+		if(parent == null) {
+			for(EObject p = eContainer(); p != null; p = p.eContainer())
+				if(p instanceof IBuildUnitContainer)
+					return (IBuildUnitContainer) p;
+		}
+		return parent;
 	}
 
 	/**
@@ -1261,6 +1348,19 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * 
 	 * @generated
 	 */
+	public void setParent(IBuildUnitContainer newParent) {
+		IBuildUnitContainer oldParent = parent;
+		parent = newParent;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__PARENT, oldParent, parent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setSourceLocation(URI newSourceLocation) {
 		URI oldSourceLocation = sourceLocation;
 		sourceLocation = newSourceLocation;
@@ -1281,14 +1381,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (documentation: ");
-		result.append(documentation);
-		result.append(", executionMode: ");
-		result.append(executionMode);
-		result.append(", sourceLocation: ");
-		result.append(sourceLocation);
-		result.append(", outputLocation: ");
-		result.append(outputLocation);
+		result.append(" (name: ");
+		result.append(getName());
 		result.append(')');
 		return result.toString();
 	}

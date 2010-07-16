@@ -23,7 +23,7 @@ import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.core.B3BuildConstants;
-import org.eclipse.b3.build.core.B3UndefinedRepositoryHandlerException;
+import org.eclipse.b3.build.core.exceptions.B3UndefinedRepositoryHandlerException;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;

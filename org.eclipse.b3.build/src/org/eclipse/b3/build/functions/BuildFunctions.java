@@ -14,9 +14,9 @@ import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.B3BuilderJob;
-import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
-import org.eclipse.b3.build.core.EffectiveUnitIterator;
-import org.eclipse.b3.build.core.SharedScope;
+import org.eclipse.b3.build.core.adapters.BuildUnitProxyAdapterFactory;
+import org.eclipse.b3.build.core.iterators.EffectiveUnitIterator;
+import org.eclipse.b3.build.core.runtime.SharedScope;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
 import org.eclipse.core.runtime.IStatus;
 
@@ -73,7 +73,8 @@ public class BuildFunctions {
 			IStatus status = resolver.resolveUnit(unitToUse, ctx);
 
 			if(!status.isOK())
-				throw new B3EngineException("Resolution Failed with non OK status: " + status.toString());
+				throw new B3EngineException(
+					"Resolution Failed with non OK status: " + status.toString(), status.getException());
 			return _runBuilder(ctx, params, types);
 		}
 		finally {

@@ -33,6 +33,12 @@ import org.eclipse.b3.build.PathVector;
 import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.ResolutionInfo;
 import org.eclipse.b3.build.UnitResolutionInfo;
+import org.eclipse.b3.build.core.adapters.BuildUnitProxyAdapterFactory;
+import org.eclipse.b3.build.core.adapters.ResolutionInfoAdapterFactory;
+import org.eclipse.b3.build.core.exceptions.B3UnresolvedRequirementException;
+import org.eclipse.b3.build.core.exceptions.B3WrongBuilderReturnTypeException;
+import org.eclipse.b3.build.core.iterators.BuilderCallIteratorProvider;
+import org.eclipse.b3.build.core.iterators.EffectivePathVectorIterator;
 import org.eclipse.b3.build.internal.B3BuildActivator;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
 import org.eclipse.core.runtime.CoreException;
@@ -276,7 +282,9 @@ public class B3BuilderJob extends AbstractB3Job {
 
 					// TODO: Should probably pass status to exception if info and status exist
 					if(rinfo == null || !rinfo.getStatus().isOK() || !(rinfo instanceof UnitResolutionInfo))
-						throw new B3UnresolvedRequirementException(unit, builder, rq);
+						throw new B3UnresolvedRequirementException(unit, builder, rq, rinfo != null
+								? rinfo.getStatus()
+								: null);
 					unitToUse = ((UnitResolutionInfo) rinfo).getUnit();
 
 				}
@@ -411,7 +419,7 @@ public class B3BuilderJob extends AbstractB3Job {
 				br = B3BuildFactory.eINSTANCE.createBuildSet();
 
 			if(!(br instanceof BuildSet))
-				throw new B3WrongBuilderReturnType(
+				throw new B3WrongBuilderReturnTypeException(
 					unit.getName(), builder.getName(), returnedBuildSetName, br.getClass());
 
 			BuildSet buildResult = (BuildSet) br;

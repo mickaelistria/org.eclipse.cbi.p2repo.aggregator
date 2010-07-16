@@ -22,7 +22,7 @@ import org.eclipse.b3.build.EffectiveCapabilityFacade;
 import org.eclipse.b3.build.ExecutionStackRepository;
 import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.RequiredCapability;
-import org.eclipse.b3.build.core.EffectiveUnitIterator;
+import org.eclipse.b3.build.core.iterators.EffectiveUnitIterator;
 import org.eclipse.emf.ecore.EClass;
 
 /**

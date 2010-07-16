@@ -9,6 +9,7 @@
 package org.eclipse.b3.build.core;
 
 import org.eclipse.b3.backend.core.B3BackendConstants;
+import org.eclipse.b3.build.core.runtime.SharedScope;
 
 import com.google.inject.Key;
 import com.google.inject.name.Names;

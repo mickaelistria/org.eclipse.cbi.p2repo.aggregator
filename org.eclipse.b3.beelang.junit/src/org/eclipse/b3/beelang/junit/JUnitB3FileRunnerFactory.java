@@ -20,7 +20,7 @@ import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.B3BuildEngine;
-import org.eclipse.b3.build.core.SharedScope;
+import org.eclipse.b3.build.core.runtime.SharedScope;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;

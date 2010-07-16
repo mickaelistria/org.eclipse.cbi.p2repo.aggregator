@@ -31,7 +31,7 @@ import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.PathGroup;
 import org.eclipse.b3.build.core.B3BuilderJob;
-import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
+import org.eclipse.b3.build.core.adapters.BuildUnitProxyAdapterFactory;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;

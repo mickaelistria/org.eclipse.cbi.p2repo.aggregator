@@ -19,7 +19,7 @@ import org.eclipse.b3.beelang.ui.BeeLangConsoleUtils;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.B3BuildEngine;
-import org.eclipse.b3.build.core.SharedScope;
+import org.eclipse.b3.build.core.runtime.SharedScope;
 import org.eclipse.b3.utils.BeeLangUtils;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;

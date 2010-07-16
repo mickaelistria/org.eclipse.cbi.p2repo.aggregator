@@ -21,7 +21,7 @@ import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.engine.B3BuildEngineResource;
 import org.eclipse.b3.build.engine.B3ExtensionLoader;
-import org.eclipse.b3.evaluator.B3BuildFuncScopeProvider;
+import org.eclipse.b3.build.evaluator.B3BuildFuncScopeProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;

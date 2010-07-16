@@ -41,6 +41,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providers" upperBound="-1"
         eType="#//FirstFoundUnitProvider" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//IBuildUnitContainer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBuilder" abstract="true" interface="true"
       eSuperTypes="#//IProvidedCapabilityContainer ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IFunction">

@@ -13,7 +13,7 @@ import org.eclipse.b3.build.BranchPointType;
 import org.eclipse.b3.build.MergeConflictStrategy;
 import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.TriState;
-import org.eclipse.b3.build.core.RepositoryValidation;
+import org.eclipse.b3.build.core.runtime.RepositoryValidation;
 import org.eclipse.b3.enums.MergeConflictStrategyEnumHelper;
 import org.eclipse.b3.enums.TriStateEnumHelper;
 import org.eclipse.b3.versions.IVersionFormatManager;
