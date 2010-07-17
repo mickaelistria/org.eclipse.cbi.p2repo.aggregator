@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2010, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
@@ -27,14 +27,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
  * 
  */
 public abstract class AbstractHandlerWithDialog extends AbstractHandler {
-	// @Override
 	final public Object execute(ExecutionEvent event) throws ExecutionException {
-		// final MessageConsole b3Console = BeeLangConsoleUtils.getBeeLangConsole();
-
-		// b3out = BeeLangConsoleUtils.getConsoleOutputStream(b3Console);
-		//
-		// b3err = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);
-
 		try {
 			IStatus result = executeWithDialogSupport(event);
 			return reportResult(event, result);
@@ -42,20 +35,6 @@ public abstract class AbstractHandlerWithDialog extends AbstractHandler {
 		finally {
 
 		}
-		// finally {
-		// try {
-		// b3out.close();
-		// b3out = null;
-		// }
-		// catch(Throwable t) {
-		// }
-		// try {
-		// b3err.close();
-		// b3err = null;
-		// }
-		// catch(Throwable t) {
-		// }
-		// }
 	}
 
 	abstract public IStatus executeWithDialogSupport(ExecutionEvent event) throws ExecutionException;
