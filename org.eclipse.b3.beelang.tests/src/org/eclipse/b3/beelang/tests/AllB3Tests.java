@@ -29,6 +29,7 @@ import org.junit.runner.RunWith;
 		"/src-b3/testPropertyAdvice.b3", //
 		"/src-b3/testRelationalFunctions.b3", //
 		"/src-b3/testSequenceExpression.b3", //
+		"/src-b3/testStatus.b3", //
 		"/src-b3/testSwitch.b3", //
 		"/src-b3/testSystemFunctions.b3", //
 		"/src-b3/testTypecast.b3", //
