@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.SimplePattern;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.core.runtime.IStatus;
 
 public class RelationalFunctions {
 
@@ -358,6 +359,27 @@ public class RelationalFunctions {
 		return pattern.matcher(string).matches()
 				? Boolean.TRUE
 				: Boolean.FALSE;
+	}
+
+	@B3Backend(funcNames = { "~=" })
+	public static Boolean matches(IStatus s, IStatus s2) {
+		return s.matches(s2.getSeverity());
+	}
+
+	@B3Backend(varargs = true)
+	public static Boolean matches(IStatus s, IStatus... statuses) {
+		int mask = 0;
+		for(int i = 0; i < statuses.length; i++)
+			mask |= statuses[i].getSeverity();
+		return s.matches(mask);
+	}
+
+	@B3Backend(funcNames = { "~=" })
+	public static Boolean matches(IStatus s, List<IStatus> statuses) {
+		int mask = 0;
+		for(IStatus s2 : statuses)
+			mask |= s2.getSeverity();
+		return s.matches(mask);
 	}
 
 	@B3Backend(funcNames = { "~=" }, systemFunction = "_listMatches")

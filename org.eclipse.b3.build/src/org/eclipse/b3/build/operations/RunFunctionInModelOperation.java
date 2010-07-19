@@ -4,11 +4,11 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.B3BackendErrorCodes;
+import org.eclipse.b3.backend.core.B3BackendStatusCodes;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.OkResultStatus;
 import org.eclipse.b3.build.BeeModel;
-import org.eclipse.b3.build.core.B3BuildErrorCodes;
+import org.eclipse.b3.build.core.B3BuildStatusCodes;
 import org.eclipse.b3.build.engine.IB3EngineRuntime;
 import org.eclipse.b3.build.engine.IB3Runnable;
 import org.eclipse.b3.build.internal.B3BuildActivator;
@@ -19,6 +19,16 @@ import org.eclipse.core.runtime.Status;
 
 import com.google.inject.internal.Lists;
 
+/**
+ * This operation runs a named function (or "main" if no function name is stated) in the given model, with
+ * the stated arguments.
+ * If the called function produces an exception, this is wrapped in an error status which is returned.
+ * If the function returns, it is wrapped in an IResultStatus with OK status, and the result.
+ * A command handler (from the UI, or command line) should check if the returned value is as an instance of IStatus,
+ * as this indicates the status of the executed b3 code.
+ * Note that there is no difference between engine exceptions and exceptions thrown from b3 code (e.g. a b3 script
+ * can throw java IllegalArgumentException if it wants to).
+ */
 public class RunFunctionInModelOperation implements IB3Runnable {
 
 	final BeeModel model;
@@ -52,7 +62,7 @@ public class RunFunctionInModelOperation implements IB3Runnable {
 		}
 		catch(B3EngineException e) {
 			return new Status(
-				IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.ENGINE_ERROR,
+				IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildStatusCodes.ENGINE_ERROR,
 				"B3Engine Error while loading model for evaluation", e);
 		}
 
@@ -97,7 +107,7 @@ public class RunFunctionInModelOperation implements IB3Runnable {
 					break;
 			}
 			return new Status(
-				IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BackendErrorCodes.EVALUATION_ERROR, "Evaluation of " +
+				IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BackendStatusCodes.EVALUATION_ERROR, "Evaluation of " +
 						functionName + argType + " ended with exception.", e);
 		}
 

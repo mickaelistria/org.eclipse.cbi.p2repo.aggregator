@@ -11,7 +11,7 @@ package org.eclipse.b3.build.operations;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.b3.build.BeeModel;
-import org.eclipse.b3.build.core.B3BuildErrorCodes;
+import org.eclipse.b3.build.core.B3BuildStatusCodes;
 import org.eclipse.b3.build.engine.IB3EngineRuntime;
 import org.eclipse.b3.build.engine.IB3Runnable;
 import org.eclipse.b3.build.internal.B3BuildActivator;
@@ -68,7 +68,7 @@ public class RunFunctionInResourceOperation implements IB3Runnable {
 			if(e instanceof BeeModel)
 				return new RunFunctionInModelOperation(functionName, (BeeModel) e, callStyle, argv).run(engine, monitor);
 		return new Status(
-			IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.INVALID_B3_RESOURCE,
+			IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildStatusCodes.INVALID_B3_RESOURCE,
 			"No Model of b3 type found in resource:" + resource.getURI(), null);
 	}
 }

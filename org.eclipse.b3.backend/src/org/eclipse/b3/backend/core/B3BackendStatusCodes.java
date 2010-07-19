@@ -12,11 +12,17 @@ package org.eclipse.b3.backend.core;
  * Error Code definitions for the org.eclipse.b3.backend
  * 
  */
-public interface B3BackendErrorCodes {
+public interface B3BackendStatusCodes {
 	public interface BackendStart {
 		/** To avoid confusion between backend, build, ui components in the b3 family, they share a unique set. */
 		static final int START = 1000;
 	}
+
+	/**
+	 * A code that indicates that a status has a result - i.e. implements IResultStatus.
+	 * 
+	 */
+	static final int RESULT_OK = BackendStart.START;
 
 	/**
 	 * A problem occured while evaluating expressions. The associated exception is (most likely) an instance of {@link B3BackendException} which may

@@ -19,6 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 
 public class B3FuncStore {
 	private class TypeIterator implements Iterator<IFunction> {
@@ -44,9 +45,14 @@ public class B3FuncStore {
 			while(theNext == null && allFunctionsIterator.hasNext()) {
 				IFunction f = allFunctionsIterator.next();
 				if(functionType == null || functionType.isAssignableFrom(f.getClass())) {
-					if(!TypeUtils.isAssignableFrom(f.getParameterTypes()[0], firstType))
-						continue;
-					theNext = f;
+					Type[] pTypes = FunctionUtils.getParameterTypes(f);
+					if(pTypes.length == 0) {
+						if(firstType != null)
+							continue;
+						theNext = f;
+					}
+					else if(TypeUtils.isAssignableFrom(pTypes[0], firstType))
+						theNext = f;
 				}
 			}
 		}

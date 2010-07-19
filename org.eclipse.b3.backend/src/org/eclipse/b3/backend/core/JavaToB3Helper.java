@@ -29,6 +29,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.util.EList;
@@ -331,7 +332,9 @@ public class JavaToB3Helper {
 	}
 
 	private static void setParameterDeclarations(BJavaFunction f) {
-		Type[] types = f.getParameterTypes();
+		// TODO: CHEATING - HOULD BE REFACTORED
+		Type[] types = ((BJavaFunctionImpl) f).getParameterTypes();
+		// Type[] types = FunctionUtils.getParameterTypes(f);
 		String[] names = f.getParameterNames();
 		if(types.length != names.length)
 			throw new IllegalArgumentException("All types must have a name");

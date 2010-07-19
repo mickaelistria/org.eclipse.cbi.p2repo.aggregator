@@ -14,6 +14,7 @@ package org.eclipse.b3;
 
 import org.eclipse.b3.backend.evaluator.B3BackendLValProvider;
 import org.eclipse.b3.backend.evaluator.IB3LvalProvider;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.b3.backend.scoping.IFuncScopeProvider;
 import org.eclipse.b3.build.engine.B3BuildEngineResource;
@@ -108,7 +109,11 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 		super.configure(binder);
 		// don't know how to do this using Xtext declarative approach...
 		binder.bind(IVersionFormatManager.class).to(DefaultVersionFormatManager.class).in(Singleton.class);
-		// Needs access to injector
+		// binder.bind(ITypeProvider.class).to(B3BuildTypeProvider.class);
+		// binder.bind(IFuncScopeProvider.class).to(B3BuildFuncScopeProvider.Unfiltered.class);
+
+		// Needs access to injector from a static context
+		binder.requestStaticInjection(FunctionUtils.class);
 		binder.requestStaticInjection(B3BuildEngineResource.class);
 	}
 

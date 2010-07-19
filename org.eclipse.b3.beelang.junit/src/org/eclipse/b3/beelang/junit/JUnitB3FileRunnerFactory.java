@@ -151,7 +151,7 @@ class JUnitB3FileRunnerFactory {
 			if(!status.isOK()) {
 				// accept warning, but not error or cancel
 				if(!status.matches(IStatus.WARNING))
-					throw new Exception(status.toString());
+					throw new Exception(status.toString(), status.getException());
 			}
 
 		}

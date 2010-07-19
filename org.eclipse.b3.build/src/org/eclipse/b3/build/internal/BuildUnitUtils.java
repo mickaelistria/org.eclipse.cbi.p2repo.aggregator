@@ -144,7 +144,7 @@ public class BuildUnitUtils {
 	public static String getBuildUnitInterfaceName(String unitName, Version version) {
 		StringBuffer buf = new StringBuffer();
 		buf.append(BUILDUNIT_INTERFACE_PREFIX);
-		buf.append(unitName);
+		buf.append(getClassnameSafeString(unitName));
 		if(version != null) {
 			buf.append("_");
 			buf.append(getClassnameSafeVersionString(version));
@@ -154,16 +154,15 @@ public class BuildUnitUtils {
 	}
 
 	/**
-	 * Version part is transformed as follows:
+	 * The given string is transformed as follows:
 	 * $ -> escaped as non identifier
 	 * . -> changed to _
 	 * non identifier -> $xx where xx in the hex code for the character
 	 * 
-	 * @param v
-	 * @return a string that can be part of a class name after an an initial letter.
+	 * @param s
+	 * @return a string that can be part of a class name after an an initial letter, and is filename safe
 	 */
-	public static String getClassnameSafeVersionString(Version v) {
-		String s = v.getOriginal();
+	public static String getClassnameSafeString(String s) {
 		StringBuffer buf = new StringBuffer(s.length() + 10); // add 10 for funny char expansion
 		for(int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
@@ -176,4 +175,9 @@ public class BuildUnitUtils {
 		}
 		return buf.toString();
 	}
+
+	public static String getClassnameSafeVersionString(Version v) {
+		return getClassnameSafeString(v.getOriginal());
+	}
+
 }

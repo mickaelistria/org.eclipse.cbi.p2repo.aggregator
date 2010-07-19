@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2010, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
@@ -21,7 +21,7 @@ public class OkResultStatus extends Status implements IResultStatus {
 	 * @param message
 	 */
 	public OkResultStatus(Object result, String pluginId) {
-		super(IStatus.OK, pluginId, "OK Result");
+		super(IStatus.OK, pluginId, B3BackendStatusCodes.RESULT_OK, "OK", null);
 		this.result = result;
 	}
 
@@ -30,9 +30,7 @@ public class OkResultStatus extends Status implements IResultStatus {
 	 * 
 	 * @see org.eclipse.b3.backend.core.IResultStatus#getResult()
 	 */
-	// @Override
 	public Object getResult() {
-		// TODO Auto-generated method stub
 		return result;
 	}
 

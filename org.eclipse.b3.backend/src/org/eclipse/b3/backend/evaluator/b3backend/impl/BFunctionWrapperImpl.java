@@ -34,6 +34,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -1234,7 +1235,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public Type[] getParameterTypes() {
-		return getOriginal().getParameterTypes();
+		return FunctionUtils.getParameterTypes(getOriginal());
 	}
 
 	/**

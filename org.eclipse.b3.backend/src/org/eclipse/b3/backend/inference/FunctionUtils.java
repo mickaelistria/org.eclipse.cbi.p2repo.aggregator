@@ -35,23 +35,34 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.util.Strings;
 
 import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.google.inject.Singleton;
 
 /**
  * Contains useful utilities when working with b3 language files.
  * 
  */
+@Singleton
 public class FunctionUtils {
-	public static FunctionUtils instance;
+	// private static FunctionUtils instance;
+
+	@Inject
+	private static Injector injector;
+
+	public static Type[] getParameterTypes(IFunction o) {
+		B3FunctionType t = getSignature(o);
+		return t.getParameterTypesArray();
+	}
 
 	// TODO: Temporary "getSignature" while moving functionality
 	// Later, user inference to determine return type, and also use
 	// inference to calculate parameter types (for lambdas where this is possible).
 	//
 	public static B3FunctionType getSignature(IFunction o) {
-		if(instance == null)
+		if(injector == null)
 			throw new IllegalStateException("FunctionUtils must be have instance initialized statically!!");
 
-		return instance.getInferredSignature(o);
+		return injector.getInstance(FunctionUtils.class).getInferredSignature(o);
 
 		// B3FunctionType t = B3backendFactory.eINSTANCE.createB3FunctionType();
 		// // TODO: This is probably wrong - but current impl uses this class for

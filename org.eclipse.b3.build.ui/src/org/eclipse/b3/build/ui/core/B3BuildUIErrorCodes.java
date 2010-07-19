@@ -8,13 +8,13 @@
 
 package org.eclipse.b3.build.ui.core;
 
-import org.eclipse.b3.build.core.B3BuildErrorCodes;
+import org.eclipse.b3.build.core.B3BuildStatusCodes;
 
 /**
  * Error Code definitions for the org.eclipse.b3.build plugin
  * 
  */
-public interface B3BuildUIErrorCodes extends B3BuildErrorCodes {
+public interface B3BuildUIErrorCodes extends B3BuildStatusCodes {
 	public interface BuildUIStart {
 		/** To avoid confusion between backend, build, ui components in the b3 family, they share a unique set. */
 		static final int START = BuildStart.START + 1000;

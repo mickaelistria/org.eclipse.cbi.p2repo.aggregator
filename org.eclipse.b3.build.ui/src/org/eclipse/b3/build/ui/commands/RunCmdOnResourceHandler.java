@@ -9,9 +9,10 @@
  */
 package org.eclipse.b3.build.ui.commands;
 
+import org.eclipse.b3.backend.core.IResultStatus;
 import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedXtextEditor;
 import org.eclipse.b3.build.core.B3BuildEngine;
-import org.eclipse.b3.build.core.B3BuildErrorCodes;
+import org.eclipse.b3.build.core.B3BuildStatusCodes;
 import org.eclipse.b3.build.operations.RunCmdOnResourceOperation;
 import org.eclipse.b3.build.ui.Activator;
 import org.eclipse.b3.build.ui.core.B3BuildUIErrorCodes;
@@ -97,7 +98,7 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithDialog {
 						uri, cmdFunction, (event.getParameters()), state));
 					if(result.isOK())
 						return result;
-					if(result.getCode() != B3BuildErrorCodes.COULD_NOT_LOAD_RESOURCE)
+					if(result.getCode() != B3BuildStatusCodes.COULD_NOT_LOAD_RESOURCE)
 						return result;
 				}
 				return new Status(
@@ -105,7 +106,11 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithDialog {
 					"Bad menu/command configuration - could not find cmd: " + cmdURI, null);
 			}
 		});
-
+		// If invocation status is ok, and the result is a status, report that status instead of
+		// the invocation status.
+		//
+		if(result.isOK() && result instanceof IResultStatus && ((IResultStatus) result).getResult() instanceof IStatus)
+			return (IStatus) ((IResultStatus) result).getResult();
 		return result;
 	}
 

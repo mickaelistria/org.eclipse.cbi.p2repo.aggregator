@@ -32,6 +32,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BuildConcernContext;
 import org.eclipse.b3.build.BuildUnit;
@@ -92,7 +93,7 @@ public class Weaver extends BackendWeaver {
 	private boolean adviceBuilder(BuilderConcernContext theBuilderConcern, IBuilder b, BExecutionContext ctx,
 			BuildUnit promoteToUnit, TypePattern builderTypePattern) throws B3EngineException {
 
-		Matcher matcher = builderTypePattern.match(b.getParameterTypes());
+		Matcher matcher = builderTypePattern.match(FunctionUtils.getParameterTypes(b));
 		if(theBuilderConcern.isMatchParameters() && !matcher.isMatch())
 			return false;
 

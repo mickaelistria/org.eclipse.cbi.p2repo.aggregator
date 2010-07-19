@@ -22,6 +22,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -54,7 +55,7 @@ public class BackendWeaver extends DeclarativeB3Weaver {
 	private boolean weaveIfParametersMatch(BFunctionConcernContext theFunctionConcern, IFunction f,
 			BExecutionContext ctx, TypePattern functionTypePattern) throws B3EngineException {
 		// TODO: FUNCTION EFFECTIVE PARAMETERS
-		Matcher matcher = functionTypePattern.match(f.getParameterTypes());
+		Matcher matcher = functionTypePattern.match(FunctionUtils.getParameterTypes(f));
 		if(theFunctionConcern.isMatchParameters() && !matcher.isMatch())
 			return false;
 

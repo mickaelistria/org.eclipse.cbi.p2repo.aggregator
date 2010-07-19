@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 
 public class B3NoSuchFunctionSignatureException extends B3EngineException {
 
@@ -20,7 +21,7 @@ public class B3NoSuchFunctionSignatureException extends B3EngineException {
 		while(itor.hasNext()) {
 			if(!first)
 				buffer.append(", ");
-			typeString(itor.next().getParameterTypes(), buffer);
+			typeString(FunctionUtils.getParameterTypes(itor.next()), buffer);
 			first = false;
 		}
 		if(first)

@@ -11,7 +11,6 @@ import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Executor;
-import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.core.runtime.DefaultB3Module;
 import org.eclipse.b3.build.engine.AbstractB3EngineExecutor;
@@ -122,11 +121,11 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 		catch(B3EngineException e) {
 			throw new B3InternalError("Initialization of B3BuildEngine failed with exception", e);
 		}
-		// TODO: Fix this horrible crutch that creates a FunctionUtils instance via guice (to get things
-		// injected), and making it available statically to non guice code.
-		// Remove this construct when everything is moved off evaluation/calls in the model code.
-		//
-		FunctionUtils.instance = getInjector().getInstance(FunctionUtils.class);
+		// // TODO: Fix this horrible crutch that creates a FunctionUtils instance via guice (to get things
+		// // injected), and making it available statically to non guice code.
+		// // Remove this construct when everything is moved off evaluation/calls in the model code.
+		// //
+		// FunctionUtils.instance = getInjector().getInstance(FunctionUtils.class);
 		invocationContext.loadFunctions(BuildFunctions.class);
 
 	}

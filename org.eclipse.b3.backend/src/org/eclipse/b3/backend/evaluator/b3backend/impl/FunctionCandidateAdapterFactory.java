@@ -13,6 +13,7 @@ import java.lang.reflect.Type;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
@@ -29,7 +30,7 @@ public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		public Type[] getParameterTypes() {
-			return target.getParameterTypes();
+			return FunctionUtils.getParameterTypes(target);
 		}
 
 		public IFunction getTarget() {
@@ -79,7 +80,7 @@ public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		public Type[] getParameterTypes() {
-			return target.getParameterTypes();
+			return FunctionUtils.getParameterTypes(target);
 		}
 
 		public BJavaFunction getTarget() {

@@ -1,5 +1,6 @@
 package org.eclipse.b3.build.functions;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
 import java.util.Iterator;
 
@@ -127,8 +128,15 @@ public class BuildFunctions {
 			args[0] = null;
 			argTypes[0] = BuildUnit.class;
 		}
-
-		B3BuilderJob job = (B3BuilderJob) ctx.callFunction(functionName, args, argTypes);
+		B3BuilderJob job = null;
+		try {
+			job = (B3BuilderJob) ctx.callFunction(functionName, args, argTypes);
+		}
+		catch(Throwable e) {
+			// a failing call must be wrapped, or the engine will think it is the call to runBuilder that
+			// failed.
+			throw new InvocationTargetException(e, "Exception when invoking builder");
+		}
 		job.schedule();
 		job.join();
 		return job.getBuildResult();

@@ -26,6 +26,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.emf.ecore.EObject;
 
 public class TypeUtils {
@@ -820,8 +821,8 @@ public class TypeUtils {
 	 * @return
 	 */
 	public static boolean hasEqualSignature(IFunction a, IFunction b) {
-		Type[] pta = a.getParameterTypes();
-		Type[] ptb = b.getParameterTypes();
+		Type[] pta = FunctionUtils.getParameterTypes(a);
+		Type[] ptb = FunctionUtils.getParameterTypes(b);
 		if(pta.length != ptb.length)
 			return false;
 		if(a.isClassFunction() != b.isClassFunction())

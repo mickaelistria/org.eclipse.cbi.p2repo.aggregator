@@ -344,6 +344,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		// both B3Function, and JavaFunction ??? Probably a Bug??
 		t.setFunctionType(B3Function.class);
 
+		// TODO: if return type not set, it needs to be inferred
 		Type returnType = o.getReturnType();
 		t.setReturnType(returnType);
 		t.setVarArgs(o.isVarArgs());

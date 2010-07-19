@@ -8,6 +8,7 @@ package org.eclipse.b3.build.impl;
 
 import java.lang.reflect.Type;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -1092,18 +1093,27 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	public URI getOutputLocation() {
 		if(outputLocation == null) {
 			StringBuffer buf = new StringBuffer();
-			buf.append("b3output:/");
+			buf.append("/");
 			String n = getName();
 			if(n == null || n.length() < 1)
-				n = "UNNAMED_UNIT__" + String.valueOf(hashCode());
-			buf.append(getName());
+				n = "UNNAMED_UNIT" + String.valueOf(hashCode());
+			// Best to be strict with "funny characters"
+			buf.append(BuildUnitUtils.getClassnameSafeString(n));
 			Version v = getVersion();
 			if(v != null) {
-				buf.append("_");
+				buf.append("__");
 				buf.append(BuildUnitUtils.getClassnameSafeVersionString(v));
 			}
 			buf.append("/");
-			setOutputLocation(URI.create(buf.toString()));
+			try {
+				return new URI("b3output", buf.toString(), null);
+			}
+			catch(URISyntaxException e) {
+				throw new IllegalArgumentException("Automatically generated output URI Error", e);
+			}
+			// Do NOT save this in the BuildUnit - it confuses the editor if the model changes
+			// while running the text - if required to cache this - do this with an adapter.
+			// setOutputLocation(URI.create(buf.toString()));
 		}
 		return outputLocation;
 	}

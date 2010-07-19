@@ -238,6 +238,10 @@ public class B3BuildEngineResource extends ResourceImpl {
 		}
 	}
 
+	/**
+	 * TODO: Unused becuse loading did not work. This was probably caused by encoding issues.
+	 * Try again.
+	 */
 	private void loadDefaultResources() {
 		// Get files from extension points...
 		XtextResourceSet beeLangResourceSet = injector.getProvider(XtextResourceSet.class).get();

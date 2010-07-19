@@ -113,6 +113,7 @@ public class DefaultB3Module extends AbstractB3Module {
 		bindBuildUnitResolver();
 		bindEvaluator();
 		bindLValueProvider();
+		// moved to BeeLangRuntimeModule as these are needed "statically"
 		bindTypeProvider();
 		bindFuncScopeProvider();
 	}

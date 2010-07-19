@@ -15,6 +15,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.BuilderInput;
@@ -887,7 +888,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 		if(isUnitTypeAdvised())
 			return super.getParameterTypesGen(); // sneaky way around BFunctionWrapper's different treatment of
 													// getTypes()
-		return original.getParameterTypes();
+		return FunctionUtils.getParameterTypes(getOriginal());
 	}
 
 	/**
@@ -1354,7 +1355,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * @generated NOT
 	 */
 	public void setUnitType(Class<? extends BuildUnit> newUnitType) {
-		if(original == null)
+		if(getOriginal() == null)
 			throw new IllegalStateException("The original must be set before calling setUnitType");
 
 		Class<? extends BuildUnit> oldUnitType = unitType;
@@ -1374,7 +1375,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 		}
 
 		// Must cache types (since it is not possible to delegate to original
-		Type[] originalTypes = original.getParameterTypes();
+		Type[] originalTypes = FunctionUtils.getParameterTypes(getOriginal());
 		Type[] types = new Type[originalTypes.length];
 		System.arraycopy(originalParameters, 0, types, 0, originalTypes.length);
 

@@ -1,14 +1,11 @@
 /**
- * Copyright (c) 2009, Cloudsmith Inc and others.
+ * Copyright (c) 2010, Cloudsmith Inc and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * Contributors:
  * - Cloudsmith Inc - initial API and implementation.
- * 
- *
- * $Id$
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
@@ -227,21 +224,21 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 */
 	EList<BParameterDeclaration> getParameters();
 
-	/**
-	 * Returns the value of the '<em><b>Parameter Types</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parameter Types</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Parameter Types</em>' attribute.
-	 * @see #setParameterTypes(Type[])
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_ParameterTypes()
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray" transient="true" derived="true"
-	 * @generated
-	 */
-	Type[] getParameterTypes();
+	// /**
+	// * Returns the value of the '<em><b>Parameter Types</b></em>' attribute.
+	// * <!-- begin-user-doc -->
+	// * <p>
+	// * If the meaning of the '<em>Parameter Types</em>' attribute isn't clear, there really should be more of a description here...
+	// * </p>
+	// * <!-- end-user-doc -->
+	// *
+	// * @return the value of the '<em>Parameter Types</em>' attribute.
+	// * @see #setParameterTypes(Type[])
+	// * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_ParameterTypes()
+	// * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray" transient="true" derived="true"
+	// * @generated
+	// */
+	// Type[] getParameterTypes();
 
 	/**
 	 * Returns the value of the '<em><b>Return Type</b></em>' containment reference.

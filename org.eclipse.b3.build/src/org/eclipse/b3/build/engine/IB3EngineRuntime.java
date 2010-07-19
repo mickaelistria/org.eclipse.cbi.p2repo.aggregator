@@ -46,7 +46,8 @@ public interface IB3EngineRuntime {
 
 	/**
 	 * Returns the guice injector used by this engine. Note that this injector may have different configuration
-	 * over time. Always use this injector to get instances instead of using new Something().
+	 * over time (intended for injection into the b3 scripts, the injector returned on this call is suitable for
+	 * engine related injections). Always use a injector to get instances instead of using new Something().
 	 * 
 	 * @return
 	 */

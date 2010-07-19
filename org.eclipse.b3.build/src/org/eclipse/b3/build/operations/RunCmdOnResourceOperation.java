@@ -13,10 +13,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.B3BackendErrorCodes;
+import org.eclipse.b3.backend.core.B3BackendStatusCodes;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.build.BeeModel;
-import org.eclipse.b3.build.core.B3BuildErrorCodes;
+import org.eclipse.b3.build.core.B3BuildStatusCodes;
 import org.eclipse.b3.build.engine.IB3EngineRuntime;
 import org.eclipse.b3.build.engine.IB3Runnable;
 import org.eclipse.b3.build.internal.B3BuildActivator;
@@ -106,7 +106,7 @@ public class RunCmdOnResourceOperation implements IB3Runnable {
 		}
 		catch(IOException e1) {
 			return new Status(
-				IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.COULD_NOT_LOAD_RESOURCE,
+				IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildStatusCodes.COULD_NOT_LOAD_RESOURCE,
 				"Could not load library b3 module from: " + uri, e1);
 		}
 		boolean loaded = false;
@@ -117,14 +117,14 @@ public class RunCmdOnResourceOperation implements IB3Runnable {
 			// MultiStatus ms = new MultiStatus()
 			if(errors.size() > 1)
 				return new Status(
-					IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BackendErrorCodes.DIAGNOSTICS_ERROR,
+					IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BackendStatusCodes.DIAGNOSTICS_ERROR,
 					"Loading encountered diagnostics errors", null);
 		}
 		// final BeeModel beeModel = (BeeModel) mainResource.getParseResult().getRootASTElement();
 		final BeeModel beeModel = (BeeModel) mainResource.getContents().get(0);
 		if(beeModel == null || beeModel.getFunctions() == null || beeModel.getFunctions().isEmpty()) {
 			return new Status(
-				IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.LOADED_B3MODEL_NO_FUNCTIONS,
+				IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildStatusCodes.LOADED_B3MODEL_NO_FUNCTIONS,
 				"Error while defining library b3 module:" + mainResource.getURI(), null);
 
 		}
@@ -134,7 +134,7 @@ public class RunCmdOnResourceOperation implements IB3Runnable {
 			}
 			catch(B3EngineException e1) {
 				return new Status(
-					IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.ENGINE_ERROR,
+					IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildStatusCodes.ENGINE_ERROR,
 					"Error while defining library b3 module:" + mainResource.getURI(), e1);
 			}
 			loaded = true;
@@ -146,7 +146,7 @@ public class RunCmdOnResourceOperation implements IB3Runnable {
 					? new RunFunctionInResourceOperation(cmdFunction, resource, RunOptions.CALL_MAP, parameters).run(
 						engine, monitor)
 					: new Status(
-						IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildErrorCodes.INVALID_B3_RESOURCE,
+						IStatus.ERROR, B3BuildActivator.PLUGIN_ID, B3BuildStatusCodes.INVALID_B3_RESOURCE,
 						"No Model of b3 type found in resource:" + resource.getURI(), null);
 		}
 		finally {

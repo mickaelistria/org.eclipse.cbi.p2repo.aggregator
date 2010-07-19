@@ -8,13 +8,18 @@ import java.util.List;
 
 import org.eclipse.b3.backend.core.B3AssertionFailedException;
 import org.eclipse.b3.backend.core.B3Backend;
+import org.eclipse.b3.backend.core.B3BackendActivator;
 import org.eclipse.b3.backend.evaluator.Any;
 import org.eclipse.b3.backend.evaluator.B3ContextAccess;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.backend.inference.ITypeProvider;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.MultiStatus;
+import org.eclipse.core.runtime.Status;
 
 public class SystemFunctions {
 
@@ -31,6 +36,15 @@ public class SystemFunctions {
 
 		BExecutionContext closure;
 	}
+
+	public static final IStatus EMPTY_ERROR = new Status(
+		IStatus.ERROR, B3BackendActivator.PLUGIN_IN, IStatus.OK, "", null);
+
+	public static final IStatus EMPTY_INFO = new Status(
+		IStatus.INFO, B3BackendActivator.PLUGIN_IN, IStatus.OK, "", null);
+
+	public static final IStatus EMPTY_WARNING = new Status(
+		IStatus.WARNING, B3BackendActivator.PLUGIN_IN, IStatus.OK, "", null);
 
 	@B3Backend(system = true, typeFunction = "returnTypeOfLastLambda")
 	public static Object __do(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
@@ -169,7 +183,7 @@ public class SystemFunctions {
 			cur.curry = 1;
 		if(cur.p.length != 2) {
 			cur.p = new Object[] { cur.p[0], null };
-			cur.t = new Type[] { cur.t[0], cur.lambda.getParameterTypes()[1] };
+			cur.t = new Type[] { cur.t[0], FunctionUtils.getParameterTypes(cur.lambda)[1] };
 		}
 		Object inject = null;
 		int injectPos = cur.curry == 0
@@ -425,6 +439,18 @@ public class SystemFunctions {
 		return null;
 	}
 
+	public static IStatus ERROR() {
+		return EMPTY_ERROR;
+	}
+
+	public static IStatus ERROR(String message) {
+		return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, null);
+	}
+
+	public static IStatus ERROR(String message, Throwable t) {
+		return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, t);
+	}
+
 	/**
 	 * Evaluate a function - the same as calling it.
 	 * 
@@ -504,6 +530,14 @@ public class SystemFunctions {
 		return cur;
 	}
 
+	public static IStatus INFO() {
+		return EMPTY_INFO;
+	}
+
+	public static IStatus INFO(String message) {
+		return new Status(IStatus.INFO, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, null);
+	}
+
 	@B3Backend(systemFunction = "_inject", varargs = true, typeFunction = "returnTypeOfLastLambda")
 	public static Object inject(@B3Backend(name = "iterable") Iterable<?> iterable,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
@@ -514,6 +548,38 @@ public class SystemFunctions {
 	public static Object inject(@B3Backend(name = "iterator") Iterator<?> iterator,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
 		return null;
+	}
+
+	@B3Backend(varargs = true)
+	public static IStatus MULTISTATUS(String message, IStatus... iStatus) {
+		if(iStatus == null)
+			throw new IllegalArgumentException("Vararg IStatus... is null");
+		return MULTISTATUS(message, null, iStatus);
+	}
+
+	@B3Backend(varargs = true)
+	public static IStatus MULTISTATUS(String message, Throwable t, IStatus... iStatus) {
+		if(iStatus == null)
+			throw new IllegalArgumentException("Vararg IStatus... is null");
+		return new MultiStatus(B3BackendActivator.PLUGIN_IN, IStatus.OK, iStatus, message, t);
+	}
+
+	/**
+	 * Returns a simple OK status without a result.
+	 * 
+	 * @return
+	 */
+	public static IStatus OK() {
+		return Status.OK_STATUS;
+	}
+
+	/**
+	 * Returns a simple OK status without a result, but with a custom message.
+	 * 
+	 * @return
+	 */
+	public static IStatus OK(String message) {
+		return new Status(IStatus.OK, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, null);
 	}
 
 	@B3Backend
@@ -574,6 +640,18 @@ public class SystemFunctions {
 		return Object.class;
 	}
 
+	public static IStatus WARNING() {
+		return EMPTY_WARNING;
+	}
+
+	public static IStatus WARNING(String message) {
+		return new Status(IStatus.WARNING, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, null);
+	}
+
+	public static IStatus WARNING(String message, Throwable t) {
+		return new Status(IStatus.WARNING, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, t);
+	}
+
 	@B3Backend(systemFunction = "_whileFalse")
 	public static Object whileFalse(@B3Backend(name = "doWhileBlock") BFunction func) {
 		return null;
@@ -595,5 +673,4 @@ public class SystemFunctions {
 			@B3Backend(name = "functionBlock") BFunction body) {
 		return null;
 	}
-
 }

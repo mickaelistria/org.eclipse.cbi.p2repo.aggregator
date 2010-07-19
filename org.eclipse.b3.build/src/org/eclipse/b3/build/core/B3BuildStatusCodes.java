@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2010, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
@@ -8,13 +8,13 @@
 
 package org.eclipse.b3.build.core;
 
-import org.eclipse.b3.backend.core.B3BackendErrorCodes;
+import org.eclipse.b3.backend.core.B3BackendStatusCodes;
 
 /**
  * Error Code definitions for the org.eclipse.b3.build plugin
  * 
  */
-public interface B3BuildErrorCodes extends B3BackendErrorCodes {
+public interface B3BuildStatusCodes extends B3BackendStatusCodes {
 	public interface BuildStart {
 		/** To avoid confusion between backend, build, ui components in the b3 family, they share a unique set. */
 		static final int START = BackendStart.START + 1000;
