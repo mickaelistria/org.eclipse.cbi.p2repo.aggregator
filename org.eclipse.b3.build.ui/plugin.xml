@@ -50,6 +50,14 @@
     <handler
           class="org.eclipse.b3.build.ui.commands.RunCmdOnResourceHandler"
           commandId="org.eclipse.b3.ui.run.b3cmd">
+       <enabledWhen>
+          <with
+                variable="activeEditorId">
+             <equals
+                   value="org.eclipse.b3.BeeLang">
+             </equals>
+          </with>
+       </enabledWhen>
     </handler>
  </extension>
 
