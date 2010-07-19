@@ -705,6 +705,8 @@ public class TypeUtils {
 	 * @return
 	 */
 	public static Type getElementType(Type baseType) {
+		if(baseType instanceof B3Type)
+			baseType = ((B3Type) baseType).getRawType();
 		if(baseType instanceof ParameterizedType) {
 			ParameterizedType pt = ParameterizedType.class.cast(baseType);
 			int returnTypeIdx = -1;
