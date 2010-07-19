@@ -9,6 +9,8 @@
 package org.eclipse.b3.beelang.ui.xtext.linked;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Iterator;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
@@ -29,6 +31,9 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
+import org.eclipse.jface.action.IContributionItem;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.window.Window;
@@ -132,6 +137,25 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 			return;
 		}
 		super.init(site, input);
+	}
+
+	@Override
+	protected void editorContextMenuAboutToShow(IMenuManager menu) {
+		super.editorContextMenuAboutToShow(menu);
+
+		// Is there a better way to hide "Show In" submenu in editor context menu?
+		// This submenu doesn't have its id set, so I cannot use Activity
+
+		String remove = "Sho&w In";
+
+		Iterator<IContributionItem> iter = Arrays.asList(menu.getItems()).iterator();
+
+		while(iter.hasNext()) {
+			IContributionItem item = iter.next();
+			if(item instanceof MenuManager && ((MenuManager) item).getMenuText() != null &&
+					((MenuManager) item).getMenuText().startsWith(remove))
+				item.setVisible(false);
+		}
 	}
 
 	// SaveAs support for linked files - saves them on local disc, not to workspace
