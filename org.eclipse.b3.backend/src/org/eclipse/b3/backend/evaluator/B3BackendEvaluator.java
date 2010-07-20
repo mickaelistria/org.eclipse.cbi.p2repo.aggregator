@@ -898,10 +898,10 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 
 	public Object evaluate(BVariableExpression o, BExecutionContext ctx) throws Throwable {
 		// TODO: in transition - can use both name and reference to name
-		String n = (o.getName() != null
-				? o.getName()
-				: o.getNamedValue().getName());
-		return ctx.getValue(n);
+		// String n = (o.getName() != null
+		// ? o.getName()
+		// : o.getNamedValue().getName());
+		return ctx.getValue(o.getNamedValue().getName());
 	}
 
 	/**
@@ -1055,11 +1055,11 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 
 	public LValue lValue(BVariableExpression o, BExecutionContext ctx) throws B3EngineException {
 		// TODO: in transition - can use both name and reference to name
-		String n = (o.getName() != null
-				? o.getName()
-				: o.getNamedValue().getName());
+		// String n = (o.getName() != null
+		// ? o.getName()
+		// : o.getNamedValue().getName());
 
-		return ctx.getLValue(n);
+		return ctx.getLValue(o.getNamedValue().getName());
 	}
 
 	/**

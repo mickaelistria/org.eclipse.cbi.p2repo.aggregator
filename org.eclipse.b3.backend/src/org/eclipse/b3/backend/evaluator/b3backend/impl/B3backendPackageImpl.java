@@ -1258,7 +1258,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bAtExpressionEClass, BAT_EXPRESSION__INDEX_EXPR);
 
 		bVariableExpressionEClass = createEClass(BVARIABLE_EXPRESSION);
-		createEAttribute(bVariableExpressionEClass, BVARIABLE_EXPRESSION__NAME);
 		createEReference(bVariableExpressionEClass, BVARIABLE_EXPRESSION__NAMED_VALUE);
 
 		bCallExpressionEClass = createEClass(BCALL_EXPRESSION);
@@ -3444,18 +3443,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBVariableExpression_Name() {
-		return (EAttribute) bVariableExpressionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EReference getBVariableExpression_NamedValue() {
-		return (EReference) bVariableExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference) bVariableExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4538,9 +4527,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(
 			bVariableExpressionEClass, BVariableExpression.class, "BVariableExpression", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBVariableExpression_Name(), ecorePackage.getEString(), "name", null, 0, 1, BVariableExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getBVariableExpression_NamedValue(), this.getINamedValue(), null, "namedValue", null, 0, 1,
 			BVariableExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,

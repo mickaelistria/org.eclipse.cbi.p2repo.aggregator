@@ -96,6 +96,6 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(BVariableExpression ele) {
-		return "value of: " + ele.getName();
+		return "value of: " + ele.getNamedValue().getName();
 	}
 }

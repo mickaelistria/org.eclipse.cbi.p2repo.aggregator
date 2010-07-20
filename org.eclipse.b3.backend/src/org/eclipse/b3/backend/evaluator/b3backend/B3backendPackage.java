@@ -641,15 +641,6 @@ public interface B3backendPackage extends EPackage {
 		EClass BVARIABLE_EXPRESSION = eINSTANCE.getBVariableExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute BVARIABLE_EXPRESSION__NAME = eINSTANCE.getBVariableExpression_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Named Value</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3744,16 +3735,6 @@ public interface B3backendPackage extends EPackage {
 	int BVARIABLE_EXPRESSION = 23;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BVARIABLE_EXPRESSION__NAME = BEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Named Value</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3761,7 +3742,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BVARIABLE_EXPRESSION__NAMED_VALUE = BEXPRESSION_FEATURE_COUNT + 1;
+	int BVARIABLE_EXPRESSION__NAMED_VALUE = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>BVariable Expression</em>' class.
@@ -3771,7 +3752,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BVARIABLE_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
+	int BVARIABLE_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterizedExpressionImpl
@@ -10392,18 +10373,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBVariableExpression();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression#getName()
-	 * @see #getBVariableExpression()
-	 * @generated
-	 */
-	EAttribute getBVariableExpression_Name();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression#getNamedValue
