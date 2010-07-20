@@ -25,4 +25,4 @@ Export-Package: org.eclipse.b3.beelang.ui,
  org.eclipse.b3.beelang.ui.xtext.linked,
  org.eclipse.b3.ui.contentassist,
  org.eclipse.b3.ui.contentassist.antlr
-Bundle-Activator: org.eclipse.b3.ui.internal.BeeLangActivator
+Bundle-Activator: org.eclipse.b3.ui.internal.BeeLangUiActivator

@@ -9,8 +9,6 @@
 package org.eclipse.b3.beelang.ui.xtext.linked;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.Iterator;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
@@ -31,9 +29,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
-import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IMenuManager;
-import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.window.Window;
@@ -52,6 +48,8 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 
+import com.google.inject.Inject;
+
 /**
  * This class extends the standard XtextEditor to make it capable of
  * opening and saving external files, by managing them as linked resources.
@@ -61,11 +59,29 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 
 	private static final String ENCODING_UTF8 = "utf-8";
 
+	@Inject
+	private IExtXtextEditorCustomizer editorCustomizer;
+
 	/**
 	 * Does nothing except server as a place to set a breakpoint :)
 	 */
 	public ExtLinkedXtextEditor() {
 		super();
+	}
+
+	private void createLink(IProject project, IFile linkFile, java.net.URI uri) throws CoreException {
+		IPath path = linkFile.getFullPath();
+
+		IPath folders = path.removeLastSegments(1).removeFirstSegments(1);
+		IPath checkPath = Path.ROOT;
+		int segmentCount = folders.segmentCount();
+		for(int i = 0; i < segmentCount; i++) {
+			checkPath = checkPath.addTrailingSeparator().append(folders.segment(i));
+			IFolder folder = project.getFolder(checkPath);
+			if(!folder.exists())
+				folder.create(true, true, null);
+		}
+		linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
 	}
 
 	/*
@@ -95,6 +111,26 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 			}
 		}
 		super.dispose();
+	}
+
+	/**
+	 * Overridden to allow customization of editor context menu via injected handler
+	 * 
+	 * @see org.eclipse.ui.editors.text.TextEditor#editorContextMenuAboutToShow(org.eclipse.jface.action.IMenuManager)
+	 */
+	@Override
+	protected void editorContextMenuAboutToShow(IMenuManager menu) {
+		super.editorContextMenuAboutToShow(menu);
+		editorCustomizer.customizeEditorContextMenu(menu);
+
+	}
+
+	private IFile getWorkspaceFile(IFileStore fileStore) {
+		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+		IFile[] files = workspaceRoot.findFilesForLocationURI(fileStore.toURI());
+		if(files != null && files.length == 1)
+			return files[0];
+		return null;
 	}
 
 	/**
@@ -133,39 +169,67 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 				super.init(site, uriInput);
 				return;
 			}
-			// super.init(site, new EFSEditorInput(((IURIEditorInput) input).getURI(), input.getName()));
 			return;
 		}
 		super.init(site, input);
 	}
 
-	@Override
-	protected void editorContextMenuAboutToShow(IMenuManager menu) {
-		super.editorContextMenuAboutToShow(menu);
+	/**
+	 * Throws WrappedException - the URI must refer to an existing file!
+	 * 
+	 * @param uri
+	 * @return
+	 */
+	private IFile obtainLink(java.net.URI uri) {
+		try {
+			IWorkspace ws = ResourcesPlugin.getWorkspace();
+			// get, or create project if non existing
+			IProject project = ws.getRoot().getProject(AUTOLINK_PROJECT_NAME);
+			boolean newProject = false;
+			if(!project.exists()) {
+				project.create(null);
+				newProject = true;
+			}
+			if(!project.isOpen()) {
+				project.open(null);
+				project.setHidden(true);
+			}
 
-		// Is there a better way to hide "Show In" submenu in editor context menu?
-		// This submenu doesn't have its id set, so I cannot use Activity
+			if(newProject)
+				project.setDefaultCharset(ENCODING_UTF8, new NullProgressMonitor());
 
-		String remove = "Sho&w In";
+			// path in project that is the same as the external file's path
+			IFile linkFile = project.getFile(uri.getPath());
+			if(linkFile.exists())
+				linkFile.refreshLocal(1, null); // don't know if needed (or should be avoided...)
+			else {
+				// create the link
+				createLink(project, linkFile, uri);
+				// linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
+			}
+			return linkFile;
 
-		Iterator<IContributionItem> iter = Arrays.asList(menu.getItems()).iterator();
-
-		while(iter.hasNext()) {
-			IContributionItem item = iter.next();
-			if(item instanceof MenuManager && ((MenuManager) item).getMenuText() != null &&
-					((MenuManager) item).getMenuText().startsWith(remove))
-				item.setVisible(false);
+			// IPath location = new Path(name);
+			// IFile file = project.getFile(location.lastSegment());
+			// file.createLink(location, IResource.NONE, null);
+		}
+		catch(CoreException e) {
+			throw new WrappedException(e);
 		}
 	}
 
-	// SaveAs support for linked files - saves them on local disc, not to workspace
+	// SaveAs support for linked files - saves them on local disc, not to workspace if file is in special
+	// hidden external file link project.
 	@Override
 	protected void performSaveAs(IProgressMonitor progressMonitor) {
 
 		Shell shell = getSite().getShell();
 		final IEditorInput input = getEditorInput();
 
-		if(input instanceof IFileEditorInput && ((IFileEditorInput) input).getFile().isLinked()) {
+		// Customize save as if the file is linked, and it is in the special external link project
+		//
+		if(input instanceof IFileEditorInput && ((IFileEditorInput) input).getFile().isLinked() &&
+				((IFileEditorInput) input).getFile().getProject().getName().equals(AUTOLINK_PROJECT_NAME)) {
 			final IEditorInput newInput;
 			IDocumentProvider provider = getDocumentProvider();
 
@@ -255,72 +319,5 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 		}
 
 		super.performSaveAs(progressMonitor);
-	}
-
-	private void createLink(IProject project, IFile linkFile, java.net.URI uri) throws CoreException {
-		IPath path = linkFile.getFullPath();
-
-		IPath folders = path.removeLastSegments(1).removeFirstSegments(1);
-		IPath checkPath = Path.ROOT;
-		int segmentCount = folders.segmentCount();
-		for(int i = 0; i < segmentCount; i++) {
-			checkPath = checkPath.addTrailingSeparator().append(folders.segment(i));
-			IFolder folder = project.getFolder(checkPath);
-			if(!folder.exists())
-				folder.create(true, true, null);
-		}
-		linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
-	}
-
-	private IFile getWorkspaceFile(IFileStore fileStore) {
-		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
-		IFile[] files = workspaceRoot.findFilesForLocationURI(fileStore.toURI());
-		if(files != null && files.length == 1)
-			return files[0];
-		return null;
-	}
-
-	/**
-	 * Throws WrappedException - the URI must refer to an existing file!
-	 * 
-	 * @param uri
-	 * @return
-	 */
-	private IFile obtainLink(java.net.URI uri) {
-		try {
-			IWorkspace ws = ResourcesPlugin.getWorkspace();
-			// get, or create project if non existing
-			IProject project = ws.getRoot().getProject(AUTOLINK_PROJECT_NAME);
-			boolean newProject = false;
-			if(!project.exists()) {
-				project.create(null);
-				newProject = true;
-			}
-			if(!project.isOpen()) {
-				project.open(null);
-				project.setHidden(true);
-			}
-
-			if(newProject)
-				project.setDefaultCharset(ENCODING_UTF8, new NullProgressMonitor());
-
-			// path in project that is the same as the external file's path
-			IFile linkFile = project.getFile(uri.getPath());
-			if(linkFile.exists())
-				linkFile.refreshLocal(1, null); // don't know if needed (or should be avoided...)
-			else {
-				// create the link
-				createLink(project, linkFile, uri);
-				// linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
-			}
-			return linkFile;
-
-			// IPath location = new Path(name);
-			// IFile file = project.getFile(location.lastSegment());
-			// file.createLink(location, IResource.NONE, null);
-		}
-		catch(CoreException e) {
-			throw new WrappedException(e);
-		}
 	}
 }
