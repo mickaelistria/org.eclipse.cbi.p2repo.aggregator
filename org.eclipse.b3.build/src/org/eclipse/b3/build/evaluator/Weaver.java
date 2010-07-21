@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2010, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
@@ -481,73 +481,6 @@ public class Weaver extends BackendWeaver {
 		return modified;
 	}
 
-	// /**
-	// * Returns true if the candidate object matches the query and parameter type pattern.
-	// */
-	// public boolean builderMatches(Object candidate, BExecutionContext ctx) {
-	// if(!(candidate instanceof IBuilder))
-	// return false;
-	// IBuilder b = (IBuilder) candidate;
-	// try {
-	// if(theBuilderConcern.isMatchParameters()) {
-	// Matcher matcher = builderTypePattern.match(b.getParameterTypes());
-	// if(!matcher.isMatch())
-	// return false;
-	// }
-	// return builderMatchesQuery(b, ctx);
-	//
-	// }
-	// catch(Throwable e) {
-	// throw new B3InternalError("Error while evaluating if BuilderConcernContext matches a Builder", e);
-	// }
-	// }
-
-	// /**
-	// * Evaluates the query and returns true, if the candidate matches the query. This method does not include
-	// * parameter type matching.
-	// *
-	// * @param candidate
-	// * @param ctx
-	// * @return
-	// * @throws Throwable
-	// */
-	// private boolean builderMatchesQuery(IBuilder candidate, BExecutionContext ctx) throws Throwable {
-	// BExecutionContext ictx = ctx.createInnerContext();
-	// ictx.defineVariableValue("@test", candidate, Builder.class);
-	// return evaluator.doEvaluate(theBuilderConcern.getQuery(), ictx) == Boolean.TRUE;
-	// }
-
-	// /**
-	// * Performs the same operation as evaluate but for a single object (candidate).
-	// */
-	// private boolean evaluateBuilderIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
-	// return evaluateBuilderIfMatching(candidate, ctx, null);
-	// }
-
-	// /**
-	// * Performs the same operation as evaluate but for a single object (candidate), and
-	// * with resulting wrapped builders being promoted to promoteToUnit (if set).
-	// *
-	// */
-	// private boolean evaluateBuilderIfMatching(Object candidate, BExecutionContext ctx, BuildUnit promoteToUnit)
-	// throws Throwable {
-	// // TypePattern pattern = TypePattern.compile(theBuilderConcern.getParameters());
-	// if(candidate instanceof IBuilder && builderMatchesQuery((IBuilder) candidate, ctx))
-	// return weaveIfParametersMatch((IBuilder) candidate, ctx, null); // do not promote
-	// return false;
-	// }
-
-	// /**
-	// * Weaves the build united passed as candidate if it matches the predicates.
-	// */
-	// private boolean evaluateUnitIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
-	// if(!(candidate instanceof BuildUnit))
-	// return false;
-	// BExecutionContext ictx = ctx.createInnerContext();
-	// ictx.defineVariableValue("@test", null, BuildUnit.class);
-	// return weaveIfMatching((BuildUnit) candidate, ictx);
-	// }
-
 	/**
 	 * The builders applicable to the unit are matched using {@link BuilderConcernContext#evaluateIfMatching(Object, BExecutionContext, BuildUnit)}
 	 * which weaves these
@@ -563,16 +496,6 @@ public class Weaver extends BackendWeaver {
 		boolean modified = false;
 		BuildUnit proxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getProxy();
 		Iterator<IFunction> fItor = ctx.getFunctionIterator(proxy.getClass(), IBuilder.class);
-
-		// while(fItor.hasNext()) {
-		// IFunction candidate = fItor.next();
-		// for(BuilderConcernContext bx : theUnitConcern.getBuilderContexts()) {
-		// setBuilderConcern(bx);
-		// if(evaluateBuilderIfMatching(candidate, ctx, u))
-		// modified = true;
-		// }
-		// }
-		// return modified;
 
 		while(fItor.hasNext()) {
 			IFunction candidate = fItor.next();
@@ -721,7 +644,7 @@ public class Weaver extends BackendWeaver {
 
 		// weave by creating a copy an then advice it
 		BuildUnit clone = BuildUnit.class.cast(EcoreUtil.copy(candidate));
-		// fix the containment/parentchain for the copy (should not be contained)
+		// fix the containment/parent-chain for the copy (should not be contained)
 		clone.setParent(candidate.getParent());
 		// modify the build unit, and store it
 		BContext bctx = BContext.class.cast(ictx.getParentContext());
