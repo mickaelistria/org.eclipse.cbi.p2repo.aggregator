@@ -21,9 +21,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
+import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.Builder;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+import org.eclipse.xtext.util.Strings;
 
 import com.google.inject.Inject;
 
@@ -94,6 +97,13 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 		return "{ ... }";
 	}
 
+	String text(BeeModel ele) {
+		String s = ele.eResource().getURI().lastSegment();
+		return Strings.isEmpty(s)
+				? "resource"
+				: s;
+	}
+
 	String text(BFunction ele) {
 		return "function: " + ele.getName() + " => " + safeToString(ele.getReturnType());
 	}
@@ -116,6 +126,10 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 
 	String text(BRegularExpression ele) {
 		return "regexp: " + safeToString(ele.getPattern());
+	}
+
+	String text(Builder ele) {
+		return "builder: " + ele.getName();
 	}
 
 	String text(BuildUnit ele) {
