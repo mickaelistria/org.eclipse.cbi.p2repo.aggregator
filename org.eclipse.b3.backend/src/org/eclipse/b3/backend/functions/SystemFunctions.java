@@ -525,7 +525,6 @@ public class SystemFunctions {
 			// TODO: get the type of the itor - cheating now by getting type of parameter
 			// from called function
 			cur.t[cur.curry] = typer.doGetInferredType(cur.lambda.getParameters().get(cur.curry));
-			// cur.t[cur.curry] = cur.lambda.getParameterTypes()[cur.curry];
 		}
 		return cur;
 	}
