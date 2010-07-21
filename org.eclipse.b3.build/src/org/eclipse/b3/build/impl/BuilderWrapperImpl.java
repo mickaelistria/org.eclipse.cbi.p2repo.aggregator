@@ -973,41 +973,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 		return defaultPropertiesAdvised;
 	}
 
-	// /**
-	// * <!-- begin-user-doc -->
-	// * TODO: Move this to setUnitType, and change parameter to boolean...
-	// * <!-- end-user-doc -->
-	// * @generated NOT
-	// */
-	// public void setPromoted(Class<? extends BuildUnit> newPromoted) {
-	// if(original == null)
-	// throw new IllegalStateException("The original must be set before calling setPromoted");
-	// Class<? extends BuildUnit> oldPromoted = promoted;
-	// promoted = newPromoted;
-	// if (eNotificationRequired())
-	// eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__PROMOTED, oldPromoted,
-	// promoted));
-	//
-	// // Must copy and process original's parameters
-	// // the full parameter declarations
-	// // (Must make copies as the parameter declarations are contained).
-	// EList<BParameterDeclaration> myParameters = getParametersGen();
-	// for(BParameterDeclaration pd : original.getParameters()) {
-	// myParameters.add(BParameterDeclaration.class.cast(EcoreUtil.copy(pd)));
-	// myParameters.get(0).setType(promoted);
-	//
-	// // The cached types (since it is not possible to delegate to original
-	// Type[] types = original.getParameterTypes();
-	// types[0] = promoted;
-	// setParameterTypesGen(types);
-	//
-	// // parameter names are the same (first parameter is always called unit), but since it may not be in
-	// // the map (if unmatched by type rules, it must be remapped).
-	// Map<String, String> pm = getParameterMap();
-	// // unit is always mapped.
-	// pm.put("unit", "unit");
-	// }
-	// }
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

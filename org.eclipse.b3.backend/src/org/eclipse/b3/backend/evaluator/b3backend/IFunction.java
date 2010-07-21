@@ -224,22 +224,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 */
 	EList<BParameterDeclaration> getParameters();
 
-	// /**
-	// * Returns the value of the '<em><b>Parameter Types</b></em>' attribute.
-	// * <!-- begin-user-doc -->
-	// * <p>
-	// * If the meaning of the '<em>Parameter Types</em>' attribute isn't clear, there really should be more of a description here...
-	// * </p>
-	// * <!-- end-user-doc -->
-	// *
-	// * @return the value of the '<em>Parameter Types</em>' attribute.
-	// * @see #setParameterTypes(Type[])
-	// * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_ParameterTypes()
-	// * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray" transient="true" derived="true"
-	// * @generated
-	// */
-	// Type[] getParameterTypes();
-
 	/**
 	 * Returns the value of the '<em><b>Parameter Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -254,7 +238,7 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray" transient="true" derived="true"
 	 * @generated
 	 */
-	Type[] getParameterTypes();
+	// Type[] getParameterTypes();
 
 	/**
 	 * Returns the value of the '<em><b>Return Type</b></em>' containment reference.

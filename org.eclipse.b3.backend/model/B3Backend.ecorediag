@@ -2131,12 +2131,12 @@
     </children>
     <children xmi:type="notation:Node" xmi:id="_mTpAMHs8Ed-wrOza2TcaZg" type="1001">
       <children xmi:type="notation:Node" xmi:id="_mTq1YHs8Ed-wrOza2TcaZg" type="4001"/>
-      <children xmi:type="notation:Node" xmi:id="_mTq1YXs8Ed-wrOza2TcaZg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_mTq1YXs8Ed-wrOza2TcaZg" visible="false" type="5001">
         <styles xmi:type="notation:DrawerStyle" xmi:id="_mTq1Yns8Ed-wrOza2TcaZg"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_mTq1Y3s8Ed-wrOza2TcaZg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_mTq1ZHs8Ed-wrOza2TcaZg"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_mTrccHs8Ed-wrOza2TcaZg" type="5002">
+      <children xmi:type="notation:Node" xmi:id="_mTrccHs8Ed-wrOza2TcaZg" visible="false" type="5002">
         <styles xmi:type="notation:DrawerStyle" xmi:id="_mTrccXs8Ed-wrOza2TcaZg"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_mTrccns8Ed-wrOza2TcaZg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_mTrcc3s8Ed-wrOza2TcaZg"/>

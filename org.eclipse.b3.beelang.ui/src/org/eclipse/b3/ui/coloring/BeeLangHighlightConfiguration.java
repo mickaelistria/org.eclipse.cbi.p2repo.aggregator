@@ -1,4 +1,4 @@
-package org.eclipse.b3.coloring;
+package org.eclipse.b3.ui.coloring;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.RGB;

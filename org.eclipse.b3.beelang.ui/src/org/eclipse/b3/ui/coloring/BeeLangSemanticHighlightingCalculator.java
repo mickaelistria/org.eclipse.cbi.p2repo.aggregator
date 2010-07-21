@@ -1,4 +1,4 @@
-package org.eclipse.b3.coloring;
+package org.eclipse.b3.ui.coloring;
 
 import java.util.List;
 

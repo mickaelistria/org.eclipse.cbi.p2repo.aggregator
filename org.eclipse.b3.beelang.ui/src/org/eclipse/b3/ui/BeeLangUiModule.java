@@ -4,11 +4,11 @@
 package org.eclipse.b3.ui;
 
 import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedXtextEditor;
-import org.eclipse.b3.coloring.BeeLangHighlightConfiguration;
-import org.eclipse.b3.coloring.BeeLangSemanticHighlightingCalculator;
-import org.eclipse.b3.coloring.BeeLangTokenToAttributeIdMapper;
-import org.eclipse.b3.outline.BeeLangOutlineNodeAdapterFactory;
+import org.eclipse.b3.ui.coloring.BeeLangHighlightConfiguration;
+import org.eclipse.b3.ui.coloring.BeeLangSemanticHighlightingCalculator;
+import org.eclipse.b3.ui.coloring.BeeLangTokenToAttributeIdMapper;
 import org.eclipse.b3.ui.contentassist.BeeLangAutoEditStrategy;
+import org.eclipse.b3.ui.outline.BeeLangOutlineNodeAdapterFactory;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.XtextEditor;
