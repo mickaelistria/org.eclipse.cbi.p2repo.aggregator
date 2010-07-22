@@ -453,8 +453,8 @@ public class VersionRangeEditorDialog extends Dialog {
 		}
 
 		return new VersionRange(
-			minVersion, minVersionInclusiveCombo.getSelectionIndex() == 0, maxVersion,
-			maxVersionInclusiveCombo.getSelectionIndex() == 0);
+			minVersion, minVersionInclusiveCombo.getSelectionIndex() == 0, maxVersion, maxVersion == null ||
+					maxVersionInclusiveCombo.getSelectionIndex() == 0);
 	}
 
 	// "format(S)" -> "S"
