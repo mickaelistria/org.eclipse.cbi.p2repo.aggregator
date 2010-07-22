@@ -1,8 +1,11 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
 package org.eclipse.b3.build.util;
 
@@ -21,14 +24,84 @@ import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
-import org.eclipse.b3.build.*;
-
+import org.eclipse.b3.build.AliasedRequiredCapability;
+import org.eclipse.b3.build.B3BuildPackage;
+import org.eclipse.b3.build.BeeHive;
+import org.eclipse.b3.build.BeeModel;
+import org.eclipse.b3.build.BeeModelRepository;
+import org.eclipse.b3.build.BestFoundUnitProvider;
+import org.eclipse.b3.build.Branch;
+import org.eclipse.b3.build.BuildCallMultiple;
+import org.eclipse.b3.build.BuildCallOnDeclaredRequirement;
+import org.eclipse.b3.build.BuildCallOnReferencedRequirement;
+import org.eclipse.b3.build.BuildCallOnSelectedRequirements;
+import org.eclipse.b3.build.BuildCallSingle;
+import org.eclipse.b3.build.BuildConcernContext;
+import org.eclipse.b3.build.BuildResultContext;
+import org.eclipse.b3.build.BuildSet;
+import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.BuildUnitRepository;
+import org.eclipse.b3.build.Builder;
+import org.eclipse.b3.build.BuilderCall;
+import org.eclipse.b3.build.BuilderCallFacade;
+import org.eclipse.b3.build.BuilderConcernContext;
+import org.eclipse.b3.build.BuilderInput;
+import org.eclipse.b3.build.BuilderInputCondition;
+import org.eclipse.b3.build.BuilderInputContextDecorator;
+import org.eclipse.b3.build.BuilderInputDecorator;
+import org.eclipse.b3.build.BuilderInputGroup;
+import org.eclipse.b3.build.BuilderInputNameDecorator;
+import org.eclipse.b3.build.BuilderJava;
+import org.eclipse.b3.build.BuilderNamePredicate;
+import org.eclipse.b3.build.BuilderQuery;
+import org.eclipse.b3.build.BuilderWrapper;
+import org.eclipse.b3.build.Capability;
+import org.eclipse.b3.build.CapabilityPredicate;
+import org.eclipse.b3.build.CompoundBuildUnitRepository;
+import org.eclipse.b3.build.CompoundFirstFoundRepository;
+import org.eclipse.b3.build.CompoundUnitProvider;
+import org.eclipse.b3.build.ConditionalPathVector;
+import org.eclipse.b3.build.ContainerConfiguration;
+import org.eclipse.b3.build.DelegatingUnitProvider;
+import org.eclipse.b3.build.EffectiveBuilderCallFacade;
+import org.eclipse.b3.build.EffectiveCapabilityFacade;
+import org.eclipse.b3.build.EffectiveFacade;
+import org.eclipse.b3.build.EffectiveRequirementFacade;
+import org.eclipse.b3.build.EffectiveUnitFacade;
+import org.eclipse.b3.build.ExecutionStackRepository;
+import org.eclipse.b3.build.FirstFoundUnitProvider;
+import org.eclipse.b3.build.IBuildUnitContainer;
+import org.eclipse.b3.build.IBuilder;
+import org.eclipse.b3.build.IEffectiveFacade;
+import org.eclipse.b3.build.IProvidedCapabilityContainer;
+import org.eclipse.b3.build.IRequiredCapabilityContainer;
+import org.eclipse.b3.build.ImplementsPredicate;
+import org.eclipse.b3.build.InputPredicate;
+import org.eclipse.b3.build.NameSpacePredicate;
+import org.eclipse.b3.build.OutputPredicate;
+import org.eclipse.b3.build.PathGroup;
+import org.eclipse.b3.build.PathGroupPredicate;
+import org.eclipse.b3.build.PathVector;
+import org.eclipse.b3.build.ProvidesPredicate;
+import org.eclipse.b3.build.RepoOption;
+import org.eclipse.b3.build.Repository;
+import org.eclipse.b3.build.RepositoryUnitProvider;
+import org.eclipse.b3.build.RequiredCapability;
+import org.eclipse.b3.build.RequiresPredicate;
+import org.eclipse.b3.build.ResolutionInfo;
+import org.eclipse.b3.build.SourcePredicate;
+import org.eclipse.b3.build.SwitchUnitProvider;
+import org.eclipse.b3.build.Synchronization;
+import org.eclipse.b3.build.UnitConcernContext;
+import org.eclipse.b3.build.UnitNamePredicate;
+import org.eclipse.b3.build.UnitProvider;
+import org.eclipse.b3.build.UnitRepositoryDescription;
+import org.eclipse.b3.build.UnitResolutionInfo;
+import org.eclipse.b3.build.VersionedCapability;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**

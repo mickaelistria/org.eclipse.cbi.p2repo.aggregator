@@ -1,3 +1,12 @@
+/**
+ * Copyright (c) 2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
+ */
 package org.eclipse.b3.build.internal;
 
 import java.lang.reflect.InvocationHandler;
@@ -12,38 +21,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.equinox.p2.metadata.Version;
 
 public class BuildUnitUtils {
-	// private static class BuildUnitProxyFactory implements Opcodes {
-	// @SuppressWarnings("unchecked")
-	// public static Class<? extends BuildUnit> createBuildUnitInterface(BuildUnit unit, B3DynamicClassLoader
-	// classLoader) {
-	// ClassWriter cw = new ClassWriter(0);
-	// cw.visit(V1_5,
-	// ACC_PUBLIC + ACC_ABSTRACT + ACC_INTERFACE, // access
-	// dottedToInternal(unit.getName()), // interface name in internal form
-	// null, // generics
-	// "java/lang/Object", // superclass
-	// new String[] { // extended interfaces
-	// "org/eclipse/b3/build/build/BuildUnit"
-	// });
-	// cw.visitEnd();
-	// byte bytes[] = cw.toByteArray();
-	// Class<? extends BuildUnit> clazz = (Class<? extends BuildUnit>)((classLoader.defineClass(unit.getName(),
-	// bytes)));
-	// return clazz;
-	// }
-	// public static String dottedToInternal(String str) {
-	// return str.replaceAll("\\.", "/");
-	// }
-	// }
-	// private static class DynamicClassLoader extends ClassLoader {
-	// public DynamicClassLoader() {
-	// super(BuildUnitUtils.class.getClassLoader());
-	// }
-	// public Class<?> defineClass(String name, byte[] b) {
-	// return defineClass(name, b, 0, b.length);
-	// }
-	//
-	// }
 	public static class BuildUnitProxy implements InvocationHandler {
 		public static Object newInstance(BuildUnit unit) {
 			if(unit instanceof Proxy)

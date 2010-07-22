@@ -1,8 +1,11 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
 package org.eclipse.b3.build.impl;
 
@@ -14,12 +17,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl;
-
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildConcernContext;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.IProvidedCapabilityContainer;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
