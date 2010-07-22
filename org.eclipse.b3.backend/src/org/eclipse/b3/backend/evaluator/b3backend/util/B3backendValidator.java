@@ -21,13 +21,13 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import org.eclipse.b3.backend.core.B3DynamicClassLoader;
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3ExpressionCache;
-import org.eclipse.b3.backend.core.B3FuncStore;
-import org.eclipse.b3.backend.core.LValue;
-import org.eclipse.b3.backend.core.SimplePattern;
-import org.eclipse.b3.backend.core.ValueMap;
+import org.eclipse.b3.backend.evaluator.B3ExpressionCache;
+import org.eclipse.b3.backend.evaluator.B3FuncStore;
+import org.eclipse.b3.backend.evaluator.ValueMap;
+import org.eclipse.b3.backend.evaluator.b3backend.*;
+import org.eclipse.b3.backend.core.datatypes.LValue;
+import org.eclipse.b3.backend.core.datatypes.SimplePattern;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -454,8 +454,6 @@ public class B3backendValidator extends EObjectValidator {
 				return validateRegexpPattern((Pattern) value, diagnostics, context);
 			case B3backendPackage.STRING_ARRAY:
 				return validateStringArray((String[]) value, diagnostics, context);
-			case B3backendPackage.B3_DYNAMIC_CLASS_LOADER:
-				return validateB3DynamicClassLoader((B3DynamicClassLoader) value, diagnostics, context);
 			case B3backendPackage.JAVA_ITERATOR:
 				return validateJavaIterator((Iterator<?>) value, diagnostics, context);
 			case B3backendPackage.URI:
@@ -471,17 +469,6 @@ public class B3backendValidator extends EObjectValidator {
 			default:
 				return true;
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public boolean validateB3DynamicClassLoader(B3DynamicClassLoader b3DynamicClassLoader, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return true;
 	}
 
 	/**

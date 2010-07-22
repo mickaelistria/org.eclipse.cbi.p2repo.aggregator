@@ -11,6 +11,7 @@ package org.eclipse.b3.backend.evaluator;
 import java.util.Collections;
 import java.util.Iterator;
 
+import org.eclipse.b3.backend.core.IB3Weaver;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.xtext.util.Exceptions;

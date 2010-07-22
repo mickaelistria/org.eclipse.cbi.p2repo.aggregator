@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.b3.backend.core.B3URIUtils;
-import org.eclipse.b3.backend.core.SerialIterator;
+import org.eclipse.b3.backend.core.iterators.SerialIterator;
+import org.eclipse.b3.backend.core.utils.B3URIUtils;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.ConditionalPathVector;
 import org.eclipse.b3.build.PathGroup;

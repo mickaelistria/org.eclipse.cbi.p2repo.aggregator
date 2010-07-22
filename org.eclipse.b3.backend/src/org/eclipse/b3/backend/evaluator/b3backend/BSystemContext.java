@@ -11,7 +11,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
 
 import java.lang.reflect.Type;
 
-import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 
 /**
  * <!-- begin-user-doc -->

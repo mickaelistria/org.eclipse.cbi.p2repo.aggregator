@@ -11,8 +11,8 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.util.Properties;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3ExpressionCache;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.evaluator.B3ExpressionCache;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
 import org.eclipse.emf.common.notify.Notification;

@@ -15,9 +15,9 @@ import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3FuncStore;
-import org.eclipse.b3.backend.core.ValueMap;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.evaluator.B3FuncStore;
+import org.eclipse.b3.backend.evaluator.ValueMap;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 

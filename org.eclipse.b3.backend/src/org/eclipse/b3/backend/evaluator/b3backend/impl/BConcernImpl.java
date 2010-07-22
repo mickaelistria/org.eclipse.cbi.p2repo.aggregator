@@ -15,8 +15,8 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.eclipse.b3.backend.core.SerialIterator;
-import org.eclipse.b3.backend.evaluator.IB3Weaver;
+import org.eclipse.b3.backend.core.IB3Weaver;
+import org.eclipse.b3.backend.core.iterators.SerialIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;

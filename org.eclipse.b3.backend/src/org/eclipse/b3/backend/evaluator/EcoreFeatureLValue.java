@@ -5,9 +5,9 @@ package org.eclipse.b3.backend.evaluator;
 
 import java.lang.reflect.Type;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3ImmutableTypeException;
-import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.core.datatypes.LValue;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3ImmutableTypeException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 

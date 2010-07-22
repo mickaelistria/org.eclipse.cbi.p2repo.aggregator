@@ -18,13 +18,12 @@ import java.lang.reflect.WildcardType;
 import java.util.Iterator;
 import java.util.regex.Pattern;
 
-import org.eclipse.b3.backend.core.B3DynamicClassLoader;
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3ExpressionCache;
-import org.eclipse.b3.backend.core.B3FuncStore;
-import org.eclipse.b3.backend.core.LValue;
-import org.eclipse.b3.backend.core.SimplePattern;
-import org.eclipse.b3.backend.core.ValueMap;
+import org.eclipse.b3.backend.core.datatypes.LValue;
+import org.eclipse.b3.backend.core.datatypes.SimplePattern;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.evaluator.B3ExpressionCache;
+import org.eclipse.b3.backend.evaluator.B3FuncStore;
+import org.eclipse.b3.backend.evaluator.ValueMap;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -130,6 +129,7 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import com.google.inject.Injector;
+import java.lang.CharSequence;
 
 /**
  * <!-- begin-user-doc -->
@@ -993,14 +993,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	private EDataType b3DynamicClassLoaderEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	private EDataType javaIteratorEDataType = null;
 
 	/**
@@ -1477,7 +1469,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		funcStoreEDataType = createEDataType(FUNC_STORE);
 		regexpPatternEDataType = createEDataType(REGEXP_PATTERN);
 		stringArrayEDataType = createEDataType(STRING_ARRAY);
-		b3DynamicClassLoaderEDataType = createEDataType(B3_DYNAMIC_CLASS_LOADER);
 		javaIteratorEDataType = createEDataType(JAVA_ITERATOR);
 		uriEDataType = createEDataType(URI);
 		iProgressMonitorEDataType = createEDataType(IPROGRESS_MONITOR);
@@ -1494,16 +1485,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public B3backendFactory getB3backendFactory() {
 		return (B3backendFactory) getEFactoryInstance();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EDataType getB3DynamicClassLoader() {
-		return b3DynamicClassLoaderEDataType;
 	}
 
 	/**
@@ -5254,9 +5235,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			regexpPatternEDataType, Pattern.class, "RegexpPattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(
 			stringArrayEDataType, String[].class, "StringArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(
-			b3DynamicClassLoaderEDataType, B3DynamicClassLoader.class, "B3DynamicClassLoader", IS_SERIALIZABLE,
-			!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(
 			javaIteratorEDataType, Iterator.class, "JavaIterator", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(uriEDataType, java.net.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

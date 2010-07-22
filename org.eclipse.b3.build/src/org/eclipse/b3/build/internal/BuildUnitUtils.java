@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.lang.reflect.Type;
 
-import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.core.exceptions.B3InternalError;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.emf.common.util.EList;

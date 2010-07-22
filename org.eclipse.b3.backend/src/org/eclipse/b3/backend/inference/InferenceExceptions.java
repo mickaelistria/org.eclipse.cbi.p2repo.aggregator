@@ -11,7 +11,7 @@ package org.eclipse.b3.backend.inference;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 
 /**
  * An exception for multiple inference exceptions.

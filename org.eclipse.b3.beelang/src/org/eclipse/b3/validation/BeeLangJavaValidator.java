@@ -4,10 +4,10 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.B3AmbiguousFunctionSignatureException;
-import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
-import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
-import org.eclipse.b3.backend.core.TypePattern;
+import org.eclipse.b3.backend.core.datatypes.TypePattern;
+import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;

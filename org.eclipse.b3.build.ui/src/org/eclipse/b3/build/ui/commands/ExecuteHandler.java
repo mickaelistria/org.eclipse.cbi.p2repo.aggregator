@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.b3.backend.core.B3BackendException;
+import org.eclipse.b3.backend.core.exceptions.B3BackendException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.beelang.ui.BeeLangConsoleUtils;

@@ -8,10 +8,10 @@
 
 package org.eclipse.b3.build.core.runtime;
 
+import org.eclipse.b3.backend.core.IB3Evaluator;
+import org.eclipse.b3.backend.core.IB3LvalProvider;
+import org.eclipse.b3.backend.core.IB3Weaver;
 import org.eclipse.b3.backend.evaluator.B3BackendLValProvider;
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
-import org.eclipse.b3.backend.evaluator.IB3LvalProvider;
-import org.eclipse.b3.backend.evaluator.IB3Weaver;
 import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.b3.backend.scoping.IFuncScopeProvider;
 import org.eclipse.b3.build.B3BuildPackage;

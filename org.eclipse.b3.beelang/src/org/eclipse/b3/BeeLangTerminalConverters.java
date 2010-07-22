@@ -21,7 +21,7 @@ import java.util.TimeZone;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import org.eclipse.b3.backend.core.SimplePattern;
+import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.build.MergeConflictStrategy;
 import org.eclipse.b3.build.TriState;
 import org.eclipse.b3.enums.MergeConflictStrategyEnumHelper;

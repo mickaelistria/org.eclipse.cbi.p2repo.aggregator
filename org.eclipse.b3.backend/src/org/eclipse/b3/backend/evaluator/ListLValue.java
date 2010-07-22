@@ -11,9 +11,9 @@ package org.eclipse.b3.backend.evaluator;
 import java.lang.reflect.Type;
 import java.util.List;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3ImmutableTypeException;
-import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.core.datatypes.LValue;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3ImmutableTypeException;
 
 @SuppressWarnings("rawtypes")
 public class ListLValue implements LValue {

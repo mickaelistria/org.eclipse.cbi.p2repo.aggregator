@@ -10,7 +10,7 @@ package org.eclipse.b3.build.engine;
 
 import java.lang.reflect.Type;
 
-import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;

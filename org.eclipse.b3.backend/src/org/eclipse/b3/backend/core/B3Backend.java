@@ -1,7 +1,12 @@
 package org.eclipse.b3.backend.core;
 
-import java.lang.annotation.*;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
+/**
+ * Annotations for functions loaded by the b3 function loader.
+ * 
+ */
 @Retention(RetentionPolicy.RUNTIME)
 public @interface B3Backend {
 	/**

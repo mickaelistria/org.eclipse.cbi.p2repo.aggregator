@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.b3.backend.core.B3AmbiguousFunctionSignatureException;
-import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
-import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
-import org.eclipse.b3.backend.core.JavaToB3Helper;
+import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
+import org.eclipse.b3.backend.evaluator.JavaToB3Helper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;

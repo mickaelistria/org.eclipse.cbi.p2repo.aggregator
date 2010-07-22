@@ -10,9 +10,9 @@ package org.eclipse.b3.build.engine;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.eclipse.b3.backend.core.B3BackendActivator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Executor;
+import org.eclipse.b3.build.internal.B3BuildActivator;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -67,7 +67,7 @@ public abstract class AbstractB3EngineExecutor extends AbstractB3Executor<IStatu
 			}
 		}
 		catch(InvocationTargetException e) {
-			return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_IN, "Uncaught exception caused by: " +
+			return new Status(IStatus.ERROR, B3BuildActivator.PLUGIN_ID, "Uncaught exception caused by: " +
 					e.getCause().getMessage());
 		}
 		catch(InterruptedException e) {

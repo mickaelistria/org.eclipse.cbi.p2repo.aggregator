@@ -1,7 +1,7 @@
 package org.eclipse.b3.backend.evaluator;
 
 import org.eclipse.b3.backend.core.B3Backend;
-import org.eclipse.b3.backend.core.B3BackendException;
+import org.eclipse.b3.backend.core.exceptions.B3BackendException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;

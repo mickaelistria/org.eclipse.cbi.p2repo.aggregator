@@ -15,12 +15,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import org.eclipse.b3.backend.core.B3AmbiguousFunctionSignatureException;
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
-import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
-import org.eclipse.b3.backend.core.SimplePattern;
-import org.eclipse.b3.backend.evaluator.Any;
+import org.eclipse.b3.backend.core.datatypes.Any;
+import org.eclipse.b3.backend.core.datatypes.SimplePattern;
+import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;

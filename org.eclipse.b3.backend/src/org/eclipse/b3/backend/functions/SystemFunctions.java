@@ -6,12 +6,12 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.b3.backend.core.B3AssertionFailedException;
 import org.eclipse.b3.backend.core.B3Backend;
-import org.eclipse.b3.backend.core.B3BackendActivator;
-import org.eclipse.b3.backend.evaluator.Any;
-import org.eclipse.b3.backend.evaluator.B3ContextAccess;
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.core.B3ContextAccess;
+import org.eclipse.b3.backend.core.IB3Evaluator;
+import org.eclipse.b3.backend.core.datatypes.Any;
+import org.eclipse.b3.backend.core.exceptions.B3AssertionFailedException;
+import org.eclipse.b3.backend.core.internal.B3BackendActivator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;

@@ -12,9 +12,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.b3.backend.core.SerialIterator;
-import org.eclipse.b3.backend.core.SingletonIterator;
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.core.IB3Evaluator;
+import org.eclipse.b3.backend.core.iterators.SerialIterator;
+import org.eclipse.b3.backend.core.iterators.SingletonIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.build.B3BuildFactory;

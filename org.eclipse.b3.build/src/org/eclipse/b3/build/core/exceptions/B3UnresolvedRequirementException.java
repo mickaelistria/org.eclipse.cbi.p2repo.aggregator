@@ -9,7 +9,7 @@
  */
 package org.eclipse.b3.build.core.exceptions;
 
-import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.RequiredCapability;

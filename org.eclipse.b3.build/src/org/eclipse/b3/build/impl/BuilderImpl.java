@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.core.IB3Evaluator;
+import org.eclipse.b3.backend.core.exceptions.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;

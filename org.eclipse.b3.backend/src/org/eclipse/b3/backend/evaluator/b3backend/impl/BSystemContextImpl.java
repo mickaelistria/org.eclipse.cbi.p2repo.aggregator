@@ -15,10 +15,10 @@ import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import org.eclipse.b3.backend.core.B3AmbiguousFunctionSignatureException;
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
+import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3InternalError;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;

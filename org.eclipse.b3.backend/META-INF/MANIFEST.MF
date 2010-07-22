@@ -10,6 +10,12 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
  J2SE-1.5
 Export-Package: org.eclipse.b3.backend.core,
+ org.eclipse.b3.backend.core.adapters,
+ org.eclipse.b3.backend.core.datatypes,
+ org.eclipse.b3.backend.core.exceptions,
+ org.eclipse.b3.backend.core.iterators,
+ org.eclipse.b3.backend.core.runtime,
+ org.eclipse.b3.backend.core.utils,
  org.eclipse.b3.backend.evaluator,
  org.eclipse.b3.backend.evaluator.b3backend,
  org.eclipse.b3.backend.evaluator.b3backend.impl,
@@ -25,6 +31,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtext;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.b3.provisional.core
-Bundle-Activator: org.eclipse.b3.backend.core.B3BackendActivator
+Bundle-Activator: org.eclipse.b3.backend.core.internal.B3BackendActivator
 Eclipse-BuddyPolicy: registered
 

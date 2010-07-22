@@ -16,12 +16,11 @@ import java.net.URI;
 import java.util.Iterator;
 import java.util.regex.Pattern;
 
-import org.eclipse.b3.backend.core.B3DynamicClassLoader;
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3FuncStore;
-import org.eclipse.b3.backend.core.LValue;
-import org.eclipse.b3.backend.core.SimplePattern;
-import org.eclipse.b3.backend.core.ValueMap;
+import org.eclipse.b3.backend.core.datatypes.LValue;
+import org.eclipse.b3.backend.core.datatypes.SimplePattern;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.evaluator.B3FuncStore;
+import org.eclipse.b3.backend.evaluator.ValueMap;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -156,16 +155,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 */
 	public B3backendFactoryImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public String convertB3DynamicClassLoaderToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**
@@ -363,8 +352,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return convertRegexpPatternToString(eDataType, instanceValue);
 			case B3backendPackage.STRING_ARRAY:
 				return convertStringArrayToString(eDataType, instanceValue);
-			case B3backendPackage.B3_DYNAMIC_CLASS_LOADER:
-				return convertB3DynamicClassLoaderToString(eDataType, instanceValue);
 			case B3backendPackage.JAVA_ITERATOR:
 				return convertJavaIteratorToString(eDataType, instanceValue);
 			case B3backendPackage.URI:
@@ -597,16 +584,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public B3DynamicClassLoader createB3DynamicClassLoaderFromString(EDataType eDataType, String initialValue) {
-		return (B3DynamicClassLoader) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -1489,8 +1466,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createRegexpPatternFromString(eDataType, initialValue);
 			case B3backendPackage.STRING_ARRAY:
 				return createStringArrayFromString(eDataType, initialValue);
-			case B3backendPackage.B3_DYNAMIC_CLASS_LOADER:
-				return createB3DynamicClassLoaderFromString(eDataType, initialValue);
 			case B3backendPackage.JAVA_ITERATOR:
 				return createJavaIteratorFromString(eDataType, initialValue);
 			case B3backendPackage.URI:

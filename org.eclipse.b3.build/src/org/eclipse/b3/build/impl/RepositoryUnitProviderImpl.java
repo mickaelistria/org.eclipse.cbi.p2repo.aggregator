@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.core.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildUnit;

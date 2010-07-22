@@ -2383,7 +2383,7 @@ public interface B3backendPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.backend.core.ValueMap
+		 * @see org.eclipse.b3.backend.evaluator.ValueMap
 		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 		 * @generated
 		 */
@@ -2394,7 +2394,7 @@ public interface B3backendPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.backend.core.B3EngineException
+		 * @see org.eclipse.b3.backend.core.exceptions.B3EngineException
 		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 		 * @generated
 		 */
@@ -2405,7 +2405,7 @@ public interface B3backendPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.backend.core.B3ExpressionCache
+		 * @see org.eclipse.b3.backend.evaluator.B3ExpressionCache
 		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 		 * @generated
 		 */
@@ -2427,7 +2427,7 @@ public interface B3backendPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.backend.core.LValue
+		 * @see org.eclipse.b3.backend.core.datatypes.LValue
 		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 		 * @generated
 		 */
@@ -2469,7 +2469,7 @@ public interface B3backendPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.backend.core.B3FuncStore
+		 * @see org.eclipse.b3.backend.evaluator.B3FuncStore
 		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 		 * @generated
 		 */
@@ -2495,17 +2495,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType STRING_ARRAY = eINSTANCE.getStringArray();
-
-		/**
-		 * The meta object literal for the '<em>B3 Dynamic Class Loader</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @see org.eclipse.b3.backend.core.B3DynamicClassLoader
-		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3DynamicClassLoader()
-		 * @generated
-		 */
-		EDataType B3_DYNAMIC_CLASS_LOADER = eINSTANCE.getB3DynamicClassLoader();
 
 		/**
 		 * The meta object literal for the '<em>Java Iterator</em>' data type.
@@ -2545,7 +2534,7 @@ public interface B3backendPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.backend.core.SimplePattern
+		 * @see org.eclipse.b3.backend.core.datatypes.SimplePattern
 		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getSimplePattern()
 		 * @generated
 		 */
@@ -7683,7 +7672,7 @@ public interface B3backendPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.core.ValueMap
+	 * @see org.eclipse.b3.backend.evaluator.ValueMap
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
@@ -7694,7 +7683,7 @@ public interface B3backendPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.core.B3EngineException
+	 * @see org.eclipse.b3.backend.core.exceptions.B3EngineException
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
@@ -7705,7 +7694,7 @@ public interface B3backendPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.core.B3ExpressionCache
+	 * @see org.eclipse.b3.backend.evaluator.B3ExpressionCache
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
@@ -7727,7 +7716,7 @@ public interface B3backendPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.core.LValue
+	 * @see org.eclipse.b3.backend.core.datatypes.LValue
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
@@ -7769,7 +7758,7 @@ public interface B3backendPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.core.B3FuncStore
+	 * @see org.eclipse.b3.backend.evaluator.B3FuncStore
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
@@ -7797,17 +7786,6 @@ public interface B3backendPackage extends EPackage {
 	int STRING_ARRAY = 105;
 
 	/**
-	 * The meta object id for the '<em>B3 Dynamic Class Loader</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.backend.core.B3DynamicClassLoader
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3DynamicClassLoader()
-	 * @generated
-	 */
-	int B3_DYNAMIC_CLASS_LOADER = 106;
-
-	/**
 	 * The meta object id for the '<em>Java Iterator</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7816,7 +7794,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getJavaIterator()
 	 * @generated
 	 */
-	int JAVA_ITERATOR = 107;
+	int JAVA_ITERATOR = 106;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -7827,7 +7805,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 108;
+	int URI = 107;
 
 	/**
 	 * The meta object id for the '<em>IProgress Monitor</em>' data type.
@@ -7838,18 +7816,18 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIProgressMonitor()
 	 * @generated
 	 */
-	int IPROGRESS_MONITOR = 109;
+	int IPROGRESS_MONITOR = 108;
 
 	/**
 	 * The meta object id for the '<em>Simple Pattern</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.core.SimplePattern
+	 * @see org.eclipse.b3.backend.core.datatypes.SimplePattern
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getSimplePattern()
 	 * @generated
 	 */
-	int SIMPLE_PATTERN = 110;
+	int SIMPLE_PATTERN = 109;
 
 	/**
 	 * The meta object id for the '<em>Char Sequence</em>' data type.
@@ -7860,7 +7838,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCharSequence()
 	 * @generated
 	 */
-	int CHAR_SEQUENCE = 111;
+	int CHAR_SEQUENCE = 110;
 
 	/**
 	 * The meta object id for the '<em>Injector</em>' data type.
@@ -7871,7 +7849,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getInjector()
 	 * @generated
 	 */
-	int INJECTOR = 112;
+	int INJECTOR = 111;
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -7884,36 +7862,24 @@ public interface B3backendPackage extends EPackage {
 	B3backendFactory getB3backendFactory();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.B3DynamicClassLoader <em>B3 Dynamic Class Loader</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for data type '<em>B3 Dynamic Class Loader</em>'.
-	 * @see org.eclipse.b3.backend.core.B3DynamicClassLoader
-	 * @model instanceClass="org.eclipse.b3.backend.core.B3DynamicClassLoader"
-	 * @generated
-	 */
-	EDataType getB3DynamicClassLoader();
-
-	/**
-	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.B3EngineException <em>B3 Engine Exception</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.exceptions.B3EngineException <em>B3 Engine Exception</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>B3 Engine Exception</em>'.
-	 * @see org.eclipse.b3.backend.core.B3EngineException
-	 * @model instanceClass="org.eclipse.b3.backend.core.B3EngineException"
+	 * @see org.eclipse.b3.backend.core.exceptions.B3EngineException
+	 * @model instanceClass="org.eclipse.b3.backend.core.exceptions.B3EngineException"
 	 * @generated
 	 */
 	EDataType getB3EngineException();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.B3ExpressionCache <em>B3 Expression Cache</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.evaluator.B3ExpressionCache <em>B3 Expression Cache</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>B3 Expression Cache</em>'.
-	 * @see org.eclipse.b3.backend.core.B3ExpressionCache
+	 * @see org.eclipse.b3.backend.evaluator.B3ExpressionCache
 	 * @model instanceClass="org.eclipse.b3.backend.core.B3ExpressionCache" serializeable="false"
 	 * @generated
 	 */
@@ -10375,12 +10341,12 @@ public interface B3backendPackage extends EPackage {
 	EEnum getExecutionMode();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.B3FuncStore <em>Func Store</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.evaluator.B3FuncStore <em>Func Store</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Func Store</em>'.
-	 * @see org.eclipse.b3.backend.core.B3FuncStore
+	 * @see org.eclipse.b3.backend.evaluator.B3FuncStore
 	 * @model instanceClass="org.eclipse.b3.backend.core.B3FuncStore"
 	 * @generated
 	 */
@@ -10754,12 +10720,12 @@ public interface B3backendPackage extends EPackage {
 	EDataType getJavaIterator();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.LValue <em>LValue</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.datatypes.LValue <em>LValue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>LValue</em>'.
-	 * @see org.eclipse.b3.backend.core.LValue
+	 * @see org.eclipse.b3.backend.core.datatypes.LValue
 	 * @model instanceClass="org.eclipse.b3.backend.core.LValue"
 	 * @generated
 	 */
@@ -10801,12 +10767,12 @@ public interface B3backendPackage extends EPackage {
 	EDataType getRegexpPattern();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.SimplePattern <em>Simple Pattern</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.datatypes.SimplePattern <em>Simple Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Simple Pattern</em>'.
-	 * @see org.eclipse.b3.backend.core.SimplePattern
+	 * @see org.eclipse.b3.backend.core.datatypes.SimplePattern
 	 * @model instanceClass="org.eclipse.b3.backend.core.SimplePattern"
 	 * @generated
 	 */
@@ -10882,12 +10848,12 @@ public interface B3backendPackage extends EPackage {
 	EDataType getURI();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.ValueMap <em>Value Map</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.evaluator.ValueMap <em>Value Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Value Map</em>'.
-	 * @see org.eclipse.b3.backend.core.ValueMap
+	 * @see org.eclipse.b3.backend.evaluator.ValueMap
 	 * @model instanceClass="org.eclipse.b3.backend.core.ValueMap"
 	 * @generated
 	 */

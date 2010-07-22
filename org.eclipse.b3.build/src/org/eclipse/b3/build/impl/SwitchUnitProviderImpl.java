@@ -10,8 +10,8 @@
  */
 package org.eclipse.b3.build.impl;
 
-import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.core.IB3Evaluator;
+import org.eclipse.b3.backend.core.exceptions.B3IncompatibleTypeException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.build.B3BuildPackage;

@@ -8,7 +8,7 @@
 
 package org.eclipse.b3.build.core.runtime;
 
-import org.eclipse.b3.backend.core.B3BackendModelProvider;
+import org.eclipse.b3.backend.core.runtime.B3BackendModelProvider;
 import org.eclipse.emf.ecore.EClass;
 
 import com.google.inject.AbstractModule;

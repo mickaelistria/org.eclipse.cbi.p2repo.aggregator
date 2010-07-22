@@ -15,11 +15,11 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Type;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.core.B3NoSuchVariableException;
-import org.eclipse.b3.backend.core.ValueMap;
-import org.eclipse.b3.backend.core.ValueMapFacade;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3InternalError;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchVariableException;
+import org.eclipse.b3.backend.evaluator.ValueMap;
+import org.eclipse.b3.backend.evaluator.ValueMapFacade;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;

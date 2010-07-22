@@ -261,13 +261,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="outerContext" lowerBound="1"
         eType="#//BExecutionContext"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="ValueMap" instanceClassName="org.eclipse.b3.backend.core.ValueMap"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="B3EngineException" instanceClassName="org.eclipse.b3.backend.core.B3EngineException"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ValueMap" instanceClassName="org.eclipse.b3.backend.evaluator.ValueMap"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="B3EngineException" instanceClassName="org.eclipse.b3.backend.core.exceptions.B3EngineException"/>
   <eClassifiers xsi:type="ecore:EClass" name="BInvocationContext" eSuperTypes="#//BExecutionContext">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expressionCache" eType="#//B3ExpressionCache"
         transient="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="B3ExpressionCache" instanceClassName="org.eclipse.b3.backend.core.B3ExpressionCache"
+  <eClassifiers xsi:type="ecore:EDataType" name="B3ExpressionCache" instanceClassName="org.eclipse.b3.backend.evaluator.B3ExpressionCache"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Throwable" instanceClassName="java.lang.Throwable"/>
   <eClassifiers xsi:type="ecore:EClass" name="BUnaryPreOpExpression" eSuperTypes="#//BUnaryOpExpression">
@@ -275,7 +275,7 @@
       <details key="documentation" value="Unary operation requiring Lvalue expression - where function is applied pre calculation of return value."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="LValue" instanceClassName="org.eclipse.b3.backend.core.LValue"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="LValue" instanceClassName="org.eclipse.b3.backend.core.datatypes.LValue"/>
   <eClassifiers xsi:type="ecore:EClass" name="BAssignmentExpression" eSuperTypes="#//BBinaryOpExpression"/>
   <eClassifiers xsi:type="ecore:EDataType" name="TypeArray" instanceClassName="java.lang.reflect.Type[]"/>
   <eClassifiers xsi:type="ecore:EClass" name="B3Function" eSuperTypes="#//BFunction">
@@ -302,7 +302,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Method" instanceClassName="java.lang.reflect.Method"/>
   <eClassifiers xsi:type="ecore:EDataType" name="TypeVariableArray" instanceClassName="java.lang.reflect.TypeVariable[]"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="FuncStore" instanceClassName="org.eclipse.b3.backend.core.B3FuncStore"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="FuncStore" instanceClassName="org.eclipse.b3.backend.evaluator.B3FuncStore"/>
   <eClassifiers xsi:type="ecore:EClass" name="BFunctionContainer" abstract="true"
       interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
@@ -481,7 +481,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="funcExpr" eType="#//BExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="B3DynamicClassLoader" instanceClassName="org.eclipse.b3.backend.core.B3DynamicClassLoader"/>
   <eClassifiers xsi:type="ecore:EClass" name="BConcernContext" abstract="true" eSuperTypes="#//BExpression #//BFunctionContainer">
     <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
@@ -663,7 +662,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BSimplePatternExpression" eSuperTypes="#//BPatternLiteralExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="#//SimplePattern"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="SimplePattern" instanceClassName="org.eclipse.b3.backend.core.SimplePattern"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="SimplePattern" instanceClassName="org.eclipse.b3.backend.core.datatypes.SimplePattern"/>
   <eClassifiers xsi:type="ecore:EDataType" name="CharSequence" instanceClassName="java.lang.CharSequence"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Injector" instanceClassName="com.google.inject.Injector"
       serializable="false"/>

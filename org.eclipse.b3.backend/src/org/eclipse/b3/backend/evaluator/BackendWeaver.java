@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.core.TypePattern;
-import org.eclipse.b3.backend.core.TypePattern.Matcher;
+import org.eclipse.b3.backend.core.datatypes.TypePattern;
+import org.eclipse.b3.backend.core.datatypes.TypePattern.Matcher;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;

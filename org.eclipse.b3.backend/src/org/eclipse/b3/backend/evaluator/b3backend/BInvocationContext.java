@@ -9,7 +9,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
-import org.eclipse.b3.backend.core.B3ExpressionCache;
+import org.eclipse.b3.backend.evaluator.B3ExpressionCache;
 
 /**
  * <!-- begin-user-doc -->

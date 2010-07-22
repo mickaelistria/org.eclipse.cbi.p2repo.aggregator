@@ -10,7 +10,7 @@ package org.eclipse.b3.build.ui.commands;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.eclipse.b3.backend.core.B3UserException;
+import org.eclipse.b3.backend.core.exceptions.B3UserException;
 import org.eclipse.b3.build.ui.dialogs.B3MessageDialog;
 import org.eclipse.b3.provisional.core.BuildException;
 import org.eclipse.core.commands.AbstractHandler;

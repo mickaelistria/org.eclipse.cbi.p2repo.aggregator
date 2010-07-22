@@ -9,12 +9,12 @@
  */
 package org.eclipse.b3.build.internal;
 
-import org.eclipse.b3.backend.core.B3BackendActivator;
+import org.eclipse.b3.backend.core.runtime.ClassloaderSupport;
 import org.eclipse.b3.build.BuildUnit;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 
-public class BuildUtilsDynamicClassLoader extends ClassLoader implements Opcodes {
+class BuildUtilsDynamicClassLoader extends ClassLoader implements Opcodes {
 	public BuildUtilsDynamicClassLoader(ClassLoader parent) {
 		super(parent);
 	}
@@ -44,7 +44,8 @@ public class BuildUtilsDynamicClassLoader extends ClassLoader implements Opcodes
 			return clazz;
 		}
 		try {
-			return B3BackendActivator.instance.getBundle().loadClass(name);
+			// load class using the backend bundle (since b3 buddies are registered against this bundle).
+			return ClassloaderSupport.load(name);
 		}
 		catch(ClassNotFoundException e) {
 			// do nothing, try the super class loader

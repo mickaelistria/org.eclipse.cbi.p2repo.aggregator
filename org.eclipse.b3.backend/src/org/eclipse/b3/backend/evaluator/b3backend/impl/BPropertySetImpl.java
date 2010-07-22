@@ -21,9 +21,9 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Properties;
 
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.core.LoadedPropertySetAdapter;
-import org.eclipse.b3.backend.core.LoadedPropertySetAdapterFactory;
+import org.eclipse.b3.backend.core.adapters.LoadedPropertySetAdapter;
+import org.eclipse.b3.backend.core.adapters.LoadedPropertySetAdapterFactory;
+import org.eclipse.b3.backend.core.exceptions.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;

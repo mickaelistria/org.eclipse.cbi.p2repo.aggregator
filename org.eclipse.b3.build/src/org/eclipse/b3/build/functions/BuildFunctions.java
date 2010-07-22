@@ -15,11 +15,11 @@ import java.lang.reflect.Type;
 import java.util.Iterator;
 
 import org.eclipse.b3.backend.core.B3Backend;
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3NoSuchVariableException;
-import org.eclipse.b3.backend.evaluator.B3ContextAccess;
-import org.eclipse.b3.backend.evaluator.IB3Engine;
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.core.B3ContextAccess;
+import org.eclipse.b3.backend.core.IB3Engine;
+import org.eclipse.b3.backend.core.IB3Evaluator;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchVariableException;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.BuildSet;

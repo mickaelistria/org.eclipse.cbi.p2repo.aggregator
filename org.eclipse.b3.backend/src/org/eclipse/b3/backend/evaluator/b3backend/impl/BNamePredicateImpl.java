@@ -12,7 +12,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.core.exceptions.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;

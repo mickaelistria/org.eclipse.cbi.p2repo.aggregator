@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 import org.eclipse.b3.backend.core.B3Backend;
-import org.eclipse.b3.backend.core.DoubleSequence;
-import org.eclipse.b3.backend.core.IntegerSequence;
+import org.eclipse.b3.backend.core.datatypes.DoubleSequence;
+import org.eclipse.b3.backend.core.datatypes.IntegerSequence;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 

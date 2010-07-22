@@ -8,6 +8,8 @@
 
 package org.eclipse.b3.backend.core;
 
+import org.eclipse.b3.backend.core.exceptions.B3BackendException;
+
 /**
  * Error Code definitions for the org.eclipse.b3.backend
  * 

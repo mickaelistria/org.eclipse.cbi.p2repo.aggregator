@@ -11,8 +11,8 @@ package org.eclipse.b3.build.impl;
 
 import java.util.Collection;
 
-import org.eclipse.b3.backend.core.PropertyDefinitionIterator;
-import org.eclipse.b3.backend.core.PropertyOperationIterator;
+import org.eclipse.b3.backend.core.iterators.PropertyDefinitionIterator;
+import org.eclipse.b3.backend.core.iterators.PropertyOperationIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;

@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.core.datatypes.LValue;
 
 /**
  * Provider of LValues for b3 backend.

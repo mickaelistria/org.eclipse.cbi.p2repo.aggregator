@@ -11,7 +11,8 @@ package org.eclipse.b3.backend.evaluator;
 import java.lang.reflect.Type;
 import java.util.Collections;
 
-import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.core.IB3LvalProvider;
+import org.eclipse.b3.backend.core.datatypes.LValue;
 import org.eclipse.xtext.util.Exceptions;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;

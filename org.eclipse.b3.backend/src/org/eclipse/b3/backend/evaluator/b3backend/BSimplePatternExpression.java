@@ -10,7 +10,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
-import org.eclipse.b3.backend.core.SimplePattern;
+import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 
 /**
  * <!-- begin-user-doc -->

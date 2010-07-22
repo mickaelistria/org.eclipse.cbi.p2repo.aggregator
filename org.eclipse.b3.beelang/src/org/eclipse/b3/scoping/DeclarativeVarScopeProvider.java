@@ -14,8 +14,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.PropertyDefinitionIterator;
-import org.eclipse.b3.backend.core.PropertyOperationIterator;
+import org.eclipse.b3.backend.core.iterators.PropertyDefinitionIterator;
+import org.eclipse.b3.backend.core.iterators.PropertyOperationIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.BCatch;

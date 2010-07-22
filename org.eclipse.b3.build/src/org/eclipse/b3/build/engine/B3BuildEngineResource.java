@@ -14,9 +14,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.core.JavaToB3Helper;
-import org.eclipse.b3.backend.evaluator.IB3Engine;
+import org.eclipse.b3.backend.core.IB3Engine;
+import org.eclipse.b3.backend.core.exceptions.B3InternalError;
+import org.eclipse.b3.backend.evaluator.JavaToB3Helper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;

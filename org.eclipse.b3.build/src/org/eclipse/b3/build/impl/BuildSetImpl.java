@@ -13,11 +13,11 @@ package org.eclipse.b3.build.impl;
 import java.lang.reflect.Type;
 import java.util.Collection;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3FinalVariableRedefinitionException;
-import org.eclipse.b3.backend.core.B3NoSuchVariableException;
-import org.eclipse.b3.backend.core.LValue;
-import org.eclipse.b3.backend.core.ValueMap;
+import org.eclipse.b3.backend.core.datatypes.LValue;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3FinalVariableRedefinitionException;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchVariableException;
+import org.eclipse.b3.backend.evaluator.ValueMap;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.PathVector;

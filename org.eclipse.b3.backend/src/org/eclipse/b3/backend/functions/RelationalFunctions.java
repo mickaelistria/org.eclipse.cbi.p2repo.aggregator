@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.eclipse.b3.backend.core.B3Backend;
-import org.eclipse.b3.backend.core.SimplePattern;
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.core.IB3Evaluator;
+import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.core.runtime.IStatus;
 

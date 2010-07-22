@@ -11,7 +11,7 @@ package org.eclipse.b3.build.core.exceptions;
 
 import java.lang.reflect.Type;
 
-import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.osgi.util.NLS;
 
 public class B3WrongBuilderReturnTypeException extends B3EngineException {

@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3BackendStatusCodes;
-import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.OkResultStatus;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.core.B3BuildStatusCodes;
 import org.eclipse.b3.build.engine.IB3EngineRuntime;

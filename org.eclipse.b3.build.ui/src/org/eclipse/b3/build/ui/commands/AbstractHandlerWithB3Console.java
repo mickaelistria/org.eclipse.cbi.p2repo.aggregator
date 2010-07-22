@@ -11,8 +11,8 @@ package org.eclipse.b3.build.ui.commands;
 
 import java.io.PrintStream;
 
-import org.eclipse.b3.backend.core.B3BackendException;
 import org.eclipse.b3.backend.core.IResultStatus;
+import org.eclipse.b3.backend.core.exceptions.B3BackendException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.beelang.ui.BeeLangConsoleUtils;
 import org.eclipse.b3.provisional.core.BuildException;

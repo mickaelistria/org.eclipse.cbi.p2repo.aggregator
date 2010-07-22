@@ -8,9 +8,9 @@
 
 package org.eclipse.b3.build.core;
 
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.core.B3NoSuchVariableException;
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.core.IB3Evaluator;
+import org.eclipse.b3.backend.core.exceptions.B3InternalError;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchVariableException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BeeModel;

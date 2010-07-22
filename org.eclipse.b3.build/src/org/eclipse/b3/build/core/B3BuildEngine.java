@@ -12,11 +12,11 @@ package org.eclipse.b3.build.core;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
 
-import org.eclipse.b3.backend.core.B3Engine;
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3InternalError;
-import org.eclipse.b3.backend.evaluator.IB3Engine;
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
+import org.eclipse.b3.backend.core.IB3Engine;
+import org.eclipse.b3.backend.core.IB3Evaluator;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3InternalError;
+import org.eclipse.b3.backend.core.runtime.B3Engine;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Executor;

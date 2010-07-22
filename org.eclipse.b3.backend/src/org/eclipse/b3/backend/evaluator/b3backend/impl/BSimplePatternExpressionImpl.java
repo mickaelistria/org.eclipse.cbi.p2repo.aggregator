@@ -10,7 +10,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import org.eclipse.b3.backend.core.SimplePattern;
+import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression;
 import org.eclipse.emf.common.notify.Notification;
