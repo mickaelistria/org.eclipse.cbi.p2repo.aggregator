@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.b3.backend.core.adapters.TypeAdapter;
+import org.eclipse.b3.backend.core.adapters.TypeAdapterFactory;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.util.Exceptions;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;
@@ -38,8 +41,17 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 			return null; // inference depends on itself
 		try {
 			inferenceStack.add(element);
-			Type type = (Type) typeDispatcher.invoke(element);
+			// speed up inference by associating result with element in an adapter
+			TypeAdapter ta = (element instanceof EObject)
+					? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
+					: null;
+			Type type = null;
+			if(ta != null && (type = ta.getAssociatedInfo(this)) != null)
+				return type;
+			type = (Type) typeDispatcher.invoke(element);
 			if(type != null) {
+				if(ta != null)
+					ta.setAssociatedInfo(this, type);
 				return type;
 			}
 			System.err.print("Type provider - null result for: " + element.getClass().getName() + "\n");
