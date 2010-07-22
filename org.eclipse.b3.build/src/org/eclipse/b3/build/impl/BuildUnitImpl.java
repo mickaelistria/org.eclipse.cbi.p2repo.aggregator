@@ -1,9 +1,13 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
+
 package org.eclipse.b3.build.impl;
 
 import java.lang.reflect.Type;
@@ -53,7 +57,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -1134,12 +1137,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 						this, Notification.RESOLVE, B3BuildPackage.BUILD_UNIT__PARENT, oldParent, parent));
 			}
 		}
-		// return first parent being a IBuildUnitContainer
-		if(parent == null) {
-			for(EObject p = eContainer(); p != null; p = p.eContainer())
-				if(p instanceof IBuildUnitContainer)
-					return (IBuildUnitContainer) p;
-		}
 		return parent;
 	}
 
@@ -1391,8 +1388,14 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(getName());
+		result.append(" (documentation: ");
+		result.append(documentation);
+		result.append(", executionMode: ");
+		result.append(executionMode);
+		result.append(", sourceLocation: ");
+		result.append(sourceLocation);
+		result.append(", outputLocation: ");
+		result.append(outputLocation);
 		result.append(')');
 		return result.toString();
 	}

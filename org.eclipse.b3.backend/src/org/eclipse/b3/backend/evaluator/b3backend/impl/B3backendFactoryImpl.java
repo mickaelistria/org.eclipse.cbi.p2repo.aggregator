@@ -430,8 +430,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createBLiteralAny();
 			case B3backendPackage.BCREATE_EXPRESSION:
 				return createBCreateExpression();
-			case B3backendPackage.BGUARD_EXPRESSION:
-				return createBGuardExpression();
+			case B3backendPackage.BGUARD:
+				return createBGuard();
 			case B3backendPackage.BSYSTEM_CONTEXT:
 				return createBSystemContext();
 			case B3backendPackage.BCONTEXT:
@@ -470,12 +470,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createB3JavaImport();
 			case B3backendPackage.BLITERAL_TYPE:
 				return createBLiteralType();
-			case B3backendPackage.BGUARD_FUNCTION:
-				return createBGuardFunction();
 			case B3backendPackage.BTYPE_CALCULATOR:
 				return createBTypeCalculator();
-			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION:
-				return createBTypeCalculatorFunction();
 			case B3backendPackage.BINSTANCE_CONTEXT:
 				return createBInstanceContext();
 			case B3backendPackage.BDEF_PROPERTY:
@@ -937,20 +933,9 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * 
 	 * @generated
 	 */
-	public BGuardExpression createBGuardExpression() {
-		BGuardExpressionImpl bGuardExpression = new BGuardExpressionImpl();
-		return bGuardExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public BGuardFunction createBGuardFunction() {
-		BGuardFunctionImpl bGuardFunction = new BGuardFunctionImpl();
-		return bGuardFunction;
+	public BGuard createBGuard() {
+		BGuardImpl bGuard = new BGuardImpl();
+		return bGuard;
 	}
 
 	/**
@@ -1284,17 +1269,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BTypeCalculator createBTypeCalculator() {
 		BTypeCalculatorImpl bTypeCalculator = new BTypeCalculatorImpl();
 		return bTypeCalculator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public BTypeCalculatorFunction createBTypeCalculatorFunction() {
-		BTypeCalculatorFunctionImpl bTypeCalculatorFunction = new BTypeCalculatorFunctionImpl();
-		return bTypeCalculatorFunction;
 	}
 
 	/**

@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2010, Cloudsmith Inc.
+ * The code, documentation and other materials contained herein have been
+ * licensed under the Eclipse Public License - v 1.0 by the copyright holder
+ * listed above, as the Initial Contributor under such license. The text of
+ * such license is available at www.eclipse.org.
+ */
 package org.eclipse.b3.backend.core;
 
 import java.io.PrintStream;
@@ -13,8 +20,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
@@ -117,8 +122,6 @@ public class B3FuncStore {
 		return Collections.emptyList();
 	}
 
-	private Set<String> dirtyFunctions = new HashSet<String>();
-
 	private Map<String, List<IFunction>> defined;
 
 	private Map<String, List<IFunction>> effective;
@@ -131,11 +134,26 @@ public class B3FuncStore {
 		effective = new HashMap<String, List<IFunction>>();
 	}
 
-	public Object callFunction(String functionName, Object[] parameters, Type[] types, BExecutionContext ctx)
-			throws Throwable {
-		// if the cache is dirty for name - update the cache
-		if(dirtyFunctions.contains(functionName))
-			updateCache(functionName);
+	/**
+	 * - If a function with the exact same name and parameters is already installed then:
+	 * - is this allowed ? would mean an override of same function in same scope
+	 * 
+	 * @param name
+	 * @param func
+	 * @throws B3IncompatibleReturnTypeException
+	 */
+	public void defineFunction(String name, IFunction func) throws B3IncompatibleReturnTypeException {
+		effective.remove(name);
+
+		List<IFunction> list = defined.get(name);
+		if(list == null)
+			defined.put(name, list = new ArrayList<IFunction>());
+		list.add(func);
+		effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
+	}
+
+	public IFunction findFunction(String functionName, Type[] types) throws B3NoSuchFunctionException,
+			B3NoSuchFunctionSignatureException, B3AmbiguousFunctionSignatureException {
 
 		// find the best matching function, call it, or throw B3NoSuchFunctionException
 
@@ -145,30 +163,9 @@ public class B3FuncStore {
 		if(f == null || f.size() < 1) {
 			if(parentStore == null)
 				throw new B3NoSuchFunctionException(functionName);
-			return parentStore.callFunction(functionName, parameters, types, ctx);
+			return parentStore.findFunction(functionName, types);
 		}
-
-		IFunction toBeCalled = getMostSpecificFunction(functionName, parameters, types, ctx);
-
-		return toBeCalled.call(ctx.createOuterContext(), parameters, types);
-	}
-
-	/**
-	 * - If a function with the exact same name and parameters is already installed then:
-	 * - is this allowed ? would mean an override of same function in same scope
-	 * 
-	 * @param name
-	 * @param func
-	 */
-	public void defineFunction(String name, IFunction func) {
-		dirtyFunctions.add(name);
-		effective.remove(name);
-
-		List<IFunction> list = defined.get(name);
-		if(list == null)
-			defined.put(name, list = new ArrayList<IFunction>());
-		list.add(func);
-
+		return getMostSpecificFunction(functionName, types);
 	}
 
 	public Iterable<IFunction> functionIterable() {
@@ -189,46 +186,7 @@ public class B3FuncStore {
 		};
 	}
 
-	public Type getDeclaredFunctionType(String functionName, Type[] types, BExecutionContext ctx)
-			throws B3EngineException {
-		// find the best matching function, and return its type, or throw B3NoSuchFunctionException
-
-		// if there is no function here for the name, delegate the task (do not want to add things to this
-		// cache for non overloaded functions).
-		List<IFunction> f = getFunctionsByName(functionName);
-		if(f == null || f.size() < 1) {
-			if(parentStore == null)
-				throw new B3NoSuchFunctionException(functionName);
-			return parentStore.getDeclaredFunctionType(functionName, types, ctx);
-		}
-		// if the cache is dirty for name - update the cache
-		if(dirtyFunctions.contains(functionName))
-			updateCache(functionName);
-
-		// TODO: CHEATING !!! When evaluating the type, the parameter values are not present.
-		// Most guards would only look at the types, but an instance guard actually cares. However,
-		// the important is to find the return type of the function. Guards needs to know that they will
-		// be called with all parameters set to null (i.e. they can't guard against that). A better typesystem
-		// solution is required. There are several bad situations (e.g. finding a function that when not instance
-		// guarded is not found) - but no worse than where there are no guards :)
-		// TODO: TYPESYSTEM.
-		//
-		Object[] fakeParameters = new Object[types.length];
-		IFunction toBeCalled = getMostSpecificFunction(functionName, fakeParameters, types, ctx);
-
-		return toBeCalled.getReturnTypeForParameterTypes(types);
-	}
-
-	// /**
-	// * Updates cache for all functions.
-	// * @throws B3EngineException
-	// */
-	// private void updateCache() throws B3EngineException {
-	// for(String name : dirtyFunctions)
-	// effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
-	// dirtyFunctions.clear();
-	// }
-	private List<IFunction> getEffectiveList(String name, int size) throws B3EngineException {
+	private List<IFunction> getEffectiveList(String name, int size) throws B3IncompatibleReturnTypeException {
 		if(parentStore == null) {
 			List<IFunction> thisList = getFunctionsByName(name);
 			List<IFunction> result = new ArrayList<IFunction>(size + thisList.size());
@@ -277,16 +235,6 @@ public class B3FuncStore {
 	 * @return
 	 */
 	public Iterator<IFunction> getFunctionIterator(String name) {
-		// if the cache is dirty for name - update the cache
-		if(dirtyFunctions.contains(name))
-			try {
-				updateCache(name);
-			}
-			catch(B3EngineException e) {
-				e.printStackTrace();
-				throw new B3InternalError("Failed to update function cache", e);
-			}
-
 		List<IFunction> f = effective.get(name);
 		if(f == null)
 			return parentStore == null
@@ -303,8 +251,6 @@ public class B3FuncStore {
 	 * @return
 	 */
 	public Iterator<IFunction> getFunctionIterator(Type type, Class<?> functionType) {
-		// (note: cache gets updated per name by the UberIterator)
-
 		// construct set of all keys
 		Set<String> allKeys = new HashSet<String>();
 		for(B3FuncStore fs = this; fs != null; fs = fs.parentStore)
@@ -339,18 +285,21 @@ public class B3FuncStore {
 	 * @param types
 	 * @param ctx
 	 * @return best function, or null, if none was found.
+	 * @throws B3NoSuchFunctionException
+	 * @throws B3NoSuchFunctionSignatureException
+	 * @throws B3AmbiguousFunctionSignatureException
 	 * @throws B3EngineException
 	 *             if there are exceptions while evaluating guards, or underlying issues.
 	 */
-	private IFunction getMostSpecificFunction(String name, Object[] parameters, Type[] types, BExecutionContext ctx)
-			throws B3EngineException {
+	private IFunction getMostSpecificFunction(String name, Type[] types) throws B3NoSuchFunctionException,
+			B3NoSuchFunctionSignatureException, B3AmbiguousFunctionSignatureException {
 		List<IFunction> list = effective.get(name);
 
 		if(list.isEmpty())
 			throw new B3NoSuchFunctionException(name); // something is really wrong if that happens here
 
 		LinkedList<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> candidateFunctions = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
-			types, new TypeUtils.GuardedFunctionCandidateSource(list /* , ctx, parameters */));
+			types, new TypeUtils.GuardedFunctionCandidateSource(list));
 
 		switch(candidateFunctions.size()) {
 			case 0: // no candidate function found
@@ -395,23 +344,4 @@ public class B3FuncStore {
 			}
 		}
 	}
-
-	public void undefineFunction(String name, BFunction func) {
-		dirtyFunctions.add(name);
-		effective.remove(name);
-		if(defined == null)
-			return;
-		List<IFunction> fList = defined.get(name);
-		if(fList == null)
-			return;
-		fList.remove(func);
-	}
-
-	public void updateCache(String name) throws B3EngineException {
-		// if(!dirtyFunctions.contains(name))
-		// return;
-		effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
-		dirtyFunctions.remove(name);
-	}
-
 }

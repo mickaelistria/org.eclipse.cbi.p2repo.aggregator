@@ -12,11 +12,8 @@ package org.eclipse.b3.build;
 
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.ValueMap;
-
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
-
 import org.eclipse.b3.build.core.iterators.PathIterator;
-
 import org.eclipse.emf.common.util.EList;
 
 /**

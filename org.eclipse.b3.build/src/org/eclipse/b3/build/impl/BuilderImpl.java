@@ -1,9 +1,13 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
+
 package org.eclipse.b3.build.impl;
 
 import java.lang.reflect.Type;
@@ -32,7 +36,6 @@ import org.eclipse.b3.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.PathGroup;
 import org.eclipse.b3.build.core.B3BuilderJob;
 import org.eclipse.b3.build.core.adapters.BuildUnitProxyAdapterFactory;
-import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -348,49 +351,6 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				msgs.add(notification);
 		}
 		return msgs;
-	}
-
-	/**
-	 * This specialization returns a B3BuilderJob that performs the evaluation.
-	 */
-	@Override
-	public Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
-		if(ctx.getProgressMonitor().isCanceled())
-			throw new OperationCanceledException();
-		ctx = prepareCall(ctx, parameters, types);
-		return new B3BuilderJob(ctx, this);
-	}
-
-	@Override
-	protected void computeParameters() {
-		// TODO: Should react to changes in Parameters instead of doing this
-		// stupid thing and on changes to BuildUnitType
-
-		if(parameterNames == null || parameterTypes == null) {
-			EList<BParameterDeclaration> pList = getParameters();
-			int pCount = pList.size();
-			int insertUnit = (pCount > 0 && "unit".equals(pList.get(0).getName()))
-					? 0
-					: 1;
-
-			pCount += insertUnit;
-
-			parameterNames = new String[pCount];
-			parameterTypes = new Type[pCount];
-
-			if(insertUnit > 0) {
-				parameterTypes[0] = getUnitType();
-				parameterNames[0] = "unit";
-			}
-
-			Iterator<BParameterDeclaration> pIterator = pList.iterator();
-
-			for(int i = insertUnit; i < pCount; ++i) {
-				BParameterDeclaration p = pIterator.next();
-				parameterNames[i] = p.getName();
-				parameterTypes[i] = p.getType();
-			}
-		}
 	}
 
 	/**

@@ -8,6 +8,8 @@
 
 package org.eclipse.b3.backend.evaluator;
 
+import java.lang.reflect.Type;
+
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 
@@ -18,6 +20,37 @@ import com.google.inject.ImplementedBy;
  */
 @ImplementedBy(B3BackendEvaluator.class)
 public interface IB3Evaluator {
+
+	public Object callFunction(String functionName, Object[] params, Type[] types, BExecutionContext ctx)
+			throws Throwable;
+
+	/**
+	 * Perform a call to a callable element. Creates a new context where parameter names are bound to parameter values.
+	 * 
+	 * @param element
+	 * @param parameters
+	 * @param parameterTypes
+	 * @param ctx
+	 * @return
+	 * @throws Throwable
+	 */
+	public Object doCall(Object element, Object[] parameters, Type[] parameterTypes, BExecutionContext ctx)
+			throws Throwable;
+
+	/**
+	 * Performs a call to a callable element. Optionally creates a new context where parameter names are bound to
+	 * parameter values.
+	 * 
+	 * @param element
+	 * @param parameters
+	 * @param parameterTypes
+	 * @param ctx
+	 * @param prepareContext
+	 * @return
+	 * @throws Throwable
+	 */
+	public Object doCall(Object element, Object[] parameters, Type[] parameterTypes, BExecutionContext ctx,
+			boolean prepareContext) throws Throwable;
 
 	public Object doDefine(Object element, BExecutionContext ctx) throws Throwable;
 
@@ -42,9 +75,6 @@ public interface IB3Evaluator {
 	 */
 	public Object doEvaluateDefaults(Object element, BExecutionContext ctx, boolean allVisible) throws Throwable;
 
-	// TODO: for completeness, add "isLvalExpression", and "isDefaultExpression" to flag if
-	// lValue and doEvaluateDefaults are possible.
-
 	/**
 	 * Constructs an inside context and evaluates the element in this context. The context is returned.
 	 * (Used for special elements that provide advice to some inner elements).
@@ -57,6 +87,9 @@ public interface IB3Evaluator {
 	 */
 	public BExecutionContext doGetInnerContext(Object element, BExecutionContext ctx) throws Throwable;
 
+	// TODO: for completeness, add "isLvalExpression", and "isDefaultExpression" to flag if
+	// lValue and doEvaluateDefaults are possible.
+
 	/**
 	 * Evaluates the given element in the given context and returns an LValue (assignable "left" value).
 	 * Should only be applied to elements that supports being a "lValue".
@@ -66,5 +99,7 @@ public interface IB3Evaluator {
 	 * @return the result of the evaluation.
 	 */
 	public LValue doLValue(Object element, BExecutionContext ctx) throws Throwable;
+
+	public String[] doParameterNames(Object element);
 
 }

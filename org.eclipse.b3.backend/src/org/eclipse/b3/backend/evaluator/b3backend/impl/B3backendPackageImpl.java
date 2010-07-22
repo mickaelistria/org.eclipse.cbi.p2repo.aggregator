@@ -6,8 +6,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import com.google.inject.Injector;
-import java.lang.CharSequence;
 import java.lang.reflect.GenericDeclaration;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -16,6 +14,7 @@ import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
 import java.util.Iterator;
 import java.util.regex.Pattern;
+
 import org.eclipse.b3.backend.core.B3DynamicClassLoader;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3ExpressionCache;
@@ -66,8 +65,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
-import org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext;
@@ -100,13 +97,11 @@ import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTryExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
-import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
-
 import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
@@ -118,7 +113,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.b3.backend.evaluator.b3backend.util.B3backendValidator;
 import org.eclipse.core.runtime.CoreException;
-
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -128,10 +122,12 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import com.google.inject.Injector;
+import java.lang.CharSequence;
 
 /**
  * <!-- begin-user-doc -->
@@ -563,14 +559,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	private EClass bGuardExpressionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	private EClass bSystemContextEClass = null;
 
 	/**
@@ -771,23 +759,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	private EClass bGuardFunctionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	private EClass bTypeCalculatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	private EClass bTypeCalculatorFunctionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1279,10 +1251,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(iFunctionEClass, IFUNCTION__EXECUTION_MODE);
 		createEAttribute(iFunctionEClass, IFUNCTION__NAME);
 		createEReference(iFunctionEClass, IFUNCTION__GUARD);
-		createEAttribute(iFunctionEClass, IFUNCTION__PARAMETER_TYPES);
 		createEAttribute(iFunctionEClass, IFUNCTION__EXCEPTION_TYPES);
 		createEAttribute(iFunctionEClass, IFUNCTION__TYPE_PARAMETERS);
-		createEAttribute(iFunctionEClass, IFUNCTION__PARAMETER_NAMES);
 		createEReference(iFunctionEClass, IFUNCTION__PARAMETERS);
 		createEAttribute(iFunctionEClass, IFUNCTION__VAR_ARGS);
 		createEAttribute(iFunctionEClass, IFUNCTION__DOCUMENTATION);
@@ -1294,9 +1264,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(iFunctionEClass, IFUNCTION__VARARG_ARRAY_TYPE);
 
 		bGuardEClass = createEClass(BGUARD);
-
-		bGuardExpressionEClass = createEClass(BGUARD_EXPRESSION);
-		createEReference(bGuardExpressionEClass, BGUARD_EXPRESSION__GUARD_EXPR);
+		createEReference(bGuardEClass, BGUARD__FUNC);
 
 		bSystemContextEClass = createEClass(BSYSTEM_CONTEXT);
 
@@ -1318,6 +1286,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bJavaFunctionEClass = createEClass(BJAVA_FUNCTION);
 		createEAttribute(bJavaFunctionEClass, BJAVA_FUNCTION__METHOD);
 		createEAttribute(bJavaFunctionEClass, BJAVA_FUNCTION__CALL_TYPE);
+		createEAttribute(bJavaFunctionEClass, BJAVA_FUNCTION__PARAMETER_TYPES);
+		createEAttribute(bJavaFunctionEClass, BJAVA_FUNCTION__PARAMETER_NAMES);
 
 		bFunctionContainerEClass = createEClass(BFUNCTION_CONTAINER);
 		createEReference(bFunctionContainerEClass, BFUNCTION_CONTAINER__FUNCTIONS);
@@ -1379,13 +1349,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bLiteralTypeEClass = createEClass(BLITERAL_TYPE);
 		createEReference(bLiteralTypeEClass, BLITERAL_TYPE__TYPE);
 
-		bGuardFunctionEClass = createEClass(BGUARD_FUNCTION);
-		createEReference(bGuardFunctionEClass, BGUARD_FUNCTION__FUNC);
-
 		bTypeCalculatorEClass = createEClass(BTYPE_CALCULATOR);
-
-		bTypeCalculatorFunctionEClass = createEClass(BTYPE_CALCULATOR_FUNCTION);
-		createEReference(bTypeCalculatorFunctionEClass, BTYPE_CALCULATOR_FUNCTION__FUNC);
+		createEReference(bTypeCalculatorEClass, BTYPE_CALCULATOR__FUNC);
 
 		bInstanceContextEClass = createEClass(BINSTANCE_CONTEXT);
 		createEAttribute(bInstanceContextEClass, BINSTANCE_CONTEXT__INSTANCE);
@@ -2613,38 +2578,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	public EClass getBGuardExpression() {
-		return bGuardExpressionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getBGuardExpression_GuardExpr() {
-		return (EReference) bGuardExpressionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EClass getBGuardFunction() {
-		return bGuardFunctionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getBGuardFunction_Func() {
-		return (EReference) bGuardFunctionEClass.getEStructuralFeatures().get(0);
+	public EReference getBGuard_Func() {
+		return (EReference) bGuardEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2785,6 +2720,26 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EAttribute getBJavaFunction_Method() {
 		return (EAttribute) bJavaFunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBJavaFunction_ParameterNames() {
+		return (EAttribute) bJavaFunctionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBJavaFunction_ParameterTypes() {
+		return (EAttribute) bJavaFunctionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3353,18 +3308,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	public EClass getBTypeCalculatorFunction() {
-		return bTypeCalculatorFunctionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getBTypeCalculatorFunction_Func() {
-		return (EReference) bTypeCalculatorFunctionEClass.getEStructuralFeatures().get(0);
+	public EReference getBTypeCalculator_Func() {
+		return (EReference) bTypeCalculatorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3644,7 +3589,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EAttribute getIFunction_ClassFunction() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(16);
+		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -3654,7 +3599,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EReference getIFunction_Closure() {
-		return (EReference) iFunctionEClass.getEStructuralFeatures().get(13);
+		return (EReference) iFunctionEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -3664,7 +3609,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EReference getIFunction_Container() {
-		return (EReference) iFunctionEClass.getEStructuralFeatures().get(15);
+		return (EReference) iFunctionEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -3674,7 +3619,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EAttribute getIFunction_Documentation() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(11);
+		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -3684,7 +3629,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EAttribute getIFunction_ExceptionTypes() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(6);
+		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3733,28 +3678,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	public EAttribute getIFunction_ParameterNames() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EReference getIFunction_Parameters() {
-		return (EReference) iFunctionEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getIFunction_ParameterTypes() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(5);
+		return (EReference) iFunctionEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -3764,7 +3689,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EReference getIFunction_ReturnType() {
-		return (EReference) iFunctionEClass.getEStructuralFeatures().get(12);
+		return (EReference) iFunctionEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -3774,7 +3699,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EReference getIFunction_TypeCalculator() {
-		return (EReference) iFunctionEClass.getEStructuralFeatures().get(14);
+		return (EReference) iFunctionEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -3784,7 +3709,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EAttribute getIFunction_TypeParameters() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(7);
+		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -3794,7 +3719,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EAttribute getIFunction_VarargArrayType() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(17);
+		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -3804,7 +3729,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EAttribute getIFunction_VarArgs() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(10);
+		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -4132,7 +4057,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bCreateExpressionEClass.getESuperTypes().add(this.getITypedValue());
 		iFunctionEClass.getESuperTypes().add(this.getIGenericDeclaration());
 		iFunctionEClass.getESuperTypes().add(this.getBExpression());
-		bGuardExpressionEClass.getESuperTypes().add(this.getBGuard());
 		bSystemContextEClass.getESuperTypes().add(this.getBExecutionContext());
 		bContextEClass.getESuperTypes().add(this.getBExecutionContext());
 		bInnerContextEClass.getESuperTypes().add(this.getBExecutionContext());
@@ -4158,8 +4082,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		b3JavaImportEClass.getESuperTypes().add(this.getIType());
 		b3JavaImportEClass.getESuperTypes().add(this.getITypedValue());
 		bLiteralTypeEClass.getESuperTypes().add(this.getBExpression());
-		bGuardFunctionEClass.getESuperTypes().add(this.getBGuard());
-		bTypeCalculatorFunctionEClass.getESuperTypes().add(this.getBTypeCalculator());
 		bInstanceContextEClass.getESuperTypes().add(this.getBInnerContext());
 		bDefPropertyEClass.getESuperTypes().add(this.getBDefValue());
 		bPropertySetEClass.getESuperTypes().add(this.getBAdvice());
@@ -4245,12 +4167,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, this.getIFunction(), "function", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
-		op = addEOperation(
-			bExecutionContextEClass, ecorePackage.getEJavaObject(), "callFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bExecutionContextEClass, this.getIFunction(), "findFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "functionName", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getObjectArray(), "parameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
+		addEException(op, this.getB3EngineException());
 
 		op = addEOperation(
 			bExecutionContextEClass, this.getBInvocationContext(), "getInvocationContext", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4264,12 +4184,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		addEOperation(
 			bExecutionContextEClass, this.getBExecutionContext(), "createOuterContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(
-			bExecutionContextEClass, this.getIType(), "getDeclaredFunctionType", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "functionName", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
 
 		addEOperation(
 			bExecutionContextEClass, ecorePackage.getEBoolean(), "isPropertyScope", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4586,17 +4500,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 			IS_ORDERED);
 		initEAttribute(
-			getIFunction_ParameterTypes(), this.getTypeArray(), "parameterTypes", null, 0, 1, IFunction.class,
-			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(
 			getIFunction_ExceptionTypes(), this.getTypeArray(), "exceptionTypes", null, 0, 1, IFunction.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getIFunction_TypeParameters(), this.getTypeVariableArray(), "typeParameters", null, 0, 1, IFunction.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIFunction_ParameterNames(), this.getStringArray(), "parameterNames", null, 0, 1, IFunction.class,
-			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getIFunction_Parameters(), this.getBParameterDeclaration(), null, "parameters", null, 0, -1,
 			IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
@@ -4630,42 +4538,20 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			getIFunction_VarargArrayType(), this.getType(), "varargArrayType", null, 0, 1, IFunction.class,
 			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(iFunctionEClass, ecorePackage.getEJavaObject(), "call", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getObjectArray(), "parameters", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
-
-		op = addEOperation(iFunctionEClass, ecorePackage.getEJavaObject(), "internalCall", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getObjectArray(), "parameters", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
-
-		op = addEOperation(iFunctionEClass, this.getBExecutionContext(), "prepareCall", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getObjectArray(), "parameters", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
-
 		op = addEOperation(
 			iFunctionEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(bGuardEClass, BGuard.class, "BGuard", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bGuardEClass, BGuard.class, "BGuard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getBGuard_Func(), this.getBJavaFunction(), null, "func", null, 0, 1, BGuard.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			IS_ORDERED);
 
 		op = addEOperation(bGuardEClass, ecorePackage.getEBoolean(), "accepts", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIFunction(), "function", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
-
-		initEClass(
-			bGuardExpressionEClass, BGuardExpression.class, "BGuardExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBGuardExpression_GuardExpr(), this.getBExpression(), null, "guardExpr", null, 0, 1,
-			BGuardExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			bSystemContextEClass, BSystemContext.class, "BSystemContext", !IS_ABSTRACT, !IS_INTERFACE,
@@ -4718,12 +4604,26 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(
 			getBJavaFunction_CallType(), this.getBJavaCallType(), "callType", null, 0, 1, BJavaFunction.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBJavaFunction_ParameterTypes(), this.getTypeArray(), "parameterTypes", null, 0, 1, BJavaFunction.class,
+			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBJavaFunction_ParameterNames(), this.getStringArray(), "parameterNames", null, 0, 1,
+			BJavaFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 
 		addEOperation(bJavaFunctionEClass, ecorePackage.getEBoolean(), "isSystemCall", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(bJavaFunctionEClass, ecorePackage.getEBoolean(), "isFunctionCall", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(bJavaFunctionEClass, ecorePackage.getEBoolean(), "isMethodCall", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(
+			bJavaFunctionEClass, ecorePackage.getEJavaObject(), "internalCall", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getObjectArray(), "parameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTypeArray(), "parameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getThrowable());
 
 		initEClass(
 			bFunctionContainerEClass, BFunctionContainer.class, "BFunctionContainer", IS_ABSTRACT, IS_INTERFACE,
@@ -4903,28 +4803,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			IS_ORDERED);
 
 		initEClass(
-			bGuardFunctionEClass, BGuardFunction.class, "BGuardFunction", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBGuardFunction_Func(), this.getIFunction(), null, "func", null, 0, 1, BGuardFunction.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-
-		initEClass(
 			bTypeCalculatorEClass, BTypeCalculator.class, "BTypeCalculator", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getBTypeCalculator_Func(), this.getBJavaFunction(), null, "func", null, 0, 1, BTypeCalculator.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(
 			bTypeCalculatorEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(
-			bTypeCalculatorFunctionEClass, BTypeCalculatorFunction.class, "BTypeCalculatorFunction", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBTypeCalculatorFunction_Func(), this.getIFunction(), null, "func", null, 0, 1,
-			BTypeCalculatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			bInstanceContextEClass, BInstanceContext.class, "BInstanceContext", !IS_ABSTRACT, !IS_INTERFACE,

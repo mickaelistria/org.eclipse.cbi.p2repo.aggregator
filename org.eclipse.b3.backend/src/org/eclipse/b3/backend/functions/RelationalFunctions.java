@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.SimplePattern;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.core.runtime.IStatus;
 
@@ -55,13 +56,17 @@ public class RelationalFunctions {
 		}
 		Object p[] = new Object[2];
 		Type t[] = new Type[2];
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		for(int i = 0; i < left.size(); i++) {
 			p[0] = left.get(i);
 			p[1] = right.get(i);
 			t[0] = p[0].getClass();
 			t[1] = p[1].getClass();
-			if(ctx.callFunction("equals", p, t) != Boolean.TRUE)
+			if(evaluator.callFunction("equals", p, t, ctx) != Boolean.TRUE)
 				return Boolean.FALSE;
+			//
+			// if(ctx.callFunction("equals", p, t) != Boolean.TRUE)
+			// return Boolean.FALSE;
 		}
 		return Boolean.TRUE;
 	}
@@ -85,12 +90,13 @@ public class RelationalFunctions {
 		}
 		Object p[] = new Object[2];
 		Type t[] = new Type[2];
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		for(int i = 0; i < left.size(); i++) {
 			p[0] = left.get(i);
 			p[1] = right.get(i);
 			t[0] = p[0].getClass();
 			t[1] = p[1].getClass();
-			if(ctx.callFunction("matches", p, t) != Boolean.TRUE)
+			if(evaluator.callFunction("matches", p, t, ctx) != Boolean.TRUE)
 				return Boolean.FALSE;
 		}
 		return Boolean.TRUE;
@@ -115,12 +121,13 @@ public class RelationalFunctions {
 		}
 		Object p[] = new Object[2];
 		Type t[] = new Type[2];
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		for(Object k : left.keySet()) {
 			p[0] = left.get(k);
 			p[1] = right.get(k);
 			t[0] = p[0].getClass();
 			t[1] = p[1].getClass();
-			if(ctx.callFunction("equals", p, t) != Boolean.TRUE)
+			if(evaluator.callFunction("equals", p, t, ctx) != Boolean.TRUE)
 				return Boolean.FALSE;
 		}
 		return Boolean.TRUE;
@@ -145,12 +152,13 @@ public class RelationalFunctions {
 		}
 		Object p[] = new Object[2];
 		Type t[] = new Type[2];
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		for(Object k : left.keySet()) {
 			p[0] = left.get(k);
 			p[1] = right.get(k);
 			t[0] = p[0].getClass();
 			t[1] = p[1].getClass();
-			if(ctx.callFunction("matches", p, t) != Boolean.TRUE)
+			if(evaluator.callFunction("matches", p, t, ctx) != Boolean.TRUE)
 				return Boolean.FALSE;
 		}
 		return Boolean.TRUE;
@@ -158,7 +166,8 @@ public class RelationalFunctions {
 
 	@B3Backend(system = true)
 	public static Object _notEquals(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
-		if(ctx.callFunction("equals", params, types) == Boolean.FALSE)
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
+		if(evaluator.callFunction("equals", params, types, ctx) == Boolean.FALSE)
 			return Boolean.TRUE;
 		return Boolean.FALSE;
 	}

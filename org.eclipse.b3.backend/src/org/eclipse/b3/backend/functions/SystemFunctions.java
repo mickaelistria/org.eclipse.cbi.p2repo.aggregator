@@ -11,6 +11,7 @@ import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.B3BackendActivator;
 import org.eclipse.b3.backend.evaluator.Any;
 import org.eclipse.b3.backend.evaluator.B3ContextAccess;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
@@ -58,7 +59,8 @@ public class SystemFunctions {
 			BExecutionContext useCtx = cur.closure == null
 					? ctx.createOuterContext()
 					: cur.closure.createInnerContext();
-			result = cur.lambda.call(useCtx, cur.p, cur.t);
+			result = ctx.getInjector().getInstance(IB3Evaluator.class).doCall(cur.lambda, cur.p, cur.t, useCtx);
+			// result = cur.lambda.call(useCtx, cur.p, cur.t);
 		}
 		return result;
 	}
@@ -76,7 +78,8 @@ public class SystemFunctions {
 			BExecutionContext useCtx = cur.closure == null
 					? ctx.createOuterContext()
 					: cur.closure.createInnerContext();
-			result = cur.lambda.call(useCtx, cur.p, cur.t);
+			result = ctx.getInjector().getInstance(IB3Evaluator.class).doCall(cur.lambda, cur.p, cur.t, useCtx);
+			// result = cur.lambda.call(useCtx, cur.p, cur.t);
 			if(!(result instanceof Boolean) || ((Boolean) result) == Boolean.FALSE)
 				return Boolean.FALSE;
 		}
@@ -93,7 +96,9 @@ public class SystemFunctions {
 			return Boolean.TRUE;
 		if(expected == null || actual == null)
 			throw new B3AssertionFailedException(message, expected, actual);
-		else if(ctx.callFunction("equals", new Object[] { params[1], params[2] }, new Type[] { types[1], types[2] }) != Boolean.TRUE)
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
+		if(evaluator.callFunction(
+			"equals", new Object[] { params[1], params[2] }, new Type[] { types[1], types[2] }, ctx) != Boolean.TRUE)
 			throw new B3AssertionFailedException(message, expected, actual);
 		return Boolean.TRUE;
 	}
@@ -110,7 +115,9 @@ public class SystemFunctions {
 			BExecutionContext useCtx = cur.closure == null
 					? ctx.createOuterContext()
 					: cur.closure.createInnerContext();
-			result.add(cur.lambda.call(useCtx, cur.p, cur.t));
+
+			result.add(ctx.getInjector().getInstance(IB3Evaluator.class).doCall(cur.lambda, cur.p, cur.t, useCtx));
+			// result.add(cur.lambda.call(useCtx, cur.p, cur.t));
 		}
 		return result;
 	}
@@ -146,7 +153,9 @@ public class SystemFunctions {
 		useCtx = useCtx == null
 				? ctx.createOuterContext()
 				: useCtx.createInnerContext();
-		return func.call(useCtx, callparams, calltypes);
+		return ctx.getInjector().getInstance(IB3Evaluator.class).doCall(func, callparams, calltypes, useCtx);
+
+		// return func.call(useCtx, callparams, calltypes);
 	}
 
 	@B3Backend(system = true)
@@ -163,7 +172,9 @@ public class SystemFunctions {
 			BExecutionContext useCtx = cur.closure == null
 					? ctx.createOuterContext()
 					: cur.closure.createInnerContext();
-			result = cur.lambda.call(useCtx, cur.p, cur.t);
+
+			result = ctx.getInjector().getInstance(IB3Evaluator.class).doCall(cur.lambda, cur.p, cur.t, useCtx);
+			// result = cur.lambda.call(useCtx, cur.p, cur.t);
 			if(result instanceof Boolean && ((Boolean) result) == Boolean.TRUE)
 				return Boolean.TRUE;
 		}
@@ -195,7 +206,8 @@ public class SystemFunctions {
 			BExecutionContext useCtx = cur.closure == null
 					? ctx.createOuterContext()
 					: cur.closure.createInnerContext();
-			inject = cur.lambda.call(useCtx, cur.p, cur.t);
+			inject = ctx.getInjector().getInstance(IB3Evaluator.class).doCall(cur.lambda, cur.p, cur.t, useCtx);
+			// inject = cur.lambda.call(useCtx, cur.p, cur.t);
 			cur.p[injectPos] = inject;
 		}
 		// if the iterator had no elements, return the injected start value.
@@ -225,7 +237,8 @@ public class SystemFunctions {
 			BExecutionContext useCtx = cur.closure == null
 					? ctx.createOuterContext()
 					: cur.closure.createInnerContext();
-			cond = cur.lambda.call(useCtx, cur.p, cur.t);
+			cond = ctx.getInjector().getInstance(IB3Evaluator.class).doCall(cur.lambda, cur.p, cur.t, useCtx);
+			// cond = cur.lambda.call(useCtx, cur.p, cur.t);
 			// if true is returned, the element is not added
 			if(!(cond instanceof Boolean && ((Boolean) cond) == Boolean.TRUE))
 				result.add(curryVal);
@@ -246,7 +259,9 @@ public class SystemFunctions {
 			BExecutionContext useCtx = cur.closure == null
 					? ctx.createOuterContext()
 					: cur.closure.createInnerContext();
-			cond = cur.lambda.call(useCtx, cur.p, cur.t);
+			cond = ctx.getInjector().getInstance(IB3Evaluator.class).doCall(cur.lambda, cur.p, cur.t, useCtx);
+
+			// cond = cur.lambda.call(useCtx, cur.p, cur.t);
 			if(cond instanceof Boolean && ((Boolean) cond) == Boolean.TRUE)
 				result.add(curryVal);
 		}
@@ -257,7 +272,7 @@ public class SystemFunctions {
 	public static Object _whileFalse(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		Object[] callParams = new Object[0];
 		Type[] typeParams = new Type[0];
-
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		if(params.length == 2) {
 			BFunction cond = (BFunction) params[0];
 			BFunction body = (BFunction) params[1];
@@ -268,14 +283,17 @@ public class SystemFunctions {
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
-				c = cond.call(useCtx, callParams, typeParams);
+				c = evaluator.doCall(cond, callParams, typeParams, useCtx);
+
+				// c = cond.call(useCtx, callParams, typeParams);
 				if(c != Boolean.FALSE)
 					return e;
 				useCtx = body.getClosure();
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
-				e = body.call(useCtx, callParams, typeParams);
+				e = evaluator.doCall(body, callParams, typeParams, useCtx);
+				// e = body.call(useCtx, callParams, typeParams);
 			}
 		}
 		if(params.length == 1) {
@@ -286,7 +304,9 @@ public class SystemFunctions {
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
-				e = body.call(useCtx, callParams, typeParams);
+				e = evaluator.doCall(body, callParams, typeParams, useCtx);
+
+				// e = body.call(useCtx, callParams, typeParams);
 			}
 			return e;
 		}
@@ -298,7 +318,7 @@ public class SystemFunctions {
 	public static Object _whileTrue(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		Object[] callParams = new Object[0];
 		Type[] typeParams = new Type[0];
-
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		if(params.length == 2) {
 			BFunction cond = (BFunction) params[0];
 			BFunction body = (BFunction) params[1];
@@ -309,14 +329,17 @@ public class SystemFunctions {
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
-				c = cond.call(useCtx, callParams, typeParams);
+				c = evaluator.doCall(cond, callParams, typeParams, useCtx);
+				// c = cond.call(useCtx, callParams, typeParams);
 				if(c != Boolean.TRUE)
 					return e;
 				useCtx = body.getClosure();
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
-				e = body.call(useCtx, callParams, typeParams);
+				e = evaluator.doCall(body, callParams, typeParams, useCtx);
+
+				// e = body.call(useCtx, callParams, typeParams);
 			}
 		}
 		if(params.length == 1) {
@@ -327,7 +350,8 @@ public class SystemFunctions {
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
-				e = body.call(useCtx, callParams, typeParams);
+				e = evaluator.doCall(body, callParams, typeParams, useCtx);
+				// e = body.call(useCtx, callParams, typeParams);
 			}
 			return e;
 		}

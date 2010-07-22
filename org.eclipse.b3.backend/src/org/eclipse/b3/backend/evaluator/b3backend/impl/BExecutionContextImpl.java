@@ -1,8 +1,11 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
@@ -54,10 +57,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import com.google.common.collect.Maps;
-import com.google.inject.Binder;
-import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.Module;
 
 /**
  * <!-- begin-user-doc -->
@@ -165,8 +165,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final ValueMap VALUE_MAP_EDEFAULT = null; // (ValueMap)B3backendFactory.eINSTANCE.createFromString(B3backendPackage.eINSTANCE.getValueMap(),
-																// "");
+	protected static final ValueMap VALUE_MAP_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
@@ -282,108 +281,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 */
 	public BExecutionContext basicGetParentContext() {
 		return parentContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Object callFunction(String functionName, Object[] parameters, Type[] types) throws Throwable {
-		// if("addedLater".equals(functionName)) {
-		// functionName = functionName + ""; // dummy for debugging
-		// }
-		if(functionName == null)
-			throw new B3InternalError("BExecutionContext error - can not callFunction with null function name!");
-		B3FuncStore fStore = getEffectiveFuncStore();
-		if(fStore == null)
-			throw new B3InternalError("Could not find an effective function store - engine/context setup is broken!");
-		Throwable lastError = null;
-		Throwable lastStaticError = null;
-		ATTEMPTS: for(int attempts = 0; attempts < 5; attempts++) {
-			switch(attempts) {
-				case 0: // fall through
-				case 3: // try a call with the parameters as stated
-					try {
-						return fStore.callFunction(functionName, parameters, types, this);
-					}
-					catch(B3NoSuchFunctionException e) {
-						attempts++; // skip second attempt
-						lastError = e;
-						continue;
-					}
-					catch(B3NoSuchFunctionSignatureException e2) {
-						lastError = e2;
-						continue;
-					}
-				case 1: // fall through
-				case 4: // try a static call
-					try {
-						if(parameters.length > 0) {
-							Object[] newParameters = new Object[parameters.length + 1];
-							System.arraycopy(parameters, 0, newParameters, 1, parameters.length);
-							B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-							metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
-							newParameters[0] = types[0];
-							Type[] newTypes = new Type[types.length + 1];
-							System.arraycopy(types, 0, newTypes, 1, types.length);
-							newTypes[0] = metaClass;
-							return fStore.callFunction(functionName, newParameters, newTypes, this);
-						}
-					}
-					catch(B3NoSuchFunctionException e3) {
-						lastStaticError = e3;
-						continue;
-					}
-					catch(B3NoSuchFunctionSignatureException e4) {
-						lastStaticError = e4;
-						continue;
-					}
-					break;
-				case 2: // try loading the method in the java context
-				{
-					BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
-					if(!(systemCtx instanceof BSystemContext))
-						throw new B3InternalError(
-							"The parent of the invocation context must be an instance of BSystemContext");
-					Class<?> objectType = TypeUtils.getRaw(types[0]);
-
-					Method[] methods = objectType.getMethods();
-					boolean foundNamedMethod = false;
-					for(int i = 0; i < methods.length; i++) {
-						if(methods[i].getName().equals(functionName)) {
-							// load in system context
-							BJavaFunction f = systemCtx.loadFunction(methods[i]);
-							// weave in this context (and all contexts on the way to the system context).
-							weaveLoaded(f, this);
-							foundNamedMethod = true;
-						}
-					}
-					if(foundNamedMethod)
-						continue; // try again, now with all methods with wanted name loaded and wowen.
-
-					// // OLD WAY
-					// IFunction loaded = null;
-					// if((loaded = ((BSystemContext) systemCtx).loadMethod(functionName, types)) != null) {
-					// weaveLoaded(loaded, this);
-					// continue; // attempt calling the (possibly advised) function
-					// }
-					break ATTEMPTS;
-				}
-				default:
-					throw new B3InternalError("BExecutionContextImpl#callFunction() - broken call strategy loop :" +
-							String.valueOf(attempts));
-			}
-		}
-		// Successful call should have returned result already - only error conditions remain
-		if(lastError == null && lastStaticError == null)
-			throw new B3InternalError("BExecutionContextImpl#callFunction() did not return ok, and had no last error");
-
-		throw lastError != null
-				? lastError
-				: lastStaticError;
-
 	}
 
 	/**
@@ -731,9 +628,102 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Finds a defined function, if none found an attempt is made at loading a matching function in
+	 * the system (java) context.
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
+	 */
+	public IFunction findFunction(String functionName, Type[] types) throws B3EngineException {
+		if(functionName == null)
+			throw new B3InternalError("BExecutionContext error - can not callFunction with null function name!");
+		B3FuncStore fStore = getEffectiveFuncStore();
+		if(fStore == null)
+			throw new B3InternalError("Could not find an effective function store - engine/context setup is broken!");
+		B3EngineException lastError = null;
+		B3EngineException lastStaticError = null;
+		ATTEMPTS: for(int attempts = 0; attempts < 5; attempts++) {
+			switch(attempts) {
+				case 0: // fall through
+				case 3: // try a search with the parameters as stated
+					try {
+						return fStore.findFunction(functionName, types);
+					}
+					catch(B3NoSuchFunctionException e) {
+						attempts++; // skip second attempt (no b3 class function possible)
+						lastError = e;
+						continue;
+					}
+					catch(B3NoSuchFunctionSignatureException e2) {
+						lastError = e2;
+						continue;
+					}
+				case 1: // fall through
+				case 4: // try searching for a static / class function
+					try {
+						if(types.length > 0) {
+							B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+							metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+							Type[] newTypes = new Type[types.length + 1];
+							System.arraycopy(types, 0, newTypes, 1, types.length);
+							newTypes[0] = metaClass;
+							return fStore.findFunction(functionName, newTypes);
+						}
+					}
+					catch(B3NoSuchFunctionException e3) {
+						lastStaticError = e3;
+						continue;
+					}
+					catch(B3NoSuchFunctionSignatureException e4) {
+						lastStaticError = e4;
+						continue;
+					}
+					break;
+				case 2: // try loading the method in the java context
+				{
+					BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
+					if(!(systemCtx instanceof BSystemContext))
+						throw new B3InternalError(
+							"The parent of the invocation context must be an instance of BSystemContext");
+					Class<?> objectType = TypeUtils.getRaw(types[0]);
+
+					Method[] methods = objectType.getMethods();
+					boolean foundNamedMethod = false;
+					for(int i = 0; i < methods.length; i++) {
+						if(methods[i].getName().equals(functionName)) {
+							// load in system context
+							BJavaFunction f = systemCtx.loadFunction(methods[i]);
+							// weave in this context (and all contexts on the way to the system context).
+							weaveLoaded(f, this);
+							foundNamedMethod = true;
+						}
+					}
+					if(foundNamedMethod)
+						continue; // try again, now with all methods with wanted name loaded and wowen.
+
+					break ATTEMPTS;
+				}
+				default:
+					throw new B3InternalError("BExecutionContextImpl#callFunction() - broken call strategy loop :" +
+							String.valueOf(attempts));
+			}
+		}
+		// Successful search should have returned result already - only error conditions remain
+		// if there are no lasterrors remembered, this is bad...
+		if(lastError == null && lastStaticError == null)
+			throw new B3InternalError("BExecutionContextImpl#callFunction() did not return ok, and had no last error");
+
+		throw lastError != null
+				? lastError
+				: lastStaticError;
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	public Iterator<BConcernContext> getConcernIterator(Object candidate) {
 		// TODO: implement this method
@@ -754,83 +744,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		if(getParentContext() == null)
 			throw new B3NoContextException(clazz.getName());
 		return getParentContext().getContext(clazz);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Deprecated
-	public Type getDeclaredFunctionType(String functionName, Type[] types) throws Throwable {
-		B3FuncStore fStore = getEffectiveFuncStore();
-		if(fStore == null)
-			throw new B3InternalError("Could not find an effective function store - engine/context setup is broken!");
-		Throwable lastError = null;
-		Throwable lastStaticError = null;
-		ATTEMPTS: for(int attempts = 0; attempts < 5; attempts++) {
-			switch(attempts) {
-				case 0: // fall through
-				case 3: // try a call with the parameters as stated
-					try {
-						return fStore.getDeclaredFunctionType(functionName, types, this);
-					}
-					catch(B3NoSuchFunctionException e) {
-						attempts++; // skip second attempt
-						lastError = e;
-						continue;
-					}
-					catch(B3NoSuchFunctionSignatureException e2) {
-						lastError = e2;
-						continue;
-					}
-				case 1: // fall through
-				case 4: // try a static call
-					try {
-						if(types.length > 0) {
-							B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-							metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
-							Type[] newTypes = new Type[types.length + 1];
-							System.arraycopy(types, 0, newTypes, 1, types.length);
-							newTypes[0] = metaClass;
-							return fStore.getDeclaredFunctionType(functionName, newTypes, this);
-						}
-					}
-					catch(B3NoSuchFunctionException e3) {
-						lastStaticError = e3;
-						continue;
-					}
-					catch(B3NoSuchFunctionSignatureException e4) {
-						lastStaticError = e4;
-						continue;
-					}
-					break;
-				case 2: // try loading the method in the java context
-					BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
-					if(!(systemCtx instanceof BSystemContext))
-						throw new B3InternalError(
-							"The parent of the invocation context must be an instance of BSystemContext");
-					IFunction loaded = null;
-					if((loaded = ((BSystemContext) systemCtx).loadMethod(functionName, types)) != null) {
-						weaveLoaded(loaded, this);
-						continue; // attempt calling the (possibly advised) function
-					}
-					break ATTEMPTS;
-				default:
-					throw new B3InternalError(
-						"BExecutionContextImpl#getDeclaredFunctionType() - broken call strategy loop :" +
-								String.valueOf(attempts));
-			}
-		}
-		// Successful call should have returned result already - only error conditions remain
-		if(lastError == null && lastStaticError == null)
-			throw new B3InternalError(
-				"BExecutionContextImpl#getDeclaredFunctionType() did not return ok, and had no last error");
-
-		throw lastError != null
-				? lastError
-				: lastStaticError;
 	}
 
 	/**
@@ -923,7 +836,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns the first found injector in this or parent context. If the top of the ancestor chain
-	 * is reached without finding an injector, an empty injector is created.
+	 * is reached without finding an injector, an internal error exception is thrown.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -931,16 +844,10 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	public Injector getInjector() {
 		if(injector != null)
 			return injector;
-		else if(getParentContext() != null)
-			return getParentContext().getInjector();
-		// create a null injector...
-		setInjector(Guice.createInjector(new Module() {
-			public void configure(Binder binder) {
-				// no bindings
-			}
-
-		}));
-		return injector;
+		for(BExecutionContext p = getParentContext(); p != null; p = p.getParentContext())
+			if(p.getInjector() != null)
+				return p.getInjector();
+		throw new B3InternalError("No injector configured in initial context");
 	}
 
 	/**
@@ -1014,15 +921,18 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	public IProgressMonitor getProgressMonitor() {
 		if(progressMonitor != null)
 			return progressMonitor;
-		else if(getParentContext() != null)
-			return getParentContext().getProgressMonitor();
-		setProgressMonitor(new NullProgressMonitor());
-		return progressMonitor;
+
+		BExecutionContext root = this;
+		for(BExecutionContext p = getParentContext(); p != null; root = p, p = p.getParentContext())
+			if(p.getProgressMonitor() != null)
+				return p.getProgressMonitor();
+
+		root.setProgressMonitor(new NullProgressMonitor());
+		return root.getProgressMonitor();
 	}
 
 	/**
 	 * @generated NOT
-	 *            BuildUnit u = ctx.getBuildUnitStore().get(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getIface());
 	 */
 	public <T> T getSomeThing(Class<T> clazz, Object key) {
 		T result = null;
@@ -1032,7 +942,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			if((result = getThingFromMap(clazz, key, ctx.allThings)) != null)
 				return result;
 		}
-		return null; // TODO: Should probably throw "NoSuchUnit" instead
+		return null; // TODO: Should probably throw "NoSuchThing" instead
 	}
 
 	private <T> T getThingFromMap(Class<T> clazz, Object key, Map<Class<?>, Map<Object, Object>> allMap) {
@@ -1252,14 +1162,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (ctxIdentifier: " + this.ctxIdentifier);
-		// result.append(" (valueMap : ");
-		// result.append(valueMap);
-		// result.append(", funcStore: ");
-		// result.append(funcStore);
-		// result.append(", progressMonitor: ");
-		// result.append(progressMonitor);
-		// result.append(", injector: ");
-		// result.append(injector);
 		result.append(')');
 		return result.toString();
 	}
@@ -1267,14 +1169,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	private void weaveLoaded(IFunction f, BExecutionContext ctx) throws B3WeavingFailedException {
 		if(ctx == null)
 			return;
-		B3FuncStore fs = ctx.getFuncStore();
-		if(fs != null)
-			try {
-				fs.updateCache(f.getName());
-			}
-			catch(B3EngineException e1) {
-				throw new B3WeavingFailedException(e1);
-			}
 		weaveLoaded(f, ctx.getParentContext());
 		for(BConcern c : ctx.getEffectiveConcerns()) {
 			boolean savedWeaving = isWeaving;

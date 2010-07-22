@@ -761,40 +761,6 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>BGuard Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>BGuard Expression</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBGuardExpression(BGuardExpression object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>BGuard Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>BGuard Function</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBGuardFunction(BGuardFunction object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BIf Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1318,23 +1284,6 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBTypeCalculator(BTypeCalculator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>BType Calculator Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>BType Calculator Function</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBTypeCalculatorFunction(BTypeCalculatorFunction object) {
 		return null;
 	}
 
@@ -1978,15 +1927,6 @@ public class B3backendSwitch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case B3backendPackage.BGUARD_EXPRESSION: {
-				BGuardExpression bGuardExpression = (BGuardExpression) theEObject;
-				T result = caseBGuardExpression(bGuardExpression);
-				if(result == null)
-					result = caseBGuard(bGuardExpression);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
 			case B3backendPackage.BSYSTEM_CONTEXT: {
 				BSystemContext bSystemContext = (BSystemContext) theEObject;
 				T result = caseBSystemContext(bSystemContext);
@@ -2207,27 +2147,9 @@ public class B3backendSwitch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case B3backendPackage.BGUARD_FUNCTION: {
-				BGuardFunction bGuardFunction = (BGuardFunction) theEObject;
-				T result = caseBGuardFunction(bGuardFunction);
-				if(result == null)
-					result = caseBGuard(bGuardFunction);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
 			case B3backendPackage.BTYPE_CALCULATOR: {
 				BTypeCalculator bTypeCalculator = (BTypeCalculator) theEObject;
 				T result = caseBTypeCalculator(bTypeCalculator);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION: {
-				BTypeCalculatorFunction bTypeCalculatorFunction = (BTypeCalculatorFunction) theEObject;
-				T result = caseBTypeCalculatorFunction(bTypeCalculatorFunction);
-				if(result == null)
-					result = caseBTypeCalculator(bTypeCalculatorFunction);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

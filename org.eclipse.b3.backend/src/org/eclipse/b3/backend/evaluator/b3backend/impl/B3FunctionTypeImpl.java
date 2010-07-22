@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009, Cloudsmith Inc and others.
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 import java.util.Collection;
+
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
@@ -329,6 +330,20 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 		return ts;
 	}
 
+	// /**
+	// * <!-- begin-user-doc -->
+	// * <!-- end-user-doc -->
+	// *
+	// * @generated NOT
+	// */
+	// public String[] getParameterNamesArray() {
+	// EList<String> list = getParameterNames();
+	// String[] ts = new String[list.size()];
+	// int i = 0;
+	// for(String t : list)
+	// ts[i++] = t;
+	// return ts;
+	// }
 	/**
 	 * <!-- begin-user-doc -->
 	 * The generated version casts the return type to EObject. It may be just a java.lang.reflect imlementation.

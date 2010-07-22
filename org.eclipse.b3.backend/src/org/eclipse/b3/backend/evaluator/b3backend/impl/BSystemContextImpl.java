@@ -1,9 +1,13 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
+
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Method;
@@ -111,47 +115,6 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 		createFuncStore();
 	}
 
-	// /**
-	// * <!-- begin-user-doc -->
-	// * TODO: Translate exceptions from not finding method etc. into B3 Exceptions
-	// * <!-- end-user-doc -->
-	// *
-	// * @generated NOT
-	// */
-	// public Object callFunction(String functionName, Object[] parameters, Type[] types, BExecutionContext ctx)
-	// throws Throwable {
-	// Method method = findMethod(functionName, types);
-	// Class<?>[] methodParameterTypes = method.getParameterTypes();
-	// Object[] callParameters = new Object[methodParameterTypes.length];
-	//
-	// if(method.isVarArgs()
-	// && (types.length - 1 != methodParameterTypes.length || !methodParameterTypes[methodParameterTypes.length - 1]
-	// .isAssignableFrom(TypeUtils.getRaw(types[methodParameterTypes.length])))) {
-	//
-	// for(int i = 1; i < methodParameterTypes.length; ++i)
-	// callParameters[i - 1] = parameters[i];
-	//
-	// Class<?> varargComponentType = methodParameterTypes[methodParameterTypes.length - 1].getComponentType();
-	//
-	// Object varargArray = Array.newInstance(varargComponentType, types.length - methodParameterTypes.length);
-	//
-	// for(int i = methodParameterTypes.length; i < types.length; ++i)
-	// Array.set(varargArray, i - methodParameterTypes.length, parameters[i]);
-	//
-	// callParameters[methodParameterTypes.length - 1] = varargArray;
-	// } else {
-	// for(int i = 1; i < methodParameterTypes.length + 1; ++i)
-	// callParameters[i - 1] = parameters[i];
-	// }
-	//
-	// try {
-	// // invoke handles unwrap of non primitive types
-	// return method.invoke(parameters[0], callParameters);
-	// } catch(InvocationTargetException e) {
-	// throw e.getCause();
-	// }
-	// }
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -190,13 +153,6 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 			default: // more than one candidate method found (the method call is ambiguous)
 				throw new B3AmbiguousFunctionSignatureException(methodName, types);
 		}
-	}
-
-	@Override
-	public Type getDeclaredFunctionType(String functionName, Type[] types) throws Throwable {
-		Method m = findMethod(functionName, types);
-
-		return TypeUtils.objectify(m.getGenericReturnType());
 	}
 
 	/**

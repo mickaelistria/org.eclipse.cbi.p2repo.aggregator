@@ -26,6 +26,7 @@ import org.eclipse.b3.backend.core.B3BackendConstants;
 import org.eclipse.b3.backend.core.B3BackendException;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3IllegalInjectionArgumentsException;
+import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.B3NoContextException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
@@ -35,7 +36,10 @@ import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.core.LoadedPropertySetAdapter;
 import org.eclipse.b3.backend.core.LoadedPropertySetAdapterFactory;
 import org.eclipse.b3.backend.core.RegexpIterator;
+import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BAdvice;
 import org.eclipse.b3.backend.evaluator.b3backend.BAndExpression;
@@ -52,6 +56,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
@@ -67,6 +72,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
@@ -76,6 +82,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BOrExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
@@ -96,6 +103,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.ConstructorCandidate;
 import org.eclipse.b3.backend.evaluator.typesystem.ConstructorCandidateSource;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.OperationCanceledException;
@@ -108,6 +116,8 @@ import org.eclipse.xtext.util.Strings;
 import com.google.inject.Inject;
 
 public class B3BackendEvaluator extends DeclarativeB3Evaluator {
+	protected static final String[] EMPTY_NAMELIST = new String[0];
+
 	// TODO: Move this to some util class
 	public static Type[] getAllParameterTypes(Type objectType, Type[] parameterTypes) {
 		Type[] allParameterTypes = new Type[parameterTypes.length + 1];
@@ -221,10 +231,257 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 	}
 
 	@Inject
+	protected FunctionUtils functionUtils;
+
+	@Inject
 	protected IB3LvalProvider lValProvider;
 
 	@Inject
 	ITypeProvider typer;
+
+	/**
+	 * Calls the B3 Defined function
+	 */
+	public Object call(B3Function o, Object[] parameters, Type[] types, BExecutionContext ctx) throws Throwable {
+		return call(o, parameters, types, ctx, true);
+	}
+
+	/**
+	 * Calls a B3 Defined function.
+	 * If the parameter prepareContext is true, a new context is prepared with parameter name to value mapping.
+	 * If prepareContext is false, the given context is used as is in the evaulation.
+	 * Function body is evaluated and returned.
+	 */
+	public Object call(B3Function o, Object[] parameters, Type[] types, BExecutionContext ctx, boolean prepareContext)
+			throws Throwable {
+		if(ctx != null && ctx.getProgressMonitor().isCanceled())
+			throw new OperationCanceledException();
+
+		if(o.getFuncExpr() == null)
+			return null;
+		// prepare context if requested
+		return doEvaluate(o.getFuncExpr(), prepareContext
+				? doCallPrepare(o, parameters, types, ctx)
+				: ctx);
+	}
+
+	/**
+	 * Catcher impl for BFunction (if more specific impl is missing) - throws UnsupportedOperationException
+	 */
+	public Object call(BFunction o, Object[] params, Type[] types, BExecutionContext ctx) throws Throwable {
+		throw new UnsupportedOperationException("call(BFunction ...) - impl must be missing for specific type:" +
+				o.getClass());
+
+	}
+
+	/**
+	 * Calls a FunctionWrapper and performs setup of parameters in given context.
+	 * 
+	 * @throws OperationCanceledException
+	 *             if the operation was canceled.
+	 */
+	public Object call(BFunctionWrapper o, Object[] parameters, Type[] types, BExecutionContext ctx) throws Throwable {
+		return call(o, parameters, types, ctx, true);
+	}
+
+	/**
+	 * Calls a Function wrapper, optionall performing setup of parameters in given context.
+	 * 
+	 * @param o
+	 * @param parameters
+	 * @param types
+	 * @param ctx
+	 * @param prepareContext
+	 * @return
+	 * @throws Throwable
+	 */
+	public Object call(BFunctionWrapper o, Object[] parameters, Type[] types, BExecutionContext ctx,
+			boolean prepareContext) throws Throwable {
+		if(ctx.getProgressMonitor().isCanceled())
+			throw new OperationCanceledException();
+
+		if(o.getAroundExpr() == null) {
+			// A wrapper without body should have been rejected by validation
+			throw new B3InternalError("A Wrapped function without a body detected.");
+			// return o.getOriginal().internalCall(ctx, parameters, types);
+		}
+		return doEvaluate(o.getAroundExpr(), prepareContext
+				? doCallPrepare(o, parameters, types, ctx)
+				: ctx);
+	}
+
+	/**
+	 * Calls a BJavaFunction - never prepares the context as the java call uses the parameters and types
+	 * directly.
+	 * 
+	 * @param o
+	 * @param parameters
+	 * @param types
+	 * @param ctx
+	 * @return
+	 * @throws Throwable
+	 */
+	public Object call(BJavaFunction o, Object[] parameters, Type[] types, BExecutionContext ctx) throws Throwable {
+		return call(o, parameters, types, ctx, false);
+	}
+
+	/**
+	 * Calls a BJavaFunction - never prepares the context as the java call uses the parameters and types
+	 * directly.
+	 * 
+	 * @param o
+	 * @param parameters
+	 * @param types
+	 * @param ctx
+	 * @param prepareContext
+	 *            - ignored, parameters are never setup in the context for a java call
+	 * @return
+	 * @throws Throwable
+	 */
+	public Object call(BJavaFunction o, Object[] parameters, Type[] types, BExecutionContext ctx, boolean prepareContext)
+			throws Throwable {
+		// No need to prepare the context, as the java call is performed directly on the parameters and types.
+		if(ctx != null && ctx.getProgressMonitor().isCanceled())
+			throw new OperationCanceledException();
+
+		return o.internalCall(ctx, parameters, types);
+	}
+
+	/**
+	 * Finds and calls a function in a new outer context.
+	 * 
+	 * @param functionName
+	 * @param params
+	 * @param types
+	 * @param ctx
+	 * @return
+	 * @throws Throwable
+	 */
+	public Object callFunction(String functionName, Object[] params, Type[] types, BExecutionContext ctx)
+			throws Throwable {
+		IFunction f = ctx.findFunction(functionName, types);
+
+		// need to manipulate a static call that is performed on an instance of a class
+		// (contrast: a call on a static java method).
+		if(f.isClassFunction() && types.length > 0 && !(types[0] instanceof B3MetaClass)) {
+			B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+			metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+			Object[] newParameters = new Object[params.length + 1];
+			System.arraycopy(params, 0, newParameters, 1, params.length);
+			newParameters[0] = types[0];
+			Type[] newTypes = new Type[types.length + 1];
+			System.arraycopy(types, 0, newTypes, 1, types.length);
+			newTypes[0] = metaClass;
+			return doCall(f, newParameters, newTypes, ctx.createOuterContext());
+		}
+		// regular call (or explicit static call).
+		return doCall(f, params, types, ctx.createOuterContext());
+	}
+
+	protected BExecutionContext callPrepare(BFunctionWrapper o, Object[] parameters, Type[] types, BExecutionContext ctx)
+			throws Throwable {
+		// prepare the context as it should be for the original function (it may return a different context)
+		BExecutionContext octx = doCallPrepare(o.getOriginal(), parameters, types, ctx);
+
+		// create a mapped context that handles the advising expression's view of what the parameters are called
+		BWrappingContext mc = B3backendFactory.eINSTANCE.createBWrappingContext();
+		mc.mapContext(octx, o.getParameterMap(), o);
+		// keep parameters and types for 'proceed' call
+		mc.setParameters(parameters);
+		mc.setParameterTypes(types);
+		mc.setVarargsName(o.getVarargsName());
+
+		// get the outer context to use for normal calls out of this context
+		BContext outer = ctx.getContext(BContext.class);
+		// use the outer context as the parent since the advising expression should not see the original's
+		// parameter values.
+		mc.setParentContext(outer);
+		// use the outer context found earlier for outer
+		mc.setOuterContext(outer);
+		// need an inner context for the advising expression's local variables since the mapped context is immutable
+		return mc.createInnerContext();
+	}
+
+	/**
+	 * Prepares (and returns) a context suitable for evaluating the body of a function
+	 */
+	protected BExecutionContext callPrepare(IFunction f, Object[] params, Type[] types, BExecutionContext octx)
+			throws Throwable {
+		B3FunctionType functionSignature = functionUtils.getInferredSignature(f);
+
+		Type[] functionParameterTypes = functionSignature.getParameterTypesArray();
+
+		// Type[] functionParameterTypes = f.getParameterTypes();
+		if(functionParameterTypes.length > 0) { // if function takes no parameters, there is no binding to be done
+			int limit = functionParameterTypes.length - 1; // bind all but the last defined parameter
+			if(params.length < limit)
+				throw new IllegalArgumentException("B3 Function '" + f.getName() + "' " +
+						"called with too few arguments. Expected: " + functionParameterTypes.length + " but got: " +
+						params.length);
+
+			// parameter names may be processed differently for some IFunction subtypes (i.e.
+			// implicit variables).
+
+			String[] functionParameterNames = doParameterNames(f);
+			for(int i = 0; i < limit; i++) {
+				// check type compatibility
+				Object o = params[i];
+				Type t = o instanceof BFunction
+						? FunctionUtils.getSignature((BFunction) o)
+						: o.getClass();
+
+				if(!(TypeUtils.isAssignableFrom(functionParameterTypes[i], t)))
+					throw new B3IncompatibleTypeException(
+						functionParameterNames[i], functionParameterTypes[i], params[i].getClass());
+				// ok, define it
+				octx.defineVariableValue(functionParameterNames[i], params[i], functionParameterTypes[i]);
+			}
+			if(!f.isVarArgs()) { // if not varargs, bind the last defined parameter
+				if(params.length < functionParameterTypes.length)
+					throw new IllegalArgumentException("B3 Function '" + f.getName() + "' " +
+							"called with too few arguments. Expected: " + functionParameterTypes.length + " but got: " +
+							params.length);
+				// check type compatibility
+				Object o = params[limit];
+				if(o != null) {
+					Type t = o instanceof BFunction
+							? FunctionUtils.getSignature((BFunction) o)
+							: o.getClass();
+					if(!TypeUtils.isAssignableFrom(functionParameterTypes[limit], t))
+						throw new B3IncompatibleTypeException(
+							functionParameterNames[limit], functionParameterTypes[limit], params[limit].getClass());
+				}
+				// ok
+				octx.defineVariableValue(functionParameterNames[limit], params[limit], functionParameterTypes[limit]);
+			}
+			else {
+				// varargs call, create a list and stuff any remaining parameters there
+				List<Object> varargs = new ArrayList<Object>();
+				Type varargsType = functionParameterTypes[limit];
+				for(int i = limit; i < params.length; i++) {
+					Object o = params[i];
+					Type t = o instanceof BFunction
+							? FunctionUtils.getSignature((BFunction) o)
+							: o.getClass();
+
+					if(!TypeUtils.isAssignableFrom(varargsType, t))
+						throw new B3IncompatibleTypeException(
+							functionParameterNames[limit], varargsType, params[i].getClass());
+					varargs.add(params[i]);
+				}
+				B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+				pt.setRawType(List.class);
+				pt.getActualArgumentsList().add(functionParameterTypes[limit]);
+				// bind the varargs to a List of the declared type (possibly an empty list).
+				octx.defineVariableValue(functionParameterNames[limit], varargs, pt);
+			}
+		}
+		// mark the processing of parameters as done - (a bit ugly for now, as it requires getting the valueMap
+		// from the context - should be API on the context.
+		octx.getValueMap().markParametersDone(f.isVarArgs());
+		// returns the prepared context
+		return octx;
+	}
 
 	public Object evaluate(BAndExpression o, BExecutionContext ctx) throws Throwable {
 		if(Boolean.FALSE.equals(doEvaluate(o.getLeftExpr(), ctx)))
@@ -250,39 +507,24 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		if(inferred == null)
 			inferred = typer.doGetInferredType(o.getRightExpr());
 		Type[] types = new Type[] { lval.getDeclaredType(), inferred };
-		// remove the trailing = from +=, *= <<= etc. before calling
+		// remove the trailing '=' from +=, *= <<= etc. before calling
 		String fn = functionName.endsWith("=")
 				? functionName.substring(0, functionName.length() - 1)
 				: functionName;
-		return lval.set(ctx.callFunction(fn, params, types));
+		return lval.set(callFunction(fn, params, types, ctx));
 	}
 
 	public Object evaluate(BAtExpression o, BExecutionContext ctx) throws Throwable {
 		LValue lval = lValue(o, ctx);
 		return lval.get();
-
-		// Object obj = doEvaluate(o.getObjExpr(), ctx);
-		// Object i = doEvaluate(o.getIndexExpr(), ctx);
-		// if(!lValProvider.doIsIndexLVal(o))
-		// throw BackendHelper.createException(o.getObjExpr(), "expression is not of indexable type (like List or Map) - [] not applicable");
-		//
-		// lValProvider.doCreateLVal(o, i, lvalType)
-		// if(o instanceof List<?>) {
-		// int index = BackendHelper.intValue(i, o.getIndexExpr());
-		// return ((List<?>) obj).get(index);
-		// }
-		// if(o instanceof Map<?, ?>) {
-		// return ((Map<?, ?>) obj).get(i);
-		// }
-		// throw BackendHelper.createException(o.getObjExpr(), "expression is neither a list or map - [] not applicable");
 	}
 
 	public Object evaluate(BBinaryOpExpression o, BExecutionContext ctx) throws Throwable {
 		String functionName = o.getFunctionName();
 		try {
-			return ctx.callFunction(
+			return callFunction(
 				functionName, new Object[] { doEvaluate(o.getLeftExpr(), ctx), doEvaluate(o.getRightExpr(), ctx) },
-				new Type[] { typer.doGetInferredType(o.getLeftExpr()), typer.doGetInferredType(o.getRightExpr()) });
+				new Type[] { typer.doGetInferredType(o.getLeftExpr()), typer.doGetInferredType(o.getRightExpr()) }, ctx);
 		}
 		catch(ArithmeticException e) {
 			throw B3BackendException.fromMessage(o, e, "Arithmetic error - {0}", e.getMessage());
@@ -325,7 +567,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 				parameters[counter] = doEvaluate(e, ctx);
 				tparameters[counter++] = typer.doGetInferredType(e);
 			}
-			return ctx.callFunction(o.getName(), parameters, tparameters);
+			return callFunction(o.getName(), parameters, tparameters, ctx);
 		}
 		catch(B3NoSuchFunctionSignatureException e) {
 			lastError = e;
@@ -385,7 +627,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 			useCtx = useCtx == null
 					? ctx.createOuterContext()
 					: useCtx.createInnerContext();
-			return ((BFunction) target).call(useCtx, parameters, tparameters);
+			return doCall(target, parameters, tparameters, useCtx);
 
 		}
 		catch(B3NoSuchFunctionSignatureException e) {
@@ -425,7 +667,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 			String fName = o.getFuncRef() == null
 					? o.getName()
 					: o.getFuncRef().getName();
-			return ctx.callFunction(fName, parameters, tparameters);
+			return callFunction(fName, parameters, tparameters, ctx);
 		}
 		catch(B3NoSuchFunctionSignatureException e) {
 			lastError = e;
@@ -649,11 +891,6 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 	public Object evaluate(BFunctionConcernContext o, BExecutionContext ctx) throws Throwable {
 		// Find all functions that match the predicate
 		// Add wrappers for all found functions
-		// BackendWeaver weaver = ctx.getInjector().getInstance(BackendWeaver.class);
-		// weaver.setFunctionConcern(o);
-		// while(itor.hasNext())
-		// weaver.weaveIfParametersMatch(itor.next(), ctx);
-		// return o;
 		ctx.getInjector().getInstance(IB3Weaver.class).doWeave(
 			o, safeIFunctionIterator(doEvaluate(o.getNamePredicate(), ctx)), ctx);
 		return o;
@@ -661,6 +898,8 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 	}
 
 	public Object evaluate(BFunctionNamePredicate o, BExecutionContext ctx) throws Throwable {
+		// TODO: May be possible to do this better now that SimplePattern and regexp share a superclass
+		//
 		// NOTE: does not use BNamePredicate#matches, since different iterators are needed based on
 		// the type of pattern used in BNamePredicate.
 		//
@@ -771,8 +1010,11 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 			throw B3BackendException.fromMessage(
 				o, "A proceed expression could not find a corresponding context to proceed in.");
 		IFunction original = wrappingCtx.getFunctionWrapper().getOriginal();
-		return original.internalCall(
-			wrappingCtx.getWrappedContext(), wrappingCtx.getParameters(), wrappingCtx.getParameterTypes());
+		return doCall(
+			original, wrappingCtx.getParameters(), wrappingCtx.getParameterTypes(), wrappingCtx.getWrappedContext(),
+			false);
+		// return original.internalCall(
+		// wrappingCtx.getWrappedContext(), wrappingCtx.getParameters(), wrappingCtx.getParameterTypes());
 	}
 
 	public Object evaluate(BPropertyDefinitionOperation o, BExecutionContext ctx) throws Throwable {
@@ -870,8 +1112,8 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 	public Object evaluate(BUnaryOpExpression o, BExecutionContext ctx) throws Throwable {
 		BExpression expr = o.getExpr();
 		String functionName = o.getFunctionName();
-		return ctx.callFunction(
-			functionName, new Object[] { doEvaluate(expr, ctx) }, new Type[] { typer.doGetInferredType(expr) });
+		return callFunction(
+			functionName, new Object[] { doEvaluate(expr, ctx) }, new Type[] { typer.doGetInferredType(expr) }, ctx);
 	}
 
 	public Object evaluate(BUnaryPostOpExpression o, BExecutionContext ctx) throws Throwable {
@@ -881,8 +1123,8 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		if(lval == null)
 			throw BackendHelper.createException(expr, "Expression is not an assignable value");
 		Object preopValue = lval.get();
-		lval.set(ctx.callFunction(
-			functionName, new Object[] { preopValue }, new Type[] { typer.doGetInferredType(expr) }));
+		lval.set(callFunction(
+			functionName, new Object[] { preopValue }, new Type[] { typer.doGetInferredType(expr) }, ctx));
 		return preopValue;
 	}
 
@@ -892,8 +1134,8 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		LValue lval = doLValue(expr, ctx);
 		if(lval == null)
 			throw BackendHelper.createException(expr, "Expression is not an assignable value");
-		return lval.set(ctx.callFunction(
-			functionName, new Object[] { lval.get() }, new Type[] { lval.getDeclaredType() }));
+		return lval.set(callFunction(
+			functionName, new Object[] { lval.get() }, new Type[] { lval.getDeclaredType() }, ctx));
 	}
 
 	public Object evaluate(BVariableExpression o, BExecutionContext ctx) throws Throwable {
@@ -1054,12 +1296,18 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 	}
 
 	public LValue lValue(BVariableExpression o, BExecutionContext ctx) throws B3EngineException {
-		// TODO: in transition - can use both name and reference to name
-		// String n = (o.getName() != null
-		// ? o.getName()
-		// : o.getNamedValue().getName());
-
 		return ctx.getLValue(o.getNamedValue().getName());
+	}
+
+	public String[] parameterNames(IFunction o) {
+		EList<BParameterDeclaration> pList = o.getParameters();
+		if(pList == null || pList.size() < 1)
+			return EMPTY_NAMELIST;
+		String[] names = new String[pList.size()];
+		int i = 0;
+		for(BParameterDeclaration p : pList)
+			names[i++] = p.getName();
+		return names;
 	}
 
 	/**
@@ -1082,5 +1330,4 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 			return declaredType;
 		return x.getClass();
 	}
-
 }

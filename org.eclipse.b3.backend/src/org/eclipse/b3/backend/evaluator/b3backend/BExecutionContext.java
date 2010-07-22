@@ -1,9 +1,13 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
+
 package org.eclipse.b3.backend.evaluator.b3backend;
 
 import java.lang.reflect.Method;
@@ -48,20 +52,6 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * @generated
 	 */
 	String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Evaluate the function referenced by name in this context.
-	 * <!-- end-model-doc -->
-	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 *        parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray"
-	 *        typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
-	 * @generated
-	 */
-	Object callFunction(String functionName, Object[] parameters, Type[] types) throws Throwable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,11 +106,24 @@ public interface BExecutionContext extends ITypedValueContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Evaluate the function referenced by name in this context.
+	 * <!-- end-model-doc -->
+	 * 
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
+	 *        typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @generated
+	 */
+	IFunction findFunction(String functionName, Type[] types) throws B3EngineException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
 	 * @generated
 	 */
-	Iterator<BConcernContext> getConcernIterator(Object candidate);
+	// Iterator<BConcernContext> getConcernIterator(Object candidate);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,19 +133,6 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * @generated
 	 */
 	<T> T getContext(Class<T> clazz) throws B3EngineException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Evaluate the function referenced by name in this context.
-	 * <!-- end-model-doc -->
-	 * 
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 *        typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
-	 * @generated
-	 */
-	Type getDeclaredFunctionType(String functionName, Type[] types) throws Throwable;
 
 	/**
 	 * Returns the value of the '<em><b>Effective Concerns</b></em>' reference list.

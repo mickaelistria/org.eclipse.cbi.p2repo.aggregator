@@ -305,7 +305,7 @@ public class B3BuilderJob extends AbstractB3Job {
 
 					@Override
 					protected Object runb3(IProgressMonitor monitor) throws Throwable {
-						return ctxToUse.callFunction(builderName, values, types);
+						return evaluator.callFunction(builderName, values, types, ctxToUse);
 					}
 				}.run();
 				// Object buildJobObject = ctxToUse.callFunction(builderName, values, types);
@@ -392,7 +392,8 @@ public class B3BuilderJob extends AbstractB3Job {
 			// so, when a Java Based Builder is supported, more work is required here (alternatively
 			// refactor the internalCall to always make used of the context for parameters).
 			//
-			Object br = builder.internalCall(ctx, new Object[] {}, new Type[] {});
+			Object br = evaluator.doCall(builder, new Object[] {}, new Type[] {}, ctx, false);
+			// Object br = builder.internalCall(ctx, new Object[] {}, new Type[] {});
 
 			// A return of null means there was no funcExpression (or that the funcExpression returned
 			// null explicitly). In both cases - this means that (in decreasing order of significance) the

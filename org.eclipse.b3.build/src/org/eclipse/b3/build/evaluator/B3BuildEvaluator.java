@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2009-2010, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
@@ -28,11 +28,13 @@ import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.Builder;
 import org.eclipse.b3.build.BuilderCallFacade;
 import org.eclipse.b3.build.BuilderConcernContext;
 import org.eclipse.b3.build.BuilderNamePredicate;
@@ -54,12 +56,14 @@ import org.eclipse.b3.build.UnitConcernContext;
 import org.eclipse.b3.build.UnitNamePredicate;
 import org.eclipse.b3.build.UnitProvider;
 import org.eclipse.b3.build.core.B3BuildConstants;
+import org.eclipse.b3.build.core.B3BuilderJob;
 import org.eclipse.b3.build.core.adapters.BuildUnitProxyAdapter;
 import org.eclipse.b3.build.core.adapters.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.core.iterators.BuilderCallIteratorProvider;
 import org.eclipse.b3.build.core.iterators.EffectiveUnitIterator;
 import org.eclipse.b3.build.core.iterators.PathIterator;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.osgi.util.NLS;
 
@@ -72,6 +76,15 @@ import com.google.inject.name.Names;
  * 
  */
 public class B3BuildEvaluator extends B3BackendEvaluator {
+	/**
+	 * This specialization returns a B3BuilderJob that performs the evaluation.
+	 */
+	public Object call(Builder o, Object[] parameters, Type[] types, BExecutionContext ctx) throws Throwable {
+		if(ctx.getProgressMonitor().isCanceled())
+			throw new OperationCanceledException();
+		return new B3BuilderJob(callPrepare(o, parameters, types, ctx), o);
+	}
+
 	public Object define(BuildUnit unit, BExecutionContext ctx) throws Throwable {
 		return define(unit, ctx, false);
 	}
@@ -414,5 +427,20 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 
 	public Object evaluate(UnitProvider o, BExecutionContext ctx) throws Throwable {
 		return o; // a unit provider is literal
+	}
+
+	public String[] parameterNames(Builder o) {
+		EList<BParameterDeclaration> pList = o.getParameters();
+		int insertUnit = (pList.size() > 0 && "unit".equals(pList.get(0).getName()))
+				? 0
+				: 1;
+
+		String[] names = new String[pList.size() + insertUnit];
+		int i = 0;
+		if(insertUnit == 1)
+			names[i++] = "unit";
+		for(BParameterDeclaration p : pList)
+			names[i++] = p.getName();
+		return names;
 	}
 }

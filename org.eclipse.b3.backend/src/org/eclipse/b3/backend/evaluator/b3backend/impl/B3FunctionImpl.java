@@ -1,17 +1,17 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
+
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
-
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -178,27 +178,6 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	 */
 	public BExpression getFuncExpr() {
 		return funcExpr;
-	}
-
-	// @Override
-	// public Type getSignature() {
-	// B3FunctionType t = (B3FunctionType) super.getSignature();
-	// t.setFunctionType(B3Function.class);
-	// return t;
-	// }
-
-	/**
-	 * Calls the B3 Defined function using the context passed as the context for the function.
-	 * Function starts by binding the parameters to declared parameter names.
-	 * Function body is then evaluated and returned.
-	 */
-	@Override
-	public Object internalCall(BExecutionContext octx, Object[] parameters, Type[] types) throws Throwable {
-		// all set up - fire away
-		if(funcExpr == null)
-			return null;
-		return octx.getInjector().getInstance(IB3Evaluator.class).doEvaluate(funcExpr, octx);
-		// return funcExpr.evaluate(octx);
 	}
 
 	/**

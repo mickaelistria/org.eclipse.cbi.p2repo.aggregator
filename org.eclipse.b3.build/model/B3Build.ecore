@@ -462,7 +462,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="#//BuildUnit"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="PathIterator" instanceClassName="org.eclipse.b3.build.core.PathIterator"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="PathIterator" instanceClassName="org.eclipse.b3.build.core.iterators.PathIterator"/>
   <eClassifiers xsi:type="ecore:EClass" name="SwitchUnitProvider" eSuperTypes="#//UnitProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="repoSwitch" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BSwitchExpression"

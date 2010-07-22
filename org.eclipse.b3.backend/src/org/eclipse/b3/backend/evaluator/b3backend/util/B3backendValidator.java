@@ -70,8 +70,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
-import org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext;
@@ -104,7 +102,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTryExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
-import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression;
@@ -312,8 +309,6 @@ public class B3backendValidator extends EObjectValidator {
 				return validateIFunction((IFunction) value, diagnostics, context);
 			case B3backendPackage.BGUARD:
 				return validateBGuard((BGuard) value, diagnostics, context);
-			case B3backendPackage.BGUARD_EXPRESSION:
-				return validateBGuardExpression((BGuardExpression) value, diagnostics, context);
 			case B3backendPackage.BSYSTEM_CONTEXT:
 				return validateBSystemContext((BSystemContext) value, diagnostics, context);
 			case B3backendPackage.BCONTEXT:
@@ -364,12 +359,8 @@ public class B3backendValidator extends EObjectValidator {
 				return validateB3JavaImport((B3JavaImport) value, diagnostics, context);
 			case B3backendPackage.BLITERAL_TYPE:
 				return validateBLiteralType((BLiteralType) value, diagnostics, context);
-			case B3backendPackage.BGUARD_FUNCTION:
-				return validateBGuardFunction((BGuardFunction) value, diagnostics, context);
 			case B3backendPackage.BTYPE_CALCULATOR:
 				return validateBTypeCalculator((BTypeCalculator) value, diagnostics, context);
-			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION:
-				return validateBTypeCalculatorFunction((BTypeCalculatorFunction) value, diagnostics, context);
 			case B3backendPackage.BINSTANCE_CONTEXT:
 				return validateBInstanceContext((BInstanceContext) value, diagnostics, context);
 			case B3backendPackage.BDEF_PROPERTY:
@@ -970,28 +961,6 @@ public class B3backendValidator extends EObjectValidator {
 	 * 
 	 * @generated
 	 */
-	public boolean validateBGuardExpression(BGuardExpression bGuardExpression, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(bGuardExpression, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public boolean validateBGuardFunction(BGuardFunction bGuardFunction, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(bGuardFunction, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean validateBIfExpression(BIfExpression bIfExpression, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bIfExpression, diagnostics, context);
@@ -1364,17 +1333,6 @@ public class B3backendValidator extends EObjectValidator {
 	public boolean validateBTypeCalculator(BTypeCalculator bTypeCalculator, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bTypeCalculator, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public boolean validateBTypeCalculatorFunction(BTypeCalculatorFunction bTypeCalculatorFunction,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(bTypeCalculatorFunction, diagnostics, context);
 	}
 
 	/**

@@ -134,11 +134,6 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 			Type[] types = new Type[] { lhsT, rhsT };
 			IFunction f = functionUtils.selectInstanceFunction(o.getFunctionName(), candidates, types);
 			return functionUtils.getReturnType(f, types);
-			// B3FunctionType t = FunctionUtils.getSignature(f);
-			// BTypeCalculator tc = t.getTypeCalculator();
-			// if(tc == null)
-			// return t.getReturnType();
-			// return tc.getReturnTypeForParameterTypes(types);
 		}
 		catch(Exception e) {
 			return Object.class;
@@ -353,7 +348,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		// Infer the type of the parameters
 		EList<Type> pt = t.getParameterTypes();
 		for(BParameterDeclaration p : o.getParameters())
-			pt.add(doGetInferredType(p));
+			pt.add(TypeUtils.coerceToEObjectType(doGetInferredType(p)));
 
 		// override the inference that a varargs parameter is a List<T> and use only a T
 		if(o.isVarArgs()) {

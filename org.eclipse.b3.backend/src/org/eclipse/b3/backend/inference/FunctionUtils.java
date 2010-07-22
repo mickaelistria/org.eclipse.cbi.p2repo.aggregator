@@ -64,23 +64,6 @@ public class FunctionUtils {
 
 		return injector.getInstance(FunctionUtils.class).getInferredSignature(o);
 
-		// B3FunctionType t = B3backendFactory.eINSTANCE.createB3FunctionType();
-		// // TODO: This is probably wrong - but current impl uses this class for
-		// // both B3Function, and JavaFunction ??? Probably a Bug??
-		// t.setFunctionType(B3Function.class);
-		//
-		// Type returnType = o.getReturnType();
-		// t.setReturnType(returnType);
-		// t.setVarArgs(o.isVarArgs());
-		// t.setTypeCalculator(o.getTypeCalculator());
-		//
-		// EList<Type> pt = t.getParameterTypes();
-		// Type[] ptarray = o.getParameterTypes();
-		// for(int i = 0; i < ptarray.length; i++)
-		// pt.add(ptarray[i]);
-		// // for(BParameterDeclaration p : getParameters())
-		// // pt.add(p.getType());
-		// return t;
 	}
 
 	@Inject
@@ -90,9 +73,44 @@ public class FunctionUtils {
 	private IFuncScopeProvider funcScopeProvider;
 
 	/**
+	 * Returns the names of the parameters. Can reserve the 0 position in the array for use by the caller
+	 * after the call completes. Exception is thrown if parameter types is not declared or can not be inferred.
+	 * All parameters are examined, and each exception is recorded in the thrown multi-exception.
+	 * 
+	 * @param expr
+	 * @param reserveFirst
+	 * @return
+	 * @throws InferenceExceptions
+	 */
+	public String[] asNameArray(BParameterizedExpression expr, boolean reserveFirst) throws InferenceExceptions {
+		EList<BParameter> pList = expr.getParameterList().getParameters();
+		int i = reserveFirst
+				? 1
+				: 0;
+		String[] names = new String[pList.size() + i];
+		ArrayList<InferenceException> exceptions = new ArrayList<InferenceException>();
+		for(BParameter p : pList) {
+			names[i] = p.getName();
+			if(names[i] == null)
+				try {
+					throw new InferenceException(
+						"The name of the parameter is not known or inferable.", p, B3backendPackage.BPARAMETER__EXPR);
+				}
+				catch(InferenceException e) {
+					exceptions.add(e);
+				}
+			i++;
+		}
+		if(exceptions.size() > 0)
+			throw new InferenceExceptions(exceptions);
+		return names;
+
+	}
+
+	/**
 	 * Returns the types of the parameters. Can reserve the 0 position in the array for use by the caller
-	 * after the call completes. Exception is thrown if parameter types is not declared or inferable.
-	 * All parameters are examined, and each exception is recorded in the thrown multi exception.
+	 * after the call completes. Exception is thrown if parameter types is not declared or can not be inferred.
+	 * All parameters are examined, and each exception is recorded in the thrown multi-exception.
 	 * 
 	 * @param expr
 	 * @param reserveFirst

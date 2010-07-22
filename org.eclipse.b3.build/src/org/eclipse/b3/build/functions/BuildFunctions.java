@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
+ */
+
 package org.eclipse.b3.build.functions;
 
 import java.lang.reflect.InvocationTargetException;
@@ -9,6 +19,7 @@ import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3NoSuchVariableException;
 import org.eclipse.b3.backend.evaluator.B3ContextAccess;
 import org.eclipse.b3.backend.evaluator.IB3Engine;
+import org.eclipse.b3.backend.evaluator.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.BuildSet;
@@ -33,7 +44,7 @@ public class BuildFunctions {
 		System.arraycopy(params, 2, args, 0, args.length);
 		Type[] argTypes = new Type[params.length - 2];
 		System.arraycopy(types, 2, argTypes, 0, argTypes.length);
-		return ctx.callFunction(functionName, args, argTypes);
+		return ctx.getInjector().getInstance(IB3Evaluator.class).callFunction(functionName, args, argTypes, ctx);
 	}
 
 	@B3Backend(system = true)
@@ -100,7 +111,6 @@ public class BuildFunctions {
 			unitName = (String) params[1];
 		}
 
-		// String unitName = (String) params[1];
 		String functionName = (String) params[2];
 
 		Object[] args = new Object[params.length - 2];
@@ -130,7 +140,8 @@ public class BuildFunctions {
 		}
 		B3BuilderJob job = null;
 		try {
-			job = (B3BuilderJob) ctx.callFunction(functionName, args, argTypes);
+			job = (B3BuilderJob) ctx.getInjector().getInstance(IB3Evaluator.class).callFunction(
+				functionName, args, argTypes, ctx);
 		}
 		catch(Throwable e) {
 			// a failing call must be wrapped, or the engine will think it is the call to runBuilder that

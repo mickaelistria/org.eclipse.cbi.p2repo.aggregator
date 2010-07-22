@@ -1,26 +1,20 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
+
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.GenericDeclaration;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
 
-import org.eclipse.b3.backend.core.B3BackendException;
-import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
-import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
-import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
-import org.eclipse.b3.backend.evaluator.B3ContextAccess;
-import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
@@ -32,9 +26,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-import org.eclipse.b3.backend.inference.FunctionUtils;
-import org.eclipse.b3.backend.inference.ITypeProvider;
-import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -57,10 +48,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getExecutionMode <em>Execution Mode</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getGuard <em>Guard</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameterTypes <em>Parameter Types</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getExceptionTypes <em>Exception Types</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeParameters <em>Type Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameterNames <em>Parameter Names</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameters <em>Parameters</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isVarArgs <em>Var Args</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getDocumentation <em>Documentation</em>}</li>
@@ -185,28 +174,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	protected BGuard guard;
 
 	/**
-	 * The default value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getParameterTypes()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Type[] PARAMETER_TYPES_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getParameterTypes()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type[] parameterTypes = PARAMETER_TYPES_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getExceptionTypes() <em>Exception Types</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,28 +216,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * @ordered
 	 */
 	protected TypeVariable<?>[] typeParameters = TYPE_PARAMETERS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getParameterNames() <em>Parameter Names</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getParameterNames()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String[] PARAMETER_NAMES_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getParameterNames() <em>Parameter Names</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getParameterNames()
-	 * @generated
-	 * @ordered
-	 */
-	protected String[] parameterNames = PARAMETER_NAMES_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
@@ -498,65 +443,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Calls {@link #prepareCall(BExecutionContext, Object[], Type[])},
-	 * and then {@link #internalCall(BExecutionContext, Object[], Type[])}.
-	 * Derived classes can override this method, and the prepare and internal call as they see fit.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @throws OperationCanceledException
-	 *             if the operation was canceled
-	 * @generated NOT
-	 */
-	public Object call(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
-		if(ctx.getProgressMonitor().isCanceled())
-			throw new OperationCanceledException();
-		Throwable lastError = null;
-		try {
-			ctx = prepareCall(ctx, params, types);
-			return internalCall(ctx, params, types);
-		}
-		catch(B3NoSuchFunctionSignatureException e) {
-			lastError = e;
-		}
-		catch(B3NoSuchFunctionException e) {
-			lastError = e;
-		}
-		throw B3BackendException.fromMessage(this, lastError, "Call failed - see details.");
-
-	}
-
-	protected void computeParameters() {
-		if(parameterNames == null || parameterTypes == null) {
-			BExecutionContext ctx = B3ContextAccess.get();
-			ITypeProvider typer = ctx.getInjector().getInstance(ITypeProvider.class);
-			EList<BParameterDeclaration> pList = getParameters();
-			int pCount = pList.size();
-
-			parameterNames = new String[pCount];
-			parameterTypes = new Type[pCount];
-
-			Iterator<BParameterDeclaration> pIterator = pList.iterator();
-
-			for(int i = 0; i < pCount; ++i) {
-				BParameterDeclaration p = pIterator.next();
-				parameterNames[i] = p.getName();
-				p.getType();
-				Type tx2 = typer.doGetInferredType(p);
-				// if(tx2 instanceof EObject && ((EObject) tx2).eIsProxy())
-				// tx2 = (Type) EcoreUtil.resolve((EObject) tx2, this.eResource());
-				if(isVarArgs() && i == pCount - 1 && tx2 instanceof B3ParameterizedType)
-					tx2 = TypeUtils.getElementType(tx2);
-				// if(isVarArgs() && i == pCount - 1) {
-				// System.err.print("DEBUG: varargs compare:\n  T1:" + tx1.toString() + "\n  T2:" + tx2.toString() +
-				// "\n");
-				// }
-				parameterTypes[i] = tx2; // TypeUtils.getRaw(typer.doGetInferredType(p));
-			}
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -581,14 +467,10 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 					return B3backendPackage.IFUNCTION__NAME;
 				case B3backendPackage.BFUNCTION__GUARD:
 					return B3backendPackage.IFUNCTION__GUARD;
-				case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
-					return B3backendPackage.IFUNCTION__PARAMETER_TYPES;
 				case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
 					return B3backendPackage.IFUNCTION__EXCEPTION_TYPES;
 				case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
 					return B3backendPackage.IFUNCTION__TYPE_PARAMETERS;
-				case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
-					return B3backendPackage.IFUNCTION__PARAMETER_NAMES;
 				case B3backendPackage.BFUNCTION__PARAMETERS:
 					return B3backendPackage.IFUNCTION__PARAMETERS;
 				case B3backendPackage.BFUNCTION__VAR_ARGS:
@@ -656,14 +538,10 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 					return B3backendPackage.BFUNCTION__NAME;
 				case B3backendPackage.IFUNCTION__GUARD:
 					return B3backendPackage.BFUNCTION__GUARD;
-				case B3backendPackage.IFUNCTION__PARAMETER_TYPES:
-					return B3backendPackage.BFUNCTION__PARAMETER_TYPES;
 				case B3backendPackage.IFUNCTION__EXCEPTION_TYPES:
 					return B3backendPackage.BFUNCTION__EXCEPTION_TYPES;
 				case B3backendPackage.IFUNCTION__TYPE_PARAMETERS:
 					return B3backendPackage.BFUNCTION__TYPE_PARAMETERS;
-				case B3backendPackage.IFUNCTION__PARAMETER_NAMES:
-					return B3backendPackage.BFUNCTION__PARAMETER_NAMES;
 				case B3backendPackage.IFUNCTION__PARAMETERS:
 					return B3backendPackage.BFUNCTION__PARAMETERS;
 				case B3backendPackage.IFUNCTION__VAR_ARGS:
@@ -708,14 +586,10 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				return getName();
 			case B3backendPackage.BFUNCTION__GUARD:
 				return getGuard();
-			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
-				return getParameterTypes();
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
 				return getExceptionTypes();
 			case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
 				return getTypeParameters();
-			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
-				return getParameterNames();
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				return getParameters();
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
@@ -801,10 +675,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 						: !NAME_EDEFAULT.equals(name);
 			case B3backendPackage.BFUNCTION__GUARD:
 				return guard != null;
-			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
-				return PARAMETER_TYPES_EDEFAULT == null
-						? parameterTypes != null
-						: !PARAMETER_TYPES_EDEFAULT.equals(parameterTypes);
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
 				return EXCEPTION_TYPES_EDEFAULT == null
 						? exceptionTypes != null
@@ -813,10 +683,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				return TYPE_PARAMETERS_EDEFAULT == null
 						? typeParameters != null
 						: !TYPE_PARAMETERS_EDEFAULT.equals(typeParameters);
-			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
-				return PARAMETER_NAMES_EDEFAULT == null
-						? parameterNames != null
-						: !PARAMETER_NAMES_EDEFAULT.equals(parameterNames);
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
@@ -868,17 +734,11 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 			case B3backendPackage.BFUNCTION__GUARD:
 				setGuard((BGuard) newValue);
 				return;
-			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
-				setParameterTypes((Type[]) newValue);
-				return;
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
 				setExceptionTypes((Type[]) newValue);
 				return;
 			case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
 				setTypeParameters((TypeVariable[]) newValue);
-				return;
-			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
-				setParameterNames((String[]) newValue);
 				return;
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				getParameters().clear();
@@ -947,17 +807,11 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 			case B3backendPackage.BFUNCTION__GUARD:
 				setGuard((BGuard) null);
 				return;
-			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
-				setParameterTypes(PARAMETER_TYPES_EDEFAULT);
-				return;
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
 				setExceptionTypes(EXCEPTION_TYPES_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
 				setTypeParameters(TYPE_PARAMETERS_EDEFAULT);
-				return;
-			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
-				setParameterNames(PARAMETER_NAMES_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				getParameters().clear();
@@ -1075,19 +929,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
-	 */
-	public String[] getParameterNames() {
-		if(parameterNames == null)
-			computeParameters();
-
-		return parameterNames;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BParameterDeclaration> getParameters() {
@@ -1100,45 +941,12 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns an array of the effective parameter types (if already set it is returned, if null, it is calculated
-	 * from the list of parameter declarations).
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Type[] getParameterTypes() {
-		if(parameterTypes == null)
-			computeParameters();
-
-		return parameterTypes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public Type getReturnType() {
 		return returnType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns the parameterized return type of this function - i.e. the resulting return type given
-	 * a particular set of types. A function that wishes to return different types depending on the parameters
-	 * should have a typeCalculator that performs the job.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @deprecated
-	 * @generated NOT
-	 */
-	@Deprecated
-	public Type getReturnTypeForParameterTypes(Type[] types) {
-		BTypeCalculator tc = getTypeCalculator();
-		if(tc != null)
-			return tc.getReturnTypeForParameterTypes(types);
-		return getReturnType();
 	}
 
 	/**
@@ -1187,18 +995,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * 
 	 * @generated
 	 */
-	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean isClassFunction() {
 		return classFunction;
 	}
@@ -1221,82 +1017,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 */
 	public boolean isVarArgs() {
 		return varArgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Prepares (and returns) a context suitable for performing an internal call.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public BExecutionContext prepareCall(BExecutionContext octx, Object[] params, Type[] types) throws Throwable {
-		Type[] functionParameterTypes = getParameterTypes();
-		if(functionParameterTypes.length > 0) { // if function takes no parameters, there is no binding to be done
-			int limit = functionParameterTypes.length - 1; // bind all but the last defined parameter
-			if(params.length < limit)
-				throw new IllegalArgumentException("B3 Function '" + getName() + "' " +
-						"called with too few arguments. Expected: " + functionParameterTypes.length + " but got: " +
-						params.length);
-			String[] functionParameterNames = getParameterNames();
-			for(int i = 0; i < limit; i++) {
-				// check type compatibility
-				Object o = params[i];
-				Type t = o instanceof BFunction
-						? FunctionUtils.getSignature((BFunction) o)
-						: o.getClass();
-
-				if(!(TypeUtils.isAssignableFrom(functionParameterTypes[i], t)))
-					throw new B3IncompatibleTypeException(
-						functionParameterNames[i], functionParameterTypes[i], params[i].getClass());
-				// ok, define it
-				octx.defineVariableValue(functionParameterNames[i], params[i], functionParameterTypes[i]);
-			}
-			if(!isVarArgs()) { // if not varargs, bind the last defined parameter
-				if(params.length < functionParameterTypes.length)
-					throw new IllegalArgumentException("B3 Function '" + getName() + "' " +
-							"called with too few arguments. Expected: " + functionParameterTypes.length + " but got: " +
-							params.length);
-				// check type compatibility
-				Object o = params[limit];
-				if(o != null) {
-					Type t = o instanceof BFunction
-							? FunctionUtils.getSignature((BFunction) o)
-							: o.getClass();
-					if(!TypeUtils.isAssignableFrom(functionParameterTypes[limit], t))
-						throw new B3IncompatibleTypeException(
-							functionParameterNames[limit], functionParameterTypes[limit], params[limit].getClass());
-				}
-				// ok
-				octx.defineVariableValue(functionParameterNames[limit], params[limit], functionParameterTypes[limit]);
-			}
-			else {
-				// varargs call, create a list and stuff any remaining parameters there
-				List<Object> varargs = new ArrayList<Object>();
-				Type varargsType = functionParameterTypes[limit];
-				for(int i = limit; i < params.length; i++) {
-					Object o = params[i];
-					Type t = o instanceof BFunction
-							? FunctionUtils.getSignature((BFunction) o)
-							: o.getClass();
-
-					if(!TypeUtils.isAssignableFrom(varargsType, t))
-						throw new B3IncompatibleTypeException(
-							functionParameterNames[limit], varargsType, params[i].getClass());
-					varargs.add(params[i]);
-				}
-				B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-				pt.setRawType(List.class);
-				pt.getActualArgumentsList().add(functionParameterTypes[limit]);
-				// bind the varargs to a List of the declared type (possibly an empty list).
-				octx.defineVariableValue(functionParameterNames[limit], varargs, pt);
-			}
-		}
-		// mark the processing of parameters as done - (a bit ugly for now, as it requires getting the valueMap
-		// from the context - should be API on the context.
-		octx.getValueMap().markParametersDone(isVarArgs());
-		// returns the prepared context
-		return octx;
 	}
 
 	/**
@@ -1447,34 +1167,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setParameterNames(String[] newParameterNames) {
-		String[] oldParameterNames = parameterNames;
-		parameterNames = newParameterNames;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BFUNCTION__PARAMETER_NAMES, oldParameterNames, parameterNames));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setParameterTypes(Type[] newParameterTypes) {
-		Type[] oldParameterTypes = parameterTypes;
-		parameterTypes = newParameterTypes;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BFUNCTION__PARAMETER_TYPES, oldParameterTypes, parameterTypes));
-	}
-
-	/**
 	 * @generated NOT
 	 */
 	public void setReturnType(Type newReturnType) {
@@ -1611,14 +1303,10 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		result.append(executionMode);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", parameterTypes: ");
-		result.append(parameterTypes);
 		result.append(", exceptionTypes: ");
 		result.append(exceptionTypes);
 		result.append(", typeParameters: ");
 		result.append(typeParameters);
-		result.append(", parameterNames: ");
-		result.append(parameterNames);
 		result.append(", varArgs: ");
 		result.append(varArgs);
 		result.append(", documentation: ");

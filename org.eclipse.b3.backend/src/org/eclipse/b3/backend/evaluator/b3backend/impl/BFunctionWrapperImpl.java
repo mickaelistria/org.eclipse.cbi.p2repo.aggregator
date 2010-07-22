@@ -6,9 +6,6 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * Contributors:
  * - Cloudsmith Inc - initial API and implementation.
- * 
- *
- * $Id$
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
@@ -19,10 +16,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.b3.backend.evaluator.IB3Evaluator;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
@@ -30,12 +24,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
-import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.b3.backend.inference.FunctionUtils;
-import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -58,10 +50,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getExecutionMode <em>Execution Mode</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getGuard <em>Guard</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getParameterTypes <em>Parameter Types</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getExceptionTypes <em>Exception Types</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getTypeParameters <em>Type Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getParameterNames <em>Parameter Names</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getParameters <em>Parameters</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#isVarArgs <em>Var Args</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getDocumentation <em>Documentation</em>}</li>
@@ -564,22 +554,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @throws OperationCanceledException
-	 *             if the operation was canceled.
-	 * @generated NOT
-	 */
-	public Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
-		if(ctx.getProgressMonitor().isCanceled())
-			throw new OperationCanceledException();
-
-		BExecutionContext octx = prepareCall(ctx, parameters, types);
-		return internalCall(octx, parameters, types);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -602,14 +576,10 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 					return B3backendPackage.IFUNCTION__NAME;
 				case B3backendPackage.BFUNCTION_WRAPPER__GUARD:
 					return B3backendPackage.IFUNCTION__GUARD;
-				case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_TYPES:
-					return B3backendPackage.IFUNCTION__PARAMETER_TYPES;
 				case B3backendPackage.BFUNCTION_WRAPPER__EXCEPTION_TYPES:
 					return B3backendPackage.IFUNCTION__EXCEPTION_TYPES;
 				case B3backendPackage.BFUNCTION_WRAPPER__TYPE_PARAMETERS:
 					return B3backendPackage.IFUNCTION__TYPE_PARAMETERS;
-				case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES:
-					return B3backendPackage.IFUNCTION__PARAMETER_NAMES;
 				case B3backendPackage.BFUNCTION_WRAPPER__PARAMETERS:
 					return B3backendPackage.IFUNCTION__PARAMETERS;
 				case B3backendPackage.BFUNCTION_WRAPPER__VAR_ARGS:
@@ -677,14 +647,10 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 					return B3backendPackage.BFUNCTION_WRAPPER__NAME;
 				case B3backendPackage.IFUNCTION__GUARD:
 					return B3backendPackage.BFUNCTION_WRAPPER__GUARD;
-				case B3backendPackage.IFUNCTION__PARAMETER_TYPES:
-					return B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_TYPES;
 				case B3backendPackage.IFUNCTION__EXCEPTION_TYPES:
 					return B3backendPackage.BFUNCTION_WRAPPER__EXCEPTION_TYPES;
 				case B3backendPackage.IFUNCTION__TYPE_PARAMETERS:
 					return B3backendPackage.BFUNCTION_WRAPPER__TYPE_PARAMETERS;
-				case B3backendPackage.IFUNCTION__PARAMETER_NAMES:
-					return B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES;
 				case B3backendPackage.IFUNCTION__PARAMETERS:
 					return B3backendPackage.BFUNCTION_WRAPPER__PARAMETERS;
 				case B3backendPackage.IFUNCTION__VAR_ARGS:
@@ -729,14 +695,10 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				return getName();
 			case B3backendPackage.BFUNCTION_WRAPPER__GUARD:
 				return getGuard();
-			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_TYPES:
-				return getParameterTypes();
 			case B3backendPackage.BFUNCTION_WRAPPER__EXCEPTION_TYPES:
 				return getExceptionTypes();
 			case B3backendPackage.BFUNCTION_WRAPPER__TYPE_PARAMETERS:
 				return getTypeParameters();
-			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES:
-				return getParameterNames();
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETERS:
 				return getParameters();
 			case B3backendPackage.BFUNCTION_WRAPPER__VAR_ARGS:
@@ -834,10 +796,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 						: !NAME_EDEFAULT.equals(name);
 			case B3backendPackage.BFUNCTION_WRAPPER__GUARD:
 				return guard != null;
-			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_TYPES:
-				return PARAMETER_TYPES_EDEFAULT == null
-						? parameterTypes != null
-						: !PARAMETER_TYPES_EDEFAULT.equals(parameterTypes);
 			case B3backendPackage.BFUNCTION_WRAPPER__EXCEPTION_TYPES:
 				return EXCEPTION_TYPES_EDEFAULT == null
 						? exceptionTypes != null
@@ -846,10 +804,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				return TYPE_PARAMETERS_EDEFAULT == null
 						? typeParameters != null
 						: !TYPE_PARAMETERS_EDEFAULT.equals(typeParameters);
-			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES:
-				return PARAMETER_NAMES_EDEFAULT == null
-						? parameterNames != null
-						: !PARAMETER_NAMES_EDEFAULT.equals(parameterNames);
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 			case B3backendPackage.BFUNCTION_WRAPPER__VAR_ARGS:
@@ -911,17 +865,11 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 			case B3backendPackage.BFUNCTION_WRAPPER__GUARD:
 				setGuard((BGuard) newValue);
 				return;
-			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_TYPES:
-				setParameterTypes((Type[]) newValue);
-				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__EXCEPTION_TYPES:
 				setExceptionTypes((Type[]) newValue);
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__TYPE_PARAMETERS:
 				setTypeParameters((TypeVariable[]) newValue);
-				return;
-			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES:
-				setParameterNames((String[]) newValue);
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETERS:
 				getParameters().clear();
@@ -1002,17 +950,11 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 			case B3backendPackage.BFUNCTION_WRAPPER__GUARD:
 				setGuard((BGuard) null);
 				return;
-			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_TYPES:
-				setParameterTypes(PARAMETER_TYPES_EDEFAULT);
-				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__EXCEPTION_TYPES:
 				setExceptionTypes(EXCEPTION_TYPES_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__TYPE_PARAMETERS:
 				setTypeParameters(TYPE_PARAMETERS_EDEFAULT);
-				return;
-			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES:
-				setParameterNames(PARAMETER_NAMES_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETERS:
 				getParameters().clear();
@@ -1190,26 +1132,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * 
 	 * @generated NOT
 	 */
-	public String[] getParameterNames() {
-		return getOriginal().getParameterNames();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public String[] getParameterNamesGen() {
-		return parameterNames;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
 	public EList<BParameterDeclaration> getParameters() {
 		return getOriginal().getParameters();
 	}
@@ -1242,36 +1164,11 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 */
-	public Type[] getParameterTypesGen() {
-		return parameterTypes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated NOT
 	 */
 	public Type getReturnType() {
 		return getOriginal().getReturnType();
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Type getReturnTypeForParameterTypes(Type[] types) {
-		return getOriginal().getReturnTypeForParameterTypes(types);
-	}
-
-	// public Type getSignature() {
-	// // return getOriginal().getSignature();
-	// return null;
-	// }
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1326,20 +1223,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * If aroundExpr is null, the call behaves as the aroundExpr contained a single "proceed" expression.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
-		if(aroundExpr == null)
-			return getOriginal().internalCall(ctx, parameters, types);
-		return ctx.getInjector().getInstance(IB3Evaluator.class).doEvaluate(aroundExpr, ctx);
-		// return aroundExpr.evaluate(ctx);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1366,35 +1249,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 */
 	public boolean isVarArgs() {
 		return getOriginal().isVarArgs();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public BExecutionContext prepareCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
-		// prepare the context as it should be for the original function (it may return a different context)
-		BExecutionContext octx = getOriginal().prepareCall(ctx, parameters, types);
-
-		// create a mapped context that handles the advising expression's view of what the parameters are called
-		BWrappingContext mc = B3backendFactory.eINSTANCE.createBWrappingContext();
-		mc.mapContext(octx, getParameterMap(), this);
-		// keep parameters and types for 'proceed' call
-		mc.setParameters(parameters);
-		mc.setParameterTypes(types);
-		mc.setVarargsName(getVarargsName());
-
-		// get the outer context to use for normal calls out of this context
-		BContext outer = ctx.getContext(BContext.class);
-		// use the outer context as the parent since the advising expression should not see the original's
-		// parameter values.
-		mc.setParentContext(outer);
-		// use the outer context found earlier for outer
-		mc.setOuterContext(outer);
-		// need an inner context for the advising expression's local variables since the mapped context is immutable
-		return mc.createInnerContext();
 	}
 
 	/**
@@ -1584,40 +1438,10 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 */
-	public void setParameterNamesGen(String[] newParameterNames) {
-		String[] oldParameterNames = parameterNames;
-		parameterNames = newParameterNames;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES, oldParameterNames,
-				parameterNames));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated NOT
 	 */
 	public void setParameterTypes(Type[] newParameterTypes) {
 		throwImmutableException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setParameterTypesGen(Type[] newParameterTypes) {
-		Type[] oldParameterTypes = parameterTypes;
-		parameterTypes = newParameterTypes;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_TYPES, oldParameterTypes,
-				parameterTypes));
 	}
 
 	/**
@@ -1718,14 +1542,10 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 		result.append(executionMode);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", parameterTypes: ");
-		result.append(parameterTypes);
 		result.append(", exceptionTypes: ");
 		result.append(exceptionTypes);
 		result.append(", typeParameters: ");
 		result.append(typeParameters);
-		result.append(", parameterNames: ");
-		result.append(parameterNames);
 		result.append(", varArgs: ");
 		result.append(varArgs);
 		result.append(", documentation: ");

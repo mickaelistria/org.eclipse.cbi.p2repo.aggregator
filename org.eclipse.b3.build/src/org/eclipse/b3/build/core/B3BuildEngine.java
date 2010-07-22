@@ -41,7 +41,6 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 	public B3BuildEngine() throws B3EngineException {
 		super(new DefaultB3Module());
 		initialize();
-		// invocationContext.setInjector(Guice.createInjector(new DefaultB3Module()));
 	}
 
 	/**
@@ -52,14 +51,14 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 		initialize();
 	}
 
-	// @Override
 	public Object callFunction(final String name, final Object[] parameters, final Type[] types) throws CoreException {
 		try {
 			return new AbstractB3Executor<Object>(getContext()) {
 
 				@Override
 				protected Object runb3(IProgressMonitor monitor) throws Throwable {
-					return getContext().callFunction(name, parameters, types);
+					return getContext().getInjector().getInstance(IB3Evaluator.class).callFunction(
+						name, parameters, types, getContext());
 				}
 			}.run();
 		}
@@ -184,7 +183,6 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 				"Running the resolver.ResolveAll ended with exception", e);
 		}
 
-		// return resolver.resolveAll(getBuildContext());
 	}
 
 	/*
@@ -202,7 +200,6 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 	 * 
 	 * @see org.eclipse.b3.backend.core.IB3EngineRuntime#run(org.eclipse.b3.backend.core.IB3Runnable, org.eclipse.core.runtime.IProgressMonitor)
 	 */
-	// @Override
 	public IStatus run(final IB3Runnable runnable, IProgressMonitor monitor) {
 		final BExecutionContext ctx = getBuildContext();
 		ctx.setProgressMonitor(monitor);
@@ -215,15 +212,6 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 					return runnable.run(engine, monitor);
 				}
 			}.run();
-
-			// ;(this, getContext()) {
-			//
-			// @Override
-			// protected IStatus runb3(IB3EngineRuntime engine, IProgressMonitor monitor) {
-			// return runnable.run(engine, monitor);
-			// }
-			// }.run(IStatus.class);
-
 		}
 		catch(Throwable e) {
 			throw new RuntimeException(

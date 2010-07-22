@@ -1,9 +1,13 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
+
 package org.eclipse.b3.build.impl;
 
 import java.lang.reflect.Type;
@@ -881,17 +885,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	}
 
 	/**
-	 * If promoted return the copied and modified parameter declarations, else the original's
-	 */
-	@Override
-	public Type[] getParameterTypes() {
-		if(isUnitTypeAdvised())
-			return super.getParameterTypesGen(); // sneaky way around BFunctionWrapper's different treatment of
-													// getTypes()
-		return FunctionUtils.getParameterTypes(getOriginal());
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * Note, there is no advice flag - when creating a wrapper, the actual expression should be wrapped.
 	 * See {@link BuilderConcernContextImpl}.
@@ -1357,7 +1350,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 			parameterMap.put("unit", "unit");
 		}
 
-		setParameterTypesGen(types);
+		// setParameterTypesGen(types);
 	}
 
 	/**

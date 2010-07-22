@@ -1,18 +1,16 @@
 /**
- * Copyright (c) 2009, Cloudsmith Inc and others.
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * Contributors:
  * - Cloudsmith Inc - initial API and implementation.
- * 
- *
- * $Id$
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
+
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.ValueMap;
@@ -53,18 +51,6 @@ public class BDelegatingContextImpl extends BInnerContextImpl implements BDelega
 	 */
 	protected BDelegatingContextImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Performs the call via the outer context
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public Object callFunction(String functionName, Object[] parameters, Type[] types) throws Throwable {
-		return getOuterContext().callFunction(functionName, parameters, types);
 	}
 
 	/**
@@ -148,15 +134,11 @@ public class BDelegatingContextImpl extends BInnerContextImpl implements BDelega
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * Returns the declared function type from the outer context.
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated NOT
 	 */
 	@Override
-	public Type getDeclaredFunctionType(String functionName, Type[] types) throws Throwable {
-		return getOuterContext().getDeclaredFunctionType(functionName, types);
+	public IFunction findFunction(String functionName, Type[] types) throws B3EngineException {
+		return getOuterContext().findFunction(functionName, types);
 	}
 
 	@Override

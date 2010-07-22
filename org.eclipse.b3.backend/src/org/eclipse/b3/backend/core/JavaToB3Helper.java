@@ -23,13 +23,12 @@ import org.eclipse.b3.backend.evaluator.BackendHelper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
-import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
-import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-import org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.util.EList;
@@ -162,8 +161,6 @@ public class JavaToB3Helper {
 				while(usedNames.contains(name = toAlphabetString(j++)))
 					;
 				parameterNames[i] = name;
-				// usedNames.add(name); // this is not necessary as the toAlphabetString(j++) will not produce
-				// duplicates
 			}
 		}
 		return parameterNames;
@@ -306,7 +303,7 @@ public class JavaToB3Helper {
 					throw new B3FunctionLoadException("reference to guard function: " + e.getKey() +
 							" can not be satisfied - no such guard found.", guarded.getMethod());
 				// set the guard function, wrapped in a guard
-				BGuardFunction gf = B3backendFactory.eINSTANCE.createBGuardFunction();
+				BGuard gf = B3backendFactory.eINSTANCE.createBGuard();
 				gf.setFunc(g);
 				guarded.setGuard(gf);
 			}
@@ -323,7 +320,7 @@ public class JavaToB3Helper {
 					throw new B3FunctionLoadException("reference to type calculator function: " + e.getKey() +
 							" can not be satisfied - no such function found.", typed.getMethod());
 				// set the type calculator function, wrapped in a BTypeCalculator
-				BTypeCalculatorFunction tcf = B3backendFactory.eINSTANCE.createBTypeCalculatorFunction();
+				BTypeCalculator tcf = B3backendFactory.eINSTANCE.createBTypeCalculator();
 				tcf.setFunc(tc);
 				typed.setTypeCalculator(tcf);
 			}
@@ -332,8 +329,8 @@ public class JavaToB3Helper {
 	}
 
 	private static void setParameterDeclarations(BJavaFunction f) {
-		// TODO: CHEATING - HOULD BE REFACTORED
-		Type[] types = ((BJavaFunctionImpl) f).getParameterTypes();
+		// note: Makes use of BJavaFunction's parameter type/names as array.
+		Type[] types = f.getParameterTypes();
 		// Type[] types = FunctionUtils.getParameterTypes(f);
 		String[] names = f.getParameterNames();
 		if(types.length != names.length)

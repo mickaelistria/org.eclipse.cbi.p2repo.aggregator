@@ -15,10 +15,8 @@ import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.EffectiveBuilderCallFacade;
 import org.eclipse.b3.build.IEffectiveFacade;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -142,7 +140,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	 * 
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {

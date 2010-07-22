@@ -376,24 +376,14 @@ public interface B3backendFactory extends EFactory {
 	BFunctionWrapper createBFunctionWrapper();
 
 	/**
-	 * Returns a new object of class '<em>BGuard Expression</em>'.
+	 * Returns a new object of class '<em>BGuard</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>BGuard Expression</em>'.
+	 * @return a new object of class '<em>BGuard</em>'.
 	 * @generated
 	 */
-	BGuardExpression createBGuardExpression();
-
-	/**
-	 * Returns a new object of class '<em>BGuard Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>BGuard Function</em>'.
-	 * @generated
-	 */
-	BGuardFunction createBGuardFunction();
+	BGuard createBGuard();
 
 	/**
 	 * Returns a new object of class '<em>BIf Expression</em>'.
@@ -684,16 +674,6 @@ public interface B3backendFactory extends EFactory {
 	 * @generated
 	 */
 	BTypeCalculator createBTypeCalculator();
-
-	/**
-	 * Returns a new object of class '<em>BType Calculator Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>BType Calculator Function</em>'.
-	 * @generated
-	 */
-	BTypeCalculatorFunction createBTypeCalculatorFunction();
 
 	/**
 	 * Returns a new object of class '<em>BUnary Op Expression</em>'.
