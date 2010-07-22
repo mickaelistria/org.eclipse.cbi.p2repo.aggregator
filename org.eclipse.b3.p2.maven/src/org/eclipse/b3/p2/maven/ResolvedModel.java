@@ -7,6 +7,8 @@
  ******************************************************************************/
 package org.eclipse.b3.p2.maven;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +57,7 @@ import org.eclipse.emf.ecore.xml.type.impl.AnyTypeImpl;
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
  * 
  */
-public class ResolvedModel extends ResolvedModelBase {
+public class ResolvedModel extends ResolvedModelBase implements IPropertyProvider {
 	private String repoRoot;
 
 	private ModelImpl original;
@@ -396,35 +398,72 @@ public class ResolvedModel extends ResolvedModelBase {
 		throw new UnsupportedOperationException("Use POM.getFullPropertyMap() instead");
 	}
 
-	public Map<String, String> getPropertyMap() throws CoreException {
+	public String getProperty(String propertyName) throws CoreException {
 		if(propertyMap == null) {
+			// initialize property cache with some basic values
 			propertyMap = new HashMap<String, String>();
 
 			String version = getVersion();
 			propertyMap.put("version", version);
 			propertyMap.put("pom.version", version);
-			propertyMap.put("project.version", version);
 
 			String name = getName();
 			propertyMap.put("pom.name", name);
-			propertyMap.put("project.name", name);
-
-			propertyMap.putAll(getPropertiesAsMap());
 
 			Parent parent = getParent();
-			if(parent != null) {
+			if(parent != null)
 				propertyMap.put("parent.version", parent.getVersion());
 
-				ResolvedModel parentModel = POM.getPOM(
-					repoRoot, parent.getGroupId(), parent.getArtifactId(), parent.getVersion()).getResolvedProject();
+			// add all properties defined in the project
+			propertyMap.putAll(getPropertiesAsMap());
+		}
 
-				for(Map.Entry<String, String> entry : parentModel.getPropertyMap().entrySet())
-					if(!propertyMap.containsKey(entry.getKey()))
-						propertyMap.put(entry.getKey(), entry.getValue());
+		String result = propertyMap.get(propertyName);
+
+		if(result != null)
+			return result;
+
+		// if we have not the property cached yet, try to apply the algorithm from http://maven.apache.org/pom.html#Properties
+
+		// start with environment variables
+		if(propertyName.startsWith("env.")) {
+			String envPropertyName = propertyName.substring(4);
+			result = System.getenv(envPropertyName);
+			if(result != null) {
+				propertyMap.put(propertyName, result);
+				return result;
 			}
 		}
 
-		return propertyMap;
+		// check project attributes
+		if(propertyName.startsWith("project.")) {
+			String projectPropertyName = propertyName.substring(8);
+			int pomFeatureId = getFeatureId(projectPropertyName);
+			if(pomFeatureId != -1) {
+				result = resolveFeature(pomFeatureId);
+				if(result != null) {
+					propertyMap.put(propertyName, result);
+					return result;
+				}
+			}
+		}
+
+		// now look in the java properties
+		result = System.getProperty(propertyName);
+
+		if(result != null)
+			return result;
+
+		// if parent is defined, ask it to deliver the property value
+		Parent parent = getParent();
+		if(parent != null) {
+			ResolvedModel parentModel = POM.getPOM(
+				repoRoot, parent.getGroupId(), parent.getArtifactId(), parent.getVersion()).getResolvedProject();
+
+			return parentModel.getProperty(propertyName);
+		}
+
+		return null;
 	}
 
 	public Reporting getReporting() {
@@ -482,6 +521,27 @@ public class ResolvedModel extends ResolvedModelBase {
 		return getPackaging() != null;
 	}
 
+	private int getFeatureId(String projectPropertyName) {
+		StringBuilder featureKeyName = new StringBuilder("MODEL__");
+		for(char c : projectPropertyName.toCharArray()) {
+			if(Character.isUpperCase(c))
+				featureKeyName.append('_');
+			featureKeyName.append(Character.toUpperCase(c));
+		}
+
+		try {
+			Field field = PomPackage.class.getField(featureKeyName.toString());
+			if(Modifier.isStatic(field.getModifiers())) {
+				return field.getInt(null);
+			}
+		}
+		catch(Exception e) {
+			// ignore
+		}
+
+		return -1;
+	}
+
 	private Map<String, String> getPropertiesAsMap() throws CoreException {
 		Map<String, String> propertyMap = new HashMap<String, String>();
 		PropertiesType propertiesType = original.getProperties();
@@ -524,7 +584,7 @@ public class ResolvedModel extends ResolvedModelBase {
 			}
 
 			if(result instanceof String)
-				result = (T) POM.expandProperties((String) result, getPropertyMap());
+				result = (T) POM.expandProperties((String) result, this);
 			return result;
 		}
 		catch(CoreException e) {

@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
  * 
  */
-public class POM {
+public class POM implements IPropertyProvider {
 	private static final int MAX_CACHE_SIZE = 10;
 
 	private static final HashMap<URI, POM> pomCacheLRU = new LinkedHashMap<URI, POM>(MAX_CACHE_SIZE, 0.75f, true) {
@@ -56,7 +56,7 @@ public class POM {
 
 	public static final String MODEL_VERSION = "4.0.0";
 
-	public static String expandProperties(String str, Map<String, String> propertyMap) {
+	public static String expandProperties(String str, IPropertyProvider propertyProvider) throws CoreException {
 		if(str == null)
 			return "";
 
@@ -67,7 +67,8 @@ public class POM {
 			if(len > pos && str.charAt(pos + 1) == '{') {
 				int end = str.indexOf('}', pos + 2);
 				if(end != -1) {
-					String varValue = propertyMap.get(str.substring(pos + 2, end));
+					String varName = str.substring(pos + 2, end);
+					String varValue = propertyProvider.getProperty(varName);
 					int varLength = 0;
 					if(varValue != null) {
 						StringBuilder newStr = new StringBuilder(str.substring(0, pos));
@@ -76,6 +77,8 @@ public class POM {
 						str = newStr.toString();
 						varLength = varValue.length();
 					}
+					else
+						varLength = varName.length();
 					from = pos + varLength;
 				}
 				else
@@ -203,8 +206,8 @@ public class POM {
 		return documentRoot.getProject();
 	}
 
-	public Map<String, String> getProperties() throws CoreException {
-		return getResolvedProject().getPropertyMap();
+	public String getProperty(String key) throws CoreException {
+		return getResolvedProject().getProperty(key);
 	}
 
 	public ResolvedModel getResolvedProject() throws CoreException {

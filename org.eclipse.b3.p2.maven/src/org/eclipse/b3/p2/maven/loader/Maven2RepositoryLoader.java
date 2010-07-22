@@ -224,9 +224,9 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				String id = iu.getProperty(PROP_MAVEN_ID);
 
 				String version = VersionUtil.getVersionString(iu.getVersion());
-				ad.setRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE, mdr.getLocation().toString() +
-						'/' + groupPath + '/' + id + '/' + version + '/' + id + '-' + version + '.' +
-						key.getClassifier());
+				ad.setRepositoryProperty(
+					SimpleArtifactDescriptor.ARTIFACT_REFERENCE, mdr.getLocation().toString() + '/' + groupPath + '/' +
+							id + '/' + version + '/' + id + '-' + version + '.' + key.getClassifier());
 				ar.addDescriptor(ad);
 			}
 			targetMon.worked(1);
@@ -374,23 +374,23 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				for(Dependency dependency : model.getDependencies().getDependency()) {
 					// TODO What about the namespace ?
 					String namespace = dependency.isSetType()
-							? POM.expandProperties(dependency.getType(), pom.getProperties())
+							? POM.expandProperties(dependency.getType(), pom)
 							: "jar";
 
 					// TODO What about the groupId ?
 					// Yes, include: good for native maven, but not for "mavenized" p2 since artifactId is full
 					// No, don't include: good for "mavenized" p2, but not for native maven (may lead to duplicities)
-					// For now: include if artifactId is not equals to groupId or does not start with groupId followed
+					// For now: include if artifactId is not equal to groupId or does not start with groupId followed
 					// by a dot
-					String groupId = POM.expandProperties(dependency.getGroupId(), pom.getProperties());
-					String artifactId = POM.expandProperties(dependency.getArtifactId(), pom.getProperties());
-					String versionRange = POM.expandProperties(dependency.getVersion(), pom.getProperties());
+					String groupId = POM.expandProperties(dependency.getGroupId(), pom);
+					String artifactId = POM.expandProperties(dependency.getArtifactId(), pom);
+					String versionRange = POM.expandProperties(dependency.getVersion(), pom);
 					if(versionRange == null)
 						versionRange = MAVEN_EMPTY_RANGE_STRING;
 					VersionRange vr = VersionUtil.createVersionRange(versionRange);
 
-					IRequirement rc = P2Bridge.importToModel(MetadataFactory.createRequirement(namespace, createP2Id(
-						groupId, artifactId), vr, null, dependency.isSetOptional(), false, true));
+					IRequirement rc = P2Bridge.importToModel(MetadataFactory.createRequirement(
+						namespace, createP2Id(groupId, artifactId), vr, null, dependency.isSetOptional(), false, true));
 
 					iu.getRequirements().add(rc);
 				}
@@ -930,8 +930,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				}
 
 				IRequirement rc = P2Bridge.importToModel(MetadataFactory.createRequirement(
-					IInstallableUnit.NAMESPACE_IU_ID, iu.getId(), new VersionRange(
-						iu.getVersion(), true, iu.getVersion(), true), null, false, false, true));
+					IInstallableUnit.NAMESPACE_IU_ID, iu.getId(),
+					new VersionRange(iu.getVersion(), true, iu.getVersion(), true), null, false, false, true));
 				List<IRequirement> rcList = category.getRequirements();
 				rcList.add(rc);
 
