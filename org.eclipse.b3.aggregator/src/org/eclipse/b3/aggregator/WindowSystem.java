@@ -63,7 +63,16 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MOTIF(4, "Motif", "motif");
+	MOTIF(4, "Motif", "motif"), /**
+	 * The '<em><b>Photon</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #PHOTON_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PHOTON(0, "Photon", "photon");
 
 	/**
 	 * The '<em><b>Win32</b></em>' literal value.
@@ -141,12 +150,27 @@ public enum WindowSystem implements Enumerator {
 	public static final int MOTIF_VALUE = 4;
 
 	/**
+	 * The '<em><b>Photon</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Photon</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #PHOTON
+	 * @model name="Photon" literal="photon"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PHOTON_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Window System</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private static final WindowSystem[] VALUES_ARRAY = new WindowSystem[] { WIN32, GTK, CARBON, COCOA, MOTIF, };
+	private static final WindowSystem[] VALUES_ARRAY = new WindowSystem[] { WIN32, GTK, CARBON, COCOA, MOTIF, PHOTON, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Window System</b></em>' enumerators.

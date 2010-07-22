@@ -7,11 +7,12 @@
     modelName="Aggregator" modelPluginClass="org.eclipse.b3.aggregator.AggregatorPlugin"
     editPluginClass="org.eclipse.b3.aggregator.provider.AggregatorEditPlugin" editorPluginClass="org.eclipse.b3.aggregator.presentation.AggregatorEditorPlugin"
     rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    rootImplementsInterface="" testSuiteClass="org.eclipse.b3.aggregator.tests.AggregatorAllTests"
-    booleanFlagsField="eFlags" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
-    complianceLevel="5.0" copyrightFields="false" providerRootExtendsClass="org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter"
+    rootImplementsInterface="" testsDirectory="" testSuiteClass="" booleanFlagsField="eFlags"
+    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="5.0"
+    copyrightFields="false" providerRootExtendsClass="org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter"
     editPluginID="org.eclipse.b3.aggregator.edit" editorPluginID="org.eclipse.b3.aggregator.editor"
-    colorProviders="true" fontProviders="true" language="" packedEnums="true" usedGenPackages="../../org.eclipse.b3.p2/model/p2.genmodel#//p2"
+    testsPluginID="org.eclipse.b3.aggregator.tests" colorProviders="true" fontProviders="true"
+    language="" packedEnums="true" usedGenPackages="../../org.eclipse.b3.p2/model/p2.genmodel#//p2"
     classNamePattern="">
   <foreignModel>Aggregator.ecore</foreignModel>
   <genPackages prefix="Aggregator" basePackage="org.eclipse.b3" resource="XMI" disposableProviderFactory="true"
@@ -29,18 +30,29 @@
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//OperatingSystem/Win32"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//OperatingSystem/Linux"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//OperatingSystem/MacOSX"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//OperatingSystem/AIX"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//OperatingSystem/HPUX"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//OperatingSystem/Solaris"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//OperatingSystem/QNX"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//WindowSystem">
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//WindowSystem/Win32"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//WindowSystem/GTK"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//WindowSystem/Carbon"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//WindowSystem/Cocoa"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//WindowSystem/Motif"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//WindowSystem/Photon"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//Architecture">
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/X86"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/PPC"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/X86_64"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/IA64"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/IA64_32"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/Sparc"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/PPC64"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/S390"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/S390X"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//PackedStrategy">
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//PackedStrategy/Copy"/>

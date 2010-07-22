@@ -2033,6 +2033,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.AIX);
 		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.HPUX);
 		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.SOLARIS);
+		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.QNX);
 
 		initEEnum(windowSystemEEnum, WindowSystem.class, "WindowSystem");
 		addEEnumLiteral(windowSystemEEnum, WindowSystem.WIN32);
@@ -2040,6 +2041,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(windowSystemEEnum, WindowSystem.CARBON);
 		addEEnumLiteral(windowSystemEEnum, WindowSystem.COCOA);
 		addEEnumLiteral(windowSystemEEnum, WindowSystem.MOTIF);
+		addEEnumLiteral(windowSystemEEnum, WindowSystem.PHOTON);
 
 		initEEnum(architectureEEnum, Architecture.class, "Architecture");
 		addEEnumLiteral(architectureEEnum, Architecture.X86);

@@ -128,6 +128,7 @@
     <eLiterals name="AIX" value="3" literal="aix"/>
     <eLiterals name="HPUX" value="4" literal="hpux"/>
     <eLiterals name="Solaris" value="5" literal="solaris"/>
+    <eLiterals name="QNX" value="6" literal="qnx"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="WindowSystem">
     <eLiterals name="Win32" literal="win32"/>
@@ -135,6 +136,7 @@
     <eLiterals name="Carbon" value="2" literal="carbon"/>
     <eLiterals name="Cocoa" value="3" literal="cocoa"/>
     <eLiterals name="Motif" value="4" literal="motif"/>
+    <eLiterals name="Photon" literal="photon"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Architecture">
     <eLiterals name="X86" literal="x86"/>

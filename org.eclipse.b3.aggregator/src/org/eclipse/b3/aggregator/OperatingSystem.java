@@ -76,7 +76,16 @@ public enum OperatingSystem implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SOLARIS(5, "Solaris", "solaris");
+	SOLARIS(5, "Solaris", "solaris"), /**
+	 * The '<em><b>QNX</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #QNX_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	QNX(6, "QNX", "qnx");
 
 	/**
 	 * The '<em><b>Win32</b></em>' literal value.
@@ -169,13 +178,28 @@ public enum OperatingSystem implements Enumerator {
 	public static final int SOLARIS_VALUE = 5;
 
 	/**
+	 * The '<em><b>QNX</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>QNX</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #QNX
+	 * @model literal="qnx"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int QNX_VALUE = 6;
+
+	/**
 	 * An array of all the '<em><b>Operating System</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	private static final OperatingSystem[] VALUES_ARRAY = new OperatingSystem[] {
-			WIN32, LINUX, MAC_OSX, AIX, HPUX, SOLARIS, };
+			WIN32, LINUX, MAC_OSX, AIX, HPUX, SOLARIS, QNX, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Operating System</b></em>' enumerators.
@@ -207,6 +231,8 @@ public enum OperatingSystem implements Enumerator {
 				return HPUX;
 			case SOLARIS_VALUE:
 				return SOLARIS;
+			case QNX_VALUE:
+				return QNX;
 		}
 		return null;
 	}
