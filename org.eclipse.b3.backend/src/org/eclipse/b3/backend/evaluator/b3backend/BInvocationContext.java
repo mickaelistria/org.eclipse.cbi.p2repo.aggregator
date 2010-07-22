@@ -1,4 +1,5 @@
-/* Copyright (c) 2010, Cloudsmith Inc and others.
+/**
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,14 +28,6 @@ import org.eclipse.b3.backend.core.B3ExpressionCache;
  * @generated
  */
 public interface BInvocationContext extends BExecutionContext {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
-
 	/**
 	 * Returns the value of the '<em><b>Expression Cache</b></em>' attribute.
 	 * <!-- begin-user-doc -->

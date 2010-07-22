@@ -1,8 +1,11 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
 package org.eclipse.b3.backend.evaluator.b3backend.util;
 
@@ -11,13 +14,95 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
-import org.eclipse.b3.backend.evaluator.b3backend.*;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
+import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
+import org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BAdvice;
+import org.eclipse.b3.backend.evaluator.b3backend.BAndExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BBinaryExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallFeature;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BCase;
+import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
+import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
+import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
+import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
+import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
+import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
+import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BOrExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BTryExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
+import org.eclipse.b3.backend.evaluator.b3backend.BUnaryExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -30,14 +115,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public class B3backendAdapterFactory extends AdapterFactoryImpl {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
-
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->

@@ -20,6 +20,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
  * Any code that wants to insert a new instance of the injector *must* also update B3InternalContextAccess
  * state.
  * 
+ * @generated NOT (just to be safe :) this class was never generated.
  */
 public class B3InternalContextAccess {
 	private static ThreadLocal<BExecutionContext> context = new ThreadLocal<BExecutionContext>();

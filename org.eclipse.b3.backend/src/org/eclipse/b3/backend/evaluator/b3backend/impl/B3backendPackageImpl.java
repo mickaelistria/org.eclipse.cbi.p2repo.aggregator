@@ -1,8 +1,11 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
@@ -127,7 +130,6 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import com.google.inject.Injector;
-import java.lang.CharSequence;
 
 /**
  * <!-- begin-user-doc -->
@@ -137,14 +139,6 @@ import java.lang.CharSequence;
  * @generated
  */
 public class B3backendPackageImpl extends EPackageImpl implements B3backendPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4222,13 +4216,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = addEOperation(bExecutionContextEClass, null, "getConcernIterator", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getJavaIterator());
-		g2 = createEGenericType(this.getBConcernContext());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
-
 		addEOperation(bExecutionContextEClass, null, "printStack", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(bExecutionContextEClass, null, "printStackTrace", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4537,10 +4524,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(
 			getIFunction_VarargArrayType(), this.getType(), "varargArrayType", null, 0, 1, IFunction.class,
 			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		op = addEOperation(
-			iFunctionEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(bGuardEClass, BGuard.class, "BGuard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
