@@ -210,8 +210,12 @@ public class RepositoryVerifier extends BuilderPhase {
 						QueryUtil.createIUPatchQuery(), subMon.newChild(1)).iterator();
 
 					while(itor.hasNext()) {
+						IInstallableUnitPatch patch = (IInstallableUnitPatch) itor.next();
+						if(!unitsToAggregate.contains(patch))
+							continue;
+
 						Set<IInstallableUnit> units = getUnpatchedTransitiveScope(
-							(IInstallableUnitPatch) itor.next(), profile, planner, repoLocation, subMon.newChild(1));
+							patch, profile, planner, repoLocation, subMon.newChild(1));
 						for(IInstallableUnit iu : units) {
 							if(validationOnlyIUs.contains(iu)) {
 								// This IU should not be included unless it is also included in one of

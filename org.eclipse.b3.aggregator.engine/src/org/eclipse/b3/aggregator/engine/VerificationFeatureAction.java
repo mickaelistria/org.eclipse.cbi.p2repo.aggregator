@@ -40,6 +40,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.equinox.internal.p2.metadata.expression.ExpressionFactory;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IInstallableUnitPatch;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
@@ -165,6 +166,11 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 						List<MapRule> mapRules = repository.getMapRules();
 						Map<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>> preSelectedIUs = new HashMap<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>>();
 						allIUs: for(IInstallableUnit riu : allIUs) {
+
+							// don't include patches as root IUs
+							if(riu instanceof IInstallableUnitPatch)
+								continue;
+
 							// We assume that all groups that are not categories are either products or
 							// features.
 							//
