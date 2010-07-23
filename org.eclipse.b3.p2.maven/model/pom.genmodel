@@ -5,12 +5,12 @@
     editDirectory="/org.eclipse.b3.p2.maven.edit/src" editorDirectory="/org.eclipse.b3.p2.maven.editor/src"
     modelPluginID="org.eclipse.b3.p2.maven" modelName="Maven-4.0" editPluginClass="org.eclipse.b3.p2.maven.pom.provider.Maven40EditPlugin"
     editorPluginClass="org.eclipse.b3.p2.maven.pom.presentation.Maven40EditorPlugin"
-    testSuiteClass="org.eclipse.b3.p2.maven.pom.tests.Maven40AllTests"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
-    editPluginID="org.eclipse.b3.p2.maven.edit" editorPluginID="org.eclipse.b3.p2.maven.editor">
+    testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipse.b3.p2.maven.edit"
+    editorPluginID="org.eclipse.b3.p2.maven.editor">
   <foreignModel>pom.ecore</foreignModel>
-  <genPackages prefix="Pom" basePackage="org.eclipse.b3.p2.maven" resource="XML"
-      disposableProviderFactory="true" fileExtensions="pom" ecorePackage="pom.ecore#/">
+  <genPackages prefix="Pom" basePackage="org.eclipse.b3.p2.maven" resource="XML" disposableProviderFactory="true"
+      fileExtensions="pom" ecorePackage="pom.ecore#/">
     <genClasses ecoreClass="pom.ecore#//Activation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pom.ecore#//Activation/activeByDefault"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pom.ecore#//Activation/jdk"/>

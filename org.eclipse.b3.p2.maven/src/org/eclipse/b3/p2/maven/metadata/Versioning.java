@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.p2.maven.metadata.Versioning#getRelease <em>Release</em>}</li>
+ * <li>{@link org.eclipse.b3.p2.maven.metadata.Versioning#getLatest <em>Latest</em>}</li>
  * <li>{@link org.eclipse.b3.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}</li>
  * <li>{@link org.eclipse.b3.p2.maven.metadata.Versioning#getLastUpdated <em>Last Updated</em>}</li>
  * </ul>
@@ -54,6 +55,28 @@ public interface Versioning extends EObject {
 	 * @generated
 	 */
 	String getLastUpdated();
+
+	/**
+	 * Returns the value of the '<em><b>Latest</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 * 1.0.0
+	 * 
+	 * 
+	 * The latest version of the project.
+	 * 
+	 * <!-- end-model-doc -->
+	 * 
+	 * @return the value of the '<em>Latest</em>' attribute.
+	 * @see #setLatest(String)
+	 * @see org.eclipse.b3.p2.maven.metadata.MetadataPackage#getVersioning_Latest()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='element' name='latest' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	String getLatest();
 
 	/**
 	 * Returns the value of the '<em><b>Release</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
@@ -96,8 +119,7 @@ public interface Versioning extends EObject {
 	Versions getVersions();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.Versioning#getLastUpdated <em>Last Updated</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.Versioning#getLastUpdated <em>Last Updated</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -108,8 +130,19 @@ public interface Versioning extends EObject {
 	void setLastUpdated(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.Versioning#getRelease <em>Release</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.Versioning#getLatest <em>Latest</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Latest</em>' attribute.
+	 * @see #getLatest()
+	 * @generated
+	 */
+	void setLatest(String value);
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.Versioning#getRelease <em>Release</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -120,8 +153,7 @@ public interface Versioning extends EObject {
 	void setRelease(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

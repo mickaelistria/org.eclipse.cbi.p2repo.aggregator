@@ -123,8 +123,7 @@ public interface MetaData extends EObject {
 	Versioning getVersioning();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.MetaData#getArtifactId <em>Artifact Id</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.MetaData#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -157,8 +156,7 @@ public interface MetaData extends EObject {
 	void setVersion(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

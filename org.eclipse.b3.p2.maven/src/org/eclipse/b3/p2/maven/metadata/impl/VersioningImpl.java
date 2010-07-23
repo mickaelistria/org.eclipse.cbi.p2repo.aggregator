@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.p2.maven.metadata.impl.VersioningImpl#getRelease <em>Release</em>}</li>
+ * <li>{@link org.eclipse.b3.p2.maven.metadata.impl.VersioningImpl#getLatest <em>Latest</em>}</li>
  * <li>{@link org.eclipse.b3.p2.maven.metadata.impl.VersioningImpl#getVersions <em>Versions</em>}</li>
  * <li>{@link org.eclipse.b3.p2.maven.metadata.impl.VersioningImpl#getLastUpdated <em>Last Updated</em>}</li>
  * </ul>
@@ -54,6 +55,28 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * @ordered
 	 */
 	protected String release = RELEASE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLatest() <em>Latest</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getLatest()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LATEST_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLatest() <em>Latest</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getLatest()
+	 * @generated
+	 * @ordered
+	 */
+	protected String latest = LATEST_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getVersions() <em>Versions</em>}' containment reference.
@@ -126,6 +149,8 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 		switch(featureID) {
 			case MetadataPackage.VERSIONING__RELEASE:
 				return getRelease();
+			case MetadataPackage.VERSIONING__LATEST:
+				return getLatest();
 			case MetadataPackage.VERSIONING__VERSIONS:
 				return getVersions();
 			case MetadataPackage.VERSIONING__LAST_UPDATED:
@@ -160,6 +185,10 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 				return RELEASE_EDEFAULT == null
 						? release != null
 						: !RELEASE_EDEFAULT.equals(release);
+			case MetadataPackage.VERSIONING__LATEST:
+				return LATEST_EDEFAULT == null
+						? latest != null
+						: !LATEST_EDEFAULT.equals(latest);
 			case MetadataPackage.VERSIONING__VERSIONS:
 				return versions != null;
 			case MetadataPackage.VERSIONING__LAST_UPDATED:
@@ -180,6 +209,9 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 		switch(featureID) {
 			case MetadataPackage.VERSIONING__RELEASE:
 				setRelease((String) newValue);
+				return;
+			case MetadataPackage.VERSIONING__LATEST:
+				setLatest((String) newValue);
 				return;
 			case MetadataPackage.VERSIONING__VERSIONS:
 				setVersions((Versions) newValue);
@@ -202,6 +234,9 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 			case MetadataPackage.VERSIONING__RELEASE:
 				setRelease(RELEASE_EDEFAULT);
 				return;
+			case MetadataPackage.VERSIONING__LATEST:
+				setLatest(LATEST_EDEFAULT);
+				return;
 			case MetadataPackage.VERSIONING__VERSIONS:
 				setVersions((Versions) null);
 				return;
@@ -219,6 +254,16 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 */
 	public String getLastUpdated() {
 		return lastUpdated;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getLatest() {
+		return latest;
 	}
 
 	/**
@@ -250,6 +295,19 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, MetadataPackage.VERSIONING__LAST_UPDATED, oldLastUpdated, lastUpdated));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setLatest(String newLatest) {
+		String oldLatest = latest;
+		latest = newLatest;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__LATEST, oldLatest, latest));
 	}
 
 	/**
@@ -301,6 +359,8 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (release: ");
 		result.append(release);
+		result.append(", latest: ");
+		result.append(latest);
 		result.append(", lastUpdated: ");
 		result.append(lastUpdated);
 		result.append(')');

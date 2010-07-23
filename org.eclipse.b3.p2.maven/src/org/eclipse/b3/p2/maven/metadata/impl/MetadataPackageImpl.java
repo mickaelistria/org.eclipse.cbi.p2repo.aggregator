@@ -118,8 +118,9 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	private boolean isInitialized = false;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
-	 * EPackage.Registry} by the package package URI value.
+	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+	 * package
+	 * package URI value.
 	 * <p>
 	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
 	 * package, or returns the registered package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -160,6 +161,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 
 		versioningEClass = createEClass(VERSIONING);
 		createEAttribute(versioningEClass, VERSIONING__RELEASE);
+		createEAttribute(versioningEClass, VERSIONING__LATEST);
 		createEReference(versioningEClass, VERSIONING__VERSIONS);
 		createEAttribute(versioningEClass, VERSIONING__LAST_UPDATED);
 
@@ -281,7 +283,17 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * @generated
 	 */
 	public EAttribute getVersioning_LastUpdated() {
-		return (EAttribute) versioningEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) versioningEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getVersioning_Latest() {
+		return (EAttribute) versioningEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -299,7 +311,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * @generated
 	 */
 	public EReference getVersioning_Versions() {
-		return (EReference) versioningEClass.getEStructuralFeatures().get(1);
+		return (EReference) versioningEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -386,6 +398,9 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		initEAttribute(
 			getVersioning_Release(), theXMLTypePackage.getString(), "release", null, 0, 1, Versioning.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getVersioning_Latest(), theXMLTypePackage.getString(), "latest", null, 0, 1, Versioning.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getVersioning_Versions(), this.getVersions(), null, "versions", null, 1, 1, Versioning.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
@@ -436,6 +451,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		addAnnotation(versioningEClass, source, new String[] { "name", "Versioning", "kind", "elementOnly" });
 		addAnnotation(getVersioning_Release(), source, new String[] {
 				"kind", "element", "name", "release", "namespace", "##targetNamespace" });
+		addAnnotation(getVersioning_Latest(), source, new String[] {
+				"kind", "element", "name", "latest", "namespace", "##targetNamespace" });
 		addAnnotation(getVersioning_Versions(), source, new String[] {
 				"kind", "element", "name", "versions", "namespace", "##targetNamespace" });
 		addAnnotation(getVersioning_LastUpdated(), source, new String[] {
