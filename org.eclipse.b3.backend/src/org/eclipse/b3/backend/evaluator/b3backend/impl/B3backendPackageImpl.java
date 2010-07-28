@@ -4774,8 +4774,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(
-			bTypeCalculatorEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bTypeCalculatorEClass, this.getB3FunctionType(), "getSignature", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(

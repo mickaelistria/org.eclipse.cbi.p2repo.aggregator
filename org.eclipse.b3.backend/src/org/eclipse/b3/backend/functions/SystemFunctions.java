@@ -12,7 +12,9 @@ import org.eclipse.b3.backend.core.IB3Evaluator;
 import org.eclipse.b3.backend.core.datatypes.Any;
 import org.eclipse.b3.backend.core.exceptions.B3AssertionFailedException;
 import org.eclipse.b3.backend.core.internal.B3BackendActivator;
+import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
@@ -47,7 +49,7 @@ public class SystemFunctions {
 	public static final IStatus EMPTY_WARNING = new Status(
 		IStatus.WARNING, B3BackendActivator.PLUGIN_IN, IStatus.OK, "", null);
 
-	@B3Backend(system = true, typeFunction = "returnTypeOfLastLambda")
+	@B3Backend(system = true, typeFunction = "tcReturnTypeOfLastLambda")
 	public static Object __do(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		Curry cur = hurryCurry(params, types, "do");
 
@@ -122,19 +124,19 @@ public class SystemFunctions {
 		return result;
 	}
 
-	@B3Backend(hideOriginal = true, funcNames = { "do" }, systemFunction = "__do", varargs = true, typeFunction = "returnTypeOfLastLambda")
+	@B3Backend(hideOriginal = true, funcNames = { "do" }, systemFunction = "__do", varargs = true, typeFunction = "tcReturnTypeOfLastLambda")
 	public static Object _do(@B3Backend(name = "iterable") Iterable<?> iterable,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
 		return null;
 	}
 
-	@B3Backend(hideOriginal = true, funcNames = { "do" }, systemFunction = "__do", varargs = true, typeFunction = "returnTypeOfLastLambda")
+	@B3Backend(hideOriginal = true, funcNames = { "do" }, systemFunction = "__do", varargs = true, typeFunction = "tcReturnTypeOfLastLambda")
 	public static Object _do(@B3Backend(name = "iterable") Iterator<?> iterator,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
 		return null;
 	}
 
-	@B3Backend(system = true, typeFunction = "returnTypeOfFirstLambda")
+	@B3Backend(system = true, typeFunction = "tcReturnTypeOfFirstLambda")
 	public static Object _evaluate(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		if(params == null || params.length < 1 || !(params[0] instanceof BFunction))
 			throw new IllegalArgumentException("_evaluate called with too few/wrong arguments");
@@ -181,7 +183,7 @@ public class SystemFunctions {
 		return Boolean.FALSE;
 	}
 
-	@B3Backend(system = true, typeFunction = "returnTypeOfLastLambda")
+	@B3Backend(system = true, typeFunction = "tcReturnTypeOfLastLambda")
 	public static Object _inject(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		Curry cur = hurryCurry(params, types, "inject");
 
@@ -484,7 +486,7 @@ public class SystemFunctions {
 	 *            - the parameters passed to the function
 	 * @return the result of calling the function
 	 */
-	@B3Backend(systemFunction = "_evaluate", varargs = true, typeFunction = "returnTypeOfFirstLambda")
+	@B3Backend(systemFunction = "_evaluate", varargs = true, typeFunction = "tcReturnTypeOfFirstLambda")
 	public static final Object evaluate(@B3Backend(name = "function") BFunction func, Object... params) {
 		return null;
 	}
@@ -561,13 +563,13 @@ public class SystemFunctions {
 		return new Status(IStatus.INFO, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, null);
 	}
 
-	@B3Backend(systemFunction = "_inject", varargs = true, typeFunction = "returnTypeOfLastLambda")
+	@B3Backend(systemFunction = "_inject", varargs = true, typeFunction = "tcReturnTypeOfLastLambda")
 	public static Object inject(@B3Backend(name = "iterable") Iterable<?> iterable,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
 		return null;
 	}
 
-	@B3Backend(systemFunction = "_inject", varargs = true, typeFunction = "returnTypeOfLastLambda")
+	@B3Backend(systemFunction = "_inject", varargs = true, typeFunction = "tcReturnTypeOfLastLambda")
 	public static Object inject(@B3Backend(name = "iterator") Iterator<?> iterator,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
 		return null;
@@ -624,35 +626,97 @@ public class SystemFunctions {
 		return null;
 	}
 
-	@B3Backend(typeCalculator = true)
-	public static Type returnTypeOfFirstLambda(Type[] types) {
-		if(types.length <= 1 || !(types[0] instanceof B3FunctionType))
-			return Object.class;
-		B3FunctionType ft = (B3FunctionType) types[0];
-		Type x = ft.getReturnTypeForParameterTypes(types);
-		return x;
-	}
-
-	@B3Backend(typeCalculator = true)
-	public static Type returnTypeOfLastLambda(Type[] types) {
-		int ix = types.length - 1;
-		if(types.length < 1 || !(types[ix] instanceof B3FunctionType))
-			return Object.class;
-		B3FunctionType ft = (B3FunctionType) types[ix];
-		Type x = ft.getReturnTypeForParameterTypes(types);
-		return x;
-	}
-
-	@B3Backend(systemFunction = "_select", varargs = true)
+	@B3Backend(systemFunction = "_select", varargs = true, typeFunction = "tcBooleanLambda")
 	public static List<Object> select(@B3Backend(name = "iterable") Iterable<?> iterable,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
 		return null;
 	}
 
-	@B3Backend(systemFunction = "_select", varargs = true)
+	@B3Backend(systemFunction = "_select", varargs = true, typeFunction = "tcBooleanLambda")
 	public static List<Object> select(@B3Backend(name = "iterator") Iterator<?> iterator,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
 		return null;
+	}
+
+	/**
+	 * Type Calculator for f(?<T>,<U1>...<Un>, f(<U1>..<Un>)=>Boolean)=>List<T>
+	 * Where an Any in U1..Un is replaced by T.
+	 * Example:
+	 * select(Iterator<Integer>, 20, _, {u1, u2 | u2 > u1; })
+	 * results in signature for the select call of:
+	 * (Iterator<Integer>, Integer, Integer, (Integer, Integer)=>Boolean)=>List<Integer>
+	 * 
+	 * @param types
+	 * @return
+	 */
+	@B3Backend(typeCalculator = true)
+	public static B3FunctionType tcBooleanLambda(Type[] types) {
+		B3FunctionType result = B3backendFactory.eINSTANCE.createB3FunctionType();
+		int ix = types.length - 1;
+		// must have at least iterator, and lambda as parameters
+		if(types.length < 2 || !(types[ix] instanceof B3FunctionType)) {
+			result.setReturnType(TypeUtils.coerceToEObjectType(Object.class));
+			return result; // non conforming, return ()=>Object
+		}
+		// determine curry type
+		Type[] curryGenericArgs = TypeUtils.getTypeArguments(types[0]);
+		// if generic is not 1 arg, it is either wrong i.e. Iterator<K, V>, or erased in runtime - use Object
+		Type curryType = curryGenericArgs.length == 1
+				? curryGenericArgs[0]
+				: TypeUtils.coerceToEObjectType(Object.class);
+
+		// The commonTypes are parameters both in the system function, and in the lambda
+		Type[] commonTypes = new Type[types.length - 2];
+		for(int i = 1; i < types.length - 1; i++)
+			commonTypes[i - 1] = TypeUtils.coerceToEObjectAndResolveAny(types[i], curryType);
+
+		// Compute the (resulting) lambda signature
+		// (type[0-n])=>Boolean
+		B3FunctionType lambda = B3backendFactory.eINSTANCE.createB3FunctionType();
+		for(int i = 0; i < commonTypes.length; i++)
+			lambda.getParameterTypes().add(commonTypes[i]);
+		lambda.setReturnType(TypeUtils.coerceToEObjectType(Boolean.class));
+		lambda.setFunctionType(B3Function.class);
+		// Set all parameters in resulting type
+		result.getParameterTypes().add(types[0]); // the iterator/iterable
+		for(int i = 0; i < commonTypes.length; i++)
+			result.getParameterTypes().add(commonTypes[i]);
+		result.getParameterTypes().add(lambda);
+		return result;
+	}
+
+	@B3Backend(typeCalculator = true)
+	public static B3FunctionType tcReturnTypeOfFirstLambda(Type[] types) {
+		B3FunctionType result = B3backendFactory.eINSTANCE.createB3FunctionType();
+
+		if(types.length <= 1 || !(types[0] instanceof B3FunctionType))
+			result.setReturnType(TypeUtils.coerceToEObjectType(Object.class));
+		else {
+			B3FunctionType ft = (B3FunctionType) types[0];
+			result.setReturnType(ft.getReturnTypeForParameterTypes(types));
+		}
+		return result;
+	}
+
+	/**
+	 * TODO: Incomplete - only sets return type
+	 * 
+	 * @param types
+	 * @return
+	 */
+	@B3Backend(typeCalculator = true)
+	public static B3FunctionType tcReturnTypeOfLastLambda(Type[] types) {
+		B3FunctionType result = B3backendFactory.eINSTANCE.createB3FunctionType();
+
+		int ix = types.length - 1;
+		if(types.length < 1 || !(types[ix] instanceof B3FunctionType)) {
+			result.setReturnType(TypeUtils.coerceToEObjectType(Object.class));
+		}
+		else {
+			B3FunctionType ft = (B3FunctionType) types[ix];
+			result.setReturnType(ft.getReturnTypeForParameterTypes(types));
+		}
+		return result;
 	}
 
 	@B3Backend(typeCalculator = true)

@@ -12,6 +12,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
@@ -167,11 +168,12 @@ public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator 
 	 * @generated NOT
 	 */
 	@Override
-	public Type getReturnTypeForParameterTypes(Type[] types /* , BExecutionContext ctx */) {
+	public B3FunctionType getSignature(Type[] types /* , BExecutionContext ctx */) {
 		try {
-			return (Type) func.internalCall(null, new Object[] { types }, new Type[] { types.getClass() });
+			return (B3FunctionType) func.internalCall(null, new Object[] { types }, new Type[] { types.getClass() });
 		}
 		catch(Throwable x) {
+			System.err.println("type calculator faile for tc: " + func.getName());
 			x.printStackTrace();
 		}
 		// TODO: NOT A VERY ROBUST SOLUTION

@@ -403,7 +403,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BTypeCalculator">
-    <eOperations name="getReturnTypeForParameterTypes" eType="#//Type">
+    <eOperations name="getSignature" eType="#//B3FunctionType">
       <eParameters name="types" eType="#//TypeArray"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//BJavaFunction"/>

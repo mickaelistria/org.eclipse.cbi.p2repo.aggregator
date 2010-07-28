@@ -1,6 +1,5 @@
 package org.eclipse.b3.backend.core.exceptions;
 
-
 /**
  * Variable has already been defined as final in an 'outer' context.
  */

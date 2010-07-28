@@ -1937,7 +1937,7 @@
       </children>
       <children xmi:type="notation:Node" xmi:id="_OZ5DFepQEd6A_b_6qoG9Kw" type="5002">
         <children xmi:type="notation:Node" xmi:id="_KZzwcOpeEd6A_b_6qoG9Kw" type="2002">
-          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BTypeCalculator/getReturnTypeForParameterTypes"/>
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BTypeCalculator/getSignature"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_KZzwcepeEd6A_b_6qoG9Kw"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_OZ5DFupQEd6A_b_6qoG9Kw"/>
@@ -2371,7 +2371,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_W4V_8QFjEd-J54ZOjN0g9g" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_W4V_8gFjEd-J54ZOjN0g9g" fontName="Lucida Grande"/>
       <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_W4V_8wFjEd-J54ZOjN0g9g" points="[-52, -18, -25, 326]$[-52, -341, -25, 3]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_W4V_8wFjEd-J54ZOjN0g9g" points="[0, -12, -25, 326]$[0, -335, -25, 3]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_W4XOEAFjEd-J54ZOjN0g9g" id="(0.18201754385964913,0.06451612903225806)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_W4XOEQFjEd-J54ZOjN0g9g" id="(0.07784431137724551,0.9629629629629629)"/>
     </edges>

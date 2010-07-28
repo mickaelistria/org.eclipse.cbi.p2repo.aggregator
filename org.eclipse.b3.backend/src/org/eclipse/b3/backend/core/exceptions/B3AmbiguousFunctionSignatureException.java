@@ -2,7 +2,6 @@ package org.eclipse.b3.backend.core.exceptions;
 
 import java.lang.reflect.Type;
 
-
 public class B3AmbiguousFunctionSignatureException extends B3EngineException {
 
 	private static final long serialVersionUID = 1L;

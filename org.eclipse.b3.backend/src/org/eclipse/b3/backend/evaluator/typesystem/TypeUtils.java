@@ -4,6 +4,7 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.b3.backend.core.exceptions.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
@@ -24,6 +26,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
 import org.eclipse.b3.backend.inference.FunctionUtils;
@@ -620,13 +623,7 @@ public class TypeUtils {
 		}
 	}
 
-	public static Type coerceToEObjectType(Type aType) {
-		if(aType == null || aType instanceof EObject)
-			return aType;
-		B3Type t = B3backendFactory.eINSTANCE.createB3Type();
-		t.setRawType(aType);
-		return t;
-	}
+	private static final Type[] EMPTY_TYPE_LIST = new Type[0];
 
 	// /**
 	// * Computes the specificity distance of a class
@@ -645,6 +642,28 @@ public class TypeUtils {
 	// return classDistance(ptc, Object.class) + 1;
 	// return classDistance(ptc, pc.getSuperclass()) + 1;
 	// }
+
+	/**
+	 * Returns an EObject type for aType, except if aType is a LiteralAny, in which case the EObject type of
+	 * "anyType" is returned.
+	 * 
+	 * @param aType
+	 * @param anyType
+	 * @return
+	 */
+	public static Type coerceToEObjectAndResolveAny(Type aType, Type anyType) {
+		if(isAssignableFrom(BLiteralAny.class, aType))
+			return coerceToEObjectType(anyType);
+		return coerceToEObjectType(aType);
+	}
+
+	public static Type coerceToEObjectType(Type aType) {
+		if(aType == null || aType instanceof EObject)
+			return aType;
+		B3Type t = B3backendFactory.eINSTANCE.createB3Type();
+		t.setRawType(aType);
+		return t;
+	}
 
 	public static Type getArrayComponentType(Type type) {
 		Type arrayType = type;
@@ -798,6 +817,51 @@ public class TypeUtils {
 			// TODO: OMG - this is cheating...
 			return getRaw(((TypeVariable<?>) t).getBounds()[0]);
 		throw new UnsupportedOperationException("UNSUPPORTED TYPE CLASS - was: " + t);
+	}
+
+	/**
+	 * Returns the element type of Iterator<T> or Iterable<T>
+	 * 
+	 * @param t
+	 * @return
+	 */
+	public static Type[] getTypeArguments(Type t) {
+		if(t instanceof B3Type)
+			t = ((B3Type) t).getRawType();
+		if(isAssignableFrom(Iterator.class, t)) {
+			if(t instanceof ParameterizedType) {
+				return ((ParameterizedType) t).getActualTypeArguments();
+			}
+			// Look up the "next" method
+			Method nextMethod;
+			try {
+				nextMethod = ((Class<?>) t).getMethod("next");
+			}
+			catch(Exception e) {
+				throw new B3InternalError("Could not find the 'next' method of an Iterator via reflection.", e);
+			}
+			Type returnType = nextMethod.getGenericReturnType();
+			return new Type[] { returnType };
+		}
+		if(isAssignableFrom(Iterable.class, t)) {
+			if(t instanceof ParameterizedType) {
+				return ((ParameterizedType) t).getActualTypeArguments();
+			}
+
+			Method iteratorMethod;
+			try {
+				iteratorMethod = ((Class<?>) t).getMethod("iterator");
+			}
+			catch(Exception e) {
+				throw new B3InternalError("Could not find the 'iterator' method of an Iterable via reflection.", e);
+			}
+			Type returnType = iteratorMethod.getGenericReturnType();
+			if(!(returnType instanceof ParameterizedType))
+				throw new B3InternalError("Return type of Iterable.iterator() is not generic.");
+			returnType = ((ParameterizedType) returnType).getActualTypeArguments()[0];
+			return new Type[] { returnType };
+		}
+		return EMPTY_TYPE_LIST;
 	}
 
 	/**

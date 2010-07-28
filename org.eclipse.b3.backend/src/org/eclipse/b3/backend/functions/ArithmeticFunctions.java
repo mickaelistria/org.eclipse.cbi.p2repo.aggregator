@@ -7,7 +7,10 @@ import java.math.BigInteger;
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.datatypes.DoubleSequence;
 import org.eclipse.b3.backend.core.datatypes.IntegerSequence;
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class ArithmeticFunctions {
@@ -272,9 +275,18 @@ public class ArithmeticFunctions {
 	}
 
 	@B3Backend(typeCalculator = true)
-	public static Type numberGenericityCalculator(Type[] types) {
-		if(types.length == 1)
+	public static B3FunctionType numberGenericityCalculator(Type[] types) {
+		B3FunctionType result = B3backendFactory.eINSTANCE.createB3FunctionType();
+		result.setFunctionType(BFunction.class);
+		result.setReturnType(numberGenericityCalculatorInternal(types));
+		return result;
+	}
+
+	@B3Backend(typeCalculator = true)
+	private static Type numberGenericityCalculatorInternal(Type[] types) {
+		if(types.length == 1) {
 			return types[0];
+		}
 		if(types.length == 2) {
 			Type at = types[0];
 			Type bt = types[1];

@@ -30,7 +30,8 @@ Require-Bundle: org.eclipse.core.runtime,
  com.google.collect;bundle-version="0.8.0",
  org.eclipse.xtext;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.b3.provisional.core
+Import-Package: org.apache.log4j,
+ org.eclipse.b3.provisional.core
 Bundle-Activator: org.eclipse.b3.backend.core.internal.B3BackendActivator
 Eclipse-BuddyPolicy: registered
 

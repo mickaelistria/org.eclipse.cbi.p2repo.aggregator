@@ -1,5 +1,6 @@
 package org.eclipse.b3.backend.core.internal;
 
+import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
@@ -18,6 +19,8 @@ public class B3BackendActivator extends Plugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		instance = this;
+		// Get debug options
+		B3Debug.configure();
 	}
 
 	@Override

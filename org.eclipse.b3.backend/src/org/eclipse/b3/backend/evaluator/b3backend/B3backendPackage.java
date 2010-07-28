@@ -7880,7 +7880,7 @@ public interface B3backendPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>B3 Expression Cache</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.B3ExpressionCache
-	 * @model instanceClass="org.eclipse.b3.backend.core.B3ExpressionCache" serializeable="false"
+	 * @model instanceClass="org.eclipse.b3.backend.evaluator.B3ExpressionCache" serializeable="false"
 	 * @generated
 	 */
 	EDataType getB3ExpressionCache();
@@ -10347,7 +10347,7 @@ public interface B3backendPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Func Store</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.B3FuncStore
-	 * @model instanceClass="org.eclipse.b3.backend.core.B3FuncStore"
+	 * @model instanceClass="org.eclipse.b3.backend.evaluator.B3FuncStore"
 	 * @generated
 	 */
 	EDataType getFuncStore();
@@ -10726,7 +10726,7 @@ public interface B3backendPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>LValue</em>'.
 	 * @see org.eclipse.b3.backend.core.datatypes.LValue
-	 * @model instanceClass="org.eclipse.b3.backend.core.LValue"
+	 * @model instanceClass="org.eclipse.b3.backend.core.datatypes.LValue"
 	 * @generated
 	 */
 	EDataType getLValue();
@@ -10773,7 +10773,7 @@ public interface B3backendPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Simple Pattern</em>'.
 	 * @see org.eclipse.b3.backend.core.datatypes.SimplePattern
-	 * @model instanceClass="org.eclipse.b3.backend.core.SimplePattern"
+	 * @model instanceClass="org.eclipse.b3.backend.core.datatypes.SimplePattern"
 	 * @generated
 	 */
 	EDataType getSimplePattern();
@@ -10854,7 +10854,7 @@ public interface B3backendPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Value Map</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.ValueMap
-	 * @model instanceClass="org.eclipse.b3.backend.core.ValueMap"
+	 * @model instanceClass="org.eclipse.b3.backend.evaluator.ValueMap"
 	 * @generated
 	 */
 	EDataType getValueMap();

@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.b3.backend.core.datatypes.Any;
 import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
@@ -28,11 +29,13 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAndExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallFeature;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction;
@@ -57,6 +60,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
 import org.eclipse.b3.backend.evaluator.b3backend.BOrExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
@@ -74,6 +78,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.util.Strings;
 
 import com.google.inject.Inject;
@@ -86,6 +91,269 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 
 	@Inject
 	protected FunctionUtils functionUtils;
+
+	/**
+	 * Returns a 'return type' constraint (the declared or inferred return type from parent constraints).
+	 * 
+	 * @param parent
+	 * @param e
+	 * @param feature
+	 * @return
+	 */
+	public Type constraint(B3Function parent, EObject e, EStructuralFeature feature) {
+		// A b3 function can constrain the func expression to the declared return type
+		if(feature.getFeatureID() == B3backendPackage.B3_FUNCTION__FUNC_EXPR) {
+			if(parent.getReturnType() != null)
+				return parent.getReturnType();
+			Type myConstraint = doGetConstraint(parent);
+			if(!(myConstraint instanceof B3FunctionType))
+				return null;
+			return ((B3FunctionType) myConstraint).getReturnType();
+		}
+		// all other features of a function are generic
+		// TODO: there is just parameter decl's left...
+		return constraint((IFunction) parent, e, feature);
+	}
+
+	/**
+	 * A BChainedExpression can impose a constraint on the last expression if the chained expression
+	 * is constrained.
+	 * 
+	 * @param parent
+	 * @param e
+	 * @param feature
+	 * @return
+	 */
+	public Type constraint(BChainedExpression parent, EObject e, EStructuralFeature feature) {
+		Type myConstraint = doGetConstraint(parent);
+		return myConstraint != null && (parent.getExpressions().indexOf(e) == parent.getExpressions().size() - 1)
+				? myConstraint
+				: null;
+	}
+
+	/**
+	 * Constraints value expression to the declared type.
+	 * (TODO: Could possibly ask its parent if it constraints the value declaration, but this is
+	 * quite esoteric as it is only applicable if a value definition is the last expression in a block - and thus
+	 * quite meaningless).
+	 */
+	public Type constraint(BDefValue parent, EObject e, EStructuralFeature feature) {
+		if(B3backendPackage.BDEF_VALUE__VALUE_EXPR != feature.getFeatureID())
+			return null;
+		return parent.getType();
+	}
+
+	public Type constraint(BLiteralListExpression parent, EObject e, EStructuralFeature feature) {
+		if(parent.getEntryType() != null)
+			return parent.getEntryType(); // I constrain my children
+		// if not, my parent may constrain me
+		Type myConstraint = doGetConstraint(parent);
+		if(myConstraint != null)
+			return TypeUtils.getElementType(myConstraint);
+		return null;
+	}
+
+	public Type constraint(BLiteralMapExpression parent, EObject e, EStructuralFeature feature) {
+		if(feature.getFeatureID() != B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES)
+			return null; // can only supply constraint for map entries
+		Type kt = parent.getKeyType();
+		Type vt = parent.getValueType();
+		if(kt != null && vt != null) {
+			B3ParameterizedType mapType = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+			mapType.setRawType(Map.class);
+			mapType.getActualArgumentsList().add(kt);
+			mapType.getActualArgumentsList().add(vt);
+			return mapType; // I constrain my children
+		}
+		return doGetConstraint(parent.eContainer(), parent, parent.eContainingFeature());
+	}
+
+	/**
+	 * A MapEntry may be constrained by its parent Map (which in turn may be constrained).
+	 * Supports asking for constraint of key or value.
+	 * 
+	 * @param parent
+	 * @param e
+	 * @param feature
+	 * @return
+	 */
+	public Type constraint(BMapEntry parent, EObject e, EStructuralFeature feature) {
+		Type entryType = doGetConstraint(
+			parent.eContainer(), parent, B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION__ENTRIES);
+		if(entryType == null)
+			return null;
+		if(!(entryType instanceof B3ParameterizedType))
+			return null;
+		if(((B3ParameterizedType) entryType).getActualArgumentsList().size() == 2) {
+			if(feature.getFeatureID() == B3backendPackage.BMAP_ENTRY__KEY)
+				return ((B3ParameterizedType) entryType).getActualArgumentsList().get(0);
+			if(feature.getFeatureID() == B3backendPackage.BMAP_ENTRY__VALUE)
+				return ((B3ParameterizedType) entryType).getActualArgumentsList().get(1);
+		}
+		return null;
+	}
+
+	/**
+	 * Returns the fully resolved signature of the call (Ta, Ub)=>Vc, where T and U are inferred and
+	 * V is the result of f.TypeCalculator(T, U) (if declared), or signature(f).returnType.
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public B3FunctionType signature(BCallFeature o) {
+		// 1. Find the function that will be called
+		// 2. Get its signature
+		// 3. Resolve the return type if it depends on the parameters.
+		Exception lastException = null;
+		Type[] types = null;
+		try {
+			types = functionUtils.asTypeArray(o, true);
+
+			types[0] = doGetInferredType(o.getFuncExpr());
+			List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
+			IFunction f = functionUtils.selectFunction(o.getName(), candidates, types);
+			// if static
+			if(f.isClassFunction()) {
+				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+				metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+				Type[] newTypes = new Type[types.length + 1];
+				System.arraycopy(types, 0, newTypes, 1, types.length);
+				newTypes[0] = metaClass;
+				types = newTypes;
+			}
+			B3FunctionType ft = signature(f);
+			// If return type depends on type of parameters, resolve it.
+			if(ft.getTypeCalculator() != null) {
+				ft.setReturnType(ft.getTypeCalculator().getSignature(types).getReturnType());
+			}
+			return ft;
+		}
+		catch(InferenceExceptions e) {
+			lastException = e;
+		}
+		catch(B3NoSuchFunctionException e) {
+			lastException = e;
+		}
+		catch(B3NoSuchFunctionSignatureException e) {
+			lastException = e;
+		}
+		catch(B3AmbiguousFunctionSignatureException e) {
+			lastException = e;
+		}
+		if(B3Debug.typer && lastException != null)
+			B3Debug.trace("Signature Inference not possible due to error: ", lastException);
+		// no inference possible - function not found
+		return null;
+	}
+
+	/**
+	 * Returns the fully resolved signature of either a cast (Object a)=>MetaClass.instanceClass, or
+	 * (func)(Ta, Ub)=>Vc where T and U may be inferred, and V the result of f.typeCalculator(T, U) if
+	 * declared, otherwise Vc is the inferred return type of f.
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public B3FunctionType signature(BCallFunction o) {
+		B3FunctionType ft = B3backendFactory.eINSTANCE.createB3FunctionType();
+		// TODO: This is probably wrong - but current impl uses this class for
+		// both B3Function, and JavaFunction ??? Probably a Bug??
+		ft.setFunctionType(B3Function.class);
+
+		Type t = doGetInferredType(o.getFuncExpr());
+		if(t instanceof B3MetaClass) {
+			// this is a 'cast' with signature (Object a)=>MC.instanceClass
+			ft.getParameterTypes().add(TypeUtils.coerceToEObjectType(Object.class));
+			ft.setReturnType(((B3MetaClass) t).getInstanceClass());
+			return ft;
+		}
+		if(!(t instanceof B3FunctionType))
+			// invalid expression, this is not the concern of the type provider? Just return null ?
+			throw new IllegalArgumentException("Invalid call - LHS is neither a class nor function. Was: " +
+					t.toString());
+
+		// Resolve the return type
+		ft = (B3FunctionType) t;
+		if(ft.getTypeCalculator() != null)
+			try {
+				Type[] types = functionUtils.asTypeArray(o, false);
+				ft.setReturnType(ft.getTypeCalculator().getSignature(types).getReturnType());
+			}
+			catch(InferenceExceptions e) {
+				if(B3Debug.typer)
+					B3Debug.trace("Inference Exception for signature(BCallFunction) (will return null):", e);
+				return null;
+			}
+		return ft;
+
+	}
+
+	/**
+	 * Returns the fully resolved signature of the call (Ta, Ub)=>Vc, where T and U are inferred and
+	 * V is the result of f.TypeCalculator(T, U) (if declared), or signature(f).returnType.
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public B3FunctionType signature(BCallNamedFunction o) {
+		// 1. Find the function that will be called
+		// 2. Get its signature
+		// 3. Resolve the return type if it depends on the parameters.
+		String name = o.getFuncRef().getName();
+		if(Strings.isEmpty(name))
+			name = o.getName();
+		if(Strings.isEmpty(name))
+			return null;
+
+		Type[] types = null;
+		Exception lastError = null;
+		try {
+			types = functionUtils.asTypeArray(o, false);
+
+			// types[0] = doGetInferredType(o.getFuncExpr());
+			List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, name, types.length > 0
+					? types[0]
+					: null);
+			IFunction f = functionUtils.selectFunction(name, candidates, types);
+			// if static (note: can not find a static function without a reference type), so use of type[0]
+			// should be safe.
+			if(f.isClassFunction()) {
+				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+				metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+				Type[] newTypes = new Type[types.length + 1];
+				System.arraycopy(types, 0, newTypes, 1, types.length);
+				newTypes[0] = metaClass;
+				types = newTypes;
+			}
+			B3FunctionType ft = signature(f);
+			// If return type depends on type of parameters, resolve it.
+			if(ft.getTypeCalculator() != null) {
+				ft.setReturnType(ft.getTypeCalculator().getSignature(types).getReturnType());
+			}
+			return ft;
+		}
+		catch(InferenceExceptions e) {
+			lastError = e;
+		}
+		catch(B3NoSuchFunctionException e) {
+			lastError = e;
+		}
+		catch(B3NoSuchFunctionSignatureException e) {
+			lastError = e;
+		}
+		catch(B3AmbiguousFunctionSignatureException e) {
+			lastError = e;
+		}
+		// no inference possible - function not found
+		if(B3Debug.typer && lastError != null)
+			B3Debug.trace(
+				"Inference of signature(BCallNamedFunction) failed (will return null) due to error: ", lastError);
+		return null;
+	}
+
+	public B3FunctionType signature(IFunction f) {
+		return (B3FunctionType) doGetInferredType(f);
+	}
 
 	/**
 	 * Adds inference of return type.
@@ -138,143 +406,31 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		catch(Exception e) {
 			return Object.class;
 		}
-		/*
-		 * OLD WAY:
-		 * return ctx.getDeclaredFunctionType(
-		 * functionName, new Type[] { leftExpr.getDeclaredType(ctx), rightExpr.getDeclaredType(ctx) });
-		 */
 	}
 
 	public Type type(BCachedExpression o) {
 		return doGetInferredType(o.getExpr());
 	}
 
-	public Type type(BCallFeature o) {
-		// TODO: This method can be simplified by delegating to selectFunction instead of
-		// doing two lookups.
-		Type[] types = null;
-		boolean staticAttempt = false;
-		try {
-			types = functionUtils.asTypeArray(o, true);
-
-			types[0] = doGetInferredType(o.getFuncExpr());
-			List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
-			IFunction f = functionUtils.selectInstanceFunction(o.getName(), candidates, types);
-			return functionUtils.getReturnType(f, types);
+	public Type type(BCallExpression o) {
+		// makes use of the fact that the signature of BCallFunction is fully resolved
+		B3FunctionType ft = doGetSignature(o);
+		if(ft == null) {
+			if(B3Debug.typer)
+				B3Debug.trace(
+					"type(", o.getClass(),
+					") defaults to Object.class because signature did not produce a function type for: ", o);
+			return Object.class;
 		}
-		catch(InferenceExceptions e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		Type returnType = ft.getReturnType();
+		if(returnType == null) {
+			if(B3Debug.typer)
+				B3Debug.trace(
+					"type(BCallFeature) defaults to Object.class because signature did not produce a function type for: ",
+					o);
+			return Object.class;
 		}
-		catch(B3NoSuchFunctionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		catch(B3NoSuchFunctionSignatureException e) {
-			staticAttempt = true;
-		}
-		catch(B3AmbiguousFunctionSignatureException e) {
-			staticAttempt = true;
-		}
-		// Try again, this time with a static call
-		if(staticAttempt) {
-			if(types.length > 0) {
-				// static call
-				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-				metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
-				Type[] newTypes = new Type[types.length + 1];
-				System.arraycopy(types, 0, newTypes, 1, types.length);
-				newTypes[0] = metaClass;
-
-				List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
-				IFunction f;
-				try {
-					f = functionUtils.selectInstanceFunction(o.getName(), candidates, newTypes);
-					return functionUtils.getReturnType(f, types);
-				}
-				catch(B3EngineException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-		// survive syntax errors by returning Object.class
-		return Object.class;
-	}
-
-	public Type type(BCallFunction o) {
-		Type t = doGetInferredType(o.getFuncExpr());
-		if(t instanceof B3MetaClass) {
-			// the class this meta class represents (i.e. what it casts to).
-			return ((B3MetaClass) t).getInstanceClass();
-		}
-		if(!(t instanceof B3FunctionType))
-			// invalid expression, this is not the concern of the type provider? Just return null ?
-			throw new IllegalArgumentException("Invalid call - LHS is neither a class nor function. Was: " +
-					t.toString());
-
-		return ((B3FunctionType) t).getReturnType();
-	}
-
-	public Type type(BCallNamedFunction o) {
-		// Find functions by name
-		// Match parameters
-		// get return type
-		String name = o.getFuncRef().getName();
-		if(Strings.isEmpty(name))
-			name = o.getName();
-		if(Strings.isEmpty(name))
-			return null;
-		Type[] types = null;
-		try {
-			types = functionUtils.asTypeArray(o, false);
-		}
-		catch(InferenceExceptions e) {
-			return null;
-		}
-		Type referenceType = types.length > 0
-				? types[0]
-				: null;
-		List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, name, referenceType);
-		boolean staticAttempt = false;
-		try {
-			IFunction func = functionUtils.selectInstanceFunction(name, candidates, types);
-			return functionUtils.getReturnType(func, types);
-		}
-		catch(B3NoSuchFunctionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		catch(B3NoSuchFunctionSignatureException e) {
-			staticAttempt = true;
-		}
-		catch(B3AmbiguousFunctionSignatureException e) {
-			staticAttempt = true;
-		}
-		// Try again, this time with a static call
-		if(staticAttempt) {
-			if(types.length > 0) {
-				// static call
-				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-				metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
-				Type[] newTypes = new Type[types.length + 1];
-				System.arraycopy(types, 0, newTypes, 1, types.length);
-				newTypes[0] = metaClass;
-
-				try {
-					candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
-					IFunction f = functionUtils.selectInstanceFunction(o.getName(), candidates, newTypes);
-					return functionUtils.getReturnType(f, types);
-				}
-				catch(B3EngineException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-		// survive syntax errors by returning Object.class
-		return Object.class;
-
+		return returnType;
 	}
 
 	public Type type(BCase o) {
@@ -294,6 +450,13 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		return doGetInferredType(exprList.get(sz - 1));
 	}
 
+	/**
+	 * TODO: Although easy to know the return type, there is the need to calculate the signature of
+	 * a BCreateExpression to enable inference of lambda parameters.
+	 * 
+	 * @param o
+	 * @return
+	 */
 	public Type type(BCreateExpression o) {
 		BExpression t = o.getTypeExpr();
 		if(!(t instanceof BLiteralType))
@@ -385,6 +548,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 
 	/**
 	 * Type of list is declared, or derived from the elements in the list (the common supertype).
+	 * TODO: containment type inference should have higher precedence than contained!
 	 * 
 	 * @param o
 	 * @return
@@ -422,17 +586,6 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	 * @param o
 	 * @return
 	 */
-	// Type kt = keyType == null
-	// ? String.class
-	// : keyType;
-	// Type vt = valueType == null
-	// ? Object.class
-	// : valueType;
-	// B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-	// pt.setRawType(Map.class);
-	// pt.getActualArgumentsList().add(kt);
-	// pt.getActualArgumentsList().add(vt);
-	// return pt;
 	public Type type(BLiteralMapExpression o) {
 		Type kt = o.getKeyType();
 		Type vt = o.getValueType();
@@ -506,6 +659,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	 * @return
 	 */
 	public Type type(BParameterDeclaration o) {
+		// Simple case - the parameter has declared type
 		Type t = o.getType(); // declared type
 		if(t != null) {
 			// check if it is a varargs parameter
@@ -518,113 +672,129 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 					t = t2;
 				}
 			}
-			return t;
+			return t; // return the declared type (possibly a varargs List)
 		}
-		// possible inferences:
-		// 1. a lambda passed as an argument to function - the declared signature determines the type
-		// 2. a lambda being called can infer the type to the type used in the call.
-		// 3. a lambda assigned to a declared type can use the type declaration
-		// 4. a lambda in a Literal List or Map where the container defines the type
-		// 3. defaults to Object
-
-		// is it a lambda (i.e. unnamed)
+		// A parameter type can be inferred if the function is a lambda
+		// (all other containment results in inference of Object.class).
 		EObject container = o.eContainer();
-		if((container instanceof IFunction) && ((IFunction) container).getName() == null) {
-			// this is a lambda
-			EObject funcContainer = container.eContainer();
+		if(!((container instanceof IFunction) && ((IFunction) container).getName() == null))
+			return TypeUtils.coerceToEObjectType(Object.class); // not a lambda
 
-			if(funcContainer instanceof BParameter) {
-				// this is a literal lambda used as a parameter in a call
-				// TODO: The container of the BParameter is the call that knows about the target of the call
-				// its parameter declaration for the position of the BParameter can be used.
-				//
-				// the container of a BParameter is a BParameterizedExpression (specialized to either a
-				// BCallExpression (has subtypes), or BCreateExpression).
-				// - these do not yet know the signature of the call, only have a name as reference, so
-				// currently not possible to infer the type. TODO. revisit when calls know what they are calling.
+		// the container of the lambda
+		EObject funcContainer = container.eContainer();
 
-				t = null; // placeholder
-				// ////
-				// TODO: This method can be simplified by delegating to selectFunction instead of
-				// doing two lookups.
-				// Type[] types = null;
-				// try {
-				// BParameterizedExpression called = (BParameterizedExpression) funcContainer.eContainer().eContainer();
-				// types = functionUtils.asTypeArray(called, true);
-				// types[0] = doGetInferredType(called.getFuncExpr());
-				// List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
-				// IFunction f = functionUtils.selectInstanceFunction(o.getName(), candidates, types);
-				// return functionUtils.getReturnType(f, types);
-				// }
-				// catch(InferenceExceptions e) {
-				// // TODO Auto-generated catch block
-				// e.printStackTrace();
-				// }
-				// catch(B3NoSuchFunctionException e) {
-				// // TODO Auto-generated catch block
-				// e.printStackTrace();
-				// }
-				// catch(B3NoSuchFunctionSignatureException e) {
-				// staticAttempt = true;
-				// }
-				// catch(B3AmbiguousFunctionSignatureException e) {
-				// staticAttempt = true;
-				// }
-
-				// ////
-
-			}
-			else if(funcContainer instanceof BCallFunction) {
-				// this is a lambda immediately being called
-				int idx = ((IFunction) container).getParameters().indexOf(o);
-				BParameter expr = ((BCallFunction) funcContainer).getParameterList().getParameters().get(idx);
-				t = doGetInferredType(expr);
-			}
-			// var (T1, T2)=>T3 a = {a,b| a+b;}, infers a=T1, b=T2,
-			else if(funcContainer instanceof BAssignmentExpression) {
-				if(((BAssignmentExpression) funcContainer).getRightExpr() == container) {
-					Type signature = doGetInferredType(((BAssignmentExpression) funcContainer).getLeftExpr());
+		// For a lambda there are several possible inferences depending on containment.
+		// It is in a list or map where the element type of the container is declared to be
+		// of function type.
+		if(funcContainer instanceof BLiteralListExpression) {
+			Type entryType = doGetInferredType(funcContainer); // the type of list
+			// Type entryType = ((BLiteralListExpression) funcContainer).getEntryType();
+			if(entryType != null && entryType instanceof ParameterizedType) {
+				TypeUtils.getElementType(entryType);
+				Type[] typeArgs = ((ParameterizedType) entryType).getActualTypeArguments();
+				if(typeArgs != null && typeArgs.length == 1) {
+					Type signature = typeArgs[0];
 					if(signature instanceof B3FunctionType) {
 						int idx = ((IFunction) container).getParameters().indexOf(o);
 						t = ((B3FunctionType) signature).getParameterTypes().get(idx);
 					}
 				}
 			}
-			// if in a list
-			else if(funcContainer instanceof BLiteralListExpression) {
-				Type entryType = ((BLiteralListExpression) funcContainer).getEntryType();
-				if(entryType != null && entryType instanceof ParameterizedType) {
-					Type[] typeArgs = ((ParameterizedType) entryType).getActualTypeArguments();
-					if(typeArgs != null && typeArgs.length == 1) {
-						Type signature = typeArgs[0];
-						if(signature instanceof B3FunctionType) {
-							int idx = ((IFunction) container).getParameters().indexOf(o);
-							t = ((B3FunctionType) signature).getParameterTypes().get(idx);
-						}
-					}
+		}
+		// 1. a lambda passed as an argument to function - the declared signature determines the type
+		// 2. a lambda being called can infer the type to the type used in the call.
+		// 3. a lambda assigned to a declared type can use the type declaration
+		// 4. a lambda in a Literal List or Map where the container defines the type
+		// 5. defaults to Object
+
+		if(funcContainer instanceof BParameter) {
+			// this is a literal lambda used as a parameter in a call
+			// TODO: The container of the BParameter is the call that knows about the target of the call
+			// its parameter declaration for the position of the BParameter can be used.
+			//
+			// the container of a BParameter is a BParameterizedExpression (specialized to either a
+			// BCallExpression (has subtypes), or BCreateExpression).
+			// - these do not yet know the signature of the call, only have a name as reference, so
+			// currently not possible to infer the type. TODO. revisit when calls know what they are calling.
+			BParameterList parameterList = (BParameterList) funcContainer.eContainer();
+			B3FunctionType callSignature = doGetSignature(parameterList.eContainer());
+			int pix = parameterList.getParameters().indexOf(funcContainer);
+			int signatureParameterSize = callSignature.getParameterTypes().size();
+			if(callSignature.isVarArgs() && pix >= signatureParameterSize)
+				t = callSignature.getParameterTypes().get(signatureParameterSize - 1);
+			else
+				t = callSignature.getParameterTypes().get(pix);
+
+			// TODO: CONTINUE HERE...
+			// t = null; // placeholder
+			// ////
+			// TODO: This method can be simplified by delegating to selectFunction instead of
+			// doing two lookups.
+			// Type[] types = null;
+			// try {
+			// BParameterizedExpression called = (BParameterizedExpression) funcContainer.eContainer().eContainer();
+			// types = functionUtils.asTypeArray(called, true);
+			// types[0] = doGetInferredType(called.getFuncExpr());
+			// List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
+			// IFunction f = functionUtils.selectInstanceFunction(o.getName(), candidates, types);
+			// return functionUtils.getReturnType(f, types);
+			// }
+			// catch(InferenceExceptions e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// }
+			// catch(B3NoSuchFunctionException e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// }
+			// catch(B3NoSuchFunctionSignatureException e) {
+			// staticAttempt = true;
+			// }
+			// catch(B3AmbiguousFunctionSignatureException e) {
+			// staticAttempt = true;
+			// }
+
+			// ////
+
+		}
+		else if(funcContainer instanceof BCallFunction) {
+			// this is a lambda immediately being called
+			int idx = ((IFunction) container).getParameters().indexOf(o);
+			BParameter expr = ((BCallFunction) funcContainer).getParameterList().getParameters().get(idx);
+			t = doGetInferredType(expr);
+		}
+		// var (T1, T2)=>T3 a = {a,b| a+b;}, infers a=T1, b=T2,
+		else if(funcContainer instanceof BAssignmentExpression) {
+			if(((BAssignmentExpression) funcContainer).getRightExpr() == container) {
+				Type signature = doGetInferredType(((BAssignmentExpression) funcContainer).getLeftExpr());
+				if(signature instanceof B3FunctionType) {
+					int idx = ((IFunction) container).getParameters().indexOf(o);
+					t = ((B3FunctionType) signature).getParameterTypes().get(idx);
 				}
 			}
-			// if in a map
-			else if(funcContainer instanceof BMapEntry) {
-				BLiteralMapExpression map = (BLiteralMapExpression) funcContainer.eContainer();
-				Type entryType = null;
-				if(((BMapEntry) funcContainer).getKey() == container)
-					entryType = map.getKeyType();
-				else
-					entryType = map.getValueType();
+		}
+		// if in a list
+		// if in a map
+		else if(funcContainer instanceof BMapEntry) {
+			BLiteralMapExpression map = (BLiteralMapExpression) funcContainer.eContainer();
+			Type entryType = null;
+			if(((BMapEntry) funcContainer).getKey() == container)
+				entryType = map.getKeyType();
+			else
+				entryType = map.getValueType();
 
-				if(entryType != null && entryType instanceof ParameterizedType) {
-					Type[] typeArgs = ((ParameterizedType) entryType).getActualTypeArguments();
-					if(typeArgs != null && typeArgs.length == 1) {
-						Type signature = typeArgs[0];
-						if(signature instanceof B3FunctionType) {
-							int idx = ((IFunction) container).getParameters().indexOf(o);
-							t = ((B3FunctionType) signature).getParameterTypes().get(idx);
-						}
+			if(entryType != null && entryType instanceof ParameterizedType) {
+				Type[] typeArgs = ((ParameterizedType) entryType).getActualTypeArguments();
+				if(typeArgs != null && typeArgs.length == 1) {
+					Type signature = typeArgs[0];
+					if(signature instanceof B3FunctionType) {
+						int idx = ((IFunction) container).getParameters().indexOf(o);
+						t = ((B3FunctionType) signature).getParameterTypes().get(idx);
 					}
 				}
 			}
 		}
+
 		// if no other inference succeeded
 		if(t == null)
 			t = Object.class;

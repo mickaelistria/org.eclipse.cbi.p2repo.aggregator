@@ -367,7 +367,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 		BTypeCalculator tc = getTypeCalculator();
 		if(tc == null)
 			return getReturnType();
-		return tc.getReturnTypeForParameterTypes(types);
+		return tc.getSignature(types).getReturnType();
 	}
 
 	/**
@@ -513,9 +513,18 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (varArgs: ");
-		result.append(varArgs);
-		result.append(')');
+		result.append("(");
+		EList<Type> typeList = getParameterTypes();
+		int size = typeList.size();
+		for(int i = 0; i < size; i++) {
+			if(i != 0)
+				result.append(", ");
+			result.append(typeList.get(i).toString());
+			if(i == size - 1 && this.isVarArgs())
+				result.append("...");
+		}
+		result.append(")=>");
+		result.append(this.getReturnType().toString());
 		return result.toString();
 	}
 

@@ -194,7 +194,7 @@ public class FunctionUtils {
 		BTypeCalculator tc = t.getTypeCalculator();
 		if(tc == null)
 			return t.getReturnType();
-		return tc.getReturnTypeForParameterTypes(types);
+		return tc.getSignature(types).getReturnType();
 	}
 
 	/**

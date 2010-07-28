@@ -52,10 +52,10 @@ public interface BTypeCalculator extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @model typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
-	Type getReturnTypeForParameterTypes(Type[] types);
+	B3FunctionType getSignature(Type[] types);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getFunc <em>Func</em>}' reference.

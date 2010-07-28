@@ -24,7 +24,6 @@ import java.util.regex.Pattern;
 import org.eclipse.b3.backend.evaluator.B3ExpressionCache;
 import org.eclipse.b3.backend.evaluator.B3FuncStore;
 import org.eclipse.b3.backend.evaluator.ValueMap;
-import org.eclipse.b3.backend.evaluator.b3backend.*;
 import org.eclipse.b3.backend.core.datatypes.LValue;
 import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;

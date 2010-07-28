@@ -665,6 +665,10 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 				tparameters[counter] = counter == 0 && parameters[counter] != null
 						? safeActualTypeOf(parameters[counter], typer.doGetInferredType(e))
 						: typer.doGetInferredType(e);
+				if(tparameters[counter] == null) {
+					typer.doGetInferredType(e);
+					throw new B3InternalError("Type inference failed for expression:" + e.toString());
+				}
 				counter++;
 			}
 			String fName = o.getFuncRef() == null
