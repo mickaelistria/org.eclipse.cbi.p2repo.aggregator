@@ -512,8 +512,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 		if(eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append("(");
+		StringBuffer result = new StringBuffer("B3FunctionTypeImpl(");
 		EList<Type> typeList = getParameterTypes();
 		int size = typeList.size();
 		for(int i = 0; i < size; i++) {
@@ -524,7 +523,9 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 				result.append("...");
 		}
 		result.append(")=>");
-		result.append(this.getReturnType().toString());
+		result.append(getReturnType() == null
+				? "null"
+				: getReturnType().toString());
 		return result.toString();
 	}
 

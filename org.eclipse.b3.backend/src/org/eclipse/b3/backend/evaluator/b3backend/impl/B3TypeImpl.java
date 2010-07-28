@@ -14,11 +14,8 @@ import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -178,8 +175,7 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 		if(eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (rawType: ");
+		StringBuffer result = new StringBuffer("B3TypeImpl(");
 		result.append(rawType);
 		result.append(')');
 		return result.toString();
