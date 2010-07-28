@@ -8,12 +8,14 @@ import java.util.List;
 
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.B3ContextAccess;
+import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.b3.backend.core.IB3Evaluator;
 import org.eclipse.b3.backend.core.datatypes.Any;
 import org.eclipse.b3.backend.core.exceptions.B3AssertionFailedException;
 import org.eclipse.b3.backend.core.internal.B3BackendActivator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
@@ -652,18 +654,22 @@ public class SystemFunctions {
 	@B3Backend(typeCalculator = true)
 	public static B3FunctionType tcBooleanLambda(Type[] types) {
 		B3FunctionType result = B3backendFactory.eINSTANCE.createB3FunctionType();
+		result.setFunctionType(BFunction.class);
 		int ix = types.length - 1;
 		// must have at least iterator, and lambda as parameters
 		if(types.length < 2 || !(types[ix] instanceof B3FunctionType)) {
 			result.setReturnType(TypeUtils.coerceToEObjectType(Object.class));
+			if(B3Debug.typer) {
+				B3Debug.trace("tcBooleanLambda() - non conformant call detected - returning ()=>Object");
+			}
 			return result; // non conforming, return ()=>Object
 		}
 		// determine curry type
 		Type[] curryGenericArgs = TypeUtils.getTypeArguments(types[0]);
 		// if generic is not 1 arg, it is either wrong i.e. Iterator<K, V>, or erased in runtime - use Object
-		Type curryType = curryGenericArgs.length == 1
+		Type curryType = TypeUtils.coerceToEObjectType(curryGenericArgs.length == 1
 				? curryGenericArgs[0]
-				: TypeUtils.coerceToEObjectType(Object.class);
+				: Object.class);
 
 		// The commonTypes are parameters both in the system function, and in the lambda
 		Type[] commonTypes = new Type[types.length - 2];
@@ -673,15 +679,25 @@ public class SystemFunctions {
 		// Compute the (resulting) lambda signature
 		// (type[0-n])=>Boolean
 		B3FunctionType lambda = B3backendFactory.eINSTANCE.createB3FunctionType();
-		for(int i = 0; i < commonTypes.length; i++)
-			lambda.getParameterTypes().add(commonTypes[i]);
-		lambda.setReturnType(TypeUtils.coerceToEObjectType(Boolean.class));
 		lambda.setFunctionType(B3Function.class);
+		if(commonTypes.length == 0) // auto curry
+			lambda.getParameterTypes().add(curryType);
+		else
+			for(int i = 0; i < commonTypes.length; i++)
+				lambda.getParameterTypes().add(commonTypes[i]);
+		lambda.setReturnType(TypeUtils.coerceToEObjectType(Boolean.class));
 		// Set all parameters in resulting type
 		result.getParameterTypes().add(types[0]); // the iterator/iterable
 		for(int i = 0; i < commonTypes.length; i++)
 			result.getParameterTypes().add(commonTypes[i]);
 		result.getParameterTypes().add(lambda);
+		B3ParameterizedType returnType = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+		returnType.setRawType(TypeUtils.coerceToEObjectType(List.class));
+		returnType.getActualArgumentsList().add(curryType);
+		result.setReturnType(returnType);
+		if(B3Debug.typer)
+			B3Debug.trace("tcBooleanLambda()=> ", result);
+
 		return result;
 	}
 
