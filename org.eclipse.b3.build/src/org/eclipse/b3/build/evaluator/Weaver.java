@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Map;
 
+import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.b3.backend.core.IB3Evaluator;
 import org.eclipse.b3.backend.core.datatypes.LValue;
 import org.eclipse.b3.backend.core.datatypes.TypePattern;
@@ -378,6 +379,9 @@ public class Weaver extends BackendWeaver {
 	 * @throws Throwable
 	 */
 	private boolean adviseUnit(UnitConcernContext theUnitConcern, BuildUnit u, BContext ctx) throws Throwable {
+		if(B3Debug.weaver)
+			B3Debug.trace("[Weaver] - START Advising unit: ", u.getName());
+
 		boolean modified = false;
 
 		// removal of provided capabilities
@@ -389,13 +393,21 @@ public class Weaver extends BackendWeaver {
 						? prem.matches((VersionedCapability.class.cast(pc)))
 						: prem.matches(pc)) {
 					pcItor.remove();
+					if(B3Debug.weaver)
+						B3Debug.trace("[Weaver] - Removed provided capability: ", pc.getName());
 					modified = true;
+				}
+				else {
+					if(B3Debug.weaver)
+						B3Debug.trace("[Weaver] - Did not remove provided capability: ", pc.getName());
 				}
 		}
 
 		// addition of provided capabilities
 		for(Capability pc : theUnitConcern.getProvidedCapabilities()) {
 			u.getProvidedCapabilities().add(Capability.class.cast(EcoreUtil.copy(pc)));
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Added provided capability: ", pc.getName());
 			modified = true;
 		}
 
@@ -406,13 +418,22 @@ public class Weaver extends BackendWeaver {
 			for(RequiresPredicate rrem : theUnitConcern.getRequiresRemovals()) {
 				if(rrem.matches(rc)) {
 					rcItor.remove();
+					if(B3Debug.weaver)
+						B3Debug.trace("[Weaver] - Removed required capability: ", rc.getName());
+
 					modified = true;
+				}
+				else {
+					if(B3Debug.weaver)
+						B3Debug.trace("[Weaver] - Did not remove required capability: ", rc.getName());
 				}
 			}
 		}
 		// addition of required capabilities
 		for(RequiredCapability rc : theUnitConcern.getRequiredCapabilities()) {
 			u.getRequiredCapabilities().add(RequiredCapability.class.cast(EcoreUtil.copy(rc)));
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Added required capability: ", rc.getName());
 			modified = true;
 		}
 
@@ -423,36 +444,55 @@ public class Weaver extends BackendWeaver {
 			for(CapabilityPredicate p : theUnitConcern.getRequiredPredicatesRemovals())
 				if(p.equals(candidate)) {
 					rqpItor.remove();
+					if(B3Debug.weaver)
+						B3Debug.trace("[Weaver] - Removed required predicate: ", candidate);
 					modified = true;
+				}
+				else {
+					if(B3Debug.weaver)
+						B3Debug.trace("[Weaver] - Did not removed required predicate: ", candidate);
 				}
 		}
 		// addition of requiredPredicates
 		for(CapabilityPredicate rcp : theUnitConcern.getRequiredPredicates()) {
 			u.getRequiredPredicates().add(CapabilityPredicate.class.cast(EcoreUtil.copy(rcp)));
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Added required predicate: ", rcp);
 			modified = true;
 		}
 
 		// SOURCE AND OUTPUT LOCATIONA
 		if(theUnitConcern.getSourceLocation() != null) {
 			u.setSourceLocation(theUnitConcern.getSourceLocation());
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Changed source location: ", theUnitConcern.getSourceLocation());
 			modified = true;
 		}
 
 		if(theUnitConcern.getOutputLocation() != null) {
 			u.setOutputLocation(theUnitConcern.getOutputLocation());
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Changed output location: ", theUnitConcern.getSourceLocation());
+
 			modified = true;
 		}
 
 		// ADVICE BUILDERS
 		// (note: does not require marking the unit itself as modified as the modified units
 		// are associated with the build unit via its interface.
+		if(B3Debug.weaver)
+			B3Debug.trace("[Weaver] - Starting advising builders of unit: ", u.getName());
 		adviseUnitBuilders(theUnitConcern, u, ctx);
+		if(B3Debug.weaver)
+			B3Debug.trace("[Weaver] - Done advising builders of unit: ", u.getName());
 
 		// DEFINE ADDITIONAL BUILDERS
 		// these builders are contained in a UnitConcernContext (no surprise) - they do not have a first parameter
 		// set (they can't since it is not known which units they will be defined for in advance). Wrappers must
 		// be used, and each wrapper installed for the matched unit.
 		//
+		if(B3Debug.weaver)
+			B3Debug.trace("[Weaver] - Processing any additional builders for unit: ", u.getName());
 		EList<IFunction> fList = theUnitConcern.getFunctions();
 		Class<? extends BuildUnit> iFace = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getIface();
 		for(IFunction f : fList) {
@@ -460,8 +500,12 @@ public class Weaver extends BackendWeaver {
 			wrapper.setOriginal(f);
 			wrapper.setUnitType(iFace);
 			ctx.defineFunction(wrapper);
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Builder : ", wrapper.getName(), " added for unit: ", u.getName());
 			modified = true;
 		}
+		if(B3Debug.weaver)
+			B3Debug.trace("[Weaver] - Done Processing additional builders for unit: ", u.getName());
 
 		// WEAVE DEFAULT PROPERTIES
 		// if there are removals or additions, copy the property set from the original and then remove
@@ -470,13 +514,18 @@ public class Weaver extends BackendWeaver {
 		//
 		if(theUnitConcern.getDefaultPropertiesRemovals().size() > 0 ||
 				theUnitConcern.getDefaultPropertiesAdditions() != null) {
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Processing properties for unit: ", u.getName());
 			BPropertySet ps = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
 			u.setDefaultProperties(ps);
 			modified = processProperties(
 				theUnitConcern, ps, theUnitConcern.getDefaultPropertiesRemovals(), u.getDefaultProperties(),
 				theUnitConcern.getDefaultPropertiesAdditions()) || modified;
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Done Processing properties for unit: ", u.getName());
 		}
-		// TODO: Support advised source and output locations
+		if(B3Debug.weaver)
+			B3Debug.trace("[Weaver] - END Advising unit: ", u.getName());
 
 		return modified;
 	}
@@ -639,9 +688,13 @@ public class Weaver extends BackendWeaver {
 		ictx.defineVariableValue("@test", null, BuildUnit.class);
 		LValue lval = ictx.getLValue("@test");
 		lval.set(candidate);
-		if(evaluator.doEvaluate(o.getQuery(), ictx) != Boolean.TRUE)
+		if(evaluator.doEvaluate(o.getQuery(), ictx) != Boolean.TRUE) {
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Unit concern in: ", o.eContainer(), ", did not match: ", candidate.getName());
 			return false;
-
+		}
+		if(B3Debug.weaver)
+			B3Debug.trace("[Weaver] - Creating copy of unit: ", candidate.getName());
 		// weave by creating a copy an then advice it
 		BuildUnit clone = BuildUnit.class.cast(EcoreUtil.copy(candidate));
 		// fix the containment/parent-chain for the copy (should not be contained)
@@ -649,8 +702,16 @@ public class Weaver extends BackendWeaver {
 		// modify the build unit, and store it
 		BContext bctx = BContext.class.cast(ictx.getParentContext());
 		// but only if the unit itself was advised (NOTE: modifying builders does not affect the build unit)
-		if(adviseUnit(o, clone, bctx))
+		if(adviseUnit(o, clone, bctx)) {
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Unit was modified - defining the modified clone: ", candidate.getName());
 			evaluator.doDefine(clone, bctx, true);
+		}
+		else {
+			if(B3Debug.weaver)
+				B3Debug.trace(
+					"[Weaver] - Copied Unit was not modified - keeping original for unit: ", candidate.getName());
+		}
 		// bctx.defineBuildUnit(clone, true);
 		return true;
 	}

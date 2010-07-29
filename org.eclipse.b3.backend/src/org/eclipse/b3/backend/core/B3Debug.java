@@ -8,10 +8,16 @@
 
 package org.eclipse.b3.backend.core;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Collections;
 
 import org.apache.log4j.Logger;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;
 
@@ -31,6 +37,8 @@ public class B3Debug {
 
 	public static final String B3_ENGINE_DEBUG_OPTION = "org.eclipse.b3.backend/debug/engine";
 
+	public static final String B3_WEAVER_DEBUG_OPTION = "org.eclipse.b3.backend/debug/weaver";
+
 	public static boolean global = false;
 
 	public static boolean engine = false;
@@ -38,6 +46,8 @@ public class B3Debug {
 	public static boolean typer = false;
 
 	public static boolean evaluator = false;
+
+	public static boolean weaver = false;
 
 	private static boolean configured = false;
 
@@ -55,6 +65,7 @@ public class B3Debug {
 		evaluator = global && getDebugOption(B3_EVALUATOR_DEBUG_OPTION);
 		typer = global && getDebugOption(B3_TYPER_DEBUG_OPTION);
 		engine = global && getDebugOption(B3_ENGINE_DEBUG_OPTION);
+		weaver = global && getDebugOption(B3_WEAVER_DEBUG_OPTION);
 		configured = true;
 		if(global)
 			log.setLevel(org.apache.log4j.Level.DEBUG);
@@ -94,12 +105,71 @@ public class B3Debug {
 			}
 		});
 
+	public String doToString(Object o) {
+		return toStringDispatcher.invoke(o);
+	}
+
+	String str(B3FunctionTypeImpl t) {
+		StringBuffer buf = new StringBuffer("f(");
+		EList<Type> typeList = t.getParameterTypes();
+		int size = typeList.size();
+		for(int i = 0; i < size; i++) {
+			if(i != 0)
+				buf.append(", ");
+			buf.append(doToString(typeList.get(i)));
+			if(i == size - 1 && t.isVarArgs())
+				buf.append("...");
+		}
+		buf.append(")=>");
+		buf.append(t.getReturnType() == null
+				? "null"
+				: doToString(t.getReturnType()));
+		return buf.toString();
+	}
+
+	String str(B3ParameterizedType t) {
+		StringBuffer buf = new StringBuffer(doToString(t.getRawType()));
+		if(t.getActualArgumentsList().size() > 0) {
+			buf.append("<");
+			boolean first = true;
+			for(Type p : t.getActualArgumentsList()) {
+				if(!first)
+					buf.append(", ");
+				buf.append(doToString(p));
+				first = false;
+			}
+			buf.append(">");
+		}
+		return buf.toString();
+	}
+
+	String str(B3Type t) {
+		return doToString(t.getRawType());
+	}
+
 	String str(Class<?> clazz) {
 		return clazz.getSimpleName();
 	}
 
 	String str(Object o) {
 		return o.toString();
+	}
+
+	String str(ParameterizedType t) {
+		StringBuffer buf = new StringBuffer(doToString(t.getRawType()));
+		if(t.getActualTypeArguments().length > 0) {
+			buf.append("<");
+			boolean first = true;
+			for(Type p : t.getActualTypeArguments()) {
+				if(!first)
+					buf.append(", ");
+				buf.append(doToString(p));
+				first = false;
+			}
+			buf.append(">");
+		}
+		return buf.toString();
+
 	}
 
 	String str(Throwable t) {

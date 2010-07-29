@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.b3.backend.core.IB3Evaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -57,6 +58,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -862,6 +864,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @generated NOT
 	 */
 	public EffectiveUnitFacade getEffectiveFacade(BExecutionContext ctx) throws Throwable {
+		if(B3Debug.engine)
+			B3Debug.trace("[Unit Effective Facade] - START creating facade for unit: ", getName());
 		Injector injector = ctx.getInjector();
 		IB3Evaluator evaluator = injector.getInstance(IB3Evaluator.class);
 
@@ -878,8 +882,16 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		// DEFAULT PROPERTIES
 		// set the unit's default properties in a context visible downstream.
 		BExecutionContext outer = ctx.createOuterContext();
-		if(u.getDefaultProperties() != null)
+		if(u.getDefaultProperties() != null) {
+			if(B3Debug.engine)
+				B3Debug.trace("[Unit Effective Facade] - processing properties for unit: ", getName());
 			evaluator.doEvaluateDefaults(u.getDefaultProperties(), outer, true);
+		}
+		else {
+			if(B3Debug.engine)
+				B3Debug.trace("[Unit Effective Facade] - no default properties for unit: ", getName());
+
+		}
 
 		// RESOLUTIONS
 		// if unit defines resolution strategy, define repository configuration in the outer context
@@ -896,10 +908,13 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				// for(UnitProvider config : reposDecls) {
 				// repos.add((IBuildUnitRepository) config.evaluate(outer));
 				// }
+				if(B3Debug.engine)
+					B3Debug.trace("[Unit Effective Facade] - unit has repository configuration, unit: ", getName());
 				outer.defineValue(B3BuildConstants.B3ENGINE_VAR_UNITPROVIDERS, up, FirstFoundUnitProvider.class);
 			}
 		}
-
+		if(B3Debug.engine)
+			B3Debug.trace("[Unit Effective Facade] - context for facade: ", outer, " unit: ", getName());
 		// remember the context use as parent for builder contexts
 		facade.setContext(outer);
 
@@ -910,27 +925,42 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		final EList<EffectiveRequirementFacade> uRequired = facade.getUnitRequiredCapabilities();
 
 		// REQUIRED
+		if(B3Debug.engine)
+			B3Debug.trace("[Unit Effective Facade] - Processing required capabilities for unit: ", getName());
 		for(RequiredCapability req : getRequiredCapabilities()) {
 			final BExpression c = req.getCondExpr();
 			if(c != null) {
 				Object include = evaluator.doEvaluate(c, ctx);
-				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE)
+				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE) {
+					if(B3Debug.engine)
+						B3Debug.trace(
+							"[Unit Effective Facade] - Requirement skipped by filter: ", req.getName(), ", unit: ",
+							getName());
 					continue; // skip this requirement
+				}
 			}
 			final EffectiveRequirementFacade rf = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
 			rf.setRequirement(req);
 			rf.setContext(outer);
 			required.add(rf); // containment (all requirements)
 			uRequired.add(rf); // non containment (only those in unit)
+			if(B3Debug.engine)
+				B3Debug.trace("[Unit Effective Facade] - Requirement included: ", req.getName(), ", unit: ", getName());
 		}
 		// REQUIRED PREDICATES
 		// all matching units in any parent being a unit container (except 'self' naturally).
 		// The result is kept in an adapter, if it exists it is reused
 		//
+		if(B3Debug.engine)
+			B3Debug.trace("[Unit Effective Facade] - Processing required via predicates for unit: ", getName());
 		final SyntheticRequirementsAdapter reqAdapter = SyntheticRequirementsAdapterFactory.eINSTANCE.adapt(this);
 		// processed already?
 		List<RequiredCapability> syntheticRequirements = reqAdapter.getAssociatedInfo(ctx.getInvocationContext());
 		if(syntheticRequirements == null) {
+			if(B3Debug.engine)
+				B3Debug.trace(
+					"[Unit Effective Facade] - synthetic requirements not found in cache for unit: ", getName());
+
 			// cache the synthetic requirements
 			syntheticRequirements = Lists.newArrayList();
 			reqAdapter.setAssociatedInfo(ctx.getInvocationContext(), syntheticRequirements);
@@ -942,13 +972,34 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			if(getVersion() != null)
 				selfPredicate.setVersionRange(new VersionRange(getVersion(), true, getVersion(), true));
 
+			if(B3Debug.engine)
+				if(getRequiredPredicates().size() < 1)
+					B3Debug.trace(
+						"[Unit Effective Facade] - synthetic requirements cache set to empty list for unit: ",
+						getName());
+				else
+					B3Debug.trace(
+						"[Unit Effective Facade] - found ", getRequiredPredicates().size(), " predicates in unit: ",
+						getName());
 			for(CapabilityPredicate q : getRequiredPredicates()) {
+				if(B3Debug.engine) {
+					B3Debug.trace("[Unit Effective Facade] - processing predicate: ", q);
+					if(getParent() == null)
+						B3Debug.trace("[Unit Effective Facade] - NULL PARENT in unit: ", getName());
+				}
 				for(IBuildUnitContainer parent = getParent(); parent != null; parent = parent instanceof BuildUnit
 						? ((BuildUnit) parent).getParent()
 						: null) {
+					if(B3Debug.engine)
+						B3Debug.trace("[Unit Effective Facade] - matching units in parent: ", parent);
 					for(BuildUnit u2 : (parent).getBuildUnits()) {
-						if(selfPredicate.matches(u2) || !q.matches(u2))
+						if(selfPredicate.matches(u2) || !q.matches(u2)) {
+							if(B3Debug.engine)
+								B3Debug.trace(
+									"[Unit Effective Facade] - synthetic requirements found 'self' or non matching unit (not added to cache) for unit: ",
+									getName());
 							continue;
+						}
 						final RequiredCapability req = B3BuildFactory.eINSTANCE.createRequiredCapability();
 						req.setMin(1);
 						req.setMax(1);
@@ -961,11 +1012,18 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 							req.setVersionRange(range);
 						}
 						syntheticRequirements.add(req);
+						if(B3Debug.engine)
+							B3Debug.trace(
+								"[Unit Effective Facade] - added requirement: ", req,
+								"to synthetic requirement cache for unit: ", getName());
 					}
 
 				}
 			}
 		}
+		if(B3Debug.engine)
+			B3Debug.trace("[Unit Effective Facade] - processing requirements in synthetic cache for unit: ", getName());
+
 		for(RequiredCapability synthetic : syntheticRequirements) {
 			final EffectiveRequirementFacade rf = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
 			rf.setRequirement(synthetic);
@@ -973,21 +1031,30 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 
 			required.add(rf); // containment (all requirements)
 			uRequired.add(rf); // non containment (only those in unit)
-
+			if(B3Debug.engine)
+				B3Debug.trace(
+					"[Unit Effective Facade] - added requirement (synthetic): ", synthetic, " for unit: ", getName());
 		}
 		// META REQUIRED
 		for(RequiredCapability req : getMetaRequiredCapabilities()) {
 			BExpression c = req.getCondExpr();
 			if(c != null) {
 				Object include = evaluator.doEvaluate(c, ctx);
-				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE)
+				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE) {
+					if(B3Debug.engine)
+						B3Debug.trace(
+							"[Unit Effective Facade] - skipped (filtered) requirement: ", req, " for unit: ", getName());
 					continue; // skip this requirement
+				}
 			}
 
 			EffectiveRequirementFacade rf = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
 			rf.setRequirement(req);
 			rf.setContext(outer);
 			mRequired.add(rf);
+			if(B3Debug.engine)
+				B3Debug.trace("[Unit Effective Facade] - added meta requirement: ", req, " for unit: ", getName());
+
 		}
 		// PROVIDED
 		// PROVIDED BY UNIT
@@ -995,19 +1062,31 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			BExpression c = cap.getCondExpr();
 			if(c != null) {
 				Object include = evaluator.doEvaluate(c, outer);
-				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE)
+				if(include != null && include instanceof Boolean && ((Boolean) include) == Boolean.FALSE) {
+					if(B3Debug.engine)
+						B3Debug.trace(
+							"[Unit Effective Facade] - skipped (filtered) provided capability: ", cap, " for unit: ",
+							getName());
 					continue; // skip this requirement
+				}
 			}
 			EffectiveCapabilityFacade cf = B3BuildFactory.eINSTANCE.createEffectiveCapabilityFacade();
 			cf.setContext(outer);
 			cf.setProvidedCapability(cap);
 			provided.add(cf);
+			if(B3Debug.engine)
+				B3Debug.trace("[Unit Effective Facade] - added provided capability: ", cap, " for unit: ", getName());
+
 		}
 
 		// PROVIDED BY BUILDERS
 		// Find all builders applicable to this (possibly advised) Build Unit, and add their effective requirements
 		// Note: The search for builders is based on the proxy (i.e. itself and all its interfaces).
 		//
+		if(B3Debug.engine)
+			B3Debug.trace(
+				"[Unit Effective Facade] - START processing requirements/capabilities added by builders for unit: ",
+				getName());
 		BuildUnit proxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getProxy();
 		Iterator<IFunction> builders = ctx.getFunctionIterator(proxy.getClass(), Builder.class);
 		EffectiveCapabilitiesIteratorProvider capItorProvider = injector.getInstance(EffectiveCapabilitiesIteratorProvider.class);
@@ -1016,20 +1095,39 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		while(builders.hasNext()) {
 			Builder b = (Builder) builders.next();
 			Iterator<EffectiveRequirementFacade> rItor = reqItorProvider.doGetIterator(b, outer);
-			while(rItor.hasNext())
+			while(rItor.hasNext()) {
 				required.add(rItor.next());
+				if(B3Debug.engine)
+					B3Debug.trace(
+						"[Unit Effective Facade] - builder: ", b.getName(), ", contributed required: ",
+						required.get(required.size() - 1), "to unit: ", getName());
+			}
 			Iterator<EffectiveCapabilityFacade> pItor = capItorProvider.doGetIterator(b, outer);
 			while(pItor.hasNext()) {
 				provided.add(pItor.next());
+				if(B3Debug.engine)
+					B3Debug.trace(
+						"[Unit Effective Facade] - builder: ", b.getName(), ", contributed provided: ",
+						provided.get(provided.size() - 1), "to unit: ", getName());
 			}
 		}
+		if(B3Debug.engine)
+			B3Debug.trace(
+				"[Unit Effective Facade] - END processing requirements/capabilities added by builders for unit: ",
+				getName());
+
 		// THE UNIT AS CAPABILITY
 		EffectiveCapabilityFacade unitCapability = B3BuildFactory.eINSTANCE.createEffectiveCapabilityFacade();
 		unitCapability.setContext(outer);
 		unitCapability.setProvidedCapability(this);
 		provided.add(unitCapability);
+		if(B3Debug.engine)
+			B3Debug.trace("[Unit Effective Facade] - unit 'self' added as capability, for unit: ", getName());
 
 		// DONE
+		if(B3Debug.engine)
+			B3Debug.trace("[Unit Effective Facade] - END creating facade for unit: ", getName());
+
 		return facade;
 	}
 
@@ -1121,13 +1219,25 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		return outputLocation;
 	}
 
+	public IBuildUnitContainer getParent() {
+		IBuildUnitContainer cachedParent = getParentGen();
+		// return first parent being a IBuildUnitContainer
+		if(cachedParent == null) {
+			for(EObject p = eContainer(); p != null; p = p.eContainer())
+				if(p instanceof IBuildUnitContainer)
+					return (IBuildUnitContainer) p;
+		}
+
+		return cachedParent;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public IBuildUnitContainer getParent() {
+	public IBuildUnitContainer getParentGen() {
 		if(parent != null && parent.eIsProxy()) {
 			InternalEObject oldParent = (InternalEObject) parent;
 			parent = (IBuildUnitContainer) eResolveProxy(oldParent);

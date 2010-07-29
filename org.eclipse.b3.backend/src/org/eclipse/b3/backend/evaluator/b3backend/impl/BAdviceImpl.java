@@ -13,16 +13,14 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
+
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAdvice;
-
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -377,18 +375,18 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(getClass().getSimpleName());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", documentation: ");
-		result.append(documentation);
+		// result.append(", documentation: ");
+		// result.append(documentation);
 		result.append(')');
 		return result.toString();
 	}
