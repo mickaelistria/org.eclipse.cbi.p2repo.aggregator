@@ -17,6 +17,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Hashtable;
+import java.util.Map;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -28,8 +30,13 @@ import org.eclipse.b3.enums.MergeConflictStrategyEnumHelper;
 import org.eclipse.b3.enums.TriStateEnumHelper;
 import org.eclipse.b3.validation.FixableTimestampException;
 import org.eclipse.b3.versions.IVersionFormatManager;
+import org.eclipse.equinox.internal.p2.metadata.InstallableUnit;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.expression.ExpressionParseException;
+import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
+import org.eclipse.equinox.p2.metadata.expression.IExpression;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.conversion.IValueConverter;
 import org.eclipse.xtext.conversion.ValueConverter;
@@ -127,6 +134,43 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 				return string.startsWith("^")
 						? string.substring(1)
 						: string;
+			}
+		};
+	}
+
+	@ValueConverter(rule = "P2QL")
+	public IValueConverter<IExpression> IExpression() {
+		return new IValueConverter<IExpression>() {
+			public String toString(IExpression value) {
+				return value.toString();
+			}
+
+			public IExpression toValue(String string, AbstractNode node) {
+				if(Strings.isEmpty(string))
+					throw new ValueConverterException("Could not convert empty string to p2ql expression", node, null);
+				if(string.startsWith("\"") || string.startsWith("'"))
+					string = string.substring(1);
+				if(string.endsWith("\"") || string.endsWith("'"))
+					string = string.substring(0, string.length() - 1);
+				try {
+					IExpression expr = ExpressionUtil.parse(string);
+					if(expr != null) {
+						// validate it
+						Map<String, String> env = new Hashtable<String, String>(3);
+						env.put("osgi.os", "linux");
+						env.put("osgi.ws", "gtk");
+						env.put("osgi.arch", "x86");
+						IInstallableUnit envIU = InstallableUnit.contextIU(env);
+						ExpressionUtil.getFactory().matchExpression(expr).isMatch(envIU);
+					}
+					return expr;
+				}
+				catch(ExpressionParseException e) {
+					throw new ValueConverterException("p2ql syntax error: " + e.getMessage(), node, null);
+				}
+				catch(IllegalArgumentException e) {
+					throw new ValueConverterException("p2ql error: " + e.getMessage(), node, null);
+				}
 			}
 		};
 	}

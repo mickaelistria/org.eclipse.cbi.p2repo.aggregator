@@ -101,6 +101,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.expression.IExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -377,6 +378,8 @@ public class B3BuildValidator extends EObjectValidator {
 				return validatePathIterator((PathIterator) value, diagnostics, context);
 			case B3BuildPackage.B3_BUILDER_JOB:
 				return validateB3BuilderJob((B3BuilderJob) value, diagnostics, context);
+			case B3BuildPackage.IEXPRESSION:
+				return validateIExpression((IExpression) value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -399,6 +402,15 @@ public class B3BuildValidator extends EObjectValidator {
 	 */
 	public boolean validateB3BuilderJob(B3BuilderJob b3BuilderJob, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateIExpression(IExpression iExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

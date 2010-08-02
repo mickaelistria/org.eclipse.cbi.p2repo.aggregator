@@ -1367,6 +1367,43 @@ ruleBuildUnit returns [EObject current=null]
 	    }
 
 )
+)
+    |(	'platform-filter' 
+    {
+        createLeafNode(grammarAccess.getBuildUnitAccess().getPlatformFilterKeyword_7_0_1_15_0(), null); 
+    }
+	':' 
+    {
+        createLeafNode(grammarAccess.getBuildUnitAccess().getColonKeyword_7_0_1_15_1(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getBuildUnitAccess().getPlatformFilterP2QLParserRuleCall_7_0_1_15_2_0(), currentNode); 
+	    }
+		lv_platformFilter_70_0=ruleP2QL		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getBuildUnitRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"platformFilter",
+	        		lv_platformFilter_70_0, 
+	        		"P2QL", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	';' 
+    {
+        createLeafNode(grammarAccess.getBuildUnitAccess().getSemicolonKeyword_7_0_1_15_3(), null); 
+    }
 ))*	'}' 
     {
         createLeafNode(grammarAccess.getBuildUnitAccess().getRightCurlyBracketKeyword_7_0_2(), null); 
@@ -22443,6 +22480,36 @@ ruleParanthesizedExpression returns [EObject current=null]
     }
 )
 ;
+
+
+
+
+
+// Entry rule entryRuleP2QL
+entryRuleP2QL returns [String current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getP2QLRule(), currentNode); } 
+	 iv_ruleP2QL=ruleP2QL 
+	 { $current=$iv_ruleP2QL.current.getText(); }  
+	 EOF 
+;
+
+// Rule P2QL
+ruleP2QL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+    this_STRING_0=RULE_STRING    {
+		$current.merge(this_STRING_0);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getP2QLAccess().getSTRINGTerminalRuleCall(), null); 
+    }
+
+    ;
 
 
 

@@ -66,6 +66,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.equinox.p2.metadata.expression.IExpression;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 
@@ -99,6 +100,7 @@ import com.google.inject.internal.Lists;
  *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getProviders <em>Providers</em>}</li>
  *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getFragmentHosts <em>Fragment Hosts</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getPlatformFilter <em>Platform Filter</em>}</li>
  * </ul>
  * </p>
  *
@@ -337,6 +339,26 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	protected EList<FragmentHost> fragmentHosts;
 
 	/**
+	 * The default value of the '{@link #getPlatformFilter() <em>Platform Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlatformFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final IExpression PLATFORM_FILTER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPlatformFilter() <em>Platform Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlatformFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected IExpression platformFilter = PLATFORM_FILTER_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -500,6 +522,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return basicGetParent();
 			case B3BuildPackage.BUILD_UNIT__FRAGMENT_HOSTS:
 				return getFragmentHosts();
+			case B3BuildPackage.BUILD_UNIT__PLATFORM_FILTER:
+				return getPlatformFilter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -613,6 +637,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return parent != null;
 			case B3BuildPackage.BUILD_UNIT__FRAGMENT_HOSTS:
 				return fragmentHosts != null && !fragmentHosts.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__PLATFORM_FILTER:
+				return PLATFORM_FILTER_EDEFAULT == null
+						? platformFilter != null
+						: !PLATFORM_FILTER_EDEFAULT.equals(platformFilter);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -696,6 +724,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				getFragmentHosts().clear();
 				getFragmentHosts().addAll((Collection<? extends FragmentHost>) newValue);
 				return;
+			case B3BuildPackage.BUILD_UNIT__PLATFORM_FILTER:
+				setPlatformFilter((IExpression) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -774,6 +805,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return;
 			case B3BuildPackage.BUILD_UNIT__FRAGMENT_HOSTS:
 				getFragmentHosts().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__PLATFORM_FILTER:
+				setPlatformFilter(PLATFORM_FILTER_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1461,6 +1495,28 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public IExpression getPlatformFilter() {
+		return platformFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPlatformFilter(IExpression newPlatformFilter) {
+		IExpression oldPlatformFilter = platformFilter;
+		platformFilter = newPlatformFilter;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILD_UNIT__PLATFORM_FILTER, oldPlatformFilter, platformFilter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setSourceLocation(URI newSourceLocation) {
 		URI oldSourceLocation = sourceLocation;
 		sourceLocation = newSourceLocation;
@@ -1488,6 +1544,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		result.append(sourceLocation);
 		result.append(", outputLocation: ");
 		result.append(outputLocation);
+		result.append(", platformFilter: ");
+		result.append(platformFilter);
 		result.append(')');
 		return result.toString();
 	}

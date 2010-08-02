@@ -108,6 +108,7 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.expression.IExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -748,6 +749,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EDataType iExpressionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private static boolean isInited = false;
 
 	/**
@@ -812,6 +820,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(buildUnitEClass, BUILD_UNIT__PROVIDERS);
 		createEReference(buildUnitEClass, BUILD_UNIT__PARENT);
 		createEReference(buildUnitEClass, BUILD_UNIT__FRAGMENT_HOSTS);
+		createEAttribute(buildUnitEClass, BUILD_UNIT__PLATFORM_FILTER);
 
 		iBuilderEClass = createEClass(IBUILDER);
 		createEReference(iBuilderEClass, IBUILDER__POSTCOND_EXPR);
@@ -1126,6 +1135,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		iStatusEDataType = createEDataType(ISTATUS);
 		pathIteratorEDataType = createEDataType(PATH_ITERATOR);
 		b3BuilderJobEDataType = createEDataType(B3_BUILDER_JOB);
+		iExpressionEDataType = createEDataType(IEXPRESSION);
 	}
 
 	/**
@@ -1153,6 +1163,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EDataType getB3BuilderJob() {
 		return b3BuilderJobEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getIExpression() {
+		return iExpressionEDataType;
 	}
 
 	/**
@@ -2152,6 +2171,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EReference getBuildUnit_FragmentHosts() {
 		return (EReference) buildUnitEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBuildUnit_PlatformFilter() {
+		return (EAttribute) buildUnitEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -3555,6 +3583,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getBuildUnit_FragmentHosts(), this.getFragmentHost(), null, "fragmentHosts", null, 0, -1, BuildUnit.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBuildUnit_PlatformFilter(), this.getIExpression(), "platformFilter", null, 0, 1, BuildUnit.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(
 			buildUnitEClass, this.getEffectiveUnitFacade(), "getEffectiveFacade", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4567,6 +4598,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			pathIteratorEDataType, PathIterator.class, "PathIterator", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(
 			b3BuilderJobEDataType, B3BuilderJob.class, "B3BuilderJob", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iExpressionEDataType, IExpression.class, "IExpression", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

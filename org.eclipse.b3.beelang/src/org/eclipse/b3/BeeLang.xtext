@@ -85,6 +85,7 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 		| (synchronizations += Synchronization ) //*
 		| (repositories += Repository) //*
 		| (defaultProperties = PropertySetDefault) //?
+		| ("platform-filter" ':' platformFilter = P2QL ';') // ?
 		)*
 	'}' 
 	) | ';' )
@@ -1240,6 +1241,9 @@ IntValue returns ecore::EIntegerObject : INT | HEX ;
 ParanthesizedExpression returns be::BExpression : 
 	'(' Expression ')'
 	;	
+
+// Has conversion rule
+P2QL returns build::IExpression : STRING ;
 
 // Has conversion rule
 VersionLiteral returns build::Version

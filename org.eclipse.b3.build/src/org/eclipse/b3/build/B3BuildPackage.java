@@ -185,6 +185,14 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILD_UNIT__FRAGMENT_HOSTS = eINSTANCE.getBuildUnit_FragmentHosts();
 
 		/**
+		 * The meta object literal for the '<em><b>Platform Filter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILD_UNIT__PLATFORM_FILTER = eINSTANCE.getBuildUnit_PlatformFilter();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.IBuilder <em>IBuilder</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2220,6 +2228,16 @@ public interface B3BuildPackage extends EPackage {
 		 */
 		EDataType B3_BUILDER_JOB = eINSTANCE.getB3BuilderJob();
 
+		/**
+		 * The meta object literal for the '<em>IExpression</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.equinox.p2.metadata.expression.IExpression
+		 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getIExpression()
+		 * @generated
+		 */
+		EDataType IEXPRESSION = eINSTANCE.getIExpression();
+
 	}
 
 	/**
@@ -2582,13 +2600,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_UNIT__FRAGMENT_HOSTS = VERSIONED_CAPABILITY_FEATURE_COUNT + 19;
 
 	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_UNIT__PLATFORM_FILTER = VERSIONED_CAPABILITY_FEATURE_COUNT + 20;
+
+	/**
 	 * The number of structural features of the '<em>Build Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 20;
+	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 21;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.BuilderImpl <em>Builder</em>}' class.
@@ -7000,6 +7027,16 @@ public interface B3BuildPackage extends EPackage {
 	int B3_BUILDER_JOB = 82;
 
 	/**
+	 * The meta object id for the '<em>IExpression</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.equinox.p2.metadata.expression.IExpression
+	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getIExpression()
+	 * @generated
+	 */
+	int IEXPRESSION = 83;
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7030,6 +7067,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getB3BuilderJob();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.expression.IExpression <em>IExpression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>IExpression</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.expression.IExpression
+	 * @model instanceClass="org.eclipse.equinox.p2.metadata.expression.IExpression"
+	 * @generated
+	 */
+	EDataType getIExpression();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -8220,6 +8268,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBuildUnit_FragmentHosts();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.BuildUnit#getPlatformFilter <em>Platform Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Platform Filter</em>'.
+	 * @see org.eclipse.b3.build.BuildUnit#getPlatformFilter()
+	 * @see #getBuildUnit()
+	 * @generated
+	 */
+	EAttribute getBuildUnit_PlatformFilter();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.BuildUnit#getPropertySets <em>Property Sets</em>}'.

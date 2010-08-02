@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.equinox.p2.metadata.expression.IExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +44,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.build.BuildUnit#getProviders <em>Providers</em>}</li>
  *   <li>{@link org.eclipse.b3.build.BuildUnit#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.b3.build.BuildUnit#getFragmentHosts <em>Fragment Hosts</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuildUnit#getPlatformFilter <em>Platform Filter</em>}</li>
  * </ul>
  * </p>
  *
@@ -367,6 +369,32 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * @generated
 	 */
 	EList<FragmentHost> getFragmentHosts();
+
+	/**
+	 * Returns the value of the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Platform Filter</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Platform Filter</em>' attribute.
+	 * @see #setPlatformFilter(IExpression)
+	 * @see org.eclipse.b3.build.B3BuildPackage#getBuildUnit_PlatformFilter()
+	 * @model dataType="org.eclipse.b3.build.IExpression"
+	 * @generated
+	 */
+	IExpression getPlatformFilter();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.BuildUnit#getPlatformFilter <em>Platform Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Platform Filter</em>' attribute.
+	 * @see #getPlatformFilter()
+	 * @generated
+	 */
+	void setPlatformFilter(IExpression value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuildUnit#getSourceLocation <em>Source Location</em>}' attribute.

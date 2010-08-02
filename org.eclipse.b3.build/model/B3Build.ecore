@@ -44,6 +44,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//IBuildUnitContainer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentHosts" upperBound="-1"
         eType="#//FragmentHost" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="platformFilter" eType="#//IExpression"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBuilder" abstract="true" interface="true"
       eSuperTypes="#//IProvidedCapabilityContainer ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IFunction">
@@ -609,4 +610,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="hostRequirements" upperBound="-1"
         eType="#//RequiredCapability" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="IExpression" instanceClassName="org.eclipse.equinox.p2.metadata.expression.IExpression"/>
 </ecore:EPackage>

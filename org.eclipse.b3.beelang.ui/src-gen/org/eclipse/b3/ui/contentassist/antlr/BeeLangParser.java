@@ -183,6 +183,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuildUnitAccess().getGroup_7_0_1_5_3_0(), "rule__BuildUnit__Group_7_0_1_5_3_0__0");
 					put(grammarAccess.getBuildUnitAccess().getGroup_7_0_1_5_3_0_2(), "rule__BuildUnit__Group_7_0_1_5_3_0_2__0");
 					put(grammarAccess.getBuildUnitAccess().getGroup_7_0_1_11(), "rule__BuildUnit__Group_7_0_1_11__0");
+					put(grammarAccess.getBuildUnitAccess().getGroup_7_0_1_15(), "rule__BuildUnit__Group_7_0_1_15__0");
 					put(grammarAccess.getFragmentHostAccess().getGroup(), "rule__FragmentHost__Group__0");
 					put(grammarAccess.getFragmentHostAccess().getGroup_3_0(), "rule__FragmentHost__Group_3_0__0");
 					put(grammarAccess.getFragmentHostAccess().getGroup_3_0_2(), "rule__FragmentHost__Group_3_0_2__0");
@@ -614,6 +615,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuildUnitAccess().getSynchronizationsAssignment_7_0_1_12(), "rule__BuildUnit__SynchronizationsAssignment_7_0_1_12");
 					put(grammarAccess.getBuildUnitAccess().getRepositoriesAssignment_7_0_1_13(), "rule__BuildUnit__RepositoriesAssignment_7_0_1_13");
 					put(grammarAccess.getBuildUnitAccess().getDefaultPropertiesAssignment_7_0_1_14(), "rule__BuildUnit__DefaultPropertiesAssignment_7_0_1_14");
+					put(grammarAccess.getBuildUnitAccess().getPlatformFilterAssignment_7_0_1_15_2(), "rule__BuildUnit__PlatformFilterAssignment_7_0_1_15_2");
 					put(grammarAccess.getFragmentHostAccess().getHostRequirementsAssignment_3_0_1(), "rule__FragmentHost__HostRequirementsAssignment_3_0_1");
 					put(grammarAccess.getFragmentHostAccess().getHostRequirementsAssignment_3_0_2_1(), "rule__FragmentHost__HostRequirementsAssignment_3_0_2_1");
 					put(grammarAccess.getFragmentHostAccess().getHostRequirementsAssignment_3_1(), "rule__FragmentHost__HostRequirementsAssignment_3_1");

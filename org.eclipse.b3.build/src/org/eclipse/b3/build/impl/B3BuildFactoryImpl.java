@@ -86,6 +86,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.expression.IExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -179,6 +180,24 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public IExpression createIExpressionFromString(EDataType eDataType, String initialValue) {
+		return (IExpression) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIExpressionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch(eDataType.getClassifierID()) {
@@ -196,6 +215,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return convertIStatusToString(eDataType, instanceValue);
 			case B3BuildPackage.PATH_ITERATOR:
 				return convertPathIteratorToString(eDataType, instanceValue);
+			case B3BuildPackage.IEXPRESSION:
+				return convertIExpressionToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
 						"' is not a valid classifier");
@@ -803,6 +824,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createIStatusFromString(eDataType, initialValue);
 			case B3BuildPackage.PATH_ITERATOR:
 				return createPathIteratorFromString(eDataType, initialValue);
+			case B3BuildPackage.IEXPRESSION:
+				return createIExpressionFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
 						"' is not a valid classifier");
