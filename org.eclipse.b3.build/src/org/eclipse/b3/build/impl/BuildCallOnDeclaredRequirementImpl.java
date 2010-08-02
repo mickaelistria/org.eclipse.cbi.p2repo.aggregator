@@ -26,10 +26,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuildCallOnDeclaredRequirementImpl#getRequiredCapabilityDeclaration <em>Required Capability Declaration</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuildCallOnDeclaredRequirementImpl#getRequiredCapabilityDeclaration <em>Required Capability Declaration</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl implements BuildCallOnDeclaredRequirement {
@@ -37,7 +37,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	 * The cached value of the '{@link #getRequiredCapabilityDeclaration() <em>Required Capability Declaration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRequiredCapabilityDeclaration()
 	 * @generated
 	 * @ordered
@@ -47,7 +46,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuildCallOnDeclaredRequirementImpl() {
@@ -67,7 +65,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetRequiredCapabilityDeclaration(RequiredCapability newRequiredCapabilityDeclaration,
@@ -90,7 +87,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -105,7 +101,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -120,7 +115,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -135,7 +129,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -151,7 +144,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -162,7 +154,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -178,7 +169,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RequiredCapability getRequiredCapabilityDeclaration() {
@@ -188,7 +178,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRequiredCapabilityDeclaration(RequiredCapability newRequiredCapabilityDeclaration) {

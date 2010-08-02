@@ -12,6 +12,7 @@ package org.eclipse.b3.build.util;
 
 import java.util.Map;
 
+import org.eclipse.b3.build.*;
 import org.eclipse.b3.build.AliasedRequiredCapability;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BeeHive;
@@ -105,7 +106,6 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <!-- begin-user-doc -->
  * The <b>Validator</b> for the model.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.b3.build.B3BuildPackage
  * @generated
  */
@@ -114,17 +114,14 @@ public class B3BuildValidator extends EObjectValidator {
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final B3BuildValidator INSTANCE = new B3BuildValidator();
 
 	/**
-	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic
-	 * {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
+	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see org.eclipse.emf.common.util.Diagnostic#getSource()
 	 * @see org.eclipse.emf.common.util.Diagnostic#getCode()
 	 * @generated
@@ -135,7 +132,6 @@ public class B3BuildValidator extends EObjectValidator {
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Has Valid State' of 'Branch'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final int BRANCH__HAS_VALID_STATE = 1;
@@ -144,7 +140,6 @@ public class B3BuildValidator extends EObjectValidator {
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
@@ -173,7 +168,6 @@ public class B3BuildValidator extends EObjectValidator {
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public B3BuildValidator() {
@@ -184,7 +178,6 @@ public class B3BuildValidator extends EObjectValidator {
 	 * Returns the package of this validator switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -196,7 +189,6 @@ public class B3BuildValidator extends EObjectValidator {
 	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -211,7 +203,6 @@ public class B3BuildValidator extends EObjectValidator {
 	 * Calls <code>validateXXX</code> for the corresponding classifier of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -368,6 +359,8 @@ public class B3BuildValidator extends EObjectValidator {
 				return validateEffectiveBuilderCallFacade((EffectiveBuilderCallFacade) value, diagnostics, context);
 			case B3BuildPackage.IBUILD_UNIT_CONTAINER:
 				return validateIBuildUnitContainer((IBuildUnitContainer) value, diagnostics, context);
+			case B3BuildPackage.FRAGMENT_HOST:
+				return validateFragmentHost((FragmentHost) value, diagnostics, context);
 			case B3BuildPackage.MERGE_CONFLICT_STRATEGY:
 				return validateMergeConflictStrategy((MergeConflictStrategy) value, diagnostics, context);
 			case B3BuildPackage.BRANCH_POINT_TYPE:
@@ -392,7 +385,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateAliasedRequiredCapability(AliasedRequiredCapability aliasedRequiredCapability,
@@ -403,7 +395,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateB3BuilderJob(B3BuilderJob b3BuilderJob, DiagnosticChain diagnostics,
@@ -414,7 +405,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBeeHive(BeeHive beeHive, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -458,7 +448,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBeeModelRepository(BeeModelRepository beeModelRepository, DiagnosticChain diagnostics,
@@ -469,7 +458,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBestFoundUnitProvider(BestFoundUnitProvider bestFoundUnitProvider,
@@ -480,7 +468,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBranch(Branch branch, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -510,7 +497,6 @@ public class B3BuildValidator extends EObjectValidator {
 	 * Validates the hasValidState constraint of '<em>Branch</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBranch_hasValidState(Branch branch, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -520,7 +506,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBranchPointType(BranchPointType branchPointType, DiagnosticChain diagnostics,
@@ -531,7 +516,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuildCallMultiple(BuildCallMultiple buildCallMultiple, DiagnosticChain diagnostics,
@@ -542,7 +526,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuildCallOnDeclaredRequirement(
@@ -554,7 +537,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuildCallOnReferencedRequirement(
@@ -566,7 +548,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuildCallOnSelectedRequirements(
@@ -578,7 +559,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuildCallSingle(BuildCallSingle buildCallSingle, DiagnosticChain diagnostics,
@@ -589,7 +569,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuildConcernContext(BuildConcernContext buildConcernContext, DiagnosticChain diagnostics,
@@ -600,7 +579,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilder(Builder builder, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -610,7 +588,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderCall(BuilderCall builderCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -620,7 +597,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderCallFacade(BuilderCallFacade builderCallFacade, DiagnosticChain diagnostics,
@@ -631,7 +607,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderConcernContext(BuilderConcernContext builderConcernContext,
@@ -642,7 +617,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderInput(BuilderInput builderInput, DiagnosticChain diagnostics,
@@ -653,7 +627,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderInputCondition(BuilderInputCondition builderInputCondition,
@@ -664,7 +637,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderInputContextDecorator(BuilderInputContextDecorator builderInputContextDecorator,
@@ -675,7 +647,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderInputDecorator(BuilderInputDecorator builderInputDecorator,
@@ -686,7 +657,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderInputGroup(BuilderInputGroup builderInputGroup, DiagnosticChain diagnostics,
@@ -697,7 +667,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderInputNameDecorator(BuilderInputNameDecorator builderInputNameDecorator,
@@ -708,7 +677,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderJava(BuilderJava builderJava, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -718,7 +686,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderNamePredicate(BuilderNamePredicate builderNamePredicate, DiagnosticChain diagnostics,
@@ -729,7 +696,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderQuery(BuilderQuery builderQuery, DiagnosticChain diagnostics,
@@ -740,7 +706,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuilderWrapper(BuilderWrapper builderWrapper, DiagnosticChain diagnostics,
@@ -751,7 +716,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuildResultContext(BuildResultContext buildResultContext, DiagnosticChain diagnostics,
@@ -762,7 +726,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuildSet(BuildSet buildSet, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -772,7 +735,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuildUnit(BuildUnit buildUnit, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -782,7 +744,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBuildUnitRepository(BuildUnitRepository buildUnitRepository, DiagnosticChain diagnostics,
@@ -793,7 +754,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateCapability(Capability capability, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -803,7 +763,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateCapabilityPredicate(CapabilityPredicate capabilityPredicate, DiagnosticChain diagnostics,
@@ -814,7 +773,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateCompoundBuildUnitRepository(CompoundBuildUnitRepository compoundBuildUnitRepository,
@@ -825,7 +783,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateCompoundFirstFoundRepository(CompoundFirstFoundRepository compoundFirstFoundRepository,
@@ -836,7 +793,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateCompoundUnitProvider(CompoundUnitProvider compoundUnitProvider, DiagnosticChain diagnostics,
@@ -847,7 +803,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateConditionalPathVector(ConditionalPathVector conditionalPathVector,
@@ -858,7 +813,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateContainerConfiguration(ContainerConfiguration containerConfiguration,
@@ -869,7 +823,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateDelegatingUnitProvider(DelegatingUnitProvider delegatingUnitProvider,
@@ -880,7 +833,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateEffectiveBuilderCallFacade(EffectiveBuilderCallFacade effectiveBuilderCallFacade,
@@ -891,7 +843,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateEffectiveCapabilityFacade(EffectiveCapabilityFacade effectiveCapabilityFacade,
@@ -902,7 +853,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateEffectiveFacade(EffectiveFacade effectiveFacade, DiagnosticChain diagnostics,
@@ -913,7 +863,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateEffectiveRequirementFacade(EffectiveRequirementFacade effectiveRequirementFacade,
@@ -924,7 +873,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateEffectiveUnitFacade(EffectiveUnitFacade effectiveUnitFacade, DiagnosticChain diagnostics,
@@ -935,7 +883,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateExecutionStackRepository(ExecutionStackRepository executionStackRepository,
@@ -946,7 +893,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateFirstFoundUnitProvider(FirstFoundUnitProvider firstFoundUnitProvider,
@@ -957,7 +903,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIBuilder(IBuilder iBuilder, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -967,7 +912,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIBuildUnitContainer(IBuildUnitContainer iBuildUnitContainer, DiagnosticChain diagnostics,
@@ -978,7 +922,16 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated
+	 */
+	public boolean validateFragmentHost(FragmentHost fragmentHost, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(fragmentHost, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateIBuildUnitRepository(IBuildUnitRepository iBuildUnitRepository, DiagnosticChain diagnostics,
@@ -989,7 +942,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIEffectiveFacade(IEffectiveFacade iEffectiveFacade, DiagnosticChain diagnostics,
@@ -1000,7 +952,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateImplementsPredicate(ImplementsPredicate implementsPredicate, DiagnosticChain diagnostics,
@@ -1011,7 +962,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateInputPredicate(InputPredicate inputPredicate, DiagnosticChain diagnostics,
@@ -1022,7 +972,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIProvidedCapabilityContainer(IProvidedCapabilityContainer iProvidedCapabilityContainer,
@@ -1033,7 +982,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIRequiredCapabilityContainer(IRequiredCapabilityContainer iRequiredCapabilityContainer,
@@ -1044,7 +992,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIStatus(IStatus iStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1054,7 +1001,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateMergeConflictStrategy(MergeConflictStrategy mergeConflictStrategy,
@@ -1065,7 +1011,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateNameSpacePredicate(NameSpacePredicate nameSpacePredicate, DiagnosticChain diagnostics,
@@ -1076,7 +1021,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateOutputPredicate(OutputPredicate outputPredicate, DiagnosticChain diagnostics,
@@ -1087,7 +1031,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validatePathGroup(PathGroup pathGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1097,7 +1040,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validatePathGroupPredicate(PathGroupPredicate pathGroupPredicate, DiagnosticChain diagnostics,
@@ -1108,7 +1050,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validatePathIterator(PathIterator pathIterator, DiagnosticChain diagnostics,
@@ -1119,7 +1060,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validatePathVector(PathVector pathVector, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1129,7 +1069,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateProvidesPredicate(ProvidesPredicate providesPredicate, DiagnosticChain diagnostics,
@@ -1140,7 +1079,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateRepoOption(RepoOption repoOption, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1150,7 +1088,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateRepository(Repository repository, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1160,7 +1097,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateRepositoryUnitProvider(RepositoryUnitProvider repositoryUnitProvider,
@@ -1171,7 +1107,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateRequiredCapability(RequiredCapability requiredCapability, DiagnosticChain diagnostics,
@@ -1182,7 +1117,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateRequiresPredicate(RequiresPredicate requiresPredicate, DiagnosticChain diagnostics,
@@ -1193,7 +1127,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateResolutionInfo(ResolutionInfo resolutionInfo, DiagnosticChain diagnostics,
@@ -1204,7 +1137,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateSourcePredicate(SourcePredicate sourcePredicate, DiagnosticChain diagnostics,
@@ -1215,7 +1147,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateSwitchUnitProvider(SwitchUnitProvider switchUnitProvider, DiagnosticChain diagnostics,
@@ -1226,7 +1157,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateSynchronization(Synchronization synchronization, DiagnosticChain diagnostics,
@@ -1237,7 +1167,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateTriState(TriState triState, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1247,7 +1176,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateUnitConcernContext(UnitConcernContext unitConcernContext, DiagnosticChain diagnostics,
@@ -1258,7 +1186,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateUnitNamePredicate(UnitNamePredicate unitNamePredicate, DiagnosticChain diagnostics,
@@ -1269,7 +1196,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateUnitProvider(UnitProvider unitProvider, DiagnosticChain diagnostics,
@@ -1280,7 +1206,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateUnitRepositoryDescription(UnitRepositoryDescription unitRepositoryDescription,
@@ -1291,7 +1216,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateUnitResolutionInfo(UnitResolutionInfo unitResolutionInfo, DiagnosticChain diagnostics,
@@ -1302,7 +1226,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateVersion(Version version, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1312,7 +1235,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateVersionedCapability(VersionedCapability versionedCapability, DiagnosticChain diagnostics,
@@ -1323,7 +1245,6 @@ public class B3BuildValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateVersionRange(VersionRange versionRange, DiagnosticChain diagnostics,

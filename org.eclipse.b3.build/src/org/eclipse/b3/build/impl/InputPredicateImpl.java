@@ -27,11 +27,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.InputPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.InputPredicateImpl#getBuilderPredicate <em>Builder Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.InputPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.InputPredicateImpl#getBuilderPredicate <em>Builder Predicate</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class InputPredicateImpl extends BExpressionImpl implements InputPredicate {
@@ -39,7 +39,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * The cached value of the '{@link #getCapabilityPredicate() <em>Capability Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getCapabilityPredicate()
 	 * @generated
 	 * @ordered
@@ -50,7 +49,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * The cached value of the '{@link #getBuilderPredicate() <em>Builder Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuilderPredicate()
 	 * @generated
 	 * @ordered
@@ -60,7 +58,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected InputPredicateImpl() {
@@ -70,7 +67,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetBuilderPredicate(BNamePredicate newBuilderPredicate, NotificationChain msgs) {
@@ -91,7 +87,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCapabilityPredicate(CapabilityPredicate newCapabilityPredicate,
@@ -113,7 +108,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -130,7 +124,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -147,7 +140,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -164,7 +156,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -183,7 +174,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -194,7 +184,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -213,7 +202,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BNamePredicate getBuilderPredicate() {
@@ -223,7 +211,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CapabilityPredicate getCapabilityPredicate() {
@@ -272,7 +259,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBuilderPredicate(BNamePredicate newBuilderPredicate) {
@@ -297,7 +283,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setCapabilityPredicate(CapabilityPredicate newCapabilityPredicate) {

@@ -16,14 +16,14 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Builder Input Condition</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.BuilderInputCondition#getCondExpr <em>Cond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderInputCondition#getCondExpr <em>Cond Expr</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.B3BuildPackage#getBuilderInputCondition()
  * @model
  * @generated
@@ -36,7 +36,6 @@ public interface BuilderInputCondition extends BuilderInputDecorator {
 	 * If the meaning of the '<em>Cond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Cond Expr</em>' containment reference.
 	 * @see #setCondExpr(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderInputCondition_CondExpr()
@@ -49,9 +48,7 @@ public interface BuilderInputCondition extends BuilderInputDecorator {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderInputCondition#getCondExpr <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Cond Expr</em>' containment reference.
+	 * @param value the new value of the '<em>Cond Expr</em>' containment reference.
 	 * @see #getCondExpr()
 	 * @generated
 	 */

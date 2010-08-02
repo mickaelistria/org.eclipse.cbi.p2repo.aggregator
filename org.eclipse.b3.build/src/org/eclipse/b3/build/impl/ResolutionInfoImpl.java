@@ -24,10 +24,10 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.ResolutionInfoImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.ResolutionInfoImpl#getStatus <em>Status</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
@@ -35,7 +35,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getStatus()
 	 * @generated
 	 * @ordered
@@ -46,7 +45,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getStatus()
 	 * @generated
 	 * @ordered
@@ -56,7 +54,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ResolutionInfoImpl() {
@@ -66,7 +63,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -81,7 +77,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -98,7 +93,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -114,7 +108,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -125,7 +118,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -141,7 +133,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IStatus getStatus() {
@@ -151,7 +142,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setStatus(IStatus newStatus) {
@@ -165,7 +155,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

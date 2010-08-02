@@ -31,12 +31,12 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.CapabilityPredicateImpl#getVersionRange <em>Version Range</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.CapabilityPredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.CapabilityPredicateImpl#getNameSpacePredicate <em>Name Space Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.CapabilityPredicateImpl#getVersionRange <em>Version Range</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.CapabilityPredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.CapabilityPredicateImpl#getNameSpacePredicate <em>Name Space Predicate</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CapabilityPredicateImpl extends BExpressionImpl implements CapabilityPredicate {
@@ -44,7 +44,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * The default value of the '{@link #getVersionRange() <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getVersionRange()
 	 * @generated
 	 * @ordered
@@ -55,7 +54,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * The cached value of the '{@link #getVersionRange() <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getVersionRange()
 	 * @generated
 	 * @ordered
@@ -66,7 +64,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * The cached value of the '{@link #getNamePredicate() <em>Name Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getNamePredicate()
 	 * @generated
 	 * @ordered
@@ -77,7 +74,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * The cached value of the '{@link #getNameSpacePredicate() <em>Name Space Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getNameSpacePredicate()
 	 * @generated
 	 * @ordered
@@ -87,7 +83,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CapabilityPredicateImpl() {
@@ -106,7 +101,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetNamePredicate(BNamePredicate newNamePredicate, NotificationChain msgs) {
@@ -127,7 +121,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetNameSpacePredicate(BNamePredicate newNameSpacePredicate, NotificationChain msgs) {
@@ -148,7 +141,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -167,7 +159,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -184,7 +175,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -205,7 +195,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -227,7 +216,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -238,7 +226,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -260,7 +247,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BNamePredicate getNamePredicate() {
@@ -270,7 +256,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BNamePredicate getNameSpacePredicate() {
@@ -280,7 +265,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public VersionRange getVersionRange() {
@@ -346,7 +330,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setNamePredicate(BNamePredicate newNamePredicate) {
@@ -371,7 +354,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setNameSpacePredicate(BNamePredicate newNameSpacePredicate) {
@@ -396,7 +378,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setVersionRange(VersionRange newVersionRange) {
@@ -411,7 +392,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

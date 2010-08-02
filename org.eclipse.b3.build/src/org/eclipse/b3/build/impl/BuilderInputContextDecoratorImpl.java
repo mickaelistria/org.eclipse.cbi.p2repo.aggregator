@@ -30,10 +30,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuilderInputContextDecoratorImpl#getWithExpr <em>With Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderInputContextDecoratorImpl#getWithExpr <em>With Expr</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl implements BuilderInputContextDecorator {
@@ -41,7 +41,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	 * The cached value of the '{@link #getWithExpr() <em>With Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getWithExpr()
 	 * @generated
 	 * @ordered
@@ -51,7 +50,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuilderInputContextDecoratorImpl() {
@@ -61,7 +59,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetWithExpr(BWithExpression newWithExpr, NotificationChain msgs) {
@@ -82,7 +79,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -97,7 +93,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -112,7 +107,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -127,7 +121,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -143,7 +136,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -154,7 +146,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -170,7 +161,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BWithExpression getWithExpr() {
@@ -180,7 +170,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setWithExpr(BWithExpression newWithExpr) {

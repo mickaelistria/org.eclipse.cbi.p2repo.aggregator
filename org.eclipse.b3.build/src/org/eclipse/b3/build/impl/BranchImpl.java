@@ -48,20 +48,20 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BranchImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BranchImpl#getDocumentation <em>Documentation</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BranchImpl#getBranchPointType <em>Branch Point Type</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BranchImpl#getInclude <em>Include</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BranchImpl#getExclude <em>Exclude</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BranchImpl#getBranchPoint <em>Branch Point</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BranchImpl#getMergeStrategy <em>Merge Strategy</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BranchImpl#getCheckout <em>Checkout</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BranchImpl#getAcceptDirty <em>Accept Dirty</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BranchImpl#getUpdate <em>Update</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BranchImpl#getReplace <em>Replace</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BranchImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BranchImpl#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BranchImpl#getBranchPointType <em>Branch Point Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BranchImpl#getInclude <em>Include</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BranchImpl#getExclude <em>Exclude</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BranchImpl#getBranchPoint <em>Branch Point</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BranchImpl#getMergeStrategy <em>Merge Strategy</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BranchImpl#getCheckout <em>Checkout</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BranchImpl#getAcceptDirty <em>Accept Dirty</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BranchImpl#getUpdate <em>Update</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BranchImpl#getReplace <em>Replace</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BranchImpl extends EObjectImpl implements Branch {
@@ -69,7 +69,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -80,7 +79,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -91,7 +89,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -102,7 +99,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -113,7 +109,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The default value of the '{@link #getBranchPointType() <em>Branch Point Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBranchPointType()
 	 * @generated
 	 * @ordered
@@ -124,7 +119,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The cached value of the '{@link #getBranchPointType() <em>Branch Point Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBranchPointType()
 	 * @generated
 	 * @ordered
@@ -135,7 +129,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The cached value of the '{@link #getInclude() <em>Include</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getInclude()
 	 * @generated
 	 * @ordered
@@ -146,7 +139,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The cached value of the '{@link #getExclude() <em>Exclude</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getExclude()
 	 * @generated
 	 * @ordered
@@ -157,7 +149,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The cached value of the '{@link #getBranchPoint() <em>Branch Point</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBranchPoint()
 	 * @generated
 	 * @ordered
@@ -168,7 +159,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The default value of the '{@link #getMergeStrategy() <em>Merge Strategy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getMergeStrategy()
 	 * @generated
 	 * @ordered
@@ -179,7 +169,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The cached value of the '{@link #getMergeStrategy() <em>Merge Strategy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getMergeStrategy()
 	 * @generated
 	 * @ordered
@@ -190,7 +179,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The default value of the '{@link #getCheckout() <em>Checkout</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getCheckout()
 	 * @generated
 	 * @ordered
@@ -201,7 +189,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The cached value of the '{@link #getCheckout() <em>Checkout</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getCheckout()
 	 * @generated
 	 * @ordered
@@ -212,7 +199,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The default value of the '{@link #getAcceptDirty() <em>Accept Dirty</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getAcceptDirty()
 	 * @generated
 	 * @ordered
@@ -223,7 +209,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The cached value of the '{@link #getAcceptDirty() <em>Accept Dirty</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getAcceptDirty()
 	 * @generated
 	 * @ordered
@@ -234,7 +219,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The default value of the '{@link #getUpdate() <em>Update</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getUpdate()
 	 * @generated
 	 * @ordered
@@ -245,7 +229,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The cached value of the '{@link #getUpdate() <em>Update</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getUpdate()
 	 * @generated
 	 * @ordered
@@ -256,7 +239,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The default value of the '{@link #getReplace() <em>Replace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getReplace()
 	 * @generated
 	 * @ordered
@@ -267,7 +249,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * The cached value of the '{@link #getReplace() <em>Replace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getReplace()
 	 * @generated
 	 * @ordered
@@ -277,7 +258,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BranchImpl() {
@@ -287,7 +267,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetBranchPoint(BExpression newBranchPoint, NotificationChain msgs) {
@@ -307,7 +286,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -342,7 +320,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -361,7 +338,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -400,7 +376,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -449,7 +424,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -460,7 +434,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -506,7 +479,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public TriState getAcceptDirty() {
@@ -516,7 +488,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getBranchPoint() {
@@ -526,7 +497,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BranchPointType getBranchPointType() {
@@ -536,7 +506,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public TriState getCheckout() {
@@ -546,7 +515,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getDocumentation() {
@@ -628,7 +596,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BNamePredicate> getExclude() {
@@ -642,7 +609,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BNamePredicate> getInclude() {
@@ -656,7 +622,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public MergeConflictStrategy getMergeStrategy() {
@@ -666,7 +631,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -676,7 +640,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public TriState getReplace() {
@@ -686,7 +649,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public TriState getUpdate() {
@@ -840,7 +802,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setAcceptDirty(TriState newAcceptDirty) {
@@ -856,7 +817,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBranchPoint(BExpression newBranchPoint) {
@@ -880,7 +840,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBranchPointType(BranchPointType newBranchPointType) {
@@ -896,7 +855,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setCheckout(TriState newCheckout) {
@@ -912,7 +870,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDocumentation(String newDocumentation) {
@@ -926,7 +883,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setMergeStrategy(MergeConflictStrategy newMergeStrategy) {
@@ -942,7 +898,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -955,7 +910,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setReplace(TriState newReplace) {
@@ -970,7 +924,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setUpdate(TriState newUpdate) {
@@ -985,7 +938,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

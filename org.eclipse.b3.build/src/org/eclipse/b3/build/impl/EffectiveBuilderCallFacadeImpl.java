@@ -26,10 +26,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.EffectiveBuilderCallFacadeImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.EffectiveBuilderCallFacadeImpl#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implements EffectiveBuilderCallFacade {
@@ -37,7 +37,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getContext()
 	 * @generated
 	 * @ordered
@@ -47,7 +46,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected EffectiveBuilderCallFacadeImpl() {
@@ -57,7 +55,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExecutionContext basicGetContext() {
@@ -67,7 +64,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -86,7 +82,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -105,7 +100,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -122,7 +116,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -137,7 +130,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -153,7 +145,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -164,7 +155,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -180,7 +170,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExecutionContext getContext() {
@@ -200,7 +189,6 @@ public class EffectiveBuilderCallFacadeImpl extends BuilderCallFacadeImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setContext(BExecutionContext newContext) {

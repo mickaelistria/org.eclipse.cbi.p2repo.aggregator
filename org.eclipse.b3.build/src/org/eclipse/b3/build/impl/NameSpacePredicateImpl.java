@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.NameSpacePredicateImpl#getNameSpace <em>Name Space</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.NameSpacePredicateImpl#getNameSpace <em>Name Space</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePredicate {
@@ -34,7 +34,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	 * The default value of the '{@link #getNameSpace() <em>Name Space</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getNameSpace()
 	 * @generated
 	 * @ordered
@@ -45,7 +44,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	 * The cached value of the '{@link #getNameSpace() <em>Name Space</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getNameSpace()
 	 * @generated
 	 * @ordered
@@ -55,7 +53,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected NameSpacePredicateImpl() {
@@ -65,7 +62,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -80,7 +76,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -97,7 +92,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -113,7 +107,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -124,7 +117,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -140,7 +132,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getNameSpace() {
@@ -150,7 +141,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setNameSpace(String newNameSpace) {
@@ -164,7 +154,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

@@ -27,10 +27,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.ImplementsPredicateImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.ImplementsPredicateImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ImplementsPredicateImpl extends BExpressionImpl implements ImplementsPredicate {
@@ -38,7 +38,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -48,7 +47,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ImplementsPredicateImpl() {
@@ -58,7 +56,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
@@ -78,7 +75,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -93,7 +89,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -108,7 +103,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -123,7 +117,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -139,7 +132,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -150,7 +142,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -166,7 +157,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Type getType() {
@@ -176,7 +166,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setType(Type newType) {

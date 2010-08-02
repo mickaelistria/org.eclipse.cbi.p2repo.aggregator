@@ -18,16 +18,16 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Builder Call Facade</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.BuilderCallFacade#getBuilderReference <em>Builder Reference</em>}</li>
- * <li>{@link org.eclipse.b3.build.BuilderCallFacade#getAliases <em>Aliases</em>}</li>
- * <li>{@link org.eclipse.b3.build.BuilderCallFacade#getRequiredCapability <em>Required Capability</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderCallFacade#getBuilderReference <em>Builder Reference</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderCallFacade#getAliases <em>Aliases</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderCallFacade#getRequiredCapability <em>Required Capability</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.B3BuildPackage#getBuilderCallFacade()
  * @model
  * @generated
@@ -41,7 +41,6 @@ public interface BuilderCallFacade extends EObject {
 	 * If the meaning of the '<em>Aliases</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Aliases</em>' attribute list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderCallFacade_Aliases()
 	 * @model
@@ -56,7 +55,6 @@ public interface BuilderCallFacade extends EObject {
 	 * If the meaning of the '<em>Builder Reference</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Builder Reference</em>' reference.
 	 * @see #setBuilderReference(BuilderCall)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderCallFacade_BuilderReference()
@@ -72,7 +70,6 @@ public interface BuilderCallFacade extends EObject {
 	 * If the meaning of the '<em>Required Capability</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Required Capability</em>' reference.
 	 * @see #setRequiredCapability(RequiredCapability)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderCallFacade_RequiredCapability()
@@ -85,9 +82,7 @@ public interface BuilderCallFacade extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderCallFacade#getBuilderReference <em>Builder Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Builder Reference</em>' reference.
+	 * @param value the new value of the '<em>Builder Reference</em>' reference.
 	 * @see #getBuilderReference()
 	 * @generated
 	 */
@@ -97,9 +92,7 @@ public interface BuilderCallFacade extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderCallFacade#getRequiredCapability <em>Required Capability</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Required Capability</em>' reference.
+	 * @param value the new value of the '<em>Required Capability</em>' reference.
 	 * @see #getRequiredCapability()
 	 * @generated
 	 */

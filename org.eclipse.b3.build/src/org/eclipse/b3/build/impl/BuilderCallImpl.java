@@ -26,11 +26,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuilderCallImpl#getParameters <em>Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderCallImpl#getBuilderName <em>Builder Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderCallImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderCallImpl#getBuilderName <em>Builder Name</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class BuilderCallImpl extends BuilderInputImpl implements BuilderCall {
@@ -38,7 +38,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
@@ -49,7 +48,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	 * The default value of the '{@link #getBuilderName() <em>Builder Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuilderName()
 	 * @generated
 	 * @ordered
@@ -60,7 +58,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	 * The cached value of the '{@link #getBuilderName() <em>Builder Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuilderName()
 	 * @generated
 	 * @ordered
@@ -70,7 +67,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuilderCallImpl() {
@@ -80,7 +76,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetParameters(BParameterList newParameters, NotificationChain msgs) {
@@ -100,7 +95,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -117,7 +111,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -132,7 +125,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -151,7 +143,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -170,7 +161,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -181,7 +171,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -200,7 +189,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getBuilderName() {
@@ -210,7 +198,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BParameterList getParameters() {
@@ -220,7 +207,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBuilderName(String newBuilderName) {
@@ -234,7 +220,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setParameters(BParameterList newParameters) {
@@ -258,7 +243,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

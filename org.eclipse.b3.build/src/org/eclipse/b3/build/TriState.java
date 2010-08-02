@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Tri State</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.b3.build.B3BuildPackage#getTriState()
  * @model
  * @generated
@@ -31,29 +30,26 @@ public enum TriState implements Enumerator {
 	 * The '<em><b>Default</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #DEFAULT_VALUE
 	 * @generated
 	 * @ordered
 	 */
 	DEFAULT(0, "Default", "Default"), /**
-	 * The '<em><b>True</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #TRUE_VALUE
-	 * @generated
-	 * @ordered
-	 */
+										 * The '<em><b>True</b></em>' literal object.
+										 * <!-- begin-user-doc -->
+										 * <!-- end-user-doc -->
+										 * @see #TRUE_VALUE
+										 * @generated
+										 * @ordered
+										 */
 	TRUE(1, "True", "True"), /**
-	 * The '<em><b>False</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #FALSE_VALUE
-	 * @generated
-	 * @ordered
-	 */
+								 * The '<em><b>False</b></em>' literal object.
+								 * <!-- begin-user-doc -->
+								 * <!-- end-user-doc -->
+								 * @see #FALSE_VALUE
+								 * @generated
+								 * @ordered
+								 */
 	FALSE(2, "False", "False");
 
 	/**
@@ -63,7 +59,6 @@ public enum TriState implements Enumerator {
 	 * If the meaning of '<em><b>Default</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #DEFAULT
 	 * @model name="Default"
 	 * @generated
@@ -78,7 +73,6 @@ public enum TriState implements Enumerator {
 	 * If the meaning of '<em><b>True</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #TRUE
 	 * @model name="True"
 	 * @generated
@@ -93,7 +87,6 @@ public enum TriState implements Enumerator {
 	 * If the meaning of '<em><b>False</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #FALSE
 	 * @model name="False"
 	 * @generated
@@ -105,7 +98,6 @@ public enum TriState implements Enumerator {
 	 * An array of all the '<em><b>Tri State</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private static final TriState[] VALUES_ARRAY = new TriState[] { DEFAULT, TRUE, FALSE, };
@@ -114,7 +106,6 @@ public enum TriState implements Enumerator {
 	 * A public read-only list of all the '<em><b>Tri State</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final List<TriState> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -123,7 +114,6 @@ public enum TriState implements Enumerator {
 	 * Returns the '<em><b>Tri State</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static TriState get(int value) {
@@ -142,7 +132,6 @@ public enum TriState implements Enumerator {
 	 * Returns the '<em><b>Tri State</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static TriState get(String literal) {
@@ -159,7 +148,6 @@ public enum TriState implements Enumerator {
 	 * Returns the '<em><b>Tri State</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static TriState getByName(String name) {
@@ -175,7 +163,6 @@ public enum TriState implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final int value;
@@ -183,7 +170,6 @@ public enum TriState implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final String name;
@@ -191,7 +177,6 @@ public enum TriState implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final String literal;
@@ -200,7 +185,6 @@ public enum TriState implements Enumerator {
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private TriState(int value, String name, String literal) {
@@ -212,7 +196,6 @@ public enum TriState implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getLiteral() {
@@ -222,7 +205,6 @@ public enum TriState implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -232,7 +214,6 @@ public enum TriState implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public int getValue() {
@@ -243,7 +224,6 @@ public enum TriState implements Enumerator {
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

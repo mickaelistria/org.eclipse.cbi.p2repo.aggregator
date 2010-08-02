@@ -31,11 +31,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuilderQueryImpl#getBuilderQueries <em>Builder Queries</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderQueryImpl#getUnitQuery <em>Unit Query</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderQueryImpl#getBuilderQueries <em>Builder Queries</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderQueryImpl#getUnitQuery <em>Unit Query</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
@@ -43,7 +43,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	 * The cached value of the '{@link #getBuilderQueries() <em>Builder Queries</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuilderQueries()
 	 * @generated
 	 * @ordered
@@ -54,7 +53,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	 * The cached value of the '{@link #getUnitQuery() <em>Unit Query</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getUnitQuery()
 	 * @generated
 	 * @ordered
@@ -64,7 +62,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuilderQueryImpl() {
@@ -74,7 +71,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetUnitQuery(BExpression newUnitQuery, NotificationChain msgs) {
@@ -94,7 +90,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -111,7 +106,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -128,7 +122,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,7 +138,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -166,7 +158,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -177,7 +168,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -196,7 +186,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BExpression> getBuilderQueries() {
@@ -210,7 +199,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getUnitQuery() {
@@ -220,7 +208,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setUnitQuery(BExpression newUnitQuery) {

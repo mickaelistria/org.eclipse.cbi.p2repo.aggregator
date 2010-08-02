@@ -60,6 +60,7 @@ import org.eclipse.b3.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.EffectiveUnitFacade;
 import org.eclipse.b3.build.ExecutionStackRepository;
 import org.eclipse.b3.build.FirstFoundUnitProvider;
+import org.eclipse.b3.build.FragmentHost;
 import org.eclipse.b3.build.IBuildUnitContainer;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.IEffectiveFacade;
@@ -112,17 +113,15 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>
-	 * This method is used to initialize {@link B3BuildPackage#eINSTANCE} when that field is accessed. Clients should not invoke it directly. Instead,
-	 * they should simply access that field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <p>This method is used to initialize {@link B3BuildPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -166,7 +165,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass buildUnitEClass = null;
@@ -174,7 +172,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iBuilderEClass = null;
@@ -182,7 +179,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderEClass = null;
@@ -190,7 +186,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderJavaEClass = null;
@@ -198,7 +193,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderWrapperEClass = null;
@@ -206,7 +200,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass beeModelEClass = null;
@@ -214,7 +207,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass beeHiveEClass = null;
@@ -222,7 +214,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass resolutionInfoEClass = null;
@@ -230,7 +221,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass effectiveFacadeEClass = null;
@@ -238,7 +228,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass effectiveUnitFacadeEClass = null;
@@ -246,7 +235,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass effectiveRequirementFacadeEClass = null;
@@ -254,7 +242,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass effectiveCapabilityFacadeEClass = null;
@@ -262,7 +249,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderCallFacadeEClass = null;
@@ -270,7 +256,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass effectiveBuilderCallFacadeEClass = null;
@@ -278,7 +263,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iBuildUnitContainerEClass = null;
@@ -286,7 +270,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated
+	 */
+	private EClass fragmentHostEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass buildSetEClass = null;
@@ -294,7 +284,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass buildResultContextEClass = null;
@@ -302,7 +291,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass outputPredicateEClass = null;
@@ -310,7 +298,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass sourcePredicateEClass = null;
@@ -318,7 +305,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass buildUnitRepositoryEClass = null;
@@ -326,7 +312,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass compoundBuildUnitRepositoryEClass = null;
@@ -334,7 +319,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass compoundFirstFoundRepositoryEClass = null;
@@ -342,7 +326,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass executionStackRepositoryEClass = null;
@@ -350,7 +333,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass beeModelRepositoryEClass = null;
@@ -358,7 +340,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iBuildUnitRepositoryEClass = null;
@@ -366,7 +347,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass unitResolutionInfoEClass = null;
@@ -374,7 +354,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass switchUnitProviderEClass = null;
@@ -382,7 +361,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass repositoryEClass = null;
@@ -390,7 +368,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass branchEClass = null;
@@ -398,7 +375,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass delegatingUnitProviderEClass = null;
@@ -406,7 +382,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass repoOptionEClass = null;
@@ -414,7 +389,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass unitRepositoryDescriptionEClass = null;
@@ -422,7 +396,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass buildCallOnSelectedRequirementsEClass = null;
@@ -430,7 +403,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderInputNameDecoratorEClass = null;
@@ -438,7 +410,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderInputContextDecoratorEClass = null;
@@ -446,7 +417,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderInputConditionEClass = null;
@@ -454,7 +424,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass buildCallMultipleEClass = null;
@@ -462,7 +431,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass buildCallSingleEClass = null;
@@ -470,7 +438,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass buildCallOnDeclaredRequirementEClass = null;
@@ -478,7 +445,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass buildCallOnReferencedRequirementEClass = null;
@@ -486,7 +452,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderInputGroupEClass = null;
@@ -494,7 +459,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iEffectiveFacadeEClass = null;
@@ -502,7 +466,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EEnum mergeConflictStrategyEEnum = null;
@@ -510,7 +473,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EEnum branchPointTypeEEnum = null;
@@ -518,7 +480,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EEnum triStateEEnum = null;
@@ -526,7 +487,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass versionedCapabilityEClass = null;
@@ -534,7 +494,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass capabilityEClass = null;
@@ -542,7 +501,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass requiredCapabilityEClass = null;
@@ -550,7 +508,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass conditionalPathVectorEClass = null;
@@ -558,7 +515,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass pathVectorEClass = null;
@@ -566,7 +522,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass synchronizationEClass = null;
@@ -574,7 +529,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass unitProviderEClass = null;
@@ -582,7 +536,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass repositoryUnitProviderEClass = null;
@@ -590,7 +543,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass compoundUnitProviderEClass = null;
@@ -598,7 +550,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass firstFoundUnitProviderEClass = null;
@@ -606,7 +557,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bestFoundUnitProviderEClass = null;
@@ -614,7 +564,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass containerConfigurationEClass = null;
@@ -622,7 +571,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass buildConcernContextEClass = null;
@@ -630,7 +578,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass requiresPredicateEClass = null;
@@ -638,7 +585,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass capabilityPredicateEClass = null;
@@ -646,7 +592,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass implementsPredicateEClass = null;
@@ -654,7 +599,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass providesPredicateEClass = null;
@@ -662,7 +606,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass nameSpacePredicateEClass = null;
@@ -670,7 +613,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass unitNamePredicateEClass = null;
@@ -678,7 +620,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderNamePredicateEClass = null;
@@ -686,7 +627,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass inputPredicateEClass = null;
@@ -694,7 +634,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass unitConcernContextEClass = null;
@@ -702,7 +641,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderConcernContextEClass = null;
@@ -710,7 +648,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass pathGroupPredicateEClass = null;
@@ -718,7 +655,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass aliasedRequiredCapabilityEClass = null;
@@ -726,7 +662,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iRequiredCapabilityContainerEClass = null;
@@ -734,7 +669,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iProvidedCapabilityContainerEClass = null;
@@ -742,7 +676,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderQueryEClass = null;
@@ -750,7 +683,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderInputEClass = null;
@@ -758,7 +690,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass pathGroupEClass = null;
@@ -766,7 +697,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderInputDecoratorEClass = null;
@@ -774,7 +704,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass builderCallEClass = null;
@@ -782,7 +711,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType versionRangeEDataType = null;
@@ -790,7 +718,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType versionEDataType = null;
@@ -798,7 +725,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType iStatusEDataType = null;
@@ -806,7 +732,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType pathIteratorEDataType = null;
@@ -814,7 +739,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType b3BuilderJobEDataType = null;
@@ -822,7 +746,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
@@ -830,7 +753,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
@@ -838,19 +760,19 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
-	 * package
+	 * Creates an instance of the model <b>Package</b>, registered with
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
-	 * <p>
-	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
-	 * package, or returns the registered package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <p>Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.b3.build.B3BuildPackage#eNS_URI
 	 * @see #init()
@@ -861,11 +783,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	}
 
 	/**
-	 * Creates the meta-model objects for the package. This method is
+	 * Creates the meta-model objects for the package.  This method is
 	 * guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -890,6 +811,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEAttribute(buildUnitEClass, BUILD_UNIT__OUTPUT_LOCATION);
 		createEReference(buildUnitEClass, BUILD_UNIT__PROVIDERS);
 		createEReference(buildUnitEClass, BUILD_UNIT__PARENT);
+		createEReference(buildUnitEClass, BUILD_UNIT__FRAGMENT_HOSTS);
 
 		iBuilderEClass = createEClass(IBUILDER);
 		createEReference(iBuilderEClass, IBUILDER__POSTCOND_EXPR);
@@ -1190,6 +1112,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		iBuildUnitContainerEClass = createEClass(IBUILD_UNIT_CONTAINER);
 		createEReference(iBuildUnitContainerEClass, IBUILD_UNIT_CONTAINER__BUILD_UNITS);
 
+		fragmentHostEClass = createEClass(FRAGMENT_HOST);
+		createEReference(fragmentHostEClass, FRAGMENT_HOST__HOST_REQUIREMENTS);
+
 		// Create enums
 		mergeConflictStrategyEEnum = createEEnum(MERGE_CONFLICT_STRATEGY);
 		branchPointTypeEEnum = createEEnum(BRANCH_POINT_TYPE);
@@ -1206,7 +1131,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getAliasedRequiredCapability() {
@@ -1216,7 +1140,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getAliasedRequiredCapability_Alias() {
@@ -1226,7 +1149,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getB3BuilderJob() {
@@ -1236,7 +1158,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public B3BuildFactory getB3BuildFactory() {
@@ -1246,7 +1167,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBeeHive() {
@@ -1256,7 +1176,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBeeHive_BeeModels() {
@@ -1266,7 +1185,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBeeHive_Parent() {
@@ -1276,7 +1194,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBeeHive_Resolutions() {
@@ -1286,7 +1203,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBeeModel() {
@@ -1296,7 +1212,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBeeModel_Concerns() {
@@ -1306,7 +1221,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBeeModel_DefaultProperties() {
@@ -1316,7 +1230,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBeeModel_Functions() {
@@ -1326,7 +1239,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBeeModel_Imports() {
@@ -1336,7 +1248,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBeeModel_PropertySets() {
@@ -1346,7 +1257,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBeeModel_Providers() {
@@ -1356,7 +1266,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBeeModel_Repositories() {
@@ -1366,7 +1275,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBeeModelRepository() {
@@ -1376,7 +1284,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBeeModelRepository_BeeModels() {
@@ -1386,7 +1293,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBestFoundUnitProvider() {
@@ -1396,7 +1302,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBranch() {
@@ -1406,7 +1311,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBranch_AcceptDirty() {
@@ -1416,7 +1320,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBranch_BranchPoint() {
@@ -1426,7 +1329,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBranch_BranchPointType() {
@@ -1436,7 +1338,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBranch_Checkout() {
@@ -1446,7 +1347,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBranch_Documentation() {
@@ -1456,7 +1356,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBranch_Exclude() {
@@ -1466,7 +1365,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBranch_Include() {
@@ -1476,7 +1374,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBranch_MergeStrategy() {
@@ -1486,7 +1383,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBranch_Name() {
@@ -1496,7 +1392,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBranch_Replace() {
@@ -1506,7 +1401,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBranch_Update() {
@@ -1516,7 +1410,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EEnum getBranchPointType() {
@@ -1526,7 +1419,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuildCallMultiple() {
@@ -1536,7 +1428,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuildCallOnDeclaredRequirement() {
@@ -1546,7 +1437,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildCallOnDeclaredRequirement_RequiredCapabilityDeclaration() {
@@ -1556,7 +1446,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuildCallOnReferencedRequirement() {
@@ -1566,7 +1455,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildCallOnReferencedRequirement_RequiredCapabilityReference() {
@@ -1576,7 +1464,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuildCallOnSelectedRequirements() {
@@ -1586,7 +1473,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildCallOnSelectedRequirements_RequiredPredicate() {
@@ -1596,7 +1482,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuildCallSingle() {
@@ -1606,7 +1491,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildCallSingle_RequiredCapability() {
@@ -1616,7 +1500,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuildConcernContext() {
@@ -1626,7 +1509,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildConcernContext_DefaultPropertiesAdditions() {
@@ -1636,7 +1518,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuildConcernContext_DefaultPropertiesRemovals() {
@@ -1646,7 +1527,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilder() {
@@ -1656,7 +1536,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderCall() {
@@ -1666,7 +1545,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderCall_BuilderName() {
@@ -1676,7 +1554,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderCall_Parameters() {
@@ -1686,7 +1563,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderCallFacade() {
@@ -1696,7 +1572,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderCallFacade_Aliases() {
@@ -1706,7 +1581,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderCallFacade_BuilderReference() {
@@ -1716,7 +1590,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderCallFacade_RequiredCapability() {
@@ -1726,7 +1599,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderConcernContext() {
@@ -1736,7 +1608,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_FuncExpr() {
@@ -1746,7 +1617,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_InputAdditions() {
@@ -1756,7 +1626,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_InputRemovals() {
@@ -1766,7 +1635,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderConcernContext_MatchParameters() {
@@ -1776,7 +1644,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_OutputAdditions() {
@@ -1786,7 +1653,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_OutputAnnotationAdditions() {
@@ -1796,7 +1662,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderConcernContext_OutputAnnotationsRemovals() {
@@ -1806,7 +1671,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_OutputRemovals() {
@@ -1816,7 +1680,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_Parameters() {
@@ -1826,7 +1689,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_PostcondExpr() {
@@ -1836,7 +1698,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_PostinputcondExpr() {
@@ -1846,7 +1707,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_PrecondExpr() {
@@ -1856,7 +1716,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_ProvidesRemovals() {
@@ -1866,7 +1725,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_Query() {
@@ -1876,7 +1734,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderConcernContext_RemovePostCondition() {
@@ -1886,7 +1743,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderConcernContext_RemovePostInputCondition() {
@@ -1896,7 +1752,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderConcernContext_RemovePreCondition() {
@@ -1906,7 +1761,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_SourceAdditions() {
@@ -1916,7 +1770,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_SourceAnnotationAdditions() {
@@ -1926,7 +1779,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderConcernContext_SourceAnnotationsRemovals() {
@@ -1936,7 +1788,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderConcernContext_SourceRemovals() {
@@ -1946,7 +1797,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderConcernContext_VarArgs() {
@@ -1956,7 +1806,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderInput() {
@@ -1966,7 +1815,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderInputCondition() {
@@ -1976,7 +1824,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderInputCondition_CondExpr() {
@@ -1986,7 +1833,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderInputContextDecorator() {
@@ -1996,7 +1842,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderInputContextDecorator_WithExpr() {
@@ -2006,7 +1851,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderInputDecorator() {
@@ -2016,7 +1860,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderInputDecorator_BuilderInput() {
@@ -2026,7 +1869,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderInputGroup() {
@@ -2036,7 +1878,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderInputNameDecorator() {
@@ -2046,7 +1887,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderJava() {
@@ -2056,7 +1896,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderNamePredicate() {
@@ -2066,7 +1905,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderNamePredicate_NamePredicate() {
@@ -2076,7 +1914,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderQuery() {
@@ -2086,7 +1923,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderQuery_BuilderQueries() {
@@ -2096,7 +1932,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuilderQuery_UnitQuery() {
@@ -2106,7 +1941,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuilderWrapper() {
@@ -2116,7 +1950,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderWrapper_DefaultPropertiesAdvised() {
@@ -2126,7 +1959,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderWrapper_InputAdvised() {
@@ -2136,7 +1968,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderWrapper_OutputAdvised() {
@@ -2146,7 +1977,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderWrapper_ProvidesAdvised() {
@@ -2156,7 +1986,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderWrapper_SourceAdvised() {
@@ -2166,7 +1995,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuilderWrapper_UnitTypeAdvised() {
@@ -2176,7 +2004,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuildResultContext() {
@@ -2186,7 +2013,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuildSet() {
@@ -2196,7 +2022,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuildSet_PathIterator() {
@@ -2206,7 +2031,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildSet_PathVectors() {
@@ -2216,7 +2040,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuildSet_ValueMap() {
@@ -2226,7 +2049,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuildUnit() {
@@ -2236,7 +2058,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildUnit_Builders() {
@@ -2246,7 +2067,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildUnit_Concerns() {
@@ -2256,7 +2076,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildUnit_Containers() {
@@ -2266,7 +2085,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildUnit_DefaultProperties() {
@@ -2276,7 +2094,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuildUnit_Documentation() {
@@ -2286,7 +2103,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuildUnit_ExecutionMode() {
@@ -2296,7 +2112,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildUnit_Implements() {
@@ -2306,7 +2121,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildUnit_MetaRequiredCapabilities() {
@@ -2316,7 +2130,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuildUnit_OutputLocation() {
@@ -2326,7 +2139,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildUnit_Parent() {
@@ -2336,7 +2148,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated
+	 */
+	public EReference getBuildUnit_FragmentHosts() {
+		return (EReference) buildUnitEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getBuildUnit_PropertySets() {
@@ -2346,7 +2166,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildUnit_Providers() {
@@ -2356,7 +2175,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildUnit_Repositories() {
@@ -2366,7 +2184,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBuildUnit_SourceLocation() {
@@ -2376,7 +2193,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBuildUnit_Synchronizations() {
@@ -2386,7 +2202,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBuildUnitRepository() {
@@ -2396,7 +2211,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getCapability() {
@@ -2406,7 +2220,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCapability_CondExpr() {
@@ -2416,7 +2229,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getCapability_NameSpace() {
@@ -2426,7 +2238,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getCapabilityPredicate() {
@@ -2436,7 +2247,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCapabilityPredicate_NamePredicate() {
@@ -2446,7 +2256,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCapabilityPredicate_NameSpacePredicate() {
@@ -2456,7 +2265,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getCapabilityPredicate_VersionRange() {
@@ -2466,7 +2274,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getCompoundBuildUnitRepository() {
@@ -2476,7 +2283,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCompoundBuildUnitRepository_Repositories() {
@@ -2486,7 +2292,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getCompoundFirstFoundRepository() {
@@ -2496,7 +2301,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getCompoundUnitProvider() {
@@ -2506,7 +2310,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCompoundUnitProvider_Providers() {
@@ -2516,7 +2319,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getConditionalPathVector() {
@@ -2526,7 +2328,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getConditionalPathVector_CondExpr() {
@@ -2536,7 +2337,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getConditionalPathVector_PathVectors() {
@@ -2546,7 +2346,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getContainerConfiguration() {
@@ -2556,7 +2355,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getContainerConfiguration_AgentType() {
@@ -2566,7 +2364,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getContainerConfiguration_ContextBlock() {
@@ -2576,7 +2373,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getContainerConfiguration_Documentation() {
@@ -2586,7 +2382,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getContainerConfiguration_Name() {
@@ -2596,7 +2391,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getDelegatingUnitProvider() {
@@ -2606,7 +2400,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getDelegatingUnitProvider_Delegate() {
@@ -2616,7 +2409,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getEffectiveBuilderCallFacade() {
@@ -2626,7 +2418,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getEffectiveCapabilityFacade() {
@@ -2636,7 +2427,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getEffectiveCapabilityFacade_ProvidedCapability() {
@@ -2646,7 +2436,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getEffectiveFacade() {
@@ -2656,7 +2445,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getEffectiveRequirementFacade() {
@@ -2666,7 +2454,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getEffectiveRequirementFacade_Requirement() {
@@ -2676,7 +2463,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getEffectiveUnitFacade() {
@@ -2686,7 +2472,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getEffectiveUnitFacade_MetaRequiredCapabilities() {
@@ -2696,7 +2481,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getEffectiveUnitFacade_ProvidedCapabilities() {
@@ -2706,7 +2490,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getEffectiveUnitFacade_RequiredCapabilities() {
@@ -2716,7 +2499,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getEffectiveUnitFacade_Unit() {
@@ -2726,7 +2508,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getEffectiveUnitFacade_UnitRequiredCapabilities() {
@@ -2736,7 +2517,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getExecutionStackRepository() {
@@ -2746,7 +2526,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getFirstFoundUnitProvider() {
@@ -2756,7 +2535,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIBuilder() {
@@ -2766,7 +2544,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIBuilder_DefaultProperties() {
@@ -2776,7 +2553,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIBuilder_ExplicitUnitType() {
@@ -2786,7 +2562,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIBuilder_Input() {
@@ -2796,7 +2571,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIBuilder_Output() {
@@ -2806,7 +2580,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIBuilder_PostcondExpr() {
@@ -2816,7 +2589,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIBuilder_PostinputcondExpr() {
@@ -2826,7 +2598,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIBuilder_PrecondExpr() {
@@ -2836,7 +2607,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIBuilder_Source() {
@@ -2846,7 +2616,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIBuilder_UnitType() {
@@ -2856,7 +2625,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIBuildUnitContainer() {
@@ -2866,7 +2634,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIBuildUnitContainer_BuildUnits() {
@@ -2876,7 +2643,24 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated
+	 */
+	public EClass getFragmentHost() {
+		return fragmentHostEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFragmentHost_HostRequirements() {
+		return (EReference) fragmentHostEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getIBuildUnitRepository() {
@@ -2886,7 +2670,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIEffectiveFacade() {
@@ -2896,7 +2679,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIEffectiveFacade_Context() {
@@ -2906,7 +2688,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getImplementsPredicate() {
@@ -2916,7 +2697,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getImplementsPredicate_Type() {
@@ -2926,7 +2706,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getInputPredicate() {
@@ -2936,7 +2715,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getInputPredicate_BuilderPredicate() {
@@ -2946,7 +2724,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getInputPredicate_CapabilityPredicate() {
@@ -2956,7 +2733,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIProvidedCapabilityContainer() {
@@ -2966,7 +2742,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIProvidedCapabilityContainer_ProvidedCapabilities() {
@@ -2976,7 +2751,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIRequiredCapabilityContainer() {
@@ -2986,7 +2760,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIRequiredCapabilityContainer_RequiredCapabilities() {
@@ -2996,7 +2769,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIRequiredCapabilityContainer_RequiredPredicates() {
@@ -3006,7 +2778,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getIStatus() {
@@ -3016,7 +2787,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EEnum getMergeConflictStrategy() {
@@ -3026,7 +2796,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getNameSpacePredicate() {
@@ -3036,7 +2805,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getNameSpacePredicate_NameSpace() {
@@ -3046,7 +2814,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getOutputPredicate() {
@@ -3056,7 +2823,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getPathGroup() {
@@ -3066,7 +2832,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getPathGroup_Annotations() {
@@ -3076,7 +2841,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getPathGroup_PathVectors() {
@@ -3086,7 +2850,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getPathGroupPredicate() {
@@ -3096,7 +2859,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getPathGroupPredicate_PathPattern() {
@@ -3106,7 +2868,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getPathGroupPredicate_PathVector() {
@@ -3116,7 +2877,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getPathIterator() {
@@ -3126,7 +2886,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getPathVector() {
@@ -3136,7 +2895,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getPathVector_BasePath() {
@@ -3146,7 +2904,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getPathVector_Paths() {
@@ -3156,7 +2913,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getProvidesPredicate() {
@@ -3166,7 +2922,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getProvidesPredicate_CapabilityPredicate() {
@@ -3176,7 +2931,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getRepoOption() {
@@ -3186,7 +2940,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getRepoOption_Expr() {
@@ -3196,7 +2949,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getRepoOption_Name() {
@@ -3206,7 +2958,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getRepository() {
@@ -3216,7 +2967,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getRepository_Address() {
@@ -3226,7 +2976,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getRepository_Branches() {
@@ -3236,7 +2985,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getRepository_BuildUnitRepository() {
@@ -3246,7 +2994,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getRepository_Documentation() {
@@ -3256,7 +3003,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getRepository_HandlerType() {
@@ -3266,7 +3012,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getRepository_Name() {
@@ -3276,7 +3021,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getRepository_Options() {
@@ -3286,7 +3030,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getRepositoryUnitProvider() {
@@ -3296,7 +3039,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getRepositoryUnitProvider_BuildUnitRepository() {
@@ -3306,7 +3048,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getRepositoryUnitProvider_Options() {
@@ -3316,7 +3057,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getRepositoryUnitProvider_Repository() {
@@ -3326,7 +3066,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getRequiredCapability() {
@@ -3336,7 +3075,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getRequiredCapability_Greedy() {
@@ -3346,7 +3084,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getRequiredCapability_Max() {
@@ -3356,7 +3093,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getRequiredCapability_Min() {
@@ -3366,7 +3102,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getRequiredCapability_VersionRange() {
@@ -3376,7 +3111,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getRequiresPredicate() {
@@ -3386,7 +3120,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getRequiresPredicate_CapabilityPredicate() {
@@ -3396,7 +3129,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getRequiresPredicate_Meta() {
@@ -3406,7 +3138,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getResolutionInfo() {
@@ -3416,7 +3147,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getResolutionInfo_Status() {
@@ -3426,7 +3156,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getSourcePredicate() {
@@ -3436,7 +3165,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getSwitchUnitProvider() {
@@ -3446,7 +3174,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getSwitchUnitProvider_RepoSwitch() {
@@ -3456,7 +3183,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getSynchronization() {
@@ -3466,7 +3192,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getSynchronization_BuilderQueries() {
@@ -3476,7 +3201,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EEnum getTriState() {
@@ -3486,7 +3210,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getUnitConcernContext() {
@@ -3496,7 +3219,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getUnitConcernContext_BuilderContexts() {
@@ -3506,7 +3228,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getUnitConcernContext_OutputLocation() {
@@ -3516,7 +3237,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getUnitConcernContext_ProvidesRemovals() {
@@ -3526,7 +3246,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getUnitConcernContext_Query() {
@@ -3536,7 +3255,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getUnitConcernContext_RequiredPredicatesRemovals() {
@@ -3546,7 +3264,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getUnitConcernContext_RequiresRemovals() {
@@ -3556,7 +3273,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getUnitConcernContext_SourceLocation() {
@@ -3566,7 +3282,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getUnitNamePredicate() {
@@ -3576,7 +3291,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getUnitProvider() {
@@ -3586,7 +3300,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getUnitProvider_Documentation() {
@@ -3596,7 +3309,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getUnitRepositoryDescription() {
@@ -3606,7 +3318,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getUnitRepositoryDescription_EvaluatedOptions() {
@@ -3616,7 +3327,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getUnitRepositoryDescription_Repository() {
@@ -3626,7 +3336,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getUnitResolutionInfo() {
@@ -3636,7 +3345,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getUnitResolutionInfo_Context() {
@@ -3646,7 +3354,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getUnitResolutionInfo_Unit() {
@@ -3656,7 +3363,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getVersion() {
@@ -3666,7 +3372,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getVersionedCapability() {
@@ -3676,7 +3381,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getVersionedCapability_Version() {
@@ -3686,7 +3390,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getVersionRange() {
@@ -3694,11 +3397,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	}
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This
+	 * Complete the initialization of the package and its meta-model.  This
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -3848,6 +3550,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEReference(
 			getBuildUnit_Parent(), this.getIBuildUnitContainer(), null, "parent", null, 0, 1, BuildUnit.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getBuildUnit_FragmentHosts(), this.getFragmentHost(), null, "fragmentHosts", null, 0, -1, BuildUnit.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(
@@ -4824,6 +4530,14 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEReference(
 			getIBuildUnitContainer_BuildUnits(), this.getBuildUnit(), null, "buildUnits", null, 0, -1,
 			IBuildUnitContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			fragmentHostEClass, FragmentHost.class, "FragmentHost", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getFragmentHost_HostRequirements(), this.getRequiredCapability(), null, "hostRequirements", null, 0, -1,
+			FragmentHost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals

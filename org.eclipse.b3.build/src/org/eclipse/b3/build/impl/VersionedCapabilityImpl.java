@@ -25,10 +25,10 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.VersionedCapabilityImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.VersionedCapabilityImpl#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class VersionedCapabilityImpl extends CapabilityImpl implements VersionedCapability {
@@ -36,7 +36,6 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -47,7 +46,6 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -57,7 +55,6 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected VersionedCapabilityImpl() {
@@ -67,7 +64,6 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -82,7 +78,6 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -99,7 +94,6 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -115,7 +109,6 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -126,7 +119,6 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -142,7 +134,6 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Version getVersion() {
@@ -167,7 +158,6 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setVersion(Version newVersion) {
@@ -181,7 +171,6 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

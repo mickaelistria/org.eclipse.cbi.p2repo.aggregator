@@ -16,39 +16,41 @@ import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer;
 
 
 
-KEYWORD_142 : '@postinputcondition';
+KEYWORD_143 : '@postinputcondition';
 
-KEYWORD_140 : 'default-properties';
+KEYWORD_141 : 'default-properties';
 
-KEYWORD_141 : 'postinputcondition';
+KEYWORD_142 : 'postinputcondition';
 
-KEYWORD_138 : 'having-parameters';
+KEYWORD_139 : 'having-parameters';
 
-KEYWORD_139 : 'on-merge-conflict';
+KEYWORD_140 : 'on-merge-conflict';
 
-KEYWORD_137 : 'checkout-content';
+KEYWORD_138 : 'checkout-content';
 
-KEYWORD_132 : 'builder-context';
+KEYWORD_133 : 'builder-context';
 
-KEYWORD_133 : 'modify-selected';
+KEYWORD_134 : 'modify-selected';
 
-KEYWORD_134 : 'replace-content';
+KEYWORD_135 : 'replace-content';
 
-KEYWORD_135 : 'select-builders';
+KEYWORD_136 : 'select-builders';
 
-KEYWORD_136 : 'select-required';
+KEYWORD_137 : 'select-required';
 
-KEYWORD_129 : '@postcondition';
+KEYWORD_130 : '@postcondition';
 
-KEYWORD_130 : 'called-builder';
+KEYWORD_131 : 'called-builder';
 
-KEYWORD_131 : 'update-content';
+KEYWORD_132 : 'update-content';
 
 KEYWORD_126 : '@precondition';
 
-KEYWORD_127 : 'postcondition';
+KEYWORD_127 : 'fragment-host';
 
-KEYWORD_128 : 'select-switch';
+KEYWORD_128 : 'postcondition';
+
+KEYWORD_129 : 'select-switch';
 
 KEYWORD_119 : 'accept-dirty';
 

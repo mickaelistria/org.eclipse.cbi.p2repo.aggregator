@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Branch Point Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.b3.build.B3BuildPackage#getBranchPointType()
  * @model
  * @generated
@@ -31,7 +30,6 @@ public enum BranchPointType implements Enumerator {
 	 * The '<em><b>Latest</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #LATEST_VALUE
 	 * @generated
 	 * @ordered
@@ -42,7 +40,6 @@ public enum BranchPointType implements Enumerator {
 	 * The '<em><b>Tag</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #TAG_VALUE
 	 * @generated
 	 * @ordered
@@ -53,7 +50,6 @@ public enum BranchPointType implements Enumerator {
 	 * The '<em><b>Timestamp</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #TIMESTAMP_VALUE
 	 * @generated
 	 * @ordered
@@ -64,7 +60,6 @@ public enum BranchPointType implements Enumerator {
 	 * The '<em><b>Revision</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #REVISION_VALUE
 	 * @generated
 	 * @ordered
@@ -78,7 +73,6 @@ public enum BranchPointType implements Enumerator {
 	 * If the meaning of '<em><b>Latest</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #LATEST
 	 * @model name="Latest"
 	 * @generated
@@ -93,7 +87,6 @@ public enum BranchPointType implements Enumerator {
 	 * If the meaning of '<em><b>Tag</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #TAG
 	 * @model name="Tag"
 	 * @generated
@@ -108,7 +101,6 @@ public enum BranchPointType implements Enumerator {
 	 * If the meaning of '<em><b>Timestamp</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #TIMESTAMP
 	 * @model name="Timestamp"
 	 * @generated
@@ -123,7 +115,6 @@ public enum BranchPointType implements Enumerator {
 	 * If the meaning of '<em><b>Revision</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #REVISION
 	 * @model name="Revision"
 	 * @generated
@@ -135,7 +126,6 @@ public enum BranchPointType implements Enumerator {
 	 * An array of all the '<em><b>Branch Point Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private static final BranchPointType[] VALUES_ARRAY = new BranchPointType[] { LATEST, TAG, TIMESTAMP, REVISION, };
@@ -144,7 +134,6 @@ public enum BranchPointType implements Enumerator {
 	 * A public read-only list of all the '<em><b>Branch Point Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final List<BranchPointType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -153,7 +142,6 @@ public enum BranchPointType implements Enumerator {
 	 * Returns the '<em><b>Branch Point Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static BranchPointType get(int value) {
@@ -174,7 +162,6 @@ public enum BranchPointType implements Enumerator {
 	 * Returns the '<em><b>Branch Point Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static BranchPointType get(String literal) {
@@ -191,7 +178,6 @@ public enum BranchPointType implements Enumerator {
 	 * Returns the '<em><b>Branch Point Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static BranchPointType getByName(String name) {
@@ -207,7 +193,6 @@ public enum BranchPointType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final int value;
@@ -215,7 +200,6 @@ public enum BranchPointType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final String name;
@@ -223,7 +207,6 @@ public enum BranchPointType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final String literal;
@@ -232,7 +215,6 @@ public enum BranchPointType implements Enumerator {
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private BranchPointType(int value, String name, String literal) {
@@ -244,7 +226,6 @@ public enum BranchPointType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getLiteral() {
@@ -254,7 +235,6 @@ public enum BranchPointType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -264,7 +244,6 @@ public enum BranchPointType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public int getValue() {
@@ -275,7 +254,6 @@ public enum BranchPointType implements Enumerator {
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

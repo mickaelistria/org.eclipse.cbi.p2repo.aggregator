@@ -76,6 +76,7 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 				(',' metaRequiredCapabilities += RequiredCapability)* ']')
 			| metaRequiredCapabilities += RequiredCapability) 
 			';') //?
+		| (fragmentHosts += FragmentHost) // *
 		| ((functions += Builder ) | (functions += Function )) //*
 		| (providers += TopLevelUnitProvider) //?
 		| (concerns += Concern_Named) //*
@@ -88,7 +89,14 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 	'}' 
 	) | ';' )
 	;
-
+	
+FragmentHost returns build::FragmentHost : {build::FragmentHost}
+	"fragment-host" ':' (
+			('[' hostRequirements += RequiredCapability_Unfiltered 
+				(',' hostRequirements += RequiredCapability_Unfiltered)* ']')
+			| hostRequirements += RequiredCapability_Unfiltered) 
+			';' //?
+	;
 ProvidedCapability returns build::VersionedCapability : {build::VersionedCapability}
 	("unit" | "capability")
 		('{'

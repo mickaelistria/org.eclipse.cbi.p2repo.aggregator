@@ -28,10 +28,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.EffectiveCapabilityFacadeImpl#getProvidedCapability <em>Provided Capability</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.EffectiveCapabilityFacadeImpl#getProvidedCapability <em>Provided Capability</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implements EffectiveCapabilityFacade {
@@ -39,7 +39,6 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	 * The cached value of the '{@link #getProvidedCapability() <em>Provided Capability</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getProvidedCapability()
 	 * @generated
 	 * @ordered
@@ -49,7 +48,6 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected EffectiveCapabilityFacadeImpl() {
@@ -59,7 +57,6 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Capability basicGetProvidedCapability() {
@@ -69,7 +66,6 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -86,7 +82,6 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -101,7 +96,6 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -117,7 +111,6 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -128,7 +121,6 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -144,7 +136,6 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Capability getProvidedCapability() {
@@ -164,7 +155,6 @@ public class EffectiveCapabilityFacadeImpl extends EffectiveFacadeImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setProvidedCapability(Capability newProvidedCapability) {

@@ -16,18 +16,18 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Effective Unit Facade</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.EffectiveUnitFacade#getUnit <em>Unit</em>}</li>
- * <li>{@link org.eclipse.b3.build.EffectiveUnitFacade#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
- * <li>{@link org.eclipse.b3.build.EffectiveUnitFacade#getRequiredCapabilities <em>Required Capabilities</em>}</li>
- * <li>{@link org.eclipse.b3.build.EffectiveUnitFacade#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
- * <li>{@link org.eclipse.b3.build.EffectiveUnitFacade#getUnitRequiredCapabilities <em>Unit Required Capabilities</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.EffectiveUnitFacade#getUnit <em>Unit</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.EffectiveUnitFacade#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.EffectiveUnitFacade#getRequiredCapabilities <em>Required Capabilities</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.EffectiveUnitFacade#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.EffectiveUnitFacade#getUnitRequiredCapabilities <em>Unit Required Capabilities</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.B3BuildPackage#getEffectiveUnitFacade()
  * @model
  * @generated
@@ -42,7 +42,6 @@ public interface EffectiveUnitFacade extends EffectiveFacade {
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Meta Required Capabilities</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getEffectiveUnitFacade_MetaRequiredCapabilities()
 	 * @model containment="true"
@@ -58,7 +57,6 @@ public interface EffectiveUnitFacade extends EffectiveFacade {
 	 * If the meaning of the '<em>Provided Capabilities</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Provided Capabilities</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getEffectiveUnitFacade_ProvidedCapabilities()
 	 * @model containment="true"
@@ -75,7 +73,6 @@ public interface EffectiveUnitFacade extends EffectiveFacade {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Required Capabilities</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getEffectiveUnitFacade_RequiredCapabilities()
 	 * @model containment="true"
@@ -90,7 +87,6 @@ public interface EffectiveUnitFacade extends EffectiveFacade {
 	 * If the meaning of the '<em>Unit</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Unit</em>' reference.
 	 * @see #setUnit(BuildUnit)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getEffectiveUnitFacade_Unit()
@@ -107,7 +103,6 @@ public interface EffectiveUnitFacade extends EffectiveFacade {
 	 * If the meaning of the '<em>Unit Required Capabilities</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Unit Required Capabilities</em>' reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getEffectiveUnitFacade_UnitRequiredCapabilities()
 	 * @model
@@ -119,9 +114,7 @@ public interface EffectiveUnitFacade extends EffectiveFacade {
 	 * Sets the value of the '{@link org.eclipse.b3.build.EffectiveUnitFacade#getUnit <em>Unit</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Unit</em>' reference.
+	 * @param value the new value of the '<em>Unit</em>' reference.
 	 * @see #getUnit()
 	 * @generated
 	 */

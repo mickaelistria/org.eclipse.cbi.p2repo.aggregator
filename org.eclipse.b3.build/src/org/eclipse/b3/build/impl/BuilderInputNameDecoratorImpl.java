@@ -29,10 +29,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuilderInputNameDecoratorImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderInputNameDecoratorImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl implements BuilderInputNameDecorator {
@@ -40,7 +40,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -51,7 +50,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -61,7 +59,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuilderInputNameDecoratorImpl() {
@@ -71,7 +68,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -90,7 +86,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -109,7 +104,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -124,7 +118,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -141,7 +134,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -157,7 +149,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -168,7 +159,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -184,7 +174,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -194,7 +183,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -208,7 +196,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

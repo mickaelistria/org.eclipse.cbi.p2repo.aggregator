@@ -16,15 +16,15 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Builder Call</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.BuilderCall#getParameters <em>Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.build.BuilderCall#getBuilderName <em>Builder Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderCall#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.BuilderCall#getBuilderName <em>Builder Name</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.B3BuildPackage#getBuilderCall()
  * @model abstract="true"
  * @generated
@@ -37,7 +37,6 @@ public interface BuilderCall extends BuilderInput {
 	 * If the meaning of the '<em>Builder Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Builder Name</em>' attribute.
 	 * @see #setBuilderName(String)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderCall_BuilderName()
@@ -53,7 +52,6 @@ public interface BuilderCall extends BuilderInput {
 	 * If the meaning of the '<em>Parameters</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Parameters</em>' containment reference.
 	 * @see #setParameters(BParameterList)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBuilderCall_Parameters()
@@ -66,9 +64,7 @@ public interface BuilderCall extends BuilderInput {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderCall#getBuilderName <em>Builder Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Builder Name</em>' attribute.
+	 * @param value the new value of the '<em>Builder Name</em>' attribute.
 	 * @see #getBuilderName()
 	 * @generated
 	 */
@@ -78,9 +74,7 @@ public interface BuilderCall extends BuilderInput {
 	 * Sets the value of the '{@link org.eclipse.b3.build.BuilderCall#getParameters <em>Parameters</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Parameters</em>' containment reference.
+	 * @param value the new value of the '<em>Parameters</em>' containment reference.
 	 * @see #getParameters()
 	 * @generated
 	 */

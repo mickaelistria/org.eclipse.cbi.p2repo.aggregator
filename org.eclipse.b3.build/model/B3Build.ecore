@@ -42,6 +42,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="providers" upperBound="-1"
         eType="#//FirstFoundUnitProvider" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//IBuildUnitContainer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentHosts" upperBound="-1"
+        eType="#//FragmentHost" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBuilder" abstract="true" interface="true"
       eSuperTypes="#//IProvidedCapabilityContainer ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IFunction">
@@ -602,5 +604,9 @@
       interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildUnits" upperBound="-1"
         eType="#//BuildUnit" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FragmentHost">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hostRequirements" upperBound="-1"
+        eType="#//RequiredCapability" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

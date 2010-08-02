@@ -23,17 +23,16 @@ import org.eclipse.emf.ecore.InternalEObject;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuildCallSingleImpl#getRequiredCapability <em>Required Capability</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuildCallSingleImpl#getRequiredCapability <em>Required Capability</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class BuildCallSingleImpl extends BuilderCallImpl implements BuildCallSingle {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuildCallSingleImpl() {
@@ -51,7 +50,6 @@ public abstract class BuildCallSingleImpl extends BuilderCallImpl implements Bui
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,7 +66,6 @@ public abstract class BuildCallSingleImpl extends BuilderCallImpl implements Bui
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -83,7 +80,6 @@ public abstract class BuildCallSingleImpl extends BuilderCallImpl implements Bui
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -94,7 +90,6 @@ public abstract class BuildCallSingleImpl extends BuilderCallImpl implements Bui
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RequiredCapability getRequiredCapability() {

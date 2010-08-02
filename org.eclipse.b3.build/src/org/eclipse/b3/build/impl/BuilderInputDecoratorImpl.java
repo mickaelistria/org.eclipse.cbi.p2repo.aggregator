@@ -33,10 +33,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuilderInputDecoratorImpl#getBuilderInput <em>Builder Input</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderInputDecoratorImpl#getBuilderInput <em>Builder Input</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl implements BuilderInputDecorator {
@@ -44,7 +44,6 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	 * The cached value of the '{@link #getBuilderInput() <em>Builder Input</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuilderInput()
 	 * @generated
 	 * @ordered
@@ -54,7 +53,6 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuilderInputDecoratorImpl() {
@@ -64,7 +62,6 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -79,7 +76,6 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -94,7 +90,6 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -109,7 +104,6 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -127,7 +121,6 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -138,7 +131,6 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -154,7 +146,6 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BuilderInput> getBuilderInput() {

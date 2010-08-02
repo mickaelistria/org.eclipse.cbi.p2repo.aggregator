@@ -29,10 +29,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.SynchronizationImpl#getBuilderQueries <em>Builder Queries</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.SynchronizationImpl#getBuilderQueries <em>Builder Queries</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class SynchronizationImpl extends EObjectImpl implements Synchronization {
@@ -40,7 +40,6 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	 * The cached value of the '{@link #getBuilderQueries() <em>Builder Queries</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuilderQueries()
 	 * @generated
 	 * @ordered
@@ -50,7 +49,6 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected SynchronizationImpl() {
@@ -60,7 +58,6 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -75,7 +72,6 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -90,7 +86,6 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -105,7 +100,6 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -123,7 +117,6 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -134,7 +127,6 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -150,7 +142,6 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BuilderQuery> getBuilderQueries() {

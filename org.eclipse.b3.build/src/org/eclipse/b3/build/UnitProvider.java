@@ -17,14 +17,14 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Resolution Configuration</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.UnitProvider#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.UnitProvider#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.B3BuildPackage#getUnitProvider()
  * @model abstract="true"
  * @generated
@@ -37,7 +37,6 @@ public interface UnitProvider extends BExpression {
 	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Documentation</em>' attribute.
 	 * @see #setDocumentation(String)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getUnitProvider_Documentation()
@@ -49,7 +48,6 @@ public interface UnitProvider extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -59,12 +57,10 @@ public interface UnitProvider extends BExpression {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that matches the requirement, or null if
-	 * no such unit can be found.
+	 * Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that matches the requirement, or null if no such unit can be found.
 	 * This method is the same as calling resolve(effective.getContext(), effective.getRequirement().
 	 * 
 	 * <!-- end-model-doc -->
-	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -74,9 +70,7 @@ public interface UnitProvider extends BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.build.UnitProvider#getDocumentation <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Documentation</em>' attribute.
+	 * @param value the new value of the '<em>Documentation</em>' attribute.
 	 * @see #getDocumentation()
 	 * @generated
 	 */

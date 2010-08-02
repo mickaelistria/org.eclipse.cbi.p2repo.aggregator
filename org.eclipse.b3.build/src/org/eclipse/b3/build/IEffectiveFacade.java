@@ -18,14 +18,14 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>IEffective Facade</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.build.IEffectiveFacade#getContext <em>Context</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.IEffectiveFacade#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.build.B3BuildPackage#getIEffectiveFacade()
  * @model interface="true" abstract="true"
  * @generated
@@ -38,7 +38,6 @@ public interface IEffectiveFacade extends EObject {
 	 * If the meaning of the '<em>Context</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Context</em>' reference.
 	 * @see #setContext(BExecutionContext)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getIEffectiveFacade_Context()
@@ -51,9 +50,7 @@ public interface IEffectiveFacade extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.IEffectiveFacade#getContext <em>Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Context</em>' reference.
+	 * @param value the new value of the '<em>Context</em>' reference.
 	 * @see #getContext()
 	 * @generated
 	 */

@@ -28,10 +28,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.EffectiveRequirementFacadeImpl#getRequirement <em>Requirement</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.EffectiveRequirementFacadeImpl#getRequirement <em>Requirement</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implements EffectiveRequirementFacade {
@@ -39,7 +39,6 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	 * The cached value of the '{@link #getRequirement() <em>Requirement</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRequirement()
 	 * @generated
 	 * @ordered
@@ -49,7 +48,6 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected EffectiveRequirementFacadeImpl() {
@@ -59,7 +57,6 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RequiredCapability basicGetRequirement() {
@@ -69,7 +66,6 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -86,7 +82,6 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -101,7 +96,6 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -117,7 +111,6 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -128,7 +121,6 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -144,7 +136,6 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RequiredCapability getRequirement() {
@@ -164,7 +155,6 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRequirement(RequiredCapability newRequirement) {

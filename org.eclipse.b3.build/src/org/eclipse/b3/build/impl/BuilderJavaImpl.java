@@ -42,19 +42,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getPrecondExpr <em>Precond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getInput <em>Input</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getOutput <em>Output</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getDefaultProperties <em>Default Properties</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getUnitType <em>Unit Type</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getPrecondExpr <em>Precond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getInput <em>Input</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getOutput <em>Output</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getDefaultProperties <em>Default Properties</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getUnitType <em>Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderJavaImpl#getSource <em>Source</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
@@ -62,7 +62,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getProvidedCapabilities()
 	 * @generated
 	 * @ordered
@@ -73,7 +72,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * The cached value of the '{@link #getPostcondExpr() <em>Postcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPostcondExpr()
 	 * @generated
 	 * @ordered
@@ -84,7 +82,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * The cached value of the '{@link #getPrecondExpr() <em>Precond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPrecondExpr()
 	 * @generated
 	 * @ordered
@@ -95,7 +92,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getInput()
 	 * @generated
 	 * @ordered
@@ -106,7 +102,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
@@ -117,7 +112,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * The cached value of the '{@link #getDefaultProperties() <em>Default Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getDefaultProperties()
 	 * @generated
 	 * @ordered
@@ -128,7 +122,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * The cached value of the '{@link #getPostinputcondExpr() <em>Postinputcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPostinputcondExpr()
 	 * @generated
 	 * @ordered
@@ -139,7 +132,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * The cached value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getUnitType()
 	 * @generated
 	 * @ordered
@@ -150,7 +142,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * The cached value of the '{@link #getExplicitUnitType() <em>Explicit Unit Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getExplicitUnitType()
 	 * @generated
 	 * @ordered
@@ -161,7 +152,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getSource()
 	 * @generated
 	 * @ordered
@@ -171,7 +161,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuilderJavaImpl() {
@@ -181,7 +170,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetDefaultProperties(BPropertySet newDefaultProperties, NotificationChain msgs) {
@@ -202,7 +190,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetExplicitUnitType(BParameterDeclaration newExplicitUnitType, NotificationChain msgs) {
@@ -223,7 +210,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetInput(BuilderInput newInput, NotificationChain msgs) {
@@ -243,7 +229,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetOutput(PathGroup newOutput, NotificationChain msgs) {
@@ -263,7 +248,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPostcondExpr(BExpression newPostcondExpr, NotificationChain msgs) {
@@ -283,7 +267,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPostinputcondExpr(BExpression newPostinputcondExpr, NotificationChain msgs) {
@@ -304,7 +287,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPrecondExpr(BExpression newPrecondExpr, NotificationChain msgs) {
@@ -324,7 +306,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetSource(PathGroup newSource, NotificationChain msgs) {
@@ -344,7 +325,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -387,7 +367,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -430,7 +409,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -463,7 +441,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -494,7 +471,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -527,7 +503,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -572,7 +547,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -583,7 +557,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -626,7 +599,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BPropertySet getDefaultProperties() {
@@ -636,7 +608,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BParameterDeclaration getExplicitUnitType() {
@@ -646,7 +617,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuilderInput getInput() {
@@ -656,7 +626,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public PathGroup getOutput() {
@@ -666,7 +635,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getPostcondExpr() {
@@ -676,7 +644,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getPostinputcondExpr() {
@@ -686,7 +653,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getPrecondExpr() {
@@ -696,7 +662,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<Capability> getProvidedCapabilities() {
@@ -710,7 +675,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public PathGroup getSource() {
@@ -720,7 +684,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Class<? extends BuildUnit> getUnitType() {
@@ -730,7 +693,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDefaultProperties(BPropertySet newDefaultProperties) {
@@ -755,7 +717,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setExplicitUnitType(BParameterDeclaration newExplicitUnitType) {
@@ -780,7 +741,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setInput(BuilderInput newInput) {
@@ -804,7 +764,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setOutput(PathGroup newOutput) {
@@ -828,7 +787,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPostcondExpr(BExpression newPostcondExpr) {
@@ -852,7 +810,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPostinputcondExpr(BExpression newPostinputcondExpr) {
@@ -877,7 +834,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPrecondExpr(BExpression newPrecondExpr) {
@@ -901,7 +857,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setSource(PathGroup newSource) {
@@ -925,7 +880,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setUnitType(Class<? extends BuildUnit> newUnitType) {
@@ -939,7 +893,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

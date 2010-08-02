@@ -33,12 +33,12 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BeeHiveImpl#getBeeModels <em>Bee Models</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BeeHiveImpl#getParent <em>Parent</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BeeHiveImpl#getResolutions <em>Resolutions</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BeeHiveImpl#getBeeModels <em>Bee Models</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BeeHiveImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BeeHiveImpl#getResolutions <em>Resolutions</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BeeHiveImpl extends EObjectImpl implements BeeHive {
@@ -46,7 +46,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	 * The cached value of the '{@link #getBeeModels() <em>Bee Models</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBeeModels()
 	 * @generated
 	 * @ordered
@@ -57,7 +56,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
@@ -68,7 +66,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	 * The cached value of the '{@link #getResolutions() <em>Resolutions</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getResolutions()
 	 * @generated
 	 * @ordered
@@ -78,7 +75,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BeeHiveImpl() {
@@ -88,7 +84,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BeeHive basicGetParent() {
@@ -98,7 +93,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -119,7 +113,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -138,7 +131,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -162,7 +154,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -173,7 +164,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -195,7 +185,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BeeModel> getBeeModels() {
@@ -208,7 +197,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BeeHive getParent() {
@@ -227,7 +215,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Map<RequiredCapability, Capability> getResolutions() {
@@ -237,7 +224,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IProvidedCapabilityContainer getResolvedCapabilityContainer(RequiredCapability requiredCapability) {
@@ -249,7 +235,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setParent(BeeHive newParent) {
@@ -262,7 +247,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setResolutions(Map<RequiredCapability, Capability> newResolutions) {
@@ -276,7 +260,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

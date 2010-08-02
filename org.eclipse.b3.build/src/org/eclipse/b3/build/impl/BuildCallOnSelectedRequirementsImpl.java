@@ -29,10 +29,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuildCallOnSelectedRequirementsImpl#getRequiredPredicate <em>Required Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuildCallOnSelectedRequirementsImpl#getRequiredPredicate <em>Required Predicate</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl implements
@@ -41,7 +41,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	 * The cached value of the '{@link #getRequiredPredicate() <em>Required Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRequiredPredicate()
 	 * @generated
 	 * @ordered
@@ -51,7 +50,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuildCallOnSelectedRequirementsImpl() {
@@ -61,7 +59,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetRequiredPredicate(CapabilityPredicate newRequiredPredicate, NotificationChain msgs) {
@@ -82,7 +79,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -97,7 +93,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -112,7 +107,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -127,7 +121,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -143,7 +136,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -154,7 +146,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -170,7 +161,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CapabilityPredicate getRequiredPredicate() {
@@ -180,7 +170,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRequiredPredicate(CapabilityPredicate newRequiredPredicate) {

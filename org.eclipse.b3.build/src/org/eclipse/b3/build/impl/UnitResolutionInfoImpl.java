@@ -30,11 +30,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.UnitResolutionInfoImpl#getUnit <em>Unit</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.UnitResolutionInfoImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.UnitResolutionInfoImpl#getUnit <em>Unit</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.UnitResolutionInfoImpl#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitResolutionInfo {
@@ -42,7 +42,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getUnit()
 	 * @generated
 	 * @ordered
@@ -53,7 +52,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getContext()
 	 * @generated
 	 * @ordered
@@ -63,7 +61,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected UnitResolutionInfoImpl() {
@@ -73,7 +70,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExecutionContext basicGetContext() {
@@ -83,7 +79,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuildUnit basicGetUnit() {
@@ -93,7 +88,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -114,7 +108,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -131,7 +124,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -150,7 +142,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -161,7 +152,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -180,7 +170,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExecutionContext getContext() {
@@ -199,7 +188,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuildUnit getUnit() {
@@ -218,7 +206,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setContext(BExecutionContext newContext) {
@@ -232,7 +219,6 @@ public class UnitResolutionInfoImpl extends ResolutionInfoImpl implements UnitRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setUnit(BuildUnit newUnit) {

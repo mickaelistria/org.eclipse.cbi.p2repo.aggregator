@@ -36,12 +36,12 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getBuilderReference <em>Builder Reference</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getAliases <em>Aliases</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getRequiredCapability <em>Required Capability</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getBuilderReference <em>Builder Reference</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getAliases <em>Aliases</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuilderCallFacadeImpl#getRequiredCapability <em>Required Capability</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFacade {
@@ -49,7 +49,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	 * The cached value of the '{@link #getBuilderReference() <em>Builder Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getBuilderReference()
 	 * @generated
 	 * @ordered
@@ -60,7 +59,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	 * The cached value of the '{@link #getAliases() <em>Aliases</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getAliases()
 	 * @generated
 	 * @ordered
@@ -71,7 +69,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	 * The cached value of the '{@link #getRequiredCapability() <em>Required Capability</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRequiredCapability()
 	 * @generated
 	 * @ordered
@@ -81,7 +78,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuilderCallFacadeImpl() {
@@ -91,7 +87,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuilderCall basicGetBuilderReference() {
@@ -101,7 +96,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RequiredCapability basicGetRequiredCapability() {
@@ -111,7 +105,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -134,7 +127,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -153,7 +145,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -177,7 +168,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -188,7 +178,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -210,7 +199,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<String> getAliases() {
@@ -223,7 +211,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BuilderCall getBuilderReference() {
@@ -243,7 +230,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RequiredCapability getRequiredCapability() {
@@ -263,7 +249,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBuilderReference(BuilderCall newBuilderReference) {
@@ -278,7 +263,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRequiredCapability(RequiredCapability newRequiredCapability) {
@@ -293,7 +277,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

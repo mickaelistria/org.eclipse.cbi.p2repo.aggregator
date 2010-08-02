@@ -39,12 +39,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.impl.BuildConcernContextImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuildConcernContextImpl#getDefaultPropertiesRemovals <em>Default Properties Removals</em>}</li>
- * <li>{@link org.eclipse.b3.build.impl.BuildConcernContextImpl#getDefaultPropertiesAdditions <em>Default Properties Additions</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuildConcernContextImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuildConcernContextImpl#getDefaultPropertiesRemovals <em>Default Properties Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.impl.BuildConcernContextImpl#getDefaultPropertiesAdditions <em>Default Properties Additions</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuildConcernContextImpl extends BConcernContextImpl implements BuildConcernContext {
@@ -52,7 +52,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getProvidedCapabilities()
 	 * @generated
 	 * @ordered
@@ -63,7 +62,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 * The cached value of the '{@link #getDefaultPropertiesRemovals() <em>Default Properties Removals</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getDefaultPropertiesRemovals()
 	 * @generated
 	 * @ordered
@@ -74,7 +72,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 * The cached value of the '{@link #getDefaultPropertiesAdditions() <em>Default Properties Additions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getDefaultPropertiesAdditions()
 	 * @generated
 	 * @ordered
@@ -84,7 +81,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuildConcernContextImpl() {
@@ -94,7 +90,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetDefaultPropertiesAdditions(BPropertySet newDefaultPropertiesAdditions,
@@ -116,7 +111,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -135,7 +129,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -154,7 +147,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -173,7 +165,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -190,7 +181,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -209,7 +199,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -234,7 +223,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -245,7 +233,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -267,7 +254,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BPropertySet getDefaultPropertiesAdditions() {
@@ -277,7 +263,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<String> getDefaultPropertiesRemovals() {
@@ -291,7 +276,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<Capability> getProvidedCapabilities() {
@@ -352,7 +336,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDefaultPropertiesAdditions(BPropertySet newDefaultPropertiesAdditions) {
@@ -377,7 +360,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

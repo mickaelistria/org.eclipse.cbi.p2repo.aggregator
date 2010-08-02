@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.b3.build.B3BuildPackage
  * @generated
  */
@@ -25,7 +24,6 @@ public interface B3BuildFactory extends EFactory {
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	B3BuildFactory eINSTANCE = org.eclipse.b3.build.impl.B3BuildFactoryImpl.init();
@@ -34,7 +32,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Aliased Required Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Aliased Required Capability</em>'.
 	 * @generated
 	 */
@@ -44,7 +41,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Bee Hive</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Bee Hive</em>'.
 	 * @generated
 	 */
@@ -54,7 +50,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Bee Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Bee Model</em>'.
 	 * @generated
 	 */
@@ -64,7 +59,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Bee Model Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Bee Model Repository</em>'.
 	 * @generated
 	 */
@@ -74,7 +68,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Best Found Unit Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Best Found Unit Provider</em>'.
 	 * @generated
 	 */
@@ -84,7 +77,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Branch</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Branch</em>'.
 	 * @generated
 	 */
@@ -94,7 +86,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Build Call Multiple</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Build Call Multiple</em>'.
 	 * @generated
 	 */
@@ -104,7 +95,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Build Call On Declared Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Build Call On Declared Requirement</em>'.
 	 * @generated
 	 */
@@ -114,7 +104,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Build Call On Referenced Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Build Call On Referenced Requirement</em>'.
 	 * @generated
 	 */
@@ -124,7 +113,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Build Call On Selected Requirements</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Build Call On Selected Requirements</em>'.
 	 * @generated
 	 */
@@ -134,7 +122,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Build Concern Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Build Concern Context</em>'.
 	 * @generated
 	 */
@@ -144,7 +131,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder</em>'.
 	 * @generated
 	 */
@@ -154,7 +140,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder Call Facade</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder Call Facade</em>'.
 	 * @generated
 	 */
@@ -164,7 +149,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder Concern Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder Concern Context</em>'.
 	 * @generated
 	 */
@@ -174,7 +158,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder Input</em>'.
 	 * @generated
 	 */
@@ -184,7 +167,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder Input Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder Input Condition</em>'.
 	 * @generated
 	 */
@@ -194,7 +176,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder Input Context Decorator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder Input Context Decorator</em>'.
 	 * @generated
 	 */
@@ -204,7 +185,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder Input Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder Input Group</em>'.
 	 * @generated
 	 */
@@ -214,7 +194,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder Input Name Decorator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder Input Name Decorator</em>'.
 	 * @generated
 	 */
@@ -224,7 +203,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder Java</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder Java</em>'.
 	 * @generated
 	 */
@@ -234,7 +212,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder Name Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder Name Predicate</em>'.
 	 * @generated
 	 */
@@ -244,7 +221,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder Query</em>'.
 	 * @generated
 	 */
@@ -254,7 +230,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Builder Wrapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Builder Wrapper</em>'.
 	 * @generated
 	 */
@@ -264,7 +239,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Build Result Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Build Result Context</em>'.
 	 * @generated
 	 */
@@ -274,7 +248,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Build Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Build Set</em>'.
 	 * @generated
 	 */
@@ -284,7 +257,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Build Unit</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Build Unit</em>'.
 	 * @generated
 	 */
@@ -294,7 +266,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Capability</em>'.
 	 * @generated
 	 */
@@ -304,7 +275,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Capability Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Capability Predicate</em>'.
 	 * @generated
 	 */
@@ -314,7 +284,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Compound First Found Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Compound First Found Repository</em>'.
 	 * @generated
 	 */
@@ -324,7 +293,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Conditional Path Vector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Conditional Path Vector</em>'.
 	 * @generated
 	 */
@@ -334,7 +302,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Container Configuration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Container Configuration</em>'.
 	 * @generated
 	 */
@@ -344,7 +311,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Delegating Unit Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Delegating Unit Provider</em>'.
 	 * @generated
 	 */
@@ -354,17 +320,24 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Effective Builder Call Facade</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Effective Builder Call Facade</em>'.
 	 * @generated
 	 */
 	EffectiveBuilderCallFacade createEffectiveBuilderCallFacade();
 
 	/**
+	 * Returns a new object of class '<em>Fragment Host</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Fragment Host</em>'.
+	 * @generated
+	 */
+	FragmentHost createFragmentHost();
+
+	/**
 	 * Returns a new object of class '<em>Effective Capability Facade</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Effective Capability Facade</em>'.
 	 * @generated
 	 */
@@ -374,7 +347,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Effective Facade</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Effective Facade</em>'.
 	 * @generated
 	 */
@@ -384,7 +356,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Effective Requirement Facade</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Effective Requirement Facade</em>'.
 	 * @generated
 	 */
@@ -394,7 +365,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Effective Unit Facade</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Effective Unit Facade</em>'.
 	 * @generated
 	 */
@@ -404,7 +374,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Execution Stack Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Execution Stack Repository</em>'.
 	 * @generated
 	 */
@@ -414,7 +383,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>First Found Unit Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>First Found Unit Provider</em>'.
 	 * @generated
 	 */
@@ -424,7 +392,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Implements Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Implements Predicate</em>'.
 	 * @generated
 	 */
@@ -434,7 +401,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Input Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Input Predicate</em>'.
 	 * @generated
 	 */
@@ -444,7 +410,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Name Space Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Name Space Predicate</em>'.
 	 * @generated
 	 */
@@ -454,7 +419,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Output Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Output Predicate</em>'.
 	 * @generated
 	 */
@@ -464,7 +428,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Path Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Path Group</em>'.
 	 * @generated
 	 */
@@ -474,7 +437,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Path Group Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Path Group Predicate</em>'.
 	 * @generated
 	 */
@@ -484,7 +446,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Path Vector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Path Vector</em>'.
 	 * @generated
 	 */
@@ -494,7 +455,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Provides Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Provides Predicate</em>'.
 	 * @generated
 	 */
@@ -504,7 +464,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Repo Option</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Repo Option</em>'.
 	 * @generated
 	 */
@@ -514,7 +473,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Repository</em>'.
 	 * @generated
 	 */
@@ -524,7 +482,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Repository Unit Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Repository Unit Provider</em>'.
 	 * @generated
 	 */
@@ -534,7 +491,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Required Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Required Capability</em>'.
 	 * @generated
 	 */
@@ -544,7 +500,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Requires Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Requires Predicate</em>'.
 	 * @generated
 	 */
@@ -554,7 +509,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Resolution Info</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Resolution Info</em>'.
 	 * @generated
 	 */
@@ -564,7 +518,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Source Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Source Predicate</em>'.
 	 * @generated
 	 */
@@ -574,7 +527,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Switch Unit Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Switch Unit Provider</em>'.
 	 * @generated
 	 */
@@ -584,7 +536,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Synchronization</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Synchronization</em>'.
 	 * @generated
 	 */
@@ -594,7 +545,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Unit Concern Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Unit Concern Context</em>'.
 	 * @generated
 	 */
@@ -604,7 +554,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Unit Name Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Unit Name Predicate</em>'.
 	 * @generated
 	 */
@@ -614,7 +563,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Unit Repository Description</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Unit Repository Description</em>'.
 	 * @generated
 	 */
@@ -624,7 +572,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Unit Resolution Info</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Unit Resolution Info</em>'.
 	 * @generated
 	 */
@@ -634,7 +581,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Versioned Capability</em>'.
 	 * @generated
 	 */
@@ -644,7 +590,6 @@ public interface B3BuildFactory extends EFactory {
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
