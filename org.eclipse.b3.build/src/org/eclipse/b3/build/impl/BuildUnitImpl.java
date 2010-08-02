@@ -66,9 +66,10 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.equinox.p2.metadata.expression.IExpression;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 import com.google.inject.Injector;
 import com.google.inject.internal.Lists;
@@ -80,30 +81,30 @@ import com.google.inject.internal.Lists;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getFunctions <em>Functions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getRequiredPredicates <em>Required Predicates</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getBuilders <em>Builders</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getDocumentation <em>Documentation</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getExecutionMode <em>Execution Mode</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getImplements <em>Implements</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getConcerns <em>Concerns</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getDefaultProperties <em>Default Properties</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getSynchronizations <em>Synchronizations</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getRepositories <em>Repositories</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getContainers <em>Containers</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getSourceLocation <em>Source Location</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getOutputLocation <em>Output Location</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getProviders <em>Providers</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getFragmentHosts <em>Fragment Hosts</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getPlatformFilter <em>Platform Filter</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getFunctions <em>Functions</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getRequiredPredicates <em>Required Predicates</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getBuilders <em>Builders</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getExecutionMode <em>Execution Mode</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getImplements <em>Implements</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getConcerns <em>Concerns</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getDefaultProperties <em>Default Properties</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getSynchronizations <em>Synchronizations</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getRepositories <em>Repositories</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getContainers <em>Containers</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getSourceLocation <em>Source Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getOutputLocation <em>Output Location</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getProviders <em>Providers</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getParent <em>Parent</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getFragmentHosts <em>Fragment Hosts</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getPlatformFilter <em>Platform Filter</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit {
@@ -111,6 +112,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFunctions()
 	 * @generated
 	 * @ordered
@@ -121,6 +123,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiredCapabilities()
 	 * @generated
 	 * @ordered
@@ -131,6 +134,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getRequiredPredicates() <em>Required Predicates</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiredPredicates()
 	 * @generated
 	 * @ordered
@@ -141,6 +145,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProvidedCapabilities()
 	 * @generated
 	 * @ordered
@@ -151,6 +156,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -161,6 +167,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -171,6 +178,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The default value of the '{@link #getExecutionMode() <em>Execution Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getExecutionMode()
 	 * @generated
 	 * @ordered
@@ -181,6 +189,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getExecutionMode() <em>Execution Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getExecutionMode()
 	 * @generated
 	 * @ordered
@@ -191,6 +200,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getMetaRequiredCapabilities() <em>Meta Required Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMetaRequiredCapabilities()
 	 * @generated
 	 * @ordered
@@ -201,6 +211,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getImplements() <em>Implements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getImplements()
 	 * @generated
 	 * @ordered
@@ -211,6 +222,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getConcerns() <em>Concerns</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getConcerns()
 	 * @generated
 	 * @ordered
@@ -221,6 +233,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getDefaultProperties() <em>Default Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDefaultProperties()
 	 * @generated
 	 * @ordered
@@ -231,6 +244,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getSynchronizations() <em>Synchronizations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSynchronizations()
 	 * @generated
 	 * @ordered
@@ -241,6 +255,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRepositories()
 	 * @generated
 	 * @ordered
@@ -251,6 +266,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getContainers() <em>Containers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getContainers()
 	 * @generated
 	 * @ordered
@@ -261,6 +277,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getPropertySets() <em>Property Sets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPropertySets()
 	 * @generated
 	 * @ordered
@@ -271,6 +288,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The default value of the '{@link #getSourceLocation() <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceLocation()
 	 * @generated
 	 * @ordered
@@ -282,6 +300,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getSourceLocation() <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceLocation()
 	 * @generated
 	 * @ordered
@@ -292,6 +311,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The default value of the '{@link #getOutputLocation() <em>Output Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOutputLocation()
 	 * @generated
 	 * @ordered
@@ -302,6 +322,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getOutputLocation() <em>Output Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOutputLocation()
 	 * @generated
 	 * @ordered
@@ -312,6 +333,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getProviders() <em>Providers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProviders()
 	 * @generated
 	 * @ordered
@@ -322,6 +344,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
@@ -332,6 +355,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * The cached value of the '{@link #getFragmentHosts() <em>Fragment Hosts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFragmentHosts()
 	 * @generated
 	 * @ordered
@@ -339,24 +363,15 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	protected EList<FragmentHost> fragmentHosts;
 
 	/**
-	 * The default value of the '{@link #getPlatformFilter() <em>Platform Filter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPlatformFilter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final IExpression PLATFORM_FILTER_EDEFAULT = null;
-
-	/**
 	 * The cached value of the '{@link #getPlatformFilter() <em>Platform Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPlatformFilter()
 	 * @generated
 	 * @ordered
 	 */
-	protected IExpression platformFilter = PLATFORM_FILTER_EDEFAULT;
+	protected IMatchExpression<IInstallableUnit> platformFilter;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -374,6 +389,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IBuildUnitContainer basicGetParent() {
@@ -383,6 +399,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetDefaultProperties(BPropertySet newDefaultProperties, NotificationChain msgs) {
@@ -403,6 +420,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -439,6 +457,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -475,6 +494,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -531,6 +551,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -546,6 +567,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -586,6 +608,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -638,9 +661,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__FRAGMENT_HOSTS:
 				return fragmentHosts != null && !fragmentHosts.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__PLATFORM_FILTER:
-				return PLATFORM_FILTER_EDEFAULT == null
-						? platformFilter != null
-						: !PLATFORM_FILTER_EDEFAULT.equals(platformFilter);
+				return platformFilter != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -648,6 +669,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -725,7 +747,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				getFragmentHosts().addAll((Collection<? extends FragmentHost>) newValue);
 				return;
 			case B3BuildPackage.BUILD_UNIT__PLATFORM_FILTER:
-				setPlatformFilter((IExpression) newValue);
+				setPlatformFilter((IMatchExpression<IInstallableUnit>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -734,6 +756,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -744,6 +767,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -807,7 +831,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				getFragmentHosts().clear();
 				return;
 			case B3BuildPackage.BUILD_UNIT__PLATFORM_FILTER:
-				setPlatformFilter(PLATFORM_FILTER_EDEFAULT);
+				setPlatformFilter((IMatchExpression<IInstallableUnit>) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -834,6 +858,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BConcern> getConcerns() {
@@ -846,6 +871,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ContainerConfiguration> getContainers() {
@@ -859,6 +885,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BPropertySet getDefaultProperties() {
@@ -868,6 +895,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getDocumentation() {
@@ -1156,6 +1184,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ExecutionMode getExecutionMode() {
@@ -1165,6 +1194,21 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<FragmentHost> getFragmentHosts() {
+		if(fragmentHosts == null) {
+			fragmentHosts = new EObjectContainmentEList<FragmentHost>(
+				FragmentHost.class, this, B3BuildPackage.BUILD_UNIT__FRAGMENT_HOSTS);
+		}
+		return fragmentHosts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<IFunction> getFunctions() {
@@ -1178,6 +1222,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Type> getImplements() {
@@ -1190,6 +1235,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<RequiredCapability> getMetaRequiredCapabilities() {
@@ -1252,6 +1298,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IBuildUnitContainer getParentGen() {
@@ -1270,6 +1317,17 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IMatchExpression<IInstallableUnit> getPlatformFilter() {
+		return platformFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BPropertySet> getPropertySets() {
@@ -1283,6 +1341,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Capability> getProvidedCapabilities() {
@@ -1296,6 +1355,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<FirstFoundUnitProvider> getProviders() {
@@ -1309,6 +1369,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Repository> getRepositories() {
@@ -1322,6 +1383,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<RequiredCapability> getRequiredCapabilities() {
@@ -1335,6 +1397,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<CapabilityPredicate> getRequiredPredicates() {
@@ -1378,6 +1441,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Synchronization> getSynchronizations() {
@@ -1403,6 +1467,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDefaultProperties(BPropertySet newDefaultProperties) {
@@ -1427,6 +1492,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDocumentation(String newDocumentation) {
@@ -1440,6 +1506,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setExecutionMode(ExecutionMode newExecutionMode) {
@@ -1455,6 +1522,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setOutputLocation(URI newOutputLocation) {
@@ -1468,6 +1536,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setParent(IBuildUnitContainer newParent) {
@@ -1480,32 +1549,11 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public EList<FragmentHost> getFragmentHosts() {
-		if(fragmentHosts == null) {
-			fragmentHosts = new EObjectContainmentEList<FragmentHost>(
-				FragmentHost.class, this, B3BuildPackage.BUILD_UNIT__FRAGMENT_HOSTS);
-		}
-		return fragmentHosts;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IExpression getPlatformFilter() {
-		return platformFilter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPlatformFilter(IExpression newPlatformFilter) {
-		IExpression oldPlatformFilter = platformFilter;
+	public void setPlatformFilter(IMatchExpression<IInstallableUnit> newPlatformFilter) {
+		IMatchExpression<IInstallableUnit> oldPlatformFilter = platformFilter;
 		platformFilter = newPlatformFilter;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
@@ -1515,6 +1563,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSourceLocation(URI newSourceLocation) {
@@ -1528,6 +1577,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

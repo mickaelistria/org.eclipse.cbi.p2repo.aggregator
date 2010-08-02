@@ -28,10 +28,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.UnitProviderImpl#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.UnitProviderImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class UnitProviderImpl extends BExpressionImpl implements UnitProvider {
@@ -39,6 +39,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -49,6 +50,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -58,6 +60,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected UnitProviderImpl() {
@@ -67,6 +70,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -81,6 +85,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -97,6 +102,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -112,6 +118,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -122,6 +129,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -137,6 +145,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getDocumentation() {
@@ -166,6 +175,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDocumentation(String newDocumentation) {
@@ -179,6 +189,7 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

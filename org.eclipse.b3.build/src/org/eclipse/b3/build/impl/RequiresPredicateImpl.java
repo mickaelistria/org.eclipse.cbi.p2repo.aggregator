@@ -27,11 +27,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.RequiresPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.RequiresPredicateImpl#isMeta <em>Meta</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.RequiresPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.RequiresPredicateImpl#isMeta <em>Meta</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPredicate {
@@ -39,6 +39,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	 * The cached value of the '{@link #getCapabilityPredicate() <em>Capability Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCapabilityPredicate()
 	 * @generated
 	 * @ordered
@@ -49,6 +50,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	 * The default value of the '{@link #isMeta() <em>Meta</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isMeta()
 	 * @generated
 	 * @ordered
@@ -59,6 +61,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	 * The cached value of the '{@link #isMeta() <em>Meta</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isMeta()
 	 * @generated
 	 * @ordered
@@ -68,6 +71,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RequiresPredicateImpl() {
@@ -77,6 +81,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCapabilityPredicate(CapabilityPredicate newCapabilityPredicate,
@@ -98,6 +103,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -114,6 +120,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -128,6 +135,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -144,6 +152,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -162,6 +171,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -172,6 +182,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -190,6 +201,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CapabilityPredicate getCapabilityPredicate() {
@@ -199,6 +211,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isMeta() {
@@ -220,6 +233,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCapabilityPredicate(CapabilityPredicate newCapabilityPredicate) {
@@ -244,6 +258,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMeta(boolean newMeta) {
@@ -257,6 +272,7 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

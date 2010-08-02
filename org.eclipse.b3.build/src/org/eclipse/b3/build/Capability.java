@@ -16,15 +16,15 @@ import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Capability</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.Capability#getNameSpace <em>Name Space</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Capability#getCondExpr <em>Cond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Capability#getNameSpace <em>Name Space</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Capability#getCondExpr <em>Cond Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.build.B3BuildPackage#getCapability()
  * @model
  * @generated
@@ -37,6 +37,7 @@ public interface Capability extends INamedValue {
 	 * If the meaning of the '<em>Cond Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Cond Expr</em>' containment reference.
 	 * @see #setCondExpr(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getCapability_CondExpr()
@@ -52,6 +53,7 @@ public interface Capability extends INamedValue {
 	 * If the meaning of the '<em>Name Space</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Name Space</em>' attribute.
 	 * @see #setNameSpace(String)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getCapability_NameSpace()
@@ -63,6 +65,7 @@ public interface Capability extends INamedValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
@@ -72,7 +75,9 @@ public interface Capability extends INamedValue {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Capability#getCondExpr <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cond Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Cond Expr</em>' containment reference.
 	 * @see #getCondExpr()
 	 * @generated
 	 */
@@ -82,7 +87,9 @@ public interface Capability extends INamedValue {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Capability#getNameSpace <em>Name Space</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name Space</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Name Space</em>' attribute.
 	 * @see #getNameSpace()
 	 * @generated
 	 */

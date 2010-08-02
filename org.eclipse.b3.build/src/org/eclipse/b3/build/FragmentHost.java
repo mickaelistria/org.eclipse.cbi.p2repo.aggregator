@@ -18,14 +18,14 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Fragment Host</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.FragmentHost#getHostRequirements <em>Host Requirements</em>}</li>
+ * <li>{@link org.eclipse.b3.build.FragmentHost#getHostRequirements <em>Host Requirements</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.build.B3BuildPackage#getFragmentHost()
  * @model
  * @generated
@@ -36,10 +36,10 @@ public interface FragmentHost extends EObject {
 	 * The list contents are of type {@link org.eclipse.b3.build.RequiredCapability}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Host Requirements</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Host Requirements</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Host Requirements</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getFragmentHost_HostRequirements()
 	 * @model containment="true"

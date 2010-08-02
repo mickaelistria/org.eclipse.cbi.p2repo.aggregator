@@ -23,13 +23,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BestFoundUnitProviderImpl extends CompoundUnitProviderImpl implements BestFoundUnitProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BestFoundUnitProviderImpl() {
@@ -39,6 +40,7 @@ public class BestFoundUnitProviderImpl extends CompoundUnitProviderImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

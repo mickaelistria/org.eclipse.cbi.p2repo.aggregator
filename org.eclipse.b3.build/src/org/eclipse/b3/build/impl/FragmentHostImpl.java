@@ -35,10 +35,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.FragmentHostImpl#getHostRequirements <em>Host Requirements</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.FragmentHostImpl#getHostRequirements <em>Host Requirements</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class FragmentHostImpl extends EObjectImpl implements FragmentHost {
@@ -46,6 +46,7 @@ public class FragmentHostImpl extends EObjectImpl implements FragmentHost {
 	 * The cached value of the '{@link #getHostRequirements() <em>Host Requirements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getHostRequirements()
 	 * @generated
 	 * @ordered
@@ -55,6 +56,7 @@ public class FragmentHostImpl extends EObjectImpl implements FragmentHost {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected FragmentHostImpl() {
@@ -64,43 +66,7 @@ public class FragmentHostImpl extends EObjectImpl implements FragmentHost {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.FRAGMENT_HOST;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RequiredCapability> getHostRequirements() {
-		if(hostRequirements == null) {
-			hostRequirements = new EObjectContainmentEList<RequiredCapability>(
-				RequiredCapability.class, this, B3BuildPackage.FRAGMENT_HOST__HOST_REQUIREMENTS);
-		}
-		return hostRequirements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
-			case B3BuildPackage.FRAGMENT_HOST__HOST_REQUIREMENTS:
-				return ((InternalEList<?>) getHostRequirements()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -115,6 +81,37 @@ public class FragmentHostImpl extends EObjectImpl implements FragmentHost {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case B3BuildPackage.FRAGMENT_HOST__HOST_REQUIREMENTS:
+				return ((InternalEList<?>) getHostRequirements()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.FRAGMENT_HOST__HOST_REQUIREMENTS:
+				return hostRequirements != null && !hostRequirements.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -132,6 +129,18 @@ public class FragmentHostImpl extends EObjectImpl implements FragmentHost {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.FRAGMENT_HOST;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -147,15 +156,15 @@ public class FragmentHostImpl extends EObjectImpl implements FragmentHost {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.FRAGMENT_HOST__HOST_REQUIREMENTS:
-				return hostRequirements != null && !hostRequirements.isEmpty();
+	public EList<RequiredCapability> getHostRequirements() {
+		if(hostRequirements == null) {
+			hostRequirements = new EObjectContainmentEList<RequiredCapability>(
+				RequiredCapability.class, this, B3BuildPackage.FRAGMENT_HOST__HOST_REQUIREMENTS);
 		}
-		return super.eIsSet(featureID);
+		return hostRequirements;
 	}
 
-} //FragmentHostImpl
+} // FragmentHostImpl

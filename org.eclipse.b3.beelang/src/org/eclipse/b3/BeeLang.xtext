@@ -1243,7 +1243,7 @@ ParanthesizedExpression returns be::BExpression :
 	;	
 
 // Has conversion rule
-P2QL returns build::IExpression : STRING ;
+P2QL returns build::IMatchExpression : STRING ;
 
 // Has conversion rule
 VersionLiteral returns build::Version

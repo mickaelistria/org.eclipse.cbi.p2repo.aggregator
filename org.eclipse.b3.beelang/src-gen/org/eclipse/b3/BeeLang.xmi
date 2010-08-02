@@ -5054,7 +5054,7 @@
   </rules>
   <rules xsi:type="xtext:ParserRule" name="P2QL">
     <type metamodel="//@metamodelDeclarations.2">
-      <classifier xsi:type="ecore:EDataType" href="http://b3build/1.0#//IExpression"/>
+      <classifier xsi:type="ecore:EDataType" href="http://b3build/1.0#//IMatchExpression"/>
     </type>
     <alternatives xsi:type="xtext:RuleCall" rule="//@rules.200"/>
   </rules>

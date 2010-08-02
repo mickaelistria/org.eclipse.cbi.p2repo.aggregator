@@ -25,10 +25,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BuildCallOnReferencedRequirementImpl#getRequiredCapabilityReference <em>Required Capability Reference</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildCallOnReferencedRequirementImpl#getRequiredCapabilityReference <em>Required Capability Reference</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl implements
@@ -37,6 +37,7 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 	 * The cached value of the '{@link #getRequiredCapabilityReference() <em>Required Capability Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiredCapabilityReference()
 	 * @generated
 	 * @ordered
@@ -46,6 +47,7 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuildCallOnReferencedRequirementImpl() {
@@ -65,6 +67,7 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RequiredCapability basicGetRequiredCapabilityReference() {
@@ -74,6 +77,7 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -90,6 +94,7 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -104,6 +109,7 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -119,6 +125,7 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -129,6 +136,7 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -144,6 +152,7 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RequiredCapability getRequiredCapabilityReference() {
@@ -164,6 +173,7 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRequiredCapabilityReference(RequiredCapability newRequiredCapabilityReference) {

@@ -11930,7 +11930,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSTRINGTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//// Has conversion rule
-		//P2QL returns build::IExpression:
+		//P2QL returns build::IMatchExpression:
 		//	STRING;
 		public ParserRule getRule() { return rule; }
 
@@ -14864,7 +14864,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Has conversion rule
-	//P2QL returns build::IExpression:
+	//P2QL returns build::IMatchExpression:
 	//	STRING;
 	public P2QLElements getP2QLAccess() {
 		return (pP2QL != null) ? pP2QL : (pP2QL = new P2QLElements());

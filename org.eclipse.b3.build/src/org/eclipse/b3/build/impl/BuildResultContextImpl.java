@@ -23,13 +23,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuildResultContextImpl extends BInnerContextImpl implements BuildResultContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuildResultContextImpl() {
@@ -39,6 +40,7 @@ public class BuildResultContextImpl extends BInnerContextImpl implements BuildRe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

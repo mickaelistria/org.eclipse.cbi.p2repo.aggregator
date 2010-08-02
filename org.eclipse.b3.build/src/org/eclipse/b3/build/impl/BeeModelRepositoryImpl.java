@@ -37,10 +37,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BeeModelRepositoryImpl#getBeeModels <em>Bee Models</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BeeModelRepositoryImpl#getBeeModels <em>Bee Models</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements BeeModelRepository {
@@ -48,6 +48,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	 * The cached value of the '{@link #getBeeModels() <em>Bee Models</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBeeModels()
 	 * @generated
 	 * @ordered
@@ -57,6 +58,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BeeModelRepositoryImpl() {
@@ -66,6 +68,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -80,6 +83,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -94,6 +98,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -111,6 +116,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -121,6 +127,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -136,6 +143,7 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BeeModel> getBeeModels() {

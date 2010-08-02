@@ -17,16 +17,16 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Capability Predicate</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.CapabilityPredicate#getVersionRange <em>Version Range</em>}</li>
- *   <li>{@link org.eclipse.b3.build.CapabilityPredicate#getNamePredicate <em>Name Predicate</em>}</li>
- *   <li>{@link org.eclipse.b3.build.CapabilityPredicate#getNameSpacePredicate <em>Name Space Predicate</em>}</li>
+ * <li>{@link org.eclipse.b3.build.CapabilityPredicate#getVersionRange <em>Version Range</em>}</li>
+ * <li>{@link org.eclipse.b3.build.CapabilityPredicate#getNamePredicate <em>Name Predicate</em>}</li>
+ * <li>{@link org.eclipse.b3.build.CapabilityPredicate#getNameSpacePredicate <em>Name Space Predicate</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.build.B3BuildPackage#getCapabilityPredicate()
  * @model
  * @generated
@@ -39,6 +39,7 @@ public interface CapabilityPredicate extends BExpression {
 	 * If the meaning of the '<em>Name Predicate</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Name Predicate</em>' containment reference.
 	 * @see #setNamePredicate(BNamePredicate)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getCapabilityPredicate_NamePredicate()
@@ -54,6 +55,7 @@ public interface CapabilityPredicate extends BExpression {
 	 * If the meaning of the '<em>Name Space Predicate</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Name Space Predicate</em>' containment reference.
 	 * @see #setNameSpacePredicate(BNamePredicate)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getCapabilityPredicate_NameSpacePredicate()
@@ -69,6 +71,7 @@ public interface CapabilityPredicate extends BExpression {
 	 * If the meaning of the '<em>Version Range</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Version Range</em>' attribute.
 	 * @see #setVersionRange(VersionRange)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getCapabilityPredicate_VersionRange()
@@ -80,6 +83,7 @@ public interface CapabilityPredicate extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
@@ -88,6 +92,7 @@ public interface CapabilityPredicate extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
@@ -96,6 +101,7 @@ public interface CapabilityPredicate extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
@@ -105,17 +111,22 @@ public interface CapabilityPredicate extends BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.build.CapabilityPredicate#getNamePredicate <em>Name Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name Predicate</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Name Predicate</em>' containment reference.
 	 * @see #getNamePredicate()
 	 * @generated
 	 */
 	void setNamePredicate(BNamePredicate value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.CapabilityPredicate#getNameSpacePredicate <em>Name Space Predicate</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.CapabilityPredicate#getNameSpacePredicate <em>Name Space Predicate</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name Space Predicate</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Name Space Predicate</em>' containment reference.
 	 * @see #getNameSpacePredicate()
 	 * @generated
 	 */
@@ -125,7 +136,9 @@ public interface CapabilityPredicate extends BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.build.CapabilityPredicate#getVersionRange <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version Range</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Version Range</em>' attribute.
 	 * @see #getVersionRange()
 	 * @generated
 	 */

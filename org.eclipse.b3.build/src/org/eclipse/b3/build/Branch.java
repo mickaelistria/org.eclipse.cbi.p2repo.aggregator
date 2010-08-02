@@ -21,24 +21,24 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Branch</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.Branch#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Branch#getDocumentation <em>Documentation</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Branch#getBranchPointType <em>Branch Point Type</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Branch#getInclude <em>Include</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Branch#getExclude <em>Exclude</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Branch#getBranchPoint <em>Branch Point</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Branch#getMergeStrategy <em>Merge Strategy</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Branch#getCheckout <em>Checkout</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Branch#getAcceptDirty <em>Accept Dirty</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Branch#getUpdate <em>Update</em>}</li>
- *   <li>{@link org.eclipse.b3.build.Branch#getReplace <em>Replace</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Branch#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Branch#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Branch#getBranchPointType <em>Branch Point Type</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Branch#getInclude <em>Include</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Branch#getExclude <em>Exclude</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Branch#getBranchPoint <em>Branch Point</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Branch#getMergeStrategy <em>Merge Strategy</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Branch#getCheckout <em>Checkout</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Branch#getAcceptDirty <em>Accept Dirty</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Branch#getUpdate <em>Update</em>}</li>
+ * <li>{@link org.eclipse.b3.build.Branch#getReplace <em>Replace</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.build.B3BuildPackage#getBranch()
  * @model
  * @generated
@@ -53,6 +53,7 @@ public interface Branch extends EObject {
 	 * If the meaning of the '<em>Accept Dirty</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Accept Dirty</em>' attribute.
 	 * @see org.eclipse.b3.build.TriState
 	 * @see #setAcceptDirty(TriState)
@@ -66,6 +67,7 @@ public interface Branch extends EObject {
 	 * Returns the value of the '<em><b>Branch Point</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Branch Point</em>' containment reference.
 	 * @see #setBranchPoint(BExpression)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBranch_BranchPoint()
@@ -83,6 +85,7 @@ public interface Branch extends EObject {
 	 * If the meaning of the '<em>Branch Point Type</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Branch Point Type</em>' attribute.
 	 * @see org.eclipse.b3.build.BranchPointType
 	 * @see #setBranchPointType(BranchPointType)
@@ -101,6 +104,7 @@ public interface Branch extends EObject {
 	 * If the meaning of the '<em>Checkout</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Checkout</em>' attribute.
 	 * @see org.eclipse.b3.build.TriState
 	 * @see #setCheckout(TriState)
@@ -118,6 +122,7 @@ public interface Branch extends EObject {
 	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Documentation</em>' attribute.
 	 * @see #setDocumentation(String)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBranch_Documentation()
@@ -129,6 +134,7 @@ public interface Branch extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -137,6 +143,7 @@ public interface Branch extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -148,6 +155,7 @@ public interface Branch extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Returns the update strategy (explicit, or derived from combination BranchPointDefault, and BranchPointType).
 	 * <!-- end-model-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -156,6 +164,7 @@ public interface Branch extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -164,6 +173,7 @@ public interface Branch extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -177,6 +187,7 @@ public interface Branch extends EObject {
 	 * If the meaning of the '<em>Exclude</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Exclude</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBranch_Exclude()
 	 * @model containment="true"
@@ -192,6 +203,7 @@ public interface Branch extends EObject {
 	 * If the meaning of the '<em>Include</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Include</em>' containment reference list.
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBranch_Include()
 	 * @model containment="true"
@@ -208,6 +220,7 @@ public interface Branch extends EObject {
 	 * If the meaning of the '<em>Merge Strategy</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Merge Strategy</em>' attribute.
 	 * @see org.eclipse.b3.build.MergeConflictStrategy
 	 * @see #setMergeStrategy(MergeConflictStrategy)
@@ -224,6 +237,7 @@ public interface Branch extends EObject {
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getBranch_Name()
@@ -241,6 +255,7 @@ public interface Branch extends EObject {
 	 * If the meaning of the '<em>Replace</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Replace</em>' attribute.
 	 * @see org.eclipse.b3.build.TriState
 	 * @see #setReplace(TriState)
@@ -259,6 +274,7 @@ public interface Branch extends EObject {
 	 * If the meaning of the '<em>Update</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Update</em>' attribute.
 	 * @see org.eclipse.b3.build.TriState
 	 * @see #setUpdate(TriState)
@@ -271,6 +287,7 @@ public interface Branch extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
@@ -280,7 +297,9 @@ public interface Branch extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Branch#getAcceptDirty <em>Accept Dirty</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accept Dirty</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Accept Dirty</em>' attribute.
 	 * @see org.eclipse.b3.build.TriState
 	 * @see #getAcceptDirty()
 	 * @generated
@@ -291,7 +310,9 @@ public interface Branch extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Branch#getBranchPoint <em>Branch Point</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Branch Point</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Branch Point</em>' containment reference.
 	 * @see #getBranchPoint()
 	 * @generated
 	 */
@@ -301,7 +322,9 @@ public interface Branch extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Branch#getBranchPointType <em>Branch Point Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Branch Point Type</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Branch Point Type</em>' attribute.
 	 * @see org.eclipse.b3.build.BranchPointType
 	 * @see #getBranchPointType()
 	 * @generated
@@ -312,7 +335,9 @@ public interface Branch extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Branch#getCheckout <em>Checkout</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Checkout</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Checkout</em>' attribute.
 	 * @see org.eclipse.b3.build.TriState
 	 * @see #getCheckout()
 	 * @generated
@@ -323,7 +348,9 @@ public interface Branch extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Branch#getDocumentation <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Documentation</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Documentation</em>' attribute.
 	 * @see #getDocumentation()
 	 * @generated
 	 */
@@ -333,7 +360,9 @@ public interface Branch extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Branch#getMergeStrategy <em>Merge Strategy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Merge Strategy</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Merge Strategy</em>' attribute.
 	 * @see org.eclipse.b3.build.MergeConflictStrategy
 	 * @see #getMergeStrategy()
 	 * @generated
@@ -344,7 +373,9 @@ public interface Branch extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Branch#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -354,7 +385,9 @@ public interface Branch extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Branch#getReplace <em>Replace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Replace</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Replace</em>' attribute.
 	 * @see org.eclipse.b3.build.TriState
 	 * @see #getReplace()
 	 * @generated
@@ -365,7 +398,9 @@ public interface Branch extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.build.Branch#getUpdate <em>Update</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Update</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Update</em>' attribute.
 	 * @see org.eclipse.b3.build.TriState
 	 * @see #getUpdate()
 	 * @generated

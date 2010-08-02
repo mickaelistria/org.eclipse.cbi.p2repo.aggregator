@@ -37,6 +37,7 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionParseException;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
 import org.eclipse.equinox.p2.metadata.expression.IExpression;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.conversion.IValueConverter;
 import org.eclipse.xtext.conversion.ValueConverter;
@@ -139,13 +140,13 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 	}
 
 	@ValueConverter(rule = "P2QL")
-	public IValueConverter<IExpression> IExpression() {
-		return new IValueConverter<IExpression>() {
-			public String toString(IExpression value) {
+	public IValueConverter<IMatchExpression<IInstallableUnit>> IExpression() {
+		return new IValueConverter<IMatchExpression<IInstallableUnit>>() {
+			public String toString(IMatchExpression<IInstallableUnit> value) {
 				return value.toString();
 			}
 
-			public IExpression toValue(String string, AbstractNode node) {
+			public IMatchExpression<IInstallableUnit> toValue(String string, AbstractNode node) {
 				if(Strings.isEmpty(string))
 					throw new ValueConverterException("Could not convert empty string to p2ql expression", node, null);
 				if(string.startsWith("\"") || string.startsWith("'"))
@@ -161,9 +162,11 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 						env.put("osgi.ws", "gtk");
 						env.put("osgi.arch", "x86");
 						IInstallableUnit envIU = InstallableUnit.contextIU(env);
-						ExpressionUtil.getFactory().matchExpression(expr).isMatch(envIU);
+						IMatchExpression<IInstallableUnit> matchExpr = ExpressionUtil.getFactory().matchExpression(expr);
+						matchExpr.isMatch(envIU);
+						return matchExpr;
 					}
-					return expr;
+					return null;
 				}
 				catch(ExpressionParseException e) {
 					throw new ValueConverterException("p2ql syntax error: " + e.getMessage(), node, null);

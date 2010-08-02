@@ -23,13 +23,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class FirstFoundUnitProviderImpl extends CompoundUnitProviderImpl implements FirstFoundUnitProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected FirstFoundUnitProviderImpl() {
@@ -39,6 +40,7 @@ public class FirstFoundUnitProviderImpl extends CompoundUnitProviderImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

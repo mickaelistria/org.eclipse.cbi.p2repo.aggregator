@@ -28,12 +28,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.CapabilityImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.CapabilityImpl#getNameSpace <em>Name Space</em>}</li>
- *   <li>{@link org.eclipse.b3.build.impl.CapabilityImpl#getCondExpr <em>Cond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.CapabilityImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.CapabilityImpl#getNameSpace <em>Name Space</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.CapabilityImpl#getCondExpr <em>Cond Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class CapabilityImpl extends EObjectImpl implements Capability {
@@ -41,6 +41,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -51,6 +52,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -72,6 +74,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 * The cached value of the '{@link #getNameSpace() <em>Name Space</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getNameSpace()
 	 * @generated
 	 * @ordered
@@ -82,6 +85,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 * The cached value of the '{@link #getCondExpr() <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCondExpr()
 	 * @generated
 	 * @ordered
@@ -91,6 +95,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CapabilityImpl() {
@@ -100,6 +105,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCondExpr(BExpression newCondExpr, NotificationChain msgs) {
@@ -119,6 +125,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -137,6 +144,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -151,6 +159,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -173,6 +182,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -194,6 +204,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -204,6 +215,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -225,6 +237,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getCondExpr() {
@@ -234,6 +247,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -243,6 +257,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getNameSpace() {
@@ -266,6 +281,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCondExpr(BExpression newCondExpr) {
@@ -289,6 +305,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -301,6 +318,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setNameSpace(String newNameSpace) {
@@ -314,6 +332,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

@@ -26,10 +26,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderNamePredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderNamePredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuilderNamePredicateImpl extends BExpressionImpl implements BuilderNamePredicate {
@@ -37,6 +37,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 * The cached value of the '{@link #getNamePredicate() <em>Name Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getNamePredicate()
 	 * @generated
 	 * @ordered
@@ -46,6 +47,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuilderNamePredicateImpl() {
@@ -55,6 +57,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetNamePredicate(BNamePredicate newNamePredicate, NotificationChain msgs) {
@@ -75,6 +78,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -89,6 +93,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -103,6 +108,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -117,6 +123,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -132,6 +139,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -142,6 +150,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -157,6 +166,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BNamePredicate getNamePredicate() {
@@ -166,6 +176,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setNamePredicate(BNamePredicate newNamePredicate) {

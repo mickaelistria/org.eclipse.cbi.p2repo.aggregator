@@ -30,10 +30,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.impl.BuilderInputConditionImpl#getCondExpr <em>Cond Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuilderInputConditionImpl#getCondExpr <em>Cond Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl implements BuilderInputCondition {
@@ -41,6 +41,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	 * The cached value of the '{@link #getCondExpr() <em>Cond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCondExpr()
 	 * @generated
 	 * @ordered
@@ -50,6 +51,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuilderInputConditionImpl() {
@@ -59,6 +61,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCondExpr(BExpression newCondExpr, NotificationChain msgs) {
@@ -78,6 +81,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -92,6 +96,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -106,6 +111,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -120,6 +126,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -135,6 +142,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,6 +153,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -160,6 +169,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getCondExpr() {
@@ -169,6 +179,7 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCondExpr(BExpression newCondExpr) {

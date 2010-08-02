@@ -15,15 +15,15 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Requires Predicate</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.RequiresPredicate#getCapabilityPredicate <em>Capability Predicate</em>}</li>
- *   <li>{@link org.eclipse.b3.build.RequiresPredicate#isMeta <em>Meta</em>}</li>
+ * <li>{@link org.eclipse.b3.build.RequiresPredicate#getCapabilityPredicate <em>Capability Predicate</em>}</li>
+ * <li>{@link org.eclipse.b3.build.RequiresPredicate#isMeta <em>Meta</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.build.B3BuildPackage#getRequiresPredicate()
  * @model
  * @generated
@@ -36,6 +36,7 @@ public interface RequiresPredicate extends BExpression {
 	 * If the meaning of the '<em>Capability Predicate</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Capability Predicate</em>' containment reference.
 	 * @see #setCapabilityPredicate(CapabilityPredicate)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRequiresPredicate_CapabilityPredicate()
@@ -51,6 +52,7 @@ public interface RequiresPredicate extends BExpression {
 	 * If the meaning of the '<em>Meta</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Meta</em>' attribute.
 	 * @see #setMeta(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRequiresPredicate_Meta()
@@ -62,16 +64,20 @@ public interface RequiresPredicate extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
 	boolean matches(RequiredCapability candidate);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.RequiresPredicate#getCapabilityPredicate <em>Capability Predicate</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.RequiresPredicate#getCapabilityPredicate <em>Capability Predicate</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Capability Predicate</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Capability Predicate</em>' containment reference.
 	 * @see #getCapabilityPredicate()
 	 * @generated
 	 */
@@ -81,7 +87,9 @@ public interface RequiresPredicate extends BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.build.RequiresPredicate#isMeta <em>Meta</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Meta</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Meta</em>' attribute.
 	 * @see #isMeta()
 	 * @generated
 	 */
