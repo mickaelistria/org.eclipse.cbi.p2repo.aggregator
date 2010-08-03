@@ -56,17 +56,6 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		load(monitor, false);
 	}
 
-	public void open(URI location, IProvisioningAgent agent, MetadataRepositoryImpl mdr) throws CoreException {
-		this.agent = agent;
-		this.location = location;
-		repository = mdr;
-		mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);
-	}
-
-	public void reload(IProgressMonitor monitor) throws CoreException {
-		load(monitor, true);
-	}
-
 	private void load(IProgressMonitor monitor, boolean avoidCache) throws CoreException {
 		SubMonitor subMon = SubMonitor.convert(monitor, 100);
 
@@ -122,6 +111,17 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		}
 
 		P2Bridge.importToModel(mdrMgr, repo, repository, subMon.newChild(20), true);
+	}
+
+	public void open(URI location, IProvisioningAgent agent, MetadataRepositoryImpl mdr) throws CoreException {
+		this.agent = agent;
+		this.location = location;
+		repository = mdr;
+		mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);
+	}
+
+	public void reload(IProgressMonitor monitor) throws CoreException {
+		load(monitor, true);
 	}
 
 }

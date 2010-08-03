@@ -219,6 +219,17 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.REPOSITORY_REFERENCE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.REPOSITORY_REFERENCE__LOCATION:
@@ -354,17 +365,6 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 		result.append(nickname);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.REPOSITORY_REFERENCE;
 	}
 
 } // RepositoryReferenceImpl

@@ -399,6 +399,17 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.REPOSITORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.REPOSITORY__LOCATION:
@@ -720,17 +731,6 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 		result.append(provisioningAgent);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.REPOSITORY;
 	}
 
 } // RepositoryImpl

@@ -7,12 +7,16 @@
  */
 package org.eclipse.b3.p2.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.b3.p2.InstallableUnitFragment;
 import org.eclipse.b3.p2.P2Package;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 
 /**
@@ -20,13 +24,28 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
  * An implementation of the model object '<em><b>Installable Unit Fragment</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ * <li>{@link org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl#getHost <em>Host</em>}</li>
+ * </ul>
  * </p>
  * 
  * @generated
  */
 public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements InstallableUnitFragment {
 
-	private Collection<IRequirement> hostList;
+	/**
+	 * The cached value of the '{@link #getHost() <em>Host</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getHost()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<IRequirement> host;
+
+	// private Collection<IRequirement> hostList;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -38,17 +57,80 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 		super();
 	}
 
+	// /**
+	// * <!-- begin-user-doc -->
+	// * <!-- end-user-doc -->
+	// *
+	// * @generated NOT
+	// */
+	// public Collection<IRequirement> getHost() {
+	// if(hostList == null)
+	// hostList = new ArrayList<IRequirement>();
+	//
+	// return hostList;
+	// }
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
-	public Collection<IRequirement> getHost() {
-		if(hostList == null)
-			hostList = new ArrayList<IRequirement>();
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
+				return getHost();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-		return hostList;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
+				return ((InternalEList<?>) getHost()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
+				return host != null && !host.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
+				getHost().clear();
+				getHost().addAll((Collection<? extends IRequirement>) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -60,6 +142,36 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
+				getHost().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<IRequirement> getHost() {
+		if(host == null) {
+			host = new EObjectContainmentEList.Resolving<IRequirement>(
+				IRequirement.class, this, P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST);
+		}
+		return host;
 	}
 
 } // InstallableUnitFragmentImpl

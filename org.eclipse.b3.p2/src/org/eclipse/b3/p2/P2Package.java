@@ -828,6 +828,15 @@ public interface P2Package extends EPackage {
 		EClass INSTALLABLE_UNIT_FRAGMENT = eINSTANCE.getInstallableUnitFragment();
 
 		/**
+		 * The meta object literal for the '<em><b>Host</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference INSTALLABLE_UNIT_FRAGMENT__HOST = eINSTANCE.getInstallableUnitFragment_Host();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.InstallableUnitPatchImpl <em>Installable Unit Patch</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3834,6 +3843,16 @@ public interface P2Package extends EPackage {
 	int INSTALLABLE_UNIT_FRAGMENT__PROPERTY_MAP = INSTALLABLE_UNIT__PROPERTY_MAP;
 
 	/**
+	 * The feature id for the '<em><b>Host</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_FRAGMENT__HOST = INSTALLABLE_UNIT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Installable Unit Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3841,7 +3860,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNIT_FRAGMENT_FEATURE_COUNT = INSTALLABLE_UNIT_FEATURE_COUNT + 0;
+	int INSTALLABLE_UNIT_FRAGMENT_FEATURE_COUNT = INSTALLABLE_UNIT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6458,6 +6477,18 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EClass getInstallableUnitFragment();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.p2.InstallableUnitFragment#getHost <em>Host</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Host</em>'.
+	 * @see org.eclipse.b3.p2.InstallableUnitFragment#getHost()
+	 * @see #getInstallableUnitFragment()
+	 * @generated
+	 */
+	EReference getInstallableUnitFragment_Host();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.p2.InstallableUnitPatch <em>Installable Unit Patch</em>}'.

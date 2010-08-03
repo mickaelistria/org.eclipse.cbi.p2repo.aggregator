@@ -669,6 +669,17 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.INSTALLABLE_UNIT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT__ID:
@@ -1246,17 +1257,6 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public IInstallableUnit unresolved() {
 		return this;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.INSTALLABLE_UNIT;
 	}
 
 } // InstallableUnitImpl

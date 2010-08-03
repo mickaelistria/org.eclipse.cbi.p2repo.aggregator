@@ -798,6 +798,18 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	}
 
 	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		addAnnotation(getRepositoryReference_Location(), source, new String[] {});
+	}
+
+	/**
 	 * Creates the meta-model objects for the package. This method is
 	 * guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
@@ -877,6 +889,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		createEReference(installableUnitEClass, INSTALLABLE_UNIT__PROPERTY_MAP);
 
 		installableUnitFragmentEClass = createEClass(INSTALLABLE_UNIT_FRAGMENT);
+		createEReference(installableUnitFragmentEClass, INSTALLABLE_UNIT_FRAGMENT__HOST);
 
 		installableUnitPatchEClass = createEClass(INSTALLABLE_UNIT_PATCH);
 
@@ -1622,6 +1635,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 */
 	public EClass getInstallableUnitFragment() {
 		return installableUnitFragmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getInstallableUnitFragment_Host() {
+		return (EReference) installableUnitFragmentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3042,12 +3065,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		initEClass(
 			installableUnitFragmentEClass, InstallableUnitFragment.class, "InstallableUnitFragment", !IS_ABSTRACT,
 			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = addEOperation(installableUnitFragmentEClass, null, "getHost", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getCollection());
-		g2 = createEGenericType(this.getIRequirement());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
+		initEReference(
+			getInstallableUnitFragment_Host(), this.getIRequirement(), null, "host", null, 0, -1,
+			InstallableUnitFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			installableUnitPatchEClass, InstallableUnitPatch.class, "InstallableUnitPatch", !IS_ABSTRACT,
@@ -3525,18 +3546,6 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		// Create annotations
 		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
 		createExtendedMetaDataAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
-		addAnnotation(getRepositoryReference_Location(), source, new String[] {});
 	}
 
 } // P2PackageImpl

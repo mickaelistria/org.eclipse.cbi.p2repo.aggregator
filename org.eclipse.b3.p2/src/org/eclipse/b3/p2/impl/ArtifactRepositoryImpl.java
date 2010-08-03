@@ -250,6 +250,17 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.ARTIFACT_REPOSITORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
@@ -412,16 +423,5 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 */
 	public void removeDescriptor(IArtifactKey key) {
 		getArtifactMap().removeKey(key);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.ARTIFACT_REPOSITORY;
 	}
 } // ArtifactRepositoryImpl

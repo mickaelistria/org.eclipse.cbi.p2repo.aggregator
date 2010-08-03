@@ -159,6 +159,17 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.COPYRIGHT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.COPYRIGHT__LOCATION:
@@ -235,17 +246,6 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 		result.append(body);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.COPYRIGHT;
 	}
 
 } // CopyrightImpl

@@ -171,6 +171,17 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.TOUCHPOINT_TYPE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.TOUCHPOINT_TYPE__ID:
@@ -253,17 +264,6 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 		result.append(version);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.TOUCHPOINT_TYPE;
 	}
 
 } // TouchpointTypeImpl

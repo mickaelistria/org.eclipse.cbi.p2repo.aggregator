@@ -142,6 +142,17 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.SIMPLE_ARTIFACT_DESCRIPTOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP:
@@ -194,17 +205,6 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 		if(ref != null)
 			hash += ref.hashCode();
 		return hash;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.SIMPLE_ARTIFACT_DESCRIPTOR;
 	}
 
 } // SimpleArtifactDescriptorImpl

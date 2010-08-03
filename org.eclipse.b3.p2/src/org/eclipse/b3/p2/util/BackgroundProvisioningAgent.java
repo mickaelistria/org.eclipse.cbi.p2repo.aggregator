@@ -28,6 +28,14 @@ public class BackgroundProvisioningAgent implements IProvisioningAgent {
 		this.agent = agent;
 	}
 
+	private void conditionalStop() {
+		if(aboutToStop && activeTasks == 0 && !stopped) {
+			stopped = true;
+
+			agent.stop();
+		}
+	}
+
 	public Object getService(String serviceName) {
 		return agent.getService(serviceName);
 	}
@@ -54,13 +62,5 @@ public class BackgroundProvisioningAgent implements IProvisioningAgent {
 		if(!aboutToStop && activeTasks > 0)
 			activeTasks--;
 		conditionalStop();
-	}
-
-	private void conditionalStop() {
-		if(aboutToStop && activeTasks == 0 && !stopped) {
-			stopped = true;
-
-			agent.stop();
-		}
 	}
 }

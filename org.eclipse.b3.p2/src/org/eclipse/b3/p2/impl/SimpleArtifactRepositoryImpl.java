@@ -139,6 +139,17 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.SIMPLE_ARTIFACT_REPOSITORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_REPOSITORY__RULES:
@@ -184,17 +195,6 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 				MappingRule.class, this, P2Package.SIMPLE_ARTIFACT_REPOSITORY__RULES);
 		}
 		return rules;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.SIMPLE_ARTIFACT_REPOSITORY;
 	}
 
 } // SimpleArtifactRepositoryImpl

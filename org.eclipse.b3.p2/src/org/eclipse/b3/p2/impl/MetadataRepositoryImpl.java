@@ -114,6 +114,20 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	private void addReference(URI location, String nickname, int type, int options) {
+		RepositoryReference ref = P2Factory.eINSTANCE.createRepositoryReference();
+		ref.setLocation(location);
+		ref.setNickname(nickname);
+		ref.setType(type);
+		ref.setOptions(options);
+		getReferences().add(ref);
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -233,6 +247,17 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.METADATA_REPOSITORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
@@ -340,30 +365,5 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 		List<IInstallableUnit> units = getInstallableUnits();
 
 		return units.removeAll(installableUnits);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.METADATA_REPOSITORY;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	private void addReference(URI location, String nickname, int type, int options) {
-		RepositoryReference ref = P2Factory.eINSTANCE.createRepositoryReference();
-		ref.setLocation(location);
-		ref.setNickname(nickname);
-		ref.setType(type);
-		ref.setOptions(options);
-		getReferences().add(ref);
 	}
 } // MetadataRepositoryImpl
