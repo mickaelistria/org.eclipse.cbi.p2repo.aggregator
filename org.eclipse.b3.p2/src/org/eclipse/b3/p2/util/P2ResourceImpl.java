@@ -216,12 +216,6 @@ public class P2ResourceImpl extends XMLResourceImpl {
 			loaderJob.cancel();
 	}
 
-	private java.net.URI getLocationFromURI(URI uri) throws URISyntaxException {
-		String opaquePart = uri.opaquePart();
-		int pos = opaquePart.indexOf(':');
-		return new java.net.URI(opaquePart.substring(pos + 1));
-	}
-
 	@Override
 	public void load(Map<?, ?> options) throws IOException {
 		synchronized(lock) {
@@ -286,6 +280,12 @@ public class P2ResourceImpl extends XMLResourceImpl {
 			asynchronousLoader.setUser(false);
 			asynchronousLoader.schedule();
 		}
+	}
+
+	private java.net.URI getLocationFromURI(URI uri) throws URISyntaxException {
+		String opaquePart = uri.opaquePart();
+		int pos = opaquePart.indexOf(':');
+		return new java.net.URI(opaquePart.substring(pos + 1));
 	}
 
 } // P2ResourceImpl

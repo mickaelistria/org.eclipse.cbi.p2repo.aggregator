@@ -256,17 +256,6 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.REQUIREMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.REQUIREMENT__FILTER:
@@ -468,6 +457,17 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 		if(isGreedy())
 			result.append(", greedy");
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.REQUIREMENT;
 	}
 
 } // RequirementImpl

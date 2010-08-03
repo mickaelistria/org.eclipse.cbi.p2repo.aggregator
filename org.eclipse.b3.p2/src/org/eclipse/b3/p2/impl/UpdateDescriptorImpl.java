@@ -195,17 +195,6 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.UPDATE_DESCRIPTOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
@@ -345,6 +334,17 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 		result.append(location);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.UPDATE_DESCRIPTOR;
 	}
 
 } // UpdateDescriptorImpl

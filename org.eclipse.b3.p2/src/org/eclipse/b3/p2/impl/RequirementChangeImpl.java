@@ -227,17 +227,6 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.REQUIREMENT_CHANGE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.REQUIREMENT_CHANGE__APPLY_ON:
@@ -380,6 +369,17 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, P2Package.REQUIREMENT_CHANGE__NEW_VALUE, newNewValue, newNewValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.REQUIREMENT_CHANGE;
 	}
 
 } // RequirementChangeImpl

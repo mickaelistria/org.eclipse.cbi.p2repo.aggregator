@@ -199,17 +199,6 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.ARTIFACT_KEY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.ARTIFACT_KEY__CLASSIFIER:
@@ -335,5 +324,16 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 		result.append(version);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.ARTIFACT_KEY;
 	}
 } // ArtifactKeyImpl

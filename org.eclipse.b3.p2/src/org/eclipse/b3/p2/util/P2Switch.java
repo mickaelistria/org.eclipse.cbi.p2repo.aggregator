@@ -990,16 +990,8 @@ public class P2Switch<T1> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T1 doSwitch(EClass theEClass, EObject theEObject) {
-		if(theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return eSuperTypes.isEmpty()
-					? defaultCase(theEObject)
-					: doSwitch(eSuperTypes.get(0), theEObject);
-		}
+	public T1 doSwitch(EObject theEObject) {
+		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
 	/**
@@ -1010,8 +1002,16 @@ public class P2Switch<T1> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public T1 doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
+	protected T1 doSwitch(EClass theEClass, EObject theEObject) {
+		if(theEClass.eContainer() == modelPackage) {
+			return doSwitch(theEClass.getClassifierID(), theEObject);
+		}
+		else {
+			List<EClass> eSuperTypes = theEClass.getESuperTypes();
+			return eSuperTypes.isEmpty()
+					? defaultCase(theEObject)
+					: doSwitch(eSuperTypes.get(0), theEObject);
+		}
 	}
 
 	/**

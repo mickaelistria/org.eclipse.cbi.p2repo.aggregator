@@ -209,17 +209,6 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.ARTIFACTS_BY_KEY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.ARTIFACTS_BY_KEY__KEY:
@@ -378,6 +367,17 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 		getTypedValue().clear();
 		getTypedValue().addAll(value);
 		return oldValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.ARTIFACTS_BY_KEY;
 	}
 
 } // ArtifactsByKeyImpl

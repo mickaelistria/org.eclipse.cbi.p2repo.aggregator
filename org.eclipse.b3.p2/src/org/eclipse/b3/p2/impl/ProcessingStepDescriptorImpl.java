@@ -201,17 +201,6 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.PROCESSING_STEP_DESCRIPTOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.PROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID:
@@ -339,6 +328,17 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 		result.append((eFlags & REQUIRED_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.PROCESSING_STEP_DESCRIPTOR;
 	}
 
 } // ProcessingStepDescriptorImpl

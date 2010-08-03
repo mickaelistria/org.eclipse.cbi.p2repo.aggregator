@@ -252,17 +252,6 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.INSTALLABLE_UNIT_PATCH;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE:
@@ -372,6 +361,17 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, newLifeCycle, newLifeCycle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.INSTALLABLE_UNIT_PATCH;
 	}
 
 } // InstallableUnitPatchImpl

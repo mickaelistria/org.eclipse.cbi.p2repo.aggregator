@@ -137,17 +137,6 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.TOUCHPOINT_DATA;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
@@ -190,6 +179,17 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public Map<String, ITouchpointInstruction> getInstructions() {
 		return getInstructionMap().map();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.TOUCHPOINT_DATA;
 	}
 
 } // TouchpointDataImpl

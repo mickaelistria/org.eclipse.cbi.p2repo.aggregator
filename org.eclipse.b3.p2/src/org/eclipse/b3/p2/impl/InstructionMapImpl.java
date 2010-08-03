@@ -205,17 +205,6 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.INSTRUCTION_MAP;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.INSTRUCTION_MAP__KEY:
@@ -400,6 +389,17 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 		result.append(key);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.INSTRUCTION_MAP;
 	}
 
 } // InstructionMapImpl

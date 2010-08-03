@@ -43,6 +43,37 @@ public class P2Utils {
 			agent.stop();
 	}
 
+	public static IPlanner getPlanner(IProvisioningAgent agent) {
+		return getP2Service(agent, IPlanner.class);
+	}
+
+	public static IProfileRegistry getProfileRegistry(IProvisioningAgent agent) {
+		return getP2Service(agent, IProfileRegistry.class);
+	}
+
+	public static <T extends IRepositoryManager<?>> T getRepositoryManager(Class<T> clazz) {
+		return getP2Service(null, clazz);
+	}
+
+	public static <T extends IRepositoryManager<?>> T getRepositoryManager(IProvisioningAgent agent, Class<T> clazz) {
+		return getP2Service(agent, clazz);
+	}
+
+	public static void ungetPlanner(IProvisioningAgent agent, IPlanner planner) {
+		if(agent != null && agent instanceof BackgroundProvisioningAgent)
+			((BackgroundProvisioningAgent) agent).unregisterTask();
+	}
+
+	public static void ungetProfileRegistry(IProvisioningAgent agent, IProfileRegistry registry) {
+		if(agent != null && agent instanceof BackgroundProvisioningAgent)
+			((BackgroundProvisioningAgent) agent).unregisterTask();
+	}
+
+	public static void ungetRepositoryManager(IProvisioningAgent agent, IRepositoryManager<?> manager) {
+		if(agent != null && agent instanceof BackgroundProvisioningAgent)
+			((BackgroundProvisioningAgent) agent).unregisterTask();
+	}
+
 	private static <T> T getP2Service(IProvisioningAgent agent, Class<T> clazz) {
 		try {
 			IProvisioningAgent agentParam = agent;
@@ -84,37 +115,6 @@ public class P2Utils {
 		}
 
 		throw new RuntimeException("p2 service " + clazz.getName() + "not available");
-	}
-
-	public static IPlanner getPlanner(IProvisioningAgent agent) {
-		return getP2Service(agent, IPlanner.class);
-	}
-
-	public static IProfileRegistry getProfileRegistry(IProvisioningAgent agent) {
-		return getP2Service(agent, IProfileRegistry.class);
-	}
-
-	public static <T extends IRepositoryManager<?>> T getRepositoryManager(Class<T> clazz) {
-		return getP2Service(null, clazz);
-	}
-
-	public static <T extends IRepositoryManager<?>> T getRepositoryManager(IProvisioningAgent agent, Class<T> clazz) {
-		return getP2Service(agent, clazz);
-	}
-
-	public static void ungetPlanner(IProvisioningAgent agent, IPlanner planner) {
-		if(agent != null && agent instanceof BackgroundProvisioningAgent)
-			((BackgroundProvisioningAgent) agent).unregisterTask();
-	}
-
-	public static void ungetProfileRegistry(IProvisioningAgent agent, IProfileRegistry registry) {
-		if(agent != null && agent instanceof BackgroundProvisioningAgent)
-			((BackgroundProvisioningAgent) agent).unregisterTask();
-	}
-
-	public static void ungetRepositoryManager(IProvisioningAgent agent, IRepositoryManager<?> manager) {
-		if(agent != null && agent instanceof BackgroundProvisioningAgent)
-			((BackgroundProvisioningAgent) agent).unregisterTask();
 	}
 
 }

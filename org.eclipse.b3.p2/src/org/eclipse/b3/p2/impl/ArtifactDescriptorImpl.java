@@ -235,17 +235,6 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.ARTIFACT_DESCRIPTOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY:
@@ -381,6 +370,17 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY, oldArtifactKey, artifactKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.ARTIFACT_DESCRIPTOR;
 	}
 
 } // ArtifactDescriptorImpl
