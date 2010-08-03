@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.b3.backend.core.IB3Weaver;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.backend.core.exceptions.B3InternalError;
@@ -31,6 +32,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildUnit;
@@ -100,6 +102,11 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 	 * @generated NOT
 	 */
 	public Object define(BuildUnit unit, BExecutionContext ctx, boolean isWeaving) throws Throwable {
+		if(B3Debug.evaluator)
+			B3Debug.trace(
+				"[evaluate] - DEFINE Build unit : ", unit.getName(), " weaving: ", isWeaving, " ctxId: ",
+				((BExecutionContextImpl) ctx).ctxIdentifier);
+
 		BuildUnitProxyAdapter p = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit);
 		Class<? extends BuildUnit> iface = p.getIface();
 		ctx.defineSomeThing(BuildUnit.class, iface, unit, false);
@@ -128,6 +135,8 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 	}
 
 	public Object evaluate(BeeModel o, BExecutionContext ctx) throws Throwable {
+		if(B3Debug.evaluator)
+			B3Debug.trace("[evaluate] - START BeeModel");
 		// A BeeModel is a BChainedExpression, and can this contain any type of expression
 		// evaluate these first. Return value is ignored.
 		evaluate(((BChainedExpression) o), ctx);
@@ -191,6 +200,8 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 				doDefine(u, ctx);
 			}
 		// bctx.defineBuildUnit(u, false);
+		if(B3Debug.evaluator)
+			B3Debug.trace("[evaluate] - END BeeModel");
 
 		return this;
 	}
@@ -441,6 +452,19 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 			names[i++] = "unit";
 		for(BParameterDeclaration p : pList)
 			names[i++] = p.getName();
+		if(B3Debug.evaluator) {
+			Object[] args = new String[2 + names.length * 2];
+			args[0] = o.getName();
+			args[1] = ") returns: [";
+			int j = 2;
+			for(String s : names) {
+				if(j != 2)
+					args[j++] = ", ";
+				args[j++] = s;
+			}
+			args[j] = "]";
+			B3Debug.trace("[evaluator] - parameterNames(builder: ", args);
+		}
 		return names;
 	}
 }

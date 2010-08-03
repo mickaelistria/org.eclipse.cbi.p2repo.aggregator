@@ -28,6 +28,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildUnit;
@@ -85,6 +86,7 @@ import com.google.inject.internal.Lists;
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getRequiredPredicates <em>Required Predicates</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getVarName <em>Var Name</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getBuilders <em>Builders</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getDocumentation <em>Documentation</em>}</li>
  * <li>{@link org.eclipse.b3.build.impl.BuildUnitImpl#getExecutionMode <em>Execution Mode</em>}</li>
@@ -151,6 +153,17 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @ordered
 	 */
 	protected EList<Capability> providedCapabilities;
+
+	/**
+	 * The default value of the '{@link #getVarName() <em>Var Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getVarName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VAR_NAME_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
@@ -451,6 +464,14 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 					return -1;
 			}
 		}
+		if(baseClass == IVarName.class) {
+			switch(derivedFeatureID) {
+				case B3BuildPackage.BUILD_UNIT__VAR_NAME:
+					return B3backendPackage.IVAR_NAME__VAR_NAME;
+				default:
+					return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -488,6 +509,14 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 					return -1;
 			}
 		}
+		if(baseClass == IVarName.class) {
+			switch(baseFeatureID) {
+				case B3backendPackage.IVAR_NAME__VAR_NAME:
+					return B3BuildPackage.BUILD_UNIT__VAR_NAME;
+				default:
+					return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -508,6 +537,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getRequiredPredicates();
 			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
 				return getProvidedCapabilities();
+			case B3BuildPackage.BUILD_UNIT__VAR_NAME:
+				return getVarName();
 			case B3BuildPackage.BUILD_UNIT__BUILDERS:
 				return getBuilders();
 			case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
@@ -622,6 +653,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return requiredPredicates != null && !requiredPredicates.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
 				return providedCapabilities != null && !providedCapabilities.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__VAR_NAME:
+				return VAR_NAME_EDEFAULT == null
+						? getVarName() != null
+						: !VAR_NAME_EDEFAULT.equals(getVarName());
 			case B3BuildPackage.BUILD_UNIT__BUILDERS:
 				return !getBuilders().isEmpty();
 			case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
@@ -1462,6 +1497,16 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		return getProviders().size() > 0
 				? getProviders().get(0)
 				: null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public String getVarName() {
+		return B3BuildConstants.B3_VAR_UNIT;
 	}
 
 	/**

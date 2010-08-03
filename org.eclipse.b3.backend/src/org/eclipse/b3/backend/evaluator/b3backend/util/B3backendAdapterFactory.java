@@ -15,6 +15,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
 
+import org.eclipse.b3.backend.evaluator.b3backend.*;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -570,6 +571,11 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public <D extends GenericDeclaration> Adapter caseITypeVariable(TypeVariable<D> object) {
 			return createITypeVariableAdapter();
+		}
+
+		@Override
+		public Adapter caseIVarName(IVarName object) {
+			return createIVarNameAdapter();
 		}
 
 		@Override
@@ -1980,6 +1986,21 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createITypeVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.IVarName <em>IVar Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IVarName
+	 * @generated
+	 */
+	public Adapter createIVarNameAdapter() {
 		return null;
 	}
 

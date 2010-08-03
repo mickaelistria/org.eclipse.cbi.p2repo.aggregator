@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
 import org.eclipse.b3.backend.evaluator.B3ExpressionCache;
 import org.eclipse.b3.backend.evaluator.B3FuncStore;
 import org.eclipse.b3.backend.evaluator.ValueMap;
+import org.eclipse.b3.backend.evaluator.b3backend.*;
 import org.eclipse.b3.backend.core.datatypes.LValue;
 import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
@@ -419,6 +420,8 @@ public class B3backendValidator extends EObjectValidator {
 				return validateB3Type((B3Type) value, diagnostics, context);
 			case B3backendPackage.ITYPED_VALUE:
 				return validateITypedValue((ITypedValue) value, diagnostics, context);
+			case B3backendPackage.IVAR_NAME:
+				return validateIVarName((IVarName) value, diagnostics, context);
 			case B3backendPackage.VISIBILITY:
 				return validateVisibility((Visibility) value, diagnostics, context);
 			case B3backendPackage.EXECUTION_MODE:
@@ -1547,6 +1550,16 @@ public class B3backendValidator extends EObjectValidator {
 	public boolean validateITypeVariable(TypeVariable<?> iTypeVariable, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint((EObject) iTypeVariable, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateIVarName(IVarName iVarName, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(iVarName, diagnostics, context);
 	}
 
 	/**

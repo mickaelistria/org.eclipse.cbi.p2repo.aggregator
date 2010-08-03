@@ -2758,6 +2758,16 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_UNIT__PROVIDED_CAPABILITIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_UNIT__VAR_NAME = VERSIONED_CAPABILITY_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2765,7 +2775,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__BUILDERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 4;
+	int BUILD_UNIT__BUILDERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -2775,7 +2785,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__DOCUMENTATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 5;
+	int BUILD_UNIT__DOCUMENTATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
@@ -2785,7 +2795,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__EXECUTION_MODE = VERSIONED_CAPABILITY_FEATURE_COUNT + 6;
+	int BUILD_UNIT__EXECUTION_MODE = VERSIONED_CAPABILITY_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
@@ -2795,7 +2805,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__META_REQUIRED_CAPABILITIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 7;
+	int BUILD_UNIT__META_REQUIRED_CAPABILITIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
@@ -2805,7 +2815,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__IMPLEMENTS = VERSIONED_CAPABILITY_FEATURE_COUNT + 8;
+	int BUILD_UNIT__IMPLEMENTS = VERSIONED_CAPABILITY_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
@@ -2815,7 +2825,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__CONCERNS = VERSIONED_CAPABILITY_FEATURE_COUNT + 9;
+	int BUILD_UNIT__CONCERNS = VERSIONED_CAPABILITY_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
@@ -2825,7 +2835,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__DEFAULT_PROPERTIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 10;
+	int BUILD_UNIT__DEFAULT_PROPERTIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
@@ -2835,7 +2845,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__SYNCHRONIZATIONS = VERSIONED_CAPABILITY_FEATURE_COUNT + 11;
+	int BUILD_UNIT__SYNCHRONIZATIONS = VERSIONED_CAPABILITY_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -2845,7 +2855,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__REPOSITORIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 12;
+	int BUILD_UNIT__REPOSITORIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
@@ -2855,7 +2865,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__CONTAINERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 13;
+	int BUILD_UNIT__CONTAINERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
@@ -2865,7 +2875,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__PROPERTY_SETS = VERSIONED_CAPABILITY_FEATURE_COUNT + 14;
+	int BUILD_UNIT__PROPERTY_SETS = VERSIONED_CAPABILITY_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
@@ -2875,7 +2885,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__SOURCE_LOCATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 15;
+	int BUILD_UNIT__SOURCE_LOCATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
@@ -2885,7 +2895,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__OUTPUT_LOCATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 16;
+	int BUILD_UNIT__OUTPUT_LOCATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
@@ -2895,7 +2905,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__PROVIDERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 17;
+	int BUILD_UNIT__PROVIDERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -2905,7 +2915,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__PARENT = VERSIONED_CAPABILITY_FEATURE_COUNT + 18;
+	int BUILD_UNIT__PARENT = VERSIONED_CAPABILITY_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
@@ -2915,7 +2925,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__FRAGMENT_HOSTS = VERSIONED_CAPABILITY_FEATURE_COUNT + 19;
+	int BUILD_UNIT__FRAGMENT_HOSTS = VERSIONED_CAPABILITY_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
@@ -2925,7 +2935,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__PLATFORM_FILTER = VERSIONED_CAPABILITY_FEATURE_COUNT + 20;
+	int BUILD_UNIT__PLATFORM_FILTER = VERSIONED_CAPABILITY_FEATURE_COUNT + 21;
 
 	/**
 	 * The number of structural features of the '<em>Build Unit</em>' class.
@@ -2935,7 +2945,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 21;
+	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 22;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.impl.BuilderImpl <em>Builder</em>}' class.

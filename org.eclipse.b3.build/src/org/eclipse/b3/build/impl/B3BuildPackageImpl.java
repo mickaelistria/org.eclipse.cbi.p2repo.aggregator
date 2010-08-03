@@ -3818,6 +3818,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		buildUnitEClass.getESuperTypes().add(theB3backendPackage.getBFunctionContainer());
 		buildUnitEClass.getESuperTypes().add(this.getIRequiredCapabilityContainer());
 		buildUnitEClass.getESuperTypes().add(this.getIProvidedCapabilityContainer());
+		buildUnitEClass.getESuperTypes().add(theB3backendPackage.getIVarName());
 		iBuilderEClass.getESuperTypes().add(this.getIProvidedCapabilityContainer());
 		iBuilderEClass.getESuperTypes().add(theB3backendPackage.getIFunction());
 		versionedCapabilityEClass.getESuperTypes().add(this.getCapability());

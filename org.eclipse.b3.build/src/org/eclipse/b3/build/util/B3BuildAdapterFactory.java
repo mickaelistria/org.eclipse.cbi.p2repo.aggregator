@@ -24,6 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
+import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.build.*;
 import org.eclipse.b3.build.AliasedRequiredCapability;
 import org.eclipse.b3.build.B3BuildPackage;
@@ -470,6 +471,11 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseITypedValueContainer(ITypedValueContainer object) {
 			return createITypedValueContainerAdapter();
+		}
+
+		@Override
+		public Adapter caseIVarName(IVarName object) {
+			return createIVarNameAdapter();
 		}
 
 		@Override
@@ -1653,6 +1659,21 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createITypedValueContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.IVarName <em>IVar Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IVarName
+	 * @generated
+	 */
+	public Adapter createIVarNameAdapter() {
 		return null;
 	}
 

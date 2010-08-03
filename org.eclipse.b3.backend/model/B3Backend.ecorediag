@@ -1459,6 +1459,26 @@
       <element xmi:type="ecore:EClass" href="B3Backend.ecore#//ITypedValue"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B3zVQns8Ed-wrOza2TcaZg" x="216" y="360"/>
     </children>
+    <children xmi:type="notation:Node" xmi:id="_z5R8sJ6tEd-tsKY2G3O_bg" type="1001">
+      <children xmi:type="notation:Node" xmi:id="_z5afkJ6tEd-tsKY2G3O_bg" type="4001"/>
+      <children xmi:type="notation:Node" xmi:id="_z5btsJ6tEd-tsKY2G3O_bg" type="5001">
+        <children xmi:type="notation:Node" xmi:id="_6KPkcJ6tEd-tsKY2G3O_bg" type="2001">
+          <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//IVarName/varName"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_6KPkcZ6tEd-tsKY2G3O_bg"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_z5btsZ6tEd-tsKY2G3O_bg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_z5btsp6tEd-tsKY2G3O_bg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_z5bts56tEd-tsKY2G3O_bg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_z5cUwJ6tEd-tsKY2G3O_bg" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_z5cUwZ6tEd-tsKY2G3O_bg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_z5cUwp6tEd-tsKY2G3O_bg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_z5cUw56tEd-tsKY2G3O_bg"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_z5R8sZ6tEd-tsKY2G3O_bg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+      <element xmi:type="ecore:EClass" href="B3Backend.ecore#//IVarName"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z5R8sp6tEd-tsKY2G3O_bg" x="358" y="288"/>
+    </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_qXXRMc-OEd6QUfNJL03zQw"/>
     <element xmi:type="ecore:EPackage" href="B3Backend.ecore#/"/>
     <edges xmi:type="notation:Edge" xmi:id="_urWO4M-OEd6QUfNJL03zQw" type="3003" source="_shVOYM-OEd6QUfNJL03zQw" target="_rsEaUM-OEd6QUfNJL03zQw">

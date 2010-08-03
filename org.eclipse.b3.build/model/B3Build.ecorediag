@@ -1242,12 +1242,24 @@
       <element xmi:type="ecore:EClass" href="B3Build.ecore#//FragmentHost"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mV-OkJ2CEd-lUIgXU8Zr0g" x="83" y="302"/>
     </children>
-    <children xmi:type="notation:Node" xmi:id="_xSWPwJ42Ed-tsKY2G3O_bg" type="1004">
-      <children xmi:type="notation:Node" xmi:id="_xSjEEJ42Ed-tsKY2G3O_bg" type="4008"/>
-      <children xmi:type="notation:Node" xmi:id="_xSziwJ42Ed-tsKY2G3O_bg" type="4009"/>
-      <styles xmi:type="notation:ShapeStyle" xmi:id="_xSWPwZ42Ed-tsKY2G3O_bg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-      <element xmi:type="ecore:EDataType" href="B3Build.ecore#//IExpression"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xSWPwp42Ed-tsKY2G3O_bg" x="-207" y="756"/>
+    <children xmi:type="notation:Node" xmi:id="_8vfS8J6uEd-tsKY2G3O_bg" type="1001">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8wPg4J6uEd-tsKY2G3O_bg" source="Shortcut">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8wPg4Z6uEd-tsKY2G3O_bg" key="modelID" value="EcoreTools"/>
+      </eAnnotations>
+      <children xmi:type="notation:Node" xmi:id="_8vf6AJ6uEd-tsKY2G3O_bg" type="4001"/>
+      <children xmi:type="notation:Node" xmi:id="_8vf6AZ6uEd-tsKY2G3O_bg" type="5001">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_8vghEJ6uEd-tsKY2G3O_bg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_8vghEZ6uEd-tsKY2G3O_bg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_8vghEp6uEd-tsKY2G3O_bg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_8vghE56uEd-tsKY2G3O_bg" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_8vghFJ6uEd-tsKY2G3O_bg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_8vghFZ6uEd-tsKY2G3O_bg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_8vghFp6uEd-tsKY2G3O_bg"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_8vfS8Z6uEd-tsKY2G3O_bg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+      <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//IVarName"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8vfS8p6uEd-tsKY2G3O_bg" x="585" y="288"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_Igny4fbjEd6fhZ-cYf2Uvg"/>
     <element xmi:type="ecore:EPackage" href="B3Build.ecore#/"/>
@@ -1665,6 +1677,14 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1jFR852CEd-lUIgXU8Zr0g" points="[-1, -1, 190, 67]$[-189, -62, 2, 6]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1jZbAJ2CEd-lUIgXU8Zr0g" id="(0.0196078431372549,0.21428571428571427)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1jZbAZ2CEd-lUIgXU8Zr0g" id="(0.6976744186046512,0.9381443298969072)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_-AZhMJ6uEd-tsKY2G3O_bg" type="3003" source="_Ka4gIPbjEd6fhZ-cYf2Uvg" target="_8vfS8J6uEd-tsKY2G3O_bg">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_-AZhMZ6uEd-tsKY2G3O_bg" routing="Rectilinear" lineColor="4210752"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_-AZhMp6uEd-tsKY2G3O_bg" fontName="Lucida Grande"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-AZhM56uEd-tsKY2G3O_bg" points="[21, -2, -164, 71]$[90, -2, -95, 71]$[90, -74, -95, -1]$[160, -74, -25, -1]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-AckgJ6uEd-tsKY2G3O_bg" id="(0.9490291262135923,0.175)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-AckgZ6uEd-tsKY2G3O_bg" id="(0.22033898305084745,0.7868852459016393)"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_plW8UPcpEd6fhZ-cYf2Uvg" type="EcoreTools" name="Repositories" measurementUnit="Pixel">

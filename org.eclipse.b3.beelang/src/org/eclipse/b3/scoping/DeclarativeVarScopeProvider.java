@@ -252,7 +252,8 @@ public class DeclarativeVarScopeProvider {
 		// Explicit "unit"
 		BParameterDeclaration explicitUnitType = container.getExplicitUnitType();
 		if(explicitUnitType != null) {
-			result.add(new EObjectDescription(explicitUnitType.getName(), explicitUnitType, null));
+			result.add(new EObjectDescription("unit", explicitUnitType, null));
+			// result.add(new EObjectDescription(explicitUnitType.getName(), explicitUnitType, null));
 		}
 
 		// Builder parameters
@@ -297,8 +298,8 @@ public class DeclarativeVarScopeProvider {
 	public IScope varScope(BuildUnit container, EObject contained) {
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		result.add(new EObjectDescription("unit", container, null));
-		if(container.getName() != null)
-			result.add(new EObjectDescription(container.getName(), container, null));
+		// if(container.getName() != null)
+		// result.add(new EObjectDescription(container.getName(), container, null));
 		if(result.size() < 1)
 			return doGetVarScope(container.eContainer(), container);
 		return createScope(doGetVarScope(container.eContainer(), container), result);

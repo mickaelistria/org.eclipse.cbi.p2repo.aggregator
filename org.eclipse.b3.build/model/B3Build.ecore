@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="build"
     nsURI="http://b3build/1.0" nsPrefix="">
-  <eClassifiers xsi:type="ecore:EClass" name="BuildUnit" eSuperTypes="#//VersionedCapability ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BFunctionContainer #//IRequiredCapabilityContainer #//IProvidedCapabilityContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="BuildUnit" eSuperTypes="#//VersionedCapability ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BFunctionContainer #//IRequiredCapabilityContainer #//IProvidedCapabilityContainer ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IVarName">
     <eOperations name="getEffectiveFacade" eType="#//EffectiveUnitFacade" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
     </eOperations>

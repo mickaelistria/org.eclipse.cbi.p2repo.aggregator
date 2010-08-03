@@ -17,6 +17,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
@@ -54,7 +55,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * @generated
  */
 public interface BuildUnit extends VersionedCapability, BFunctionContainer, IRequiredCapabilityContainer,
-		IProvidedCapabilityContainer {
+		IProvidedCapabilityContainer, IVarName {
 
 	/**
 	 * Returns the value of the '<em><b>Builders</b></em>' reference list.

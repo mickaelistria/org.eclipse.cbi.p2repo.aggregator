@@ -22,6 +22,7 @@ import java.util.Map.Entry;
 import java.util.Properties;
 
 import org.eclipse.b3.backend.core.B3BackendConstants;
+import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.b3.backend.core.IB3LvalProvider;
 import org.eclipse.b3.backend.core.IB3Weaver;
 import org.eclipse.b3.backend.core.adapters.LoadedPropertySetAdapter;
@@ -103,6 +104,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.backend.evaluator.typesystem.ConstructorCandidate;
 import org.eclipse.b3.backend.evaluator.typesystem.ConstructorCandidateSource;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
@@ -383,6 +386,9 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 
 	protected BExecutionContext callPrepare(BFunctionWrapper o, Object[] parameters, Type[] types, BExecutionContext ctx)
 			throws Throwable {
+		if(B3Debug.evaluator)
+			B3Debug.trace("[evaluator] - callPrepare(functionWrapper: ", o.getName(), ")");
+
 		// prepare the context as it should be for the original function (it may return a different context)
 		BExecutionContext octx = doCallPrepare(o.getOriginal(), parameters, types, ctx);
 
@@ -414,6 +420,11 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 
 		Type[] functionParameterTypes = functionSignature.getParameterTypesArray();
 
+		if(B3Debug.evaluator) {
+			B3Debug.trace("[evaluator] START callPrepare(function: ", f.getName(), ")");
+			if(functionParameterTypes.length < 1)
+				B3Debug.trace("[evaluator]       callPrepare(function: ", f.getName(), "), NO PARAMETERS");
+		}
 		// Type[] functionParameterTypes = f.getParameterTypes();
 		if(functionParameterTypes.length > 0) { // if function takes no parameters, there is no binding to be done
 			int limit = functionParameterTypes.length - 1; // bind all but the last defined parameter
@@ -436,6 +447,12 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 				if(!(TypeUtils.isAssignableFrom(functionParameterTypes[i], t)))
 					throw new B3IncompatibleTypeException(
 						functionParameterNames[i], functionParameterTypes[i], params[i].getClass());
+
+				if(B3Debug.evaluator)
+					B3Debug.trace(
+						"[evaluator]       callPrepare(function: ", f.getName(), "), binding ",
+						functionParameterTypes[i], " ", functionParameterNames[i], " = ", params[i]);
+
 				// ok, define it
 				octx.defineVariableValue(functionParameterNames[i], params[i], functionParameterTypes[i]);
 			}
@@ -454,6 +471,11 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 						throw new B3IncompatibleTypeException(
 							functionParameterNames[limit], functionParameterTypes[limit], params[limit].getClass());
 				}
+				if(B3Debug.evaluator)
+					B3Debug.trace(
+						"[evaluator]       callPrepare(function: ", f.getName(), "), binding ",
+						functionParameterTypes[limit], " ", functionParameterNames[limit], " = ", params[limit]);
+
 				// ok
 				octx.defineVariableValue(functionParameterNames[limit], params[limit], functionParameterTypes[limit]);
 			}
@@ -475,6 +497,12 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 				B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
 				pt.setRawType(List.class);
 				pt.getActualArgumentsList().add(functionParameterTypes[limit]);
+
+				if(B3Debug.evaluator)
+					B3Debug.trace(
+						"[evaluator]       callPrepare(function: ", f.getName(), "), binding ", pt, "... ",
+						functionParameterNames[limit], " = ", varargs);
+
 				// bind the varargs to a List of the declared type (possibly an empty list).
 				octx.defineVariableValue(functionParameterNames[limit], varargs, pt);
 			}
@@ -482,6 +510,10 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		// mark the processing of parameters as done - (a bit ugly for now, as it requires getting the valueMap
 		// from the context - should be API on the context.
 		octx.getValueMap().markParametersDone(f.isVarArgs());
+
+		if(B3Debug.evaluator)
+			B3Debug.trace("[evaluator] END callPrepare(function: ", f.getName(), ")");
+
 		// returns the prepared context
 		return octx;
 	}
@@ -1146,11 +1178,16 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 	}
 
 	public Object evaluate(BVariableExpression o, BExecutionContext ctx) throws Throwable {
-		// TODO: in transition - can use both name and reference to name
-		// String n = (o.getName() != null
-		// ? o.getName()
-		// : o.getNamedValue().getName());
-		return ctx.getValue(o.getNamedValue().getName());
+
+		// Some named values may have both a "name" and be known under a (different) "variable name",
+		// if so, always use the variable name.
+		final INamedValue nv = o.getNamedValue();
+		final String name = (nv instanceof IVarName
+				? ((IVarName) nv).getVarName()
+				: nv.getName());
+		if(B3Debug.evaluator)
+			B3Debug.trace("[evaluator] evaluate(BVariableExpression) name:", name);
+		return ctx.getValue(name);
 	}
 
 	/**

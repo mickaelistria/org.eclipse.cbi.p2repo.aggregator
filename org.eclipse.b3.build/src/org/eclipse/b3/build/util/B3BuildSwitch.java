@@ -25,6 +25,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
+import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.build.*;
 import org.eclipse.b3.build.AliasedRequiredCapability;
 import org.eclipse.b3.build.B3BuildPackage;
@@ -1298,6 +1299,23 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IVar Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IVar Name</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIVarName(IVarName object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Name Space Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1724,6 +1742,8 @@ public class B3BuildSwitch<T> {
 					result = caseIRequiredCapabilityContainer(buildUnit);
 				if(result == null)
 					result = caseIProvidedCapabilityContainer(buildUnit);
+				if(result == null)
+					result = caseIVarName(buildUnit);
 				if(result == null)
 					result = caseCapability(buildUnit);
 				if(result == null)

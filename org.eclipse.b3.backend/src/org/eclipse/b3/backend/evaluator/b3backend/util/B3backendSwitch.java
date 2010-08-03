@@ -16,6 +16,7 @@ import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
 import java.util.List;
 
+import org.eclipse.b3.backend.evaluator.b3backend.*;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -1638,6 +1639,23 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IVar Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IVar Name</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIVarName(IVarName object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IWildcard Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2605,6 +2623,13 @@ public class B3backendSwitch<T> {
 				T result = caseITypedValue(iTypedValue);
 				if(result == null)
 					result = caseINamedValue(iTypedValue);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.IVAR_NAME: {
+				IVarName iVarName = (IVarName) theEObject;
+				T result = caseIVarName(iVarName);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

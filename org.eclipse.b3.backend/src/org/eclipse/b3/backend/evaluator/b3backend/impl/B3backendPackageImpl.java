@@ -112,6 +112,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
+import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.b3.backend.evaluator.b3backend.util.B3backendValidator;
 import org.eclipse.core.runtime.CoreException;
@@ -538,6 +539,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass iTypedValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iVarNameEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1448,6 +1457,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		iTypedValueEClass = createEClass(ITYPED_VALUE);
 		createEReference(iTypedValueEClass, ITYPED_VALUE__TYPE);
+
+		iVarNameEClass = createEClass(IVAR_NAME);
+		createEAttribute(iVarNameEClass, IVAR_NAME__VAR_NAME);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -3833,6 +3845,26 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	public EClass getIVarName() {
+		return iVarNameEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getIVarName_VarName() {
+		return (EAttribute) iVarNameEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getIWildcardType() {
 		return iWildcardTypeEClass;
 	}
@@ -5194,6 +5226,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			getITypedValue_Type(), this.getIType(), null, "type", null, 0, 1, ITypedValue.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 			IS_ORDERED);
+
+		initEClass(iVarNameEClass, IVarName.class, "IVarName", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getIVarName_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, IVarName.class, IS_TRANSIENT,
+			IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

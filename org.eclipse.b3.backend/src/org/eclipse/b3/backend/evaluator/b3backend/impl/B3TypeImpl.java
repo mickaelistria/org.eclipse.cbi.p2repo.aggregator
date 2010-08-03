@@ -175,7 +175,8 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 		if(eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer("B3TypeImpl(");
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (rawType: ");
 		result.append(rawType);
 		result.append(')');
 		return result.toString();
