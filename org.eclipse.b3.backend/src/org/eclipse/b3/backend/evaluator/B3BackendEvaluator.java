@@ -384,140 +384,6 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		return doCall(f, params, types, ctx.createOuterContext());
 	}
 
-	protected BExecutionContext callPrepare(BFunctionWrapper o, Object[] parameters, Type[] types, BExecutionContext ctx)
-			throws Throwable {
-		if(B3Debug.evaluator)
-			B3Debug.trace("[evaluator] - callPrepare(functionWrapper: ", o.getName(), ")");
-
-		// prepare the context as it should be for the original function (it may return a different context)
-		BExecutionContext octx = doCallPrepare(o.getOriginal(), parameters, types, ctx);
-
-		// create a mapped context that handles the advising expression's view of what the parameters are called
-		BWrappingContext mc = B3backendFactory.eINSTANCE.createBWrappingContext();
-		mc.mapContext(octx, o.getParameterMap(), o);
-		// keep parameters and types for 'proceed' call
-		mc.setParameters(parameters);
-		mc.setParameterTypes(types);
-		mc.setVarargsName(o.getVarargsName());
-
-		// get the outer context to use for normal calls out of this context
-		BContext outer = ctx.getContext(BContext.class);
-		// use the outer context as the parent since the advising expression should not see the original's
-		// parameter values.
-		mc.setParentContext(outer);
-		// use the outer context found earlier for outer
-		mc.setOuterContext(outer);
-		// need an inner context for the advising expression's local variables since the mapped context is immutable
-		return mc.createInnerContext();
-	}
-
-	/**
-	 * Prepares (and returns) a context suitable for evaluating the body of a function
-	 */
-	protected BExecutionContext callPrepare(IFunction f, Object[] params, Type[] types, BExecutionContext octx)
-			throws Throwable {
-		B3FunctionType functionSignature = functionUtils.getInferredSignature(f);
-
-		Type[] functionParameterTypes = functionSignature.getParameterTypesArray();
-
-		if(B3Debug.evaluator) {
-			B3Debug.trace("[evaluator] START callPrepare(function: ", f.getName(), ")");
-			if(functionParameterTypes.length < 1)
-				B3Debug.trace("[evaluator]       callPrepare(function: ", f.getName(), "), NO PARAMETERS");
-		}
-		// Type[] functionParameterTypes = f.getParameterTypes();
-		if(functionParameterTypes.length > 0) { // if function takes no parameters, there is no binding to be done
-			int limit = functionParameterTypes.length - 1; // bind all but the last defined parameter
-			if(params.length < limit)
-				throw new IllegalArgumentException("B3 Function '" + f.getName() + "' " +
-						"called with too few arguments. Expected: " + functionParameterTypes.length + " but got: " +
-						params.length);
-
-			// parameter names may be processed differently for some IFunction subtypes (i.e.
-			// implicit variables).
-
-			String[] functionParameterNames = doParameterNames(f);
-			for(int i = 0; i < limit; i++) {
-				// check type compatibility
-				Object o = params[i];
-				Type t = o instanceof BFunction
-						? FunctionUtils.getSignature((BFunction) o)
-						: o.getClass();
-
-				if(!(TypeUtils.isAssignableFrom(functionParameterTypes[i], t)))
-					throw new B3IncompatibleTypeException(
-						functionParameterNames[i], functionParameterTypes[i], params[i].getClass());
-
-				if(B3Debug.evaluator)
-					B3Debug.trace(
-						"[evaluator]       callPrepare(function: ", f.getName(), "), binding ",
-						functionParameterTypes[i], " ", functionParameterNames[i], " = ", params[i]);
-
-				// ok, define it
-				octx.defineVariableValue(functionParameterNames[i], params[i], functionParameterTypes[i]);
-			}
-			if(!f.isVarArgs()) { // if not varargs, bind the last defined parameter
-				if(params.length < functionParameterTypes.length)
-					throw new IllegalArgumentException("B3 Function '" + f.getName() + "' " +
-							"called with too few arguments. Expected: " + functionParameterTypes.length + " but got: " +
-							params.length);
-				// check type compatibility
-				Object o = params[limit];
-				if(o != null) {
-					Type t = o instanceof BFunction
-							? FunctionUtils.getSignature((BFunction) o)
-							: o.getClass();
-					if(!TypeUtils.isAssignableFrom(functionParameterTypes[limit], t))
-						throw new B3IncompatibleTypeException(
-							functionParameterNames[limit], functionParameterTypes[limit], params[limit].getClass());
-				}
-				if(B3Debug.evaluator)
-					B3Debug.trace(
-						"[evaluator]       callPrepare(function: ", f.getName(), "), binding ",
-						functionParameterTypes[limit], " ", functionParameterNames[limit], " = ", params[limit]);
-
-				// ok
-				octx.defineVariableValue(functionParameterNames[limit], params[limit], functionParameterTypes[limit]);
-			}
-			else {
-				// varargs call, create a list and stuff any remaining parameters there
-				List<Object> varargs = new ArrayList<Object>();
-				Type varargsType = functionParameterTypes[limit];
-				for(int i = limit; i < params.length; i++) {
-					Object o = params[i];
-					Type t = o instanceof BFunction
-							? FunctionUtils.getSignature((BFunction) o)
-							: o.getClass();
-
-					if(!TypeUtils.isAssignableFrom(varargsType, t))
-						throw new B3IncompatibleTypeException(
-							functionParameterNames[limit], varargsType, params[i].getClass());
-					varargs.add(params[i]);
-				}
-				B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-				pt.setRawType(List.class);
-				pt.getActualArgumentsList().add(functionParameterTypes[limit]);
-
-				if(B3Debug.evaluator)
-					B3Debug.trace(
-						"[evaluator]       callPrepare(function: ", f.getName(), "), binding ", pt, "... ",
-						functionParameterNames[limit], " = ", varargs);
-
-				// bind the varargs to a List of the declared type (possibly an empty list).
-				octx.defineVariableValue(functionParameterNames[limit], varargs, pt);
-			}
-		}
-		// mark the processing of parameters as done - (a bit ugly for now, as it requires getting the valueMap
-		// from the context - should be API on the context.
-		octx.getValueMap().markParametersDone(f.isVarArgs());
-
-		if(B3Debug.evaluator)
-			B3Debug.trace("[evaluator] END callPrepare(function: ", f.getName(), ")");
-
-		// returns the prepared context
-		return octx;
-	}
-
 	public Object evaluate(BAndExpression o, BExecutionContext ctx) throws Throwable {
 		if(Boolean.FALSE.equals(doEvaluate(o.getLeftExpr(), ctx)))
 			return Boolean.FALSE;
@@ -779,41 +645,41 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 			}
 		}
 		Class<?> clazz = TypeUtils.getRaw(objectType);
-
+		Object result = null;
 		// if trying to create an instance from an interface see if there is a guice binding for it.
 		//
 		if(clazz.isInterface()) {
-			Object result = ctx.getInjector().getInstance(clazz);
+			result = ctx.getInjector().getInstance(clazz);
 			if(result == null)
 				throw new B3InternalError(
 					"NEW on Interface without error from injector - should not have reached this point for interface: " +
 							clazz.getName());
 			if(o.getParameterList().getParameters().size() > 1)
 				throw new B3IllegalInjectionArgumentsException();
-			return result;
+			// return result;
 		}
+		else {
+			ConstructorCandidate constructorCandidate;
+			{
+				LinkedList<ConstructorCandidate> candidateConstructors = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
+					parameterTypes, new ConstructorCandidateSource(clazz));
 
-		ConstructorCandidate constructorCandidate;
-		{
-			LinkedList<ConstructorCandidate> candidateConstructors = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
-				parameterTypes, new ConstructorCandidateSource(clazz));
-
-			switch(candidateConstructors.size()) {
-				case 0: // no candidate constructor found
-					throw new B3NoSuchFunctionSignatureException(
-						"new", getAllParameterTypes(objectType, parameterTypes));
-				case 1: // one candidate constructor found
-					constructorCandidate = candidateConstructors.getFirst();
-					break;
-				default: // more than one candidate constructor found (the constructor call is ambiguous)
-					throw new B3AmbiguousFunctionSignatureException("new", getAllParameterTypes(
-						objectType, parameterTypes));
+				switch(candidateConstructors.size()) {
+					case 0: // no candidate constructor found
+						throw new B3NoSuchFunctionSignatureException("new", getAllParameterTypes(
+							objectType, parameterTypes));
+					case 1: // one candidate constructor found
+						constructorCandidate = candidateConstructors.getFirst();
+						break;
+					default: // more than one candidate constructor found (the constructor call is ambiguous)
+						throw new B3AmbiguousFunctionSignatureException("new", getAllParameterTypes(
+							objectType, parameterTypes));
+				}
 			}
+
+			Object[] callParameters = constructorCandidate.prepareJavaCallParameters(parameterTypes, parameters);
+			result = constructorCandidate.getConstructor().newInstance(callParameters);
 		}
-
-		Object[] callParameters = constructorCandidate.prepareJavaCallParameters(parameterTypes, parameters);
-		Object result = constructorCandidate.getConstructor().newInstance(callParameters);
-
 		// if creator has a contextBlock and alias, these needs to be processed
 		BExpression cBlock = o.getContextBlock();
 		if(cBlock != null) {
@@ -1352,6 +1218,140 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		for(BParameterDeclaration p : pList)
 			names[i++] = p.getName();
 		return names;
+	}
+
+	protected BExecutionContext callPrepare(BFunctionWrapper o, Object[] parameters, Type[] types, BExecutionContext ctx)
+			throws Throwable {
+		if(B3Debug.evaluator)
+			B3Debug.trace("[evaluator] - callPrepare(functionWrapper: ", o.getName(), ")");
+
+		// prepare the context as it should be for the original function (it may return a different context)
+		BExecutionContext octx = doCallPrepare(o.getOriginal(), parameters, types, ctx);
+
+		// create a mapped context that handles the advising expression's view of what the parameters are called
+		BWrappingContext mc = B3backendFactory.eINSTANCE.createBWrappingContext();
+		mc.mapContext(octx, o.getParameterMap(), o);
+		// keep parameters and types for 'proceed' call
+		mc.setParameters(parameters);
+		mc.setParameterTypes(types);
+		mc.setVarargsName(o.getVarargsName());
+
+		// get the outer context to use for normal calls out of this context
+		BContext outer = ctx.getContext(BContext.class);
+		// use the outer context as the parent since the advising expression should not see the original's
+		// parameter values.
+		mc.setParentContext(outer);
+		// use the outer context found earlier for outer
+		mc.setOuterContext(outer);
+		// need an inner context for the advising expression's local variables since the mapped context is immutable
+		return mc.createInnerContext();
+	}
+
+	/**
+	 * Prepares (and returns) a context suitable for evaluating the body of a function
+	 */
+	protected BExecutionContext callPrepare(IFunction f, Object[] params, Type[] types, BExecutionContext octx)
+			throws Throwable {
+		B3FunctionType functionSignature = functionUtils.getInferredSignature(f);
+
+		Type[] functionParameterTypes = functionSignature.getParameterTypesArray();
+
+		if(B3Debug.evaluator) {
+			B3Debug.trace("[evaluator] START callPrepare(function: ", f.getName(), ")");
+			if(functionParameterTypes.length < 1)
+				B3Debug.trace("[evaluator]       callPrepare(function: ", f.getName(), "), NO PARAMETERS");
+		}
+		// Type[] functionParameterTypes = f.getParameterTypes();
+		if(functionParameterTypes.length > 0) { // if function takes no parameters, there is no binding to be done
+			int limit = functionParameterTypes.length - 1; // bind all but the last defined parameter
+			if(params.length < limit)
+				throw new IllegalArgumentException("B3 Function '" + f.getName() + "' " +
+						"called with too few arguments. Expected: " + functionParameterTypes.length + " but got: " +
+						params.length);
+
+			// parameter names may be processed differently for some IFunction subtypes (i.e.
+			// implicit variables).
+
+			String[] functionParameterNames = doParameterNames(f);
+			for(int i = 0; i < limit; i++) {
+				// check type compatibility
+				Object o = params[i];
+				Type t = o instanceof BFunction
+						? FunctionUtils.getSignature((BFunction) o)
+						: o.getClass();
+
+				if(!(TypeUtils.isAssignableFrom(functionParameterTypes[i], t)))
+					throw new B3IncompatibleTypeException(
+						functionParameterNames[i], functionParameterTypes[i], params[i].getClass());
+
+				if(B3Debug.evaluator)
+					B3Debug.trace(
+						"[evaluator]       callPrepare(function: ", f.getName(), "), binding ",
+						functionParameterTypes[i], " ", functionParameterNames[i], " = ", params[i]);
+
+				// ok, define it
+				octx.defineVariableValue(functionParameterNames[i], params[i], functionParameterTypes[i]);
+			}
+			if(!f.isVarArgs()) { // if not varargs, bind the last defined parameter
+				if(params.length < functionParameterTypes.length)
+					throw new IllegalArgumentException("B3 Function '" + f.getName() + "' " +
+							"called with too few arguments. Expected: " + functionParameterTypes.length + " but got: " +
+							params.length);
+				// check type compatibility
+				Object o = params[limit];
+				if(o != null) {
+					Type t = o instanceof BFunction
+							? FunctionUtils.getSignature((BFunction) o)
+							: o.getClass();
+					if(!TypeUtils.isAssignableFrom(functionParameterTypes[limit], t))
+						throw new B3IncompatibleTypeException(
+							functionParameterNames[limit], functionParameterTypes[limit], params[limit].getClass());
+				}
+				if(B3Debug.evaluator)
+					B3Debug.trace(
+						"[evaluator]       callPrepare(function: ", f.getName(), "), binding ",
+						functionParameterTypes[limit], " ", functionParameterNames[limit], " = ", params[limit]);
+
+				// ok
+				octx.defineVariableValue(functionParameterNames[limit], params[limit], functionParameterTypes[limit]);
+			}
+			else {
+				// varargs call, create a list and stuff any remaining parameters there
+				List<Object> varargs = new ArrayList<Object>();
+				Type varargsType = functionParameterTypes[limit];
+				for(int i = limit; i < params.length; i++) {
+					Object o = params[i];
+					Type t = o instanceof BFunction
+							? FunctionUtils.getSignature((BFunction) o)
+							: o.getClass();
+
+					if(!TypeUtils.isAssignableFrom(varargsType, t))
+						throw new B3IncompatibleTypeException(
+							functionParameterNames[limit], varargsType, params[i].getClass());
+					varargs.add(params[i]);
+				}
+				B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+				pt.setRawType(List.class);
+				pt.getActualArgumentsList().add(functionParameterTypes[limit]);
+
+				if(B3Debug.evaluator)
+					B3Debug.trace(
+						"[evaluator]       callPrepare(function: ", f.getName(), "), binding ", pt, "... ",
+						functionParameterNames[limit], " = ", varargs);
+
+				// bind the varargs to a List of the declared type (possibly an empty list).
+				octx.defineVariableValue(functionParameterNames[limit], varargs, pt);
+			}
+		}
+		// mark the processing of parameters as done - (a bit ugly for now, as it requires getting the valueMap
+		// from the context - should be API on the context.
+		octx.getValueMap().markParametersDone(f.isVarArgs());
+
+		if(B3Debug.evaluator)
+			B3Debug.trace("[evaluator] END callPrepare(function: ", f.getName(), ")");
+
+		// returns the prepared context
+		return octx;
 	}
 
 	/**
