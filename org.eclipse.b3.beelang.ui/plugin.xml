@@ -3,6 +3,7 @@
 
 <plugin>
    <extension-point id="B3BeeLangUiModule" name="org.eclipse.b3.beelang.B3BeeLangUiModule" schema="schema/B3BeeLangUiModule.exsd"/>
+   <extension-point id="B3Templates" name="org.eclipse.b3.beelang.B3Templates" schema="schema/B3Templates.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package

@@ -3,12 +3,14 @@
  */
 package org.eclipse.b3.ui;
 
+import org.eclipse.b3.beelang.ui.templates.B3TemplateStore;
 import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedXtextEditor;
 import org.eclipse.b3.ui.coloring.BeeLangHighlightConfiguration;
 import org.eclipse.b3.ui.coloring.BeeLangSemanticHighlightingCalculator;
 import org.eclipse.b3.ui.coloring.BeeLangTokenToAttributeIdMapper;
 import org.eclipse.b3.ui.contentassist.BeeLangAutoEditStrategy;
 import org.eclipse.b3.ui.outline.BeeLangOutlineNodeAdapterFactory;
+import org.eclipse.jface.text.templates.persistence.TemplateStore;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.XtextEditor;
@@ -49,6 +51,11 @@ public class BeeLangUiModule extends org.eclipse.b3.ui.AbstractBeeLangUiModule {
 	@Override
 	public Class<? extends IXtextEditorCallback> bindIXtextEditorCallback() {
 		return ValidatingEditorCallback.class;
+	}
+
+	@Override
+	public Class<? extends TemplateStore> bindTemplateStore() {
+		return B3TemplateStore.class;
 	}
 
 	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {

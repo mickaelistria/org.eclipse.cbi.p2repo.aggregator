@@ -8,6 +8,7 @@
 
 package org.eclipse.b3.ui.internal;
 
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,8 @@ import com.google.inject.util.Modules;
 public class BeeLangUiActivator extends AbstractUIPlugin {
 	public static final String EXTENSION__UI_MODULE = "org.eclipse.b3.beelang.ui.B3BeeLangUiModule";
 
+	public static final String EXTENSION__TEMPLATES_RESOURCE = "org.eclipse.b3.beelang.ui.B3Templates";
+
 	public static BeeLangUiActivator getInstance() {
 		return INSTANCE;
 	}
@@ -41,6 +44,43 @@ public class BeeLangUiActivator extends AbstractUIPlugin {
 	private Map<String, Injector> injectors = new HashMap<String, Injector>();
 
 	private static BeeLangUiActivator INSTANCE;
+
+	public Injector getInjector(String languageName) {
+		return injectors.get(languageName);
+	}
+
+	public List<URL> getTemplateExtensions() {
+		IConfigurationElement[] configs = Platform.getExtensionRegistry().getConfigurationElementsFor(
+			EXTENSION__TEMPLATES_RESOURCE);
+		List<URL> urls = Lists.newArrayList();
+		for(IConfigurationElement elem : configs) {
+			String filename = elem.getAttribute("file");
+			URL resource = Platform.getBundle(elem.getContributor().getName()).getResource(filename);
+			urls.add(resource);
+		}
+		return urls;
+	}
+
+	@Override
+	public void start(BundleContext context) throws Exception {
+		super.start(context);
+		INSTANCE = this;
+		try {
+
+			injectors.put(
+				"org.eclipse.b3.BeeLang",
+				Guice.createInjector(Modules.override(
+					Modules.override(
+						Modules.override(getRuntimeModule("org.eclipse.b3.BeeLang")).with(
+							getUiModule("org.eclipse.b3.BeeLang"))).with(getSharedStateModule())).with(
+					getExtensionModules())));
+
+		}
+		catch(Exception e) {
+			Logger.getLogger(getClass()).error(e.getMessage(), e);
+			throw e;
+		}
+	}
 
 	protected Module getExtensionModules() throws B3EngineException {
 		IConfigurationElement[] configs = Platform.getExtensionRegistry().getConfigurationElementsFor(
@@ -57,10 +97,6 @@ public class BeeLangUiActivator extends AbstractUIPlugin {
 		if(modules.size() < 1)
 			return Modules.EMPTY_MODULE;
 		return Modules.combine(modules);
-	}
-
-	public Injector getInjector(String languageName) {
-		return injectors.get(languageName);
 	}
 
 	protected Module getRuntimeModule(String grammar) {
@@ -83,27 +119,6 @@ public class BeeLangUiActivator extends AbstractUIPlugin {
 		}
 
 		throw new IllegalArgumentException(grammar);
-	}
-
-	@Override
-	public void start(BundleContext context) throws Exception {
-		super.start(context);
-		INSTANCE = this;
-		try {
-
-			injectors.put(
-				"org.eclipse.b3.BeeLang",
-				Guice.createInjector(Modules.override(
-					Modules.override(
-						Modules.override(getRuntimeModule("org.eclipse.b3.BeeLang")).with(
-							getUiModule("org.eclipse.b3.BeeLang"))).with(getSharedStateModule())).with(
-					getExtensionModules())));
-
-		}
-		catch(Exception e) {
-			Logger.getLogger(getClass()).error(e.getMessage(), e);
-			throw e;
-		}
 	}
 
 }
