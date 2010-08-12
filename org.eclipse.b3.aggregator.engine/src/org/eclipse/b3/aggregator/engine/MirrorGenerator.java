@@ -122,7 +122,8 @@ public class MirrorGenerator extends BuilderPhase {
 				String propKey = entry.getKey();
 				if(propKey.equals(IArtifactDescriptor.DOWNLOAD_MD5) ||
 						propKey.equals(IArtifactDescriptor.DOWNLOAD_SIZE) ||
-						propKey.equals(IArtifactDescriptor.ARTIFACT_SIZE) || propKey.equals(IArtifactDescriptor.FORMAT))
+						propKey.equals(IArtifactDescriptor.ARTIFACT_SIZE) ||
+						propKey.equals(IArtifactDescriptor.FORMAT) || propKey.equals("artifact.uuid"))
 					continue;
 				canonical.setProperty(entry.getKey(), entry.getValue());
 			}

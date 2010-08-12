@@ -291,27 +291,27 @@ public class RepositoryVerifier extends BuilderPhase {
 		subMon.beginTask(info, IProgressMonitor.UNKNOWN);
 		LogUtils.debug(info);
 
-		// Scan all mapped repositories for this IU
-		//
-		IInstallableUnit miu = null;
-		MetadataRepository mdr = null;
-		contribs: for(Contribution contrib : getBuilder().getAggregator().getContributions(true))
-
-			for(MappedRepository repo : contrib.getRepositories(true)) {
-				MetadataRepository candidate = repo.getMetadataRepository();
-				for(IInstallableUnit candidateIU : candidate.getInstallableUnits())
-					if(iu.getId().equals(candidateIU.getId()) && iu.getVersion().equals(candidateIU.getVersion())) {
-						mdr = candidate;
-						miu = candidateIU;
-						break contribs;
-					}
-			}
-
-		if(mdr == null)
-			throw ExceptionUtils.fromMessage(
-				"Unable to locate mapped repository for IU %s/%s", iu.getId(), iu.getVersion());
-
 		try {
+			// Scan all mapped repositories for this IU
+			//
+			IInstallableUnit miu = null;
+			MetadataRepository mdr = null;
+			contribs: for(Contribution contrib : getBuilder().getAggregator().getContributions(true))
+
+				for(MappedRepository repo : contrib.getRepositories(true)) {
+					MetadataRepository candidate = repo.getMetadataRepository();
+					for(IInstallableUnit candidateIU : candidate.getInstallableUnits())
+						if(iu.getId().equals(candidateIU.getId()) && iu.getVersion().equals(candidateIU.getVersion())) {
+							mdr = candidate;
+							miu = candidateIU;
+							break contribs;
+						}
+				}
+
+			if(mdr == null)
+				throw ExceptionUtils.fromMessage(
+					"Unable to locate mapped repository for IU %s/%s", iu.getId(), iu.getVersion());
+
 			IArtifactRepository sourceAr = arMgr.loadRepository(mdr.getLocation(), subMon.newChild(10));
 			File tempRepositoryFolder = getBuilder().getTempRepositoryFolder();
 			tempRepositoryFolder.mkdirs();
@@ -327,6 +327,7 @@ public class RepositoryVerifier extends BuilderPhase {
 			}
 
 			Collection<IArtifactKey> artifacts = miu.getArtifacts();
+			IArtifactKey key = artifacts.iterator().next();
 			ArrayList<String> errors = new ArrayList<String>();
 			MirrorGenerator.mirror(
 				artifacts, null, sourceAr, tempAr, PackedStrategy.UNPACK_AS_SIBLING, errors, subMon.newChild(1));
@@ -340,7 +341,6 @@ public class RepositoryVerifier extends BuilderPhase {
 				throw new CoreException(status);
 			}
 
-			IArtifactKey key = artifacts.iterator().next();
 			File bundleFile = tempAr.getArtifactFile(key);
 			if(bundleFile == null)
 				throw ExceptionUtils.fromMessage(
@@ -356,6 +356,10 @@ public class RepositoryVerifier extends BuilderPhase {
 			allIUs.remove(miu);
 			allIUs.add(newIU);
 			return newIU;
+		}
+		catch(CoreException e) {
+			getBuilder().sendEmail(findContribution(iu.getId()), Collections.singletonList(e.getMessage()));
+			throw e;
 		}
 		finally {
 			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), arMgr);
