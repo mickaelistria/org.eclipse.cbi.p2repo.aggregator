@@ -52,7 +52,8 @@ public class BeeLangHighlightConfiguration extends DefaultHighlightingConfigurat
 	public TextStyle docTextStyle() {
 		TextStyle textStyle = defaultTextStyle().copy();
 		textStyle.setColor(new RGB(63, 95, 191));
-		textStyle.setBackgroundColor(new RGB(252, 255, 240)); // titanium white
+		// Does not look as good as background color affects only what is behind the text.
+		// textStyle.setBackgroundColor(new RGB(252, 255, 240)); // titanium white
 		textStyle.setStyle(SWT.ITALIC);
 		return textStyle;
 	}
