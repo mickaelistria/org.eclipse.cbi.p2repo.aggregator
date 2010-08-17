@@ -182,8 +182,16 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 
 	StyledString text(BuildUnit ele) {
 		StyledString bld = new StyledString(ele.getName());
-		bld.append(" : unit", StyledString.DECORATIONS_STYLER);
+
+		String versionString = ele.getVersion() != null
+				? versionFormatManager.toString(ele.getVersion())
+				: null;
+
+		bld.append(" : unit" + (versionString != null
+				? " - " + versionString
+				: ""), StyledString.DECORATIONS_STYLER);
 		return bld;
+
 	}
 
 	String text(BVariableExpression ele) {
