@@ -15,14 +15,24 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.beelang.ui.BeeLangNodeUtils;
+import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.FirstFoundUnitProvider;
+import org.eclipse.b3.build.FragmentHost;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.Repository;
+import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.ui.labeling.BeeLangLabelProvider;
+import org.eclipse.b3.versions.IVersionFormatManager;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.text.Region;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.xtext.parsetree.AbstractNode;
+import org.eclipse.xtext.resource.EObjectHandleImpl;
 import org.eclipse.xtext.ui.IImageHelper;
 import org.eclipse.xtext.ui.editor.outline.ContentOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.OutlineLabelProvider;
@@ -40,6 +50,9 @@ public class BeeLangTransformer extends AbstractDeclarativeSemanticModelTransfor
 	@Inject
 	@OutlineLabelProvider
 	private ILabelProvider labelProvider;
+
+	@Inject
+	private IVersionFormatManager versionFormatManager;
 
 	// This helper is injected as a private helper in AbstractLabelProvider, but is difficult
 	// to use when mapping structural features.
@@ -69,9 +82,6 @@ public class BeeLangTransformer extends AbstractDeclarativeSemanticModelTransfor
 		// default properties
 		if(beeModel.getDefaultProperties() != null) {
 			ContentOutlineNode defaultProperties = newOutlineNode(beeModel.getDefaultProperties(), result);
-
-			// ContentOutlineNode defaultProperties = new ContentOutlineNode("default-properties");
-			// result.getChildren().add(defaultProperties);
 			transformSemanticChildNodes(beeModel.getDefaultProperties(), defaultProperties);
 		}
 
@@ -98,6 +108,18 @@ public class BeeLangTransformer extends AbstractDeclarativeSemanticModelTransfor
 	public ContentOutlineNode createNode(BuildUnit unit, ContentOutlineNode outlineParentNode) {
 		ContentOutlineNode result = super.createNode(unit, outlineParentNode);
 
+		if(unit.getVersion() != null) {
+			AbstractNode versionNode = BeeLangNodeUtils.getFirstFeatureNode(unit, "version");
+			if(versionNode != null) {
+				EObjectHandleImpl<EObject> handle = new EObjectHandleImpl<EObject>(unit, getResourceAccess());
+				StyledString label = new StyledString("version");
+				label.append(" : " + versionFormatManager.toString(unit.getVersion()), StyledString.DECORATIONS_STYLER);
+				ContentOutlineNode n = new ContentOutlineNode(
+					label, imageHelper.getImage(BeeLangLabelProvider.FEATURE), new Region(
+						versionNode.getOffset(), versionNode.getLength()), handle, B3BuildPackage.Literals.BUILD_UNIT);
+				result.getChildren().add(n);
+			}
+		}
 		// "is" Node, with types as subnodes
 		if(!unit.getImplements().isEmpty()) {
 			ContentOutlineNode types = new ContentOutlineNode("is");
@@ -107,10 +129,37 @@ public class BeeLangTransformer extends AbstractDeclarativeSemanticModelTransfor
 			for(Type type : unit.getImplements())
 				transformSemanticNode((EObject) TypeUtils.coerceToEObjectType(type), types);
 		}
+		// fragment host
+		for(FragmentHost fragment : unit.getFragmentHosts()) {
+			ContentOutlineNode psNode = newOutlineNode(fragment, result);
+			transformSemanticChildNodes(fragment, psNode);
+		}
+
+		// "requires", "meta requires", and "requirements predicates"
+		if(unit.getRequiredCapabilities().size() > 0) {
+			ContentOutlineNode required = new ContentOutlineNode("requires");
+			required.setImage(imageHelper.getImage(BeeLangLabelProvider.REQUIRED));
+			result.getChildren().add(required);
+
+			for(RequiredCapability r : unit.getRequiredCapabilities()) {
+				ContentOutlineNode rNode = newOutlineNode(r, required);
+				transformSemanticChildNodes(r, rNode);
+			}
+		}
+		// "provides"
+		if(unit.getProvidedCapabilities().size() > 0) {
+			ContentOutlineNode provides = new ContentOutlineNode("provides");
+			provides.setImage(imageHelper.getImage(BeeLangLabelProvider.PROVIDED));
+			result.getChildren().add(provides);
+			for(Capability p : unit.getProvidedCapabilities()) {
+				ContentOutlineNode pNode = newOutlineNode(p, provides);
+				transformSemanticChildNodes(p, pNode);
+
+			}
+		}
 		for(IBuilder b : unit.getBuilders())
 			transformSemanticNode(b, result);
 
-		// children.addAll(unit.getFragmentHosts());
 		// children.addAll(unit.getRequiredCapabilities());
 		// children.addAll(unit.getRequiredPredicates());
 

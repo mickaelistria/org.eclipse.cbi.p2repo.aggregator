@@ -3,6 +3,7 @@ package org.eclipse.b3.ui.coloring;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
+import org.eclipse.b3.beelang.ui.BeeLangNodeUtils;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.CapabilityPredicate;
@@ -15,12 +16,10 @@ import org.eclipse.b3.services.BeeLangGrammarAccess;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.parsetree.AbstractNode;
 import org.eclipse.xtext.parsetree.CompositeNode;
-import org.eclipse.xtext.parsetree.LeafNode;
 import org.eclipse.xtext.parsetree.NodeAdapter;
 import org.eclipse.xtext.parsetree.NodeUtil;
 import org.eclipse.xtext.resource.XtextResource;
@@ -72,28 +71,29 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 	// name, or the assignment of a composite node to first feature with given name.
 	//
 	public AbstractNode getFirstFeatureNode(EObject semantic, String feature) {
-		NodeAdapter adapter = NodeUtil.getNodeAdapter(semantic);
-		if(adapter != null) {
-			CompositeNode node = adapter.getParserNode();
-			if(node != null) {
-				if(feature == null)
-					return null;
-				for(AbstractNode child : node.getChildren()) {
-					if(child instanceof LeafNode) {
-						if(feature.equals(((LeafNode) child).getFeature())) {
-							return child;
-						}
-					}
-					else if(child instanceof CompositeNode) {
-						EObject ge = ((CompositeNode) child).getGrammarElement();
-						if(ge.eContainer() instanceof Assignment)
-							if(feature.equals(((Assignment) ge.eContainer()).getFeature()))
-								return child;
-					}
-				}
-			}
-		}
-		return null;
+		return BeeLangNodeUtils.getFirstFeatureNode(semantic, feature);
+		// NodeAdapter adapter = NodeUtil.getNodeAdapter(semantic);
+		// if(adapter != null) {
+		// CompositeNode node = adapter.getParserNode();
+		// if(node != null) {
+		// if(feature == null)
+		// return null;
+		// for(AbstractNode child : node.getChildren()) {
+		// if(child instanceof LeafNode) {
+		// if(feature.equals(((LeafNode) child).getFeature())) {
+		// return child;
+		// }
+		// }
+		// else if(child instanceof CompositeNode) {
+		// EObject ge = ((CompositeNode) child).getGrammarElement();
+		// if(ge.eContainer() instanceof Assignment)
+		// if(feature.equals(((Assignment) ge.eContainer()).getFeature()))
+		// return child;
+		// }
+		// }
+		// }
+		// }
+		// return null;
 	}
 
 	public void highlightBuildUnit(BuildUnit bu, IHighlightedPositionAcceptor acceptor) {
@@ -102,33 +102,6 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 
 	public void highlightCapabilityPredicate(CapabilityPredicate cp, IHighlightedPositionAcceptor acceptor) {
 		highlightFirstFeature(cp, "versionRange", BeeLangHighlightConfiguration.VERSION_ID, acceptor);
-	}
-
-	// helper method that takes care of highlighting the first feature element
-	// of a semantic object using a given text style ID
-	private void highlightFirstFeature(EObject semobject, String featurename, String highlightID,
-			IHighlightedPositionAcceptor acceptor) {
-		// fetch the parse node for the entity
-		AbstractNode nodetohighlight = getFirstFeatureNode(semobject, featurename);
-		if(nodetohighlight == null) {
-			// TODO: WARNING - Could not find node
-			return;
-		}
-		acceptor.addPosition(nodetohighlight.getOffset(), nodetohighlight.getLength(), highlightID);
-	}
-
-	private void highlightObject(EObject semantic, String highlightID, IHighlightedPositionAcceptor acceptor) {
-		NodeAdapter adapter = NodeUtil.getNodeAdapter(semantic);
-		if(adapter == null) {
-			// TODO: WARNING - Could not find node
-			return;
-		}
-		CompositeNode node = adapter.getParserNode();
-		if(node == null) {
-			// TODO: WARNING - Could not find node
-			return;
-		}
-		acceptor.addPosition(node.getOffset(), node.getLength(), highlightID);
 	}
 
 	public void highlightPaths(PathVector v, IHighlightedPositionAcceptor acceptor) {
@@ -207,5 +180,32 @@ public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlight
 				highlightRepoOption((RepoOption) o, acceptor);
 
 		}
+	}
+
+	// helper method that takes care of highlighting the first feature element
+	// of a semantic object using a given text style ID
+	private void highlightFirstFeature(EObject semobject, String featurename, String highlightID,
+			IHighlightedPositionAcceptor acceptor) {
+		// fetch the parse node for the entity
+		AbstractNode nodetohighlight = getFirstFeatureNode(semobject, featurename);
+		if(nodetohighlight == null) {
+			// TODO: WARNING - Could not find node
+			return;
+		}
+		acceptor.addPosition(nodetohighlight.getOffset(), nodetohighlight.getLength(), highlightID);
+	}
+
+	private void highlightObject(EObject semantic, String highlightID, IHighlightedPositionAcceptor acceptor) {
+		NodeAdapter adapter = NodeUtil.getNodeAdapter(semantic);
+		if(adapter == null) {
+			// TODO: WARNING - Could not find node
+			return;
+		}
+		CompositeNode node = adapter.getParserNode();
+		if(node == null) {
+			// TODO: WARNING - Could not find node
+			return;
+		}
+		acceptor.addPosition(node.getOffset(), node.getLength(), highlightID);
 	}
 }

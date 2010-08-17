@@ -24,9 +24,17 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
+import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.Builder;
+import org.eclipse.b3.build.Capability;
+import org.eclipse.b3.build.FragmentHost;
+import org.eclipse.b3.build.IBuilder;
+import org.eclipse.b3.build.RequiredCapability;
+import org.eclipse.b3.build.VersionedCapability;
+import org.eclipse.b3.build.core.B3BuildConstants;
+import org.eclipse.b3.versions.IVersionFormatManager;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
@@ -52,6 +60,17 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 
 	public static final String FEATURE = "obj16/field_public_obj.gif";
 
+	public static final String BUILDER = "obj16/builder.png";
+
+	public static final String PROVIDED = "obj16/provided.png";
+
+	public static final String REQUIRED = "obj16/required.png";
+
+	public static final String FRAGMENT_HOST = "obj16/fragment_host.png";
+
+	@Inject
+	private IVersionFormatManager versionFormatManager;
+
 	@Inject
 	public BeeLangLabelProvider(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
@@ -67,6 +86,24 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 
 	public Object image(BuildUnit element) {
 		return UNIT;
+	}
+
+	public Object image(Capability element) {
+		return PROVIDED;
+	}
+
+	public Object image(FragmentHost element) {
+		return FRAGMENT_HOST;
+	}
+
+	public Object image(IBuilder element) {
+		return BUILDER;
+	}
+
+	public Object image(RequiredCapability element) {
+		if(element.eContainer().eClass().getClassifierID() == B3BuildPackage.FRAGMENT_HOST)
+			return FRAGMENT_HOST;
+		return REQUIRED;
 	}
 
 	String text(B3FunctionType ele) {
@@ -137,8 +174,10 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 		return "regexp: " + safeToString(ele.getPattern());
 	}
 
-	String text(Builder ele) {
-		return "builder: " + ele.getName();
+	StyledString text(Builder ele) {
+		StyledString result = new StyledString(ele.getName());
+		result.append(" : builder", StyledString.DECORATIONS_STYLER);
+		return result;
 	}
 
 	StyledString text(BuildUnit ele) {
@@ -149,6 +188,46 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 
 	String text(BVariableExpression ele) {
 		return "value of: " + ele.getNamedValue().getName();
+	}
+
+	StyledString text(Capability element) {
+		StyledString result = new StyledString(element.getName());
+		String ns = element.getNameSpace().equals(B3BuildConstants.B3_NS_BUILDUNIT)
+				? "unit"
+				: element.getNameSpace();
+
+		result.append(" : " + ns, StyledString.DECORATIONS_STYLER);
+		return result;
+	}
+
+	StyledString text(RequiredCapability element) {
+		StyledString result = new StyledString(element.getName());
+		String ns = element.getNameSpace().equals(B3BuildConstants.B3_NS_BUILDUNIT)
+				? "unit"
+				: element.getNameSpace();
+		String versionString = element.getVersionRange() != null
+				? versionFormatManager.toString(element.getVersionRange())
+				: null;
+
+		result.append(" : " + ns + (versionString != null
+				? " - " + versionString
+				: ""), StyledString.DECORATIONS_STYLER);
+		return result;
+	}
+
+	StyledString text(VersionedCapability element) {
+		StyledString result = new StyledString(element.getName());
+		String ns = element.getNameSpace().equals(B3BuildConstants.B3_NS_BUILDUNIT)
+				? "unit"
+				: element.getNameSpace();
+		String versionString = element.getVersion() != null
+				? versionFormatManager.toString(element.getVersion())
+				: null;
+
+		result.append(" : " + ns + (versionString != null
+				? " - " + versionString
+				: ""), StyledString.DECORATIONS_STYLER);
+		return result;
 	}
 
 	/*
