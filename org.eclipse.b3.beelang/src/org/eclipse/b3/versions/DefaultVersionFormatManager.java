@@ -54,6 +54,11 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 
 	}
 
+	// /**
+	// * The OSGi version format.
+	// */
+	// public static final String VERSION_FORMAT__OSGI = "format(n[.n=0;[.n=0;[.S=[A-Za-z0-9_-];='';]]]):";
+
 	/**
 	 * Used by "maven" and many others, similar to OSGi, but with 1.0.0 < 1.0.0-beta
 	 */
@@ -107,6 +112,7 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 		formats.put("tripletSnapshot:", VERSION_FORMAT__TRIPLET_SNAPSHOT);
 		formats.put("gem:", VERSION_FORMAT__GEM);
 		formats.put("auto:", VERSION_FORMAT__AUTO);
+		// formats.put("", VERSION_FORMAT__OSGI);
 
 		versionProposals = Lists.newArrayList();
 		versionProposals.add(new ProposalImpl("osgi", "1.2.3.qualifier"));
@@ -152,17 +158,22 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 	}
 
 	public String toString(Version v) {
-		String s = v.toString();
-		for(String prefix : formats.inverse().keySet()) {
-			if(s.startsWith(prefix)) {
-				s = s.replace(prefix, formats.get(prefix));
-				break;
-			}
+		if(v.isOSGiCompatible())
+			return v.toString();
+		String fmt = v.getFormat() + ":";
+		StringBuffer result = new StringBuffer();
+		if(formats.inverse().containsKey(fmt)) {
+			result.append(formats.inverse().get(fmt));
+			result.append(v.getOriginal());
+			return result.toString();
 		}
-		return s;
+		// unknown format
+		return v.toString();
 	}
 
 	public String toString(VersionRange r) {
+		if(r.isOSGiCompatible())
+			return r.toString();
 		// VersionRange's default "toString" does not produce the same as the input string
 		// format(s):[a,b] => raw:['a','b']/format(s):a,b
 		StringBuffer result = new StringBuffer();
