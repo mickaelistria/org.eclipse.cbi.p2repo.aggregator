@@ -112,7 +112,8 @@ public class BeeLangTransformer extends AbstractDeclarativeSemanticModelTransfor
 		// ContentOutlineNode n = new ContentOutlineNode(
 		// label, imageHelper.getImage(BeeLangLabelProvider.FEATURE), new Region(
 		// versionNode.getOffset(), versionNode.getLength()), handle, B3BuildPackage.Literals.BUILD_UNIT);
-		// result.getChildren().add(n);
+		// result.addChildren(n);
+		// // result.getChildren().add(n);
 		// }
 		// }
 		// "is" Node, with types as subnodes

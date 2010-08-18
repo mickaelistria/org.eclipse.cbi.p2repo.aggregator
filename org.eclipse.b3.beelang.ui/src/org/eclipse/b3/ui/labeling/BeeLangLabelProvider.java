@@ -13,8 +13,10 @@ import java.lang.reflect.Type;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
 import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
@@ -24,6 +26,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.BuildUnit;
@@ -31,12 +35,19 @@ import org.eclipse.b3.build.Builder;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.FragmentHost;
 import org.eclipse.b3.build.IBuilder;
+import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.RequiredCapability;
+import org.eclipse.b3.build.UnitProvider;
 import org.eclipse.b3.build.VersionedCapability;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.versions.IVersionFormatManager;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.preference.JFacePreferences;
+import org.eclipse.jface.resource.ColorRegistry;
+import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
+import org.eclipse.swt.graphics.TextStyle;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 import org.eclipse.xtext.util.Strings;
 
@@ -48,6 +59,28 @@ import com.google.inject.Inject;
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#labelProvider
  */
 public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
+	private static class DefaultStyler extends Styler {
+		private final String fForegroundColorName;
+
+		private final String fBackgroundColorName;
+
+		public DefaultStyler(String foregroundColorName, String backgroundColorName) {
+			fForegroundColorName = foregroundColorName;
+			fBackgroundColorName = backgroundColorName;
+		}
+
+		@Override
+		public void applyStyles(TextStyle textStyle) {
+			ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
+			if(fForegroundColorName != null) {
+				textStyle.foreground = colorRegistry.get(fForegroundColorName);
+			}
+			if(fBackgroundColorName != null) {
+				textStyle.background = colorRegistry.get(fBackgroundColorName);
+			}
+		}
+	}
+
 	public static final String UNIT = "obj16/unit_obj.gif";
 
 	public static final String IMPORT_LIST = "obj16/impc_obj.gif";
@@ -68,8 +101,21 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 
 	public static final String FRAGMENT_HOST = "obj16/fragment_host.png";
 
+	public static final String CONCERN = "obj16/concern.png";
+
+	public static final String FUNCTION = "obj16/function.png";
+
+	public static final String REPO = "obj16/repo.png";
+
+	public static final String UNIT_PROVIDER = "obj16/unit_provider.png";
+
 	@Inject
 	private IVersionFormatManager versionFormatManager;
+
+	@Inject
+	private ITypeProvider typeProvider;
+
+	public static final Styler ERROR_STYLER = new DefaultStyler(JFacePreferences.ERROR_COLOR, null);
 
 	@Inject
 	public BeeLangLabelProvider(AdapterFactoryLabelProvider delegate) {
@@ -78,6 +124,10 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 
 	public Object image(B3JavaImport element) {
 		return IMPORT;
+	}
+
+	public Object image(BConcern element) {
+		return CONCERN;
 	}
 
 	public Object image(BeeModel element) {
@@ -100,10 +150,22 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 		return BUILDER;
 	}
 
+	public Object image(IFunction element) {
+		return FUNCTION;
+	}
+
+	public Object image(Repository element) {
+		return REPO;
+	}
+
 	public Object image(RequiredCapability element) {
 		if(element.eContainer().eClass().getClassifierID() == B3BuildPackage.FRAGMENT_HOST)
 			return FRAGMENT_HOST;
 		return REQUIRED;
+	}
+
+	public Object image(UnitProvider element) {
+		return UNIT_PROVIDER;
 	}
 
 	String text(B3FunctionType ele) {
@@ -125,6 +187,14 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 		return "type: " + safeToString(t);
 	}
 
+	String text(B3Type ele) {
+		String fqn = ele.getRawType().toString();
+		int ix = fqn.lastIndexOf('.');
+		return fqn.substring(ix == -1
+				? 0
+				: ix + 1);
+	}
+
 	String text(BAtExpression ele) {
 		return "[n]";
 	}
@@ -144,8 +214,17 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 				: s;
 	}
 
-	String text(BFunction ele) {
-		return "function: " + ele.getName() + " => " + safeToString(ele.getReturnType());
+	StyledString text(BFunction ele) {
+		StyledString result = new StyledString(ele.getName());
+		Type t = typeProvider.doGetInferredType(ele);
+		if(t == null || !(t instanceof B3FunctionType)) {
+			result.append(" : ", StyledString.DECORATIONS_STYLER);
+			result.append("not inferrable", ERROR_STYLER);
+			return result;
+		}
+		;
+		result.append(" => " + doGetText(((B3FunctionType) t).getReturnType()), StyledString.DECORATIONS_STYLER);
+		return result;
 	}
 
 	String text(BLiteralExpression ele) {
@@ -265,5 +344,4 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 				? "null"
 				: o.toString();
 	}
-
 }

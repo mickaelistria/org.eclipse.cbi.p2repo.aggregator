@@ -93,21 +93,6 @@
             name="Validate">
       </command>
     </extension>
-    <extension point="org.eclipse.ui.menus">
-        <menuContribution
-            locationURI="popup:#TextEditorContext?after=group.edit">
-             <command
-                 commandId="org.eclipse.b3.BeeLang.validate"
-                 style="push"
-                 tooltip="Trigger expensive validation">
-            <visibleWhen checkEnabled="false">
-                <reference
-                    definitionId="org.eclipse.b3.BeeLang.Editor.opened">
-                </reference>
-            </visibleWhen>
-         </command>  
-         </menuContribution>
-    </extension>
 	<extension point="org.eclipse.ui.handlers">
 	    <handler
             class="org.eclipse.b3.ui.BeeLangUiExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
