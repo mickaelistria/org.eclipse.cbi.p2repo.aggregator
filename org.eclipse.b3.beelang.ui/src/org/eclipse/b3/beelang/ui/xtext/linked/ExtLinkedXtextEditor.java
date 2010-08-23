@@ -78,23 +78,8 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 	public void dispose() {
 		// Unlink the input if it was linked
 		IEditorInput input = getEditorInput();
-		if(input instanceof IFileEditorInput) {
-			IFile file = ((IFileEditorInput) input).getFile();
-			if(file.isLinked()) {
-				file.getProject().getName().equals(AUTOLINK_PROJECT_NAME);
-				try {
-					// if the editor is disposed because workbench is shutting down, it is NOT a good
-					// idea to delete the link
-					if(PlatformUI.isWorkbenchRunning() && !PlatformUI.getWorkbench().isClosing())
-						file.delete(true, null);
-				}
-				catch(CoreException e) {
-					// Nothing to do really, it will be recreated/refreshed later if ever used - some garbage may stay behind...
-					// TODO: log the issue
-					e.printStackTrace();
-				}
-			}
-		}
+		if(input instanceof IFileEditorInput)
+			unlinkInput((IFileEditorInput) input);
 		super.dispose();
 	}
 
@@ -291,6 +276,8 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 				provider.changed(newInput);
 				if(success)
 					setInput(newInput);
+				// the linked file must be removed (esp. if it is an "untitled" link).
+				unlinkInput(((IFileEditorInput) input));
 			}
 
 			if(progressMonitor != null)
@@ -399,6 +386,24 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 		}
 		catch(CoreException e) {
 			throw new WrappedException(e);
+		}
+	}
+
+	private void unlinkInput(IFileEditorInput input) {
+		IFile file = input.getFile();
+		if(file.isLinked()) {
+			file.getProject().getName().equals(AUTOLINK_PROJECT_NAME);
+			try {
+				// if the editor is disposed because workbench is shutting down, it is NOT a good
+				// idea to delete the link
+				if(PlatformUI.isWorkbenchRunning() && !PlatformUI.getWorkbench().isClosing())
+					file.delete(true, null);
+			}
+			catch(CoreException e) {
+				// Nothing to do really, it will be recreated/refreshed later if ever used - some garbage may stay behind...
+				// TODO: log the issue
+				e.printStackTrace();
+			}
 		}
 	}
 }
