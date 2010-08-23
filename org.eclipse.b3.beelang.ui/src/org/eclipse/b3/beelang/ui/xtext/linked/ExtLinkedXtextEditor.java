@@ -69,21 +69,6 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 		super();
 	}
 
-	private void createLink(IProject project, IFile linkFile, java.net.URI uri) throws CoreException {
-		IPath path = linkFile.getFullPath();
-
-		IPath folders = path.removeLastSegments(1).removeFirstSegments(1);
-		IPath checkPath = Path.ROOT;
-		int segmentCount = folders.segmentCount();
-		for(int i = 0; i < segmentCount; i++) {
-			checkPath = checkPath.addTrailingSeparator().append(folders.segment(i));
-			IFolder folder = project.getFolder(checkPath);
-			if(!folder.exists())
-				folder.create(true, true, null);
-		}
-		linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -113,24 +98,40 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 		super.dispose();
 	}
 
-	/**
-	 * Overridden to allow customization of editor context menu via injected handler
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.ui.editors.text.TextEditor#editorContextMenuAboutToShow(org.eclipse.jface.action.IMenuManager)
+	 * @see org.eclipse.xtext.ui.editor.XtextEditor#doSave(org.eclipse.core.runtime.IProgressMonitor)
 	 */
 	@Override
-	protected void editorContextMenuAboutToShow(IMenuManager menu) {
-		super.editorContextMenuAboutToShow(menu);
-		editorCustomizer.customizeEditorContextMenu(menu);
-
-	}
-
-	private IFile getWorkspaceFile(IFileStore fileStore) {
-		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
-		IFile[] files = workspaceRoot.findFilesForLocationURI(fileStore.toURI());
-		if(files != null && files.length == 1)
-			return files[0];
-		return null;
+	public void doSave(IProgressMonitor progressMonitor) {
+		// TODO If document is a temporary / untitled document, the save is a saveAs
+		// TODO: use a session token instead
+		final IEditorInput input = getEditorInput();
+		if(input instanceof IFileEditorInput && ((IFileEditorInput) input).getFile().isLinked() &&
+				((IFileEditorInput) input).getFile().getProject().getName().equals(AUTOLINK_PROJECT_NAME)) {
+			String val;
+			try {
+				val = ((FileEditorInput) input).getFile().getPersistentProperty(
+					TmpFileStoreEditorInput.UNTITLED_PROPERTY);
+			}
+			catch(CoreException e) {
+				// Don't know what to do here - this is really bad, but doSave does not expect
+				// any errors.
+				throw new WrappedException(e);
+			}
+			if(val != null && "true".equals(val)) {
+				doSaveAs();
+				return;
+			}
+			// IPath oldPath = URIUtil.toPath(((IURIEditorInput) input).getURI());
+			//
+			// if(oldPath.lastSegment().startsWith("untitled")) {
+			// doSaveAs();
+			// return;
+			// }
+		}
+		super.doSave(progressMonitor);
 	}
 
 	/**
@@ -156,7 +157,19 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 			String name = ((IURIEditorInput) input).getName();
 			// Check if this is linkable input
 			if(uri.getScheme().equals("file")) {
-				IFile linkedFile = obtainLink(uri);
+				IFile linkedFile = null;
+				// check and process tmp file input (untitled)
+				if(input instanceof TmpFileStoreEditorInput)
+					try {
+						linkedFile = obtainLink(uri, true);
+						linkedFile.setPersistentProperty(TmpFileStoreEditorInput.UNTITLED_PROPERTY, "true");
+					}
+					catch(CoreException e) {
+						throw new PartInitException(e.getStatus());
+					}
+				else {
+					linkedFile = obtainLink(uri, false);
+				}
 				IFileEditorInput linkedInput = new FileEditorInput(linkedFile);
 				super.init(site, linkedInput);
 
@@ -175,47 +188,15 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 	}
 
 	/**
-	 * Throws WrappedException - the URI must refer to an existing file!
+	 * Overridden to allow customization of editor context menu via injected handler
 	 * 
-	 * @param uri
-	 * @return
+	 * @see org.eclipse.ui.editors.text.TextEditor#editorContextMenuAboutToShow(org.eclipse.jface.action.IMenuManager)
 	 */
-	private IFile obtainLink(java.net.URI uri) {
-		try {
-			IWorkspace ws = ResourcesPlugin.getWorkspace();
-			// get, or create project if non existing
-			IProject project = ws.getRoot().getProject(AUTOLINK_PROJECT_NAME);
-			boolean newProject = false;
-			if(!project.exists()) {
-				project.create(null);
-				newProject = true;
-			}
-			if(!project.isOpen()) {
-				project.open(null);
-				project.setHidden(true);
-			}
+	@Override
+	protected void editorContextMenuAboutToShow(IMenuManager menu) {
+		super.editorContextMenuAboutToShow(menu);
+		editorCustomizer.customizeEditorContextMenu(menu);
 
-			if(newProject)
-				project.setDefaultCharset(ENCODING_UTF8, new NullProgressMonitor());
-
-			// path in project that is the same as the external file's path
-			IFile linkFile = project.getFile(uri.getPath());
-			if(linkFile.exists())
-				linkFile.refreshLocal(1, null); // don't know if needed (or should be avoided...)
-			else {
-				// create the link
-				createLink(project, linkFile, uri);
-				// linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
-			}
-			return linkFile;
-
-			// IPath location = new Path(name);
-			// IFile file = project.getFile(location.lastSegment());
-			// file.createLink(location, IResource.NONE, null);
-		}
-		catch(CoreException e) {
-			throw new WrappedException(e);
-		}
 	}
 
 	// SaveAs support for linked files - saves them on local disc, not to workspace if file is in special
@@ -280,7 +261,7 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 			else {
 				IURIEditorInput uriInput = new FileStoreEditorInput(fileStore);
 				java.net.URI uri = uriInput.getURI();
-				IFile linkedFile = obtainLink(uri);
+				IFile linkedFile = obtainLink(uri, false);
 
 				newInput = new FileEditorInput(linkedFile);
 			}
@@ -319,5 +300,105 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 		}
 
 		super.performSaveAs(progressMonitor);
+	}
+
+	private void createLink(IProject project, IFile linkFile, java.net.URI uri) throws CoreException {
+		IPath path = linkFile.getFullPath();
+
+		IPath folders = path.removeLastSegments(1).removeFirstSegments(1);
+		IPath checkPath = Path.ROOT;
+		int segmentCount = folders.segmentCount();
+		for(int i = 0; i < segmentCount; i++) {
+			checkPath = checkPath.addTrailingSeparator().append(folders.segment(i));
+			IFolder folder = project.getFolder(checkPath);
+			if(!folder.exists())
+				folder.create(true, true, null);
+		}
+		linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
+	}
+
+	private int getFirstFreeUntitled(IProject project) throws CoreException {
+		IFolder untitledFolder = project.getFolder("untitled");
+		if(!untitledFolder.exists()) {
+			untitledFolder.create(true, true, new NullProgressMonitor());
+			return 0;
+		}
+		IResource[] resources = untitledFolder.members();
+		int result = resources.length > 0
+				? 1
+				: 0;
+		for(IResource r : resources) {
+			// tied to format "untitled-n"
+			int dash = r.getName().indexOf("-");
+			if(dash < 0)
+				continue;
+			int sequence = Integer.valueOf(r.getName().substring(dash + 1, r.getName().length() - 3));
+			result = sequence > result
+					? sequence
+					: result;
+		}
+		return result + 1;
+	}
+
+	private IFile getWorkspaceFile(IFileStore fileStore) {
+		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+		IFile[] files = workspaceRoot.findFilesForLocationURI(fileStore.toURI());
+		if(files != null && files.length == 1)
+			return files[0];
+		return null;
+	}
+
+	/**
+	 * Throws WrappedException - the URI must refer to an existing file!
+	 * 
+	 * @param uri
+	 * @return
+	 */
+	private IFile obtainLink(java.net.URI uri, boolean untitled) {
+		try {
+			IWorkspace ws = ResourcesPlugin.getWorkspace();
+			// get, or create project if non existing
+			IProject project = ws.getRoot().getProject(AUTOLINK_PROJECT_NAME);
+			boolean newProject = false;
+			if(!project.exists()) {
+				project.create(null);
+				newProject = true;
+			}
+			if(!project.isOpen()) {
+				project.open(null);
+				project.setHidden(true);
+			}
+
+			if(newProject)
+				project.setDefaultCharset(ENCODING_UTF8, new NullProgressMonitor());
+			IFile linkFile = null;
+			if(untitled) {
+				int firstFree = getFirstFreeUntitled(project);
+				IFolder untitledFolder = project.getFolder("untitled");
+				String fileName = "untitled" + (firstFree > 1
+						? "-" + Integer.toString(firstFree)
+						: "") + ".b3";
+				linkFile = untitledFolder.getFile(fileName);
+			}
+			else {
+				// path in project that is the same as the external file's path
+				linkFile = project.getFile(uri.getPath());
+			}
+			if(linkFile.exists())
+				linkFile.refreshLocal(1, null); // don't know if needed (or should be avoided...)
+			else {
+				// create the link
+				createLink(project, linkFile, uri);
+				// linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
+			}
+			return linkFile;
+
+			// IPath location = new Path(name);
+			// IFile file = project.getFile(location.lastSegment());
+			// file.createLink(location, IResource.NONE, null);
+		}
+		catch(CoreException e) {
+			throw new WrappedException(e);
+		}
 	}
 }
