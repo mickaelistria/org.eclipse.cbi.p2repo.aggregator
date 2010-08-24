@@ -55,9 +55,9 @@ import com.google.inject.Inject;
  * opening and saving external files, by managing them as linked resources.
  */
 public class ExtLinkedXtextEditor extends XtextEditor {
-	private static final String AUTOLINK_PROJECT_NAME = "AutoLinked_B3ExternalFiles";
+	public static final String AUTOLINK_PROJECT_NAME = "AutoLinked_B3ExternalFiles";
 
-	private static final String ENCODING_UTF8 = "utf-8";
+	public static final String ENCODING_UTF8 = "utf-8";
 
 	@Inject
 	private IExtXtextEditorCustomizer editorCustomizer;
