@@ -61,7 +61,7 @@
         <page
             class="org.eclipse.b3.ui.BeeLangUiExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
             id="org.eclipse.b3.BeeLang"
-            name="BeeLang">
+            name="b3">
             <keywordReference id="org.eclipse.b3.ui.keyword_BeeLang"/>
         </page>
         <page
