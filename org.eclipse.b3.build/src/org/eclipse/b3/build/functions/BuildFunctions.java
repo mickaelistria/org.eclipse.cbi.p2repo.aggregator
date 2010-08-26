@@ -30,6 +30,7 @@ import org.eclipse.b3.build.core.adapters.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.core.iterators.EffectiveUnitIterator;
 import org.eclipse.b3.build.core.runtime.SharedScope;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 
 import com.google.inject.Injector;
@@ -150,6 +151,9 @@ public class BuildFunctions {
 		}
 		job.schedule();
 		job.join();
+		IStatus result = job.getResult();
+		if(!result.isOK())
+			throw new CoreException(result);
 		return job.getBuildResult();
 	}
 
