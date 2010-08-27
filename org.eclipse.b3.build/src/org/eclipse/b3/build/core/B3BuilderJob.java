@@ -118,51 +118,6 @@ public class B3BuilderJob extends AbstractB3Job {
 	}
 
 	/**
-	 * Collect result, merges results according to aliases/groups, and assigns these as
-	 * unmodifiable values in the context.
-	 * 
-	 * @param jobsToRun
-	 * @return MultiStatus if result was not ok, otherwise B3BuilderStatus
-	 */
-	private IStatus collectResult(List<B3BuilderJob> jobsToRun) throws B3EngineException {
-		MultiStatus ms = new MultiStatus(B3BuildActivator.instance.getBundle().getSymbolicName(), 0, "", null);
-		for(B3BuilderJob job : jobsToRun) {
-			IStatus s = job.getResult();
-			if(s == null)
-				s = Status.CANCEL_STATUS; // unfinished, never scheduled etc...
-			ms.add(s);
-		}
-		if(!ms.isOK())
-			return ms;
-
-		// collection of all as "input", and collect per "alias"
-		//
-		// create the resulting map, and make sure there is at least an empty BuildResult
-		// (i.e. when no effective input was declared).
-		Map<String, BuildSet> resultMap = new HashMap<String, BuildSet>();
-		resultMap.put("input", B3BuildFactory.eINSTANCE.createBuildSet());
-
-		for(B3BuilderJob job : jobsToRun) {
-			BuildSet r = job.getBuildResult();
-			for(String alias : job.getAliases())
-				mergeResult(alias, r, resultMap);
-			mergeResult("input", r, resultMap); // all are added to "input"
-		}
-		// define all the BuildResults in the context per respective name
-		for(String key : resultMap.keySet())
-			ctx.defineFinalValue(key, resultMap.get(key), BuildSet.class);
-
-		return Status.OK_STATUS;
-	}
-
-	private List<String> getAliases() {
-		if(aliases == null) {
-			return Collections.emptyList();
-		}
-		return aliases;
-	}
-
-	/**
 	 * Obtains the result of the job, and the BuildResult from the returned status.
 	 * If the job state is not OK, an IllegalStateException is thrown.
 	 * 
@@ -175,24 +130,6 @@ public class B3BuilderJob extends AbstractB3Job {
 		if(r != null && r.isOK())
 			return ((B3BuilderStatus) r).getBuildResult();
 		throw new IllegalStateException("Can not obtain result when job state is not OK", new CoreException(r));
-	}
-
-	/**
-	 * Merges result per key
-	 * 
-	 * @param key
-	 * @param add
-	 * @param resultMap
-	 * @throws B3EngineException
-	 *             - if merging values causes type or immutable violation
-	 */
-	private void mergeResult(String key, BuildSet add, Map<String, BuildSet> resultMap) throws B3EngineException {
-		BuildSet buildResult = resultMap.get(key);
-		if(buildResult == null)
-			resultMap.put(key, buildResult = B3BuildFactory.eINSTANCE.createBuildSet());
-
-		// merge the job result to add into the buildResult
-		buildResult.merge(add);
 	}
 
 	@Override
@@ -493,6 +430,71 @@ public class B3BuilderJob extends AbstractB3Job {
 		catch(Throwable t) {
 			return B3BuilderStatus.error("Builder Job Failed - see details", t);
 		}
+	}
+
+	/**
+	 * Collect result, merges results according to aliases/groups, and assigns these as
+	 * unmodifiable values in the context.
+	 * 
+	 * @param jobsToRun
+	 * @return MultiStatus if result was not ok, otherwise B3BuilderStatus
+	 */
+	private IStatus collectResult(List<B3BuilderJob> jobsToRun) throws B3EngineException {
+		MultiStatus ms = new MultiStatus(
+			B3BuildActivator.instance.getBundle().getSymbolicName(), 0,
+			"One or several build jobs ended with error or was canceled", null);
+		for(B3BuilderJob job : jobsToRun) {
+			IStatus s = job.getResult();
+			if(s == null)
+				s = Status.CANCEL_STATUS; // unfinished, never scheduled etc...
+			ms.add(s);
+		}
+		if(!ms.isOK())
+			return ms;
+
+		// collection of all as "input", and collect per "alias"
+		//
+		// create the resulting map, and make sure there is at least an empty BuildResult
+		// (i.e. when no effective input was declared).
+		Map<String, BuildSet> resultMap = new HashMap<String, BuildSet>();
+		resultMap.put("input", B3BuildFactory.eINSTANCE.createBuildSet());
+
+		for(B3BuilderJob job : jobsToRun) {
+			BuildSet r = job.getBuildResult();
+			for(String alias : job.getAliases())
+				mergeResult(alias, r, resultMap);
+			mergeResult("input", r, resultMap); // all are added to "input"
+		}
+		// define all the BuildResults in the context per respective name
+		for(String key : resultMap.keySet())
+			ctx.defineFinalValue(key, resultMap.get(key), BuildSet.class);
+
+		return Status.OK_STATUS;
+	}
+
+	private List<String> getAliases() {
+		if(aliases == null) {
+			return Collections.emptyList();
+		}
+		return aliases;
+	}
+
+	/**
+	 * Merges result per key
+	 * 
+	 * @param key
+	 * @param add
+	 * @param resultMap
+	 * @throws B3EngineException
+	 *             - if merging values causes type or immutable violation
+	 */
+	private void mergeResult(String key, BuildSet add, Map<String, BuildSet> resultMap) throws B3EngineException {
+		BuildSet buildResult = resultMap.get(key);
+		if(buildResult == null)
+			resultMap.put(key, buildResult = B3BuildFactory.eINSTANCE.createBuildSet());
+
+		// merge the job result to add into the buildResult
+		buildResult.merge(add);
 	}
 
 	private void runParallel(List<B3BuilderJob> jobsToRun, IProgressMonitor monitor) {
