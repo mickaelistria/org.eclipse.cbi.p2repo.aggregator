@@ -75,6 +75,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -897,7 +898,12 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	}
 
 	public Type type(BVariableExpression o) {
-		return doGetInferredType(o.getNamedValue());
+		// catch needs special processing, as it declares a variable of Exception type
+		// but the type of the entire catch expression is the type of the catch body.
+		INamedValue nv = o.getNamedValue();
+		return (nv instanceof BCatch)
+				? ((BCatch) nv).getType()
+				: doGetInferredType(nv);
 	}
 
 	public Type type(BWithContextExpression o) {
