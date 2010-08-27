@@ -33,12 +33,12 @@ public class IOUtils {
 			}
 	}
 
-	/**
-	 * @param helpStream
-	 * @param output
-	 * @throws IOException
-	 */
 	public static void copyStream(InputStream is, OutputStream os) throws IOException {
+		copyStream(is, os, true, true);
+	}
+
+	public static void copyStream(InputStream is, OutputStream os, boolean closeInput, boolean closeOutput)
+			throws IOException {
 		byte[] buffer = new byte[1024];
 		int len;
 
@@ -49,12 +49,15 @@ public class IOUtils {
 		}
 		finally {
 			try {
-				is.close();
+				if(closeInput)
+					is.close();
 			}
 			catch(IOException e) {
 				// ignore
 			}
-			os.close();
+
+			if(closeOutput)
+				os.close();
 		}
 	}
 
