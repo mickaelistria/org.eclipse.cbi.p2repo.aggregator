@@ -9,6 +9,8 @@
  */
 package org.eclipse.b3.build.ui.commands;
 
+import java.util.List;
+
 import org.eclipse.b3.backend.core.IResultStatus;
 import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedXtextEditor;
 import org.eclipse.b3.build.core.B3BuildEngine;
@@ -20,12 +22,17 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.expressions.EvaluationContext;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.xtext.resource.IResourceServiceProvider;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.XtextDocumentUtil;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipse.xtext.validation.CheckMode;
+import org.eclipse.xtext.validation.IResourceValidator;
+import org.eclipse.xtext.validation.Issue;
 
 /**
  * Loads the BeeModel associated with the current editor (if it is an XtextEditor and
@@ -67,6 +74,20 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithDialog {
 		IStatus result = xtextDocument.readOnly(new IUnitOfWork<IStatus, XtextResource>() {
 			// @Override
 			public IStatus exec(XtextResource state) throws Exception {
+
+				// Check for syntax errors in 'state'
+				IResourceServiceProvider serviceProvider = state.getResourceServiceProvider();
+				IResourceValidator resourceValidator = serviceProvider.getResourceValidator();
+				List<Issue> validate = resourceValidator.validate(state, CheckMode.ALL, null);
+				if(validate.size() > 0) {
+					MultiStatus ms = new MultiStatus(
+						Activator.PLUGIN_ID, IStatus.ERROR, "Syntax errors in b3 file!", null);
+					for(Issue issue : validate)
+						ms.add(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "line " + issue.getLineNumber() + ": " +
+								issue.getMessage()));
+					return ms;
+				}
+
 				// 1. if the path starts with b3: it means try resource:, then plugin: schemes
 				// 2. Else, the path should be a URI and only one attempt is made
 				// 3. If the result in any case is a bad URI, the configuration is bad
