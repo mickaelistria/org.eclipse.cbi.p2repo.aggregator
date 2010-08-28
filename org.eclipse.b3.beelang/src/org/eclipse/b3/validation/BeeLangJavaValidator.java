@@ -3,6 +3,7 @@ package org.eclipse.b3.validation;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.b3.backend.core.datatypes.TypePattern;
 import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
@@ -44,6 +45,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.Check;
 
+import com.google.common.base.ReferenceType;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 
@@ -63,6 +68,23 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 					"A build unit may only have one 'resolution' declaration.", provider,
 					B3BuildPackage.BEE_MODEL__PROVIDERS, ISSUE_BEEMODEL__MULTIPLE_RESOLUTIONS);
 		}
+		// check for unique names and versions of units
+		//
+		HashMultimap<String, BuildUnit> umap = Multimaps.newHashMultimap();
+		Set<BuildUnit> offenders = Sets.newIdentityHashSet(ReferenceType.STRONG);
+		for(BuildUnit u : beeModel.getBuildUnits()) {
+			if(u.getName() == null)
+				continue; // handled by BuildUnit validation
+			for(BuildUnit u2 : umap.get(u.getName())) {
+				if((u.getVersion() == null && u2.getVersion() == null) || (u.getVersion().equals(u2.getVersion()))) {
+					offenders.add(u);
+					offenders.add(u2);
+				}
+			}
+			umap.put(u.getName(), u);
+		}
+		for(BuildUnit u : offenders)
+			error("Duplicate unit name/version", u, B3BuildPackage.BUILD_UNIT);
 	}
 
 	/**
@@ -108,54 +130,6 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 				error(
 					"A build unit may only have one 'resolution' declaration.", provider,
 					B3BuildPackage.BUILD_UNIT__PROVIDERS, ISSUE_BUILD_UNIT__MULTIPLE_RESOLUTIONS);
-		}
-	}
-
-	@Check
-	void checkFeatureCallCanBeMade(BCallFeature cexpr) {
-		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
-		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
-
-		BExpression lhs = cexpr.getFuncExpr();
-		String name = cexpr.getName();
-		Type type = typer.doGetInferredType(lhs);
-		if(type == null) {
-			error(
-				"The type of the expression is not known or inferable.", cexpr,
-				B3backendPackage.BCALL_FEATURE__FUNC_EXPR);
-			return;
-		}
-		if(name == null || name.length() < 1) {
-			error("The name of the operation is null or empty.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
-			return;
-		}
-		Type[] tparameters = null;
-		try {
-			tparameters = funcUtils.asTypeArray(cexpr, true);
-			tparameters[0] = type;
-		}
-		catch(InferenceExceptions e) {
-			// mark all erroneous parameters
-			for(InferenceException e2 : e.getExceptions())
-				error("The type of the parameter is not known or inferable.", e2.getSource(), e2.getFeature());
-			return; // not meaningful to continue
-		}
-
-		try {
-			List<IFunction> effective = funcUtils.findEffectiveFunctions(cexpr, name, type);
-			// used for side effect of exceptions
-			funcUtils.selectFunction(name, effective, tparameters);
-		}
-		catch(B3NoSuchFunctionSignatureException e) {
-			error(
-				"No function matching used parameter types found.", cexpr,
-				B3backendPackage.BCALL_FEATURE__PARAMETER_LIST);
-		}
-		catch(B3NoSuchFunctionException e) {
-			error("Function name not found.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
-		}
-		catch(B3AmbiguousFunctionSignatureException e) {
-			error("Used parameter types leads to ambiguous call", cexpr, B3backendPackage.BCALL_FEATURE__PARAMETER_LIST);
 		}
 	}
 
@@ -321,5 +295,53 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		result.add(B3BuildPackage.eINSTANCE);
 		return result;
 
+	}
+
+	@Check
+	void checkFeatureCallCanBeMade(BCallFeature cexpr) {
+		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
+		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
+
+		BExpression lhs = cexpr.getFuncExpr();
+		String name = cexpr.getName();
+		Type type = typer.doGetInferredType(lhs);
+		if(type == null) {
+			error(
+				"The type of the expression is not known or inferable.", cexpr,
+				B3backendPackage.BCALL_FEATURE__FUNC_EXPR);
+			return;
+		}
+		if(name == null || name.length() < 1) {
+			error("The name of the operation is null or empty.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
+			return;
+		}
+		Type[] tparameters = null;
+		try {
+			tparameters = funcUtils.asTypeArray(cexpr, true);
+			tparameters[0] = type;
+		}
+		catch(InferenceExceptions e) {
+			// mark all erroneous parameters
+			for(InferenceException e2 : e.getExceptions())
+				error("The type of the parameter is not known or inferable.", e2.getSource(), e2.getFeature());
+			return; // not meaningful to continue
+		}
+
+		try {
+			List<IFunction> effective = funcUtils.findEffectiveFunctions(cexpr, name, type);
+			// used for side effect of exceptions
+			funcUtils.selectFunction(name, effective, tparameters);
+		}
+		catch(B3NoSuchFunctionSignatureException e) {
+			error(
+				"No function matching used parameter types found.", cexpr,
+				B3backendPackage.BCALL_FEATURE__PARAMETER_LIST);
+		}
+		catch(B3NoSuchFunctionException e) {
+			error("Function name not found.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
+		}
+		catch(B3AmbiguousFunctionSignatureException e) {
+			error("Used parameter types leads to ambiguous call", cexpr, B3backendPackage.BCALL_FEATURE__PARAMETER_LIST);
+		}
 	}
 }
