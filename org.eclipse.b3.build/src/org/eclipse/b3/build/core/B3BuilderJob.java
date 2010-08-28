@@ -442,11 +442,14 @@ public class B3BuilderJob extends AbstractB3Job {
 	private IStatus collectResult(List<B3BuilderJob> jobsToRun) throws B3EngineException {
 		MultiStatus ms = new MultiStatus(
 			B3BuildActivator.instance.getBundle().getSymbolicName(), 0,
-			"One or several build jobs ended with error or was canceled", null);
+			"One or several build jobs ended with error or were canceled", null);
 		for(B3BuilderJob job : jobsToRun) {
 			IStatus s = job.getResult();
-			if(s == null)
-				s = Status.CANCEL_STATUS; // unfinished, never scheduled etc...
+			if(s == null) {
+				// if never started jobs are included, the overall status becomes CANCELED
+				// s = Status.CANCEL_STATUS; // unfinished, never scheduled etc...
+				continue;
+			}
 			ms.add(s);
 		}
 		if(!ms.isOK())
