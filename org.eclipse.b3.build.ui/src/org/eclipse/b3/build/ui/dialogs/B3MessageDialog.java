@@ -284,6 +284,8 @@ public class B3MessageDialog extends MessageDialog {
 	 * @param indentLevel
 	 */
 	private void printExceptionOnStream(Throwable t, PrintStream ps, int indentLevel) {
+		if(t == null || t.getMessage() == null)
+			return;
 		indent(ps, indentLevel);
 		ps.println(t.getMessage());
 	}
