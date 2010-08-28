@@ -301,9 +301,7 @@ public class B3MessageDialog extends MessageDialog {
 		else {
 			Throwable t = status.getException();
 			if(t instanceof CoreException) {
-				CoreException ce = (CoreException) t;
-				for(IStatus s : ce.getStatus().getChildren())
-					printStatusOnStream(s, ps, indentLevel + 1);
+				printStatusOnStream(((CoreException) t).getStatus(), ps, indentLevel + 1);
 			}
 			else {
 				printExceptionOnStream(t, ps, indentLevel + 1);
