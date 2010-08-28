@@ -18,7 +18,6 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
 
@@ -69,8 +68,10 @@ public abstract class AbstractHandlerWithDialog extends AbstractHandler {
 		else if(status.matches(IStatus.ERROR)) {
 			if(shouldThisErrorBeReportedWithStackTrace(status))
 				B3MessageDialog.openStackTrace(shell, "Serious Error", status.getMessage(), status.getException(), 0);
-			else
-				ErrorDialog.openError(shell, "Error", "Operation ended with Error", status, IStatus.ERROR);
+			else {
+				B3MessageDialog.openMultiStatusError(shell, "Error", status.getMessage(), status, 0);
+				// ErrorDialog.openError(shell, "Error", "Operation ended with error!", status, IStatus.ERROR);
+			}
 		}
 		return null; // as dictated by Handler API
 	}

@@ -89,13 +89,18 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithDialog {
 						IStatus.ERROR, Activator.PLUGIN_ID, B3BuildUIErrorCodes.BAD_UI_CONFIGURATION,
 						"Faulty cmd URI in UI configuration", e);
 				}
-
+				// TODO: if there is a wizard for this uri:
+				// - initialize it with an IRunnableWithProgress that performs the bulk of the job
+				// - the wizard will produce parameters for this runnable
+				//
 				for(int i = 0; i < uris.length; i++) {
 					URI uri = uris[i];
 					// Try different URIs - the first to succeed is used
+
+					// TODO: Should pass a progress monitor to the run call
 					@SuppressWarnings("unchecked")
 					IStatus result = new B3BuildEngine().run(new RunCmdOnResourceOperation(
-						uri, cmdFunction, (event.getParameters()), state));
+						uri, cmdFunction, event.getParameters(), state));
 					if(result.isOK())
 						return result;
 					if(result.getCode() != B3BuildStatusCodes.COULD_NOT_LOAD_RESOURCE)

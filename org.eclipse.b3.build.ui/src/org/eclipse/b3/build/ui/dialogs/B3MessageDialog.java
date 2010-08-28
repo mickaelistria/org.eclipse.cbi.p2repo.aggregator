@@ -17,6 +17,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
@@ -33,6 +35,26 @@ import org.eclipse.swt.widgets.Text;
  * stack trace.
  */
 public class B3MessageDialog extends MessageDialog {
+
+	public static void openMultiStatusError(Shell parent, String title, String message, IStatus status, int defaultIndex) {
+		String[] labels;
+		if(status == null || status.isOK()) {
+			labels = new String[] { IDialogConstants.OK_LABEL };
+			defaultIndex = 0;
+		}
+		else {
+			labels = new String[] { IDialogConstants.OK_LABEL, IDialogConstants.SHOW_DETAILS_LABEL };
+			defaultIndex = 0;
+		}
+
+		B3MessageDialog dialog = new B3MessageDialog(parent, title, null, // accept the default window icon
+		message, status, MessageDialog.ERROR, labels, defaultIndex);
+		if(status != null && !status.isOK()) {
+			dialog.setDetailButton(1);
+		}
+		dialog.open();
+
+	}
 
 	/**
 	 * Convenience method to open a simple Yes/No question dialog.
@@ -103,6 +125,8 @@ public class B3MessageDialog extends MessageDialog {
 
 	private Throwable detail;
 
+	private IStatus detailedStatus;
+
 	private int detailButtonID = -1;
 
 	private Text text;
@@ -115,6 +139,17 @@ public class B3MessageDialog extends MessageDialog {
 	 * Size of the text in lines.
 	 */
 	private static final int TEXT_LINE_COUNT = 15;
+
+	public B3MessageDialog(Shell parentShell, String dialogTitle, Image dialogTitleImage, String dialogMessage,
+			IStatus detail, int dialogImageType, String[] dialogButtonLabels, int defaultIndex) {
+		super(
+			parentShell, dialogTitle, dialogTitleImage, dialogMessage, dialogImageType, dialogButtonLabels,
+			defaultIndex);
+		defaultButtonIndex = defaultIndex;
+		this.detail = null;
+		this.detailedStatus = detail;
+		setShellStyle(getShellStyle() | SWT.APPLICATION_MODAL);
+	}
 
 	/**
 	 * Create a new dialog.
@@ -143,7 +178,29 @@ public class B3MessageDialog extends MessageDialog {
 			defaultIndex);
 		defaultButtonIndex = defaultIndex;
 		this.detail = detail;
+		this.detailedStatus = null;
 		setShellStyle(getShellStyle() | SWT.APPLICATION_MODAL);
+	}
+
+	// Workaround. SWT does not seem to set rigth the default button if
+	// there is not control with focus. Bug: 14668
+	@Override
+	public int open() {
+		create();
+		Button b = getButton(defaultButtonIndex);
+		b.setFocus();
+		b.getShell().setDefaultButton(b);
+		return super.open();
+	}
+
+	/**
+	 * Set the detail button;
+	 * 
+	 * @param index
+	 *            the detail button index
+	 */
+	public void setDetailButton(int index) {
+		detailButtonID = index;
 	}
 
 	/*
@@ -172,15 +229,29 @@ public class B3MessageDialog extends MessageDialog {
 		text.setFont(parent.getFont());
 
 		// print the stacktrace in the text field
-		try {
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			PrintStream ps = new PrintStream(baos);
-			detail.printStackTrace(ps);
-			ps.flush();
-			baos.flush();
-			text.setText(baos.toString());
+		if(this.detail != null) {
+			try {
+				ByteArrayOutputStream baos = new ByteArrayOutputStream();
+				PrintStream ps = new PrintStream(baos);
+				detail.printStackTrace(ps);
+				ps.flush();
+				baos.flush();
+				text.setText(baos.toString());
+			}
+			catch(IOException e) {
+			}
 		}
-		catch(IOException e) {
+		else {
+			try {
+				ByteArrayOutputStream baos = new ByteArrayOutputStream();
+				PrintStream ps = new PrintStream(baos);
+				printStatusOnStream(detailedStatus, ps, 0);
+				ps.flush();
+				baos.flush();
+				text.setText(baos.toString());
+			}
+			catch(IOException e) {
+			}
 		}
 
 		GridData data = new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL |
@@ -200,25 +271,42 @@ public class B3MessageDialog extends MessageDialog {
 		return true;
 	}
 
-	// Workaround. SWT does not seem to set rigth the default button if
-	// there is not control with focus. Bug: 14668
-	@Override
-	public int open() {
-		create();
-		Button b = getButton(defaultButtonIndex);
-		b.setFocus();
-		b.getShell().setDefaultButton(b);
-		return super.open();
+	private void indent(PrintStream ps, int indentLevel) {
+		for(int i = 0; i < indentLevel * 4; i++)
+			ps.print(' ');
 	}
 
 	/**
-	 * Set the detail button;
+	 * Prints the exception message.
 	 * 
-	 * @param index
-	 *            the detail button index
+	 * @param t
+	 * @param ps
+	 * @param indentLevel
 	 */
-	public void setDetailButton(int index) {
-		detailButtonID = index;
+	private void printExceptionOnStream(Throwable t, PrintStream ps, int indentLevel) {
+		indent(ps, indentLevel);
+		ps.println(t.getMessage());
+	}
+
+	private void printStatusOnStream(IStatus status, PrintStream ps, int indentLevel) {
+		indent(ps, indentLevel);
+		ps.println(status.getMessage());
+
+		if(status.isMultiStatus()) {
+			for(IStatus s : status.getChildren())
+				printStatusOnStream(s, ps, indentLevel + 1);
+		}
+		else {
+			Throwable t = status.getException();
+			if(t instanceof CoreException) {
+				CoreException ce = (CoreException) t;
+				for(IStatus s : ce.getStatus().getChildren())
+					printStatusOnStream(s, ps, indentLevel + 1);
+			}
+			else {
+				printExceptionOnStream(t, ps, indentLevel + 1);
+			}
+		}
 	}
 
 	/**
@@ -242,5 +330,4 @@ public class B3MessageDialog extends MessageDialog {
 		Point newSize = getContents().computeSize(SWT.DEFAULT, SWT.DEFAULT);
 		getShell().setSize(new Point(windowSize.x, windowSize.y + (newSize.y - oldSize.y)));
 	}
-
 }
