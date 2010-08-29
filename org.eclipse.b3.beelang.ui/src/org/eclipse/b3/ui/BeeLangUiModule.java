@@ -10,8 +10,10 @@ import org.eclipse.b3.ui.coloring.BeeLangSemanticHighlightingCalculator;
 import org.eclipse.b3.ui.coloring.BeeLangTokenToAttributeIdMapper;
 import org.eclipse.b3.ui.contentassist.BeeLangAutoEditStrategy;
 import org.eclipse.b3.ui.outline.BeeLangOutlineNodeAdapterFactory;
+import org.eclipse.b3.ui.outline.RefreshableXtextContentOutlinePage;
 import org.eclipse.jface.text.templates.persistence.TemplateStore;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.outline.actions.IContentOutlineNodeAdapterFactory;
@@ -38,6 +40,11 @@ public class BeeLangUiModule extends org.eclipse.b3.ui.AbstractBeeLangUiModule {
 	@Override
 	public Class<? extends IContentOutlineNodeAdapterFactory> bindIContentOutlineNodeAdapterFactory() {
 		return BeeLangOutlineNodeAdapterFactory.class;
+	}
+
+	@Override
+	public Class<? extends IContentOutlinePage> bindIContentOutlinePage() {
+		return RefreshableXtextContentOutlinePage.class;
 	}
 
 	public Class<? extends IHighlightingConfiguration> bindILexicalHighlightingConfiguration() {

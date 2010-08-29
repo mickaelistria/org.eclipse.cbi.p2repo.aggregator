@@ -10,6 +10,7 @@ package org.eclipse.b3.beelang.ui.xtext.linked;
 
 import java.io.File;
 
+import org.eclipse.b3.ui.outline.RefreshableXtextContentOutlinePage;
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.filesystem.URIUtil;
@@ -46,6 +47,7 @@ import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.internal.editors.text.EditorsPlugin;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.texteditor.IDocumentProvider;
+import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 
 import com.google.inject.Inject;
@@ -117,6 +119,20 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 			// }
 		}
 		super.doSave(progressMonitor);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.xtext.ui.editor.XtextEditor#doSaveAs()
+	 */
+	@Override
+	public void doSaveAs() {
+		super.doSaveAs();
+		// force refresh of content outline
+		IContentOutlinePage outlinePage = (IContentOutlinePage) getAdapter(IContentOutlinePage.class);
+		if(outlinePage instanceof RefreshableXtextContentOutlinePage)
+			((RefreshableXtextContentOutlinePage) outlinePage).externalRefresh();
 	}
 
 	/**
