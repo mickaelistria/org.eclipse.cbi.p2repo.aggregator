@@ -27,6 +27,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
@@ -63,6 +64,13 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 
 	@Inject
 	private IExtXtextEditorCustomizer editorCustomizer;
+
+	/**
+	 * Property for last saved location - property stored as persistent property in the
+	 * workspace root.
+	 */
+	public static final QualifiedName LAST_SAVEAS_LOCATION = new QualifiedName(
+		"org.eclipse.b3.beelang.ui", "lastSaveLocation");
 
 	/**
 	 * Does nothing except server as a place to set a breakpoint :)
@@ -215,12 +223,54 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 			final IEditorInput newInput;
 			IDocumentProvider provider = getDocumentProvider();
 
-			FileDialog dialog = new FileDialog(shell, SWT.SAVE);
-			IPath oldPath = URIUtil.toPath(((IURIEditorInput) input).getURI());
-			if(oldPath != null) {
-				dialog.setFileName(oldPath.lastSegment());
-				dialog.setFilterPath(oldPath.toOSString());
+			// TODO: helpful suggestion
+			// 1. If file is "untitled" suggest last save location
+			// 2. ...otherwise use the file's location (i.e. likely to be a rename in same folder)
+			// 3. If a "last save location" is unknown, use user's home
+			//
+			String suggestedName = null;
+			String suggestedPath = null;
+			{
+				// is it "untitled"
+				java.net.URI uri = ((IURIEditorInput) input).getURI();
+				String tmpProperty = null;
+				try {
+					tmpProperty = ((IFileEditorInput) input).getFile().getPersistentProperty(
+						TmpFileStoreEditorInput.UNTITLED_PROPERTY);
+				}
+				catch(CoreException e) {
+					// ignore - tmpProperty will be null
+				}
+				boolean isUntitled = tmpProperty != null && "true".equals(tmpProperty);
+
+				// suggested name
+				IPath oldPath = URIUtil.toPath(uri);
+				// TODO: input.getName() is probably always correct
+				suggestedName = isUntitled
+						? input.getName()
+						: oldPath.lastSegment();
+
+				// suggested path
+				try {
+					suggestedPath = isUntitled
+							? ((IFileEditorInput) input).getFile().getWorkspace().getRoot().getPersistentProperty(
+								LAST_SAVEAS_LOCATION)
+							: oldPath.toOSString();
+				}
+				catch(CoreException e) {
+					// ignore, suggestedPath will be null
+				}
+
+				if(suggestedPath == null) {
+					// get user.home
+					suggestedPath = System.getProperty("user.home");
+				}
 			}
+			FileDialog dialog = new FileDialog(shell, SWT.SAVE);
+			if(suggestedName != null)
+				dialog.setFileName(suggestedName);
+			if(suggestedPath != null)
+				dialog.setFilterPath(suggestedPath);
 
 			dialog.setFilterExtensions(new String[] { "*.b3", "*.*" });
 			String path = dialog.open();
@@ -294,6 +344,15 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 					setInput(newInput);
 				// the linked file must be removed (esp. if it is an "untitled" link).
 				unlinkInput(((IFileEditorInput) input));
+				// remember last saveAs location
+				String lastLocation = URIUtil.toPath(((FileEditorInput) newInput).getURI()).toOSString();
+				try {
+					((FileEditorInput) newInput).getFile().getWorkspace().getRoot().setPersistentProperty(
+						LAST_SAVEAS_LOCATION, lastLocation);
+				}
+				catch(CoreException e) {
+					// ignore
+				}
 			}
 
 			if(progressMonitor != null)
