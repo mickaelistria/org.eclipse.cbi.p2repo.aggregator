@@ -1,6 +1,7 @@
 package org.eclipse.b3.backend.core.runtime;
 
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.b3.backend.core.IB3Engine;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
@@ -53,6 +54,21 @@ public class B3Engine implements IB3Engine {
 		invocationContext.setInjector(Guice.createInjector(Modules.override(getExtensionModules()).with(
 			overridingModule)));
 
+	}
+
+	/**
+	 * Sets properties in the invocation context (i.e. with the same scope as system properties automatically
+	 * loaded). The properties can not override system properties. The property map keys should not be enclosed
+	 * in ${ }. The defined properties are immutable but not final (i.e. may be redefined in an inner context).
+	 * 
+	 * @param properties
+	 * @throws B3EngineException
+	 *             if an immutable property is modified (or if property map contains invalid entries)
+	 */
+	public void setProperties(Map<String, String> properties) throws B3EngineException {
+		for(Object key : properties.keySet()) {
+			invocationContext.defineValue("${" + ((String) key) + "}", properties.get(key), String.class);
+		}
 	}
 
 	protected BExecutionContext getContext() {

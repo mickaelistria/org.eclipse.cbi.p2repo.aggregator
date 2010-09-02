@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2010, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
@@ -35,10 +35,14 @@ public class B3OutputLocationProvider {
 			return b3OutputURI; // S.A.P
 
 		String rootURI = safeGetStringProperty("b3.output.rootURI", null);
-		ROOTDIRSELECTION: if(rootURI == null) {
+		ROOTDIRSELECTION: //
+		if(rootURI == null) {
+
 			String tmpDir = safeGetStringProperty("b3.output.dir", null);
-			if(tmpDir != null)
+			if(tmpDir != null) {
+				rootURI = new File(tmpDir).toURI().toString();
 				break ROOTDIRSELECTION;
+			}
 
 			if((tmpDir = safeGetStringProperty("user.home", null)) != null) {
 				rootURI = new File(tmpDir + "/tmp/b3output").toURI().toString();
