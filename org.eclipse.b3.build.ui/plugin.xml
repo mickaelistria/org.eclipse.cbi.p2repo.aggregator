@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension-point id="org.eclipse.b3.build.ui.cmdWizard" name="cmdWizard" schema="schema/org.eclipse.b3.build.ui.cmdWizard.exsd"/>
 <extension
        point="org.eclipse.ui.commands">
     <command
@@ -25,6 +26,11 @@
        <commandParameter
              id="org.eclipse.b3.ui.run.b3cmd.cmdFunction"
              name="cmdFunction"
+             optional="true">
+       </commandParameter>
+       <commandParameter
+             id="org.eclipse.b3.ui.run.b3cmd.wizardId"
+             name="wizardId"
              optional="true">
        </commandParameter>
     </command>

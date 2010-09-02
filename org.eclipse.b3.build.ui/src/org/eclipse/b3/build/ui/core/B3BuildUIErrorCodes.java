@@ -11,7 +11,7 @@ package org.eclipse.b3.build.ui.core;
 import org.eclipse.b3.build.core.B3BuildStatusCodes;
 
 /**
- * Error Code definitions for the org.eclipse.b3.build plugin
+ * Error/Status Code definitions for the org.eclipse.b3.build plugin
  * 
  */
 public interface B3BuildUIErrorCodes extends B3BuildStatusCodes {
@@ -21,5 +21,9 @@ public interface B3BuildUIErrorCodes extends B3BuildStatusCodes {
 	}
 
 	static final int BAD_UI_CONFIGURATION = BuildUIStart.START + 1;
+
 	// static final int COULD_NOT_XXX = BuildUIStart.START + 1;
+
+	static final int WIZARD_CANCELED = BuildUIStart.START + 2;
+
 }
