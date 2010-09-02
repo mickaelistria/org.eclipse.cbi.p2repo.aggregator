@@ -46,7 +46,7 @@ public class CmdUnitOfWork implements IRunnableWithProgress {
 
 	private IStatus result;
 
-	private Map<String, String> parameterMap = Maps.newHashMap();
+	private Map<String, String> propertyMap = Maps.newHashMap();
 
 	public CmdUnitOfWork(IXtextDocument xtextDocument, String cmdPath, String cmdFunction) {
 		this.xtextDocument = xtextDocument;
@@ -54,8 +54,8 @@ public class CmdUnitOfWork implements IRunnableWithProgress {
 		this.cmdFunction = cmdFunction;
 	}
 
-	public Map<String, String> getParameterMap() {
-		return parameterMap;
+	public Map<String, String> getPropertyMap() {
+		return propertyMap;
 	}
 
 	public IStatus getResult() {
@@ -119,9 +119,11 @@ public class CmdUnitOfWork implements IRunnableWithProgress {
 					URI uri = uris[i];
 					// Try different URIs - the first to succeed is used
 
-					// TODO: Should pass a progress monitor to the run call
-					IStatus result = new B3BuildEngine().run(new RunCmdOnResourceOperation(
-						uri, cmdFunction, getParameterMap(), state), monitor);
+					// Set properties provided by the wizard
+					B3BuildEngine engine = new B3BuildEngine();
+					engine.setProperties(getPropertyMap());
+					IStatus result = engine.run(
+						new RunCmdOnResourceOperation(uri, cmdFunction, getPropertyMap(), state), monitor);
 					if(result.isOK())
 						return result;
 					if(result.getCode() != B3BuildStatusCodes.COULD_NOT_LOAD_RESOURCE)
