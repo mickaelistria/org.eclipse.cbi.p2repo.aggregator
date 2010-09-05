@@ -26,8 +26,8 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.window.Window;
-import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.XtextDocumentUtil;
@@ -47,6 +47,20 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithDialog {
 	public static final String CMD_PARAM__PATH = "org.eclipse.b3.ui.run.b3cmd.pathParameter";
 
 	public static final String CMD_PARAM__FUNCTION = "org.eclipse.b3.ui.run.b3cmd.cmdFunction";
+
+	public RunCmdOnResourceHandler() {
+		super();
+		setStatusReportHelper(new StatusReportHelper() {
+			@Override
+			public boolean shouldThisCancelBeReported(IStatus status) {
+				// canceling the wizard is a "normal end" and should not be reported with an extra dialog
+				if(status.getCode() == B3BuildUIErrorCodes.WIZARD_CANCELED)
+					return false;
+				return super.shouldThisCancelBeReported(status);
+			}
+
+		});
+	}
 
 	@Override
 	public IStatus executeWithDialogSupport(final ExecutionEvent event) throws ExecutionException {
@@ -68,6 +82,8 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithDialog {
 				IStatus.ERROR, Activator.PLUGIN_ID, B3BuildUIErrorCodes.BAD_UI_CONFIGURATION,
 				"Bad configuration - org.eclipse.b3.ui.run.b3cmd.pathParameter not specified.", null);
 		}
+		// Save dirty editors if possible but do not stop if not all are saved
+		PlatformUI.getWorkbench().saveAllEditors(true);
 
 		ExtLinkedXtextEditor b3Editor = (ExtLinkedXtextEditor) editor;
 		IXtextDocument xtextDocument = XtextDocumentUtil.get(b3Editor);
@@ -115,108 +131,29 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithDialog {
 			wiz.setCmdWork(uow);
 
 			// run the wizard
-			if(new WizardDialog(shell, wiz).open() == Window.CANCEL)
+			if(new ConfigurableWizardDialog(shell, wiz).open() == Window.CANCEL)
 				return new Status(IStatus.CANCEL, Activator.PLUGIN_ID, B3BuildUIErrorCodes.WIZARD_CANCELED, "", null);
 			// get the result from the wizard
 			result = wiz.getResult();
-		}
-		else {
-			// if there was no wizard, run the command in a null progress monitor
-			try {
-				uow.run(new NullProgressMonitor());
-			}
-			catch(InvocationTargetException e1) {
-				return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Invocation of command handler failed", e1);
-			}
-			catch(InterruptedException e1) {
-				return Status.CANCEL_STATUS;
-			}
-			result = uow.getResult();
-		}
 
-		// // this is what the wizard should run
-		// // it needs properties and stuff that only the wizard knows about
-		//
-		// IStatus result = xtextDocument.readOnly(new IUnitOfWork<IStatus, XtextResource>() {
-		// // @Override
-		// public IStatus exec(XtextResource state) throws Exception {
-		//
-		// // Check for syntax errors in 'state'
-		// IResourceServiceProvider serviceProvider = state.getResourceServiceProvider();
-		// IResourceValidator resourceValidator = serviceProvider.getResourceValidator();
-		// List<Issue> validate = resourceValidator.validate(state, CheckMode.ALL, null);
-		// if(validate.size() > 0) {
-		// MultiStatus ms = new MultiStatus(
-		// Activator.PLUGIN_ID, IStatus.ERROR, "Syntax errors in b3 file!", null);
-		// for(Issue issue : validate)
-		// ms.add(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "line " + issue.getLineNumber() + ": " +
-		// issue.getMessage()));
-		// return ms;
-		// }
-		//
-		// // 1. if the path starts with b3: it means try resource:, then plugin: schemes
-		// // 2. Else, the path should be a URI and only one attempt is made
-		// // 3. If the result in any case is a bad URI, the configuration is bad
-		// String cmdURI = cmdPath;
-		// URI uris[] = null;
-		// try {
-		// if(cmdURI.startsWith("b3:")) {
-		// String pathPart = cmdURI.substring(3);
-		// uris = new URI[2];
-		// uris[0] = URI.createPlatformResourceURI(pathPart, true);
-		// uris[1] = URI.createPlatformPluginURI(pathPart, true);
-		// }
-		// else {
-		// uris = new URI[1];
-		// uris[0] = URI.createURI(cmdURI);
-		// }
-		// }
-		// catch(IllegalArgumentException e) {
-		// return new Status(
-		// IStatus.ERROR, Activator.PLUGIN_ID, B3BuildUIErrorCodes.BAD_UI_CONFIGURATION,
-		// "Faulty cmd URI in UI configuration", e);
-		// }
-		// // TODO: if there is a wizard for this uri:
-		// // - initialize it with an IRunnableWithProgress that performs the bulk of the job
-		// // - the wizard will produce parameters for this runnable
-		// //
-		// for(int i = 0; i < uris.length; i++) {
-		// URI uri = uris[i];
-		// // Try different URIs - the first to succeed is used
-		//
-		// // TODO: Should pass a progress monitor to the run call
-		// @SuppressWarnings("unchecked")
-		// IStatus result = new B3BuildEngine().run(new RunCmdOnResourceOperation(
-		// uri, cmdFunction, event.getParameters(), state));
-		// if(result.isOK())
-		// return result;
-		// if(result.getCode() != B3BuildStatusCodes.COULD_NOT_LOAD_RESOURCE)
-		// return result;
-		// }
-		// return new Status(
-		// IStatus.ERROR, Activator.PLUGIN_ID, B3BuildUIErrorCodes.BAD_UI_CONFIGURATION,
-		// "Bad menu/command configuration - could not find cmd: " + cmdURI, null);
-		// }
-		// });
-		// If invocation status is ok, and the result is a status, report that status instead of
-		// the invocation status.
-		//
+			// it is assumed that the wizard reports all status, return an ok/ok status to avoid a dialog
+			return Status.OK_STATUS;
+		}
+		// if there was no wizard, run the command in a null progress monitor
+		try {
+			uow.run(new NullProgressMonitor());
+		}
+		catch(InvocationTargetException e1) {
+			return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Invocation of command handler failed", e1);
+		}
+		catch(InterruptedException e1) {
+			return Status.CANCEL_STATUS;
+		}
+		result = uow.getResult();
+
 		if(result.isOK() && result instanceof IResultStatus && ((IResultStatus) result).getResult() instanceof IStatus)
 			return (IStatus) ((IResultStatus) result).getResult();
 		return result;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.b3.build.ui.commands.AbstractHandlerWithDialog#shouldThisCancelBeReported(org.eclipse.core.runtime.IStatus)
-	 */
-	@Override
-	protected boolean shouldThisCancelBeReported(IStatus status) {
-		// canceling the wizard is a "normal end" and should not be reported with an extra dialog
-		if(status.getCode() == B3BuildUIErrorCodes.WIZARD_CANCELED)
-			return false;
-		return super.shouldThisCancelBeReported(status);
 	}
 
 	private String getParameter(ExecutionEvent event, String name, String defaultValue) {
@@ -225,4 +162,5 @@ public class RunCmdOnResourceHandler extends AbstractHandlerWithDialog {
 				? defaultValue
 				: value;
 	}
+
 }
