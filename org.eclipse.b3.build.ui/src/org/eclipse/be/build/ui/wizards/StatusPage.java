@@ -15,6 +15,7 @@ import java.io.PrintStream;
 import org.eclipse.b3.build.ui.commands.StatusReportHelper;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.wizard.IWizardPage;
@@ -33,13 +34,21 @@ import org.eclipse.swt.widgets.Text;
  */
 public class StatusPage extends WizardPage {
 	private IStatus status;
+
 	private Label imageLabel;
+
 	private Label messageLabel;
+
 	private Text text;
+
 	private StatusReportHelper reportHelper = new StatusReportHelper();
+
 	private int reportType = REPORT_DETAIL_NONE;
+
 	private static final int REPORT_DETAIL_NONE = 0;
+
 	private static final int REPORT_DETAIL_STACKTRACE = 1;
+
 	private static final int REPORT_DETAIL_STATUS = 2;
 
 	/**
@@ -54,13 +63,13 @@ public class StatusPage extends WizardPage {
 	protected StatusPage(IStatus status) {
 		super("status");
 		this.status = status;
-		if (status.isOK() || status.matches(IStatus.INFO))
+		if(status.isOK() || status.matches(IStatus.INFO))
 			setHeaderForOk();
-		else if (status.matches(IStatus.ERROR))
+		else if(status.matches(IStatus.ERROR))
 			setHeaderForError();
-		else if (status.matches(IStatus.WARNING))
+		else if(status.matches(IStatus.WARNING))
 			setHeaderForWarning();
-		else if (status.matches(IStatus.CANCEL))
+		else if(status.matches(IStatus.CANCEL))
 			setHeaderForWarning();
 	}
 
@@ -77,8 +86,7 @@ public class StatusPage extends WizardPage {
 
 		Composite composite = new Composite(parent, SWT.NULL);
 		composite.setLayout(new GridLayout());
-		composite.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_FILL
-				| GridData.HORIZONTAL_ALIGN_FILL));
+		composite.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_FILL | GridData.HORIZONTAL_ALIGN_FILL));
 		composite.setFont(parent.getFont());
 
 		createMessageArea(composite);
@@ -100,14 +108,15 @@ public class StatusPage extends WizardPage {
 
 	protected void configureDetailReporting(Composite composite) {
 
-		if (status.matches(IStatus.ERROR)) {
-			if (reportHelper.shouldThisErrorBeReportedWithStackTrace(status)) {
+		if(status.matches(IStatus.ERROR)) {
+			if(reportHelper.shouldThisErrorBeReportedWithStackTrace(status)) {
 				reportType = REPORT_DETAIL_STACKTRACE;
-				setMessage("Please report this error!", IStatus.ERROR);
-			} else
+				setDescription("Please report this error!");
+			}
+			else
 				reportType = REPORT_DETAIL_STATUS;
 		}
-		if (reportType != REPORT_DETAIL_NONE)
+		if(reportType != REPORT_DETAIL_NONE)
 			createDetailArea(composite);
 
 	}
@@ -124,7 +133,7 @@ public class StatusPage extends WizardPage {
 		text.setFont(parent.getFont());
 
 		// print the stacktrace in the text field
-		if (reportType == REPORT_DETAIL_STACKTRACE) {
+		if(reportType == REPORT_DETAIL_STACKTRACE) {
 			try {
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				PrintStream ps = new PrintStream(baos);
@@ -132,9 +141,11 @@ public class StatusPage extends WizardPage {
 				ps.flush();
 				baos.flush();
 				text.setText(baos.toString());
-			} catch (IOException e) {
 			}
-		} else {
+			catch(IOException e) {
+			}
+		}
+		else {
 			try {
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				PrintStream ps = new PrintStream(baos);
@@ -142,16 +153,33 @@ public class StatusPage extends WizardPage {
 				ps.flush();
 				baos.flush();
 				text.setText(baos.toString());
-			} catch (IOException e) {
+			}
+			catch(IOException e) {
 			}
 		}
 
-		GridData data = new GridData(GridData.HORIZONTAL_ALIGN_FILL
-				| GridData.GRAB_HORIZONTAL | GridData.VERTICAL_ALIGN_FILL
-				| GridData.GRAB_VERTICAL);
+		GridData data = new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL |
+				GridData.VERTICAL_ALIGN_FILL | GridData.GRAB_VERTICAL);
 		data.heightHint = text.getLineHeight() * TEXT_LINE_COUNT;
 		// data.horizontalSpan = 2;
 		text.setLayoutData(data);
+	}
+
+	/**
+	 * Returns the message to display as the message in the page itself.
+	 * This default implementation returns the {@link #getStatusMessage()} for ok, info and cancel, status,
+	 * and the text "Details:" (or "Stack trace:" if error where the status report helper returns true for
+	 * shouldThisErrorBeReportedWithStackTrace).
+	 * 
+	 * @return the message for the main area
+	 */
+	protected String getMessageAreaMessage() {
+		if(status.isOK() || status.matches(IStatus.INFO) || status.matches(IStatus.CANCEL))
+			return getStatusMessage();
+		if(status.matches(IStatus.ERROR) && reportHelper.shouldThisErrorBeReportedWithStackTrace(status))
+			return "Stack trace:";
+		return "Details:";
+
 	}
 
 	/**
@@ -163,8 +191,7 @@ public class StatusPage extends WizardPage {
 	 * @return the message to be displayed
 	 */
 	protected String getStatusMessage() {
-		if (status.matches(IStatus.CANCEL)
-				&& "cancel".equals(status.getMessage()))
+		if(status.matches(IStatus.CANCEL) && "cancel".equals(status.getMessage()))
 			return "Output produced by the operation may not be valid.";
 		return status.getMessage();
 	}
@@ -175,6 +202,7 @@ public class StatusPage extends WizardPage {
 
 	protected void setHeaderForError() {
 		setTitle("Error");
+		setMessage(getStatusMessage(), DialogPage.ERROR);
 	}
 
 	protected void setHeaderForOk() {
@@ -183,46 +211,42 @@ public class StatusPage extends WizardPage {
 
 	protected void setHeaderForWarning() {
 		setTitle("Warning");
+		setMessage(getStatusMessage(), DialogPage.WARNING);
 	}
 
 	private void createMessageArea(Composite composite) {
 		// create composite
 		// create image
-		Image image = composite.getShell().getDisplay()
-				.getSystemImage(getIconID());
+		Image image = composite.getShell().getDisplay().getSystemImage(getIconID());
 
-		if (image != null) {
+		if(image != null) {
 			imageLabel = new Label(composite, SWT.NULL);
 			image.setBackground(imageLabel.getBackground());
 			imageLabel.setImage(image);
-			GridDataFactory.fillDefaults().align(SWT.LEFT, SWT.BEGINNING)
-					.applyTo(imageLabel);
+			GridDataFactory.fillDefaults().align(SWT.LEFT, SWT.BEGINNING).applyTo(imageLabel);
 		}
 		// create message
-		String msg = getStatusMessage();
-		if (msg != null) {
+		String msg = getMessageAreaMessage();
+		if(msg != null) {
 			messageLabel = new Label(composite, SWT.WRAP);
 			messageLabel.setText(msg);
-			GridDataFactory
-					.fillDefaults()
-					.align(SWT.FILL, SWT.BEGINNING)
-					.grab(true, false)
-					.hint(convertHorizontalDLUsToPixels(IDialogConstants.MINIMUM_MESSAGE_AREA_WIDTH),
-							SWT.DEFAULT).applyTo(messageLabel);
+			GridDataFactory.fillDefaults().align(SWT.FILL, SWT.BEGINNING).grab(true, false).hint(
+				convertHorizontalDLUsToPixels(IDialogConstants.MINIMUM_MESSAGE_AREA_WIDTH), SWT.DEFAULT).applyTo(
+				messageLabel);
 		}
 	}
 
 	private int getIconID() {
-		if (status.matches(IStatus.ERROR))
+		if(status.matches(IStatus.ERROR))
 			return SWT.ICON_ERROR;
 		// warnings and cancel shown with warning icon
-		if (status.matches(IStatus.WARNING) || status.matches(IStatus.CANCEL))
+		if(status.matches(IStatus.WARNING) || status.matches(IStatus.CANCEL))
 			return SWT.ICON_WARNING;
 		return SWT.ICON_INFORMATION;
 	}
 
 	private void indent(PrintStream ps, int indentLevel) {
-		for (int i = 0; i < indentLevel * 4; i++)
+		for(int i = 0; i < indentLevel * 4; i++)
 			ps.print(' ');
 	}
 
@@ -233,12 +257,18 @@ public class StatusPage extends WizardPage {
 	 * @param ps
 	 * @param indentLevel
 	 */
-	private void printExceptionOnStream(Throwable t, PrintStream ps,
-			int indentLevel) {
-		if (t == null || t.getMessage() == null)
-			return;
+	private void printExceptionOnStream(Throwable t, PrintStream ps, int indentLevel) {
+		String msg = null;
+		if(t == null)
+			msg = "Internal problem - null exception reported.";
+		else {
+			msg = t.getMessage();
+			if(msg == null)
+				msg = t.getClass().getName();
+
+		}
 		indent(ps, indentLevel);
-		ps.println(t.getMessage());
+		ps.println(msg);
 	}
 
 	private void printStatusOnStream(IStatus status, PrintStream ps) {
@@ -246,26 +276,26 @@ public class StatusPage extends WizardPage {
 		printStatusOnStream(status, ps, -1, true);
 	}
 
-	private void printStatusOnStream(IStatus status, PrintStream ps,
-			int indentLevel, boolean skipMessage) {
+	private void printStatusOnStream(IStatus status, PrintStream ps, int indentLevel, boolean skipMessage) {
 
 		// filter out uninteresting status messages
-		if (!reportHelper.shouldThisStatusBeReported(status))
+		if(!reportHelper.shouldThisStatusBeReported(status))
 			return;
 
-		if (!skipMessage) {
+		if(!skipMessage) {
 			indent(ps, indentLevel);
 			ps.println(status.getMessage());
 		}
-		if (status.isMultiStatus()) {
-			for (IStatus s : status.getChildren())
+		if(status.isMultiStatus()) {
+			for(IStatus s : status.getChildren())
 				printStatusOnStream(s, ps, indentLevel + 1, false);
-		} else {
+		}
+		else {
 			Throwable t = status.getException();
-			if (t instanceof CoreException) {
-				printStatusOnStream(((CoreException) t).getStatus(), ps,
-						indentLevel + 1, false);
-			} else {
+			if(t instanceof CoreException) {
+				printStatusOnStream(((CoreException) t).getStatus(), ps, indentLevel + 1, false);
+			}
+			else {
 				printExceptionOnStream(t, ps, indentLevel + 1);
 			}
 		}
