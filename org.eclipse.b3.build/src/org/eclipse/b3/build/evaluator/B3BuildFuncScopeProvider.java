@@ -37,6 +37,14 @@ public class B3BuildFuncScopeProvider extends B3BackendFuncScopeProvider {
 
 	private Pattern pID = null;
 
+	public boolean isIncludeOperators() {
+		return includeOperators;
+	}
+
+	public void setIncludeOperators(boolean flag) {
+		includeOperators = flag;
+	}
+
 	IScope funcScope(B3BuildEngineResource r) {
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		// filter out functions that can not be called directly (i.e. '+' '-' etc).
@@ -58,21 +66,13 @@ public class B3BuildFuncScopeProvider extends B3BackendFuncScopeProvider {
 		for(IFunction func : container.getFunctions())
 			result.add(new EObjectDescription(func.getName(), func, null));
 
-		if(result.size() < 1)
-			return doGetFuncScope(container.eContainer());
+		// if(result.size() < 1)
+		// return doGetFuncScope(container.eContainer());
 
 		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
 		B3BuildEngineResource r = (B3BuildEngineResource) container.eResource().getResourceSet().getResource(uri, false);
 
 		return createScope(doGetFuncScope(r), result);
-	}
-
-	public boolean isIncludeOperators() {
-		return includeOperators;
-	}
-
-	public void setIncludeOperators(boolean flag) {
-		includeOperators = flag;
 	}
 
 }
