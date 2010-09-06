@@ -162,7 +162,7 @@ public class B3BuilderJob extends AbstractB3Job {
 
 		}
 		catch(Throwable t) {
-			return B3BuilderStatus.error("Builder Job Failed - see details", t);
+			return B3BuilderStatus.error("Builder Job \"" + this.getName() + "\" Failed - see details", t);
 		}
 	}
 
@@ -428,7 +428,7 @@ public class B3BuilderJob extends AbstractB3Job {
 
 		}
 		catch(Throwable t) {
-			return B3BuilderStatus.error("Builder Job Failed - see details", t);
+			return B3BuilderStatus.error("Builder Job \"" + this.getName() + "\" Failed - see details", t);
 		}
 	}
 
