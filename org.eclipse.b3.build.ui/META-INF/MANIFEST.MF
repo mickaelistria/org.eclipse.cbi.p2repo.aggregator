@@ -18,4 +18,5 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
  J2SE-1.5
 Bundle-Vendor: %providerName
-Export-Package: org.eclipse.b3.build.ui.commands
+Export-Package: org.eclipse.b3.build.ui.commands,
+ org.eclipse.be.build.ui.wizards

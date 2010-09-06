@@ -88,6 +88,23 @@ public class StatusReportHelper {
 	}
 
 	/**
+	 * Calls the different 'shouldXXX' methods to determine if the status should be reported.
+	 * Note that "OK" and "INFO" are both passed to {@link #shouldThisOkBeReported(IStatus)}
+	 * 
+	 * @param status
+	 * @return true if the status should be reported
+	 */
+	public boolean shouldThisStatusBeReported(IStatus status) {
+		if(status.isOK() || status.matches(IStatus.INFO))
+			return shouldThisOkBeReported(status);
+		if(status.matches(IStatus.CANCEL))
+			return shouldThisCancelBeReported(status);
+		if(status.matches(IStatus.WARNING))
+			return shouldThisWarningBeReported(status);
+		return true; // errors are always reported
+	}
+
+	/**
 	 * This default implementation always returns true.
 	 * 
 	 * @param status
