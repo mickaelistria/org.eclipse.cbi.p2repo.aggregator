@@ -166,6 +166,23 @@ public class StatusPage extends WizardPage {
 	}
 
 	/**
+	 * Returns the SWT default icon id to display above the message area. Returning -1 means No icon.
+	 * Note that this default implementation returns -1 for error, as it is assumed that the error message
+	 * is displayed in the header with an error indication.
+	 * 
+	 * @return INFO icon for OK/INFO, WARNING for CANCEL, and WARNING for WARNINGS. -1 for ERROR.
+	 */
+	protected int getIconID() {
+		// No icon for error - this is shown in the header by default.
+		if(status.matches(IStatus.ERROR))
+			return -1; // SWT.ICON_ERROR;
+		// warnings and cancel shown with warning icon
+		if(status.matches(IStatus.WARNING) || status.matches(IStatus.CANCEL))
+			return SWT.ICON_WARNING;
+		return SWT.ICON_INFORMATION;
+	}
+
+	/**
 	 * Returns the message to display as the message in the page itself.
 	 * This default implementation returns the {@link #getStatusMessage()} for ok, info and cancel, status,
 	 * and the text "Details:" (or "Stack trace:" if error where the status report helper returns true for
@@ -211,13 +228,15 @@ public class StatusPage extends WizardPage {
 
 	protected void setHeaderForWarning() {
 		setTitle("Warning");
-		setMessage(getStatusMessage(), DialogPage.WARNING);
 	}
 
 	private void createMessageArea(Composite composite) {
 		// create composite
 		// create image
-		Image image = composite.getShell().getDisplay().getSystemImage(getIconID());
+		int iconId = getIconID();
+		Image image = iconId == -1
+				? null
+				: composite.getShell().getDisplay().getSystemImage(iconId);
 
 		if(image != null) {
 			imageLabel = new Label(composite, SWT.NULL);
@@ -234,15 +253,6 @@ public class StatusPage extends WizardPage {
 				convertHorizontalDLUsToPixels(IDialogConstants.MINIMUM_MESSAGE_AREA_WIDTH), SWT.DEFAULT).applyTo(
 				messageLabel);
 		}
-	}
-
-	private int getIconID() {
-		if(status.matches(IStatus.ERROR))
-			return SWT.ICON_ERROR;
-		// warnings and cancel shown with warning icon
-		if(status.matches(IStatus.WARNING) || status.matches(IStatus.CANCEL))
-			return SWT.ICON_WARNING;
-		return SWT.ICON_INFORMATION;
 	}
 
 	private void indent(PrintStream ps, int indentLevel) {
