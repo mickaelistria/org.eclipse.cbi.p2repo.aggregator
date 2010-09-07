@@ -100,6 +100,11 @@ public class RunFunctionInModelOperation implements IB3Runnable {
 
 		}
 		catch(CoreException e) {
+			// if cancel core exception, return that status
+			if(e.getStatus() != null && e.getStatus().matches(IStatus.CANCEL))
+				return e.getStatus();
+
+			// Report the error for the correct type of call...
 			String argType = null;
 			switch(callStyle) {
 				case RunOptions.CALL_MAP:

@@ -93,23 +93,6 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 	}
 
 	/**
-	 * Although this method is package private, it should only be used to set up the engine in a thread.
-	 * 
-	 * @return
-	 */
-	BExecutionContext getBuildContext() {
-		return engineTopOfStack;
-	}
-
-	/**
-	 * Returns the build context parented by the invocation context.
-	 */
-	@Override
-	protected BExecutionContext getContext() {
-		return engineTopOfStack;
-	}
-
-	/**
 	 * Returns the initial injector configured for the engine. (Inner contexts may have created sub injectors).
 	 * Always obtain the injector from a BExecutionContext if such a context is available.
 	 * 
@@ -117,25 +100,6 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 	 */
 	public Injector getInjector() {
 		return getBuildContext().getInjector();
-	}
-
-	private void initialize() throws B3EngineException {
-		engineBottomOfStack = B3backendFactory.eINSTANCE.createBContext();
-		engineBottomOfStack.setParentContext(invocationContext);
-		engineTopOfStack = engineBottomOfStack;
-		try {
-			engineTopOfStack.defineFinalValue("b3", this, IB3Engine.class);
-		}
-		catch(B3EngineException e) {
-			throw new B3InternalError("Initialization of B3BuildEngine failed with exception", e);
-		}
-		// // TODO: Fix this horrible crutch that creates a FunctionUtils instance via guice (to get things
-		// // injected), and making it available statically to non guice code.
-		// // Remove this construct when everything is moved off evaluation/calls in the model code.
-		// //
-		// FunctionUtils.instance = getInjector().getInstance(FunctionUtils.class);
-		invocationContext.loadFunctions(BuildFunctions.class);
-
 	}
 
 	/*
@@ -211,6 +175,7 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 	 */
 	public IStatus run(final IB3Runnable runnable, IProgressMonitor monitor) {
 		final BExecutionContext ctx = getBuildContext();
+		monitor.beginTask("", IProgressMonitor.UNKNOWN);
 		ctx.setProgressMonitor(monitor);
 		try {
 			return new AbstractB3EngineExecutor(this, ctx) {
@@ -227,7 +192,44 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 				"Should not happen - AbstractB3EngineExecutor should have baked exception into returned status", e);
 		}
 		finally {
+			monitor.done();
 			ctx.setProgressMonitor(null);
 		}
+	}
+
+	/**
+	 * Returns the build context parented by the invocation context.
+	 */
+	@Override
+	protected BExecutionContext getContext() {
+		return engineTopOfStack;
+	}
+
+	/**
+	 * Although this method is package private, it should only be used to set up the engine in a thread.
+	 * 
+	 * @return
+	 */
+	BExecutionContext getBuildContext() {
+		return engineTopOfStack;
+	}
+
+	private void initialize() throws B3EngineException {
+		engineBottomOfStack = B3backendFactory.eINSTANCE.createBContext();
+		engineBottomOfStack.setParentContext(invocationContext);
+		engineTopOfStack = engineBottomOfStack;
+		try {
+			engineTopOfStack.defineFinalValue("b3", this, IB3Engine.class);
+		}
+		catch(B3EngineException e) {
+			throw new B3InternalError("Initialization of B3BuildEngine failed with exception", e);
+		}
+		// // TODO: Fix this horrible crutch that creates a FunctionUtils instance via guice (to get things
+		// // injected), and making it available statically to non guice code.
+		// // Remove this construct when everything is moved off evaluation/calls in the model code.
+		// //
+		// FunctionUtils.instance = getInjector().getInstance(FunctionUtils.class);
+		invocationContext.loadFunctions(BuildFunctions.class);
+
 	}
 }

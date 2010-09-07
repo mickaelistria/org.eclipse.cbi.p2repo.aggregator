@@ -55,6 +55,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 
@@ -80,6 +81,13 @@ public class B3BuilderJob extends AbstractB3Job {
 	private IB3Evaluator evaluator;
 
 	private ITypeProvider typer;
+
+	// Copy of the qualified name used in the UI for indicating immediate error reporting
+	// Since this plugin is headless, it can not use the declaration in IProgressConstants directly
+	private static final QualifiedName NO_IMMEDIATE_ERROR_REPORTING = new QualifiedName(
+		"org.eclipse.ui.workbench.progress", "delayErrorPrompt");
+
+	private static final QualifiedName KEEP_JOB_IN_UI = new QualifiedName("org.eclipse.ui.workbench.progress", "keep");
 
 	/**
 	 * Creates a B3BuilderJob that will run a builder for a unit identified by the value of "unit"
@@ -108,6 +116,13 @@ public class B3BuilderJob extends AbstractB3Job {
 		unit = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
 		this.aliases = null;
 		setName("building: " + unit.getName() + "#" + builder.getName());
+		// avoid progress reporting listener to popup a dialog
+		this.setProperty(NO_IMMEDIATE_ERROR_REPORTING, Boolean.TRUE);
+		// avoid a lingering job status in the footer (seem to have no effect)
+		this.setProperty(KEEP_JOB_IN_UI, Boolean.FALSE);
+		// The above had no real effect, running as system job by default stops the ui from reporting
+		// (unfortunately, this means there is no reporting in the footer, and the caller must arrange for this).
+		this.setSystem(true);
 	}
 
 	@Override
