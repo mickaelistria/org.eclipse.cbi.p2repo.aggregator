@@ -9,7 +9,6 @@
 package org.eclipse.b3.build.ui.commands;
 
 import org.eclipse.jface.dialogs.IDialogConstants;
-import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Shell;
@@ -24,8 +23,9 @@ public class ConfigurableWizardDialog extends WizardDialog {
 	 * @param parentShell
 	 * @param newWizard
 	 */
-	public ConfigurableWizardDialog(Shell parentShell, IWizard newWizard) {
+	public ConfigurableWizardDialog(Shell parentShell, ICmdWizard newWizard) {
 		super(parentShell, newWizard);
+		setHelpAvailable(true); // enables the (?) in the dialog footer
 	}
 
 	public void configureButtonsForEndPage() {
