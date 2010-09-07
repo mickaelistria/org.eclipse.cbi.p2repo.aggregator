@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
 
 /**
  * A B3 Job handles the B3 stack aspects of running Jobs.
@@ -48,7 +48,7 @@ public abstract class AbstractB3Executor<T> {
 	 * Invokes runb3 in a safe way. The returned value is casted to the given class.
 	 */
 	final public T run() throws InterruptedException, InvocationTargetException, CoreException {
-		return run(new NullProgressMonitor());
+		return run(ctx.getProgressMonitor());
 	}
 
 	/**
@@ -70,6 +70,8 @@ public abstract class AbstractB3Executor<T> {
 			throw e;
 		}
 		catch(Exception e) {
+			if(e instanceof OperationCanceledException)
+				throw new InterruptedException();
 			if(e instanceof InterruptedException)
 				throw (InterruptedException) e;
 			throw new InvocationTargetException(e);
