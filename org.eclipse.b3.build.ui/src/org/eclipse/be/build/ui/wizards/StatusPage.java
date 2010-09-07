@@ -70,7 +70,7 @@ public class StatusPage extends WizardPage {
 		else if(status.matches(IStatus.WARNING))
 			setHeaderForWarning();
 		else if(status.matches(IStatus.CANCEL))
-			setHeaderForWarning();
+			setHeaderForCancel();
 	}
 
 	/*
@@ -109,10 +109,8 @@ public class StatusPage extends WizardPage {
 	protected void configureDetailReporting(Composite composite) {
 
 		if(status.matches(IStatus.ERROR)) {
-			if(reportHelper.shouldThisErrorBeReportedWithStackTrace(status)) {
+			if(reportHelper.shouldThisErrorBeReportedWithStackTrace(status))
 				reportType = REPORT_DETAIL_STACKTRACE;
-				setDescription("Please report this error!");
-			}
 			else
 				reportType = REPORT_DETAIL_STATUS;
 		}
@@ -208,7 +206,8 @@ public class StatusPage extends WizardPage {
 	 * @return the message to be displayed
 	 */
 	protected String getStatusMessage() {
-		if(status.matches(IStatus.CANCEL) && "cancel".equals(status.getMessage()))
+		if(status.matches(IStatus.CANCEL) &&
+				("cancel".equals(status.getMessage()) || "Cancelled".equals(status.getMessage())))
 			return "Output produced by the operation may not be valid.";
 		return status.getMessage();
 	}
