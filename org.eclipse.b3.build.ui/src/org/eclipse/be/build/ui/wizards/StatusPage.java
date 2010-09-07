@@ -60,7 +60,7 @@ public class StatusPage extends WizardPage {
 	 * @param status
 	 *            the status to report
 	 */
-	protected StatusPage(IStatus status) {
+	public StatusPage(IStatus status) {
 		super("status");
 		this.status = status;
 		if(status.isOK() || status.matches(IStatus.INFO))
@@ -222,7 +222,7 @@ public class StatusPage extends WizardPage {
 	}
 
 	protected void setHeaderForOk() {
-		setTitle("Operation succeeded");
+		setTitle("Success");
 	}
 
 	protected void setHeaderForWarning() {
