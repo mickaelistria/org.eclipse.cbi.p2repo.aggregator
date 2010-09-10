@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Eclipse b3 Build UI
 Bundle-SymbolicName: org.eclipse.b3.build.ui;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.b3.build.ui.Activator
@@ -17,6 +17,6 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
  J2SE-1.5
-Bundle-Vendor: %providerName
+Bundle-Vendor: Eclipse b3 Project
 Export-Package: org.eclipse.b3.build.ui.commands,
  org.eclipse.be.build.ui.wizards
