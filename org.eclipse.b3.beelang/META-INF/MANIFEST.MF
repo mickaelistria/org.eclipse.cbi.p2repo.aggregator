@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
-Bundle-Vendor: %providerName
+Bundle-Name: Eclipse b3 DSL
+Bundle-Vendor: Eclipse b3 Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: org.eclipse.b3.beelang; singleton:=true
 Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
