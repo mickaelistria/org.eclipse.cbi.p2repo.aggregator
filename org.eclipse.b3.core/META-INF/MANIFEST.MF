@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Eclipse b3 Core
 Bundle-SymbolicName: org.eclipse.b3.core;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.b3.internal.core.BuildBundle
@@ -12,4 +12,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
 Export-Package: org.eclipse.b3.internal.core;x-friends:="org.eclipse.b3.singleSetup",
  org.eclipse.b3.provisional.core,
  org.eclipse.b3.provisional.core.eventbus
-Bundle-Vendor: %providerName
+Bundle-Vendor: Eclipse b3 Project
