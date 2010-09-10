@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Eclipse b3 Build
 Bundle-SymbolicName: org.eclipse.b3.build;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .,
  model/
-Bundle-Vendor: %providerName
+Bundle-Vendor: Eclipse b3 Project
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
  J2SE-1.5
