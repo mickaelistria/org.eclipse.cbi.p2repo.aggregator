@@ -50,8 +50,8 @@ Import returns be::IType : {be::B3JavaImport}
 BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::BuildUnit}
 	(documentation = DOCUMENTATION)?
 	(executionMode = ExecutionMode)?
-	'unit' (name=EscapedQualifiedName)? ('version' version = VersionLiteral)?
-		('is' implements += SimpleTypeRef (',' implements+=SimpleTypeRef)*)? 
+	'unit' (name=EscapedQualifiedName) ('version' version = VersionLiteral)?
+		('is' implements += UnitTypeRef (',' implements+=SimpleTypeRef)*)? 
 	((
 	'{'
 		( ('source' ':' sourceLocation = Path ';') //?
@@ -640,6 +640,11 @@ TypeRef returns be::IType
 	: ClosureTypeRef 
 	| SimpleTypeRef
 	; 
+
+// Restricted in validation to interface extending BuildUnit
+UnitTypeRef returns be::IType : {be::B3ParameterizedType} 
+	rawType=[be::B3JavaImport | ID] 
+	;
 	
 SimpleTypeRef returns be::IType : {be::B3ParameterizedType} 
 	rawType=[be::B3JavaImport | ID] 

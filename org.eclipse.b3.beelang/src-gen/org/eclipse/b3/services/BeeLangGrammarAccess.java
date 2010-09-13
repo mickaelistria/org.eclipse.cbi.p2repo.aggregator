@@ -200,7 +200,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cIsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cImplementsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cImplementsSimpleTypeRefParserRuleCall_6_1_0 = (RuleCall)cImplementsAssignment_6_1.eContents().get(0);
+		private final RuleCall cImplementsUnitTypeRefParserRuleCall_6_1_0 = (RuleCall)cImplementsAssignment_6_1.eContents().get(0);
 		private final Group cGroup_6_2 = (Group)cGroup_6.eContents().get(2);
 		private final Keyword cCommaKeyword_6_2_0 = (Keyword)cGroup_6_2.eContents().get(0);
 		private final Assignment cImplementsAssignment_6_2_1 = (Assignment)cGroup_6_2.eContents().get(1);
@@ -325,8 +325,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		////JavaImporter 	: qualifiedName=QID ;
 		////NativeImporter 	: uriString = STRING ;
 		//BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT):
-		//	{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=EscapedQualifiedName?
-		//	("version" version=VersionLiteral)? ("is" implements+=SimpleTypeRef ("," implements+=SimpleTypeRef)*)? ("{" ("source"
+		//	{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=EscapedQualifiedName
+		//	("version" version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=SimpleTypeRef)*)? ("{" ("source"
 		//	":" sourceLocation=Path ";" //?
 		//	//?
 		//	//?
@@ -354,9 +354,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	defaultProperties=PropertySetDefault | "platform-filter" ":" platformFilter=P2QL ";")* "}" | ";");
 		public ParserRule getRule() { return rule; }
 
-		//{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=EscapedQualifiedName?
-		//("version" version=VersionLiteral)? ("is" implements+=SimpleTypeRef ("," implements+=SimpleTypeRef)*)? ("{" ("source"
-		//":" sourceLocation=Path ";" //?
+		//{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=EscapedQualifiedName ("version"
+		//version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=SimpleTypeRef)*)? ("{" ("source" ":"
+		//sourceLocation=Path ";" //?
 		////?
 		////?
 		////?
@@ -401,7 +401,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"unit"
 		public Keyword getUnitKeyword_3() { return cUnitKeyword_3; }
 
-		//name=EscapedQualifiedName?
+		//name=EscapedQualifiedName
 		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
 
 		//EscapedQualifiedName
@@ -419,17 +419,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//VersionLiteral
 		public RuleCall getVersionVersionLiteralParserRuleCall_5_1_0() { return cVersionVersionLiteralParserRuleCall_5_1_0; }
 
-		//("is" implements+=SimpleTypeRef ("," implements+=SimpleTypeRef)*)?
+		//("is" implements+=UnitTypeRef ("," implements+=SimpleTypeRef)*)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"is"
 		public Keyword getIsKeyword_6_0() { return cIsKeyword_6_0; }
 
-		//implements+=SimpleTypeRef
+		//implements+=UnitTypeRef
 		public Assignment getImplementsAssignment_6_1() { return cImplementsAssignment_6_1; }
 
-		//SimpleTypeRef
-		public RuleCall getImplementsSimpleTypeRefParserRuleCall_6_1_0() { return cImplementsSimpleTypeRefParserRuleCall_6_1_0; }
+		//UnitTypeRef
+		public RuleCall getImplementsUnitTypeRefParserRuleCall_6_1_0() { return cImplementsUnitTypeRefParserRuleCall_6_1_0; }
 
 		//("," implements+=SimpleTypeRef)*
 		public Group getGroup_6_2() { return cGroup_6_2; }
@@ -6188,6 +6188,35 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//SimpleTypeRef
 		public RuleCall getSimpleTypeRefParserRuleCall_1() { return cSimpleTypeRefParserRuleCall_1; }
+	}
+
+	public class UnitTypeRefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UnitTypeRef");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cB3ParameterizedTypeAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cRawTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cRawTypeB3JavaImportCrossReference_1_0 = (CrossReference)cRawTypeAssignment_1.eContents().get(0);
+		private final RuleCall cRawTypeB3JavaImportIDTerminalRuleCall_1_0_1 = (RuleCall)cRawTypeB3JavaImportCrossReference_1_0.eContents().get(1);
+		
+		//// Restricted in validation to interface extending BuildUnit
+		//UnitTypeRef returns be::IType:
+		//	{be::B3ParameterizedType} rawType=[be::B3JavaImport];
+		public ParserRule getRule() { return rule; }
+
+		//{be::B3ParameterizedType} rawType=[be::B3JavaImport]
+		public Group getGroup() { return cGroup; }
+
+		//{be::B3ParameterizedType}
+		public Action getB3ParameterizedTypeAction_0() { return cB3ParameterizedTypeAction_0; }
+
+		//rawType=[be::B3JavaImport]
+		public Assignment getRawTypeAssignment_1() { return cRawTypeAssignment_1; }
+
+		//[be::B3JavaImport]
+		public CrossReference getRawTypeB3JavaImportCrossReference_1_0() { return cRawTypeB3JavaImportCrossReference_1_0; }
+
+		//ID
+		public RuleCall getRawTypeB3JavaImportIDTerminalRuleCall_1_0_1() { return cRawTypeB3JavaImportIDTerminalRuleCall_1_0_1; }
 	}
 
 	public class SimpleTypeRefElements extends AbstractParserRuleElementFinder {
@@ -12607,6 +12636,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private VarDeclarationElements pVarDeclaration;
 	private ValDeclarationElements pValDeclaration;
 	private TypeRefElements pTypeRef;
+	private UnitTypeRefElements pUnitTypeRef;
 	private SimpleTypeRefElements pSimpleTypeRef;
 	private ClosureTypeRefElements pClosureTypeRef;
 	private TypeParamElements pTypeParam;
@@ -12787,8 +12817,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	////JavaImporter 	: qualifiedName=QID ;
 	////NativeImporter 	: uriString = STRING ;
 	//BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT):
-	//	{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=EscapedQualifiedName?
-	//	("version" version=VersionLiteral)? ("is" implements+=SimpleTypeRef ("," implements+=SimpleTypeRef)*)? ("{" ("source"
+	//	{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=EscapedQualifiedName
+	//	("version" version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=SimpleTypeRef)*)? ("{" ("source"
 	//	":" sourceLocation=Path ";" //?
 	//	//?
 	//	//?
@@ -13746,6 +13776,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTypeRefRule() {
 		return getTypeRefAccess().getRule();
+	}
+
+	//// Restricted in validation to interface extending BuildUnit
+	//UnitTypeRef returns be::IType:
+	//	{be::B3ParameterizedType} rawType=[be::B3JavaImport];
+	public UnitTypeRefElements getUnitTypeRefAccess() {
+		return (pUnitTypeRef != null) ? pUnitTypeRef : (pUnitTypeRef = new UnitTypeRefElements());
+	}
+	
+	public ParserRule getUnitTypeRefRule() {
+		return getUnitTypeRefAccess().getRule();
 	}
 
 	////		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well

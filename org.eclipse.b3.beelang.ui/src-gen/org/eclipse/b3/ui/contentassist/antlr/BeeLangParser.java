@@ -365,6 +365,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVarDeclarationAccess().getGroup_2(), "rule__VarDeclaration__Group_2__0");
 					put(grammarAccess.getVarDeclarationAccess().getGroup_3(), "rule__VarDeclaration__Group_3__0");
 					put(grammarAccess.getValDeclarationAccess().getGroup(), "rule__ValDeclaration__Group__0");
+					put(grammarAccess.getUnitTypeRefAccess().getGroup(), "rule__UnitTypeRef__Group__0");
 					put(grammarAccess.getSimpleTypeRefAccess().getGroup(), "rule__SimpleTypeRef__Group__0");
 					put(grammarAccess.getSimpleTypeRefAccess().getGroup_2(), "rule__SimpleTypeRef__Group_2__0");
 					put(grammarAccess.getSimpleTypeRefAccess().getGroup_2_2(), "rule__SimpleTypeRef__Group_2_2__0");
@@ -839,6 +840,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getValDeclarationAccess().getTypeAssignment_3(), "rule__ValDeclaration__TypeAssignment_3");
 					put(grammarAccess.getValDeclarationAccess().getNameAssignment_4(), "rule__ValDeclaration__NameAssignment_4");
 					put(grammarAccess.getValDeclarationAccess().getValueExprAssignment_6(), "rule__ValDeclaration__ValueExprAssignment_6");
+					put(grammarAccess.getUnitTypeRefAccess().getRawTypeAssignment_1(), "rule__UnitTypeRef__RawTypeAssignment_1");
 					put(grammarAccess.getSimpleTypeRefAccess().getRawTypeAssignment_1(), "rule__SimpleTypeRef__RawTypeAssignment_1");
 					put(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListAssignment_2_1(), "rule__SimpleTypeRef__ActualArgumentsListAssignment_2_1");
 					put(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListAssignment_2_2_1(), "rule__SimpleTypeRef__ActualArgumentsListAssignment_2_2_1");

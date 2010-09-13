@@ -23,4 +23,8 @@ public interface IBeeLangDiagnostic {
 
 	public static final String ISSUE_TIMESTAMP__NON_UTC = "Not UTC";
 
+	public static final String ISSUE_BUILD_UNIT__DUPLICATE_IS = "Duplicate is";
+
+	public static final String ISSUE_BUILD_UNIT__NOT_UNIT_INTERFACE = "Not a unit interface";
+
 }

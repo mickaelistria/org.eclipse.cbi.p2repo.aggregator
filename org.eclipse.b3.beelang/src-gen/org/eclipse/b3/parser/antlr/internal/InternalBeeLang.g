@@ -31,6 +31,7 @@ import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
+import org.eclipse.xtext.parser.antlr.IUnorderedGroupHelper.UnorderedGroupState;
 import org.eclipse.xtext.parser.antlr.AntlrDatatypeRuleToken;
 import org.eclipse.xtext.conversion.ValueConverterException;
 import org.eclipse.b3.services.BeeLangGrammarAccess;
@@ -556,7 +557,7 @@ ruleBuildUnit returns [EObject current=null]
 	    }
 
 )
-)?(	'version' 
+)(	'version' 
     {
         createLeafNode(grammarAccess.getBuildUnitAccess().getVersionKeyword_5_0(), null); 
     }
@@ -591,9 +592,9 @@ ruleBuildUnit returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBuildUnitAccess().getImplementsSimpleTypeRefParserRuleCall_6_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBuildUnitAccess().getImplementsUnitTypeRefParserRuleCall_6_1_0(), currentNode); 
 	    }
-		lv_implements_8_0=ruleSimpleTypeRef		{
+		lv_implements_8_0=ruleUnitTypeRef		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBuildUnitRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -603,7 +604,7 @@ ruleBuildUnit returns [EObject current=null]
 	       			$current, 
 	       			"implements",
 	        		lv_implements_8_0, 
-	        		"SimpleTypeRef", 
+	        		"UnitTypeRef", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -1559,16 +1560,27 @@ ruleFragmentHost returns [EObject current=null]
 
 // Entry rule entryRuleProvidedCapability
 entryRuleProvidedCapability returns [EObject current=null] 
+	@init { 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getProvidedCapabilityAccess().getUnorderedGroup_2_1()
+		);
+	}
 	:
 	{ currentNode = createCompositeNode(grammarAccess.getProvidedCapabilityRule(), currentNode); }
 	 iv_ruleProvidedCapability=ruleProvidedCapability 
 	 { $current=$iv_ruleProvidedCapability.current; } 
 	 EOF 
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 // Rule ProvidedCapability
 ruleProvidedCapability returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getProvidedCapabilityAccess().getUnorderedGroup_2_1()
+		);
     }
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
@@ -1814,6 +1826,9 @@ ruleProvidedCapability returns [EObject current=null]
     }
 ))
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 
 
@@ -1821,16 +1836,27 @@ ruleProvidedCapability returns [EObject current=null]
 
 // Entry rule entryRuleAliasedRequiredCapability
 entryRuleAliasedRequiredCapability returns [EObject current=null] 
+	@init { 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getAliasedRequiredCapabilityAccess().getUnorderedGroup_2_1()
+		);
+	}
 	:
 	{ currentNode = createCompositeNode(grammarAccess.getAliasedRequiredCapabilityRule(), currentNode); }
 	 iv_ruleAliasedRequiredCapability=ruleAliasedRequiredCapability 
 	 { $current=$iv_ruleAliasedRequiredCapability.current; } 
 	 EOF 
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 // Rule AliasedRequiredCapability
 ruleAliasedRequiredCapability returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getAliasedRequiredCapabilityAccess().getUnorderedGroup_2_1()
+		);
     }
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
@@ -2237,6 +2263,9 @@ ruleAliasedRequiredCapability returns [EObject current=null]
 )
 ))?)
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 
 
@@ -2244,16 +2273,27 @@ ruleAliasedRequiredCapability returns [EObject current=null]
 
 // Entry rule entryRuleRequiredCapability
 entryRuleRequiredCapability returns [EObject current=null] 
+	@init { 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getRequiredCapabilityAccess().getUnorderedGroup_2_1()
+		);
+	}
 	:
 	{ currentNode = createCompositeNode(grammarAccess.getRequiredCapabilityRule(), currentNode); }
 	 iv_ruleRequiredCapability=ruleRequiredCapability 
 	 { $current=$iv_ruleRequiredCapability.current; } 
 	 EOF 
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 // Rule RequiredCapability
 ruleRequiredCapability returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getRequiredCapabilityAccess().getUnorderedGroup_2_1()
+		);
     }
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
@@ -2632,6 +2672,9 @@ ruleRequiredCapability returns [EObject current=null]
     }
 ))
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 
 
@@ -2639,16 +2682,27 @@ ruleRequiredCapability returns [EObject current=null]
 
 // Entry rule entryRuleRequiredCapability_Unfiltered
 entryRuleRequiredCapability_Unfiltered returns [EObject current=null] 
+	@init { 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getRequiredCapability_UnfilteredAccess().getUnorderedGroup_2_1()
+		);
+	}
 	:
 	{ currentNode = createCompositeNode(grammarAccess.getRequiredCapability_UnfilteredRule(), currentNode); }
 	 iv_ruleRequiredCapability_Unfiltered=ruleRequiredCapability_Unfiltered 
 	 { $current=$iv_ruleRequiredCapability_Unfiltered.current; } 
 	 EOF 
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 // Rule RequiredCapability_Unfiltered
 ruleRequiredCapability_Unfiltered returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getRequiredCapability_UnfilteredAccess().getUnorderedGroup_2_1()
+		);
     }
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
@@ -2979,6 +3033,9 @@ ruleRequiredCapability_Unfiltered returns [EObject current=null]
     }
 ))
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 
 
@@ -6429,16 +6486,27 @@ ruleBuilderInputGroup returns [EObject current=null]
 
 // Entry rule entryRuleBuilder
 entryRuleBuilder returns [EObject current=null] 
+	@init { 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getBuilderAccess().getUnorderedGroup_11()
+		);
+	}
 	:
 	{ currentNode = createCompositeNode(grammarAccess.getBuilderRule(), currentNode); }
 	 iv_ruleBuilder=ruleBuilder 
 	 { $current=$iv_ruleBuilder.current; } 
 	 EOF 
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 // Rule Builder
 ruleBuilder returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getBuilderAccess().getUnorderedGroup_11()
+		);
     }
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
@@ -7145,6 +7213,9 @@ ruleBuilder returns [EObject current=null]
     }
 )
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 
 
@@ -8295,16 +8366,29 @@ ruleTriState returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 
 // Entry rule entryRuleBranch
 entryRuleBranch returns [EObject current=null] 
+	@init { 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getBranchAccess().getUnorderedGroup_5(), 
+			grammarAccess.getBranchAccess().getUnorderedGroup_5_1_3_1_0()
+		);
+	}
 	:
 	{ currentNode = createCompositeNode(grammarAccess.getBranchRule(), currentNode); }
 	 iv_ruleBranch=ruleBranch 
 	 { $current=$iv_ruleBranch.current; } 
 	 EOF 
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 // Rule Branch
 ruleBranch returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+		UnorderedGroupState myUnorderedGroupState = getUnorderedGroupHelper().snapShot(
+			grammarAccess.getBranchAccess().getUnorderedGroup_5(), 
+			grammarAccess.getBranchAccess().getUnorderedGroup_5_1_3_1_0()
+		);
     }
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
@@ -8931,6 +9015,9 @@ ruleBranch returns [EObject current=null]
     }
 )
 ;
+finally {
+	myUnorderedGroupState.restore();
+}
 
 
 
@@ -11585,6 +11672,60 @@ ruleTypeRef returns [EObject current=null]
         currentNode = currentNode.getParent();
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleUnitTypeRef
+entryRuleUnitTypeRef returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getUnitTypeRefRule(), currentNode); }
+	 iv_ruleUnitTypeRef=ruleUnitTypeRef 
+	 { $current=$iv_ruleUnitTypeRef.current; } 
+	 EOF 
+;
+
+// Rule UnitTypeRef
+ruleUnitTypeRef returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+((
+	{ 
+	  /* */ 
+	}
+    { 
+        temp=factory.create(grammarAccess.getUnitTypeRefAccess().getB3ParameterizedTypeAction_0().getType().getClassifier());
+        $current = temp; 
+        temp = null;
+        CompositeNode newNode = createCompositeNode(grammarAccess.getUnitTypeRefAccess().getB3ParameterizedTypeAction_0(), currentNode.getParent());
+    newNode.getChildren().add(currentNode);
+    moveLookaheadInfo(currentNode, newNode);
+    currentNode = newNode; 
+        associateNodeWithAstElement(currentNode, $current); 
+    }
+)(
+(
+		{ 
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = factory.create(grammarAccess.getUnitTypeRefRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+        }
+	RULE_ID
+	{
+		createLeafNode(grammarAccess.getUnitTypeRefAccess().getRawTypeB3JavaImportCrossReference_1_0(), "rawType"); 
+	}
+
+)
+))
 ;
 
 

@@ -51,6 +51,7 @@ import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.internal.Lists;
 
 public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implements IBeeLangDiagnostic {
 
@@ -130,6 +131,19 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 				error(
 					"A build unit may only have one 'resolution' declaration.", provider,
 					B3BuildPackage.BUILD_UNIT__PROVIDERS, ISSUE_BUILD_UNIT__MULTIPLE_RESOLUTIONS);
+		}
+		// make sure all "implements" are unique
+		// make sure all "imlements" are BuildUnit interfaces
+		List<Type> seenTypes = Lists.newArrayList();
+		for(Type t : buildUnit.getImplements()) {
+			if(seenTypes.contains(t))
+				error("Duplicate declaration of unit type", t instanceof EObject
+						? (EObject) t
+						: buildUnit, B3BuildPackage.BUILD_UNIT__IMPLEMENTS, ISSUE_BUILD_UNIT__DUPLICATE_IS);
+			if(!TypeUtils.isAssignableFrom(BuildUnit.class, t))
+				error("A unit type must be a specialization of BuildUnit", t instanceof EObject
+						? (EObject) t
+						: buildUnit, B3BuildPackage.BUILD_UNIT__IMPLEMENTS, ISSUE_BUILD_UNIT__NOT_UNIT_INTERFACE);
 		}
 	}
 
