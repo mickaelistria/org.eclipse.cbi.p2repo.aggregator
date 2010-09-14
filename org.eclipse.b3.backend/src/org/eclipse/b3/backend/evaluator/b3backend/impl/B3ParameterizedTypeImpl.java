@@ -13,19 +13,16 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
-
 import java.util.Collection;
+
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectEList;
@@ -174,6 +171,29 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 		return super.eIsSet(featureID);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null)
+			return false;
+		if(!(obj instanceof B3ParameterizedTypeImpl))
+			return super.equals(obj);
+		B3ParameterizedTypeImpl t2 = (B3ParameterizedTypeImpl) obj;
+		if(rawType == null || t2.rawType == null) {
+			if(rawType != t2.rawType)
+				return false;
+		}
+		else if(!rawType.equals(t2.rawType))
+			return false;
+		if(!getActualArgumentsList().equals(t2.getActualArgumentsList()))
+			return false;
+		return true;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,17 +216,6 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 				return;
 		}
 		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.B3_PARAMETERIZED_TYPE;
 	}
 
 	/**
@@ -346,4 +355,14 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 		return buf.toString();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.B3_PARAMETERIZED_TYPE;
+	}
 } // B3ParameterizedTypeImpl
