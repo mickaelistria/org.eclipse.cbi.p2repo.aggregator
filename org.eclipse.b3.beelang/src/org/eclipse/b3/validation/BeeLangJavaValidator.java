@@ -11,6 +11,7 @@ import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallFeature;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
@@ -136,10 +137,17 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		// make sure all "imlements" are BuildUnit interfaces
 		List<Type> seenTypes = Lists.newArrayList();
 		for(Type t : buildUnit.getImplements()) {
+			if(t instanceof B3ParameterizedType && ((B3ParameterizedType) t).getRawType() == null) {
+				error("Incomplete list of 'is'", (EObject) t, B3BuildPackage.BUILD_UNIT__IMPLEMENTS, null);
+				continue; // not meaningful to test with null type
+			}
 			if(seenTypes.contains(t))
 				error("Duplicate declaration of unit type", t instanceof EObject
 						? (EObject) t
 						: buildUnit, B3BuildPackage.BUILD_UNIT__IMPLEMENTS, ISSUE_BUILD_UNIT__DUPLICATE_IS);
+			else
+				seenTypes.add(t);
+
 			if(!TypeUtils.isAssignableFrom(BuildUnit.class, t))
 				error("A unit type must be a specialization of BuildUnit", t instanceof EObject
 						? (EObject) t

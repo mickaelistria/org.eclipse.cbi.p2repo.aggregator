@@ -204,7 +204,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6_2 = (Group)cGroup_6.eContents().get(2);
 		private final Keyword cCommaKeyword_6_2_0 = (Keyword)cGroup_6_2.eContents().get(0);
 		private final Assignment cImplementsAssignment_6_2_1 = (Assignment)cGroup_6_2.eContents().get(1);
-		private final RuleCall cImplementsSimpleTypeRefParserRuleCall_6_2_1_0 = (RuleCall)cImplementsAssignment_6_2_1.eContents().get(0);
+		private final RuleCall cImplementsUnitTypeRefParserRuleCall_6_2_1_0 = (RuleCall)cImplementsAssignment_6_2_1.eContents().get(0);
 		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
 		private final Group cGroup_7_0 = (Group)cAlternatives_7.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_7_0_0 = (Keyword)cGroup_7_0.eContents().get(0);
@@ -326,8 +326,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		////NativeImporter 	: uriString = STRING ;
 		//BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT):
 		//	{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=EscapedQualifiedName
-		//	("version" version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=SimpleTypeRef)*)? ("{" ("source"
-		//	":" sourceLocation=Path ";" //?
+		//	("version" version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=UnitTypeRef)*)? ("{" ("source" ":"
+		//	sourceLocation=Path ";" //?
 		//	//?
 		//	//?
 		//	//?
@@ -355,7 +355,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public ParserRule getRule() { return rule; }
 
 		//{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=EscapedQualifiedName ("version"
-		//version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=SimpleTypeRef)*)? ("{" ("source" ":"
+		//version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=UnitTypeRef)*)? ("{" ("source" ":"
 		//sourceLocation=Path ";" //?
 		////?
 		////?
@@ -419,7 +419,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//VersionLiteral
 		public RuleCall getVersionVersionLiteralParserRuleCall_5_1_0() { return cVersionVersionLiteralParserRuleCall_5_1_0; }
 
-		//("is" implements+=UnitTypeRef ("," implements+=SimpleTypeRef)*)?
+		//("is" implements+=UnitTypeRef ("," implements+=UnitTypeRef)*)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"is"
@@ -431,17 +431,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//UnitTypeRef
 		public RuleCall getImplementsUnitTypeRefParserRuleCall_6_1_0() { return cImplementsUnitTypeRefParserRuleCall_6_1_0; }
 
-		//("," implements+=SimpleTypeRef)*
+		//("," implements+=UnitTypeRef)*
 		public Group getGroup_6_2() { return cGroup_6_2; }
 
 		//","
 		public Keyword getCommaKeyword_6_2_0() { return cCommaKeyword_6_2_0; }
 
-		//implements+=SimpleTypeRef
+		//implements+=UnitTypeRef
 		public Assignment getImplementsAssignment_6_2_1() { return cImplementsAssignment_6_2_1; }
 
-		//SimpleTypeRef
-		public RuleCall getImplementsSimpleTypeRefParserRuleCall_6_2_1_0() { return cImplementsSimpleTypeRefParserRuleCall_6_2_1_0; }
+		//UnitTypeRef
+		public RuleCall getImplementsUnitTypeRefParserRuleCall_6_2_1_0() { return cImplementsUnitTypeRefParserRuleCall_6_2_1_0; }
 
 		//"{" ("source" ":" sourceLocation=Path ";" //?
 		////?
@@ -12818,8 +12818,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	////NativeImporter 	: uriString = STRING ;
 	//BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT):
 	//	{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=EscapedQualifiedName
-	//	("version" version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=SimpleTypeRef)*)? ("{" ("source"
-	//	":" sourceLocation=Path ";" //?
+	//	("version" version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=UnitTypeRef)*)? ("{" ("source" ":"
+	//	sourceLocation=Path ";" //?
 	//	//?
 	//	//?
 	//	//?

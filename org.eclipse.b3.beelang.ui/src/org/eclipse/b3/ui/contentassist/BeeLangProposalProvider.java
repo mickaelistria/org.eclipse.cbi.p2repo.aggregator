@@ -8,16 +8,22 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.build.Branch;
 import org.eclipse.b3.build.BranchPointType;
+import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.MergeConflictStrategy;
 import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.TriState;
+import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.runtime.RepositoryValidation;
+import org.eclipse.b3.build.engine.B3BuildEngineResource;
 import org.eclipse.b3.enums.MergeConflictStrategyEnumHelper;
 import org.eclipse.b3.enums.TriStateEnumHelper;
 import org.eclipse.b3.versions.IVersionFormatManager;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.graphics.Image;
@@ -111,6 +117,23 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 		super.complete_NamePredicate(model, ruleCall, context, acceptor);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.ui.contentassist.AbstractBeeLangProposalProvider#complete_SimpleTypeRef(org.eclipse.emf.ecore.EObject,
+	 * org.eclipse.xtext.RuleCall, org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext,
+	 * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
+	 */
+	@Override
+	public void complete_SimpleTypeRef(EObject model, RuleCall ruleCall, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		B3BuildEngineResource r = getDefaultResource(model);
+		for(EObject t : r.getContents())
+			if(t instanceof B3JavaImport)
+				acceptor.accept(createCompletionProposal(((B3JavaImport) t).getName(), context));
+		super.complete_SimpleTypeRef(model, ruleCall, context, acceptor);
+	}
+
 	@Override
 	public void complete_TriState(EObject model, RuleCall ruleCall, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
@@ -119,6 +142,24 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 			completionProposal = createCompletionProposal(entry.getValue(), new StyledString(entry.getValue()), context);
 			acceptor.accept(completionProposal);
 		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.ui.contentassist.AbstractBeeLangProposalProvider#complete_UnitTypeRef(org.eclipse.emf.ecore.EObject,
+	 * org.eclipse.xtext.RuleCall, org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext,
+	 * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
+	 */
+	@Override
+	public void complete_UnitTypeRef(EObject model, RuleCall ruleCall, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		B3BuildEngineResource r = getDefaultResource(model);
+		for(EObject t : r.getContents())
+			if(t instanceof B3JavaImport && acceptThisImport((B3JavaImport) t, BuildUnit.class))
+				acceptor.accept(createCompletionProposal(((B3JavaImport) t).getName(), context));
+		// TODO: These should be filtered as well
+		super.complete_UnitTypeRef(model, ruleCall, context, acceptor);
 	}
 
 	@Override
@@ -293,6 +334,20 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 			proposal, label, null, getPriorityHelper().getDefaultPriority(), prefix, context);
 	}
 
+	private boolean acceptThisImport(B3JavaImport candidate, Class<?> root) {
+		if(root == null || org.eclipse.b3.backend.evaluator.typesystem.TypeUtils.isAssignableFrom(root, candidate))
+			return true;
+		return false;
+	}
+
+	private B3BuildEngineResource getDefaultResource(EObject o) {
+		ResourceSet rs = o.eResource().getResourceSet();
+
+		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
+		return (B3BuildEngineResource) rs.getResource(uri, true);
+
+	}
+
 	// TODO: This is a useful utility in many places
 	private String uniqueNameProposal(String proposal, List<String> usedNames) {
 		List<String> similar = Lists.newArrayList();
@@ -312,4 +367,5 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 			}
 		return proposal + Integer.toString(max + 1);
 	}
+
 }

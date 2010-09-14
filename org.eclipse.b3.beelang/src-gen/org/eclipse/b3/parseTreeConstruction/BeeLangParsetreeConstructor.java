@@ -979,8 +979,8 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
  * //NativeImporter 	: uriString = STRING ;
  * BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT):
  * 	{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=EscapedQualifiedName
- * 	("version" version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=SimpleTypeRef)*)? ("{" ("source"
- * 	":" sourceLocation=Path ";" //?
+ * 	("version" version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=UnitTypeRef)*)? ("{" ("source" ":"
+ * 	sourceLocation=Path ";" //?
  * 	//?
  * 	//?
  * 	//?
@@ -1009,7 +1009,7 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
  **/
 
 // {build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=EscapedQualifiedName ("version"
-// version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=SimpleTypeRef)*)? ("{" ("source" ":"
+// version=VersionLiteral)? ("is" implements+=UnitTypeRef ("," implements+=UnitTypeRef)*)? ("{" ("source" ":"
 // sourceLocation=Path ";" //?
 // //?
 // //?
@@ -1295,7 +1295,7 @@ protected class BuildUnit_VersionAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("is" implements+=UnitTypeRef ("," implements+=SimpleTypeRef)*)?
+// ("is" implements+=UnitTypeRef ("," implements+=UnitTypeRef)*)?
 protected class BuildUnit_Group_6 extends GroupToken {
 	
 	public BuildUnit_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1387,7 +1387,7 @@ protected class BuildUnit_ImplementsAssignment_6_1 extends AssignmentToken  {
 	}	
 }
 
-// ("," implements+=SimpleTypeRef)*
+// ("," implements+=UnitTypeRef)*
 protected class BuildUnit_Group_6_2 extends GroupToken {
 	
 	public BuildUnit_Group_6_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1432,7 +1432,7 @@ protected class BuildUnit_CommaKeyword_6_2_0 extends KeywordToken  {
 
 }
 
-// implements+=SimpleTypeRef
+// implements+=UnitTypeRef
 protected class BuildUnit_ImplementsAssignment_6_2_1 extends AssignmentToken  {
 	
 	public BuildUnit_ImplementsAssignment_6_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1447,7 +1447,7 @@ protected class BuildUnit_ImplementsAssignment_6_2_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new SimpleTypeRef_Group(this, this, 0, inst);
+			case 0: return new UnitTypeRef_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1458,9 +1458,9 @@ protected class BuildUnit_ImplementsAssignment_6_2_1 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("implements");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getSimpleTypeRefRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getUnitTypeRefRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getBuildUnitAccess().getImplementsSimpleTypeRefParserRuleCall_6_2_1_0(); 
+				element = grammarAccess.getBuildUnitAccess().getImplementsUnitTypeRefParserRuleCall_6_2_1_0(); 
 				consumed = obj;
 				return param;
 			}

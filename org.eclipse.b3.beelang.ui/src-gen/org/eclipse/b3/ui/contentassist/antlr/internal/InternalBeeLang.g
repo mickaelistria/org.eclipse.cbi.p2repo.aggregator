@@ -57889,8 +57889,8 @@ rule__BuildUnit__ImplementsAssignment_6_2_1
     }
 :
 (
-{ before(grammarAccess.getBuildUnitAccess().getImplementsSimpleTypeRefParserRuleCall_6_2_1_0()); }
-	ruleSimpleTypeRef{ after(grammarAccess.getBuildUnitAccess().getImplementsSimpleTypeRefParserRuleCall_6_2_1_0()); }
+{ before(grammarAccess.getBuildUnitAccess().getImplementsUnitTypeRefParserRuleCall_6_2_1_0()); }
+	ruleUnitTypeRef{ after(grammarAccess.getBuildUnitAccess().getImplementsUnitTypeRefParserRuleCall_6_2_1_0()); }
 )
 
 ;

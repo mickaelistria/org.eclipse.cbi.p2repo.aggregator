@@ -20,7 +20,6 @@ import org.eclipse.b3.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.engine.B3BuildEngineResource;
-import org.eclipse.b3.build.engine.B3ExtensionLoader;
 import org.eclipse.b3.build.evaluator.B3BuildFuncScopeProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -33,8 +32,6 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 import org.eclipse.xtext.scoping.impl.SimpleScope;
 
-import com.google.inject.Inject;
-
 /**
  * This class contains custom scoping description.
  * 
@@ -45,8 +42,8 @@ import com.google.inject.Inject;
 public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 	// IScope scope_B3ParameterizedType_rawType(B3ParameterizedType ctx, EReference ref) {
 
-	@Inject
-	private B3ExtensionLoader b3ExtensionLoader;
+	// @Inject
+	// private B3ExtensionLoader b3ExtensionLoader;
 
 	/**
 	 * Find reference to advice in containing BuildUnit, or in the BeeModel.
@@ -147,7 +144,6 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 		return new SimpleScope(result);
 	}
 
-	@SuppressWarnings("unchecked")
 	private boolean acceptThisImport(B3JavaImport candidate, Class<?> root) {
 		if(root == null || root.isAssignableFrom(candidate.getClass()))
 			return true;
@@ -178,13 +174,6 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 		for(EObject t : r.getContents())
 			if(t instanceof B3JavaImport && acceptThisImport((B3JavaImport) t, root))
 				result.add(new EObjectDescription(((B3JavaImport) t).getName(), t, null));
-
-		// // pick up types from all loaded
-		// for(BeeModel m : b3ExtensionLoader.getModelsByKey(
-		// e.eResource().getResourceSet(), B3ExtensionLoader.B3EXTENSION__USE_EXPORT))
-		// for(Type t : m.getImports())
-		// if(t instanceof B3JavaImport)
-		// result.add(new EObjectDescription(((B3JavaImport) t).getName(), (B3JavaImport) t, null));
 
 		return new SimpleScope(result);
 

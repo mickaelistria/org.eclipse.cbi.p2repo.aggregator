@@ -620,9 +620,9 @@ ruleBuildUnit returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBuildUnitAccess().getImplementsSimpleTypeRefParserRuleCall_6_2_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBuildUnitAccess().getImplementsUnitTypeRefParserRuleCall_6_2_1_0(), currentNode); 
 	    }
-		lv_implements_10_0=ruleSimpleTypeRef		{
+		lv_implements_10_0=ruleUnitTypeRef		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBuildUnitRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -632,7 +632,7 @@ ruleBuildUnit returns [EObject current=null]
 	       			$current, 
 	       			"implements",
 	        		lv_implements_10_0, 
-	        		"SimpleTypeRef", 
+	        		"UnitTypeRef", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);

@@ -51,7 +51,7 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 	(documentation = DOCUMENTATION)?
 	(executionMode = ExecutionMode)?
 	'unit' (name=EscapedQualifiedName) ('version' version = VersionLiteral)?
-		('is' implements += UnitTypeRef (',' implements+=SimpleTypeRef)*)? 
+		('is' implements += UnitTypeRef (',' implements+=UnitTypeRef)*)? 
 	((
 	'{'
 		( ('source' ':' sourceLocation = Path ';') //?
