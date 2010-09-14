@@ -335,6 +335,8 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 	}
 
 	private boolean acceptThisImport(B3JavaImport candidate, Class<?> root) {
+		if(candidate.getType() == null)
+			return false;
 		if(root == null || org.eclipse.b3.backend.evaluator.typesystem.TypeUtils.isAssignableFrom(root, candidate))
 			return true;
 		return false;

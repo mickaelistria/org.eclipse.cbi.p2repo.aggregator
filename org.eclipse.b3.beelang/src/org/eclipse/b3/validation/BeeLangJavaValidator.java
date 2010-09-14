@@ -147,7 +147,13 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 						: buildUnit, B3BuildPackage.BUILD_UNIT__IMPLEMENTS, ISSUE_BUILD_UNIT__DUPLICATE_IS);
 			else
 				seenTypes.add(t);
-
+			if(t instanceof B3ParameterizedType && ((B3ParameterizedType) t).getRawType() instanceof B3JavaImport &&
+					((B3JavaImport) ((B3ParameterizedType) t).getRawType()).getType() == null) {
+				error("Invalid type", t instanceof EObject
+						? (EObject) t
+						: buildUnit, B3BuildPackage.BUILD_UNIT__IMPLEMENTS, null);
+				continue;
+			}
 			if(!TypeUtils.isAssignableFrom(BuildUnit.class, t))
 				error("A unit type must be a specialization of BuildUnit", t instanceof EObject
 						? (EObject) t
