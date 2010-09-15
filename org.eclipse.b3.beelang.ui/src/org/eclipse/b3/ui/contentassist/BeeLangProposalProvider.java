@@ -28,10 +28,13 @@ import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.RuleCall;
+import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 
+import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 
@@ -142,24 +145,6 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 			completionProposal = createCompletionProposal(entry.getValue(), new StyledString(entry.getValue()), context);
 			acceptor.accept(completionProposal);
 		}
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.b3.ui.contentassist.AbstractBeeLangProposalProvider#complete_UnitTypeRef(org.eclipse.emf.ecore.EObject,
-	 * org.eclipse.xtext.RuleCall, org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext,
-	 * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
-	 */
-	@Override
-	public void complete_UnitTypeRef(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		B3BuildEngineResource r = getDefaultResource(model);
-		for(EObject t : r.getContents())
-			if(t instanceof B3JavaImport && acceptThisImport((B3JavaImport) t, BuildUnit.class))
-				acceptor.accept(createCompletionProposal(((B3JavaImport) t).getName(), context));
-		// TODO: These should be filtered as well
-		super.complete_UnitTypeRef(model, ruleCall, context, acceptor);
 	}
 
 	@Override
@@ -305,6 +290,25 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 		ICompletionProposal completionProposal = createCompletionProposal(proposal, context);
 		acceptor.accept(completionProposal);
 		super.completeRepository_Name(model, assignment, context, acceptor);
+	}
+
+	@Override
+	public void completeUnitTypeRef_RawType(EObject model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		B3BuildEngineResource r = getDefaultResource(model);
+		for(EObject t : r.getContents())
+			if(t instanceof B3JavaImport && acceptThisImport((B3JavaImport) t, BuildUnit.class))
+				acceptor.accept(createCompletionProposal(((B3JavaImport) t).getName(), context));
+		lookupCrossReference(
+			((CrossReference) assignment.getTerminal()), context, acceptor, new Predicate<IEObjectDescription>() {
+
+				@Override
+				public boolean apply(IEObjectDescription input) {
+					EObject o = input.getEObjectOrProxy();
+					return o instanceof B3JavaImport && acceptThisImport((B3JavaImport) o, BuildUnit.class);
+				}
+
+			});
 	}
 
 	/**
