@@ -29,6 +29,7 @@ import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
@@ -44,6 +45,9 @@ import com.google.inject.Inject;
 public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 	@Inject
 	private IVersionFormatManager versionFormats;
+
+	@Inject
+	private IProposalCustomizer proposalCustomizer;
 
 	/**
 	 * @see org.eclipse.xtext.ui.editor.contentassist.ContentProposalPriorities
@@ -232,6 +236,21 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 
 		super.completeBranch_Name(model, assignment, context, acceptor);
 
+	}
+
+	/**
+	 * Overrides the default keyword proposal generation to allow customization via extension.
+	 * (TODO: done this way to make it possible to later dynamically modify this via preferences and
+	 * perspective).
+	 * 
+	 * @see org.eclipse.xtext.ui.editor.contentassist.AbstractJavaBasedContentProposalProvider#completeKeyword(org.eclipse.xtext.Keyword,
+	 *      org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext, org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
+	 */
+	@Override
+	public void completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext,
+			ICompletionProposalAcceptor acceptor) {
+		if(proposalCustomizer.completeKeyword(keyword, contentAssistContext, acceptor))
+			super.completeKeyword(keyword, contentAssistContext, acceptor);
 	}
 
 	/*
