@@ -120,7 +120,11 @@ public class BeeLangFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap().after(f.getBestFoundUnitProviderAccess().getCommaKeyword_6_0());
 
 		// BUILD UNIT
+		c.setIndentation(
+			f.getBuildUnitAccess().getLeftCurlyBracketKeyword_7_0_0(),
+			f.getBuildUnitAccess().getRightCurlyBracketKeyword_7_0_2());
 
+		c.setLinewrap().after(f.getBuildUnitAccess().getLeftCurlyBracketKeyword_7_0_0());
 		// FUNCTION
 		c.setLinewrap(2).after(f.getFunctionRule());
 	}
