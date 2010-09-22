@@ -8,16 +8,23 @@
 
 package org.eclipse.b3.versions;
 
+import java.io.StringReader;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.b3.parser.antlr.BeeLangParser;
+import org.eclipse.b3.services.BeeLangGrammarAccess;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.xtext.IGrammarAccess;
+import org.eclipse.xtext.parser.IParseResult;
+import org.eclipse.xtext.parser.IParser;
 import org.eclipse.xtext.util.Strings;
 
 import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 /**
@@ -104,6 +111,12 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 
 	private List<VersionProposal> versionRangeProposals;
 
+	@Inject
+	private IParser parser;
+
+	@Inject
+	private IGrammarAccess grammarAccess;
+
 	DefaultVersionFormatManager() {
 		formats = Maps.newHashBiMap();
 		formats.put("string:", VERSION_FORMAT__STRING);
@@ -158,8 +171,27 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 	}
 
 	public String toString(Version v) {
-		if(v.isOSGiCompatible())
-			return v.toString();
+		String s = toUnquotedString(v);
+		BeeLangGrammarAccess ga = (BeeLangGrammarAccess) grammarAccess;
+		IParseResult result = ((BeeLangParser) parser).parse(ga.getVersionLiteralRule().getName(), new StringReader(s));
+		// if not a clean parse, then there must be keywords or special characters in the string - quote it
+		if(result.getParseErrors().size() > 0)
+			return "\"" + s + "\"";
+		return s;
+	}
+
+	public String toString(VersionRange r) {
+		String s = toUnquotedString(r);
+		BeeLangGrammarAccess ga = (BeeLangGrammarAccess) grammarAccess;
+		IParseResult result = ((BeeLangParser) parser).parse(
+			ga.getVersionRangeLiteralRule().getName(), new StringReader(s));
+		// if not a clean parse, then there must be keywords or special characters in the string - quote it
+		if(result.getParseErrors().size() > 0)
+			return "\"" + s + "\"";
+		return s;
+	}
+
+	public String toUnquotedString(Version v) {
 		String fmt = v.getFormat() + ":";
 		StringBuffer result = new StringBuffer();
 		if(formats.inverse().containsKey(fmt)) {
@@ -167,11 +199,13 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 			result.append(v.getOriginal());
 			return result.toString();
 		}
+		if(v.isOSGiCompatible())
+			return v.toString();
 		// unknown format
 		return v.toString();
 	}
 
-	public String toString(VersionRange r) {
+	public String toUnquotedString(VersionRange r) {
 		if(r.isOSGiCompatible())
 			return r.toString();
 		// VersionRange's default "toString" does not produce the same as the input string
@@ -182,16 +216,22 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 		if(formats.inverse().containsKey(fmt))
 			fmt = formats.inverse().get(fmt);
 		result.append(fmt);
-		result.append(r.getIncludeMinimum()
-				? '['
-				: '(');
-		result.append(r.getMinimum().getOriginal());
-		result.append(',');
-		result.append(r.getMaximum().getOriginal());
-		result.append(r.getIncludeMaximum()
-				? ']'
-				: ')');
 
+		// if input was a single version it will have an upper max version
+		if(r.getIncludeMinimum() && r.getMaximum().equals(Version.MAX_VERSION)) {
+			result.append(r.getMinimum().getOriginal());
+		}
+		else {
+			result.append(r.getIncludeMinimum()
+					? '['
+					: '(');
+			result.append(r.getMinimum().getOriginal());
+			result.append(',');
+			result.append(r.getMaximum().getOriginal());
+			result.append(r.getIncludeMaximum()
+					? ']'
+					: ')');
+		}
 		return result.toString();
 	}
 
@@ -205,7 +245,8 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 				break;
 			}
 		}
-		return new VersionRange(s);
+		VersionRange vr = new VersionRange(s);
+		return vr;
 	}
 
 	/**

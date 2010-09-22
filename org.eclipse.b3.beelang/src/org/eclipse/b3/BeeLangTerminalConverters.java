@@ -570,7 +570,7 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 		return new IValueConverter<VersionRange>() {
 
 			public String toString(VersionRange value) {
-				return value.toString();
+				return versionFormatManager.toString(value);
 			}
 
 			public VersionRange toValue(String string, AbstractNode node) throws ValueConverterException {
