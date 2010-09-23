@@ -108,7 +108,7 @@ ProvidedCapability returns build::VersionedCapability : {build::VersionedCapabil
 	  	)
 	'}')
 	;
-	
+
 // Capability required by a unit - always refers to capabilities with at least ns/name
 // or the keyword "unit" instead of the namespace for buildunits
 AliasedRequiredCapability returns build::RequiredCapability : {build::AliasedRequiredCapability} 

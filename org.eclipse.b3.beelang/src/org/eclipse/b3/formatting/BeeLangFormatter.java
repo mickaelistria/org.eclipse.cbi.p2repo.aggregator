@@ -120,12 +120,60 @@ public class BeeLangFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap().after(f.getBestFoundUnitProviderAccess().getCommaKeyword_6_0());
 
 		// BUILD UNIT
+
+		// unit body
 		c.setIndentation(
 			f.getBuildUnitAccess().getLeftCurlyBracketKeyword_7_0_0(),
 			f.getBuildUnitAccess().getRightCurlyBracketKeyword_7_0_2());
-
 		c.setLinewrap().after(f.getBuildUnitAccess().getLeftCurlyBracketKeyword_7_0_0());
+		c.setLinewrap(2).after(f.getBuildUnitRule());
+
+		// requires
+		// c.setIndentation(
+		// f.getBuildUnitAccess().getRequiresKeyword_7_0_1_3_0(),
+		// f.getBuildUnitAccess().getSemicolonKeyword_7_0_1_15_3());
+
+		// indent requires : [ ... ]
+		c.setIndentation(
+			f.getBuildUnitAccess().getLeftSquareBracketKeyword_7_0_1_3_2_0_0(),
+			f.getBuildUnitAccess().getRightSquareBracketKeyword_7_0_1_3_2_0_3());
+		c.setLinewrap().bounds(
+			f.getBuildUnitAccess().getLeftSquareBracketKeyword_7_0_1_3_2_0_0(),
+			f.getBuildUnitAccess().getRightSquareBracketKeyword_7_0_1_3_2_0_3());
+		c.setLinewrap().after(f.getBuildUnitAccess().getCommaKeyword_7_0_1_3_2_0_2_0());
+
+		// required capability in different rules
+		c.setIndentation(
+			f.getAliasedRequiredCapabilityAccess().getLeftCurlyBracketKeyword_2_0(),
+			f.getAliasedRequiredCapabilityAccess().getRightCurlyBracketKeyword_2_2());
+		c.setLinewrap().after(f.getAliasedRequiredCapabilityAccess().getLeftCurlyBracketKeyword_2_0());
+
+		c.setIndentation(
+			f.getRequiredCapabilityAccess().getLeftCurlyBracketKeyword_2_0(),
+			f.getRequiredCapabilityAccess().getRightCurlyBracketKeyword_2_2());
+		c.setLinewrap().after(f.getRequiredCapabilityAccess().getLeftCurlyBracketKeyword_2_0());
+
+		c.setIndentation(
+			f.getRequiredCapability_UnfilteredAccess().getLeftCurlyBracketKeyword_2_0(),
+			f.getRequiredCapability_UnfilteredAccess().getRightCurlyBracketKeyword_2_2());
+		c.setLinewrap().after(f.getRequiredCapability_UnfilteredAccess().getLeftCurlyBracketKeyword_2_0());
+
+		// BUILDER
+		c.setLinewrap(2).after(f.getBuilderRule());
+		c.setIndentation(
+			f.getBuilderAccess().getLeftCurlyBracketKeyword_10(), f.getBuilderAccess().getRightCurlyBracketKeyword_16());
+		c.setLinewrap().bounds(
+			f.getBuilderAccess().getLeftCurlyBracketKeyword_10(), f.getBuilderAccess().getRightCurlyBracketKeyword_16());
+
 		// FUNCTION
 		c.setLinewrap(2).after(f.getFunctionRule());
+
+		// "new"
+		c.setIndentation(
+			f.getInitializationBlockExpressionAccess().getLeftCurlyBracketKeyword_1(),
+			f.getInitializationBlockExpressionAccess().getRightCurlyBracketKeyword_3());
+		c.setLinewrap().bounds(
+			f.getInitializationBlockExpressionAccess().getLeftCurlyBracketKeyword_1(),
+			f.getInitializationBlockExpressionAccess().getRightCurlyBracketKeyword_3());
 	}
 }
