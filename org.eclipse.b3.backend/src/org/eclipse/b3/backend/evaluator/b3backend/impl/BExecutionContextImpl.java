@@ -302,18 +302,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	}
 
 	/**
-	 * Creates a func store if not already created and links it to the first found parent context
-	 * with a func store.
-	 * (Note: It is not possible for this thread to create new functions in outer context while this
-	 * context is in effect.)
-	 */
-	protected void createFuncStore() {
-		if(funcStore != null)
-			return;
-		setFuncStore(new B3FuncStore(getEffectiveFuncStore()));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * Creates an inner context (i.e. local blocks which should not be seen from nested outer contexts).
 	 * <!-- end-user-doc -->
@@ -583,17 +571,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BEXECUTION_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
@@ -764,24 +741,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	}
 
 	/**
-	 * Returns the first found func store (or null, if none is found). The func store to return is
-	 * obtained via {@link #getFuncStore()} thus giving derived classes a chance to override.
-	 * 
-	 * @return
-	 */
-	protected B3FuncStore getEffectiveFuncStore() {
-		BExecutionContext p = this;
-		B3FuncStore fs;
-
-		do {
-			if((fs = p.getFuncStore()) != null)
-				return fs;
-		} while((p = p.getParentContext()) != null);
-
-		return null;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -935,16 +894,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				return result;
 		}
 		return null; // TODO: Should probably throw "NoSuchThing" instead
-	}
-
-	private <T> T getThingFromMap(Class<T> clazz, Object key, Map<Class<?>, Map<Object, Object>> allMap) {
-		if(allMap == null)
-			return null;
-		Map<Object, Object> map = allMap.get(clazz);
-		Object result = map.get(key);
-		return result == null
-				? null
-				: clazz.cast(result);
 	}
 
 	/**
@@ -1156,6 +1105,57 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		result.append(" (ctxIdentifier: " + this.ctxIdentifier);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Creates a func store if not already created and links it to the first found parent context
+	 * with a func store.
+	 * (Note: It is not possible for this thread to create new functions in outer context while this
+	 * context is in effect.)
+	 */
+	protected void createFuncStore() {
+		if(funcStore != null)
+			return;
+		setFuncStore(new B3FuncStore(getEffectiveFuncStore()));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BEXECUTION_CONTEXT;
+	}
+
+	/**
+	 * Returns the first found func store (or null, if none is found). The func store to return is
+	 * obtained via {@link #getFuncStore()} thus giving derived classes a chance to override.
+	 * 
+	 * @return
+	 */
+	protected B3FuncStore getEffectiveFuncStore() {
+		BExecutionContext p = this;
+		B3FuncStore fs;
+
+		do {
+			if((fs = p.getFuncStore()) != null)
+				return fs;
+		} while((p = p.getParentContext()) != null);
+
+		return null;
+	}
+
+	private <T> T getThingFromMap(Class<T> clazz, Object key, Map<Class<?>, Map<Object, Object>> allMap) {
+		if(allMap == null)
+			return null;
+		Map<Object, Object> map = allMap.get(clazz);
+		Object result = map.get(key);
+		return result == null
+				? null
+				: clazz.cast(result);
 	}
 
 	private void weaveLoaded(IFunction f, BExecutionContext ctx) throws B3WeavingFailedException {

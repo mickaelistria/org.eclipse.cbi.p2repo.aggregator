@@ -22,13 +22,13 @@ public class B3Job extends AbstractB3Job {
 	}
 
 	@Override
-	protected IStatus runb3(IProgressMonitor monitor) {
-		// TODO Auto-generated method stub
-		return null;
+	public String toString() {
+		return "B3Job(" + getName() + ") @" + Integer.toHexString(this.hashCode());
 	}
 
 	@Override
-	public String toString() {
-		return "B3Job(" + getName() + ") @" + Integer.toHexString(this.hashCode());
+	protected IStatus runb3(IProgressMonitor monitor) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

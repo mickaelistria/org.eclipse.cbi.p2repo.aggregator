@@ -116,17 +116,6 @@ public class BLiteralExpressionImpl extends BExpressionImpl implements BLiteralE
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BLITERAL_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BLITERAL_EXPRESSION__VALUE:
@@ -176,5 +165,16 @@ public class BLiteralExpressionImpl extends BExpressionImpl implements BLiteralE
 		result.append(value);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BLITERAL_EXPRESSION;
 	}
 } // BLiteralExpressionImpl

@@ -126,48 +126,6 @@ public class JavaToB3Helper {
 		return result;
 	}
 
-	private static String[] getParameterNames(Annotation[][] allParametersAnnotations, String... instanceParameterNames) {
-		int instanceParameterNamesCount = instanceParameterNames != null
-				? instanceParameterNames.length
-				: 0;
-		String parameterNames[] = new String[instanceParameterNamesCount + allParametersAnnotations.length];
-		HashSet<String> usedNames = new HashSet<String>();
-		// first process the instance parameter names - don't allow duplicates
-		for(int i = 0; i < instanceParameterNamesCount; ++i) {
-			String name = instanceParameterNames[i];
-			if(!usedNames.contains(name)) {
-				parameterNames[i] = name;
-				usedNames.add(name);
-			}
-		}
-		// now look for parameter names defined by annotations - watch for duplicates again
-		for(int i = 0; i < allParametersAnnotations.length; ++i) {
-			Annotation[] parameterAnnotations = allParametersAnnotations[i];
-			if(parameterAnnotations != null) {
-				for(int j = 0; j < parameterAnnotations.length; ++j) {
-					if(parameterAnnotations[j] instanceof B3Backend) {
-						String name = ((B3Backend) parameterAnnotations[j]).name();
-						if(!usedNames.contains(name)) {
-							parameterNames[instanceParameterNamesCount + i] = name;
-							usedNames.add(name);
-						}
-						break; // only use first name declared for the parameter
-					}
-				}
-			}
-		}
-		// finally supply default unique names for those parameters which have no name assigned by now
-		for(int i = 0, j = 0; i < parameterNames.length; ++i) {
-			if(parameterNames[i] == null) {
-				String name;
-				while(usedNames.contains(name = toAlphabetString(j++)))
-					;
-				parameterNames[i] = name;
-			}
-		}
-		return parameterNames;
-	}
-
 	/**
 	 * Loads static functions from a java class. Using (optional) B3Backend annotations to
 	 * direct the translation into B3 functions.
@@ -328,6 +286,48 @@ public class JavaToB3Helper {
 			}
 		}
 		return Multimaps.unmodifiableMultimap(result);
+	}
+
+	private static String[] getParameterNames(Annotation[][] allParametersAnnotations, String... instanceParameterNames) {
+		int instanceParameterNamesCount = instanceParameterNames != null
+				? instanceParameterNames.length
+				: 0;
+		String parameterNames[] = new String[instanceParameterNamesCount + allParametersAnnotations.length];
+		HashSet<String> usedNames = new HashSet<String>();
+		// first process the instance parameter names - don't allow duplicates
+		for(int i = 0; i < instanceParameterNamesCount; ++i) {
+			String name = instanceParameterNames[i];
+			if(!usedNames.contains(name)) {
+				parameterNames[i] = name;
+				usedNames.add(name);
+			}
+		}
+		// now look for parameter names defined by annotations - watch for duplicates again
+		for(int i = 0; i < allParametersAnnotations.length; ++i) {
+			Annotation[] parameterAnnotations = allParametersAnnotations[i];
+			if(parameterAnnotations != null) {
+				for(int j = 0; j < parameterAnnotations.length; ++j) {
+					if(parameterAnnotations[j] instanceof B3Backend) {
+						String name = ((B3Backend) parameterAnnotations[j]).name();
+						if(!usedNames.contains(name)) {
+							parameterNames[instanceParameterNamesCount + i] = name;
+							usedNames.add(name);
+						}
+						break; // only use first name declared for the parameter
+					}
+				}
+			}
+		}
+		// finally supply default unique names for those parameters which have no name assigned by now
+		for(int i = 0, j = 0; i < parameterNames.length; ++i) {
+			if(parameterNames[i] == null) {
+				String name;
+				while(usedNames.contains(name = toAlphabetString(j++)))
+					;
+				parameterNames[i] = name;
+			}
+		}
+		return parameterNames;
 	}
 
 	private static void setParameterDeclarations(BJavaFunction f) {

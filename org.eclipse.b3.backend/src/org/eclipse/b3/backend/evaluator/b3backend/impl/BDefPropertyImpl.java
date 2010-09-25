@@ -106,17 +106,6 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BDEF_PROPERTY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BDEF_PROPERTY__MUTABLE:
@@ -144,6 +133,17 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 	 */
 	public void setMutable(boolean newMutable) {
 		setImmutable(!newMutable);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BDEF_PROPERTY;
 	}
 
 } // BDefPropertyImpl

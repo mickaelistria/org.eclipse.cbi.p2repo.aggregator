@@ -224,17 +224,6 @@ public class BIfExpressionImpl extends BExpressionImpl implements BIfExpression 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BIF_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BIF_EXPRESSION__CONDITION_EXPR:
@@ -351,5 +340,16 @@ public class BIfExpressionImpl extends BExpressionImpl implements BIfExpression 
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BIF_EXPRESSION__THEN_EXPR, newThenExpr, newThenExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BIF_EXPRESSION;
 	}
 } // BIfExpressionImpl

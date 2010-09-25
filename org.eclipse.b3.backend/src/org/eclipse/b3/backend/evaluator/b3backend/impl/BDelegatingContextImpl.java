@@ -46,14 +46,6 @@ public class BDelegatingContextImpl extends BInnerContextImpl implements BDelega
 	}
 
 	/**
-	 * Throws UnsupportedOperationException as a delegating context is immutable.
-	 */
-	@Override
-	protected void createFuncStore() {
-		throw new UnsupportedOperationException("Can not perform createFuncStore() on a delegating context.");
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * Throws UnsupportedOperationException as a delegating context is immutable.
 	 * <!-- end-user-doc -->
@@ -112,17 +104,6 @@ public class BDelegatingContextImpl extends BInnerContextImpl implements BDelega
 	@Override
 	public Object defineVariableValue(String name, Object value, Type t) throws B3EngineException {
 		throw new UnsupportedOperationException("Can not perform defineVariableValue() on a delegating context.");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BDELEGATING_CONTEXT;
 	}
 
 	/**
@@ -188,5 +169,24 @@ public class BDelegatingContextImpl extends BInnerContextImpl implements BDelega
 	@Override
 	public void setFuncStore(B3FuncStore newFuncStore) {
 		throw new UnsupportedOperationException("Can not perform setFuncStore() on a delegating context.");
+	}
+
+	/**
+	 * Throws UnsupportedOperationException as a delegating context is immutable.
+	 */
+	@Override
+	protected void createFuncStore() {
+		throw new UnsupportedOperationException("Can not perform createFuncStore() on a delegating context.");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BDELEGATING_CONTEXT;
 	}
 } // BDelegatingContextImpl

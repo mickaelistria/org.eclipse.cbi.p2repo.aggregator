@@ -181,17 +181,6 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BSWITCH_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION:
@@ -337,5 +326,16 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION, newSwitchExpression,
 				newSwitchExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BSWITCH_EXPRESSION;
 	}
 } // BSwitchExpressionImpl

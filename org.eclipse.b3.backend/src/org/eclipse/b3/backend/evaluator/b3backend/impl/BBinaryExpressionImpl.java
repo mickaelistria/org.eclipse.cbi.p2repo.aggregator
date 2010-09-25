@@ -182,17 +182,6 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BBINARY_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BBINARY_EXPRESSION__LEFT_EXPR:
@@ -271,6 +260,17 @@ public abstract class BBinaryExpressionImpl extends BExpressionImpl implements B
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BBINARY_EXPRESSION__RIGHT_EXPR, newRightExpr, newRightExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BBINARY_EXPRESSION;
 	}
 
 } // BBinaryExpressionImpl

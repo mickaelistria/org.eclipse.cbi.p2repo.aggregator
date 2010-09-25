@@ -146,16 +146,6 @@ public class ArithmeticFunctions {
 				"," + b.getClass().toString());
 	}
 
-	private static BigInteger convertToBigInteger(Number n) {
-		return BigInteger.valueOf(n.longValue());
-	}
-
-	private static BigInteger convertToBigIntegerIfNeeded(Number n) {
-		return (n instanceof BigInteger)
-				? (BigInteger) n
-				: convertToBigInteger(n);
-	}
-
 	@B3Backend(funcNames = { "--" })
 	public static Number decrement(Number a) {
 		if(a instanceof Double)
@@ -282,6 +272,60 @@ public class ArithmeticFunctions {
 		return result;
 	}
 
+	@B3Backend(guard = true)
+	public static Boolean permitIntegralOnlyGuard(BExecutionContext ctx, Object[] parameters, Type[] types) {
+		if(types == null)
+			return Boolean.TRUE; // don't mind no parameters
+		for(int i = 0; i < types.length; i++) {
+			// note that parameters are guaranteed to be Type instances in guard functions
+			Class<?> clazz = TypeUtils.getRaw(((Type[]) parameters)[i]);
+			if(clazz == Float.class || clazz == Double.class || clazz == BigDecimal.class)
+				return Boolean.FALSE;
+		}
+		return Boolean.TRUE;
+	}
+
+	@B3Backend(funcNames = { "-" })
+	public static Number sub(Number a, Number b) {
+		if(a instanceof Double || b instanceof Double)
+			return new Double(a.doubleValue() - b.doubleValue());
+		if(a instanceof Float || b instanceof Float)
+			return new Float(a.floatValue() - b.floatValue());
+		if(a instanceof Long || b instanceof Long)
+			return new Long(a.longValue() - b.longValue());
+		if(a instanceof Integer || b instanceof Integer)
+			return new Integer(a.intValue() - b.intValue());
+		if(a instanceof Short || b instanceof Short)
+			return new Short((short) (a.shortValue() - b.shortValue()));
+		throw new IllegalArgumentException("Subtraction of unsupported Number subclass: " + a.getClass().toString() +
+				"," + b.getClass().toString());
+	}
+
+	@B3Backend(funcNames = { "-" }, typeFunction = "numberGenericityCalculator")
+	public static Number unaryMinus(Number a) {
+		if(a instanceof Double)
+			return new Double(-a.doubleValue());
+		if(a instanceof Float)
+			return new Float(-a.floatValue());
+		if(a instanceof Long)
+			return new Long(-a.longValue());
+		if(a instanceof Integer)
+			return new Integer(-a.intValue());
+		if(a instanceof Short)
+			return new Short((short) -(a.shortValue()));
+		throw new IllegalArgumentException("Unary minus on unsupported Number subclass: " + a.getClass().toString());
+	}
+
+	private static BigInteger convertToBigInteger(Number n) {
+		return BigInteger.valueOf(n.longValue());
+	}
+
+	private static BigInteger convertToBigIntegerIfNeeded(Number n) {
+		return (n instanceof BigInteger)
+				? (BigInteger) n
+				: convertToBigInteger(n);
+	}
+
 	@B3Backend(typeCalculator = true)
 	private static Type numberGenericityCalculatorInternal(Type[] types) {
 		if(types.length == 1) {
@@ -329,51 +373,7 @@ public class ArithmeticFunctions {
 		return Number.class;
 	}
 
-	@B3Backend(guard = true)
-	public static Boolean permitIntegralOnlyGuard(BExecutionContext ctx, Object[] parameters, Type[] types) {
-		if(types == null)
-			return Boolean.TRUE; // don't mind no parameters
-		for(int i = 0; i < types.length; i++) {
-			// note that parameters are guaranteed to be Type instances in guard functions
-			Class<?> clazz = TypeUtils.getRaw(((Type[]) parameters)[i]);
-			if(clazz == Float.class || clazz == Double.class || clazz == BigDecimal.class)
-				return Boolean.FALSE;
-		}
-		return Boolean.TRUE;
-	}
-
-	@B3Backend(funcNames = { "-" })
-	public static Number sub(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return new Double(a.doubleValue() - b.doubleValue());
-		if(a instanceof Float || b instanceof Float)
-			return new Float(a.floatValue() - b.floatValue());
-		if(a instanceof Long || b instanceof Long)
-			return new Long(a.longValue() - b.longValue());
-		if(a instanceof Integer || b instanceof Integer)
-			return new Integer(a.intValue() - b.intValue());
-		if(a instanceof Short || b instanceof Short)
-			return new Short((short) (a.shortValue() - b.shortValue()));
-		throw new IllegalArgumentException("Subtraction of unsupported Number subclass: " + a.getClass().toString() +
-				"," + b.getClass().toString());
-	}
-
 	private static boolean trueWithSideEffect(Object ignored) {
 		return true;
-	}
-
-	@B3Backend(funcNames = { "-" }, typeFunction = "numberGenericityCalculator")
-	public static Number unaryMinus(Number a) {
-		if(a instanceof Double)
-			return new Double(-a.doubleValue());
-		if(a instanceof Float)
-			return new Float(-a.floatValue());
-		if(a instanceof Long)
-			return new Long(-a.longValue());
-		if(a instanceof Integer)
-			return new Integer(-a.intValue());
-		if(a instanceof Short)
-			return new Short((short) -(a.shortValue()));
-		throw new IllegalArgumentException("Unary minus on unsupported Number subclass: " + a.getClass().toString());
 	}
 }

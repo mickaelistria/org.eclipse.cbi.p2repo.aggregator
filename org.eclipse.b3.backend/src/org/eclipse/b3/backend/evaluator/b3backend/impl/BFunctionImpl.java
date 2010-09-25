@@ -771,17 +771,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BFUNCTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BFUNCTION__VISIBILITY:
@@ -1309,6 +1298,17 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		result.append(varargArrayType);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BFUNCTION;
 	}
 
 } // BFunctionImpl

@@ -46,6 +46,15 @@ public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionO
 			evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
 		}
 
+		/**
+		 * Returns the last error (or null if hasNext() returned successfully).
+		 * 
+		 * @return
+		 */
+		public Throwable getLastError() {
+			return lastError;
+		}
+
 		@Override
 		protected void conditionalOp(BConditionalPropertyOperation op) {
 			try {
@@ -62,15 +71,6 @@ public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionO
 				lastError = e;
 				itorStack = null; // signal that iteration stops immediately
 			}
-		}
-
-		/**
-		 * Returns the last error (or null if hasNext() returned successfully).
-		 * 
-		 * @return
-		 */
-		public Throwable getLastError() {
-			return lastError;
 		}
 	}
 
@@ -95,20 +95,6 @@ public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionO
 
 	}
 
-	protected void conditionalOp(BConditionalPropertyOperation op) {
-		opSwitch(op.getBody());
-	}
-
-	private void findNext() {
-		theNext = null;
-		while(itorStack != null && !itorStack.isEmpty() && theNext == null) {
-			while(peek().hasNext() && theNext == null)
-				opSwitch(peek().next());
-			if(theNext == null)
-				pop();
-		}
-	}
-
 	public boolean hasNext() {
 		if(theNext == null)
 			findNext();
@@ -119,6 +105,14 @@ public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionO
 		BPropertyDefinitionOperation result = theNext;
 		theNext = null;
 		return result;
+	}
+
+	public void remove() {
+		peek().remove();
+	}
+
+	protected void conditionalOp(BConditionalPropertyOperation op) {
+		opSwitch(op.getBody());
 	}
 
 	/**
@@ -134,6 +128,16 @@ public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionO
 		else
 			throw new IllegalArgumentException("Unknown BPropertyOperation subclass: " +
 					op.getClass().getName().toString());
+	}
+
+	private void findNext() {
+		theNext = null;
+		while(itorStack != null && !itorStack.isEmpty() && theNext == null) {
+			while(peek().hasNext() && theNext == null)
+				opSwitch(peek().next());
+			if(theNext == null)
+				pop();
+		}
 	}
 
 	private PropertyOperationIterator peek() {
@@ -153,9 +157,5 @@ public class PropertyDefinitionIterator implements Iterator<BPropertyDefinitionO
 
 	private void push(PropertyOperationIterator itor) {
 		itorStack.add(itor);
-	}
-
-	public void remove() {
-		peek().remove();
 	}
 }

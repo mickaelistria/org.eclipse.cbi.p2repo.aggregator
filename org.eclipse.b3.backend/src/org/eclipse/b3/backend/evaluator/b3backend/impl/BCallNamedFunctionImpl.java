@@ -118,17 +118,6 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCALL_NAMED_FUNCTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BCALL_NAMED_FUNCTION__FUNC_REF:
@@ -170,6 +159,17 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BCALL_NAMED_FUNCTION__FUNC_REF, oldFuncRef, funcRef));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCALL_NAMED_FUNCTION;
 	}
 
 } // BCallNamedFunctionImpl

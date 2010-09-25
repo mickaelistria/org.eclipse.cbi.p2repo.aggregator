@@ -25,12 +25,12 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	@Override
-	protected Adapter createAdapter(Notifier target, Object type) {
-		return new TypeAdapter();
+	public boolean isFactoryForType(Object type) {
+		return type == TypeAdapter.class;
 	}
 
 	@Override
-	public boolean isFactoryForType(Object type) {
-		return type == TypeAdapter.class;
+	protected Adapter createAdapter(Notifier target, Object type) {
+		return new TypeAdapter();
 	}
 }

@@ -234,17 +234,6 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BWITH_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BWITH_EXPRESSION__REFERENCED_ADVICE:
@@ -277,6 +266,18 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 		return concerns;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BExecutionContext getEvaluationContext(BExecutionContext ctx) throws Throwable {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	// /**
 	// * Evaluates all advice and the funcExpr. If there is no funcExpression, null is returned, and no advice is
 	// * evaluated (the resulting context is of no value). If evaluation should take place regardless of funcExpr being
@@ -296,10 +297,8 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	 * 
 	 * @generated
 	 */
-	public BExecutionContext getEvaluationContext(BExecutionContext ctx) throws Throwable {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public BExpression getFuncExpr() {
+		return funcExpr;
 	}
 
 	// /**
@@ -355,16 +354,6 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	 * 
 	 * @generated
 	 */
-	public BExpression getFuncExpr() {
-		return funcExpr;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EList<BPropertySet> getPropertySets() {
 		if(propertySets == null) {
 			propertySets = new EObjectContainmentEList<BPropertySet>(
@@ -409,5 +398,16 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR, newFuncExpr, newFuncExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BWITH_EXPRESSION;
 	}
 } // BWithExpressionImpl

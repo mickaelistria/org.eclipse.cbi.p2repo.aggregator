@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3TypeImpl#getRawType <em>Raw Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3TypeImpl#isDefaultInference <em>Default Inference</em>}</li>
  * </ul>
  * </p>
  * 
@@ -56,6 +57,28 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	protected Type rawType = RAW_TYPE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isDefaultInference() <em>Default Inference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isDefaultInference()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DEFAULT_INFERENCE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDefaultInference() <em>Default Inference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isDefaultInference()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean defaultInference = DEFAULT_INFERENCE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -76,6 +99,8 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 		switch(featureID) {
 			case B3backendPackage.B3_TYPE__RAW_TYPE:
 				return getRawType();
+			case B3backendPackage.B3_TYPE__DEFAULT_INFERENCE:
+				return isDefaultInference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -93,6 +118,8 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 				return RAW_TYPE_EDEFAULT == null
 						? rawType != null
 						: !RAW_TYPE_EDEFAULT.equals(rawType);
+			case B3backendPackage.B3_TYPE__DEFAULT_INFERENCE:
+				return defaultInference != DEFAULT_INFERENCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -109,19 +136,11 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 			case B3backendPackage.B3_TYPE__RAW_TYPE:
 				setRawType((Type) newValue);
 				return;
+			case B3backendPackage.B3_TYPE__DEFAULT_INFERENCE:
+				setDefaultInference((Boolean) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.B3_TYPE;
 	}
 
 	/**
@@ -136,6 +155,9 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 			case B3backendPackage.B3_TYPE__RAW_TYPE:
 				setRawType(RAW_TYPE_EDEFAULT);
 				return;
+			case B3backendPackage.B3_TYPE__DEFAULT_INFERENCE:
+				setDefaultInference(DEFAULT_INFERENCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -148,6 +170,31 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	 */
 	public Type getRawType() {
 		return rawType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean isDefaultInference() {
+		return defaultInference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setDefaultInference(boolean newDefaultInference) {
+		boolean oldDefaultInference = defaultInference;
+		defaultInference = newDefaultInference;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.B3_TYPE__DEFAULT_INFERENCE, oldDefaultInference,
+				defaultInference));
 	}
 
 	/**
@@ -178,8 +225,21 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (rawType: ");
 		result.append(rawType);
+		result.append(", defaultInference: ");
+		result.append(defaultInference);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.B3_TYPE;
 	}
 
 } // B3TypeImpl

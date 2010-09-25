@@ -60,15 +60,15 @@ public class DeclarativeB3Weaver implements IB3Weaver {
 		return weaveDispatcher.invoke(concern, candidate, ctx, arg);
 	}
 
+	public Boolean weave(BConcernContext concern, Object candidate, BExecutionContext ctx) {
+		throw new UnsupportedOperationException("Weaving not configured for concern: " + concern.getClass().getName());
+	}
+
 	protected Boolean handleWeavingError(Object[] params, Throwable e) {
 		if(e instanceof NullPointerException) {
 			return Boolean.FALSE;
 		}
 		return Exceptions.throwUncheckedException(e);
-	}
-
-	public Boolean weave(BConcernContext concern, Object candidate, BExecutionContext ctx) {
-		throw new UnsupportedOperationException("Weaving not configured for concern: " + concern.getClass().getName());
 	}
 
 }

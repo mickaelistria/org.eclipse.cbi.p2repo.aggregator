@@ -38,6 +38,19 @@ public class PropertyOperationIterator implements Iterator<BPropertyOperation> {
 		addAllSets(propertySet);
 	}
 
+	public boolean hasNext() {
+		return itor.hasNext();
+	}
+
+	public BPropertyOperation next() {
+		return itor.next();
+	}
+
+	public void remove() {
+		// looks like endless recursion, but will eventually hit a the list iterator from set.getOperation().iterator()
+		itor.remove();
+	}
+
 	private void addAllSets(BPropertySet set) {
 		if(set == null)
 			return;
@@ -60,19 +73,6 @@ public class PropertyOperationIterator implements Iterator<BPropertyOperation> {
 		}));
 		//
 		// itor.addIterator(set.getOperations().iterator());
-	}
-
-	public boolean hasNext() {
-		return itor.hasNext();
-	}
-
-	public BPropertyOperation next() {
-		return itor.next();
-	}
-
-	public void remove() {
-		// looks like endless recursion, but will eventually hit a the list iterator from set.getOperation().iterator()
-		itor.remove();
 	}
 
 }

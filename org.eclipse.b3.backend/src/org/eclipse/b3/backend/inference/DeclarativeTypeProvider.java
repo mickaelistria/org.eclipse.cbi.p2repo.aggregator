@@ -138,6 +138,16 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 		}
 	}
 
+	public B3FunctionType signature(Object o) {
+		throw new UnsupportedOperationException("No suitable method for 'signature' of :" + o.getClass());
+	}
+
+	public Type type(Object o) {
+		if(B3Debug.typer)
+			B3Debug.trace("b3 type provider: Default type inference type(Object o)=>", o.getClass());
+		return o.getClass();
+	}
+
 	protected Object handleError(Object[] params, Throwable e) {
 		// TODO: don't know how this is supposed to work - callers should expect a type at all times,
 		// and get a "type can not be inferred exception" with some info about why.
@@ -159,15 +169,5 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 
 	protected Type handleTypeError(Object[] params, Throwable e) {
 		return null;
-	}
-
-	public B3FunctionType signature(Object o) {
-		throw new UnsupportedOperationException("No suitable method for 'signature' of :" + o.getClass());
-	}
-
-	public Type type(Object o) {
-		if(B3Debug.typer)
-			B3Debug.trace("b3 type provider: Default type inference type(Object o)=>", o.getClass());
-		return o.getClass();
 	}
 }

@@ -213,17 +213,6 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
@@ -322,5 +311,16 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, newValueType,
 				newValueType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BLITERAL_MAP_EXPRESSION;
 	}
 } // BLiteralMapExpressionImpl

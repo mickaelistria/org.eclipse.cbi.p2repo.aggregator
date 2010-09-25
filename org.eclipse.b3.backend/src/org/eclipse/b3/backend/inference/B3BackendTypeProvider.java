@@ -719,13 +719,18 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 			// currently not possible to infer the type. TODO. revisit when calls know what they are calling.
 			BParameterList parameterList = (BParameterList) funcContainer.eContainer();
 			B3FunctionType callSignature = doGetSignature(parameterList.eContainer());
-			int pix = parameterList.getParameters().indexOf(funcContainer);
-			int signatureParameterSize = callSignature.getParameterTypes().size();
-			if(callSignature.isVarArgs() && pix >= signatureParameterSize)
-				t = callSignature.getParameterTypes().get(signatureParameterSize - 1);
-			else
-				t = callSignature.getParameterTypes().get(pix);
 
+			// callSignature may be null if a parameter depends on itself - use the default
+			// rule of returning Object (at the end).
+			if(callSignature != null) {
+				// find the parameter's position in the container and use that type
+				int pix = parameterList.getParameters().indexOf(funcContainer);
+				int signatureParameterSize = callSignature.getParameterTypes().size();
+				if(callSignature.isVarArgs() && pix >= signatureParameterSize)
+					t = callSignature.getParameterTypes().get(signatureParameterSize - 1);
+				else
+					t = callSignature.getParameterTypes().get(pix);
+			}
 			// TODO: CONTINUE HERE...
 			// t = null; // placeholder
 			// ////

@@ -21,13 +21,13 @@ public class ConstructorCandidate extends TypeUtils.AdaptingJavaCandidate<Constr
 		return adaptedObject;
 	}
 
+	public boolean isVarArgs() {
+		return adaptedObject.isVarArgs();
+	}
+
 	@Override
 	protected Type[] getJavaParameterTypes() {
 		return adaptedObject.getGenericParameterTypes();
-	}
-
-	public boolean isVarArgs() {
-		return adaptedObject.isVarArgs();
 	}
 
 }

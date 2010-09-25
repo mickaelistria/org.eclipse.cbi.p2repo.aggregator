@@ -205,18 +205,6 @@ public class B3backendValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Returns the package of this validator switch.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EPackage getEPackage() {
-		return B3backendPackage.eINSTANCE;
-	}
-
-	/**
 	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,248 +217,6 @@ public class B3backendValidator extends EObjectValidator {
 		// Specialize this to return a resource locator for messages specific to this validator.
 		// Ensure that you remove @generated or mark it @generated NOT
 		return super.getResourceLocator();
-	}
-
-	/**
-	 * Calls <code>validateXXX</code> for the corresponding classifier of the model.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		switch(classifierID) {
-			case B3backendPackage.BEXPRESSION:
-				return validateBExpression((BExpression) value, diagnostics, context);
-			case B3backendPackage.BEXECUTION_CONTEXT:
-				return validateBExecutionContext((BExecutionContext) value, diagnostics, context);
-			case B3backendPackage.BIF_EXPRESSION:
-				return validateBIfExpression((BIfExpression) value, diagnostics, context);
-			case B3backendPackage.BSWITCH_EXPRESSION:
-				return validateBSwitchExpression((BSwitchExpression) value, diagnostics, context);
-			case B3backendPackage.BCASE:
-				return validateBCase((BCase) value, diagnostics, context);
-			case B3backendPackage.BTRY_EXPRESSION:
-				return validateBTryExpression((BTryExpression) value, diagnostics, context);
-			case B3backendPackage.BCATCH:
-				return validateBCatch((BCatch) value, diagnostics, context);
-			case B3backendPackage.BBINARY_EXPRESSION:
-				return validateBBinaryExpression((BBinaryExpression) value, diagnostics, context);
-			case B3backendPackage.BOR_EXPRESSION:
-				return validateBOrExpression((BOrExpression) value, diagnostics, context);
-			case B3backendPackage.BAND_EXPRESSION:
-				return validateBAndExpression((BAndExpression) value, diagnostics, context);
-			case B3backendPackage.BCHAINED_EXPRESSION:
-				return validateBChainedExpression((BChainedExpression) value, diagnostics, context);
-			case B3backendPackage.BUNARY_EXPRESSION:
-				return validateBUnaryExpression((BUnaryExpression) value, diagnostics, context);
-			case B3backendPackage.BTHROW_EXPRESSION:
-				return validateBThrowExpression((BThrowExpression) value, diagnostics, context);
-			case B3backendPackage.BUNARY_OP_EXPRESSION:
-				return validateBUnaryOpExpression((BUnaryOpExpression) value, diagnostics, context);
-			case B3backendPackage.BUNARY_POST_OP_EXPRESSION:
-				return validateBUnaryPostOpExpression((BUnaryPostOpExpression) value, diagnostics, context);
-			case B3backendPackage.BBINARY_OP_EXPRESSION:
-				return validateBBinaryOpExpression((BBinaryOpExpression) value, diagnostics, context);
-			case B3backendPackage.BCACHED_EXPRESSION:
-				return validateBCachedExpression((BCachedExpression) value, diagnostics, context);
-			case B3backendPackage.BLITERAL_EXPRESSION:
-				return validateBLiteralExpression((BLiteralExpression) value, diagnostics, context);
-			case B3backendPackage.BLITERAL_LIST_EXPRESSION:
-				return validateBLiteralListExpression((BLiteralListExpression) value, diagnostics, context);
-			case B3backendPackage.BLITERAL_MAP_EXPRESSION:
-				return validateBLiteralMapExpression((BLiteralMapExpression) value, diagnostics, context);
-			case B3backendPackage.BMAP_ENTRY:
-				return validateBMapEntry((BMapEntry) value, diagnostics, context);
-			case B3backendPackage.BFEATURE_EXPRESSION:
-				return validateBFeatureExpression((BFeatureExpression) value, diagnostics, context);
-			case B3backendPackage.BAT_EXPRESSION:
-				return validateBAtExpression((BAtExpression) value, diagnostics, context);
-			case B3backendPackage.BVARIABLE_EXPRESSION:
-				return validateBVariableExpression((BVariableExpression) value, diagnostics, context);
-			case B3backendPackage.BCALL_EXPRESSION:
-				return validateBCallExpression((BCallExpression) value, diagnostics, context);
-			case B3backendPackage.BPARAMETERIZED_EXPRESSION:
-				return validateBParameterizedExpression((BParameterizedExpression) value, diagnostics, context);
-			case B3backendPackage.BLITERAL_ANY:
-				return validateBLiteralAny((BLiteralAny) value, diagnostics, context);
-			case B3backendPackage.BCREATE_EXPRESSION:
-				return validateBCreateExpression((BCreateExpression) value, diagnostics, context);
-			case B3backendPackage.IFUNCTION:
-				return validateIFunction((IFunction) value, diagnostics, context);
-			case B3backendPackage.BGUARD:
-				return validateBGuard((BGuard) value, diagnostics, context);
-			case B3backendPackage.BSYSTEM_CONTEXT:
-				return validateBSystemContext((BSystemContext) value, diagnostics, context);
-			case B3backendPackage.BCONTEXT:
-				return validateBContext((BContext) value, diagnostics, context);
-			case B3backendPackage.BINNER_CONTEXT:
-				return validateBInnerContext((BInnerContext) value, diagnostics, context);
-			case B3backendPackage.BINVOCATION_CONTEXT:
-				return validateBInvocationContext((BInvocationContext) value, diagnostics, context);
-			case B3backendPackage.BUNARY_PRE_OP_EXPRESSION:
-				return validateBUnaryPreOpExpression((BUnaryPreOpExpression) value, diagnostics, context);
-			case B3backendPackage.BASSIGNMENT_EXPRESSION:
-				return validateBAssignmentExpression((BAssignmentExpression) value, diagnostics, context);
-			case B3backendPackage.B3_FUNCTION:
-				return validateB3Function((B3Function) value, diagnostics, context);
-			case B3backendPackage.BJAVA_FUNCTION:
-				return validateBJavaFunction((BJavaFunction) value, diagnostics, context);
-			case B3backendPackage.BFUNCTION_CONTAINER:
-				return validateBFunctionContainer((BFunctionContainer) value, diagnostics, context);
-			case B3backendPackage.BDEF_VALUE:
-				return validateBDefValue((BDefValue) value, diagnostics, context);
-			case B3backendPackage.BREGULAR_EXPRESSION:
-				return validateBRegularExpression((BRegularExpression) value, diagnostics, context);
-			case B3backendPackage.BPARAMETER_LIST:
-				return validateBParameterList((BParameterList) value, diagnostics, context);
-			case B3backendPackage.BPARAMETER:
-				return validateBParameter((BParameter) value, diagnostics, context);
-			case B3backendPackage.BPARAMETER_DECLARATION:
-				return validateBParameterDeclaration((BParameterDeclaration) value, diagnostics, context);
-			case B3backendPackage.ITYPE:
-				return validateIType((Type) value, diagnostics, context);
-			case B3backendPackage.B3_FUNCTION_TYPE:
-				return validateB3FunctionType((B3FunctionType) value, diagnostics, context);
-			case B3backendPackage.IPARAMETERIZED_TYPE:
-				return validateIParameterizedType((ParameterizedType) value, diagnostics, context);
-			case B3backendPackage.IGENERIC_DECLARATION:
-				return validateIGenericDeclaration((GenericDeclaration) value, diagnostics, context);
-			case B3backendPackage.B3_PARAMETERIZED_TYPE:
-				return validateB3ParameterizedType((B3ParameterizedType) value, diagnostics, context);
-			case B3backendPackage.IWILDCARD_TYPE:
-				return validateIWildcardType((WildcardType) value, diagnostics, context);
-			case B3backendPackage.B3_WILDCARD_TYPE:
-				return validateB3WildcardType((B3WildcardType) value, diagnostics, context);
-			case B3backendPackage.ITYPE_VARIABLE:
-				return validateITypeVariable((TypeVariable<?>) value, diagnostics, context);
-			case B3backendPackage.B3_FUNC_TYPE_VARIABLE:
-				return validateB3FuncTypeVariable((B3FuncTypeVariable) value, diagnostics, context);
-			case B3backendPackage.B3_JAVA_IMPORT:
-				return validateB3JavaImport((B3JavaImport) value, diagnostics, context);
-			case B3backendPackage.BLITERAL_TYPE:
-				return validateBLiteralType((BLiteralType) value, diagnostics, context);
-			case B3backendPackage.BTYPE_CALCULATOR:
-				return validateBTypeCalculator((BTypeCalculator) value, diagnostics, context);
-			case B3backendPackage.BINSTANCE_CONTEXT:
-				return validateBInstanceContext((BInstanceContext) value, diagnostics, context);
-			case B3backendPackage.BDEF_PROPERTY:
-				return validateBDefProperty((BDefProperty) value, diagnostics, context);
-			case B3backendPackage.BPROPERTY_SET:
-				return validateBPropertySet((BPropertySet) value, diagnostics, context);
-			case B3backendPackage.BDEFAULT_PROPERTY_SET:
-				return validateBDefaultPropertySet((BDefaultPropertySet) value, diagnostics, context);
-			case B3backendPackage.BPROPERTY_OPERATION:
-				return validateBPropertyOperation((BPropertyOperation) value, diagnostics, context);
-			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION:
-				return validateBPropertyDefinitionOperation((BPropertyDefinitionOperation) value, diagnostics, context);
-			case B3backendPackage.BCONDITIONAL_PROPERTY_OPERATION:
-				return validateBConditionalPropertyOperation(
-					(BConditionalPropertyOperation) value, diagnostics, context);
-			case B3backendPackage.BPROPERTY_SET_OPERATION:
-				return validateBPropertySetOperation((BPropertySetOperation) value, diagnostics, context);
-			case B3backendPackage.BADVICE:
-				return validateBAdvice((BAdvice) value, diagnostics, context);
-			case B3backendPackage.BCONCERN:
-				return validateBConcern((BConcern) value, diagnostics, context);
-			case B3backendPackage.BWITH_EXPRESSION:
-				return validateBWithExpression((BWithExpression) value, diagnostics, context);
-			case B3backendPackage.BCONCERN_CONTEXT:
-				return validateBConcernContext((BConcernContext) value, diagnostics, context);
-			case B3backendPackage.BFUNCTION:
-				return validateBFunction((BFunction) value, diagnostics, context);
-			case B3backendPackage.BFUNCTION_WRAPPER:
-				return validateBFunctionWrapper((BFunctionWrapper) value, diagnostics, context);
-			case B3backendPackage.BNAME_PREDICATE:
-				return validateBNamePredicate((BNamePredicate) value, diagnostics, context);
-			case B3backendPackage.BFUNCTION_NAME_PREDICATE:
-				return validateBFunctionNamePredicate((BFunctionNamePredicate) value, diagnostics, context);
-			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT:
-				return validateBFunctionConcernContext((BFunctionConcernContext) value, diagnostics, context);
-			case B3backendPackage.BPARAMETER_PREDICATE:
-				return validateBParameterPredicate((BParameterPredicate) value, diagnostics, context);
-			case B3backendPackage.BPROCEED_EXPRESSION:
-				return validateBProceedExpression((BProceedExpression) value, diagnostics, context);
-			case B3backendPackage.BDELEGATING_CONTEXT:
-				return validateBDelegatingContext((BDelegatingContext) value, diagnostics, context);
-			case B3backendPackage.BWRAPPING_CONTEXT:
-				return validateBWrappingContext((BWrappingContext) value, diagnostics, context);
-			case B3backendPackage.B3_META_CLASS:
-				return validateB3MetaClass((B3MetaClass) value, diagnostics, context);
-			case B3backendPackage.BEXPRESSION_WRAPPER:
-				return validateBExpressionWrapper((BExpressionWrapper) value, diagnostics, context);
-			case B3backendPackage.BWITH_CONTEXT_EXPRESSION:
-				return validateBWithContextExpression((BWithContextExpression) value, diagnostics, context);
-			case B3backendPackage.ITYPED_VALUE_CONTAINER:
-				return validateITypedValueContainer((ITypedValueContainer) value, diagnostics, context);
-			case B3backendPackage.BCALL_FEATURE:
-				return validateBCallFeature((BCallFeature) value, diagnostics, context);
-			case B3backendPackage.BCALL_NAMED_FUNCTION:
-				return validateBCallNamedFunction((BCallNamedFunction) value, diagnostics, context);
-			case B3backendPackage.BCALL_FUNCTION:
-				return validateBCallFunction((BCallFunction) value, diagnostics, context);
-			case B3backendPackage.BPATTERN_LITERAL_EXPRESSION:
-				return validateBPatternLiteralExpression((BPatternLiteralExpression) value, diagnostics, context);
-			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION:
-				return validateBSimplePatternExpression((BSimplePatternExpression) value, diagnostics, context);
-			case B3backendPackage.INAMED_VALUE:
-				return validateINamedValue((INamedValue) value, diagnostics, context);
-			case B3backendPackage.B3_TYPE:
-				return validateB3Type((B3Type) value, diagnostics, context);
-			case B3backendPackage.ITYPED_VALUE:
-				return validateITypedValue((ITypedValue) value, diagnostics, context);
-			case B3backendPackage.IVAR_NAME:
-				return validateIVarName((IVarName) value, diagnostics, context);
-			case B3backendPackage.VISIBILITY:
-				return validateVisibility((Visibility) value, diagnostics, context);
-			case B3backendPackage.EXECUTION_MODE:
-				return validateExecutionMode((ExecutionMode) value, diagnostics, context);
-			case B3backendPackage.BJAVA_CALL_TYPE:
-				return validateBJavaCallType((BJavaCallType) value, diagnostics, context);
-			case B3backendPackage.CORE_EXCEPTION:
-				return validateCoreException((CoreException) value, diagnostics, context);
-			case B3backendPackage.TYPE:
-				return validateType((Type) value, diagnostics, context);
-			case B3backendPackage.OBJECT_ARRAY:
-				return validateObjectArray((Object[]) value, diagnostics, context);
-			case B3backendPackage.VALUE_MAP:
-				return validateValueMap((ValueMap) value, diagnostics, context);
-			case B3backendPackage.B3_ENGINE_EXCEPTION:
-				return validateB3EngineException((B3EngineException) value, diagnostics, context);
-			case B3backendPackage.B3_EXPRESSION_CACHE:
-				return validateB3ExpressionCache((B3ExpressionCache) value, diagnostics, context);
-			case B3backendPackage.THROWABLE:
-				return validateThrowable((Throwable) value, diagnostics, context);
-			case B3backendPackage.LVALUE:
-				return validateLValue((LValue) value, diagnostics, context);
-			case B3backendPackage.TYPE_ARRAY:
-				return validateTypeArray((Type[]) value, diagnostics, context);
-			case B3backendPackage.METHOD:
-				return validateMethod((Method) value, diagnostics, context);
-			case B3backendPackage.TYPE_VARIABLE_ARRAY:
-				return validateTypeVariableArray((TypeVariable[]) value, diagnostics, context);
-			case B3backendPackage.FUNC_STORE:
-				return validateFuncStore((B3FuncStore) value, diagnostics, context);
-			case B3backendPackage.REGEXP_PATTERN:
-				return validateRegexpPattern((Pattern) value, diagnostics, context);
-			case B3backendPackage.STRING_ARRAY:
-				return validateStringArray((String[]) value, diagnostics, context);
-			case B3backendPackage.JAVA_ITERATOR:
-				return validateJavaIterator((Iterator<?>) value, diagnostics, context);
-			case B3backendPackage.URI:
-				return validateURI((URI) value, diagnostics, context);
-			case B3backendPackage.IPROGRESS_MONITOR:
-				return validateIProgressMonitor((IProgressMonitor) value, diagnostics, context);
-			case B3backendPackage.SIMPLE_PATTERN:
-				return validateSimplePattern((SimplePattern) value, diagnostics, context);
-			case B3backendPackage.CHAR_SEQUENCE:
-				return validateCharSequence((CharSequence) value, diagnostics, context);
-			case B3backendPackage.INJECTOR:
-				return validateInjector((Injector) value, diagnostics, context);
-			default:
-				return true;
-		}
 	}
 
 	/**
@@ -1714,6 +1460,260 @@ public class B3backendValidator extends EObjectValidator {
 	 */
 	public boolean validateVisibility(Visibility visibility, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
+	}
+
+	/**
+	 * Returns the package of this validator switch.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EPackage getEPackage() {
+		return B3backendPackage.eINSTANCE;
+	}
+
+	/**
+	 * Calls <code>validateXXX</code> for the corresponding classifier of the model.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		switch(classifierID) {
+			case B3backendPackage.BEXPRESSION:
+				return validateBExpression((BExpression) value, diagnostics, context);
+			case B3backendPackage.BEXECUTION_CONTEXT:
+				return validateBExecutionContext((BExecutionContext) value, diagnostics, context);
+			case B3backendPackage.BIF_EXPRESSION:
+				return validateBIfExpression((BIfExpression) value, diagnostics, context);
+			case B3backendPackage.BSWITCH_EXPRESSION:
+				return validateBSwitchExpression((BSwitchExpression) value, diagnostics, context);
+			case B3backendPackage.BCASE:
+				return validateBCase((BCase) value, diagnostics, context);
+			case B3backendPackage.BTRY_EXPRESSION:
+				return validateBTryExpression((BTryExpression) value, diagnostics, context);
+			case B3backendPackage.BCATCH:
+				return validateBCatch((BCatch) value, diagnostics, context);
+			case B3backendPackage.BBINARY_EXPRESSION:
+				return validateBBinaryExpression((BBinaryExpression) value, diagnostics, context);
+			case B3backendPackage.BOR_EXPRESSION:
+				return validateBOrExpression((BOrExpression) value, diagnostics, context);
+			case B3backendPackage.BAND_EXPRESSION:
+				return validateBAndExpression((BAndExpression) value, diagnostics, context);
+			case B3backendPackage.BCHAINED_EXPRESSION:
+				return validateBChainedExpression((BChainedExpression) value, diagnostics, context);
+			case B3backendPackage.BUNARY_EXPRESSION:
+				return validateBUnaryExpression((BUnaryExpression) value, diagnostics, context);
+			case B3backendPackage.BTHROW_EXPRESSION:
+				return validateBThrowExpression((BThrowExpression) value, diagnostics, context);
+			case B3backendPackage.BUNARY_OP_EXPRESSION:
+				return validateBUnaryOpExpression((BUnaryOpExpression) value, diagnostics, context);
+			case B3backendPackage.BUNARY_POST_OP_EXPRESSION:
+				return validateBUnaryPostOpExpression((BUnaryPostOpExpression) value, diagnostics, context);
+			case B3backendPackage.BBINARY_OP_EXPRESSION:
+				return validateBBinaryOpExpression((BBinaryOpExpression) value, diagnostics, context);
+			case B3backendPackage.BCACHED_EXPRESSION:
+				return validateBCachedExpression((BCachedExpression) value, diagnostics, context);
+			case B3backendPackage.BLITERAL_EXPRESSION:
+				return validateBLiteralExpression((BLiteralExpression) value, diagnostics, context);
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION:
+				return validateBLiteralListExpression((BLiteralListExpression) value, diagnostics, context);
+			case B3backendPackage.BLITERAL_MAP_EXPRESSION:
+				return validateBLiteralMapExpression((BLiteralMapExpression) value, diagnostics, context);
+			case B3backendPackage.BMAP_ENTRY:
+				return validateBMapEntry((BMapEntry) value, diagnostics, context);
+			case B3backendPackage.BFEATURE_EXPRESSION:
+				return validateBFeatureExpression((BFeatureExpression) value, diagnostics, context);
+			case B3backendPackage.BAT_EXPRESSION:
+				return validateBAtExpression((BAtExpression) value, diagnostics, context);
+			case B3backendPackage.BVARIABLE_EXPRESSION:
+				return validateBVariableExpression((BVariableExpression) value, diagnostics, context);
+			case B3backendPackage.BCALL_EXPRESSION:
+				return validateBCallExpression((BCallExpression) value, diagnostics, context);
+			case B3backendPackage.BPARAMETERIZED_EXPRESSION:
+				return validateBParameterizedExpression((BParameterizedExpression) value, diagnostics, context);
+			case B3backendPackage.BLITERAL_ANY:
+				return validateBLiteralAny((BLiteralAny) value, diagnostics, context);
+			case B3backendPackage.BCREATE_EXPRESSION:
+				return validateBCreateExpression((BCreateExpression) value, diagnostics, context);
+			case B3backendPackage.IFUNCTION:
+				return validateIFunction((IFunction) value, diagnostics, context);
+			case B3backendPackage.BGUARD:
+				return validateBGuard((BGuard) value, diagnostics, context);
+			case B3backendPackage.BSYSTEM_CONTEXT:
+				return validateBSystemContext((BSystemContext) value, diagnostics, context);
+			case B3backendPackage.BCONTEXT:
+				return validateBContext((BContext) value, diagnostics, context);
+			case B3backendPackage.BINNER_CONTEXT:
+				return validateBInnerContext((BInnerContext) value, diagnostics, context);
+			case B3backendPackage.BINVOCATION_CONTEXT:
+				return validateBInvocationContext((BInvocationContext) value, diagnostics, context);
+			case B3backendPackage.BUNARY_PRE_OP_EXPRESSION:
+				return validateBUnaryPreOpExpression((BUnaryPreOpExpression) value, diagnostics, context);
+			case B3backendPackage.BASSIGNMENT_EXPRESSION:
+				return validateBAssignmentExpression((BAssignmentExpression) value, diagnostics, context);
+			case B3backendPackage.B3_FUNCTION:
+				return validateB3Function((B3Function) value, diagnostics, context);
+			case B3backendPackage.BJAVA_FUNCTION:
+				return validateBJavaFunction((BJavaFunction) value, diagnostics, context);
+			case B3backendPackage.BFUNCTION_CONTAINER:
+				return validateBFunctionContainer((BFunctionContainer) value, diagnostics, context);
+			case B3backendPackage.BDEF_VALUE:
+				return validateBDefValue((BDefValue) value, diagnostics, context);
+			case B3backendPackage.BREGULAR_EXPRESSION:
+				return validateBRegularExpression((BRegularExpression) value, diagnostics, context);
+			case B3backendPackage.BPARAMETER_LIST:
+				return validateBParameterList((BParameterList) value, diagnostics, context);
+			case B3backendPackage.BPARAMETER:
+				return validateBParameter((BParameter) value, diagnostics, context);
+			case B3backendPackage.BPARAMETER_DECLARATION:
+				return validateBParameterDeclaration((BParameterDeclaration) value, diagnostics, context);
+			case B3backendPackage.ITYPE:
+				return validateIType((Type) value, diagnostics, context);
+			case B3backendPackage.B3_FUNCTION_TYPE:
+				return validateB3FunctionType((B3FunctionType) value, diagnostics, context);
+			case B3backendPackage.IPARAMETERIZED_TYPE:
+				return validateIParameterizedType((ParameterizedType) value, diagnostics, context);
+			case B3backendPackage.IGENERIC_DECLARATION:
+				return validateIGenericDeclaration((GenericDeclaration) value, diagnostics, context);
+			case B3backendPackage.B3_PARAMETERIZED_TYPE:
+				return validateB3ParameterizedType((B3ParameterizedType) value, diagnostics, context);
+			case B3backendPackage.IWILDCARD_TYPE:
+				return validateIWildcardType((WildcardType) value, diagnostics, context);
+			case B3backendPackage.B3_WILDCARD_TYPE:
+				return validateB3WildcardType((B3WildcardType) value, diagnostics, context);
+			case B3backendPackage.ITYPE_VARIABLE:
+				return validateITypeVariable((TypeVariable<?>) value, diagnostics, context);
+			case B3backendPackage.B3_FUNC_TYPE_VARIABLE:
+				return validateB3FuncTypeVariable((B3FuncTypeVariable) value, diagnostics, context);
+			case B3backendPackage.B3_JAVA_IMPORT:
+				return validateB3JavaImport((B3JavaImport) value, diagnostics, context);
+			case B3backendPackage.BLITERAL_TYPE:
+				return validateBLiteralType((BLiteralType) value, diagnostics, context);
+			case B3backendPackage.BTYPE_CALCULATOR:
+				return validateBTypeCalculator((BTypeCalculator) value, diagnostics, context);
+			case B3backendPackage.BINSTANCE_CONTEXT:
+				return validateBInstanceContext((BInstanceContext) value, diagnostics, context);
+			case B3backendPackage.BDEF_PROPERTY:
+				return validateBDefProperty((BDefProperty) value, diagnostics, context);
+			case B3backendPackage.BPROPERTY_SET:
+				return validateBPropertySet((BPropertySet) value, diagnostics, context);
+			case B3backendPackage.BDEFAULT_PROPERTY_SET:
+				return validateBDefaultPropertySet((BDefaultPropertySet) value, diagnostics, context);
+			case B3backendPackage.BPROPERTY_OPERATION:
+				return validateBPropertyOperation((BPropertyOperation) value, diagnostics, context);
+			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION:
+				return validateBPropertyDefinitionOperation((BPropertyDefinitionOperation) value, diagnostics, context);
+			case B3backendPackage.BCONDITIONAL_PROPERTY_OPERATION:
+				return validateBConditionalPropertyOperation(
+					(BConditionalPropertyOperation) value, diagnostics, context);
+			case B3backendPackage.BPROPERTY_SET_OPERATION:
+				return validateBPropertySetOperation((BPropertySetOperation) value, diagnostics, context);
+			case B3backendPackage.BADVICE:
+				return validateBAdvice((BAdvice) value, diagnostics, context);
+			case B3backendPackage.BCONCERN:
+				return validateBConcern((BConcern) value, diagnostics, context);
+			case B3backendPackage.BWITH_EXPRESSION:
+				return validateBWithExpression((BWithExpression) value, diagnostics, context);
+			case B3backendPackage.BCONCERN_CONTEXT:
+				return validateBConcernContext((BConcernContext) value, diagnostics, context);
+			case B3backendPackage.BFUNCTION:
+				return validateBFunction((BFunction) value, diagnostics, context);
+			case B3backendPackage.BFUNCTION_WRAPPER:
+				return validateBFunctionWrapper((BFunctionWrapper) value, diagnostics, context);
+			case B3backendPackage.BNAME_PREDICATE:
+				return validateBNamePredicate((BNamePredicate) value, diagnostics, context);
+			case B3backendPackage.BFUNCTION_NAME_PREDICATE:
+				return validateBFunctionNamePredicate((BFunctionNamePredicate) value, diagnostics, context);
+			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT:
+				return validateBFunctionConcernContext((BFunctionConcernContext) value, diagnostics, context);
+			case B3backendPackage.BPARAMETER_PREDICATE:
+				return validateBParameterPredicate((BParameterPredicate) value, diagnostics, context);
+			case B3backendPackage.BPROCEED_EXPRESSION:
+				return validateBProceedExpression((BProceedExpression) value, diagnostics, context);
+			case B3backendPackage.BDELEGATING_CONTEXT:
+				return validateBDelegatingContext((BDelegatingContext) value, diagnostics, context);
+			case B3backendPackage.BWRAPPING_CONTEXT:
+				return validateBWrappingContext((BWrappingContext) value, diagnostics, context);
+			case B3backendPackage.B3_META_CLASS:
+				return validateB3MetaClass((B3MetaClass) value, diagnostics, context);
+			case B3backendPackage.BEXPRESSION_WRAPPER:
+				return validateBExpressionWrapper((BExpressionWrapper) value, diagnostics, context);
+			case B3backendPackage.BWITH_CONTEXT_EXPRESSION:
+				return validateBWithContextExpression((BWithContextExpression) value, diagnostics, context);
+			case B3backendPackage.ITYPED_VALUE_CONTAINER:
+				return validateITypedValueContainer((ITypedValueContainer) value, diagnostics, context);
+			case B3backendPackage.BCALL_FEATURE:
+				return validateBCallFeature((BCallFeature) value, diagnostics, context);
+			case B3backendPackage.BCALL_NAMED_FUNCTION:
+				return validateBCallNamedFunction((BCallNamedFunction) value, diagnostics, context);
+			case B3backendPackage.BCALL_FUNCTION:
+				return validateBCallFunction((BCallFunction) value, diagnostics, context);
+			case B3backendPackage.BPATTERN_LITERAL_EXPRESSION:
+				return validateBPatternLiteralExpression((BPatternLiteralExpression) value, diagnostics, context);
+			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION:
+				return validateBSimplePatternExpression((BSimplePatternExpression) value, diagnostics, context);
+			case B3backendPackage.INAMED_VALUE:
+				return validateINamedValue((INamedValue) value, diagnostics, context);
+			case B3backendPackage.B3_TYPE:
+				return validateB3Type((B3Type) value, diagnostics, context);
+			case B3backendPackage.ITYPED_VALUE:
+				return validateITypedValue((ITypedValue) value, diagnostics, context);
+			case B3backendPackage.IVAR_NAME:
+				return validateIVarName((IVarName) value, diagnostics, context);
+			case B3backendPackage.VISIBILITY:
+				return validateVisibility((Visibility) value, diagnostics, context);
+			case B3backendPackage.EXECUTION_MODE:
+				return validateExecutionMode((ExecutionMode) value, diagnostics, context);
+			case B3backendPackage.BJAVA_CALL_TYPE:
+				return validateBJavaCallType((BJavaCallType) value, diagnostics, context);
+			case B3backendPackage.CORE_EXCEPTION:
+				return validateCoreException((CoreException) value, diagnostics, context);
+			case B3backendPackage.TYPE:
+				return validateType((Type) value, diagnostics, context);
+			case B3backendPackage.OBJECT_ARRAY:
+				return validateObjectArray((Object[]) value, diagnostics, context);
+			case B3backendPackage.VALUE_MAP:
+				return validateValueMap((ValueMap) value, diagnostics, context);
+			case B3backendPackage.B3_ENGINE_EXCEPTION:
+				return validateB3EngineException((B3EngineException) value, diagnostics, context);
+			case B3backendPackage.B3_EXPRESSION_CACHE:
+				return validateB3ExpressionCache((B3ExpressionCache) value, diagnostics, context);
+			case B3backendPackage.THROWABLE:
+				return validateThrowable((Throwable) value, diagnostics, context);
+			case B3backendPackage.LVALUE:
+				return validateLValue((LValue) value, diagnostics, context);
+			case B3backendPackage.TYPE_ARRAY:
+				return validateTypeArray((Type[]) value, diagnostics, context);
+			case B3backendPackage.METHOD:
+				return validateMethod((Method) value, diagnostics, context);
+			case B3backendPackage.TYPE_VARIABLE_ARRAY:
+				return validateTypeVariableArray((TypeVariable[]) value, diagnostics, context);
+			case B3backendPackage.FUNC_STORE:
+				return validateFuncStore((B3FuncStore) value, diagnostics, context);
+			case B3backendPackage.REGEXP_PATTERN:
+				return validateRegexpPattern((Pattern) value, diagnostics, context);
+			case B3backendPackage.STRING_ARRAY:
+				return validateStringArray((String[]) value, diagnostics, context);
+			case B3backendPackage.JAVA_ITERATOR:
+				return validateJavaIterator((Iterator<?>) value, diagnostics, context);
+			case B3backendPackage.URI:
+				return validateURI((URI) value, diagnostics, context);
+			case B3backendPackage.IPROGRESS_MONITOR:
+				return validateIProgressMonitor((IProgressMonitor) value, diagnostics, context);
+			case B3backendPackage.SIMPLE_PATTERN:
+				return validateSimplePattern((SimplePattern) value, diagnostics, context);
+			case B3backendPackage.CHAR_SEQUENCE:
+				return validateCharSequence((CharSequence) value, diagnostics, context);
+			case B3backendPackage.INJECTOR:
+				return validateInjector((Injector) value, diagnostics, context);
+			default:
+				return true;
+		}
 	}
 
 } // B3backendValidator

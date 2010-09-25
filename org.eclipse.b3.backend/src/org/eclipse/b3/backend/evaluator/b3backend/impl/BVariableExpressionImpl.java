@@ -117,17 +117,6 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BVARIABLE_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE:
@@ -169,5 +158,16 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE, oldNamedValue, namedValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BVARIABLE_EXPRESSION;
 	}
 } // BVariableExpressionImpl

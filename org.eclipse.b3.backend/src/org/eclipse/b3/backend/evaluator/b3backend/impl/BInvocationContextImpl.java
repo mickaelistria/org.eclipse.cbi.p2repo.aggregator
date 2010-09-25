@@ -121,17 +121,6 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BINVOCATION_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BINVOCATION_CONTEXT__EXPRESSION_CACHE:
@@ -153,24 +142,6 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 				expressionCache = new B3ExpressionCache();
 		}
 		return expressionCache;
-	}
-
-	/**
-	 * Loads all system properties into the value map as immutable values (but the values can be overridden
-	 * in inner contexts).
-	 */
-	private void loadSystemProperties() {
-		Properties properties = System.getProperties();
-		for(Object key : properties.keySet()) {
-			try {
-				defineValue("${" + ((String) key) + "}", properties.get(key), String.class);
-			}
-			catch(B3EngineException e) {
-				e.printStackTrace();
-				org.eclipse.b3.provisional.core.Build.getLogger().error(
-					e, "Failed to load system properties into context", new Object[0]);
-			}
-		}
 	}
 
 	/**
@@ -204,5 +175,34 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 		result.append(expressionCache);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BINVOCATION_CONTEXT;
+	}
+
+	/**
+	 * Loads all system properties into the value map as immutable values (but the values can be overridden
+	 * in inner contexts).
+	 */
+	private void loadSystemProperties() {
+		Properties properties = System.getProperties();
+		for(Object key : properties.keySet()) {
+			try {
+				defineValue("${" + ((String) key) + "}", properties.get(key), String.class);
+			}
+			catch(B3EngineException e) {
+				e.printStackTrace();
+				org.eclipse.b3.provisional.core.Build.getLogger().error(
+					e, "Failed to load system properties into context", new Object[0]);
+			}
+		}
 	}
 } // BInvocationContextImpl

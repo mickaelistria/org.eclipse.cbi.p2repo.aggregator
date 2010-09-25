@@ -259,17 +259,6 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BWRAPPING_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BWRAPPING_CONTEXT__FUNCTION_WRAPPER:
@@ -344,10 +333,6 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	@Override
 	public ValueMap getValueMap() {
 		return valueMap;
-	}
-
-	private ValueMapFacade getValueMapFacade() {
-		return ValueMapFacade.class.cast(valueMap);
 	}
 
 	/**
@@ -498,5 +483,20 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 		result.append(varargsName);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BWRAPPING_CONTEXT;
+	}
+
+	private ValueMapFacade getValueMapFacade() {
+		return ValueMapFacade.class.cast(valueMap);
 	}
 } // BWrappingContextImpl

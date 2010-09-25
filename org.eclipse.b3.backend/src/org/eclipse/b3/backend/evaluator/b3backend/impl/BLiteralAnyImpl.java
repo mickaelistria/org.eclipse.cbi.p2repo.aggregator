@@ -33,6 +33,16 @@ public class BLiteralAnyImpl extends BPatternLiteralExpressionImpl implements BL
 		super();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPatternLiteralExpressionImpl#matches(java.lang.CharSequence)
+	 */
+	@Override
+	public boolean matches(CharSequence candidate) {
+		return true;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,15 +52,5 @@ public class BLiteralAnyImpl extends BPatternLiteralExpressionImpl implements BL
 	@Override
 	protected EClass eStaticClass() {
 		return B3backendPackage.Literals.BLITERAL_ANY;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPatternLiteralExpressionImpl#matches(java.lang.CharSequence)
-	 */
-	@Override
-	public boolean matches(CharSequence candidate) {
-		return true;
 	}
 } // BLiteralAnyImpl

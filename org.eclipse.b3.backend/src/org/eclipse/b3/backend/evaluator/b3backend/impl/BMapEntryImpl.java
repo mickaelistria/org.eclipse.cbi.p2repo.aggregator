@@ -183,17 +183,6 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BMAP_ENTRY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BMAP_ENTRY__KEY:
@@ -271,6 +260,17 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BMAP_ENTRY__VALUE, newValue, newValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BMAP_ENTRY;
 	}
 
 } // BMapEntryImpl

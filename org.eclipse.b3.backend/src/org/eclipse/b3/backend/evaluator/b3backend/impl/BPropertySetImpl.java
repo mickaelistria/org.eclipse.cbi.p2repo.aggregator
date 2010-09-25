@@ -218,17 +218,6 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPROPERTY_SET;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BPROPERTY_SET__EXTENDS:
@@ -242,6 +231,25 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BPropertySet getExtends() {
+		if(extends_ != null && extends_.eIsProxy()) {
+			InternalEObject oldExtends = (InternalEObject) extends_;
+			extends_ = (BPropertySet) eResolveProxy(oldExtends);
+			if(extends_ != oldExtends) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3backendPackage.BPROPERTY_SET__EXTENDS, oldExtends, extends_));
+			}
+		}
+		return extends_;
 	}
 
 	// /**
@@ -270,25 +278,6 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	// }
 	// return this;
 	// }
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public BPropertySet getExtends() {
-		if(extends_ != null && extends_.eIsProxy()) {
-			InternalEObject oldExtends = (InternalEObject) extends_;
-			extends_ = (BPropertySet) eResolveProxy(oldExtends);
-			if(extends_ != oldExtends) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, B3backendPackage.BPROPERTY_SET__EXTENDS, oldExtends, extends_));
-			}
-		}
-		return extends_;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -415,5 +404,16 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 		result.append(propertiesFile);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPROPERTY_SET;
 	}
 } // BPropertySetImpl

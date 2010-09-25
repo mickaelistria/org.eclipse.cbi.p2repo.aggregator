@@ -234,17 +234,6 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BJAVA_FUNCTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
@@ -452,6 +441,17 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 		result.append(parameterNames);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BJAVA_FUNCTION;
 	}
 
 } // BJavaFunctionImpl

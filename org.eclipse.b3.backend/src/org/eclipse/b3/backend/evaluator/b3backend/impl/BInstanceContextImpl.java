@@ -130,17 +130,6 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BINSTANCE_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BINSTANCE_CONTEXT__INSTANCE:
@@ -223,5 +212,16 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 		result.append(instance);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BINSTANCE_CONTEXT;
 	}
 } // BInstanceContextImpl

@@ -118,17 +118,6 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BSIMPLE_PATTERN_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN:
@@ -188,5 +177,16 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 		result.append(pattern);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BSIMPLE_PATTERN_EXPRESSION;
 	}
 } // BSimplePatternExpressionImpl

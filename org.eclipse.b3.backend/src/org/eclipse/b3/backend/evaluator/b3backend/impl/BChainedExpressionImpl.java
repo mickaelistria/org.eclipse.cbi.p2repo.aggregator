@@ -126,17 +126,6 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCHAINED_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BCHAINED_EXPRESSION__EXPRESSIONS:
@@ -158,5 +147,16 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 				BExpression.class, this, B3backendPackage.BCHAINED_EXPRESSION__EXPRESSIONS);
 		}
 		return expressions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCHAINED_EXPRESSION;
 	}
 } // BChainedExpressionImpl

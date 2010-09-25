@@ -135,17 +135,6 @@ public class BParameterListImpl extends EObjectImpl implements BParameterList {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPARAMETER_LIST;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BPARAMETER_LIST__PARAMETERS:
@@ -167,6 +156,17 @@ public class BParameterListImpl extends EObjectImpl implements BParameterList {
 				BParameter.class, this, B3backendPackage.BPARAMETER_LIST__PARAMETERS);
 		}
 		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPARAMETER_LIST;
 	}
 
 } // BParameterListImpl

@@ -37,17 +37,6 @@ public class BContextImpl extends BExecutionContextImpl implements BContext {
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BCONTEXT;
-	}
-
 	@Override
 	public boolean isPropertyScope() {
 		return true;
@@ -59,5 +48,16 @@ public class BContextImpl extends BExecutionContextImpl implements BContext {
 		// BContexts uses for bequests may get functions defined after child contexts have been spawned
 		// and current implementation will fail to link the func stores if BContext is missing one.
 		createFuncStore();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BCONTEXT;
 	}
 } // BContextImpl

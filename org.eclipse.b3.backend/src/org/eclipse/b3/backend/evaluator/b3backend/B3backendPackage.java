@@ -1368,6 +1368,15 @@ public interface B3backendPackage extends EPackage {
 		EAttribute B3_TYPE__RAW_TYPE = eINSTANCE.getB3Type_RawType();
 
 		/**
+		 * The meta object literal for the '<em><b>Default Inference</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute B3_TYPE__DEFAULT_INFERENCE = eINSTANCE.getB3Type_DefaultInference();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValue <em>ITyped Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7613,6 +7622,16 @@ public interface B3backendPackage extends EPackage {
 	int B3_TYPE__RAW_TYPE = ITYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Default Inference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int B3_TYPE__DEFAULT_INFERENCE = ITYPE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>B3 Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7620,7 +7639,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int B3_TYPE_FEATURE_COUNT = ITYPE_FEATURE_COUNT + 1;
+	int B3_TYPE_FEATURE_COUNT = ITYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.IVarName <em>IVar Name</em>}' class.
@@ -8203,6 +8222,19 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getB3Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3Type#isDefaultInference
+	 * <em>Default Inference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Default Inference</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3Type#isDefaultInference()
+	 * @see #getB3Type()
+	 * @generated
+	 */
+	EAttribute getB3Type_DefaultInference();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3Type#getRawType <em>Raw Type</em>}'.

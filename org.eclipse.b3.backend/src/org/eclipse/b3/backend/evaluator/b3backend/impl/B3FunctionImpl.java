@@ -142,17 +142,6 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.B3_FUNCTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.B3_FUNCTION__FUNC_EXPR:
@@ -194,5 +183,16 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.B3_FUNCTION__FUNC_EXPR, newFuncExpr, newFuncExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.B3_FUNCTION;
 	}
 } // B3FunctionImpl

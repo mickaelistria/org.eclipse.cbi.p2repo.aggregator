@@ -172,17 +172,6 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
@@ -251,5 +240,16 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, newEntryType,
 				newEntryType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION;
 	}
 } // BLiteralListExpressionImpl

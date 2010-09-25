@@ -123,17 +123,6 @@ public class BExpressionWrapperImpl extends BExpressionImpl implements BExpressi
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BEXPRESSION_WRAPPER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BEXPRESSION_WRAPPER__ORIGINAL:
@@ -175,5 +164,16 @@ public class BExpressionWrapperImpl extends BExpressionImpl implements BExpressi
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BEXPRESSION_WRAPPER__ORIGINAL, oldOriginal, original));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BEXPRESSION_WRAPPER;
 	}
 } // BExpressionWrapperImpl

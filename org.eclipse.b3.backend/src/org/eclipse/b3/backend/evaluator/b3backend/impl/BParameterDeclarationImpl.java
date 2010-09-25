@@ -241,17 +241,6 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPARAMETER_DECLARATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BPARAMETER_DECLARATION__NAME:
@@ -421,6 +410,17 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 		result.append(immutable);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPARAMETER_DECLARATION;
 	}
 
 } // BParameterDeclarationImpl

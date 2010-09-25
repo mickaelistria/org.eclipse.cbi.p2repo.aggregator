@@ -213,17 +213,6 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE__BOUNDS:
@@ -340,6 +329,17 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 		result.append(name);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE;
 	}
 
 } // B3FuncTypeVariableImpl

@@ -116,17 +116,6 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BBINARY_OP_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BBINARY_OP_EXPRESSION__FUNCTION_NAME:
@@ -177,5 +166,16 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 		result.append(functionName);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BBINARY_OP_EXPRESSION;
 	}
 } // BBinaryOpExpressionImpl

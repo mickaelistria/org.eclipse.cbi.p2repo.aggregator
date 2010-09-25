@@ -338,17 +338,6 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BDEF_VALUE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BDEF_VALUE__NAME:
@@ -542,5 +531,16 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 		result.append(immutable);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BDEF_VALUE;
 	}
 } // BDefValueImpl

@@ -134,17 +134,6 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BINNER_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BINNER_CONTEXT__OUTER_CONTEXT:
@@ -186,5 +175,16 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BINNER_CONTEXT__OUTER_CONTEXT, oldOuterContext, outerContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BINNER_CONTEXT;
 	}
 } // BInnerContextImpl

@@ -116,17 +116,6 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BUNARY_OP_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BUNARY_OP_EXPRESSION__FUNCTION_NAME:
@@ -177,6 +166,17 @@ public class BUnaryOpExpressionImpl extends BUnaryExpressionImpl implements BUna
 		result.append(functionName);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BUNARY_OP_EXPRESSION;
 	}
 
 } // BUnaryOpExpressionImpl

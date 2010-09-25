@@ -185,6 +185,15 @@ public abstract class DeclarativeB3Evaluator implements IB3Evaluator {
 				o.getClass());
 	}
 
+	public LValue lValue(Object o, BExecutionContext ctx) {
+		// throw new B3NotLValueException(); ??
+		throw new UnsupportedOperationException("No suitable lValue method for object of class:" + o.getClass());
+	}
+
+	public String[] parameterNames(Object o) {
+		throw new UnsupportedOperationException("No suitable parameterNames method for object of class:" + o.getClass());
+	}
+
 	protected BExecutionContext handleContextError(Object[] params, Throwable e) {
 		if(e instanceof NullPointerException) {
 			return null;
@@ -217,15 +226,6 @@ public abstract class DeclarativeB3Evaluator implements IB3Evaluator {
 		// return Object.class;
 		// }
 		return Exceptions.throwUncheckedException(e);
-	}
-
-	public LValue lValue(Object o, BExecutionContext ctx) {
-		// throw new B3NotLValueException(); ??
-		throw new UnsupportedOperationException("No suitable lValue method for object of class:" + o.getClass());
-	}
-
-	public String[] parameterNames(Object o) {
-		throw new UnsupportedOperationException("No suitable parameterNames method for object of class:" + o.getClass());
 	}
 
 }

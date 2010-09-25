@@ -276,17 +276,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE:
@@ -458,5 +447,16 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 		result.append(matchParameters);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT;
 	}
 } // BFunctionConcernContextImpl

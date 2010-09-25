@@ -25,12 +25,12 @@ public class LoadedPropertySetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	@Override
-	protected Adapter createAdapter(Notifier target, Object type) {
-		return new LoadedPropertySetAdapter();
+	public boolean isFactoryForType(Object type) {
+		return type == LoadedPropertySetAdapter.class;
 	}
 
 	@Override
-	public boolean isFactoryForType(Object type) {
-		return type == LoadedPropertySetAdapter.class;
+	protected Adapter createAdapter(Notifier target, Object type) {
+		return new LoadedPropertySetAdapter();
 	}
 }

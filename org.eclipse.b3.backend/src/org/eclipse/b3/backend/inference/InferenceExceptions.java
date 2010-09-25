@@ -22,7 +22,7 @@ public class InferenceExceptions extends B3EngineException {
 
 	List<InferenceException> exceptions;
 
-	public InferenceExceptions(List<InferenceException> excepions) {
+	public InferenceExceptions(List<InferenceException> exceptions) {
 		super("Type not declared or inferable");
 		this.exceptions = Collections.unmodifiableList(exceptions);
 	}

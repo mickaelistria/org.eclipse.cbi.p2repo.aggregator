@@ -35,19 +35,6 @@ public abstract class DeclarativeFuncScopeProvider implements IFuncScopeProvider
 			}
 		});
 
-	/**
-	 * Safe create SimpleScope (if outer is null).
-	 * 
-	 * @param outer
-	 * @param descriptions
-	 * @return
-	 */
-	protected IScope createScope(IScope outer, Iterable<IEObjectDescription> descriptions) {
-		return new SimpleScope(outer == null
-				? IScope.NULLSCOPE
-				: outer, descriptions);
-	}
-
 	public IScope doGetFuncScope(EObject container) {
 		if(container == null)
 			return null;
@@ -75,6 +62,19 @@ public abstract class DeclarativeFuncScopeProvider implements IFuncScopeProvider
 
 	public IScope funcScope(Object o) {
 		return null;
+	}
+
+	/**
+	 * Safe create SimpleScope (if outer is null).
+	 * 
+	 * @param outer
+	 * @param descriptions
+	 * @return
+	 */
+	protected IScope createScope(IScope outer, Iterable<IEObjectDescription> descriptions) {
+		return new SimpleScope(outer == null
+				? IScope.NULLSCOPE
+				: outer, descriptions);
 	}
 
 	protected Object handleError(Object[] params, Throwable e) {

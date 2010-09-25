@@ -46,6 +46,28 @@ import com.google.inject.Injector;
  */
 public interface BExecutionContext extends ITypedValueContainer {
 	/**
+	 * This is not generated because it seems impossible to define this signature in the ecore model...
+	 * 
+	 * @generated NOT
+	 */
+	public <T> void defineSomeThing(Class<T> kind, Object key, T value, boolean isWeaving) throws Throwable;
+
+	/**
+	 * This is not generated because it seems impossible to define this signature in the ecore model...
+	 * Returns an immutable view of the thing map of a particular kind.
+	 * 
+	 * @generated NOT
+	 */
+	public Map<Object, Object> getMapOfThings(Class<?> kind);
+
+	/**
+	 * This is not generated because it seems impossible to define this signature in the ecore model...
+	 * 
+	 * @generated NOT
+	 */
+	public <T> T getSomeThing(Class<T> kind, Object key);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -83,17 +105,19 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
+	 * @generated
+	 */
+	// Iterator<BConcernContext> getConcernIterator(Object candidate);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
 	IFunction defineFunction(IFunction function) throws B3EngineException;
-
-	/**
-	 * This is not generated because it seems impossible to define this signature in the ecore model...
-	 * 
-	 * @generated NOT
-	 */
-	public <T> void defineSomeThing(Class<T> kind, Object key, T value, boolean isWeaving) throws Throwable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,15 +131,6 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * @generated
 	 */
 	IFunction findFunction(String functionName, Type[] types) throws B3EngineException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
-	 * @generated
-	 */
-	// Iterator<BConcernContext> getConcernIterator(Object candidate);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -213,14 +228,6 @@ public interface BExecutionContext extends ITypedValueContainer {
 	BInvocationContext getInvocationContext() throws B3EngineException;
 
 	/**
-	 * This is not generated because it seems impossible to define this signature in the ecore model...
-	 * Returns an immutable view of the thing map of a particular kind.
-	 * 
-	 * @generated NOT
-	 */
-	public Map<Object, Object> getMapOfThings(Class<?> kind);
-
-	/**
 	 * Returns the value of the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -251,13 +258,6 @@ public interface BExecutionContext extends ITypedValueContainer {
 	 * @generated
 	 */
 	IProgressMonitor getProgressMonitor();
-
-	/**
-	 * This is not generated because it seems impossible to define this signature in the ecore model...
-	 * 
-	 * @generated NOT
-	 */
-	public <T> T getSomeThing(Class<T> kind, Object key);
 
 	/**
 	 * Returns the value of the '<em><b>Value Map</b></em>' attribute.

@@ -1454,6 +1454,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		b3TypeEClass = createEClass(B3_TYPE);
 		createEAttribute(b3TypeEClass, B3_TYPE__RAW_TYPE);
+		createEAttribute(b3TypeEClass, B3_TYPE__DEFAULT_INFERENCE);
 
 		iTypedValueEClass = createEClass(ITYPED_VALUE);
 		createEReference(iTypedValueEClass, ITYPED_VALUE__TYPE);
@@ -1737,6 +1738,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EClass getB3Type() {
 		return b3TypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getB3Type_DefaultInference() {
+		return (EAttribute) b3TypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5219,6 +5230,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(
 			getB3Type_RawType(), this.getType(), "rawType", null, 0, 1, B3Type.class, !IS_TRANSIENT, !IS_VOLATILE,
 			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getB3Type_DefaultInference(), ecorePackage.getEBoolean(), "defaultInference", null, 0, 1, B3Type.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			iTypedValueEClass, ITypedValue.class, "ITypedValue", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -111,17 +111,6 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.B3_META_CLASS;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.B3_META_CLASS__INSTANCE_CLASS:
@@ -184,6 +173,17 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 		result.append(instanceClass);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.B3_META_CLASS;
 	}
 
 } // B3MetaClassImpl

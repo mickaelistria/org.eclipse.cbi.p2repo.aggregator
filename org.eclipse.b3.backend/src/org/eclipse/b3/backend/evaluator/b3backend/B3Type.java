@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3Type#getRawType <em>Raw Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3Type#isDefaultInference <em>Default Inference</em>}</li>
  * </ul>
  * </p>
  * 
@@ -46,6 +47,34 @@ public interface B3Type extends EObject, Type {
 	 * @generated
 	 */
 	Type getRawType();
+
+	/**
+	 * Returns the value of the '<em><b>Default Inference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Inference</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Default Inference</em>' attribute.
+	 * @see #setDefaultInference(boolean)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3Type_DefaultInference()
+	 * @model
+	 * @generated
+	 */
+	boolean isDefaultInference();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3Type#isDefaultInference <em>Default Inference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Default Inference</em>' attribute.
+	 * @see #isDefaultInference()
+	 * @generated
+	 */
+	void setDefaultInference(boolean value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3Type#getRawType <em>Raw Type</em>}' attribute.

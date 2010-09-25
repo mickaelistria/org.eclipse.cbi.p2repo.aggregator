@@ -41,11 +41,6 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 			super(aMethod);
 		}
 
-		@Override
-		protected Type[] getJavaParameterTypes() {
-			return adaptedObject.getGenericParameterTypes();
-		}
-
 		public Method getMethod() {
 			return adaptedObject;
 		}
@@ -57,6 +52,11 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 
 		public boolean isVarArgs() {
 			return adaptedObject.isVarArgs();
+		}
+
+		@Override
+		protected Type[] getJavaParameterTypes() {
+			return adaptedObject.getGenericParameterTypes();
 		}
 
 	}
@@ -109,6 +109,35 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Loads a method, and defines it in this context. If finding and loading a method worked, true is returned,
+	 * else false. Error conditions that should surface to a a user are thrown as a {@link B3EngineException},
+	 * most notably {@link B3AmbiguousFunctionSignatureException} which denotes that more than one signature
+	 * was found for the type parameters.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @throws B3EngineException
+	 * @throws B3AmbiguousFunctionSignatureException
+	 * @generated NOT
+	 */
+	public IFunction loadMethod(String functionName, Type[] types) throws B3EngineException {
+		Method method = null;
+		try {
+			method = findMethod(functionName, types);
+		}
+		catch(B3NoSuchFunctionSignatureException e) {
+			return null;
+		}
+		catch(SecurityException e) {
+			throw new B3InternalError("Security exception while loading method", e);
+		}
+		catch(NoSuchMethodException e) {
+			return null;
+		}
+		return loadFunction(method);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -145,35 +174,6 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 			default: // more than one candidate method found (the method call is ambiguous)
 				throw new B3AmbiguousFunctionSignatureException(methodName, types);
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Loads a method, and defines it in this context. If finding and loading a method worked, true is returned,
-	 * else false. Error conditions that should surface to a a user are thrown as a {@link B3EngineException},
-	 * most notably {@link B3AmbiguousFunctionSignatureException} which denotes that more than one signature
-	 * was found for the type parameters.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @throws B3EngineException
-	 * @throws B3AmbiguousFunctionSignatureException
-	 * @generated NOT
-	 */
-	public IFunction loadMethod(String functionName, Type[] types) throws B3EngineException {
-		Method method = null;
-		try {
-			method = findMethod(functionName, types);
-		}
-		catch(B3NoSuchFunctionSignatureException e) {
-			return null;
-		}
-		catch(SecurityException e) {
-			throw new B3InternalError("Security exception while loading method", e);
-		}
-		catch(NoSuchMethodException e) {
-			return null;
-		}
-		return loadFunction(method);
 	}
 
 } // BSystemContextImpl

@@ -173,17 +173,6 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BFEATURE_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BFEATURE_EXPRESSION__OBJ_EXPR:
@@ -270,5 +259,16 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 		result.append(featureName);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BFEATURE_EXPRESSION;
 	}
 } // BFeatureExpressionImpl

@@ -238,17 +238,6 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.B3_FUNCTION_TYPE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE:
@@ -517,6 +506,17 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 		result.append(varArgs);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.B3_FUNCTION_TYPE;
 	}
 
 } // B3FunctionTypeImpl

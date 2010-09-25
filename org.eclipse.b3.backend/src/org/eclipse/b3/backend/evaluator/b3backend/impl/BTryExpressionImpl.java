@@ -211,17 +211,6 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BTRY_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BTRY_EXPRESSION__TRY_EXPR:
@@ -317,5 +306,16 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BTRY_EXPRESSION__TRY_EXPR, newTryExpr, newTryExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BTRY_EXPRESSION;
 	}
 } // BTryExpressionImpl

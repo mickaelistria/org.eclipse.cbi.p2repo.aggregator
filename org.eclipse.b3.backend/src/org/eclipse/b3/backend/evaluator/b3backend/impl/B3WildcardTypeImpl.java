@@ -157,17 +157,6 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.B3_WILDCARD_TYPE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST:
@@ -226,6 +215,17 @@ public class B3WildcardTypeImpl extends EObjectImpl implements B3WildcardType {
 				Type.class, this, B3backendPackage.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST);
 		}
 		return upperBoundsList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.B3_WILDCARD_TYPE;
 	}
 
 } // B3WildcardTypeImpl

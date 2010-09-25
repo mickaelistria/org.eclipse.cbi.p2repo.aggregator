@@ -43,9 +43,10 @@ public class BPatternLiteralExpressionImpl extends BExpressionImpl implements BP
 	 * 
 	 * @generated
 	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPATTERN_LITERAL_EXPRESSION;
+	public boolean matches(CharSequence candidate) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -54,10 +55,9 @@ public class BPatternLiteralExpressionImpl extends BExpressionImpl implements BP
 	 * 
 	 * @generated
 	 */
-	public boolean matches(CharSequence candidate) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPATTERN_LITERAL_EXPRESSION;
 	}
 
 } // BPatternLiteralExpressionImpl

@@ -48,6 +48,10 @@ public class DeclarativeB3LValProvider implements IB3LvalProvider {
 		return isLValueDispatcher.invoke(element);
 	}
 
+	public boolean isIndexLVal(Object o) {
+		return false;
+	}
+
 	protected Boolean handleBooleanError(Object[] params, Throwable e) {
 		if(e instanceof NullPointerException) {
 			return Boolean.FALSE;
@@ -60,10 +64,6 @@ public class DeclarativeB3LValProvider implements IB3LvalProvider {
 			return null;
 		}
 		return Exceptions.throwUncheckedException(e);
-	}
-
-	public boolean isIndexLVal(Object o) {
-		return false;
 	}
 
 }

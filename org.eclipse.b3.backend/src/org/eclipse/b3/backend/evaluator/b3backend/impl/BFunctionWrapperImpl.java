@@ -914,17 +914,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BFUNCTION_WRAPPER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BFUNCTION_WRAPPER__VISIBILITY:
@@ -1510,10 +1499,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 		throwImmutableException();
 	}
 
-	private void throwImmutableException() {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable!");
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1552,5 +1537,20 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 		result.append(varargsName);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BFUNCTION_WRAPPER;
+	}
+
+	private void throwImmutableException() {
+		throw new UnsupportedOperationException("BFunctionWrapper is immutable!");
 	}
 } // BFunctionWrapperImpl

@@ -71,6 +71,14 @@ public class B3Debug {
 			log.setLevel(org.apache.log4j.Level.DEBUG);
 	}
 
+	public static void trace(String message, Object... objects) {
+		StringBuffer buf = new StringBuffer(message.length() + objects.length * 10);
+		buf.append(message);
+		for(int i = 0; i < objects.length; i++)
+			buf.append(eINSTANCE.toStringDispatcher.invoke(objects[i]));
+		log.debug(buf.toString());
+	}
+
 	/**
 	 * Safe way of getting the debug option
 	 * 
@@ -82,14 +90,6 @@ public class B3Debug {
 		return (value != null && "true".equals(value))
 				? true
 				: false;
-	}
-
-	public static void trace(String message, Object... objects) {
-		StringBuffer buf = new StringBuffer(message.length() + objects.length * 10);
-		buf.append(message);
-		for(int i = 0; i < objects.length; i++)
-			buf.append(eINSTANCE.toStringDispatcher.invoke(objects[i]));
-		log.debug(buf.toString());
 	}
 
 	private final PolymorphicDispatcher<String> toStringDispatcher = new PolymorphicDispatcher<String>(

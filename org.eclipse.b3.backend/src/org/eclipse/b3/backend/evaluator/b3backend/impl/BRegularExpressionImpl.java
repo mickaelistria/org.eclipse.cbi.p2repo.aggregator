@@ -121,17 +121,6 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BREGULAR_EXPRESSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BREGULAR_EXPRESSION__PATTERN:
@@ -191,5 +180,16 @@ public class BRegularExpressionImpl extends BPatternLiteralExpressionImpl implem
 		result.append(pattern);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BREGULAR_EXPRESSION;
 	}
 } // BRegularExpressionImpl

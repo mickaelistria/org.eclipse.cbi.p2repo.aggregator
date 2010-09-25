@@ -148,17 +148,6 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BPROPERTY_DEFINITION_OPERATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION:
@@ -201,5 +190,16 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION, newDefinition,
 				newDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BPROPERTY_DEFINITION_OPERATION;
 	}
 } // BPropertyDefinitionOperationImpl

@@ -48,6 +48,23 @@ public class B3FuncStore {
 			computeNext();
 		}
 
+		public boolean hasNext() {
+			return theNext != null;
+		}
+
+		public IFunction next() {
+			IFunction result = theNext;
+			computeNext();
+			return result;
+		}
+
+		/**
+		 * Throws {@link UnsupportedOperationException}.
+		 */
+		public void remove() {
+			throw new UnsupportedOperationException("remove from function iterator not allowed");
+		}
+
 		private void computeNext() {
 			theNext = null;
 			if(!allFunctionsIterator.hasNext())
@@ -65,23 +82,6 @@ public class B3FuncStore {
 						theNext = f;
 				}
 			}
-		}
-
-		public boolean hasNext() {
-			return theNext != null;
-		}
-
-		public IFunction next() {
-			IFunction result = theNext;
-			computeNext();
-			return result;
-		}
-
-		/**
-		 * Throws {@link UnsupportedOperationException}.
-		 */
-		public void remove() {
-			throw new UnsupportedOperationException("remove from function iterator not allowed");
 		}
 
 	}
@@ -191,30 +191,6 @@ public class B3FuncStore {
 		};
 	}
 
-	private List<IFunction> getEffectiveList(String name, int size) throws B3IncompatibleReturnTypeException {
-		if(parentStore == null) {
-			List<IFunction> thisList = getFunctionsByName(name);
-			List<IFunction> result = new ArrayList<IFunction>(size + thisList.size());
-			result.addAll(thisList);
-			return result;
-		}
-		List<IFunction> thisList = getFunctionsByName(name);
-		List<IFunction> parentList = parentStore.getEffectiveList(name, size + thisList.size());
-		List<IFunction> overloaded = new ArrayList<IFunction>();
-		for(IFunction f : thisList)
-			for(IFunction f2 : parentList) {
-				// if f has same signature as f2, make it hide predecessor
-				if(TypeUtils.hasEqualSignature(f, f2)) {
-					if(!TypeUtils.hasCompatibleReturnType(f2, f))
-						throw new B3IncompatibleReturnTypeException(f2.getReturnType(), f.getReturnType());
-					overloaded.add(f2);
-				}
-			}
-		parentList.removeAll(overloaded);
-		parentList.addAll(thisList);
-		return parentList;
-	}
-
 	/**
 	 * Returns an iterator over all visible functions. This is an expensive operation.
 	 * 
@@ -267,6 +243,64 @@ public class B3FuncStore {
 		return new TypeIterator(itor, type, functionType);
 	}
 
+	public void printDump(PrintStream x, int indent) {
+		final StringBuffer indentBuf = new StringBuffer(indent);
+		for(int i = 0; i < indent; i++)
+			indentBuf.append(" ");
+		if(defined == null)
+			return;
+		x.printf("%sFunctions\n", indentBuf.toString());
+		indentBuf.append("  ");
+		final String is = indentBuf.toString();
+
+		for(Entry<String, List<IFunction>> v : defined.entrySet()) {
+			final StringBuffer buf = new StringBuffer();
+			List<IFunction> functions = v.getValue();
+			for(IFunction f : functions) {
+				buf.append(is);
+				buf.append("func ");
+				buf.append(f.getName());
+				buf.append("(");
+				boolean first = true;
+				for(BParameterDeclaration p : f.getParameters()) {
+					if(!first) {
+						buf.append(", ");
+						first = false;
+					}
+					buf.append(p.getType().toString());
+					buf.append(" ");
+					buf.append(p.getName());
+				}
+				buf.append(")\n");
+				x.print(buf);
+			}
+		}
+	}
+
+	private List<IFunction> getEffectiveList(String name, int size) throws B3IncompatibleReturnTypeException {
+		if(parentStore == null) {
+			List<IFunction> thisList = getFunctionsByName(name);
+			List<IFunction> result = new ArrayList<IFunction>(size + thisList.size());
+			result.addAll(thisList);
+			return result;
+		}
+		List<IFunction> thisList = getFunctionsByName(name);
+		List<IFunction> parentList = parentStore.getEffectiveList(name, size + thisList.size());
+		List<IFunction> overloaded = new ArrayList<IFunction>();
+		for(IFunction f : thisList)
+			for(IFunction f2 : parentList) {
+				// if f has same signature as f2, make it hide predecessor
+				if(TypeUtils.hasEqualSignature(f, f2)) {
+					if(!TypeUtils.hasCompatibleReturnType(f2, f))
+						throw new B3IncompatibleReturnTypeException(f2.getReturnType(), f.getReturnType());
+					overloaded.add(f2);
+				}
+			}
+		parentList.removeAll(overloaded);
+		parentList.addAll(thisList);
+		return parentList;
+	}
+
 	/**
 	 * Returns the list of functions defined in this func store for name (or an empty list).
 	 * 
@@ -313,40 +347,6 @@ public class B3FuncStore {
 				return candidateFunctions.getFirst().getTarget();
 			default: // more than one candidate function found (the function call is ambiguous)
 				throw new B3AmbiguousFunctionSignatureException(name, types);
-		}
-	}
-
-	public void printDump(PrintStream x, int indent) {
-		final StringBuffer indentBuf = new StringBuffer(indent);
-		for(int i = 0; i < indent; i++)
-			indentBuf.append(" ");
-		if(defined == null)
-			return;
-		x.printf("%sFunctions\n", indentBuf.toString());
-		indentBuf.append("  ");
-		final String is = indentBuf.toString();
-
-		for(Entry<String, List<IFunction>> v : defined.entrySet()) {
-			final StringBuffer buf = new StringBuffer();
-			List<IFunction> functions = v.getValue();
-			for(IFunction f : functions) {
-				buf.append(is);
-				buf.append("func ");
-				buf.append(f.getName());
-				buf.append("(");
-				boolean first = true;
-				for(BParameterDeclaration p : f.getParameters()) {
-					if(!first) {
-						buf.append(", ");
-						first = false;
-					}
-					buf.append(p.getType().toString());
-					buf.append(" ");
-					buf.append(p.getName());
-				}
-				buf.append(")\n");
-				x.print(buf);
-			}
 		}
 	}
 }
