@@ -114,6 +114,10 @@ public class StatusPage extends WizardPage {
 			else
 				reportType = REPORT_DETAIL_STATUS;
 		}
+		else if(status.matches(IStatus.WARNING)) {
+			if(reportHelper.shouldThisWarningBeReported(status))
+				reportType = REPORT_DETAIL_STATUS;
+		}
 		if(reportType != REPORT_DETAIL_NONE)
 			createDetailArea(composite);
 

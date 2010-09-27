@@ -1,30 +1,23 @@
 /**
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2010, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
  */
 
-package org.eclipse.b3.versions;
+package org.eclipse.b3.build.core;
 
-import java.io.StringReader;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.b3.parser.antlr.BeeLangParser;
-import org.eclipse.b3.services.BeeLangGrammarAccess;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
-import org.eclipse.xtext.IGrammarAccess;
-import org.eclipse.xtext.parser.IParseResult;
-import org.eclipse.xtext.parser.IParser;
 import org.eclipse.xtext.util.Strings;
 
 import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 /**
@@ -111,13 +104,7 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 
 	private List<VersionProposal> versionRangeProposals;
 
-	@Inject
-	private IParser parser;
-
-	@Inject
-	private IGrammarAccess grammarAccess;
-
-	DefaultVersionFormatManager() {
+	protected DefaultVersionFormatManager() {
 		formats = Maps.newHashBiMap();
 		formats.put("string:", VERSION_FORMAT__STRING);
 		formats.put("rpm:", VERSION_FORMAT__RPM);
@@ -170,28 +157,25 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 		return Collections.unmodifiableList(versionRangeProposals);
 	}
 
+	/**
+	 * Returns the same as {@link #toUnquotedString(Version)}, a derived class can override this method
+	 * to provide required quoting.
+	 */
 	public String toString(Version v) {
-		String s = toUnquotedString(v);
-		BeeLangGrammarAccess ga = (BeeLangGrammarAccess) grammarAccess;
-		IParseResult result = ((BeeLangParser) parser).parse(ga.getVersionLiteralRule().getName(), new StringReader(s));
-		// if not a clean parse, then there must be keywords or special characters in the string - quote it
-		if(result.getParseErrors().size() > 0)
-			return "\"" + s + "\"";
-		return s;
+		return toUnquotedString(v);
 	}
 
+	/**
+	 * Returns the same as {@link #toUnquotedString(VersionRange)}, a derived class can override this method
+	 * to provide required quoting.
+	 */
 	public String toString(VersionRange r) {
-		String s = toUnquotedString(r);
-		BeeLangGrammarAccess ga = (BeeLangGrammarAccess) grammarAccess;
-		IParseResult result = ((BeeLangParser) parser).parse(
-			ga.getVersionRangeLiteralRule().getName(), new StringReader(s));
-		// if not a clean parse, then there must be keywords or special characters in the string - quote it
-		if(result.getParseErrors().size() > 0)
-			return "\"" + s + "\"";
-		return s;
+		return toUnquotedString(r);
 	}
 
 	public String toUnquotedString(Version v) {
+		if(v == null)
+			return "";
 		String fmt = v.getFormat() + ":";
 		StringBuffer result = new StringBuffer();
 		if(formats.inverse().containsKey(fmt)) {
@@ -206,6 +190,8 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 	}
 
 	public String toUnquotedString(VersionRange r) {
+		if(r == null)
+			return "";
 		if(r.isOSGiCompatible())
 			return r.toString();
 		// VersionRange's default "toString" does not produce the same as the input string

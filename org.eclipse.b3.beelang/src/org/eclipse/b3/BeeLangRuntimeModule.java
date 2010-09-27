@@ -17,14 +17,14 @@ import org.eclipse.b3.backend.evaluator.B3BackendLValProvider;
 import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.b3.backend.scoping.IFuncScopeProvider;
+import org.eclipse.b3.build.core.IVersionFormatManager;
 import org.eclipse.b3.build.engine.B3BuildEngineResource;
 import org.eclipse.b3.build.evaluator.B3BuildFuncScopeProvider;
 import org.eclipse.b3.build.evaluator.B3BuildTypeProvider;
 import org.eclipse.b3.formatting.BeeLangFormatter;
 import org.eclipse.b3.validation.BeeLangDiagnosticsConverter;
 import org.eclipse.b3.validation.BeeLangSyntaxErrorMessageProvider;
-import org.eclipse.b3.versions.DefaultVersionFormatManager;
-import org.eclipse.b3.versions.IVersionFormatManager;
+import org.eclipse.b3.versions.BeeLangVersionFormatManager;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.formatting.IFormatter;
@@ -108,7 +108,7 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 	public void configure(Binder binder) {
 		super.configure(binder);
 		// don't know how to do this using Xtext declarative approach...
-		binder.bind(IVersionFormatManager.class).to(DefaultVersionFormatManager.class).in(Singleton.class);
+		binder.bind(IVersionFormatManager.class).to(BeeLangVersionFormatManager.class).in(Singleton.class);
 		// binder.bind(ITypeProvider.class).to(B3BuildTypeProvider.class);
 		// binder.bind(IFuncScopeProvider.class).to(B3BuildFuncScopeProvider.Unfiltered.class);
 

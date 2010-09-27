@@ -48,6 +48,9 @@ public class SimpleResolver implements IBuildUnitResolver {
 	@Inject
 	IB3Evaluator evaluator;
 
+	@Inject
+	private IVersionFormatManager versionFormatter;
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -160,7 +163,9 @@ public class SimpleResolver implements IBuildUnitResolver {
 
 		// Satisfy all requirements
 		//
-		final MultiStatus ms = new MultiStatus(B3BuildActivator.instance.getBundle().getSymbolicName(), 0, "", null);
+		final MultiStatus ms = new MultiStatus(
+			B3BuildActivator.instance.getBundle().getSymbolicName(), 0,
+			"Multiple resolution results - one per requirement", null);
 		resultingUnitResolutionInfo.setStatus(ms);
 
 		// create a stack provider (to be used in front of any defined providers)
@@ -191,8 +196,8 @@ public class SimpleResolver implements IBuildUnitResolver {
 				if(B3Debug.engine) {
 					ResolutionInfo ri = reqAdapter.getAssociatedInfo(this);
 					B3Debug.trace(
-						"[SimpleResolver] - Requirement ", r.getName(), ", ", r.getVersionRange(), " - has status: ",
-						ri == null
+						"[SimpleResolver] - Requirement ", r.getName(), ", ",
+						versionFormatter.toString(r.getVersionRange()), " - has status: ", ri == null
 								? "UNRESOLVED"
 								: ri.getStatus().getCode() == IStatus.OK
 										? "OK"
@@ -235,10 +240,16 @@ public class SimpleResolver implements IBuildUnitResolver {
 					if(B3Debug.engine)
 						B3Debug.trace(
 							"[SimpleResolver] - UNRESOLVED! Provider did not satify request for: ",
-							ereq.getRequirement().getName(), ", ", ereq.getRequirement().getVersionRange());
-
+							ereq.getRequirement().getName(), ", ",
+							versionFormatter.toString(ereq.getRequirement().getVersionRange()));
+					r = ereq.getRequirement();
 					ms.add(new Status(
-						IStatus.WARNING, B3BuildActivator.instance.getBundle().getSymbolicName(), "Unresolved."));
+						IStatus.WARNING, B3BuildActivator.instance.getBundle().getSymbolicName(),
+						B3BuildStatusCodes.UNSATISFIED_RESOLUTION_REQUEST, //
+						"Unresolved: " + (r.getNameSpace().equals(B3BuildConstants.B3_NS_BUILDUNIT)
+								? "unit"
+								: r.getNameSpace()) + ", " + r.getName() + ", versions:" +
+								versionFormatter.toString(r.getVersionRange()), null));
 					reqAdapter.setAssociatedInfo(this, resultingUnitResolutionInfo);
 				}
 				else {

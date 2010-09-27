@@ -33,7 +33,14 @@ public interface B3BuildStatusCodes extends B3BackendStatusCodes {
 	 * A load of a b3 model succeeded and resulted in a BeeModel, but the BeeModel was expected to have
 	 * functions, but was empty.
 	 */
-	static final int LOADED_B3MODEL_NO_FUNCTIONS = BuildStart.START + 3;
+	static final int LOADED_B3MODEL_NO_FUNCTIONS = BuildStart.START + 4;
+
+	/**
+	 * A status that indicates that a resolution of a request could not be satisfied.
+	 * This code is typically used with WARNING severity. Errors that prevent a request from being
+	 * satisfied may not have this code.
+	 */
+	static final int UNSATISFIED_RESOLUTION_REQUEST = BuildStart.START + 5;
 
 	// static final int ERROR_CODE_XXX = ERROR_START +2;
 }

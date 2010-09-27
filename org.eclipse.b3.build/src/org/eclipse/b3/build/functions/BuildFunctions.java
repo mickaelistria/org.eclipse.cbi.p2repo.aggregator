@@ -18,7 +18,6 @@ import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.B3ContextAccess;
 import org.eclipse.b3.backend.core.IB3Engine;
 import org.eclipse.b3.backend.core.IB3Evaluator;
-import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchVariableException;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -86,8 +85,9 @@ public class BuildFunctions {
 			IStatus status = resolver.resolveUnit(unitToUse, ctx);
 
 			if(!status.isOK())
-				throw new B3EngineException(
-					"Resolution Failed with non OK status: " + status.toString(), status.getException());
+				throw new CoreException(status);
+			// throw new B3EngineException(
+			// "Resolution Failed with non OK status: " + status.toString(), status.getException());
 			return _runBuilder(ctx, params, types);
 		}
 		finally {

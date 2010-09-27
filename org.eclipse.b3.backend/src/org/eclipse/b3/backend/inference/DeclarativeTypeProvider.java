@@ -76,6 +76,14 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 	}
 
 	public Type doGetInferredType(Object element) {
+		// speed up inference by associating result with element in an adapter
+		TypeAdapter ta = (element instanceof EObject)
+				? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
+				: null;
+		Type type = null;
+		if(ta != null && (type = ta.getAssociatedInfo(typeDispatcher)) != null)
+			return type;
+
 		if(inferenceStack.contains(element)) {
 			if(B3Debug.typer)
 				B3Debug.trace("Inference of element depends on itself: ", element.getClass().getName(), ", :", element);
@@ -83,22 +91,16 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 		}
 		try {
 			inferenceStack.add(element);
-			// speed up inference by associating result with element in an adapter
-			TypeAdapter ta = (element instanceof EObject)
-					? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
-					: null;
-			Type type = null;
-			if(ta != null && (type = ta.getAssociatedInfo(typeDispatcher)) != null)
-				return type;
 			type = (Type) typeDispatcher.invoke(element);
 			if(type != null) {
 				if(ta != null)
 					ta.setAssociatedInfo(typeDispatcher, type);
 				return type;
 			}
-			log.error("b3 type provider: null result for doGetInferredType() for element of type: " +
+			if(B3Debug.typer)
+				B3Debug.trace(
+					"b3 type provider: null result for doGetInferredType() for element of type: ",
 					element.getClass().getName());
-			// System.err.print("Type provider - null result for: " + element.getClass().getName() + "\n");
 			return null;
 		}
 		finally {
@@ -107,6 +109,14 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 	}
 
 	public B3FunctionType doGetSignature(Object element) {
+		// speed up inference by associating result with element in an adapter
+		TypeAdapter ta = (element instanceof EObject)
+				? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
+				: null;
+		B3FunctionType type = null;
+		if(ta != null && (type = (B3FunctionType) ta.getAssociatedInfo(signatureDispatcher)) != null)
+			return type;
+
 		if(signatureStack.contains(element)) {
 			if(B3Debug.typer)
 				B3Debug.trace(
@@ -115,22 +125,17 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 		}
 		try {
 			signatureStack.add(element);
-			// speed up inference by associating result with element in an adapter
-			TypeAdapter ta = (element instanceof EObject)
-					? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
-					: null;
-			B3FunctionType type = null;
-			if(ta != null && (type = (B3FunctionType) ta.getAssociatedInfo(signatureDispatcher)) != null)
-				return type;
 			type = signatureDispatcher.invoke(element);
 			if(type != null) {
 				if(ta != null)
 					ta.setAssociatedInfo(signatureDispatcher, type);
 				return type;
 			}
-			log.error("b3 type provider: null result for doGetSignature() for element of type: " +
+			if(B3Debug.typer)
+				B3Debug.trace(
+					"b3 type provider: null result for doGetSignature() for element of type: ",
 					element.getClass().getName());
-			// System.err.print("Signature provider - null result for: " + element.getClass().getName() + "\n");
+
 			return null;
 		}
 		finally {
@@ -169,5 +174,21 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 
 	protected Type handleTypeError(Object[] params, Throwable e) {
 		return null;
+	}
+
+	/**
+	 * Sets the associated type for an element (i.e. modifies the cached inference).
+	 * If element is not an EObject the call has no effect.
+	 * 
+	 * @param element
+	 * @param type
+	 */
+	protected void setAssociatedType(Object element, Type type) {
+		TypeAdapter ta = (element instanceof EObject)
+				? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
+				: null;
+
+		if(ta != null)
+			ta.setAssociatedInfo(typeDispatcher, type);
 	}
 }

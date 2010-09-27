@@ -6,7 +6,7 @@
  * such license is available at www.eclipse.org.
  */
 
-package org.eclipse.b3.versions;
+package org.eclipse.b3.build.core;
 
 import java.util.List;
 

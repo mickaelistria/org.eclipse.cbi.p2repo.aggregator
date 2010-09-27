@@ -675,7 +675,12 @@ public class SystemFunctions {
 	}
 
 	/**
-	 * TODO: Incomplete - only sets return type
+	 * Type Calculator for f(?<T>,<U1>...<Un>, f(<U1>..<Un>)=>R)=>R
+	 * Where an Any in U1..Un is replaced by T.
+	 * Example:
+	 * do(Iterator<Integer>, 10, _, {u1, u2 | u1.pow(u2); })
+	 * results in signature for the do call of:
+	 * (Iterator<Integer>, Integer, Integer, (Integer, Integer)=>Integer)=>Integer
 	 * 
 	 * @param types
 	 * @return
@@ -683,15 +688,54 @@ public class SystemFunctions {
 	@B3Backend(typeCalculator = true)
 	public static B3FunctionType tcReturnTypeOfLastLambda(Type[] types) {
 		B3FunctionType result = B3backendFactory.eINSTANCE.createB3FunctionType();
-
+		result.setFunctionType(BFunction.class);
 		int ix = types.length - 1;
-		if(types.length < 1 || !(types[ix] instanceof B3FunctionType)) {
+		// must have at least iterator, and lambda as parameters
+		if(types.length < 2 || !(types[ix] instanceof B3FunctionType)) {
 			result.setReturnType(TypeUtils.coerceToEObjectType(Object.class));
+			if(B3Debug.typer) {
+				B3Debug.trace("tcReturnTypeOfLastLambda() - non conformant call detected - returning ()=>Object");
+			}
+			return result; // non conforming, return ()=>Object
 		}
-		else {
-			B3FunctionType ft = (B3FunctionType) types[ix];
-			result.setReturnType(ft.getReturnTypeForParameterTypes(types));
-		}
+		// determine curry type
+		Type[] curryGenericArgs = TypeUtils.getTypeArguments(types[0]);
+		// if generic is not 1 arg, it is either wrong i.e. Iterator<K, V>, or erased in runtime - use Object
+		Type curryType = TypeUtils.coerceToEObjectType(curryGenericArgs.length == 1
+				? curryGenericArgs[0]
+				: Object.class);
+
+		// The commonTypes are parameters both in the system function, and in the lambda
+		Type[] commonTypes = new Type[types.length - 2];
+		for(int i = 1; i < types.length - 1; i++)
+			commonTypes[i - 1] = TypeUtils.coerceToEObjectAndResolveAny(types[i], curryType);
+
+		// Compute the (resulting) lambda signature
+		// (type[0-n])=>return type of lambda
+		B3FunctionType lambda = B3backendFactory.eINSTANCE.createB3FunctionType();
+		lambda.setFunctionType(B3Function.class);
+		if(commonTypes.length == 0) // auto curry
+			lambda.getParameterTypes().add(curryType);
+		else
+			for(int i = 0; i < commonTypes.length; i++)
+				lambda.getParameterTypes().add(commonTypes[i]);
+
+		// get the return type of the lambda type passed as an argument
+		B3FunctionType ft = (B3FunctionType) types[ix];
+		// if that type has a type calculator it requires the types just calculated
+		Type returnType = ft.getReturnTypeForParameterTypes(lambda.getParameterTypesArray());
+		lambda.setReturnType(returnType);
+
+		// Set all parameters in resulting type
+		result.getParameterTypes().add(types[0]); // the iterator/iterable
+		for(int i = 0; i < commonTypes.length; i++)
+			result.getParameterTypes().add(commonTypes[i]);
+		result.getParameterTypes().add(lambda);
+
+		result.setReturnType(returnType);
+		if(B3Debug.typer)
+			B3Debug.trace("tcReturnTypeOfLastLambda()=> ", result);
+
 		return result;
 	}
 

@@ -40,7 +40,7 @@ import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.UnitProvider;
 import org.eclipse.b3.build.VersionedCapability;
 import org.eclipse.b3.build.core.B3BuildConstants;
-import org.eclipse.b3.versions.IVersionFormatManager;
+import org.eclipse.b3.build.core.IVersionFormatManager;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.preference.JFacePreferences;
 import org.eclipse.jface.resource.ColorRegistry;

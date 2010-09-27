@@ -658,7 +658,9 @@ public class TypeUtils {
 	}
 
 	public static Type coerceToEObjectType(Type aType) {
-		if(aType == null || aType instanceof EObject)
+		if(aType == null)
+			return getDefaultInferredObjectType();
+		if(aType instanceof EObject)
 			return aType;
 		B3Type t = B3backendFactory.eINSTANCE.createB3Type();
 		t.setRawType(aType);
@@ -715,6 +717,20 @@ public class TypeUtils {
 				typeDistance = new WeakReference<TypeDistance>(td = new TypeDistance());
 		}
 		return td.getMostSpecificCommonType(types);
+	}
+
+	/**
+	 * Produces a B3Type with the defaultInference flag set to true. This distinguishes this
+	 * Object.class from a declared Object.class type, thus allowing type inference to replace it with
+	 * a better (non-local) inference.
+	 * 
+	 * @return B3Type for Object.class with defaultInference set to true
+	 */
+	public static Type getDefaultInferredObjectType() {
+		B3Type t = B3backendFactory.eINSTANCE.createB3Type();
+		t.setRawType(Object.class);
+		t.setDefaultInference(true);
+		return t;
 	}
 
 	/**
@@ -890,6 +906,27 @@ public class TypeUtils {
 		Set<Type> coerceTypes = coerceMap.get(fromType);
 
 		return coerceTypes != null && coerceTypes.contains(baseType);
+	}
+
+	/**
+	 * If the Type t directly, or indirectly refers to a type that is default inferred
+	 * true is returned - this indicates that inference can be improved.
+	 * 
+	 * @param t
+	 * @return
+	 */
+	public static boolean isDefaultInferred(Type t) {
+		if(t instanceof B3Type && ((B3Type) t).isDefaultInference())
+			return true;
+		if(t instanceof B3FunctionType) {
+			for(Type pt : ((B3FunctionType) t).getParameterTypes())
+				if(isDefaultInferred(pt))
+					return true;
+		}
+		t = getRaw(t);
+		if(t instanceof B3Type && ((B3Type) t).isDefaultInference())
+			return true;
+		return false;
 	}
 
 	/**

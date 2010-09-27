@@ -17,6 +17,8 @@ import org.eclipse.b3.backend.scoping.IFuncScopeProvider;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BeeModelRepository;
 import org.eclipse.b3.build.UnitRepositoryDescription;
+import org.eclipse.b3.build.core.DefaultVersionFormatManager;
+import org.eclipse.b3.build.core.IVersionFormatManager;
 import org.eclipse.b3.build.core.SimpleResolver;
 import org.eclipse.b3.build.evaluator.B3BuildEvaluator;
 import org.eclipse.b3.build.evaluator.B3BuildFuncScopeProvider;
@@ -25,6 +27,7 @@ import org.eclipse.b3.build.evaluator.Weaver;
 import org.eclipse.b3.build.repository.IBuildUnitRepository;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
 
+import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 
@@ -95,6 +98,10 @@ public class DefaultB3Module extends AbstractB3Module {
 		bind(ITypeProvider.class).to(B3BuildTypeProvider.class);
 	}
 
+	protected void bindVersionFormatManager() {
+		bind(IVersionFormatManager.class).to(DefaultVersionFormatManager.class).in(Singleton.class);
+	}
+
 	protected void bindWeaver() {
 		bind(IB3Weaver.class).to(Weaver.class);
 	}
@@ -116,5 +123,6 @@ public class DefaultB3Module extends AbstractB3Module {
 		// moved to BeeLangRuntimeModule as these are needed "statically"
 		bindTypeProvider();
 		bindFuncScopeProvider();
+		bindVersionFormatManager();
 	}
 }
