@@ -83,6 +83,14 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 	 */
 	public static final String VERSION_FORMAT__GEM = "format(n[.n=0;[.n=0;]]):";
 
+/**
+	 * Placeholder format for PHP while support for enums are missing. This simplified format will
+	 * not compare versions the same way as php's versionCompare function where:
+	 * anystring < "dev" < "alpha" == "a" < "beta" == "b" < "rc" == "RC" < "#' and where
+	 * a string like "RC1" is broken into two segments.
+	 */
+	public static final String VERSION_FORMAT__PHP = "format(nda(d?a)*):";
+
 	/**
 	 * Mozilla format has complex vectors.
 	 */
@@ -112,6 +120,8 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 		formats.put("tripletSnapshot:", VERSION_FORMAT__TRIPLET_SNAPSHOT);
 		formats.put("gem:", VERSION_FORMAT__GEM);
 		formats.put("auto:", VERSION_FORMAT__AUTO);
+		formats.put("php:", VERSION_FORMAT__PHP);
+
 		// formats.put("", VERSION_FORMAT__OSGI);
 
 		versionProposals = Lists.newArrayList();
@@ -121,6 +131,7 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 		versionProposals.add(new ProposalImpl("tripletSnapshot", "tripletSnapshot:1.2.3-45.20081213:8765"));
 		versionProposals.add(new ProposalImpl("string", "string:jupiter"));
 		versionProposals.add(new ProposalImpl("gem", "gem:1.2.3"));
+		versionProposals.add(new ProposalImpl("php", "php:1.2.3.rc1"));
 		versionProposals.add(new ProposalImpl("rpm", "rpm:33:1.2.3a-23/i386"));
 		versionProposals = Collections.unmodifiableList(versionProposals);
 
@@ -132,6 +143,7 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 			"tripletSnapshot", "tripletSnapshot:[1.2.3-45.20081213:8765,1.2.3-45.20091231:7654]"));
 		versionRangeProposals.add(new ProposalImpl("string", "string:[jupiter,pluto]"));
 		versionRangeProposals.add(new ProposalImpl("gem", "gem:[1.2.3, 2.0.0]"));
+		versionRangeProposals.add(new ProposalImpl("php", "php:[1.2.3.beta, 2.0.0]"));
 		versionRangeProposals.add(new ProposalImpl("rpm", "rpm:[33:1.2.3a-23/i386,33:2.0.0]"));
 		versionRangeProposals = Collections.unmodifiableList(versionRangeProposals);
 
