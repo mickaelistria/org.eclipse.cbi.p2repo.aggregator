@@ -305,11 +305,11 @@ public class StatusPage extends WizardPage {
 		}
 		else {
 			Throwable t = status.getException();
-			if(t instanceof CoreException) {
-				printStatusOnStream(((CoreException) t).getStatus(), ps, indentLevel + 1, false);
-			}
-			else {
-				printExceptionOnStream(t, ps, indentLevel + 1);
+			if(t != null) {
+				if(t instanceof CoreException)
+					printStatusOnStream(((CoreException) t).getStatus(), ps, indentLevel + 1, false);
+				else
+					printExceptionOnStream(t, ps, indentLevel + 1);
 			}
 		}
 	}

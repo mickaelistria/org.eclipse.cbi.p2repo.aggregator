@@ -165,7 +165,7 @@ public class SimpleResolver implements IBuildUnitResolver {
 		//
 		final MultiStatus ms = new MultiStatus(
 			B3BuildActivator.instance.getBundle().getSymbolicName(), 0,
-			"Multiple resolution results - one per requirement", null);
+			"Resolution results per requirement for unit: " + unit.getName(), null);
 		resultingUnitResolutionInfo.setStatus(ms);
 
 		// create a stack provider (to be used in front of any defined providers)
