@@ -332,22 +332,62 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 	}
 
 	@Check
-	void checkAssignmentHasCorrectType(BAssignmentExpression expr) {
+	void checkAssignment(BAssignmentExpression expr) {
 		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
 		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
 		Type lhsType = typer.doGetInferredType(expr.getLeftExpr());
 		Type rhsType = typer.doGetInferredType(expr.getRightExpr());
 		String fName = expr.getFunctionName();
+		String lhsName = stringProvider.doToString(lhsType);
+		String rhsName = stringProvider.doToString(rhsType);
 		// straight assignment
-		if(fName == null || "".equals(fName) || "=:".contains(fName))
+		if(fName == null || "".equals(fName) || "=:".contains(fName)) {
 			if(!TypeUtils.isAssignableFrom(lhsType, rhsType)) {
-				String lhsName = stringProvider.doToString(lhsType);
-				String rhsName = stringProvider.doToString(rhsType);
 				error(
-					"Type mismatch: Cannot convert from " + lhsName + " to " + rhsName, expr,
+					"Type mismatch: Cannot convert from " + rhsName + " to " + lhsName, expr,
 					B3backendPackage.BASSIGNMENT_EXPRESSION__RIGHT_EXPR);
 				return;
 			}
+		}
+		else {
+			// This is an assigned call (i.e. += etc, validate function call)
+			String fn = fName.endsWith("=")
+					? fName.substring(0, fName.length() - 1)
+					: fName;
+			Type[] types = new Type[] { lhsType, rhsType };
+			try {
+				List<IFunction> effective = funcUtils.findEffectiveFunctions(expr, fn, lhsType);
+				// used for side effect of exceptions
+				IFunction f = funcUtils.selectFunction(fn, effective, types);
+				Type returnType = null;
+				if(f.getTypeCalculator() != null) {
+					returnType = f.getTypeCalculator().getSignature(types).getReturnTypeForParameterTypes(types);
+				}
+				else
+					returnType = f.getReturnType();
+				if(returnType == null)
+					returnType = Object.class;
+				// check for IntegerVariable += StringValue etc.
+				if(!TypeUtils.isAssignableFrom(lhsType, returnType)) {
+					error("Type operator mismatch: Cannot convert from " + stringProvider.doToString(returnType) +
+							" to " + lhsName, expr, B3backendPackage.BASSIGNMENT_EXPRESSION__RIGHT_EXPR);
+					return;
+				}
+			}
+			catch(B3NoSuchFunctionSignatureException e) {
+				error("Operator va. type mismatch: operator " + fn + " not applicable to types " + lhsName + " and " +
+						rhsName, expr, B3backendPackage.BASSIGNMENT_EXPRESSION__FUNCTION_NAME);
+			}
+			catch(B3NoSuchFunctionException e) {
+				error("Illegal operator (internal error)", expr, B3backendPackage.BASSIGNMENT_EXPRESSION__FUNCTION_NAME);
+			}
+			catch(B3AmbiguousFunctionSignatureException e) {
+				error(
+					"Ambigous operation - sevaral choices for types " + lhsName + " and " + rhsName, expr,
+					B3backendPackage.BASSIGNMENT_EXPRESSION__FUNCTION_NAME);
+			}
+		}
+		// check that value is mutable
 
 	}
 
