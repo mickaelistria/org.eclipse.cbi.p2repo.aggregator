@@ -15,7 +15,7 @@ import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class ArithmeticFunctions {
 
-	@B3Backend(funcNames = { "+" })
+	@B3Backend(funcNames = { "+" }, typeFunction = "numberGenericityCalculator")
 	public static Number add(@B3Backend(name = "op1") Number a, @B3Backend(name = "op2") Number b) {
 		if(a instanceof Double || b instanceof Double)
 			return new Double(a.doubleValue() + b.doubleValue());
@@ -31,7 +31,7 @@ public class ArithmeticFunctions {
 				b.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { "&" }, guardFunction = "permitIntegralOnlyGuard")
+	@B3Backend(funcNames = { "&" }, guardFunction = "permitIntegralOnlyGuard", typeFunction = "numberGenericityCalculator")
 	public static Number bitwiseAnd(Number a, Number b) {
 		if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) ||
 				b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
@@ -48,7 +48,7 @@ public class ArithmeticFunctions {
 				"," + b.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { "~" }, guardFunction = "permitIntegralOnlyGuard")
+	@B3Backend(funcNames = { "~" }, guardFunction = "permitIntegralOnlyGuard", typeFunction = "numberGenericityCalculator")
 	public static Number bitwiseComplement(Number a) {
 		if(a instanceof BigInteger)
 			return ((BigInteger) a).not();
@@ -64,7 +64,7 @@ public class ArithmeticFunctions {
 				a.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { "<<" }, guardFunction = "permitIntegralOnlyGuard")
+	@B3Backend(funcNames = { "<<" }, guardFunction = "permitIntegralOnlyGuard", typeFunction = "numberGenericityCalculator")
 	public static Number bitwiseLeftShift(Number a, Number b) {
 		if(a instanceof BigInteger)
 			return ((BigInteger) a).shiftLeft(b.intValue());
@@ -80,7 +80,7 @@ public class ArithmeticFunctions {
 				"," + b.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { "|" }, guardFunction = "permitIntegralOnlyGuard")
+	@B3Backend(funcNames = { "|" }, guardFunction = "permitIntegralOnlyGuard", typeFunction = "numberGenericityCalculator")
 	public static Number bitwiseOr(Number a, Number b) {
 		if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) ||
 				b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
@@ -97,7 +97,7 @@ public class ArithmeticFunctions {
 				"," + b.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { ">>" }, guardFunction = "permitIntegralOnlyGuard")
+	@B3Backend(funcNames = { ">>" }, guardFunction = "permitIntegralOnlyGuard", typeFunction = "numberGenericityCalculator")
 	public static Number bitwiseRightShift(Number a, Number b) {
 		if(a instanceof BigInteger)
 			return ((BigInteger) a).shiftRight(b.intValue());
@@ -113,7 +113,7 @@ public class ArithmeticFunctions {
 				"," + b.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { ">>>" }, guardFunction = "permitIntegralOnlyGuard")
+	@B3Backend(funcNames = { ">>>" }, guardFunction = "permitIntegralOnlyGuard", typeFunction = "numberGenericityCalculator")
 	public static Number bitwiseUnsignedRightShift(Number a, Number b) {
 		if(a instanceof BigInteger)
 			return ((BigInteger) a).shiftRight(b.intValue());
@@ -129,7 +129,7 @@ public class ArithmeticFunctions {
 				a.getClass().toString() + "," + b.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { "^" }, guardFunction = "permitIntegralOnlyGuard")
+	@B3Backend(funcNames = { "^" }, guardFunction = "permitIntegralOnlyGuard", typeFunction = "numberGenericityCalculator")
 	public static Number bitwiseXor(Number a, Number b) {
 		if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) ||
 				b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
@@ -146,7 +146,7 @@ public class ArithmeticFunctions {
 				"," + b.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { "--" })
+	@B3Backend(funcNames = { "--" }, typeFunction = "numberGenericityCalculator")
 	public static Number decrement(Number a) {
 		if(a instanceof Double)
 			return new Double(a.doubleValue() - 1.0);
@@ -161,7 +161,7 @@ public class ArithmeticFunctions {
 		throw new IllegalArgumentException("Decrement of unsupported Number subclass: " + a.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { "/" })
+	@B3Backend(funcNames = { "/" }, typeFunction = "numberGenericityCalculator")
 	public static Number div(Number a, Number b) {
 		if(a instanceof Double || b instanceof Double)
 			return new Double(a.doubleValue() / b.doubleValue());
@@ -189,7 +189,7 @@ public class ArithmeticFunctions {
 		return new DoubleSequence(from, to, step, fromInclusive, toInclusive);
 	}
 
-	@B3Backend(funcNames = { "++" })
+	@B3Backend(funcNames = { "++" }, typeFunction = "numberGenericityCalculator")
 	public static Number increment(Number a) {
 		if(a instanceof Double)
 			return new Double(a.doubleValue() + 1);
@@ -217,7 +217,7 @@ public class ArithmeticFunctions {
 		return new IntegerSequence(from, to, step, fromInclusive, toInclusive);
 	}
 
-	@B3Backend(funcNames = { "%" })
+	@B3Backend(funcNames = { "%" }, typeFunction = "numberGenericityCalculator")
 	public static Number modulo(Number a, Number b) {
 		if(a instanceof Double || b instanceof Double)
 			return new Double(a.doubleValue() % b.doubleValue());
@@ -233,7 +233,7 @@ public class ArithmeticFunctions {
 				b.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { "*" })
+	@B3Backend(funcNames = { "*" }, typeFunction = "numberGenericityCalculator")
 	public static Number mul(Number a, Number b) {
 		if(a instanceof Double || b instanceof Double)
 			return new Double(a.doubleValue() * b.doubleValue());
@@ -249,7 +249,7 @@ public class ArithmeticFunctions {
 				"," + b.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { "-" })
+	@B3Backend(funcNames = { "-" }, typeFunction = "numberGenericityCalculator")
 	public static Number negate(Number a) {
 		if(a instanceof Double)
 			return new Double(-a.doubleValue());
@@ -285,7 +285,7 @@ public class ArithmeticFunctions {
 		return Boolean.TRUE;
 	}
 
-	@B3Backend(funcNames = { "-" })
+	@B3Backend(funcNames = { "-" }, typeFunction = "numberGenericityCalculator")
 	public static Number sub(Number a, Number b) {
 		if(a instanceof Double || b instanceof Double)
 			return new Double(a.doubleValue() - b.doubleValue());
