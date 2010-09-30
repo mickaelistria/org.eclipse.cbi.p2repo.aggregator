@@ -12,7 +12,10 @@
 
 package org.eclipse.b3;
 
+import org.eclipse.b3.backend.core.B3BackendStringProvider;
+import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.b3.backend.core.IB3LvalProvider;
+import org.eclipse.b3.backend.core.IStringProvider;
 import org.eclipse.b3.backend.evaluator.B3BackendLValProvider;
 import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.backend.inference.ITypeProvider;
@@ -79,6 +82,10 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 		return B3BuildFuncScopeProvider.Unfiltered.class;
 	}
 
+	public Class<? extends IStringProvider> bindIStringProvider() {
+		return B3BackendStringProvider.class;
+	}
+
 	public Class<? extends ISyntaxErrorMessageProvider> bindISyntaxErrorMessageProvider() {
 		return BeeLangSyntaxErrorMessageProvider.class;
 	}
@@ -115,6 +122,7 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 		// Needs access to injector from a static context
 		binder.requestStaticInjection(FunctionUtils.class);
 		binder.requestStaticInjection(B3BuildEngineResource.class);
+		binder.requestStaticInjection(B3Debug.class);
 	}
 
 	public Class<? extends Provider<XtextResourceSet>> provideXtextResourceSet() {

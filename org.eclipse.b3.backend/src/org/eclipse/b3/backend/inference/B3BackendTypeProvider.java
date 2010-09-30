@@ -534,7 +534,20 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	 * @return
 	 */
 	public Type type(BFeatureExpression o) {
-		Type t = doGetInferredType(o.getObjExpr());
+		Type t = null;
+		BExpression objExpression = o.getObjExpr();
+		if(objExpression == null) {
+			// this means the feature of the closest "BCreateExpression"
+			EObject container = o.eContainer();
+			while(container != null && !(container instanceof BCreateExpression))
+				container = container.eContainer();
+			if(container != null)
+				t = doGetInferredType(container);
+			else
+				t = Object.class;
+		}
+		else
+			t = doGetInferredType(objExpression);
 		try {
 			return new PojoFeatureLValue(TypeUtils.getRaw(t), o.getFeatureName()).getDeclaredType();
 		}

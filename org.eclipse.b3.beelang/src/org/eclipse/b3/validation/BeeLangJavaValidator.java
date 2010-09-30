@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.b3.backend.core.IStringProvider;
 import org.eclipse.b3.backend.core.datatypes.TypePattern;
 import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
@@ -13,8 +14,10 @@ import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallFeature;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
@@ -58,6 +61,9 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 
 	@Inject
 	private Injector injector;
+
+	@Inject
+	private IStringProvider stringProvider;
 
 	@Check
 	public void checkBeeModel(BeeModel beeModel) {
@@ -326,6 +332,26 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 	}
 
 	@Check
+	void checkAssignmentHasCorrectType(BAssignmentExpression expr) {
+		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
+		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
+		Type lhsType = typer.doGetInferredType(expr.getLeftExpr());
+		Type rhsType = typer.doGetInferredType(expr.getRightExpr());
+		String fName = expr.getFunctionName();
+		// straight assignment
+		if(fName == null || "".equals(fName) || "=:".contains(fName))
+			if(!TypeUtils.isAssignableFrom(lhsType, rhsType)) {
+				String lhsName = stringProvider.doToString(lhsType);
+				String rhsName = stringProvider.doToString(rhsType);
+				error(
+					"Type mismatch: Cannot convert from " + lhsName + " to " + rhsName, expr,
+					B3backendPackage.BASSIGNMENT_EXPRESSION__RIGHT_EXPR);
+				return;
+			}
+
+	}
+
+	@Check
 	void checkFeatureCallCanBeMade(BCallFeature cexpr) {
 		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
 		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
@@ -370,6 +396,21 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		}
 		catch(B3AmbiguousFunctionSignatureException e) {
 			error("Used parameter types leads to ambiguous call", cexpr, B3backendPackage.BCALL_FEATURE__PARAMETER_LIST);
+		}
+	}
+
+	@Check
+	void checkValueDefinition(BDefValue expr) {
+		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
+		Type lhsType = typer.doGetInferredType(expr);
+		Type rhsType = typer.doGetInferredType(expr.getValueExpr());
+		if(!TypeUtils.isAssignableFrom(lhsType, rhsType)) {
+			String lhsName = stringProvider.doToString(lhsType);
+			String rhsName = stringProvider.doToString(rhsType);
+			error(
+				"Type mismatch: Cannot convert from " + lhsName + " to " + rhsName, expr,
+				B3backendPackage.BDEF_VALUE__VALUE_EXPR);
+			return;
 		}
 	}
 }

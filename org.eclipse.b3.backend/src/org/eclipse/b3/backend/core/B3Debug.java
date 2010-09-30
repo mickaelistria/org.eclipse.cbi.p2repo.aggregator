@@ -8,18 +8,11 @@
 
 package org.eclipse.b3.backend.core;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.Collections;
-
 import org.apache.log4j.Logger;
-import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
-import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
-import org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.util.PolymorphicDispatcher;
-import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;
+
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 
 /**
  * Utility to help with debugging/tracing.
@@ -27,6 +20,9 @@ import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;
  * The default is to trace using element.toString().
  */
 public class B3Debug {
+	@Inject
+	private static Injector injector;
+
 	private static final Logger log = Logger.getLogger(B3Debug.class);
 
 	public static final String B3_GLOBAL_DEBUG_OPTION = "org.eclipse.b3.backend/debug";
@@ -75,7 +71,7 @@ public class B3Debug {
 		StringBuffer buf = new StringBuffer(message.length() + objects.length * 10);
 		buf.append(message);
 		for(int i = 0; i < objects.length; i++)
-			buf.append(eINSTANCE.toStringDispatcher.invoke(objects[i]));
+			buf.append(eINSTANCE.getStringProvider().doToString(objects[i]));
 		log.debug(buf.toString());
 	}
 
@@ -92,93 +88,12 @@ public class B3Debug {
 				: false;
 	}
 
-	private final PolymorphicDispatcher<String> toStringDispatcher = new PolymorphicDispatcher<String>(
-		"str", 1, 1, Collections.singletonList(this), new ErrorHandler<String>() {
-			public String handle(Object[] params, Throwable e) {
-				return handleError(params, e);
-			}
+	private IStringProvider stringProvider;
 
-			private String handleError(Object[] params, Throwable e) {
-				if(params[0] == null)
-					return "null";
-				return params[0].toString();
-			}
-		});
-
-	public String doToString(Object o) {
-		return toStringDispatcher.invoke(o);
+	private synchronized IStringProvider getStringProvider() {
+		if(stringProvider == null)
+			stringProvider = injector.getInstance(IStringProvider.class);
+		return stringProvider;
 	}
 
-	String str(B3FunctionTypeImpl t) {
-		StringBuffer buf = new StringBuffer("f(");
-		EList<Type> typeList = t.getParameterTypes();
-		int size = typeList.size();
-		for(int i = 0; i < size; i++) {
-			if(i != 0)
-				buf.append(", ");
-			buf.append(doToString(typeList.get(i)));
-			if(i == size - 1 && t.isVarArgs())
-				buf.append("...");
-		}
-		buf.append(")=>");
-		buf.append(t.getReturnType() == null
-				? "null"
-				: doToString(t.getReturnType()));
-		return buf.toString();
-	}
-
-	String str(B3ParameterizedType t) {
-		StringBuffer buf = new StringBuffer(doToString(t.getRawType()));
-		if(t.getActualArgumentsList().size() > 0) {
-			buf.append("<");
-			boolean first = true;
-			for(Type p : t.getActualArgumentsList()) {
-				if(!first)
-					buf.append(", ");
-				buf.append(doToString(p));
-				first = false;
-			}
-			buf.append(">");
-		}
-		return buf.toString();
-	}
-
-	String str(B3Type t) {
-		return doToString(t.getRawType());
-	}
-
-	String str(Class<?> clazz) {
-		return clazz.getSimpleName();
-	}
-
-	String str(Object o) {
-		return o.toString();
-	}
-
-	String str(ParameterizedType t) {
-		StringBuffer buf = new StringBuffer(doToString(t.getRawType()));
-		if(t.getActualTypeArguments().length > 0) {
-			buf.append("<");
-			boolean first = true;
-			for(Type p : t.getActualTypeArguments()) {
-				if(!first)
-					buf.append(", ");
-				buf.append(doToString(p));
-				first = false;
-			}
-			buf.append(">");
-		}
-		return buf.toString();
-
-	}
-
-	String str(Throwable t) {
-		StringBuffer buf = new StringBuffer();
-		buf.append("Exception : " + t.getClass());
-		buf.append(", ");
-		buf.append(t.getMessage());
-		for(t = t.getCause(); t != null; t = t.getCause())
-			buf.append("caused by: ").append(str(t));
-		return buf.toString();
-	}
 }
