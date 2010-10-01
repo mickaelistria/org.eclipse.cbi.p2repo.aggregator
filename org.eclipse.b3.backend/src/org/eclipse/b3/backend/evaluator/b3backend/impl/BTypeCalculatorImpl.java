@@ -156,7 +156,6 @@ public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator 
 	 * 
 	 * @generated NOT
 	 */
-	@Override
 	public B3FunctionType getSignature(Type[] types /* , BExecutionContext ctx */) {
 		try {
 			return (B3FunctionType) func.internalCall(null, new Object[] { types }, new Type[] { types.getClass() });

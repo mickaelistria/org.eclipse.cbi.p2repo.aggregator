@@ -213,7 +213,6 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 	 * 
 	 * @see org.eclipse.b3.backend.inference.ITypeProvider#doGetTypeInfo(java.lang.Object)
 	 */
-	@Override
 	public ITypeInfo doGetTypeInfo(Object element) {
 		return typeInfoDispatcher.invoke(element);
 	}

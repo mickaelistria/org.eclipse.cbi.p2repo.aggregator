@@ -26,7 +26,6 @@ public class ExtLinkedXtextEditorMatchingStrategy implements IEditorMatchingStra
 	 * 
 	 * @see org.eclipse.ui.IEditorMatchingStrategy#matches(org.eclipse.ui.IEditorReference, org.eclipse.ui.IEditorInput)
 	 */
-	@Override
 	public boolean matches(IEditorReference editor, IEditorInput input) {
 		IEditorPart part = (IEditorPart) editor.getPart(false);
 		if(part == null)

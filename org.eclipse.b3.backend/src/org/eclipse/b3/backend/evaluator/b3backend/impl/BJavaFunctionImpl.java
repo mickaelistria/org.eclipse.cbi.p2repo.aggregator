@@ -288,7 +288,6 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public Type[] getParameterTypes() {
 		return parameterTypes;
 	}
@@ -297,7 +296,6 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * @param ctx
 	 *            - may be null
 	 */
-	@Override
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
 		final BExecutionContext previousCtx = B3InternalContextAccess.set(ctx);
 		try {

@@ -80,7 +80,6 @@ public class StatusPage extends WizardPage {
 	 * org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets
 	 * .Composite)
 	 */
-	@Override
 	public void createControl(Composite parent) {
 		initializeDialogUnits(parent);
 

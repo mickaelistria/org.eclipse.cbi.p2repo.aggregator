@@ -24,7 +24,6 @@ public class BeeLangDefaultProposalCustomizer implements IProposalCustomizer {
 	 * @see org.eclipse.b3.ui.contentassist.IProposalCustomizer#completeKeyword(org.eclipse.xtext.Keyword,
 	 * org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext, org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
 	 */
-	@Override
 	public boolean completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext,
 			ICompletionProposalAcceptor acceptor) {
 		// TODO: Remove this test

@@ -339,7 +339,6 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 		lookupCrossReference(
 			((CrossReference) assignment.getTerminal()), context, acceptor, new Predicate<IEObjectDescription>() {
 
-				@Override
 				public boolean apply(IEObjectDescription input) {
 					EObject o = input.getEObjectOrProxy();
 					return o instanceof B3JavaImport && acceptThisImport((B3JavaImport) o, BuildUnit.class);

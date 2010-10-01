@@ -67,7 +67,6 @@ public class CmdUnitOfWork implements IRunnableWithProgress {
 	 * 
 	 * @see org.eclipse.jface.operation.IRunnableWithProgress#run(org.eclipse.core.runtime.IProgressMonitor)
 	 */
-	@Override
 	public void run(final IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
 		// this is what the wizard should run
 		// it needs properties and stuff that only the wizard knows about
