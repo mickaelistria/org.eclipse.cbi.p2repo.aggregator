@@ -10,6 +10,7 @@ import org.eclipse.b3.backend.core.datatypes.TypePattern;
 import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
+import org.eclipse.b3.backend.evaluator.PojoFeature;
 import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
@@ -186,7 +187,7 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		// B3BuildTypeProvider typer = new B3BuildTypeProvider();
 		Type type = typer.doGetInferredType(objE);
 
-		PojoFeatureLValue resultingLValue = new PojoFeatureLValue(TypeUtils.getRaw(type), fname);
+		PojoFeature resultingLValue = new PojoFeatureLValue(TypeUtils.getRaw(type), fname);
 
 		if(!resultingLValue.isGetable()) {
 			error(
