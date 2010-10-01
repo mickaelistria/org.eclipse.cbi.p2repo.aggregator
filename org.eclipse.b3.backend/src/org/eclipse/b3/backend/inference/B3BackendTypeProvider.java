@@ -22,6 +22,7 @@ import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureExcept
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
+import org.eclipse.b3.backend.evaluator.PojoFeature;
 import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -998,7 +999,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		String fname = o.getFeatureName();
 		Type type = doGetInferredType(objE);
 
-		PojoFeatureLValue resultingLValue = new PojoFeatureLValue(TypeUtils.getRaw(type), fname);
+		PojoFeature resultingLValue = new PojoFeatureLValue(TypeUtils.getRaw(type), fname);
 		// it is an lvalue if gettble
 		// it is settable if there is a setter, or if it is an EObject (can't get the package
 		// and check the meta-data, an eSet is always available, but it is not know if a set will
