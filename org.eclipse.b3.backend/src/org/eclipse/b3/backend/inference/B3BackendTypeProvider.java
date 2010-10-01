@@ -1004,8 +1004,9 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		// and check the meta-data, an eSet is always available, but it is not know if a set will
 		// succeed.
 		boolean eobj = TypeUtils.isAssignableFrom(EObject.class, type);
-		return new TypeInfo(
-			doGetInferredType(o), resultingLValue.isGetable(), eobj || resultingLValue.isSettable(), eobj);
+		Type featureType = doGetInferredType(o);
+		boolean isEList = eobj && TypeUtils.isAssignableFrom(EList.class, featureType);
+		return new TypeInfo(featureType, resultingLValue.isGetable(), isEList || resultingLValue.isSettable(), eobj);
 	}
 
 	public ITypeInfo typeInfo(BVariableExpression o) {
