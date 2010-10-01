@@ -11,7 +11,6 @@ import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureExcept
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.PojoFeature;
-import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -187,9 +186,9 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		// B3BuildTypeProvider typer = new B3BuildTypeProvider();
 		Type type = typer.doGetInferredType(objE);
 
-		PojoFeature resultingLValue = new PojoFeatureLValue(TypeUtils.getRaw(type), fname);
+		PojoFeature resultingFeature = new PojoFeature(TypeUtils.getRaw(type), fname);
 
-		if(!resultingLValue.isGetable()) {
+		if(!resultingFeature.isGetable()) {
 			error(
 				"The feature '" + fname + "' is not a feature found in type '" + type + "'.", fexpr,
 				B3backendPackage.BFEATURE_EXPRESSION__FEATURE_NAME);

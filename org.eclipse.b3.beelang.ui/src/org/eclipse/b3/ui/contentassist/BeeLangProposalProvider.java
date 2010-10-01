@@ -8,8 +8,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.eclipse.b3.backend.evaluator.PojoFeature;
+import org.eclipse.b3.backend.evaluator.PojoHelper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.Branch;
 import org.eclipse.b3.build.BranchPointType;
 import org.eclipse.b3.build.BuildUnit;
@@ -90,12 +95,23 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 	 * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
 	 */
 	@Override
-	public void complete_InitializationBlockExpression(EObject model, RuleCall ruleCall, ContentAssistContext context,
+	public void complete_InitializationExpression(EObject model, RuleCall ruleCall, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
-		BCreateExpression createExpression = (BCreateExpression) model;
-		// createExpression.get
-
-		// TODO Auto-generated method stub
+		EObject tmp = model;
+		while(tmp != null && !(tmp instanceof BCreateExpression))
+			tmp = tmp.eContainer();
+		if(tmp != null) {
+			BCreateExpression createExpression = (BCreateExpression) tmp;
+			BExpression t = createExpression.getTypeExpr();
+			if((t instanceof BLiteralType)) {
+				Class<?> clazz = TypeUtils.getRaw(((BLiteralType) t).getType());
+				List<PojoFeature> features = PojoHelper.getFeatures(clazz);
+				for(PojoFeature f : features) {
+					String proposal = f.getName() + " :";
+					acceptor.accept(createCompletionProposal(proposal, new StyledString(proposal), context));
+				}
+			}
+		}
 		super.complete_InitializationBlockExpression(model, ruleCall, context, acceptor);
 	}
 

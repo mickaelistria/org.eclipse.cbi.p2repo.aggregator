@@ -67,6 +67,10 @@ public class PojoFeature {
 		return TypeUtils.objectify(getter.getGenericReturnType());
 	}
 
+	public String getName() {
+		return featureName;
+	}
+
 	public boolean isGetable() {
 		return getter != null;
 	}
@@ -74,5 +78,4 @@ public class PojoFeature {
 	public boolean isSettable() {
 		return setter != null;
 	}
-
 }
