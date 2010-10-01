@@ -29,6 +29,64 @@ import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;
  * 
  */
 public class DeclarativeTypeProvider implements ITypeProvider {
+	protected static class TypeInfo implements ITypeInfo {
+		private Type type;
+
+		boolean lval;
+
+		boolean settable;
+
+		boolean eobj;
+
+		public TypeInfo(Type t, boolean lval, boolean settable) {
+			this(t, lval, settable, false);
+		}
+
+		public TypeInfo(Type t, boolean lval, boolean settable, boolean eobj) {
+			this.type = t;
+			this.lval = lval;
+			this.settable = settable;
+			this.eobj = eobj;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see org.eclipse.b3.backend.inference.ITypeInfo#getType()
+		 */
+		public Type getType() {
+			return type;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see org.eclipse.b3.backend.inference.ITypeInfo#isEObject()
+		 */
+		public boolean isEObject() {
+			return eobj;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see org.eclipse.b3.backend.inference.ITypeInfo#isLValue()
+		 */
+		public boolean isLValue() {
+			return lval;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see org.eclipse.b3.backend.inference.ITypeInfo#isSettable()
+		 */
+		public boolean isSettable() {
+			return settable;
+		}
+
+	}
+
 	private static final Logger log = Logger.getLogger(DeclarativeTypeProvider.class);
 
 	private final PolymorphicDispatcher<Object> typeDispatcher = new PolymorphicDispatcher<Object>(
@@ -49,6 +107,13 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 		"constraint", 3, 3, Collections.singletonList(this), new ErrorHandler<Type>() {
 			public Type handle(Object[] params, Throwable e) {
 				return handleTypeError(params, e);
+			}
+		});
+
+	private final PolymorphicDispatcher<ITypeInfo> typeInfoDispatcher = new PolymorphicDispatcher<ITypeInfo>(
+		"typeInfo", 1, 1, Collections.singletonList(this), new ErrorHandler<ITypeInfo>() {
+			public ITypeInfo handle(Object[] params, Throwable e) {
+				return handleITypeError(params, e);
 			}
 		});
 
@@ -143,6 +208,16 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.backend.inference.ITypeProvider#doGetTypeInfo(java.lang.Object)
+	 */
+	@Override
+	public ITypeInfo doGetTypeInfo(Object element) {
+		return typeInfoDispatcher.invoke(element);
+	}
+
 	public B3FunctionType signature(Object o) {
 		throw new UnsupportedOperationException("No suitable method for 'signature' of :" + o.getClass());
 	}
@@ -151,6 +226,16 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 		if(B3Debug.typer)
 			B3Debug.trace("b3 type provider: Default type inference type(Object o)=>", o.getClass());
 		return o.getClass();
+	}
+
+	/**
+	 * This default information returns a ITypeInfo with the result of {@link #doGetInferredType(Object)} and lvalue = false, and settable = false.
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public ITypeInfo typeInfo(Object o) {
+		return new TypeInfo(doGetInferredType(o), false, false);
 	}
 
 	protected Object handleError(Object[] params, Throwable e) {
@@ -170,6 +255,10 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 
 	protected B3FunctionType handleFuncTypeError(Object[] params, Throwable e) {
 		return Exceptions.throwUncheckedException(e);
+	}
+
+	protected ITypeInfo handleITypeError(Object[] params, Throwable e) {
+		return null;
 	}
 
 	protected Type handleTypeError(Object[] params, Throwable e) {

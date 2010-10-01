@@ -15,5 +15,20 @@ import java.lang.reflect.Type;
  * 
  */
 public interface ITypeProvider {
+	/**
+	 * Returns the declared type, or if not defined, the inferred type.
+	 * 
+	 * @param element
+	 * @return
+	 */
 	public Type doGetInferredType(Object element);
+
+	/**
+	 * Returns an ITypeInfo with the result of {@link #doGetInferredType(Object)} and additional information.
+	 * (if the element represents an LValue, and if this LValue is settable.
+	 * 
+	 * @param element
+	 * @return
+	 */
+	public ITypeInfo doGetTypeInfo(Object element);
 }

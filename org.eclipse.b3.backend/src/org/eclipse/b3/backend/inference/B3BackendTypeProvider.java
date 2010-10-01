@@ -46,6 +46,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
@@ -968,5 +969,46 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		if(f != null)
 			return doGetInferredType(f);
 		return Object.class;
+	}
+
+	public ITypeInfo typeInfo(BAtExpression o) {
+		// TODO: investigate if possible to statically check if the target of the At is readonly
+		return new TypeInfo(doGetInferredType(o), true, true);
+	}
+
+	public ITypeInfo typeInfo(BDefValue o) {
+		return new TypeInfo(doGetInferredType(o), true, !o.isImmutable());
+	}
+
+	public ITypeInfo typeInfo(BExpressionWrapper o) {
+		return doGetTypeInfo(o.getOriginal());
+	}
+
+	public ITypeInfo typeInfo(BFeatureExpression o) {
+		EObject objE = o.getObjExpr();
+
+		// TODO: Ugly, it expects to find "special engine var 'this'" in runtime == a created instance
+		// when the object expression is null.
+		if(objE == null) {
+			EObject container = o;
+			while(container.eContainer() != null && !(container instanceof BCreateExpression))
+				container = container.eContainer();
+			objE = container;
+		}
+		String fname = o.getFeatureName();
+		Type type = doGetInferredType(objE);
+
+		PojoFeatureLValue resultingLValue = new PojoFeatureLValue(TypeUtils.getRaw(type), fname);
+		// it is an lvalue if gettble
+		// it is settable if there is a setter, or if it is an EObject (can't get the package
+		// and check the meta-data, an eSet is always available, but it is not know if a set will
+		// succeed.
+		boolean eobj = TypeUtils.isAssignableFrom(EObject.class, type);
+		return new TypeInfo(
+			doGetInferredType(o), resultingLValue.isGetable(), eobj || resultingLValue.isSettable(), eobj);
+	}
+
+	public ITypeInfo typeInfo(BVariableExpression o) {
+		return doGetTypeInfo(o.getNamedValue());
 	}
 }

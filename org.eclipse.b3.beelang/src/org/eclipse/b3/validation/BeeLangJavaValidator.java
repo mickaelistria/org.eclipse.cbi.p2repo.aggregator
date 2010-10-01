@@ -26,6 +26,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.backend.inference.FunctionUtils;
+import org.eclipse.b3.backend.inference.ITypeInfo;
 import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.b3.backend.inference.InferenceException;
 import org.eclipse.b3.backend.inference.InferenceExceptions;
@@ -42,7 +43,6 @@ import org.eclipse.b3.build.Repository;
 import org.eclipse.b3.build.RepositoryUnitProvider;
 import org.eclipse.b3.build.core.iterators.PathIterator;
 import org.eclipse.b3.build.core.runtime.RepositoryValidation;
-import org.eclipse.b3.build.evaluator.B3BuildTypeProvider;
 import org.eclipse.b3.build.repository.IRepositoryValidator;
 import org.eclipse.b3.build.repository.IRepositoryValidator.IOption;
 import org.eclipse.emf.ecore.EObject;
@@ -64,6 +64,9 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 
 	@Inject
 	private IStringProvider stringProvider;
+
+	@Inject
+	private ITypeProvider typer;
 
 	@Check
 	public void checkBeeModel(BeeModel beeModel) {
@@ -180,7 +183,7 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 			objE = container;
 		}
 		String fname = fexpr.getFeatureName();
-		B3BuildTypeProvider typer = new B3BuildTypeProvider();
+		// B3BuildTypeProvider typer = new B3BuildTypeProvider();
 		Type type = typer.doGetInferredType(objE);
 
 		PojoFeatureLValue resultingLValue = new PojoFeatureLValue(TypeUtils.getRaw(type), fname);
@@ -335,14 +338,33 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 	void checkAssignment(BAssignmentExpression expr) {
 		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
 		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
-		Type lhsType = typer.doGetInferredType(expr.getLeftExpr());
+		ITypeInfo tinfo = typer.doGetTypeInfo(expr.getLeftExpr());
+		Type lhsType = tinfo.getType(); // typer.doGetInferredType(expr.getLeftExpr());
+
+		// Check that it is an LValue
+		if(!tinfo.isLValue()) {
+			error(
+				"The left hand side of an assignment must be a variable", expr.getLeftExpr(),
+				B3backendPackage.BASSIGNMENT_EXPRESSION__LEFT_EXPR);
+			// Additional errors are meaningless
+			return;
+
+		}
+		if(!tinfo.isSettable()) {
+			error(
+				"The left hand side of the assignment can not be immutable", expr.getLeftExpr(),
+				B3backendPackage.BASSIGNMENT_EXPRESSION__LEFT_EXPR);
+			// it is worth continuing with additional errors as it may provide a clue
+			// to what is wrong.
+		}
 		Type rhsType = typer.doGetInferredType(expr.getRightExpr());
 		String fName = expr.getFunctionName();
 		String lhsName = stringProvider.doToString(lhsType);
 		String rhsName = stringProvider.doToString(rhsType);
 		// straight assignment
 		if(fName == null || "".equals(fName) || "=:".contains(fName)) {
-			if(!TypeUtils.isAssignableFrom(lhsType, rhsType)) {
+			if(!(((tinfo.isEObject() && TypeUtils.isESettableFrom(lhsType, rhsType)) || TypeUtils.isAssignableFrom(
+				lhsType, rhsType)))) {
 				error(
 					"Type mismatch: Cannot convert from " + rhsName + " to " + lhsName, expr,
 					B3backendPackage.BASSIGNMENT_EXPRESSION__RIGHT_EXPR);

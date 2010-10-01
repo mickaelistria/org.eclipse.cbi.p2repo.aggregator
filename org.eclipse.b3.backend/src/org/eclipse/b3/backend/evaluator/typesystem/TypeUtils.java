@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -30,6 +31,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
 import org.eclipse.b3.backend.inference.FunctionUtils;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 public class TypeUtils {
@@ -927,6 +929,25 @@ public class TypeUtils {
 		if(t instanceof B3Type && ((B3Type) t).isDefaultInference())
 			return true;
 		return false;
+	}
+
+	/**
+	 * Returns true if {@link #isAssignableFrom(Type, Type)} returns true, or if
+	 * an EMF eSet on a baseType from a fromType would succeed.
+	 * 
+	 * @param baseType
+	 * @param fromType
+	 * @return
+	 */
+	public static boolean isESettableFrom(Type baseType, Type fromType) {
+		if(isAssignableFrom(baseType, fromType))
+			return true;
+		if(isAssignableFrom(EList.class, baseType)) {
+			// the fromType can be any Collection but its subtype must be compatible
+			return isAssignableFrom(Collection.class, fromType);
+		}
+		return false;
+
 	}
 
 	/**
