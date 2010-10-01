@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.build.Branch;
 import org.eclipse.b3.build.BranchPointType;
 import org.eclipse.b3.build.BuildUnit;
@@ -79,6 +80,23 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 			"A quoted complex name  (example)"), prio--, context);
 		acceptor.accept(completionProposal);
 		super.complete_EscapedQualifiedName(model, ruleCall, context, acceptor);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.ui.contentassist.AbstractBeeLangProposalProvider#complete_InitializationBlockExpression(org.eclipse.emf.ecore.EObject,
+	 * org.eclipse.xtext.RuleCall, org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext,
+	 * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
+	 */
+	@Override
+	public void complete_InitializationBlockExpression(EObject model, RuleCall ruleCall, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		BCreateExpression createExpression = (BCreateExpression) model;
+		// createExpression.get
+
+		// TODO Auto-generated method stub
+		super.complete_InitializationBlockExpression(model, ruleCall, context, acceptor);
 	}
 
 	@Override
@@ -392,5 +410,4 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 			}
 		return proposal + Integer.toString(max + 1);
 	}
-
 }
