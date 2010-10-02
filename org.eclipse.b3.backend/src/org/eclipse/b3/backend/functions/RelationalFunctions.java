@@ -64,9 +64,6 @@ public class RelationalFunctions {
 			t[1] = p[1].getClass();
 			if(evaluator.callFunction("equals", p, t, ctx) != Boolean.TRUE)
 				return Boolean.FALSE;
-			//
-			// if(ctx.callFunction("equals", p, t) != Boolean.TRUE)
-			// return Boolean.FALSE;
 		}
 		return Boolean.TRUE;
 	}
