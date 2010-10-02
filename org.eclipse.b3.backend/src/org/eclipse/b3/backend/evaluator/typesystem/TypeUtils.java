@@ -901,7 +901,25 @@ public class TypeUtils {
 		Boolean specialCase = isAssignableFromSpecialCase(baseType, fromType);
 		if(specialCase != null)
 			return specialCase.booleanValue();
-		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
+		if(!getRaw(baseType).isAssignableFrom(getRaw(fromType)))
+			return false;
+
+		// Compare parameterized types
+		// TODO: Possibly accept raw rhs assignment to parameterized lhs
+		Type[] baseTypeArgs = EMPTY_TYPE_LIST;
+		Type[] fromTypeArgs = EMPTY_TYPE_LIST;
+		if(baseType instanceof ParameterizedType)
+			baseTypeArgs = ((ParameterizedType) baseType).getActualTypeArguments();
+		if(baseTypeArgs.length == 0)
+			return true; // lhs has erased parameter types
+		if(fromType instanceof ParameterizedType)
+			fromTypeArgs = ((ParameterizedType) fromType).getActualTypeArguments();
+		if(baseTypeArgs.length != fromTypeArgs.length)
+			return false;
+		for(int i = 0; i < baseTypeArgs.length; i++)
+			if(!isAssignableFrom(baseTypeArgs[i], fromTypeArgs[i]))
+				return false;
+		return true;
 	}
 
 	public static boolean isCoercibleFrom(Type baseType, Type fromType) {
