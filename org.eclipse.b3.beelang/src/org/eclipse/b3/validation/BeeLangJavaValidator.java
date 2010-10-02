@@ -21,6 +21,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
@@ -67,6 +68,85 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 
 	@Inject
 	private ITypeProvider typer;
+
+	@Check
+	public void checkAssignment(BAssignmentExpression expr) {
+		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
+		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
+		ITypeInfo tinfo = typer.doGetTypeInfo(expr.getLeftExpr());
+		Type lhsType = tinfo.getType(); // typer.doGetInferredType(expr.getLeftExpr());
+
+		// Check that it is an LValue
+		if(!tinfo.isLValue()) {
+			error(
+				"The left hand side of an assignment must be a variable", expr.getLeftExpr(),
+				B3backendPackage.BASSIGNMENT_EXPRESSION__LEFT_EXPR);
+			// Additional errors are meaningless
+			return;
+
+		}
+		if(!tinfo.isSettable()) {
+			error(
+				"The left hand side of the assignment can not be immutable", expr.getLeftExpr(),
+				B3backendPackage.BASSIGNMENT_EXPRESSION__LEFT_EXPR);
+			// it is worth continuing with additional errors as it may provide a clue
+			// to what is wrong.
+		}
+		Type rhsType = typer.doGetInferredType(expr.getRightExpr());
+		String fName = expr.getFunctionName();
+		String lhsName = stringProvider.doToString(lhsType);
+		String rhsName = stringProvider.doToString(rhsType);
+		// straight assignment
+		if(fName == null || "".equals(fName) || "=:".contains(fName)) {
+			if(!(((tinfo.isEObject() && TypeUtils.isESettableFrom(lhsType, rhsType)) || TypeUtils.isAssignableFrom(
+				lhsType, rhsType)))) {
+				error(
+					"Type mismatch: Cannot convert from " + rhsName + " to " + lhsName, expr,
+					B3backendPackage.BASSIGNMENT_EXPRESSION__RIGHT_EXPR);
+				return;
+			}
+		}
+		else {
+			// This is an assigned call (i.e. += etc, validate function call)
+			String fn = fName.endsWith("=")
+					? fName.substring(0, fName.length() - 1)
+					: fName;
+			Type[] types = new Type[] { lhsType, rhsType };
+			try {
+				List<IFunction> effective = funcUtils.findEffectiveFunctions(expr, fn, lhsType);
+				// used for side effect of exceptions
+				IFunction f = funcUtils.selectFunction(fn, effective, types);
+				Type returnType = null;
+				if(f.getTypeCalculator() != null) {
+					returnType = f.getTypeCalculator().getSignature(types).getReturnTypeForParameterTypes(types);
+				}
+				else
+					returnType = f.getReturnType();
+				if(returnType == null)
+					returnType = Object.class;
+				// check for IntegerVariable += StringValue etc.
+				if(!TypeUtils.isAssignableFrom(lhsType, returnType)) {
+					error("Type operator mismatch: Cannot convert from " + stringProvider.doToString(returnType) +
+							" to " + lhsName, expr, B3backendPackage.BASSIGNMENT_EXPRESSION__RIGHT_EXPR);
+					return;
+				}
+			}
+			catch(B3NoSuchFunctionSignatureException e) {
+				error("Operator va. type mismatch: operator " + fn + " not applicable to types " + lhsName + " and " +
+						rhsName, expr, B3backendPackage.BASSIGNMENT_EXPRESSION__FUNCTION_NAME);
+			}
+			catch(B3NoSuchFunctionException e) {
+				error("Illegal operator (internal error)", expr, B3backendPackage.BASSIGNMENT_EXPRESSION__FUNCTION_NAME);
+			}
+			catch(B3AmbiguousFunctionSignatureException e) {
+				error(
+					"Ambigous operation - sevaral choices for types " + lhsName + " and " + rhsName, expr,
+					B3backendPackage.BASSIGNMENT_EXPRESSION__FUNCTION_NAME);
+			}
+		}
+		// check that value is mutable
+
+	}
 
 	@Check
 	public void checkBeeModel(BeeModel beeModel) {
@@ -167,6 +247,54 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 				error("A unit type must be a specialization of BuildUnit", t instanceof EObject
 						? (EObject) t
 						: buildUnit, B3BuildPackage.BUILD_UNIT__IMPLEMENTS, ISSUE_BUILD_UNIT__NOT_UNIT_INTERFACE);
+		}
+	}
+
+	@Check
+	public void checkFeatureCallCanBeMade(BCallFeature cexpr) {
+		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
+		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
+
+		BExpression lhs = cexpr.getFuncExpr();
+		String name = cexpr.getName();
+		Type type = typer.doGetInferredType(lhs);
+		if(type == null) {
+			error(
+				"The type of the expression is not known or inferable.", cexpr,
+				B3backendPackage.BCALL_FEATURE__FUNC_EXPR);
+			return;
+		}
+		if(name == null || name.length() < 1) {
+			error("The name of the operation is null or empty.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
+			return;
+		}
+		Type[] tparameters = null;
+		try {
+			tparameters = funcUtils.asTypeArray(cexpr, true);
+			tparameters[0] = type;
+		}
+		catch(InferenceExceptions e) {
+			// mark all erroneous parameters
+			for(InferenceException e2 : e.getExceptions())
+				error("The type of the parameter is not known or inferable.", e2.getSource(), e2.getFeature());
+			return; // not meaningful to continue
+		}
+
+		try {
+			List<IFunction> effective = funcUtils.findEffectiveFunctions(cexpr, name, type);
+			// used for side effect of exceptions
+			funcUtils.selectFunction(name, effective, tparameters);
+		}
+		catch(B3NoSuchFunctionSignatureException e) {
+			error(
+				"No function matching used parameter types found.", cexpr,
+				B3backendPackage.BCALL_FEATURE__PARAMETER_LIST);
+		}
+		catch(B3NoSuchFunctionException e) {
+			error("Function name not found.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
+		}
+		catch(B3AmbiguousFunctionSignatureException e) {
+			error("Used parameter types leads to ambiguous call", cexpr, B3backendPackage.BCALL_FEATURE__PARAMETER_LIST);
 		}
 	}
 
@@ -316,6 +444,38 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 	}
 
 	@Check
+	public void checkTypeCompliance(BLiteralListExpression expr) {
+		// If list has entry type this is a hard constraint - if not set, inference of the
+		// entry type is performed, and such a list will always have valid entries.
+		Type entryType = expr.getEntryType();
+		if(entryType == null)
+			return;
+		String lhsName = stringProvider.doToString(entryType);
+		for(BExpression e : expr.getEntries()) {
+			Type actualType = typer.doGetInferredType(e);
+			if(!TypeUtils.isAssignableFrom(entryType, actualType))
+				error(
+					"Type mismatch: Cannot convert from " + stringProvider.doToString(actualType) + " to " + lhsName,
+					e, B3backendPackage.BEXPRESSION);
+		}
+	}
+
+	@Check
+	public void checkValueDefinition(BDefValue expr) {
+		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
+		Type lhsType = typer.doGetInferredType(expr);
+		Type rhsType = typer.doGetInferredType(expr.getValueExpr());
+		if(!TypeUtils.isAssignableFrom(lhsType, rhsType)) {
+			String lhsName = stringProvider.doToString(lhsType);
+			String rhsName = stringProvider.doToString(rhsType);
+			error(
+				"Type mismatch: Cannot convert from " + lhsName + " to " + rhsName, expr,
+				B3backendPackage.BDEF_VALUE__VALUE_EXPR);
+			return;
+		}
+	}
+
+	@Check
 	public void checkWithClauseIsNotEmpty(BWithExpression withClause) {
 		if(withClause.getReferencedAdvice().size() == 0 && withClause.getConcerns().size() == 0 &&
 				withClause.getPropertySets().size() == 0) {
@@ -332,147 +492,5 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		result.add(B3BuildPackage.eINSTANCE);
 		return result;
 
-	}
-
-	@Check
-	void checkAssignment(BAssignmentExpression expr) {
-		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
-		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
-		ITypeInfo tinfo = typer.doGetTypeInfo(expr.getLeftExpr());
-		Type lhsType = tinfo.getType(); // typer.doGetInferredType(expr.getLeftExpr());
-
-		// Check that it is an LValue
-		if(!tinfo.isLValue()) {
-			error(
-				"The left hand side of an assignment must be a variable", expr.getLeftExpr(),
-				B3backendPackage.BASSIGNMENT_EXPRESSION__LEFT_EXPR);
-			// Additional errors are meaningless
-			return;
-
-		}
-		if(!tinfo.isSettable()) {
-			error(
-				"The left hand side of the assignment can not be immutable", expr.getLeftExpr(),
-				B3backendPackage.BASSIGNMENT_EXPRESSION__LEFT_EXPR);
-			// it is worth continuing with additional errors as it may provide a clue
-			// to what is wrong.
-		}
-		Type rhsType = typer.doGetInferredType(expr.getRightExpr());
-		String fName = expr.getFunctionName();
-		String lhsName = stringProvider.doToString(lhsType);
-		String rhsName = stringProvider.doToString(rhsType);
-		// straight assignment
-		if(fName == null || "".equals(fName) || "=:".contains(fName)) {
-			if(!(((tinfo.isEObject() && TypeUtils.isESettableFrom(lhsType, rhsType)) || TypeUtils.isAssignableFrom(
-				lhsType, rhsType)))) {
-				error(
-					"Type mismatch: Cannot convert from " + rhsName + " to " + lhsName, expr,
-					B3backendPackage.BASSIGNMENT_EXPRESSION__RIGHT_EXPR);
-				return;
-			}
-		}
-		else {
-			// This is an assigned call (i.e. += etc, validate function call)
-			String fn = fName.endsWith("=")
-					? fName.substring(0, fName.length() - 1)
-					: fName;
-			Type[] types = new Type[] { lhsType, rhsType };
-			try {
-				List<IFunction> effective = funcUtils.findEffectiveFunctions(expr, fn, lhsType);
-				// used for side effect of exceptions
-				IFunction f = funcUtils.selectFunction(fn, effective, types);
-				Type returnType = null;
-				if(f.getTypeCalculator() != null) {
-					returnType = f.getTypeCalculator().getSignature(types).getReturnTypeForParameterTypes(types);
-				}
-				else
-					returnType = f.getReturnType();
-				if(returnType == null)
-					returnType = Object.class;
-				// check for IntegerVariable += StringValue etc.
-				if(!TypeUtils.isAssignableFrom(lhsType, returnType)) {
-					error("Type operator mismatch: Cannot convert from " + stringProvider.doToString(returnType) +
-							" to " + lhsName, expr, B3backendPackage.BASSIGNMENT_EXPRESSION__RIGHT_EXPR);
-					return;
-				}
-			}
-			catch(B3NoSuchFunctionSignatureException e) {
-				error("Operator va. type mismatch: operator " + fn + " not applicable to types " + lhsName + " and " +
-						rhsName, expr, B3backendPackage.BASSIGNMENT_EXPRESSION__FUNCTION_NAME);
-			}
-			catch(B3NoSuchFunctionException e) {
-				error("Illegal operator (internal error)", expr, B3backendPackage.BASSIGNMENT_EXPRESSION__FUNCTION_NAME);
-			}
-			catch(B3AmbiguousFunctionSignatureException e) {
-				error(
-					"Ambigous operation - sevaral choices for types " + lhsName + " and " + rhsName, expr,
-					B3backendPackage.BASSIGNMENT_EXPRESSION__FUNCTION_NAME);
-			}
-		}
-		// check that value is mutable
-
-	}
-
-	@Check
-	void checkFeatureCallCanBeMade(BCallFeature cexpr) {
-		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
-		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
-
-		BExpression lhs = cexpr.getFuncExpr();
-		String name = cexpr.getName();
-		Type type = typer.doGetInferredType(lhs);
-		if(type == null) {
-			error(
-				"The type of the expression is not known or inferable.", cexpr,
-				B3backendPackage.BCALL_FEATURE__FUNC_EXPR);
-			return;
-		}
-		if(name == null || name.length() < 1) {
-			error("The name of the operation is null or empty.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
-			return;
-		}
-		Type[] tparameters = null;
-		try {
-			tparameters = funcUtils.asTypeArray(cexpr, true);
-			tparameters[0] = type;
-		}
-		catch(InferenceExceptions e) {
-			// mark all erroneous parameters
-			for(InferenceException e2 : e.getExceptions())
-				error("The type of the parameter is not known or inferable.", e2.getSource(), e2.getFeature());
-			return; // not meaningful to continue
-		}
-
-		try {
-			List<IFunction> effective = funcUtils.findEffectiveFunctions(cexpr, name, type);
-			// used for side effect of exceptions
-			funcUtils.selectFunction(name, effective, tparameters);
-		}
-		catch(B3NoSuchFunctionSignatureException e) {
-			error(
-				"No function matching used parameter types found.", cexpr,
-				B3backendPackage.BCALL_FEATURE__PARAMETER_LIST);
-		}
-		catch(B3NoSuchFunctionException e) {
-			error("Function name not found.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
-		}
-		catch(B3AmbiguousFunctionSignatureException e) {
-			error("Used parameter types leads to ambiguous call", cexpr, B3backendPackage.BCALL_FEATURE__PARAMETER_LIST);
-		}
-	}
-
-	@Check
-	void checkValueDefinition(BDefValue expr) {
-		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
-		Type lhsType = typer.doGetInferredType(expr);
-		Type rhsType = typer.doGetInferredType(expr.getValueExpr());
-		if(!TypeUtils.isAssignableFrom(lhsType, rhsType)) {
-			String lhsName = stringProvider.doToString(lhsType);
-			String rhsName = stringProvider.doToString(rhsType);
-			error(
-				"Type mismatch: Cannot convert from " + lhsName + " to " + rhsName, expr,
-				B3backendPackage.BDEF_VALUE__VALUE_EXPR);
-			return;
-		}
 	}
 }
