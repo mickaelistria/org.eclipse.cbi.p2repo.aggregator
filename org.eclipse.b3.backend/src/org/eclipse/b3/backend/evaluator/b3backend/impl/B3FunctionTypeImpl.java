@@ -420,7 +420,9 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * @generated NOT
 	 */
 	public void setFunctionType(Type newFunctionType) {
-		setFunctionTypeGen(TypeUtils.coerceToEObjectType(newFunctionType));
+		setFunctionTypeGen(newFunctionType == null
+				? null
+				: TypeUtils.coerceToEObjectType(newFunctionType));
 
 	}
 
