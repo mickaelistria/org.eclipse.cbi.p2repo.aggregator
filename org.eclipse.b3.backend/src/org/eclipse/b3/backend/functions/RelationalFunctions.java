@@ -302,9 +302,12 @@ public class RelationalFunctions {
 
 	@B3Backend(funcNames = { "~=" })
 	public static Boolean matches(CharSequence string, Pattern pattern) {
-		return pattern.matcher(string).matches()
-				? Boolean.TRUE
-				: Boolean.FALSE;
+		return matches(pattern, string);
+	}
+
+	@B3Backend(funcNames = { "~=" })
+	public static Boolean matches(CharSequence string, SimplePattern pattern) {
+		return matches(pattern, string);
 	}
 
 	@B3Backend(funcNames = { "~=" })
@@ -351,6 +354,13 @@ public class RelationalFunctions {
 	@B3Backend(funcNames = { "~=" })
 	public static Boolean matches(Pattern pattern, CharSequence string) {
 		return pattern.matcher(string).matches()
+				? Boolean.TRUE
+				: Boolean.FALSE;
+	}
+
+	@B3Backend(funcNames = { "~=" })
+	public static Boolean matches(SimplePattern pattern, CharSequence string) {
+		return pattern.isMatch(string)
 				? Boolean.TRUE
 				: Boolean.FALSE;
 	}

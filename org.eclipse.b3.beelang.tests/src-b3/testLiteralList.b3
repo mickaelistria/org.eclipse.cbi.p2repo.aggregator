@@ -21,6 +21,7 @@ function testLiteralList() {
 function testAnyComparison() {
 	List b = [1+2, "hello", [<String>], ['a', 'b', 'c', 'd'], 1];
 	assertEquals("a list and any", [_,_,_,_,_], b);
+	assertEquals("any and list", b, [_,_,_,_,_]);
 }
 function testCallLambdaInList() {
 	Integer outside = 10;

@@ -6,7 +6,9 @@ function Object main(List argv) {
 	testInstanceOf();
 	testRelationalFunctions();
 	testRegexp();
+	testRegexpList();
 	testSimplePattern();
+	testSimplePatternList();
 }
 function Object testInstanceOf() {
 	assertTrue("1 instanceof Number", 1 instanceof Number);
@@ -49,8 +51,18 @@ function Object testRegexp() {
 	assertTrue("'abc' ~= ~/.*/", "abc" ~= ~/.*/);
 	assertTrue("~/.*/ ~= 'abc'" , ~/.*/  ~= "abc" );
 }
+function Object testRegexpList() {
+	assertTrue("['abc'] ~= [~/.*/]", ["abc"] ~= [~/.*/]);
+	assertTrue("[~/.*/] ~= ['abc']" , [~/.*/]  ~= ["abc"] );
+	
+}
 function Object testSimplePattern() {
 	assertTrue("'abc123' ~= 'abc*'", "abc123" ~= "abc*");
 	assertTrue("'abc123' ~= 'abc?23'", "abc123" ~= "abc?23");
 	assertTrue("'abc123' ~= 'a*3'", "abc123" ~= "a*3");
+}
+function Object testSimplePatternList() {
+	assertTrue("['abc123'] ~= ['abc*']", ["abc123"] ~= ["abc*"]);
+	assertTrue("['abc123'] ~= ['abc?23']", ["abc123"] ~= ["abc?23"]);
+	assertTrue("['abc123'] ~= ['a*3']", ["abc123"] ~= ["a*3"]);
 }
