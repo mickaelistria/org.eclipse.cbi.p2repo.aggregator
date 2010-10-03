@@ -22,6 +22,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
@@ -457,6 +459,34 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 				error(
 					"Type mismatch: Cannot convert from " + stringProvider.doToString(actualType) + " to " + lhsName,
 					e, B3backendPackage.BEXPRESSION);
+		}
+	}
+
+	@Check
+	public void checkTypeCompliance(BLiteralMapExpression expr) {
+		// If list has entry type this is a hard constraint - if not set, inference of the
+		// entry type is performed, and such a list will always have valid entries.
+		Type keyType = expr.getKeyType();
+		Type valueType = expr.getValueType();
+		if(keyType == null || valueType == null)
+			return;
+		String keyName = stringProvider.doToString(keyType);
+		String valueName = stringProvider.doToString(valueType);
+		for(BMapEntry e : expr.getEntries()) {
+			Type actualKeyType = typer.doGetInferredType(e.getKey());
+			Type actualValType = typer.doGetInferredType(e.getValue());
+			boolean keyError = !TypeUtils.isAssignableFrom(keyType, actualKeyType);
+			boolean valError = !TypeUtils.isAssignableFrom(valueType, actualValType);
+			if(keyError && valError)
+				error("Type mismatch: Cannot convert from Entry<" + stringProvider.doToString(actualKeyType) + ", " +
+						stringProvider.doToString(actualValType) + "> " + " to Entry<" + keyName + ", " + valueName +
+						">", e, B3backendPackage.BEXPRESSION);
+			else if(keyError)
+				error("Type mismatch: Cannot convert from key type " + stringProvider.doToString(actualKeyType) +
+						" to " + keyName, e, B3backendPackage.BMAP_ENTRY__KEY);
+			else if(valError)
+				error("Type mismatch: Cannot convert from value type " + stringProvider.doToString(actualValType) +
+						" to " + valueName, e, B3backendPackage.BMAP_ENTRY__VALUE);
 		}
 	}
 
