@@ -20,7 +20,7 @@ import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;
 
 /**
- * Basic scaffolding implementation of an ITypeProvider.
+ * Basic scaffolding for a B3 evaluator.
  * 
  */
 public abstract class DeclarativeB3Evaluator implements IB3Evaluator {
