@@ -834,6 +834,22 @@ public class TypeUtils {
 	}
 
 	/**
+	 * Returns the type parameters of a parameterized type or null, if not a parameterized type.
+	 * 
+	 * @param baseType
+	 * @return
+	 */
+	public static Type[] getTypeParameters(Type baseType) {
+		if(baseType instanceof B3Type)
+			baseType = ((B3Type) baseType).getRawType();
+		if(baseType instanceof ParameterizedType) {
+			ParameterizedType pt = ParameterizedType.class.cast(baseType);
+			return pt.getActualTypeArguments();
+		}
+		return null;
+	}
+
+	/**
 	 * Returns true if the overloaded type is assignable from the overloading type.
 	 * 
 	 * @param overloaded

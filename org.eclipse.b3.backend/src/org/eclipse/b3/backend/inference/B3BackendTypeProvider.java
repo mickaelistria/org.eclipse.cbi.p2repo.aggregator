@@ -667,6 +667,18 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 				? null
 				: new ArrayList<Type>();
 
+		// check if constrained
+		if(kt == null || vt == null) {
+			Type constrainedType = doGetConstraint(o.eContainer(), o, o.eContainingFeature());
+			if(constrainedType != null) {
+				Type[] typeArgs = TypeUtils.getTypeParameters(constrainedType);
+				if(typeArgs != null && typeArgs.length == 2) {
+					kt = typeArgs[0];
+					vt = typeArgs[1];
+				}
+			}
+		}
+		// if not constrained, compute kt & vt from entries
 		if(kt == null || vt == null) {
 			if(o.getEntries().size() > 0)
 				for(BMapEntry e : o.getEntries()) {
