@@ -617,7 +617,21 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		ArrayList<Type> typeList = eType != null
 				? null
 				: new ArrayList<Type>();
+
+		// if entry type not declared try a) constrain b) inference from contained entries
 		if(eType == null) {
+			// check if this is a List<T> constraint
+			Type constrainedType = this.doGetConstraint(o.eContainer(), o, o.eContainingFeature());
+			if(constrainedType != null && TypeUtils.isAssignableFrom(List.class, TypeUtils.getRaw(constrainedType))) {
+				if(constrainedType instanceof ParameterizedType) {
+					Type[] typeArgs = ((ParameterizedType) constrainedType).getActualTypeArguments();
+					if(typeArgs.length == 1)
+						eType = typeArgs[0];
+				}
+			}
+		}
+		if(eType == null) {
+			// collect types
 			if(o.getEntries().size() > 0) {
 				for(BExpression c : o.getEntries()) {
 					typeList.add(doGetInferredType(c));

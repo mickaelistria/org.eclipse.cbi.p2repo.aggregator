@@ -447,11 +447,10 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 
 	@Check
 	public void checkTypeCompliance(BLiteralListExpression expr) {
-		// If list has entry type this is a hard constraint - if not set, inference of the
-		// entry type is performed, and such a list will always have valid entries.
-		Type entryType = expr.getEntryType();
-		if(entryType == null)
-			return;
+		Type listType = typer.doGetInferredType(expr);
+		Type entryType = TypeUtils.getElementType(listType);
+		if(entryType == Object.class)
+			return; // Meaningless to test
 		String lhsName = stringProvider.doToString(entryType);
 		for(BExpression e : expr.getEntries()) {
 			Type actualType = typer.doGetInferredType(e);
