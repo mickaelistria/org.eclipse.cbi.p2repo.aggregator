@@ -10,6 +10,7 @@ import org.eclipse.b3.backend.core.datatypes.TypePattern;
 import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
+import org.eclipse.b3.backend.evaluator.B3ConstantEvaluator;
 import org.eclipse.b3.backend.evaluator.PojoFeature;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
@@ -21,6 +22,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
@@ -490,6 +492,18 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 				error("Type mismatch: Cannot convert from value type " + stringProvider.doToString(actualValType) +
 						" to " + valueName, e, B3backendPackage.BMAP_ENTRY__VALUE);
 		}
+	}
+
+	@Check
+	public void checkUnreachableIf(BIfExpression o) {
+		B3ConstantEvaluator constEvaluator = injector.getInstance(B3ConstantEvaluator.class);
+		B3ConstantEvaluator.ConstantEvaluationResult result = constEvaluator.doEvalConstant(o.getConditionExpr());
+		if(!result.isConstant())
+			return;
+		if(result.getResult() instanceof Boolean && result.getResult().equals(Boolean.TRUE))
+			error("Unreachable: condition is constant and true", o.getElseExpr(), B3backendPackage.BEXPRESSION);
+		else
+			error("Unreachable: condition is constant and false", o.getThenExpr(), B3backendPackage.BEXPRESSION);
 	}
 
 	@Check
