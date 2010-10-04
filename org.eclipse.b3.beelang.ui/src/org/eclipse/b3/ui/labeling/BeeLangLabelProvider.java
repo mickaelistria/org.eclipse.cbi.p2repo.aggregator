@@ -10,10 +10,9 @@ package org.eclipse.b3.ui.labeling;
 
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.core.IStringProvider;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
-import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
-import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
 import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
@@ -115,6 +114,9 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 	@Inject
 	private ITypeProvider typeProvider;
 
+	@Inject
+	private IStringProvider stringProvider;
+
 	public static final Styler ERROR_STYLER = new DefaultStyler(JFacePreferences.ERROR_COLOR, null);
 
 	@Inject
@@ -168,32 +170,20 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 		return UNIT_PROVIDER;
 	}
 
-	String text(B3FunctionType ele) {
-		StringBuffer buf = new StringBuffer();
-		buf.append("type: (");
-		int counter = 0;
-		for(Type t : ele.getParameterTypes()) {
-			if(counter++ > 0)
-				buf.append(", ");
-			buf.append(t);
-		}
-		buf.append(")=>");
-		buf.append(safeToString(ele.getReturnType()));
-		return buf.toString();
-	}
-
-	String text(B3ParameterizedType ele) {
-		Type t = ele.getRawType();
-		return "type: " + safeToString(t);
-	}
-
-	String text(B3Type ele) {
-		String fqn = ele.getRawType().toString();
-		int ix = fqn.lastIndexOf('.');
-		return fqn.substring(ix == -1
-				? 0
-				: ix + 1);
-	}
+	// String text(B3FunctionType ele) {
+	// return stringProvider.doToString(ele);
+	// // StringBuffer buf = new StringBuffer();
+	// // buf.append("type: (");
+	// // int counter = 0;
+	// // for(Type t : ele.getParameterTypes()) {
+	// // if(counter++ > 0)
+	// // buf.append(", ");
+	// // buf.append(t);
+	// // }
+	// // buf.append(")=>");
+	// // buf.append(safeToString(ele.getReturnType()));
+	// // return buf.toString();
+	// }
 
 	String text(BAtExpression ele) {
 		return "[n]";
@@ -301,6 +291,24 @@ public class BeeLangLabelProvider extends DefaultEObjectLabelProvider {
 				: ""), StyledString.DECORATIONS_STYLER);
 		return result;
 	}
+
+	// String text(B3ParameterizedType ele) {
+	// return stringProvider.doToString(ele);
+	// // Type t = ele.getRawType();
+	// // return "type: " + safeToString(t);
+	// }
+	String text(Type ele) {
+		return stringProvider.doToString(ele);
+	}
+
+	// String text(B3Type ele) {
+	// return stringProvider.doToString(ele);
+	// // String fqn = ele.getRawType().toString();
+	// // int ix = fqn.lastIndexOf('.');
+	// // return fqn.substring(ix == -1
+	// // ? 0
+	// // : ix + 1);
+	// }
 
 	StyledString text(VersionedCapability element) {
 		StyledString result = new StyledString(element.getName());

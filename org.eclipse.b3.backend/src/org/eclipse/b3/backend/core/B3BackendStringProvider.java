@@ -12,6 +12,8 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collections;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl;
@@ -62,6 +64,18 @@ public class B3BackendStringProvider implements IStringProvider {
 				? "null"
 				: doToString(t.getReturnType()));
 		return buf.toString();
+	}
+
+	String str(B3JavaImport t) {
+		Type type = t.getType();
+		return type == null
+				? "unknown"
+				: doToString(type);
+
+	}
+
+	String str(B3MetaClass o) {
+		return doToString(o.getInstanceClass());
 	}
 
 	String str(B3ParameterizedType t) {
