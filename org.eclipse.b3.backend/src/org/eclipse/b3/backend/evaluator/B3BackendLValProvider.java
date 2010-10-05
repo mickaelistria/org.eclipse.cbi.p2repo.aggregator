@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.datatypes.LValue;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 /**
  * Provider of LValues for b3 backend.
@@ -43,4 +44,12 @@ public class B3BackendLValProvider extends DeclarativeB3LValProvider {
 		return true;
 	}
 
+	public boolean isIndexLValueType(Type t) {
+		Class<?> actual = TypeUtils.getRaw(t);
+		if(List.class.isAssignableFrom(actual))
+			return true;
+		if(Map.class.isAssignableFrom(actual))
+			return true;
+		return false;
+	}
 }

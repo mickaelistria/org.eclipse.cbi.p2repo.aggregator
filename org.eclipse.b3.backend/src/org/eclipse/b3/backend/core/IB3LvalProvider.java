@@ -25,4 +25,6 @@ public interface IB3LvalProvider {
 	public LValue doCreateLVal(Object element, Object index, Type lvalType);
 
 	public boolean doIsIndexLVal(Object element);
+
+	public boolean doIsIndexLValType(Object element);
 }

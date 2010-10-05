@@ -36,6 +36,13 @@ public class DeclarativeB3LValProvider implements IB3LvalProvider {
 			}
 		});
 
+	private final PolymorphicDispatcher<Boolean> isLValueTypeDispatcher = new PolymorphicDispatcher<Boolean>(
+		"isIndexLValueType", 1, 1, Collections.singletonList(this), new ErrorHandler<Boolean>() {
+			public Boolean handle(Object[] params, Throwable e) {
+				return handleBooleanError(params, e);
+			}
+		});
+
 	public LValue createLValue(Object o, Object index, Type lvalType) {
 		throw new UnsupportedOperationException("No indexed lvalue provider found for: " + o.getClass().getName());
 	}
@@ -46,6 +53,10 @@ public class DeclarativeB3LValProvider implements IB3LvalProvider {
 
 	public boolean doIsIndexLVal(Object element) {
 		return isLValueDispatcher.invoke(element);
+	}
+
+	public boolean doIsIndexLValType(Object element) {
+		return isLValueTypeDispatcher.invoke(element);
 	}
 
 	public boolean isIndexLVal(Object o) {

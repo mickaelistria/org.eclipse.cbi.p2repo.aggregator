@@ -8,4 +8,6 @@ org.eclipse.b3.backend/debug/typer=false
 org.eclipse.b3.backend/debug/engine=false
 #log debug details in weaver
 org.eclipse.b3.backend/debug/weaver=false
+#log debug details when producing proposals
+org.eclipse.b3.backend/debug/proposals=false
 

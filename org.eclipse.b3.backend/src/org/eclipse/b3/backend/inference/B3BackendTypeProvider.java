@@ -20,6 +20,7 @@ import org.eclipse.b3.backend.core.datatypes.Any;
 import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchFeatureException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.PojoFeature;
@@ -551,6 +552,10 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 			t = doGetInferredType(objExpression);
 		try {
 			return new PojoFeature(TypeUtils.getRaw(t), o.getFeatureName()).getDeclaredType();
+		}
+		catch(B3NoSuchFeatureException e2) {
+			// this happens a lot while typing in the editor
+			return null;
 		}
 		catch(B3EngineException e) {
 			throw new IllegalArgumentException("Could not determine type of feature expression due to error.", e);

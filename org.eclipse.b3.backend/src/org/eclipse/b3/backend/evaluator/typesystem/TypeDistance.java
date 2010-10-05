@@ -202,6 +202,9 @@ public class TypeDistance {
 	// return r;
 	// }
 	private Class<?> computeCommonClass(Type[] types) {
+		// protect against degenerate case - occurs while editing
+		if(types.length == 0)
+			return Object.class;
 		// collect nodes for which commonality should be computed
 		List<TreeNode> nodesToCompute = new ArrayList<TreeNode>();
 		// The class of each type must have been encoded

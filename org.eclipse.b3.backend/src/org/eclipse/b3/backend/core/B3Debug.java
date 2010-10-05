@@ -35,6 +35,8 @@ public class B3Debug {
 
 	public static final String B3_WEAVER_DEBUG_OPTION = "org.eclipse.b3.backend/debug/weaver";
 
+	public static final String B3_UI_PROPOSAL_DEBUG_OPTION = "org.eclipse.b3.backend/debug/proposals";
+
 	public static boolean global = false;
 
 	public static boolean engine = false;
@@ -46,6 +48,8 @@ public class B3Debug {
 	public static boolean weaver = false;
 
 	private static boolean configured = false;
+
+	public static boolean proposals = false;
 
 	private static final B3Debug eINSTANCE = new B3Debug();
 
@@ -62,6 +66,7 @@ public class B3Debug {
 		typer = global && getDebugOption(B3_TYPER_DEBUG_OPTION);
 		engine = global && getDebugOption(B3_ENGINE_DEBUG_OPTION);
 		weaver = global && getDebugOption(B3_WEAVER_DEBUG_OPTION);
+		proposals = global && getDebugOption(B3_UI_PROPOSAL_DEBUG_OPTION);
 		configured = true;
 		if(global)
 			log.setLevel(org.apache.log4j.Level.DEBUG);
