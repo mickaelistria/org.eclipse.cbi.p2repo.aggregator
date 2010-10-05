@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.b3.backend.core.IB3LvalProvider;
 import org.eclipse.b3.backend.core.IStringProvider;
 import org.eclipse.b3.backend.core.datatypes.TypePattern;
 import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
@@ -16,6 +17,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallFeature;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
@@ -72,6 +74,9 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 
 	@Inject
 	private ITypeProvider typer;
+
+	@Inject
+	private IB3LvalProvider lvalProvider;
 
 	@Check
 	public void checkAssignment(BAssignmentExpression expr) {
@@ -150,6 +155,16 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		}
 		// check that value is mutable
 
+	}
+
+	@Check
+	public void checkAtOperation(BAtExpression o) {
+		Type objType = null;
+		if(!lvalProvider.doIsIndexLValType(objType = typer.doGetInferredType(o.getObjExpr()))) {
+			error(
+				"Non indexed type: " + stringProvider.doToString(objType) + " can not be used with [] operator",
+				o.getObjExpr(), B3backendPackage.BEXPRESSION);
+		}
 	}
 
 	@Check
