@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.b3.backend.evaluator.PojoFeature;
 import org.eclipse.b3.backend.evaluator.PojoHelper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
@@ -85,6 +86,20 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 			"A quoted complex name  (example)"), prio--, context);
 		acceptor.accept(completionProposal);
 		super.complete_EscapedQualifiedName(model, ruleCall, context, acceptor);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.ui.contentassist.AbstractBeeLangProposalProvider#complete_InfixExpression(org.eclipse.emf.ecore.EObject,
+	 * org.eclipse.xtext.RuleCall, org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext,
+	 * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
+	 */
+	@Override
+	public void complete_InfixExpression(EObject model, RuleCall ruleCall, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub - unfinished due to Xtext bug
+		super.complete_InfixExpression(model, ruleCall, context, acceptor);
 	}
 
 	/*
@@ -272,6 +287,34 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.ui.contentassist.AbstractBeeLangProposalProvider#completeInfixExpression_FeatureName(org.eclipse.emf.ecore.EObject,
+	 * org.eclipse.xtext.Assignment, org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext,
+	 * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
+	 */
+	@Override
+	public void completeInfixExpression_FeatureName(EObject model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub Unfinished due to Xtext bug
+		super.completeInfixExpression_FeatureName(model, assignment, context, acceptor);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.ui.contentassist.AbstractBeeLangProposalProvider#completeInfixExpression_Name(org.eclipse.emf.ecore.EObject,
+	 * org.eclipse.xtext.Assignment, org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext,
+	 * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
+	 */
+	@Override
+	public void completeInfixExpression_Name(EObject model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub // unfinished due to Xtext bug
+		super.completeInfixExpression_Name(model, assignment, context, acceptor);
+	}
+
 	/**
 	 * Overrides the default keyword proposal generation to allow customization via extension.
 	 * (TODO: done this way to make it possible to later dynamically modify this via preferences and
@@ -361,6 +404,20 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 				}
 
 			});
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.xtext.ui.editor.contentassist.AbstractJavaBasedContentProposalProvider#invokeMethod(java.lang.String,
+	 * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor, java.lang.Object[])
+	 */
+	@Override
+	protected void invokeMethod(String methodName, ICompletionProposalAcceptor acceptor, Object... params) {
+		if(B3Debug.proposals) {
+			B3Debug.trace("Proposal provider: ", methodName, " for model: ", params[0].getClass());
+		}
+		super.invokeMethod(methodName, acceptor, params);
 	}
 
 	/**

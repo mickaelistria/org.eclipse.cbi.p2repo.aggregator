@@ -18,13 +18,45 @@ import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.edit.IModification;
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
 import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification;
+import org.eclipse.xtext.ui.editor.model.edit.IssueModificationContext;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 import org.eclipse.xtext.ui.editor.quickfix.Fix;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
 import org.eclipse.xtext.validation.Issue;
 
+import com.google.inject.Inject;
+
 public class BeeLangQuickfixProvider extends DefaultQuickfixProvider {
 	private final static String ISSUE_REPOSITORY__NO_CONNECTION_FIX = "http://abc.org";
+
+	@Inject
+	private IssueModificationContext.Factory modificationContextFactory;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider#createLinkingIssueResolutions(org.eclipse.xtext.validation.Issue,
+	 * org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor)
+	 */
+	@Override
+	public void createLinkingIssueResolutions(Issue issue, IssueResolutionAcceptor issueResolutionAcceptor) {
+		final IModificationContext modificationContext = modificationContextFactory.createModificationContext(issue);
+		final IXtextDocument xtextDocument = modificationContext.getXtextDocument();
+		if(xtextDocument == null)
+			return;
+		super.createLinkingIssueResolutions(issue, issueResolutionAcceptor);
+	}
+
+	// @Fix(MyJavaValidator.INVALID_TYPE_NAME)
+	// public void capitalizeName(final Issue issue, IssueResolutionAcceptor acceptor) {
+	// acceptor.accept(issue, "Capitalize name", "Capitalize name of type", "upcase.png", new IModification() {
+	// public void apply(IModificationContext context) throws BadLocationException {
+	// IXtextDocument xtextDocument = context.getXtextDocument();
+	// String firstLetter = xtextDocument.get(issue.getOffset(), 1);
+	// xtextDocument.replace(issue.getOffset(), 1, Strings.toFirstUpper(firstLetter));
+	// }
+	// });
+	// }
 
 	/**
 	 * Inserts a "remote = <URI>" into a Repository (using semantic insertion).
@@ -45,17 +77,6 @@ public class BeeLangQuickfixProvider extends DefaultQuickfixProvider {
 			}
 		});
 	}
-
-	// @Fix(MyJavaValidator.INVALID_TYPE_NAME)
-	// public void capitalizeName(final Issue issue, IssueResolutionAcceptor acceptor) {
-	// acceptor.accept(issue, "Capitalize name", "Capitalize name of type", "upcase.png", new IModification() {
-	// public void apply(IModificationContext context) throws BadLocationException {
-	// IXtextDocument xtextDocument = context.getXtextDocument();
-	// String firstLetter = xtextDocument.get(issue.getOffset(), 1);
-	// xtextDocument.replace(issue.getOffset(), 1, Strings.toFirstUpper(firstLetter));
-	// }
-	// });
-	// }
 
 	@Fix(B3BackendIssues.ISSUE__BSWITCH_EXPRESSION__HAS_UNREACHABLE_CASE__OFFENDER)
 	public void moveDefaultCaseLast(final Issue issue, IssueResolutionAcceptor acceptor) {

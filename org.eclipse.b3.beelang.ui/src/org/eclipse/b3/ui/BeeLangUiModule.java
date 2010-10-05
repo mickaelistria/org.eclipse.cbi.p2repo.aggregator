@@ -55,6 +55,12 @@ public class BeeLangUiModule extends org.eclipse.b3.ui.AbstractBeeLangUiModule {
 		return BeeLangSemanticHighlightingCalculator.class;
 	}
 
+	// Don't know if this is needed
+	// @Override
+	// public Class<? extends IssueResolutionProvider> bindIssueResolutionProvider() {
+	// return BeeLangQuickfixProvider.class;
+	// }
+
 	@Override
 	public Class<? extends IXtextEditorCallback> bindIXtextEditorCallback() {
 		return ValidatingEditorCallback.class;

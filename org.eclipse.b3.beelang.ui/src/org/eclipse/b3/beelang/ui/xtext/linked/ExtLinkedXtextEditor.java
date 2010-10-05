@@ -15,18 +15,12 @@ import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.filesystem.URIUtil;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
@@ -43,7 +37,6 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IURIEditorInput;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.internal.editors.text.EditorsPlugin;
 import org.eclipse.ui.part.FileEditorInput;
@@ -58,9 +51,6 @@ import com.google.inject.Inject;
  * opening and saving external files, by managing them as linked resources.
  */
 public class ExtLinkedXtextEditor extends XtextEditor {
-	public static final String AUTOLINK_PROJECT_NAME = "AutoLinked_B3ExternalFiles";
-
-	public static final String ENCODING_UTF8 = "utf-8";
 
 	@Inject
 	private IExtXtextEditorCustomizer editorCustomizer;
@@ -89,7 +79,7 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 		// Unlink the input if it was linked
 		IEditorInput input = getEditorInput();
 		if(input instanceof IFileEditorInput)
-			unlinkInput((IFileEditorInput) input);
+			ExtLinkedFileHelper.unlinkInput((IFileEditorInput) input);
 		super.dispose();
 	}
 
@@ -103,8 +93,10 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 		// TODO If document is a temporary / untitled document, the save is a saveAs
 		// TODO: use a session token instead
 		final IEditorInput input = getEditorInput();
-		if(input instanceof IFileEditorInput && ((IFileEditorInput) input).getFile().isLinked() &&
-				((IFileEditorInput) input).getFile().getProject().getName().equals(AUTOLINK_PROJECT_NAME)) {
+		if(input instanceof IFileEditorInput &&
+				((IFileEditorInput) input).getFile().isLinked() &&
+				((IFileEditorInput) input).getFile().getProject().getName().equals(
+					ExtLinkedFileHelper.AUTOLINK_PROJECT_NAME)) {
 			String val;
 			try {
 				val = ((FileEditorInput) input).getFile().getPersistentProperty(
@@ -170,14 +162,14 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 				// check and process tmp file input (untitled)
 				if(input instanceof TmpFileStoreEditorInput)
 					try {
-						linkedFile = obtainLink(uri, true);
+						linkedFile = ExtLinkedFileHelper.obtainLink(uri, true);
 						linkedFile.setPersistentProperty(TmpFileStoreEditorInput.UNTITLED_PROPERTY, "true");
 					}
 					catch(CoreException e) {
 						throw new PartInitException(e.getStatus());
 					}
 				else {
-					linkedFile = obtainLink(uri, false);
+					linkedFile = ExtLinkedFileHelper.obtainLink(uri, false);
 				}
 				IFileEditorInput linkedInput = new FileEditorInput(linkedFile);
 				super.init(site, linkedInput);
@@ -218,8 +210,10 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 
 		// Customize save as if the file is linked, and it is in the special external link project
 		//
-		if(input instanceof IFileEditorInput && ((IFileEditorInput) input).getFile().isLinked() &&
-				((IFileEditorInput) input).getFile().getProject().getName().equals(AUTOLINK_PROJECT_NAME)) {
+		if(input instanceof IFileEditorInput &&
+				((IFileEditorInput) input).getFile().isLinked() &&
+				((IFileEditorInput) input).getFile().getProject().getName().equals(
+					ExtLinkedFileHelper.AUTOLINK_PROJECT_NAME)) {
 			final IEditorInput newInput;
 			IDocumentProvider provider = getDocumentProvider();
 
@@ -312,7 +306,7 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 			else {
 				IURIEditorInput uriInput = new FileStoreEditorInput(fileStore);
 				java.net.URI uri = uriInput.getURI();
-				IFile linkedFile = obtainLink(uri, false);
+				IFile linkedFile = ExtLinkedFileHelper.obtainLink(uri, false);
 
 				newInput = new FileEditorInput(linkedFile);
 			}
@@ -343,7 +337,7 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 				if(success)
 					setInput(newInput);
 				// the linked file must be removed (esp. if it is an "untitled" link).
-				unlinkInput(((IFileEditorInput) input));
+				ExtLinkedFileHelper.unlinkInput(((IFileEditorInput) input));
 				// remember last saveAs location
 				String lastLocation = URIUtil.toPath(((FileEditorInput) newInput).getURI()).toOSString();
 				try {
@@ -364,44 +358,6 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 		super.performSaveAs(progressMonitor);
 	}
 
-	private void createLink(IProject project, IFile linkFile, java.net.URI uri) throws CoreException {
-		IPath path = linkFile.getFullPath();
-
-		IPath folders = path.removeLastSegments(1).removeFirstSegments(1);
-		IPath checkPath = Path.ROOT;
-		int segmentCount = folders.segmentCount();
-		for(int i = 0; i < segmentCount; i++) {
-			checkPath = checkPath.addTrailingSeparator().append(folders.segment(i));
-			IFolder folder = project.getFolder(checkPath);
-			if(!folder.exists())
-				folder.create(true, true, null);
-		}
-		linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
-	}
-
-	private int getFirstFreeUntitled(IProject project) throws CoreException {
-		IFolder untitledFolder = project.getFolder("untitled");
-		if(!untitledFolder.exists()) {
-			untitledFolder.create(true, true, new NullProgressMonitor());
-			return 0;
-		}
-		IResource[] resources = untitledFolder.members();
-		int result = resources.length > 0
-				? 1
-				: 0;
-		for(IResource r : resources) {
-			// tied to format "untitled-n"
-			int dash = r.getName().indexOf("-");
-			if(dash < 0)
-				continue;
-			int sequence = Integer.valueOf(r.getName().substring(dash + 1, r.getName().length() - 3));
-			result = sequence > result
-					? sequence
-					: result;
-		}
-		return result + 1;
-	}
-
 	private IFile getWorkspaceFile(IFileStore fileStore) {
 		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
 		IFile[] files = workspaceRoot.findFilesForLocationURI(fileStore.toURI());
@@ -410,75 +366,4 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 		return null;
 	}
 
-	/**
-	 * Throws WrappedException - the URI must refer to an existing file!
-	 * 
-	 * @param uri
-	 * @return
-	 */
-	private IFile obtainLink(java.net.URI uri, boolean untitled) {
-		try {
-			IWorkspace ws = ResourcesPlugin.getWorkspace();
-			// get, or create project if non existing
-			IProject project = ws.getRoot().getProject(AUTOLINK_PROJECT_NAME);
-			boolean newProject = false;
-			if(!project.exists()) {
-				project.create(null);
-				newProject = true;
-			}
-			if(!project.isOpen()) {
-				project.open(null);
-				project.setHidden(true);
-			}
-
-			if(newProject)
-				project.setDefaultCharset(ENCODING_UTF8, new NullProgressMonitor());
-			IFile linkFile = null;
-			if(untitled) {
-				int firstFree = getFirstFreeUntitled(project);
-				IFolder untitledFolder = project.getFolder("untitled");
-				String fileName = "untitled" + (firstFree > 1
-						? "-" + Integer.toString(firstFree)
-						: "") + ".b3";
-				linkFile = untitledFolder.getFile(fileName);
-			}
-			else {
-				// path in project that is the same as the external file's path
-				linkFile = project.getFile(uri.getPath());
-			}
-			if(linkFile.exists())
-				linkFile.refreshLocal(1, null); // don't know if needed (or should be avoided...)
-			else {
-				// create the link
-				createLink(project, linkFile, uri);
-				// linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
-			}
-			return linkFile;
-
-			// IPath location = new Path(name);
-			// IFile file = project.getFile(location.lastSegment());
-			// file.createLink(location, IResource.NONE, null);
-		}
-		catch(CoreException e) {
-			throw new WrappedException(e);
-		}
-	}
-
-	private void unlinkInput(IFileEditorInput input) {
-		IFile file = input.getFile();
-		if(file.isLinked()) {
-			file.getProject().getName().equals(AUTOLINK_PROJECT_NAME);
-			try {
-				// if the editor is disposed because workbench is shutting down, it is NOT a good
-				// idea to delete the link
-				if(PlatformUI.isWorkbenchRunning() && !PlatformUI.getWorkbench().isClosing())
-					file.delete(true, null);
-			}
-			catch(CoreException e) {
-				// Nothing to do really, it will be recreated/refreshed later if ever used - some garbage may stay behind...
-				// TODO: log the issue
-				e.printStackTrace();
-			}
-		}
-	}
 }
