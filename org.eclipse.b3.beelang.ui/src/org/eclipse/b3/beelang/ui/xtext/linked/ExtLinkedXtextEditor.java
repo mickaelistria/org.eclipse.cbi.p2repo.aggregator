@@ -42,6 +42,7 @@ import org.eclipse.ui.internal.editors.text.EditorsPlugin;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
+import org.eclipse.xtext.ui.editor.CompoundXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 
 import com.google.inject.Inject;
@@ -61,6 +62,9 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 	 */
 	public static final QualifiedName LAST_SAVEAS_LOCATION = new QualifiedName(
 		"org.eclipse.b3.beelang.ui", "lastSaveLocation");
+
+	@Inject
+	private CompoundXtextEditorCallback callback;
 
 	/**
 	 * Does nothing except server as a place to set a breakpoint :)
@@ -128,11 +132,12 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 	 */
 	@Override
 	public void doSaveAs() {
-		super.doSaveAs();
+		performSaveAs(getProgressMonitor());
 		// force refresh of content outline
 		IContentOutlinePage outlinePage = (IContentOutlinePage) getAdapter(IContentOutlinePage.class);
 		if(outlinePage instanceof RefreshableXtextContentOutlinePage)
 			((RefreshableXtextContentOutlinePage) outlinePage).externalRefresh();
+		callback.afterSave(this);
 	}
 
 	/**
