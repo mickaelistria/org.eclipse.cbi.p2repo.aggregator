@@ -1438,6 +1438,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		iTypedValueContainerEClass = createEClass(ITYPED_VALUE_CONTAINER);
 
 		bCallFeatureEClass = createEClass(BCALL_FEATURE);
+		createEAttribute(bCallFeatureEClass, BCALL_FEATURE__CALL);
 
 		bCallNamedFunctionEClass = createEClass(BCALL_NAMED_FUNCTION);
 		createEReference(bCallNamedFunctionEClass, BCALL_NAMED_FUNCTION__FUNC_REF);
@@ -1958,6 +1959,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EClass getBCallFeature() {
 		return bCallFeatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBCallFeature_Call() {
+		return (EAttribute) bCallFeatureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5191,6 +5202,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(
 			bCallFeatureEClass, BCallFeature.class, "BCallFeature", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getBCallFeature_Call(), ecorePackage.getEBoolean(), "call", null, 0, 1, BCallFeature.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			bCallNamedFunctionEClass, BCallNamedFunction.class, "BCallNamedFunction", !IS_ABSTRACT, !IS_INTERFACE,

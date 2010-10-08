@@ -204,6 +204,10 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	 * @return
 	 */
 	public B3FunctionType signature(BCallFeature o) {
+		// if the BCallFeature represents a feature LValue expression, do not produce a signature
+		if(!o.isCall())
+			return signature((Object) o);
+
 		// 1. Find the function that will be called
 		// 2. Get its signature
 		// 3. Resolve the return type if it depends on the parameters.
@@ -480,6 +484,44 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 			return Object.class;
 		}
 		return returnType;
+	}
+
+	/**
+	 * A BCallFeature represents a call if {@link BCallFeature#isCall()} is true, otherwise a
+	 * it represents a feature LValue (like BFeatureExpression).
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public Type type(BCallFeature o) {
+		// if it is a call, nothing except treating the BCallFeature as a BCallExpression is needed
+		if(o.isCall())
+			return type((BCallExpression) o);
+		Type t = null;
+		BExpression objExpression = o.getFuncExpr();
+		if(objExpression == null) {
+			// this means the feature of the closest "BCreateExpression"
+			EObject container = o.eContainer();
+			while(container != null && !(container instanceof BCreateExpression))
+				container = container.eContainer();
+			if(container != null)
+				t = doGetInferredType(container);
+			else
+				t = Object.class;
+		}
+		else
+			t = doGetInferredType(objExpression);
+		try {
+			return new PojoFeature(TypeUtils.getRaw(t), o.getName()).getDeclaredType();
+		}
+		catch(B3NoSuchFeatureException e2) {
+			// this happens a lot while typing in the editor
+			return null;
+		}
+		catch(B3EngineException e) {
+			throw new IllegalArgumentException("Could not determine type of feature expression due to error.", e);
+		}
+
 	}
 
 	public Type type(BCase o) {
@@ -1005,6 +1047,34 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	public ITypeInfo typeInfo(BAtExpression o) {
 		// TODO: investigate if possible to statically check if the target of the At is readonly
 		return new TypeInfo(doGetInferredType(o), true, true);
+	}
+
+	public ITypeInfo typeInfo(BCallFeature o) {
+		if(o.isCall())
+			return typeInfo((Object) o);
+
+		EObject objE = o.getFuncExpr();
+
+		// TODO: Ugly, it expects to find "special engine var 'this'" in runtime == a created instance
+		// when the object expression is null.
+		if(objE == null) {
+			EObject container = o;
+			while(container.eContainer() != null && !(container instanceof BCreateExpression))
+				container = container.eContainer();
+			objE = container;
+		}
+		String fname = o.getName();
+		Type type = doGetInferredType(objE);
+
+		PojoFeature resultingLValue = new PojoFeature(TypeUtils.getRaw(type), fname);
+		// it is an lvalue if gettble
+		// it is settable if there is a setter, or if it is an EObject (can't get the package
+		// and check the meta-data, an eSet is always available, but it is not know if a set will
+		// succeed.
+		boolean eobj = TypeUtils.isAssignableFrom(EObject.class, type);
+		Type featureType = doGetInferredType(o);
+		boolean isEList = eobj && TypeUtils.isAssignableFrom(EList.class, featureType);
+		return new TypeInfo(featureType, resultingLValue.isGetable(), isEList || resultingLValue.isSettable(), eobj);
 	}
 
 	public ITypeInfo typeInfo(BDefValue o) {

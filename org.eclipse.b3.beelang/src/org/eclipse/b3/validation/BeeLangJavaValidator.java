@@ -52,8 +52,12 @@ import org.eclipse.b3.build.core.iterators.PathIterator;
 import org.eclipse.b3.build.core.runtime.RepositoryValidation;
 import org.eclipse.b3.build.repository.IRepositoryValidator;
 import org.eclipse.b3.build.repository.IRepositoryValidator.IOption;
+import org.eclipse.b3.scoping.DeclarativeVarScopeProvider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.validation.Check;
 
 import com.google.common.base.ReferenceType;
@@ -242,7 +246,7 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 					B3BuildPackage.BUILD_UNIT__PROVIDERS, ISSUE_BUILD_UNIT__MULTIPLE_RESOLUTIONS);
 		}
 		// make sure all "implements" are unique
-		// make sure all "imlements" are BuildUnit interfaces
+		// make sure all "implements" are BuildUnit interfaces
 		List<Type> seenTypes = Lists.newArrayList();
 		for(Type t : buildUnit.getImplements()) {
 			if(t instanceof B3ParameterizedType && ((B3ParameterizedType) t).getRawType() == null) {
@@ -523,6 +527,7 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 
 	@Check
 	public void checkValueDefinition(BDefValue expr) {
+		// Check type compatibility
 		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
 		Type lhsType = typer.doGetInferredType(expr);
 		Type rhsType = typer.doGetInferredType(expr.getValueExpr());
@@ -532,8 +537,35 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 			error(
 				"Type mismatch: Cannot convert from " + lhsName + " to " + rhsName, expr,
 				B3backendPackage.BDEF_VALUE__VALUE_EXPR);
-			return;
+			// return;
 		}
+		// Use a scope provider to find named values (i.e. variables visible in the scope)
+		//
+		DeclarativeVarScopeProvider scopeProvider = new DeclarativeVarScopeProvider();
+		for(IScope scope = scopeProvider.doGetVarScope(expr.eContainer(), expr); scope != IScope.NULLSCOPE; scope = scope.getOuterScope())
+			for(IEObjectDescription desc : scope.getContents()) {
+				// if the expr was found
+				if(desc.getEObjectOrProxy() == expr)
+					continue;
+
+				// only check BDefValues
+				if(desc.getEClass() != B3backendPackage.Literals.BDEF_VALUE)
+					continue;
+				EObject other = desc.getEObjectOrProxy();
+				if(other.eIsProxy())
+					other = EcoreUtil.resolve(other, expr.eResource().getResourceSet());
+				// if name is equal
+				String n = desc.getName();
+				if(n != null && n.equals(expr.getName())) {
+					// if in the same container
+					if(other.eContainer() == expr.eContainer())
+						error("Duplicate variable name", expr, B3backendPackage.BDEF_VALUE__NAME);
+					if(!other.eIsProxy()) {
+						if(((BDefValue) other).isFinal())
+							error("Can not redefined a final variable", expr, B3backendPackage.BDEF_VALUE__NAME);
+					}
+				}
+			}
 	}
 
 	@Check

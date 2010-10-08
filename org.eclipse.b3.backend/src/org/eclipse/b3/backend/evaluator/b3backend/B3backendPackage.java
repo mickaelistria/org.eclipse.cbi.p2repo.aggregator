@@ -1263,6 +1263,15 @@ public interface B3backendPackage extends EPackage {
 		EClass BCALL_FEATURE = eINSTANCE.getBCallFeature();
 
 		/**
+		 * The meta object literal for the '<em><b>Call</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BCALL_FEATURE__CALL = eINSTANCE.getBCallFeature_Call();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCallNamedFunctionImpl
 		 * <em>BCall Named Function</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -7446,6 +7455,16 @@ public interface B3backendPackage extends EPackage {
 	int BCALL_FEATURE__NAME = BCALL_EXPRESSION__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Call</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BCALL_FEATURE__CALL = BCALL_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>BCall Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7453,7 +7472,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCALL_FEATURE_FEATURE_COUNT = BCALL_EXPRESSION_FEATURE_COUNT + 0;
+	int BCALL_FEATURE_FEATURE_COUNT = BCALL_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCallNamedFunctionImpl <em>BCall Named Function</em>}'
@@ -8485,6 +8504,18 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBCallFeature();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BCallFeature#isCall <em>Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Call</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCallFeature#isCall()
+	 * @see #getBCallFeature()
+	 * @generated
+	 */
+	EAttribute getBCallFeature_Call();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BCallFunction <em>BCall Function</em>}'.

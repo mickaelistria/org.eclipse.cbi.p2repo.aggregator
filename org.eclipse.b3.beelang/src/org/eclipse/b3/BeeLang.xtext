@@ -739,11 +739,12 @@ PostopExpression returns be::BExpression :
 	InfixExpression ({be::BUnaryPostOpExpression.expr=current} functionName = ("--" | "++"))?
 	;
 
+// Note that grammar is lenient with optional elements to enable good CA
 InfixExpression returns be::BExpression :
 	CallExpression ( 
-	  	({be::BCallFeature.funcExpr=current} "." name=ID_or_KW  "(" (parameterList = ParameterList)? ")")
-	  |	({be::BAtExpression.objExpr=current} '[' indexExpr=Expression ']' )
-	  | ({be::BFeatureExpression.objExpr=current} "." featureName=ID_or_KW)
+	  	({be::BCallFeature.funcExpr=current} "." (name=ID_or_KW  (call ?= "(" (parameterList = ParameterList)? ")")?)?)
+	  |	({be::BAtExpression.objExpr=current} '[' (indexExpr=Expression)? ']' )
+//	  | ({be::BFeatureExpression.objExpr=current} "." featureName=ID_or_KW)
 	)*;
 	
 CallExpression returns be::BExpression : 
@@ -830,7 +831,6 @@ ElseIfExpression returns be::BExpression : {be::BIfExpression}
 	
 PropertyValue returns  be::BExpression : {be::BVariableExpression}
 	namedValue = [be::INamedValue | PID]
-//	name = PID
 	;
 	
 VariableValue returns  be::BExpression : {be::BVariableExpression}
@@ -846,14 +846,10 @@ KW_NO_UNIT : "input" | "output" | "source" | "result" | "properties" | "builder"
 	
 FeatureCall returns be::BExpression :
 	OperationCall
-// DEPRECATED: calling ".feature" with implicit 'this'
-//	| ({be::BCallFeature} "." name=ID_or_KW  "(" (parameterList = ParameterList)? ")")
-//	| ({be::BFeatureExpression} "." featureName=ID_or_KW)
 	;
 	
 OperationCall returns be::BCallExpression : {be::BCallNamedFunction}
-	funcRef = [be::IFunction | ID]
-	'(' (parameterList = ParameterList)? ')' 
+	funcRef = [be::IFunction | ID] '(' (parameterList = ParameterList)? ')' 
 	;
 
 ConstructorCallExpression returns be::BExpression : {be::BCreateExpression} 
@@ -1329,7 +1325,7 @@ terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')? ;
 terminal WS : (' '|'\t'|'\r'|'\n')+ ;
 terminal HEX : '0' ('x'|'X')(('0'..'9')|('a'..'f')|('A'..'F'))+ ;
 terminal INT : ('0'..'9')+;
-REAL hidden(): INT ? '.' (EXT_INT | INT);
+REAL hidden(): INT '.' (EXT_INT | INT); // INT ? '.' (EXT_INT | INT);
 terminal EXT_INT: INT ('e'|'E')('-'|'+') INT;
  
 terminal ANY_OTHER : . ;

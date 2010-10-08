@@ -450,33 +450,9 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 	}
 
 	public Object evaluate(BCallFeature o, BExecutionContext ctx) throws Throwable {
-		if(ctx.getProgressMonitor().isCanceled())
-			throw new OperationCanceledException();
-		Throwable lastError = null;
-		try {
-			Object target = doEvaluate(o.getFuncExpr(), ctx);
-			EList<BParameter> pList = o.getParameterList().getParameters();
-			int nbrParams = pList.size() + 1;
-			Object[] parameters = new Object[nbrParams];
-			Type[] tparameters = new Type[nbrParams];
-			int counter = 0;
-			parameters[counter] = target;
-			// first parameter always have its actual type
-			tparameters[counter++] = safeActualTypeOf(target, typer.doGetInferredType(o.getFuncExpr()));
-			for(BParameter p : pList) {
-				BExpression e = p.getExpr();
-				parameters[counter] = doEvaluate(e, ctx);
-				tparameters[counter++] = typer.doGetInferredType(e);
-			}
-			return callFunction(o.getName(), parameters, tparameters, ctx);
-		}
-		catch(B3NoSuchFunctionSignatureException e) {
-			lastError = e;
-		}
-		catch(B3NoSuchFunctionException e) {
-			lastError = e;
-		}
-		throw B3BackendException.fromMessage(o, lastError, "Call failed - see details.");
+		return o.isCall()
+				? evaluateAsCall(o, ctx)
+				: evaluateAsLVal(o, ctx);
 	}
 
 	/**
@@ -1173,6 +1149,28 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		// throw BackendHelper.createException(o.getObjExpr(), "expression is neither a list or map - [] not applicable");
 	}
 
+	public LValue lValue(BCallFeature o, BExecutionContext ctx) throws Throwable {
+		if(o.isCall())
+			return lValue((Object) o, ctx);
+
+		String featureName = o.getName();
+		BExpression objExpr = o.getFuncExpr();
+
+		Object lhs = objExpr == null
+				? ctx.getValue(B3BackendConstants.B3BACKEND_THIS)
+				: doEvaluate(objExpr, ctx);
+		// for Ecore
+		if(lhs instanceof EObject) {
+			EObject eLhs = (EObject) lhs;
+			EStructuralFeature feature = eLhs.eClass().getEStructuralFeature(featureName);
+			if(feature == null)
+				throw BackendHelper.createException(
+					objExpr, "feature ''{0}'' is not a feature of the lhs expression", new Object[] { featureName });
+			return new EcoreFeatureLValue((EObject) lhs, feature);
+		}
+		return new PojoFeatureLValue(lhs, featureName);
+	}
+
 	public LValue lValue(BDefValue o, BExecutionContext ctx) throws Throwable {
 		// must define it if getLValue is called before evaluate
 		if(!ctx.getValueMap().containsKey(o.getName()))
@@ -1373,5 +1371,65 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		if(declaredType instanceof B3MetaClass)
 			return declaredType;
 		return x.getClass();
+	}
+
+	private Object evaluateAsCall(BCallFeature o, BExecutionContext ctx) throws Throwable {
+		if(ctx.getProgressMonitor().isCanceled())
+			throw new OperationCanceledException();
+		Throwable lastError = null;
+		try {
+			Object target = doEvaluate(o.getFuncExpr(), ctx);
+			EList<BParameter> pList = o.getParameterList().getParameters();
+			int nbrParams = pList.size() + 1;
+			Object[] parameters = new Object[nbrParams];
+			Type[] tparameters = new Type[nbrParams];
+			int counter = 0;
+			parameters[counter] = target;
+			// first parameter always have its actual type
+			tparameters[counter++] = safeActualTypeOf(target, typer.doGetInferredType(o.getFuncExpr()));
+			for(BParameter p : pList) {
+				BExpression e = p.getExpr();
+				parameters[counter] = doEvaluate(e, ctx);
+				tparameters[counter++] = typer.doGetInferredType(e);
+			}
+			return callFunction(o.getName(), parameters, tparameters, ctx);
+		}
+		catch(B3NoSuchFunctionSignatureException e) {
+			lastError = e;
+		}
+		catch(B3NoSuchFunctionException e) {
+			lastError = e;
+		}
+		throw B3BackendException.fromMessage(o, lastError, "Call failed - see details.");
+	}
+
+	private Object evaluateAsLVal(BCallFeature o, BExecutionContext ctx) throws Throwable {
+		String featureName = o.getName();
+		BExpression objExpr = o.getFuncExpr();
+		Object lhs = objExpr == null
+				? ctx.getValue(B3BackendConstants.B3BACKEND_THIS)
+				: doEvaluate(objExpr, ctx);
+		// for Ecore
+		if(lhs instanceof EObject) {
+			EObject eLhs = (EObject) lhs;
+			EStructuralFeature feature = eLhs.eClass().getEStructuralFeature(featureName);
+			if(feature == null)
+				throw BackendHelper.createException(
+					objExpr, "feature ''{0}'' is not a feature of the lhs expression", new Object[] { featureName });
+			return eLhs.eGet(feature);
+		}
+		// use pojo reflection
+		PojoFeatureLValue resultingLValue = new PojoFeatureLValue(lhs, featureName);
+		Object result = null;
+		try {
+			if(resultingLValue.isGetable())
+				result = resultingLValue.get();
+		}
+		catch(Throwable e) {
+			throw BackendHelper.createException(
+				objExpr, e, "failed to get feature ''{0}'' from lhs expression", new Object[] { featureName });
+		}
+		return result;
+
 	}
 }

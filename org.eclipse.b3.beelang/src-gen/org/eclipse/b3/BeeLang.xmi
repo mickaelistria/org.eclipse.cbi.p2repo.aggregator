@@ -2975,14 +2975,20 @@
             </type>
           </elements>
           <elements xsi:type="xtext:Keyword" value="."/>
-          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.117"/>
+          <elements xsi:type="xtext:Group" cardinality="?">
+            <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.117"/>
+            </elements>
+            <elements xsi:type="xtext:Group" cardinality="?">
+              <elements xsi:type="xtext:Assignment" feature="call" operator="?=">
+                <terminal xsi:type="xtext:Keyword" value="("/>
+              </elements>
+              <elements xsi:type="xtext:Assignment" cardinality="?" feature="parameterList" operator="=">
+                <terminal xsi:type="xtext:RuleCall" rule="//@rules.44"/>
+              </elements>
+              <elements xsi:type="xtext:Keyword" value=")"/>
+            </elements>
           </elements>
-          <elements xsi:type="xtext:Keyword" value="("/>
-          <elements xsi:type="xtext:Assignment" cardinality="?" feature="parameterList" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.44"/>
-          </elements>
-          <elements xsi:type="xtext:Keyword" value=")"/>
         </elements>
         <elements xsi:type="xtext:Group">
           <elements xsi:type="xtext:Action" feature="objExpr" operator="=">
@@ -2991,21 +2997,10 @@
             </type>
           </elements>
           <elements xsi:type="xtext:Keyword" value="["/>
-          <elements xsi:type="xtext:Assignment" feature="indexExpr" operator="=">
+          <elements xsi:type="xtext:Assignment" cardinality="?" feature="indexExpr" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="//@rules.77"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value="]"/>
-        </elements>
-        <elements xsi:type="xtext:Group">
-          <elements xsi:type="xtext:Action" feature="objExpr" operator="=">
-            <type metamodel="//@metamodelDeclarations.1">
-              <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BFeatureExpression"/>
-            </type>
-          </elements>
-          <elements xsi:type="xtext:Keyword" value="."/>
-          <elements xsi:type="xtext:Assignment" feature="featureName" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.117"/>
-          </elements>
         </elements>
       </elements>
     </alternatives>
@@ -5539,7 +5534,7 @@
       <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </type>
     <alternatives xsi:type="xtext:Group">
-      <elements xsi:type="xtext:RuleCall" cardinality="?" rule="//@rules.208"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.208"/>
       <elements xsi:type="xtext:Keyword" value="."/>
       <elements xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:RuleCall" rule="//@rules.210"/>

@@ -4443,6 +4443,10 @@
     <children xmi:type="notation:Node" xmi:id="_3N0jgDMpEd-GRIiwrArL0w" type="1001">
       <children xmi:type="notation:Node" xmi:id="_3QbLkDMpEd-GRIiwrArL0w" type="4001"/>
       <children xmi:type="notation:Node" xmi:id="_3QbLkTMpEd-GRIiwrArL0w" type="5001">
+        <children xmi:type="notation:Node" xmi:id="_QS0gENLuEd-dYs7wLEuhhw" type="2001">
+          <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//BCallFeature/call"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_QS0gEdLuEd-dYs7wLEuhhw"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_3QbLkjMpEd-GRIiwrArL0w"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_3QbLkzMpEd-GRIiwrArL0w"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_3QbLlDMpEd-GRIiwrArL0w"/>

@@ -400,8 +400,9 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPostopExpressionAccess().getGroup_1(), "rule__PostopExpression__Group_1__0");
 					put(grammarAccess.getInfixExpressionAccess().getGroup(), "rule__InfixExpression__Group__0");
 					put(grammarAccess.getInfixExpressionAccess().getGroup_1_0(), "rule__InfixExpression__Group_1_0__0");
+					put(grammarAccess.getInfixExpressionAccess().getGroup_1_0_2(), "rule__InfixExpression__Group_1_0_2__0");
+					put(grammarAccess.getInfixExpressionAccess().getGroup_1_0_2_1(), "rule__InfixExpression__Group_1_0_2_1__0");
 					put(grammarAccess.getInfixExpressionAccess().getGroup_1_1(), "rule__InfixExpression__Group_1_1__0");
-					put(grammarAccess.getInfixExpressionAccess().getGroup_1_2(), "rule__InfixExpression__Group_1_2__0");
 					put(grammarAccess.getCallExpressionAccess().getGroup(), "rule__CallExpression__Group__0");
 					put(grammarAccess.getCallExpressionAccess().getGroup_1(), "rule__CallExpression__Group_1__0");
 					put(grammarAccess.getWithExpressionAccess().getGroup(), "rule__WithExpression__Group__0");
@@ -872,10 +873,10 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPreopExpressionAccess().getFunctionNameAssignment_1(), "rule__PreopExpression__FunctionNameAssignment_1");
 					put(grammarAccess.getPreopExpressionAccess().getExprAssignment_2(), "rule__PreopExpression__ExprAssignment_2");
 					put(grammarAccess.getPostopExpressionAccess().getFunctionNameAssignment_1_1(), "rule__PostopExpression__FunctionNameAssignment_1_1");
-					put(grammarAccess.getInfixExpressionAccess().getNameAssignment_1_0_2(), "rule__InfixExpression__NameAssignment_1_0_2");
-					put(grammarAccess.getInfixExpressionAccess().getParameterListAssignment_1_0_4(), "rule__InfixExpression__ParameterListAssignment_1_0_4");
+					put(grammarAccess.getInfixExpressionAccess().getNameAssignment_1_0_2_0(), "rule__InfixExpression__NameAssignment_1_0_2_0");
+					put(grammarAccess.getInfixExpressionAccess().getCallAssignment_1_0_2_1_0(), "rule__InfixExpression__CallAssignment_1_0_2_1_0");
+					put(grammarAccess.getInfixExpressionAccess().getParameterListAssignment_1_0_2_1_1(), "rule__InfixExpression__ParameterListAssignment_1_0_2_1_1");
 					put(grammarAccess.getInfixExpressionAccess().getIndexExprAssignment_1_1_2(), "rule__InfixExpression__IndexExprAssignment_1_1_2");
-					put(grammarAccess.getInfixExpressionAccess().getFeatureNameAssignment_1_2_2(), "rule__InfixExpression__FeatureNameAssignment_1_2_2");
 					put(grammarAccess.getCallExpressionAccess().getParameterListAssignment_1_2(), "rule__CallExpression__ParameterListAssignment_1_2");
 					put(grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_0(), "rule__WithExpression__ReferencedAdviceAssignment_2_0");
 					put(grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_1_1(), "rule__WithExpression__ReferencedAdviceAssignment_2_1_1");

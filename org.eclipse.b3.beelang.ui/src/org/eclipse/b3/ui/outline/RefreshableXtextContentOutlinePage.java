@@ -64,6 +64,8 @@ import com.google.inject.Provider;
  * - Unfortunately it is not possible to create an alternative implementation as the toolbar configurer
  * expects an instance of XtextContentOutlinePage
  * 
+ * Only one method: externalRefresh is a real change to the underlying class.
+ * 
  */
 public class RefreshableXtextContentOutlinePage extends XtextContentOutlinePage /* , ContentOutlinePage */implements
 		ISourceViewerAware, IXtextEditorAware {
@@ -122,7 +124,7 @@ public class RefreshableXtextContentOutlinePage extends XtextContentOutlinePage 
 	private Provider<IContentOutlineNodeForTextSelectionFinder> nodeForTextSelectionFinderProvider;
 
 	public RefreshableXtextContentOutlinePage() {
-		// super's default constructor will be called and do the same - meaningless and wasteful
+		// HACK: super's default constructor will be called and do the same - meaningless and wasteful
 		sorter = createSorter();
 	}
 
@@ -179,6 +181,7 @@ public class RefreshableXtextContentOutlinePage extends XtextContentOutlinePage 
 	}
 
 	/**
+	 * THIS METHOD IS THE ONLY REAL ADDITION TO THE COPIED/HACKED CLASS
 	 * Special method that should be called from performSavedAs
 	 */
 	public void externalRefresh() {

@@ -287,19 +287,19 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.b3.ui.contentassist.AbstractBeeLangProposalProvider#completeInfixExpression_FeatureName(org.eclipse.emf.ecore.EObject,
-	 * org.eclipse.xtext.Assignment, org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext,
-	 * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
-	 */
-	@Override
-	public void completeInfixExpression_FeatureName(EObject model, Assignment assignment, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		// TODO Auto-generated method stub Unfinished due to Xtext bug
-		super.completeInfixExpression_FeatureName(model, assignment, context, acceptor);
-	}
+	// /*
+	// * (non-Javadoc)
+	// *
+	// * @see org.eclipse.b3.ui.contentassist.AbstractBeeLangProposalProvider#completeInfixExpression_FeatureName(org.eclipse.emf.ecore.EObject,
+	// * org.eclipse.xtext.Assignment, org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext,
+	// * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
+	// */
+	// @Override
+	// public void completeInfixExpression_FeatureName(EObject model, Assignment assignment, ContentAssistContext context,
+	// ICompletionProposalAcceptor acceptor) {
+	// // // TODO Auto-generated method stub Unfinished due to Xtext bug
+	// // super.completeInfixExpression_FeatureName(model, assignment, context, acceptor);
+	// }
 
 	/*
 	 * (non-Javadoc)

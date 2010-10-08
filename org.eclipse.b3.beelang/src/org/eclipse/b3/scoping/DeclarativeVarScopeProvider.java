@@ -74,26 +74,13 @@ public class DeclarativeVarScopeProvider {
 			}
 		});
 
-	/**
-	 * Safe create SimpleScope (if outer is null).
-	 * 
-	 * @param outer
-	 * @param descriptions
-	 * @return
-	 */
-	private IScope createScope(IScope outer, Iterable<IEObjectDescription> descriptions) {
-		return new SimpleScope(outer == null
-				? SimpleScope.NULLSCOPE
-				: outer, descriptions);
-	}
-
-	protected IScope doGetVarScope(EObject container, EObject contained) {
+	public IScope doGetVarScope(EObject container, EObject contained) {
 		if(container == null)
 			return null;
 		return (IScope) scopeDispatcher.invoke(container, contained);
 	}
 
-	protected IScope doGetVarScope(Object element) {
+	public IScope doGetVarScope(Object element) {
 		IScope scope = (IScope) scopeDispatcher.invoke(element);
 		if(scope != null) {
 			return scope;
@@ -101,12 +88,55 @@ public class DeclarativeVarScopeProvider {
 		return null;
 	}
 
-	private B3BuildEngineResource getDefaultResource(EObject o) {
-		ResourceSet rs = o.eResource().getResourceSet();
+	public IScope varScope(BCatch container, EObject contained) {
+		if(container.getName() == null)
+			return doGetVarScope(container.eContainer(), container);
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		result.add(new EObjectDescription(container.getName(), container, null));
+		return createScope(doGetVarScope(container.eContainer(), container), result);
+	}
 
-		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
-		return (B3BuildEngineResource) rs.getResource(uri, true);
+	public IScope varScope(BCreateExpression container, EObject contained) {
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		// result.add(new EObjectDescription("this", container, null));
+		if(container.getName() != null)
+			result.add(new EObjectDescription(container.getName(), container, null));
+		if(result.size() < 1)
+			return doGetVarScope(container.eContainer(), container);
+		return createScope(doGetVarScope(container.eContainer(), container), result);
+	}
 
+	public IScope varScope(BuildUnit container, EObject contained) {
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		result.add(new EObjectDescription("unit", container, null));
+		// if(container.getName() != null)
+		// result.add(new EObjectDescription(container.getName(), container, null));
+		if(result.size() < 1)
+			return doGetVarScope(container.eContainer(), container);
+		return createScope(doGetVarScope(container.eContainer(), container), result);
+	}
+
+	public IScope varScope(BWithContextExpression container, EObject contained) {
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		result.add(new EObjectDescription(container.getName(), container, null));
+		return createScope(doGetVarScope(container.eContainer(), container), result);
+	}
+
+	/**
+	 * Default - a container that does not introduce variables simple continues the search in its parent.
+	 * 
+	 * @param container
+	 * @param contained
+	 * @return
+	 */
+	public IScope varScope(EObject container, EObject contained) {
+		if(container == null)
+			return null;
+		return doGetVarScope(container.eContainer(), container);
+	}
+
+	public IScope varScope(Object o) {
+		return null;
 	}
 
 	protected Object handleError(Object[] params, Throwable e) {
@@ -138,14 +168,6 @@ public class DeclarativeVarScopeProvider {
 		return createScope(doGetVarScope(container.eContainer(), container), result);
 	}
 
-	public IScope varScope(BCatch container, EObject contained) {
-		if(container.getName() == null)
-			return doGetVarScope(container.eContainer(), container);
-		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		result.add(new EObjectDescription(container.getName(), container, null));
-		return createScope(doGetVarScope(container.eContainer(), container), result);
-	}
-
 	IScope varScope(BChainedExpression container, EObject contained) {
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		// search expressions from start to the contained (variables declared after the contained are
@@ -158,16 +180,6 @@ public class DeclarativeVarScopeProvider {
 		}
 		// if there were no values to add, continue search in container (not meaningful to create
 		// an empty scope with parent scope as outer.
-		if(result.size() < 1)
-			return doGetVarScope(container.eContainer(), container);
-		return createScope(doGetVarScope(container.eContainer(), container), result);
-	}
-
-	public IScope varScope(BCreateExpression container, EObject contained) {
-		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		// result.add(new EObjectDescription("this", container, null));
-		if(container.getName() != null)
-			result.add(new EObjectDescription(container.getName(), container, null));
 		if(result.size() < 1)
 			return doGetVarScope(container.eContainer(), container);
 		return createScope(doGetVarScope(container.eContainer(), container), result);
@@ -295,48 +307,11 @@ public class DeclarativeVarScopeProvider {
 
 	}
 
-	public IScope varScope(BuildUnit container, EObject contained) {
-		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		result.add(new EObjectDescription("unit", container, null));
-		// if(container.getName() != null)
-		// result.add(new EObjectDescription(container.getName(), container, null));
-		if(result.size() < 1)
-			return doGetVarScope(container.eContainer(), container);
-		return createScope(doGetVarScope(container.eContainer(), container), result);
-	}
-
 	IScope varScope(BVariableExpression varExpr) {
 		IScope scope = doGetVarScope(varExpr.eContainer(), varExpr);
 		if(scope == null)
 			return SimpleScope.NULLSCOPE;
 		return scope;
-	}
-
-	public IScope varScope(BWithContextExpression container, EObject contained) {
-		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
-		result.add(new EObjectDescription(container.getName(), container, null));
-		return createScope(doGetVarScope(container.eContainer(), container), result);
-	}
-
-	/**
-	 * Default - a container that does not introduce variables simple continues the search in its parent.
-	 * 
-	 * @param container
-	 * @param contained
-	 * @return
-	 */
-	public IScope varScope(EObject container, EObject contained) {
-		if(container == null)
-			return null;
-		return doGetVarScope(container.eContainer(), container);
-	}
-
-	// public IScope varScope(UnitConcernContext container, EObject contained) {
-	//
-	// }
-
-	public IScope varScope(Object o) {
-		return null;
 	}
 
 	/**
@@ -354,5 +329,30 @@ public class DeclarativeVarScopeProvider {
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
 		result.add(new EObjectDescription(req.getName(), req, null));
 		return createScope(doGetVarScope(container.eContainer(), container), result);
+	}
+
+	// public IScope varScope(UnitConcernContext container, EObject contained) {
+	//
+	// }
+
+	/**
+	 * Safe create SimpleScope (if outer is null).
+	 * 
+	 * @param outer
+	 * @param descriptions
+	 * @return
+	 */
+	private IScope createScope(IScope outer, Iterable<IEObjectDescription> descriptions) {
+		return new SimpleScope(outer == null
+				? SimpleScope.NULLSCOPE
+				: outer, descriptions);
+	}
+
+	private B3BuildEngineResource getDefaultResource(EObject o) {
+		ResourceSet rs = o.eResource().getResourceSet();
+
+		URI uri = URI.createURI(B3BuildConstants.B3ENGINE_MODEL_URI);
+		return (B3BuildEngineResource) rs.getResource(uri, true);
+
 	}
 }

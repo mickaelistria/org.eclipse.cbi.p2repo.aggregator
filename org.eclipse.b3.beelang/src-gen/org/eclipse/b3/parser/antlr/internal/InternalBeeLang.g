@@ -13394,10 +13394,10 @@ ruleInfixExpression returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getInfixExpressionAccess().getFullStopKeyword_1_0_1(), null); 
     }
-(
+((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getInfixExpressionAccess().getNameID_or_KWParserRuleCall_1_0_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getInfixExpressionAccess().getNameID_or_KWParserRuleCall_1_0_2_0_0(), currentNode); 
 	    }
 		lv_name_3_0=ruleID_or_KW		{
 	        if ($current==null) {
@@ -13418,14 +13418,31 @@ ruleInfixExpression returns [EObject current=null]
 	    }
 
 )
-)	'(' 
-    {
-        createLeafNode(grammarAccess.getInfixExpressionAccess().getLeftParenthesisKeyword_1_0_3(), null); 
-    }
+)((
 (
+		lv_call_4_0=	'(' 
+    {
+        createLeafNode(grammarAccess.getInfixExpressionAccess().getCallLeftParenthesisKeyword_1_0_2_1_0_0(), "call"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getInfixExpressionRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "call", true, "(", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getInfixExpressionAccess().getParameterListParameterListParserRuleCall_1_0_4_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getInfixExpressionAccess().getParameterListParameterListParserRuleCall_1_0_2_1_1_0(), currentNode); 
 	    }
 		lv_parameterList_5_0=ruleParameterList		{
 	        if ($current==null) {
@@ -13448,9 +13465,9 @@ ruleInfixExpression returns [EObject current=null]
 )
 )?	')' 
     {
-        createLeafNode(grammarAccess.getInfixExpressionAccess().getRightParenthesisKeyword_1_0_5(), null); 
+        createLeafNode(grammarAccess.getInfixExpressionAccess().getRightParenthesisKeyword_1_0_2_1_2(), null); 
     }
-)
+)?)?)
     |((
 	{ 
 	  /* */ 
@@ -13498,59 +13515,11 @@ ruleInfixExpression returns [EObject current=null]
 	    }
 
 )
-)	']' 
+)?	']' 
     {
         createLeafNode(grammarAccess.getInfixExpressionAccess().getRightSquareBracketKeyword_1_1_3(), null); 
     }
-)
-    |((
-	{ 
-	  /* */ 
-	}
-    { 
-        temp=factory.create(grammarAccess.getInfixExpressionAccess().getBFeatureExpressionObjExprAction_1_2_0().getType().getClassifier());
-        try {
-        	factory.set(temp, "objExpr", $current, null /*ParserRule*/, currentNode);
-        } catch(ValueConverterException vce) {
-        	handleValueConverterException(vce);
-        }
-        $current = temp; 
-        temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getInfixExpressionAccess().getBFeatureExpressionObjExprAction_1_2_0(), currentNode.getParent());
-    newNode.getChildren().add(currentNode);
-    moveLookaheadInfo(currentNode, newNode);
-    currentNode = newNode; 
-        associateNodeWithAstElement(currentNode, $current); 
-    }
-)	'.' 
-    {
-        createLeafNode(grammarAccess.getInfixExpressionAccess().getFullStopKeyword_1_2_1(), null); 
-    }
-(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getInfixExpressionAccess().getFeatureNameID_or_KWParserRuleCall_1_2_2_0(), currentNode); 
-	    }
-		lv_featureName_13_0=ruleID_or_KW		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getInfixExpressionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"featureName",
-	        		lv_featureName_13_0, 
-	        		"ID_or_KW", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-)))*)
+))*)
 ;
 
 
@@ -23375,14 +23344,14 @@ ruleREAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     @after { resetLookahead(); 
 	    lastConsumedNode = currentNode;
     }:
-((    this_INT_0=RULE_INT    {
+(    this_INT_0=RULE_INT    {
 		$current.merge(this_INT_0);
     }
 
     { 
     createLeafNode(grammarAccess.getREALAccess().getINTTerminalRuleCall_0(), null); 
     }
-)?
+
 	kw='.' 
     {
         $current.merge(kw);
