@@ -42,14 +42,23 @@ import org.eclipse.ui.internal.editors.text.EditorsPlugin;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-import org.eclipse.xtext.ui.editor.CompoundXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 
 import com.google.inject.Inject;
 
 /**
  * This class extends the standard XtextEditor to make it capable of
- * opening and saving external files, by managing them as linked resources.
+ * opening and saving external files by managing them as linked resources.
+ * 
+ * This implementation also supports temporary files than when saved will change to
+ * a SaveAs operation (also see {@link TmpFileStoreEditorInput}).
+ * 
+ * An editor customizer can also be bound and it will receive calls to manage the content
+ * of the context menu (see {@link IExtXtextEditorCustomizer}).
+ * 
+ * Also see {@link ExtLinkedXtextEditorMatchingStrategy} which is required to ensure multiple
+ * editors are not opened for the same file.
+ * 
  */
 public class ExtLinkedXtextEditor extends XtextEditor {
 
@@ -59,12 +68,10 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 	/**
 	 * Property for last saved location - property stored as persistent property in the
 	 * workspace root.
+	 * TODO: this should come from the customizer
 	 */
 	public static final QualifiedName LAST_SAVEAS_LOCATION = new QualifiedName(
 		"org.eclipse.b3.beelang.ui", "lastSaveLocation");
-
-	@Inject
-	private CompoundXtextEditorCallback callback;
 
 	/**
 	 * Does nothing except server as a place to set a breakpoint :)
@@ -73,10 +80,10 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 		super();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.xtext.ui.editor.XtextEditor#dispose()
+	/**
+	 * When editor is disposed the unlinking behavior is triggered (depending on reason of dispose, the linked file
+	 * may be unlinked).
+	 * See {@link ExtLinkedFileHelper#unlinkInput(IFileEditorInput)} for more info,
 	 */
 	@Override
 	public void dispose() {
@@ -94,8 +101,7 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 	 */
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
-		// TODO If document is a temporary / untitled document, the save is a saveAs
-		// TODO: use a session token instead
+		// If document is a temporary / untitled document, change "save" to "saveAs"
 		final IEditorInput input = getEditorInput();
 		if(input instanceof IFileEditorInput &&
 				((IFileEditorInput) input).getFile().isLinked() &&
@@ -115,12 +121,6 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 				doSaveAs();
 				return;
 			}
-			// IPath oldPath = URIUtil.toPath(((IURIEditorInput) input).getURI());
-			//
-			// if(oldPath.lastSegment().startsWith("untitled")) {
-			// doSaveAs();
-			// return;
-			// }
 		}
 		super.doSave(progressMonitor);
 	}
@@ -132,12 +132,11 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 	 */
 	@Override
 	public void doSaveAs() {
-		performSaveAs(getProgressMonitor());
-		// force refresh of content outline
+		super.doSaveAs();
+		// make sure the outline is fully refreshed
 		IContentOutlinePage outlinePage = (IContentOutlinePage) getAdapter(IContentOutlinePage.class);
 		if(outlinePage instanceof RefreshableXtextContentOutlinePage)
 			((RefreshableXtextContentOutlinePage) outlinePage).externalRefresh();
-		callback.afterSave(this);
 	}
 
 	/**
@@ -222,7 +221,6 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 			final IEditorInput newInput;
 			IDocumentProvider provider = getDocumentProvider();
 
-			// TODO: helpful suggestion
 			// 1. If file is "untitled" suggest last save location
 			// 2. ...otherwise use the file's location (i.e. likely to be a rename in same folder)
 			// 3. If a "last save location" is unknown, use user's home
@@ -317,7 +315,7 @@ public class ExtLinkedXtextEditor extends XtextEditor {
 			}
 
 			if(provider == null) {
-				// editor has programmatically been closed while the dialog was open
+				// editor has been closed while the dialog was open
 				return;
 			}
 

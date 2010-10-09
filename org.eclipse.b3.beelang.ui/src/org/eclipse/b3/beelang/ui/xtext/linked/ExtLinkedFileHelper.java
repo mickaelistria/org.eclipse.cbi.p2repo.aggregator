@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2010, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
@@ -23,12 +23,16 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 
 /**
- * 
- *
+ * Helper class for dealing with external files in the ExtLinkedXtextEditor.
+ * This class is responsible for managing the linked files - obtaining a link, unlinking it etc.
+ * TODO: This class is specific to b3 in a few places (file extension, name of project for links,
+ * use of UTF-8), but is otherwise generic.
  */
 public class ExtLinkedFileHelper {
+	// TODO: Should be configurable
 	public static final String AUTOLINK_PROJECT_NAME = "AutoLinked_B3ExternalFiles";
 
+	// TODO: Should be configurable (but b3 is always utf-8).
 	public static final String ENCODING_UTF8 = "utf-8";
 
 	/**
@@ -50,7 +54,7 @@ public class ExtLinkedFileHelper {
 			if(!project.isOpen()) {
 				project.open(null);
 				// if project is hidden files can not be opened in all cases
-				// TODO: Log and reference an Xtext issue.
+				// TODO: Add reference to Xtext issue.
 				project.setHidden(false);
 			}
 
@@ -66,7 +70,8 @@ public class ExtLinkedFileHelper {
 				linkFile = untitledFolder.getFile(fileName);
 			}
 			else {
-				// path in project that is the same as the external file's path
+				// path in project that is the same as the external file's path to avoid collision
+				// without need to create new names
 				linkFile = project.getFile(uri.getPath());
 			}
 			if(linkFile.exists())
@@ -74,13 +79,8 @@ public class ExtLinkedFileHelper {
 			else {
 				// create the link
 				createLink(project, linkFile, uri);
-				// linkFile.createLink(uri, IResource.ALLOW_MISSING_LOCAL, null);
 			}
 			return linkFile;
-
-			// IPath location = new Path(name);
-			// IFile file = project.getFile(location.lastSegment());
-			// file.createLink(location, IResource.NONE, null);
 		}
 		catch(CoreException e) {
 			throw new WrappedException(e);
