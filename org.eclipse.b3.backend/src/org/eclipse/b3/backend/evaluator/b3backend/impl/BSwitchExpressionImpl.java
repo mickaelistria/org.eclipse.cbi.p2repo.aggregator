@@ -9,8 +9,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.Map;
 
@@ -263,44 +261,6 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 			return false;
 		}
 		return true;
-	}
-
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public boolean matches(Object a, Object b) {
-		Type[] ai = a.getClass().getGenericInterfaces();
-		Type[] bi = b.getClass().getGenericInterfaces();
-		Type aType = null;
-		for(int i = 0; i < ai.length; i++) {
-			Type t = ai[i];
-			if(t instanceof ParameterizedType && ((ParameterizedType) t).getRawType() == Comparable.class) {
-				aType = ((ParameterizedType) t).getActualTypeArguments()[0];
-				break;
-			}
-		}
-		Type bType = null;
-		for(int i = 0; i < bi.length; i++) {
-			Type t = bi[i];
-			if(t instanceof ParameterizedType && ((ParameterizedType) t).getRawType() == Comparable.class) {
-				bType = ((ParameterizedType) t).getActualTypeArguments()[0];
-				break;
-			}
-		}
-		Class bClass = bType != null && bType instanceof Class
-				? ((Class) bType)
-				: null;
-		Class aClass = aType != null && aType instanceof Class
-				? ((Class) aType)
-				: null;
-		if(aClass == null && bClass == null)
-			return false;
-
-		if(aClass != null && aClass.isAssignableFrom(b.getClass()))
-			if(((Comparable) a).compareTo(b) == 0)
-				return true;
-		if(bClass != null && bClass.isAssignableFrom(a.getClass()))
-			if(((Comparable) a).compareTo(b) == 0)
-				return true;
-		return false;
 	}
 
 	/**
