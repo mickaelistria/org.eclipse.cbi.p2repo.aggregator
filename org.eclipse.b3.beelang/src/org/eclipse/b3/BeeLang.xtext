@@ -371,8 +371,8 @@ Builder returns build::Builder : {build::Builder}
 		| 	(    varArgs?="..." parameters += ParameterDeclarationNotUnit))?
 	')' )?
 //	(guard = GuardExpression)?
-	(precondExpr = PreCondition)?
-	(postcondExpr = PostCondition)?
+	("@precondition" ':' precondExpr = Expression ';')?
+	("@postcondition" ':' postcondExpr=Expression ';' )?
 	 '{'
 		(('provides' ':' ( ('[' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)* 
 			        	    ']'
@@ -380,16 +380,16 @@ Builder returns build::Builder : {build::Builder}
 			        	 )';')?
 		& (defaultProperties = PropertySetDefault)?
 		)?
-	     ("input" ':' (input = BuilderInputGroup) ';' (postinputcondExpr = PostInputCondition)? )? 
+	     ("input" ':' (input = BuilderInputGroup) ';' ("@postinputcondition" ':' postinputcondExpr = Expression ';' )? )? 
 	     ("source" ':' source = PathGroup ';' )?
 	     ("output" ':' output = PathGroup ';' )? 
 	     ("result" ':' funcExpr = Expression ';')?
 	 '}'
 	;
 
-PreCondition returns be::BExpression :  "@precondition" ':' Expression ';' ;
-PostCondition returns be::BExpression : "@postcondition" ':' Expression ';' ;
-PostInputCondition returns be::BExpression : "@postinputcondition" ':' Expression ';' ;
+//PreCondition returns be::BExpression :   ;
+//PostCondition returns be::BExpression :  ;
+//PostInputCondition returns be::BExpression : "@postinputcondition" ':' Expression ';' ;
 	
 ParameterList returns be::BParameterList : {be::BParameterList} 
 	parameters += ParameterOrClosure ("," parameters += ParameterOrClosure)*
@@ -804,7 +804,7 @@ CatchBlock	returns be::BCatch  : {be::BCatch}
 	"catch" type=TypeRef name=ID ':' catchExpr=Expression 
 	;
 	
-SwitchExpression returns be::BExpression : {be::BSwitchExpression}
+SwitchExpression returns be::BSwitchExpression : {be::BSwitchExpression}
 	"switch" switchExpression=Expression? (caseList+=Case)+  "endswitch" 
 	;
 			

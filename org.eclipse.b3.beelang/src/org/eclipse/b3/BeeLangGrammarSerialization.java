@@ -7,15 +7,16 @@ import org.eclipse.xtext.parsetree.reconstr.impl.DefaultTransientValueService;
 
 public class BeeLangGrammarSerialization extends DefaultTransientValueService {
 
-	// /*
-	// * (non-Javadoc)
-	// *
-	// * @see org.eclipse.xtext.parsetree.reconstr.ITransientValueService#isCheckElementsIndividually(org.eclipse.emf.ecore.EObject,
-	// * org.eclipse.emf.ecore.EStructuralFeature)
-	// */
-	// public boolean isCheckElementsIndividually(EObject owner, EStructuralFeature feature) {
-	// return true;
-	// }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.xtext.parsetree.reconstr.ITransientValueService#isCheckElementsIndividually(org.eclipse.emf.ecore.EObject,
+	 * org.eclipse.emf.ecore.EStructuralFeature)
+	 */
+	@Override
+	public boolean isCheckElementsIndividually(EObject owner, EStructuralFeature feature) {
+		return true;
+	}
 
 	// public boolean isMixedList(EObject owner, EStructuralFeature feature) {
 	// return true;

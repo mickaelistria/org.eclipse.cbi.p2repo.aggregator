@@ -20,7 +20,7 @@ RULE_ML_COMMENT=14
 'this'=136
 'with'=59
 ';'=21
-'@precondition'=65
+'@precondition'=63
 '==='=98
 'exclude'=81
 '=>'=107
@@ -76,8 +76,8 @@ RULE_ML_COMMENT=14
 '!=='=100
 '--'=121
 '<'=104
-'result'=64
 '['=31
+'result'=67
 'name'=41
 'endif'=134
 '&'=154
@@ -125,11 +125,11 @@ RULE_ML_COMMENT=14
 '-'=115
 'precondition'=146
 ','=25
-'input'=63
+'input'=65
 '-='=92
 'context'=122
 '..'=118
-'@postcondition'=66
+'@postcondition'=64
 '!'=119
 '|'=150
 'when'=40
@@ -142,7 +142,7 @@ RULE_ML_COMMENT=14
 '@'=152
 'sequential'=55
 'throw'=125
-'@postinputcondition'=67
+'@postinputcondition'=66
 '_'=124
 'capability'=39
 ')'=51

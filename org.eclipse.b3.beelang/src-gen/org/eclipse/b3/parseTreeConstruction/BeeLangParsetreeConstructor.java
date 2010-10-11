@@ -71,133 +71,130 @@ protected class ThisRootNode extends RootToken {
 			case 37: return new BuildCallOnSelectedRequirement_Group(this, this, 37, inst);
 			case 38: return new BuilderInputGroup_Group(this, this, 38, inst);
 			case 39: return new Builder_Group(this, this, 39, inst);
-			case 40: return new PreCondition_Group(this, this, 40, inst);
-			case 41: return new PostCondition_Group(this, this, 41, inst);
-			case 42: return new PostInputCondition_Group(this, this, 42, inst);
-			case 43: return new ParameterList_Group(this, this, 43, inst);
-			case 44: return new ParameterOrClosure_Alternatives(this, this, 44, inst);
-			case 45: return new Parameter_Group(this, this, 45, inst);
-			case 46: return new ClosureParameter_Group(this, this, 46, inst);
-			case 47: return new ParameterDeclarationOptType_Group(this, this, 47, inst);
-			case 48: return new ParameterDeclaration_Group(this, this, 48, inst);
-			case 49: return new ParameterDeclarationUnit_Group(this, this, 49, inst);
-			case 50: return new ParameterDeclarationNotUnit_Group(this, this, 50, inst);
-			case 51: return new BuilderInput_BuilderInputNamedParserRuleCall(this, this, 51, inst);
-			case 52: return new Repository_Group(this, this, 52, inst);
-			case 53: return new Branch_Group(this, this, 53, inst);
-			case 54: return new UnitProvider_Alternatives(this, this, 54, inst);
-			case 55: return new RepositoryUnitProvider_Group(this, this, 55, inst);
-			case 56: return new RepoOption_Group(this, this, 56, inst);
-			case 57: return new TopLevelUnitProvider_Group(this, this, 57, inst);
-			case 58: return new FirstFoundUnitProvider_Group(this, this, 58, inst);
-			case 59: return new BestFoundUnitProvider_Group(this, this, 59, inst);
-			case 60: return new SwitchUnitProvider_Group(this, this, 60, inst);
-			case 61: return new SelectSwitchExpression_Group(this, this, 61, inst);
-			case 62: return new RepositorySelectCase_Group(this, this, 62, inst);
-			case 63: return new ContainerConfiguration_Group(this, this, 63, inst);
-			case 64: return new Concern_Named_Group(this, this, 64, inst);
-			case 65: return new Concern_Anonymous_Group(this, this, 65, inst);
-			case 66: return new Function_Group(this, this, 66, inst);
-			case 67: return new TopLevelExpression_Alternatives(this, this, 67, inst);
-			case 68: return new Expression_AssignmentExpressionParserRuleCall(this, this, 68, inst);
-			case 69: return new AssignmentExpression_Group(this, this, 69, inst);
-			case 70: return new VarDeclaration_Group(this, this, 70, inst);
-			case 71: return new ValDeclaration_Group(this, this, 71, inst);
-			case 72: return new TypeRef_Alternatives(this, this, 72, inst);
-			case 73: return new UnitTypeRef_Group(this, this, 73, inst);
-			case 74: return new SimpleTypeRef_Group(this, this, 74, inst);
-			case 75: return new ClosureTypeRef_Group(this, this, 75, inst);
-			case 76: return new TypeParam_Alternatives(this, this, 76, inst);
-			case 77: return new TypeRefParam_TypeRefParserRuleCall(this, this, 77, inst);
-			case 78: return new WildcardRefParam_Group(this, this, 78, inst);
-			case 79: return new CachedExpression_Alternatives(this, this, 79, inst);
-			case 80: return new OrExpression_Group(this, this, 80, inst);
-			case 81: return new AndExpression_Group(this, this, 81, inst);
-			case 82: return new RelationalExpression_Group(this, this, 82, inst);
-			case 83: return new InstanceOfExpression_Group(this, this, 83, inst);
-			case 84: return new AdditiveExpression_Group(this, this, 84, inst);
-			case 85: return new MultiplicativeExpression_Group(this, this, 85, inst);
-			case 86: return new SetExpression_Group(this, this, 86, inst);
-			case 87: return new UnaryOrInfixExpression_Alternatives(this, this, 87, inst);
-			case 88: return new UnaryExpression_Group(this, this, 88, inst);
-			case 89: return new PreopExpression_Group(this, this, 89, inst);
-			case 90: return new PostopExpression_Group(this, this, 90, inst);
-			case 91: return new InfixExpression_Group(this, this, 91, inst);
-			case 92: return new CallExpression_Group(this, this, 92, inst);
-			case 93: return new PrimaryExpression_Alternatives(this, this, 93, inst);
-			case 94: return new WithExpression_Group(this, this, 94, inst);
-			case 95: return new WithContextExpression_Group(this, this, 95, inst);
-			case 96: return new ProceedExpression_Group(this, this, 96, inst);
-			case 97: return new WildcardExpression_Group(this, this, 97, inst);
-			case 98: return new ThrowExpression_Group(this, this, 98, inst);
-			case 99: return new TryCatchExpression_Group(this, this, 99, inst);
-			case 100: return new CatchBlock_Group(this, this, 100, inst);
-			case 101: return new SwitchExpression_Group(this, this, 101, inst);
-			case 102: return new Case_Group(this, this, 102, inst);
-			case 103: return new BlockExpression_Group(this, this, 103, inst);
-			case 104: return new IfExpression_Group(this, this, 104, inst);
-			case 105: return new ElseIfExpression_Group(this, this, 105, inst);
-			case 106: return new PropertyValue_Group(this, this, 106, inst);
-			case 107: return new VariableValue_Group(this, this, 107, inst);
-			case 108: return new FeatureCall_OperationCallParserRuleCall(this, this, 108, inst);
-			case 109: return new OperationCall_Group(this, this, 109, inst);
-			case 110: return new ConstructorCallExpression_Group(this, this, 110, inst);
-			case 111: return new InitializationBlockExpression_Group(this, this, 111, inst);
-			case 112: return new InitializationExpression_Group(this, this, 112, inst);
-			case 113: return new FeatureOfThis_Group(this, this, 113, inst);
-			case 114: return new BuildConcernContext_Alternatives(this, this, 114, inst);
-			case 115: return new FunctionConcernContext_Group(this, this, 115, inst);
-			case 116: return new FunctionNamePredicate_Group(this, this, 116, inst);
-			case 117: return new ParameterPredicate_Alternatives(this, this, 117, inst);
-			case 118: return new ParameterVarargsPredicate_Alternatives(this, this, 118, inst);
-			case 119: return new UnitConcernContext_Group(this, this, 119, inst);
-			case 120: return new BuilderConcernContext_Group(this, this, 120, inst);
-			case 121: return new UnitOrExpression_Group(this, this, 121, inst);
-			case 122: return new UnitAndExpression_Group(this, this, 122, inst);
-			case 123: return new UnitNotOrPrimaryExpression_Alternatives(this, this, 123, inst);
-			case 124: return new UnitNotExpression_Group(this, this, 124, inst);
-			case 125: return new UnitPrimaryExpression_Alternatives(this, this, 125, inst);
-			case 126: return new GroupedUnitPrimaryExpression_Group(this, this, 126, inst);
-			case 127: return new RequiresPredicate_Group(this, this, 127, inst);
-			case 128: return new ImplementsPredcicate_Group(this, this, 128, inst);
-			case 129: return new ProvidesPredicate_Group(this, this, 129, inst);
-			case 130: return new UnitNamePredicate_Group(this, this, 130, inst);
-			case 131: return new BuilderNamePredicate_Group(this, this, 131, inst);
-			case 132: return new InputPredicate_Group(this, this, 132, inst);
-			case 133: return new SourcePredicate_Alternatives(this, this, 133, inst);
-			case 134: return new OutputPredicate_Alternatives(this, this, 134, inst);
-			case 135: return new BasePathPredicate_Group(this, this, 135, inst);
-			case 136: return new PathPredicate_Group(this, this, 136, inst);
-			case 137: return new CapabilityPredicate_Group(this, this, 137, inst);
-			case 138: return new QualifiedNamePredicate_Alternatives(this, this, 138, inst);
-			case 139: return new NamePredicate_Alternatives(this, this, 139, inst);
-			case 140: return new BuilderOrExpression_Group(this, this, 140, inst);
-			case 141: return new BuilderAndExpression_Group(this, this, 141, inst);
-			case 142: return new BuilderNotOrPrimaryExpression_Alternatives(this, this, 142, inst);
-			case 143: return new BuilderNotExpression_Group(this, this, 143, inst);
-			case 144: return new BuilderPrimaryExpression_Alternatives(this, this, 144, inst);
-			case 145: return new GroupedBuilderPrimaryExpression_Group(this, this, 145, inst);
-			case 146: return new Literal_Alternatives(this, this, 146, inst);
-			case 147: return new PatternLiteral_Alternatives(this, this, 147, inst);
-			case 148: return new LiteralList_Alternatives(this, this, 148, inst);
-			case 149: return new LiteralMap_Alternatives(this, this, 149, inst);
-			case 150: return new LiteralFunction_Group(this, this, 150, inst);
-			case 151: return new ClosureExpression_Group(this, this, 151, inst);
-			case 152: return new OneOrManyExpressions_Alternatives(this, this, 152, inst);
-			case 153: return new BlockExpressionWithoutBrackets_Group(this, this, 153, inst);
-			case 154: return new MapEntry_Group(this, this, 154, inst);
-			case 155: return new KeyLiteral_Group(this, this, 155, inst);
-			case 156: return new LiteralType_Group(this, this, 156, inst);
-			case 157: return new ValueLiteral_Alternatives(this, this, 157, inst);
-			case 158: return new BooleanLiteral_Group(this, this, 158, inst);
-			case 159: return new IntegerLiteral_Group(this, this, 159, inst);
-			case 160: return new UnitLiteral_Group(this, this, 160, inst);
-			case 161: return new StringLiteral_Group(this, this, 161, inst);
-			case 162: return new RealLiteral_Group(this, this, 162, inst);
-			case 163: return new RegexpLiteral_Group(this, this, 163, inst);
-			case 164: return new SimplePatternLiteral_Group(this, this, 164, inst);
-			case 165: return new NullLiteral_Group(this, this, 165, inst);
-			case 166: return new ParanthesizedExpression_Group(this, this, 166, inst);
+			case 40: return new ParameterList_Group(this, this, 40, inst);
+			case 41: return new ParameterOrClosure_Alternatives(this, this, 41, inst);
+			case 42: return new Parameter_Group(this, this, 42, inst);
+			case 43: return new ClosureParameter_Group(this, this, 43, inst);
+			case 44: return new ParameterDeclarationOptType_Group(this, this, 44, inst);
+			case 45: return new ParameterDeclaration_Group(this, this, 45, inst);
+			case 46: return new ParameterDeclarationUnit_Group(this, this, 46, inst);
+			case 47: return new ParameterDeclarationNotUnit_Group(this, this, 47, inst);
+			case 48: return new BuilderInput_BuilderInputNamedParserRuleCall(this, this, 48, inst);
+			case 49: return new Repository_Group(this, this, 49, inst);
+			case 50: return new Branch_Group(this, this, 50, inst);
+			case 51: return new UnitProvider_Alternatives(this, this, 51, inst);
+			case 52: return new RepositoryUnitProvider_Group(this, this, 52, inst);
+			case 53: return new RepoOption_Group(this, this, 53, inst);
+			case 54: return new TopLevelUnitProvider_Group(this, this, 54, inst);
+			case 55: return new FirstFoundUnitProvider_Group(this, this, 55, inst);
+			case 56: return new BestFoundUnitProvider_Group(this, this, 56, inst);
+			case 57: return new SwitchUnitProvider_Group(this, this, 57, inst);
+			case 58: return new SelectSwitchExpression_Group(this, this, 58, inst);
+			case 59: return new RepositorySelectCase_Group(this, this, 59, inst);
+			case 60: return new ContainerConfiguration_Group(this, this, 60, inst);
+			case 61: return new Concern_Named_Group(this, this, 61, inst);
+			case 62: return new Concern_Anonymous_Group(this, this, 62, inst);
+			case 63: return new Function_Group(this, this, 63, inst);
+			case 64: return new TopLevelExpression_Alternatives(this, this, 64, inst);
+			case 65: return new Expression_AssignmentExpressionParserRuleCall(this, this, 65, inst);
+			case 66: return new AssignmentExpression_Group(this, this, 66, inst);
+			case 67: return new VarDeclaration_Group(this, this, 67, inst);
+			case 68: return new ValDeclaration_Group(this, this, 68, inst);
+			case 69: return new TypeRef_Alternatives(this, this, 69, inst);
+			case 70: return new UnitTypeRef_Group(this, this, 70, inst);
+			case 71: return new SimpleTypeRef_Group(this, this, 71, inst);
+			case 72: return new ClosureTypeRef_Group(this, this, 72, inst);
+			case 73: return new TypeParam_Alternatives(this, this, 73, inst);
+			case 74: return new TypeRefParam_TypeRefParserRuleCall(this, this, 74, inst);
+			case 75: return new WildcardRefParam_Group(this, this, 75, inst);
+			case 76: return new CachedExpression_Alternatives(this, this, 76, inst);
+			case 77: return new OrExpression_Group(this, this, 77, inst);
+			case 78: return new AndExpression_Group(this, this, 78, inst);
+			case 79: return new RelationalExpression_Group(this, this, 79, inst);
+			case 80: return new InstanceOfExpression_Group(this, this, 80, inst);
+			case 81: return new AdditiveExpression_Group(this, this, 81, inst);
+			case 82: return new MultiplicativeExpression_Group(this, this, 82, inst);
+			case 83: return new SetExpression_Group(this, this, 83, inst);
+			case 84: return new UnaryOrInfixExpression_Alternatives(this, this, 84, inst);
+			case 85: return new UnaryExpression_Group(this, this, 85, inst);
+			case 86: return new PreopExpression_Group(this, this, 86, inst);
+			case 87: return new PostopExpression_Group(this, this, 87, inst);
+			case 88: return new InfixExpression_Group(this, this, 88, inst);
+			case 89: return new CallExpression_Group(this, this, 89, inst);
+			case 90: return new PrimaryExpression_Alternatives(this, this, 90, inst);
+			case 91: return new WithExpression_Group(this, this, 91, inst);
+			case 92: return new WithContextExpression_Group(this, this, 92, inst);
+			case 93: return new ProceedExpression_Group(this, this, 93, inst);
+			case 94: return new WildcardExpression_Group(this, this, 94, inst);
+			case 95: return new ThrowExpression_Group(this, this, 95, inst);
+			case 96: return new TryCatchExpression_Group(this, this, 96, inst);
+			case 97: return new CatchBlock_Group(this, this, 97, inst);
+			case 98: return new SwitchExpression_Group(this, this, 98, inst);
+			case 99: return new Case_Group(this, this, 99, inst);
+			case 100: return new BlockExpression_Group(this, this, 100, inst);
+			case 101: return new IfExpression_Group(this, this, 101, inst);
+			case 102: return new ElseIfExpression_Group(this, this, 102, inst);
+			case 103: return new PropertyValue_Group(this, this, 103, inst);
+			case 104: return new VariableValue_Group(this, this, 104, inst);
+			case 105: return new FeatureCall_OperationCallParserRuleCall(this, this, 105, inst);
+			case 106: return new OperationCall_Group(this, this, 106, inst);
+			case 107: return new ConstructorCallExpression_Group(this, this, 107, inst);
+			case 108: return new InitializationBlockExpression_Group(this, this, 108, inst);
+			case 109: return new InitializationExpression_Group(this, this, 109, inst);
+			case 110: return new FeatureOfThis_Group(this, this, 110, inst);
+			case 111: return new BuildConcernContext_Alternatives(this, this, 111, inst);
+			case 112: return new FunctionConcernContext_Group(this, this, 112, inst);
+			case 113: return new FunctionNamePredicate_Group(this, this, 113, inst);
+			case 114: return new ParameterPredicate_Alternatives(this, this, 114, inst);
+			case 115: return new ParameterVarargsPredicate_Alternatives(this, this, 115, inst);
+			case 116: return new UnitConcernContext_Group(this, this, 116, inst);
+			case 117: return new BuilderConcernContext_Group(this, this, 117, inst);
+			case 118: return new UnitOrExpression_Group(this, this, 118, inst);
+			case 119: return new UnitAndExpression_Group(this, this, 119, inst);
+			case 120: return new UnitNotOrPrimaryExpression_Alternatives(this, this, 120, inst);
+			case 121: return new UnitNotExpression_Group(this, this, 121, inst);
+			case 122: return new UnitPrimaryExpression_Alternatives(this, this, 122, inst);
+			case 123: return new GroupedUnitPrimaryExpression_Group(this, this, 123, inst);
+			case 124: return new RequiresPredicate_Group(this, this, 124, inst);
+			case 125: return new ImplementsPredcicate_Group(this, this, 125, inst);
+			case 126: return new ProvidesPredicate_Group(this, this, 126, inst);
+			case 127: return new UnitNamePredicate_Group(this, this, 127, inst);
+			case 128: return new BuilderNamePredicate_Group(this, this, 128, inst);
+			case 129: return new InputPredicate_Group(this, this, 129, inst);
+			case 130: return new SourcePredicate_Alternatives(this, this, 130, inst);
+			case 131: return new OutputPredicate_Alternatives(this, this, 131, inst);
+			case 132: return new BasePathPredicate_Group(this, this, 132, inst);
+			case 133: return new PathPredicate_Group(this, this, 133, inst);
+			case 134: return new CapabilityPredicate_Group(this, this, 134, inst);
+			case 135: return new QualifiedNamePredicate_Alternatives(this, this, 135, inst);
+			case 136: return new NamePredicate_Alternatives(this, this, 136, inst);
+			case 137: return new BuilderOrExpression_Group(this, this, 137, inst);
+			case 138: return new BuilderAndExpression_Group(this, this, 138, inst);
+			case 139: return new BuilderNotOrPrimaryExpression_Alternatives(this, this, 139, inst);
+			case 140: return new BuilderNotExpression_Group(this, this, 140, inst);
+			case 141: return new BuilderPrimaryExpression_Alternatives(this, this, 141, inst);
+			case 142: return new GroupedBuilderPrimaryExpression_Group(this, this, 142, inst);
+			case 143: return new Literal_Alternatives(this, this, 143, inst);
+			case 144: return new PatternLiteral_Alternatives(this, this, 144, inst);
+			case 145: return new LiteralList_Alternatives(this, this, 145, inst);
+			case 146: return new LiteralMap_Alternatives(this, this, 146, inst);
+			case 147: return new LiteralFunction_Group(this, this, 147, inst);
+			case 148: return new ClosureExpression_Group(this, this, 148, inst);
+			case 149: return new OneOrManyExpressions_Alternatives(this, this, 149, inst);
+			case 150: return new BlockExpressionWithoutBrackets_Group(this, this, 150, inst);
+			case 151: return new MapEntry_Group(this, this, 151, inst);
+			case 152: return new KeyLiteral_Group(this, this, 152, inst);
+			case 153: return new LiteralType_Group(this, this, 153, inst);
+			case 154: return new ValueLiteral_Alternatives(this, this, 154, inst);
+			case 155: return new BooleanLiteral_Group(this, this, 155, inst);
+			case 156: return new IntegerLiteral_Group(this, this, 156, inst);
+			case 157: return new UnitLiteral_Group(this, this, 157, inst);
+			case 158: return new StringLiteral_Group(this, this, 158, inst);
+			case 159: return new RealLiteral_Group(this, this, 159, inst);
+			case 160: return new RegexpLiteral_Group(this, this, 160, inst);
+			case 161: return new SimplePatternLiteral_Group(this, this, 161, inst);
+			case 162: return new NullLiteral_Group(this, this, 162, inst);
+			case 163: return new ParanthesizedExpression_Group(this, this, 163, inst);
 			default: return null;
 		}	
 	}	
@@ -17116,11 +17113,11 @@ protected class BuilderInputGroup_RightSquareBracketKeyword_3 extends KeywordTok
  * 	// a build unit
  * 	// TODO: validation and relevant content proposal
  * 	| varArgs?="..." parameters+=ParameterDeclarationNotUnit)? ")")? //	(guard = GuardExpression)?
- * 	precondExpr=PreCondition? postcondExpr=PostCondition? "{" (("provides" ":" ("["
- * 	providedCapabilities+=ProvidedCapability ("," providedCapabilities+=ProvidedCapability)* "]" |
+ * 	("@precondition" ":" precondExpr=Expression ";")? ("@postcondition" ":" postcondExpr=Expression ";")? "{" (("provides"
+ * 	":" ("[" providedCapabilities+=ProvidedCapability ("," providedCapabilities+=ProvidedCapability)* "]" |
  * 	providedCapabilities+=ProvidedCapability) ";")? & defaultProperties=PropertySetDefault?)? ("input" ":"
- * 	input=BuilderInputGroup ";" postinputcondExpr=PostInputCondition?)? ("source" ":" source=PathGroup ";")? ("output" ":"
- * 	output=PathGroup ";")? ("result" ":" funcExpr=Expression ";")? "}";
+ * 	input=BuilderInputGroup ";" ("@postinputcondition" ":" postinputcondExpr=Expression ";")?)? ("source" ":"
+ * 	source=PathGroup ";")? ("output" ":" output=PathGroup ";")? ("result" ":" funcExpr=Expression ";")? "}";
  *
  **/
 
@@ -17131,11 +17128,11 @@ protected class BuilderInputGroup_RightSquareBracketKeyword_3 extends KeywordTok
 // // a build unit
 // // TODO: validation and relevant content proposal
 // | varArgs?="..." parameters+=ParameterDeclarationNotUnit)? ")")? //	(guard = GuardExpression)?
-// precondExpr=PreCondition? postcondExpr=PostCondition? "{" (("provides" ":" ("[" providedCapabilities+=ProvidedCapability
-// ("," providedCapabilities+=ProvidedCapability)* "]" | providedCapabilities+=ProvidedCapability) ";")? &
-// defaultProperties=PropertySetDefault?)? ("input" ":" input=BuilderInputGroup ";"
-// postinputcondExpr=PostInputCondition?)? ("source" ":" source=PathGroup ";")? ("output" ":" output=PathGroup ";")?
-// ("result" ":" funcExpr=Expression ";")? "}"
+// ("@precondition" ":" precondExpr=Expression ";")? ("@postcondition" ":" postcondExpr=Expression ";")? "{" (("provides"
+// ":" ("[" providedCapabilities+=ProvidedCapability ("," providedCapabilities+=ProvidedCapability)* "]" |
+// providedCapabilities+=ProvidedCapability) ";")? & defaultProperties=PropertySetDefault?)? ("input" ":"
+// input=BuilderInputGroup ";" ("@postinputcondition" ":" postinputcondExpr=Expression ";")?)? ("source" ":"
+// source=PathGroup ";")? ("output" ":" output=PathGroup ";")? ("result" ":" funcExpr=Expression ";")? "}"
 protected class Builder_Group extends GroupToken {
 	
 	public Builder_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17954,22 +17951,89 @@ protected class Builder_RightParenthesisKeyword_7_2 extends KeywordToken  {
 }
 
 
-// precondExpr=PreCondition?
-protected class Builder_PrecondExprAssignment_8 extends AssignmentToken  {
+// ("@precondition" ":" precondExpr=Expression ";")?
+protected class Builder_Group_8 extends GroupToken {
 	
-	public Builder_PrecondExprAssignment_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Builder_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBuilderAccess().getPrecondExprAssignment_8();
+	public Group getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getGroup_8();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PreCondition_Group(this, this, 0, inst);
+			case 0: return new Builder_SemicolonKeyword_8_3(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "@precondition"
+protected class Builder_PreconditionKeyword_8_0 extends KeywordToken  {
+	
+	public Builder_PreconditionKeyword_8_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getPreconditionKeyword_8_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Builder_Group_7(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Builder_NameAssignment_6(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// ":"
+protected class Builder_ColonKeyword_8_1 extends KeywordToken  {
+	
+	public Builder_ColonKeyword_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getColonKeyword_8_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Builder_PreconditionKeyword_8_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// precondExpr=Expression
+protected class Builder_PrecondExprAssignment_8_2 extends AssignmentToken  {
+	
+	public Builder_PrecondExprAssignment_8_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getPrecondExprAssignment_8_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -17980,9 +18044,9 @@ protected class Builder_PrecondExprAssignment_8 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("precondExpr");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getPreConditionRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getBuilderAccess().getPrecondExprPreConditionParserRuleCall_8_0(); 
+				element = grammarAccess.getBuilderAccess().getPrecondExprExpressionParserRuleCall_8_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -17994,29 +18058,119 @@ protected class Builder_PrecondExprAssignment_8 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Builder_Group_7(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new Builder_NameAssignment_6(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Builder_ColonKeyword_8_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
-// postcondExpr=PostCondition?
-protected class Builder_PostcondExprAssignment_9 extends AssignmentToken  {
+// ";"
+protected class Builder_SemicolonKeyword_8_3 extends KeywordToken  {
 	
-	public Builder_PostcondExprAssignment_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Builder_SemicolonKeyword_8_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBuilderAccess().getPostcondExprAssignment_9();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getSemicolonKeyword_8_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PostCondition_Group(this, this, 0, inst);
+			case 0: return new Builder_PrecondExprAssignment_8_2(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+
+// ("@postcondition" ":" postcondExpr=Expression ";")?
+protected class Builder_Group_9 extends GroupToken {
+	
+	public Builder_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getGroup_9();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Builder_SemicolonKeyword_9_3(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "@postcondition"
+protected class Builder_PostconditionKeyword_9_0 extends KeywordToken  {
+	
+	public Builder_PostconditionKeyword_9_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getPostconditionKeyword_9_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Builder_Group_8(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Builder_Group_7(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Builder_NameAssignment_6(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// ":"
+protected class Builder_ColonKeyword_9_1 extends KeywordToken  {
+	
+	public Builder_ColonKeyword_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getColonKeyword_9_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Builder_PostconditionKeyword_9_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// postcondExpr=Expression
+protected class Builder_PostcondExprAssignment_9_2 extends AssignmentToken  {
+	
+	public Builder_PostcondExprAssignment_9_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getPostcondExprAssignment_9_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -18027,9 +18181,9 @@ protected class Builder_PostcondExprAssignment_9 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("postcondExpr");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getPostConditionRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getBuilderAccess().getPostcondExprPostConditionParserRuleCall_9_0(); 
+				element = grammarAccess.getBuilderAccess().getPostcondExprExpressionParserRuleCall_9_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -18041,13 +18195,34 @@ protected class Builder_PostcondExprAssignment_9 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Builder_PrecondExprAssignment_8(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new Builder_Group_7(lastRuleCallOrigin, next, actIndex, consumed);
-			case 2: return new Builder_NameAssignment_6(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Builder_ColonKeyword_9_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
+
+// ";"
+protected class Builder_SemicolonKeyword_9_3 extends KeywordToken  {
+	
+	public Builder_SemicolonKeyword_9_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getSemicolonKeyword_9_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Builder_PostcondExprAssignment_9_2(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
 
 // "{"
 protected class Builder_LeftCurlyBracketKeyword_10 extends KeywordToken  {
@@ -18064,8 +18239,8 @@ protected class Builder_LeftCurlyBracketKeyword_10 extends KeywordToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Builder_PostcondExprAssignment_9(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Builder_PrecondExprAssignment_8(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new Builder_Group_9(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Builder_Group_8(lastRuleCallOrigin, this, 1, inst);
 			case 2: return new Builder_Group_7(lastRuleCallOrigin, this, 2, inst);
 			case 3: return new Builder_NameAssignment_6(lastRuleCallOrigin, this, 3, inst);
 			default: return null;
@@ -18513,7 +18688,7 @@ protected class Builder_DefaultPropertiesAssignment_11_1 extends AssignmentToken
 }
 
 
-// ("input" ":" input=BuilderInputGroup ";" postinputcondExpr=PostInputCondition?)?
+// ("input" ":" input=BuilderInputGroup ";" ("@postinputcondition" ":" postinputcondExpr=Expression ";")?)?
 protected class Builder_Group_12 extends GroupToken {
 	
 	public Builder_Group_12(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18528,7 +18703,7 @@ protected class Builder_Group_12 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Builder_PostinputcondExprAssignment_12_4(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Builder_Group_12_4(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new Builder_SemicolonKeyword_12_3(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
@@ -18649,22 +18824,88 @@ protected class Builder_SemicolonKeyword_12_3 extends KeywordToken  {
 
 }
 
-// postinputcondExpr=PostInputCondition?
-protected class Builder_PostinputcondExprAssignment_12_4 extends AssignmentToken  {
+// ("@postinputcondition" ":" postinputcondExpr=Expression ";")?
+protected class Builder_Group_12_4 extends GroupToken {
 	
-	public Builder_PostinputcondExprAssignment_12_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Builder_Group_12_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBuilderAccess().getPostinputcondExprAssignment_12_4();
+	public Group getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getGroup_12_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PostInputCondition_Group(this, this, 0, inst);
+			case 0: return new Builder_SemicolonKeyword_12_4_3(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "@postinputcondition"
+protected class Builder_PostinputconditionKeyword_12_4_0 extends KeywordToken  {
+	
+	public Builder_PostinputconditionKeyword_12_4_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getPostinputconditionKeyword_12_4_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Builder_SemicolonKeyword_12_3(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// ":"
+protected class Builder_ColonKeyword_12_4_1 extends KeywordToken  {
+	
+	public Builder_ColonKeyword_12_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getColonKeyword_12_4_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Builder_PostinputconditionKeyword_12_4_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// postinputcondExpr=Expression
+protected class Builder_PostinputcondExprAssignment_12_4_2 extends AssignmentToken  {
+	
+	public Builder_PostinputcondExprAssignment_12_4_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getPostinputcondExprAssignment_12_4_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -18675,9 +18916,9 @@ protected class Builder_PostinputcondExprAssignment_12_4 extends AssignmentToken
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("postinputcondExpr");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getPostInputConditionRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getBuilderAccess().getPostinputcondExprPostInputConditionParserRuleCall_12_4_0(); 
+				element = grammarAccess.getBuilderAccess().getPostinputcondExprExpressionParserRuleCall_12_4_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -18689,11 +18930,34 @@ protected class Builder_PostinputcondExprAssignment_12_4 extends AssignmentToken
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Builder_SemicolonKeyword_12_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Builder_ColonKeyword_12_4_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
+
+// ";"
+protected class Builder_SemicolonKeyword_12_4_3 extends KeywordToken  {
+	
+	public Builder_SemicolonKeyword_12_4_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getSemicolonKeyword_12_4_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Builder_PostinputcondExprAssignment_12_4_2(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
 
 
 // ("source" ":" source=PathGroup ";")?
@@ -19141,512 +19405,11 @@ protected class Builder_RightCurlyBracketKeyword_16 extends KeywordToken  {
 /************ end Rule Builder ****************/
 
 
-/************ begin Rule PreCondition ****************
- *
- * PreCondition returns be::BExpression:
- * 	"@precondition" ":" Expression ";";
- *
- **/
-
-// "@precondition" ":" Expression ";"
-protected class PreCondition_Group extends GroupToken {
-	
-	public PreCondition_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getPreConditionAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PreCondition_SemicolonKeyword_3(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getClosureExpressionAccess().getB3FunctionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getAndExpressionAccess().getBAndExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getAssignmentExpressionAccess().getBAssignmentExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getInfixExpressionAccess().getBAtExpressionObjExprAction_1_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSetExpressionAccess().getBBinaryOpExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getCachedExpressionAccess().getBCachedExpressionAction_0_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getInfixExpressionAccess().getBCallFeatureFuncExprAction_1_0_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getCallExpressionAccess().getBCallFunctionFuncExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOperationCallAccess().getBCallNamedFunctionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getBlockExpressionAccess().getBChainedExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getConstructorCallExpressionAccess().getBCreateExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getIfExpressionAccess().getBIfExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getWildcardExpressionAccess().getBLiteralAnyAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getUnitLiteralAccess().getBLiteralExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getLiteralListAccess().getBLiteralListExpressionAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getLiteralMapAccess().getBLiteralMapExpressionAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOrExpressionAccess().getBOrExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getProceedExpressionAccess().getBProceedExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getRegexpLiteralAccess().getBRegularExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSimplePatternLiteralAccess().getBSimplePatternExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSwitchExpressionAccess().getBSwitchExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getThrowExpressionAccess().getBThrowExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getTryCatchExpressionAccess().getBTryExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getUnaryExpressionAccess().getBUnaryOpExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPostopExpressionAccess().getBUnaryPostOpExpressionExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPreopExpressionAccess().getBUnaryPreOpExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPropertyValueAccess().getBVariableExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getWithContextExpressionAccess().getBWithContextExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getWithExpressionAccess().getBWithExpressionAction_0().getType().getClassifier())
-			return null;
-		return eObjectConsumer;
-	}
-
-}
-
-// "@precondition"
-protected class PreCondition_PreconditionKeyword_0 extends KeywordToken  {
-	
-	public PreCondition_PreconditionKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getPreConditionAccess().getPreconditionKeyword_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-}
-
-// ":"
-protected class PreCondition_ColonKeyword_1 extends KeywordToken  {
-	
-	public PreCondition_ColonKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getPreConditionAccess().getColonKeyword_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PreCondition_PreconditionKeyword_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// Expression
-protected class PreCondition_ExpressionParserRuleCall_2 extends RuleCallToken {
-	
-	public PreCondition_ExpressionParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getPreConditionAccess().getExpressionParserRuleCall_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(checkForRecursion(Expression_AssignmentExpressionParserRuleCall.class, eObjectConsumer)) return null;
-		return eObjectConsumer;
-	}
-	
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PreCondition_ColonKeyword_1(lastRuleCallOrigin, next, actIndex, inst);
-			default: return null;
-		}	
-	}	
-}
-
-// ";"
-protected class PreCondition_SemicolonKeyword_3 extends KeywordToken  {
-	
-	public PreCondition_SemicolonKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getPreConditionAccess().getSemicolonKeyword_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PreCondition_ExpressionParserRuleCall_2(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-
-/************ end Rule PreCondition ****************/
-
-
-/************ begin Rule PostCondition ****************
- *
- * PostCondition returns be::BExpression:
- * 	"@postcondition" ":" Expression ";";
- *
- **/
-
-// "@postcondition" ":" Expression ";"
-protected class PostCondition_Group extends GroupToken {
-	
-	public PostCondition_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getPostConditionAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PostCondition_SemicolonKeyword_3(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getClosureExpressionAccess().getB3FunctionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getAndExpressionAccess().getBAndExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getAssignmentExpressionAccess().getBAssignmentExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getInfixExpressionAccess().getBAtExpressionObjExprAction_1_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSetExpressionAccess().getBBinaryOpExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getCachedExpressionAccess().getBCachedExpressionAction_0_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getInfixExpressionAccess().getBCallFeatureFuncExprAction_1_0_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getCallExpressionAccess().getBCallFunctionFuncExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOperationCallAccess().getBCallNamedFunctionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getBlockExpressionAccess().getBChainedExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getConstructorCallExpressionAccess().getBCreateExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getIfExpressionAccess().getBIfExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getWildcardExpressionAccess().getBLiteralAnyAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getUnitLiteralAccess().getBLiteralExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getLiteralListAccess().getBLiteralListExpressionAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getLiteralMapAccess().getBLiteralMapExpressionAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOrExpressionAccess().getBOrExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getProceedExpressionAccess().getBProceedExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getRegexpLiteralAccess().getBRegularExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSimplePatternLiteralAccess().getBSimplePatternExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSwitchExpressionAccess().getBSwitchExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getThrowExpressionAccess().getBThrowExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getTryCatchExpressionAccess().getBTryExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getUnaryExpressionAccess().getBUnaryOpExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPostopExpressionAccess().getBUnaryPostOpExpressionExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPreopExpressionAccess().getBUnaryPreOpExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPropertyValueAccess().getBVariableExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getWithContextExpressionAccess().getBWithContextExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getWithExpressionAccess().getBWithExpressionAction_0().getType().getClassifier())
-			return null;
-		return eObjectConsumer;
-	}
-
-}
-
-// "@postcondition"
-protected class PostCondition_PostconditionKeyword_0 extends KeywordToken  {
-	
-	public PostCondition_PostconditionKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getPostConditionAccess().getPostconditionKeyword_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-}
-
-// ":"
-protected class PostCondition_ColonKeyword_1 extends KeywordToken  {
-	
-	public PostCondition_ColonKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getPostConditionAccess().getColonKeyword_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PostCondition_PostconditionKeyword_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// Expression
-protected class PostCondition_ExpressionParserRuleCall_2 extends RuleCallToken {
-	
-	public PostCondition_ExpressionParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getPostConditionAccess().getExpressionParserRuleCall_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(checkForRecursion(Expression_AssignmentExpressionParserRuleCall.class, eObjectConsumer)) return null;
-		return eObjectConsumer;
-	}
-	
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PostCondition_ColonKeyword_1(lastRuleCallOrigin, next, actIndex, inst);
-			default: return null;
-		}	
-	}	
-}
-
-// ";"
-protected class PostCondition_SemicolonKeyword_3 extends KeywordToken  {
-	
-	public PostCondition_SemicolonKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getPostConditionAccess().getSemicolonKeyword_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PostCondition_ExpressionParserRuleCall_2(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-
-/************ end Rule PostCondition ****************/
-
-
-/************ begin Rule PostInputCondition ****************
- *
- * PostInputCondition returns be::BExpression:
- * 	"@postinputcondition" ":" Expression ";";
- *
- **/
-
-// "@postinputcondition" ":" Expression ";"
-protected class PostInputCondition_Group extends GroupToken {
-	
-	public PostInputCondition_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getPostInputConditionAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PostInputCondition_SemicolonKeyword_3(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getClosureExpressionAccess().getB3FunctionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getAndExpressionAccess().getBAndExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getAssignmentExpressionAccess().getBAssignmentExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getInfixExpressionAccess().getBAtExpressionObjExprAction_1_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSetExpressionAccess().getBBinaryOpExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getCachedExpressionAccess().getBCachedExpressionAction_0_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getInfixExpressionAccess().getBCallFeatureFuncExprAction_1_0_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getCallExpressionAccess().getBCallFunctionFuncExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOperationCallAccess().getBCallNamedFunctionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getBlockExpressionAccess().getBChainedExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getConstructorCallExpressionAccess().getBCreateExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getIfExpressionAccess().getBIfExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getWildcardExpressionAccess().getBLiteralAnyAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getUnitLiteralAccess().getBLiteralExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getLiteralListAccess().getBLiteralListExpressionAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getLiteralMapAccess().getBLiteralMapExpressionAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOrExpressionAccess().getBOrExpressionLeftExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getProceedExpressionAccess().getBProceedExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getRegexpLiteralAccess().getBRegularExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSimplePatternLiteralAccess().getBSimplePatternExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSwitchExpressionAccess().getBSwitchExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getThrowExpressionAccess().getBThrowExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getTryCatchExpressionAccess().getBTryExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getUnaryExpressionAccess().getBUnaryOpExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPostopExpressionAccess().getBUnaryPostOpExpressionExprAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPreopExpressionAccess().getBUnaryPreOpExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPropertyValueAccess().getBVariableExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getWithContextExpressionAccess().getBWithContextExpressionAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getWithExpressionAccess().getBWithExpressionAction_0().getType().getClassifier())
-			return null;
-		return eObjectConsumer;
-	}
-
-}
-
-// "@postinputcondition"
-protected class PostInputCondition_PostinputconditionKeyword_0 extends KeywordToken  {
-	
-	public PostInputCondition_PostinputconditionKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getPostInputConditionAccess().getPostinputconditionKeyword_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-}
-
-// ":"
-protected class PostInputCondition_ColonKeyword_1 extends KeywordToken  {
-	
-	public PostInputCondition_ColonKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getPostInputConditionAccess().getColonKeyword_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PostInputCondition_PostinputconditionKeyword_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// Expression
-protected class PostInputCondition_ExpressionParserRuleCall_2 extends RuleCallToken {
-	
-	public PostInputCondition_ExpressionParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getPostInputConditionAccess().getExpressionParserRuleCall_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(checkForRecursion(Expression_AssignmentExpressionParserRuleCall.class, eObjectConsumer)) return null;
-		return eObjectConsumer;
-	}
-	
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PostInputCondition_ColonKeyword_1(lastRuleCallOrigin, next, actIndex, inst);
-			default: return null;
-		}	
-	}	
-}
-
-// ";"
-protected class PostInputCondition_SemicolonKeyword_3 extends KeywordToken  {
-	
-	public PostInputCondition_SemicolonKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getPostInputConditionAccess().getSemicolonKeyword_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PostInputCondition_ExpressionParserRuleCall_2(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-
-/************ end Rule PostInputCondition ****************/
-
-
 /************ begin Rule ParameterList ****************
  *
+ * //PreCondition returns be::BExpression :   ;
+ * //PostCondition returns be::BExpression :  ;
+ * //PostInputCondition returns be::BExpression : "@postinputcondition" ':' Expression ';' ;
  * ParameterList returns be::BParameterList:
  * 	{be::BParameterList} parameters+=ParameterOrClosure ("," parameters+=ParameterOrClosure)*;
  *
@@ -37017,7 +36780,7 @@ protected class CatchBlock_CatchExprAssignment_5 extends AssignmentToken  {
 
 /************ begin Rule SwitchExpression ****************
  *
- * SwitchExpression returns be::BExpression:
+ * SwitchExpression returns be::BSwitchExpression:
  * 	{be::BSwitchExpression} "switch" switchExpression=Expression? caseList+=Case+ "endswitch";
  *
  **/

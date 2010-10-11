@@ -3579,10 +3579,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cParametersAssignment_7_1_1_1 = (Assignment)cGroup_7_1_1.eContents().get(1);
 		private final RuleCall cParametersParameterDeclarationNotUnitParserRuleCall_7_1_1_1_0 = (RuleCall)cParametersAssignment_7_1_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
-		private final Assignment cPrecondExprAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cPrecondExprPreConditionParserRuleCall_8_0 = (RuleCall)cPrecondExprAssignment_8.eContents().get(0);
-		private final Assignment cPostcondExprAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cPostcondExprPostConditionParserRuleCall_9_0 = (RuleCall)cPostcondExprAssignment_9.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cPreconditionKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cColonKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Assignment cPrecondExprAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cPrecondExprExpressionParserRuleCall_8_2_0 = (RuleCall)cPrecondExprAssignment_8_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_8_3 = (Keyword)cGroup_8.eContents().get(3);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cPostconditionKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Keyword cColonKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Assignment cPostcondExprAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
+		private final RuleCall cPostcondExprExpressionParserRuleCall_9_2_0 = (RuleCall)cPostcondExprAssignment_9_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_9_3 = (Keyword)cGroup_9.eContents().get(3);
 		private final Keyword cLeftCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		private final UnorderedGroup cUnorderedGroup_11 = (UnorderedGroup)cGroup.eContents().get(11);
 		private final Group cGroup_11_0 = (Group)cUnorderedGroup_11.eContents().get(0);
@@ -3609,8 +3617,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cInputAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
 		private final RuleCall cInputBuilderInputGroupParserRuleCall_12_2_0 = (RuleCall)cInputAssignment_12_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_12_3 = (Keyword)cGroup_12.eContents().get(3);
-		private final Assignment cPostinputcondExprAssignment_12_4 = (Assignment)cGroup_12.eContents().get(4);
-		private final RuleCall cPostinputcondExprPostInputConditionParserRuleCall_12_4_0 = (RuleCall)cPostinputcondExprAssignment_12_4.eContents().get(0);
+		private final Group cGroup_12_4 = (Group)cGroup_12.eContents().get(4);
+		private final Keyword cPostinputconditionKeyword_12_4_0 = (Keyword)cGroup_12_4.eContents().get(0);
+		private final Keyword cColonKeyword_12_4_1 = (Keyword)cGroup_12_4.eContents().get(1);
+		private final Assignment cPostinputcondExprAssignment_12_4_2 = (Assignment)cGroup_12_4.eContents().get(2);
+		private final RuleCall cPostinputcondExprExpressionParserRuleCall_12_4_2_0 = (RuleCall)cPostinputcondExprAssignment_12_4_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_12_4_3 = (Keyword)cGroup_12_4.eContents().get(3);
 		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
 		private final Keyword cSourceKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
 		private final Keyword cColonKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
@@ -3639,11 +3651,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	// a build unit
 		//	// TODO: validation and relevant content proposal
 		//	| varArgs?="..." parameters+=ParameterDeclarationNotUnit)? ")")? //	(guard = GuardExpression)?
-		//	precondExpr=PreCondition? postcondExpr=PostCondition? "{" (("provides" ":" ("["
-		//	providedCapabilities+=ProvidedCapability ("," providedCapabilities+=ProvidedCapability)* "]" |
+		//	("@precondition" ":" precondExpr=Expression ";")? ("@postcondition" ":" postcondExpr=Expression ";")? "{" (("provides"
+		//	":" ("[" providedCapabilities+=ProvidedCapability ("," providedCapabilities+=ProvidedCapability)* "]" |
 		//	providedCapabilities+=ProvidedCapability) ";")? & defaultProperties=PropertySetDefault?)? ("input" ":"
-		//	input=BuilderInputGroup ";" postinputcondExpr=PostInputCondition?)? ("source" ":" source=PathGroup ";")? ("output" ":"
-		//	output=PathGroup ";")? ("result" ":" funcExpr=Expression ";")? "}";
+		//	input=BuilderInputGroup ";" ("@postinputcondition" ":" postinputcondExpr=Expression ";")?)? ("source" ":"
+		//	source=PathGroup ";")? ("output" ":" output=PathGroup ";")? ("result" ":" funcExpr=Expression ";")? "}";
 		public ParserRule getRule() { return rule; }
 
 		//{build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=ExecutionMode? final?="final"?
@@ -3653,11 +3665,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//// a build unit
 		//// TODO: validation and relevant content proposal
 		//| varArgs?="..." parameters+=ParameterDeclarationNotUnit)? ")")? //	(guard = GuardExpression)?
-		//precondExpr=PreCondition? postcondExpr=PostCondition? "{" (("provides" ":" ("[" providedCapabilities+=ProvidedCapability
-		//("," providedCapabilities+=ProvidedCapability)* "]" | providedCapabilities+=ProvidedCapability) ";")? &
-		//defaultProperties=PropertySetDefault?)? ("input" ":" input=BuilderInputGroup ";"
-		//postinputcondExpr=PostInputCondition?)? ("source" ":" source=PathGroup ";")? ("output" ":" output=PathGroup ";")?
-		//("result" ":" funcExpr=Expression ";")? "}"
+		//("@precondition" ":" precondExpr=Expression ";")? ("@postcondition" ":" postcondExpr=Expression ";")? "{" (("provides"
+		//":" ("[" providedCapabilities+=ProvidedCapability ("," providedCapabilities+=ProvidedCapability)* "]" |
+		//providedCapabilities+=ProvidedCapability) ";")? & defaultProperties=PropertySetDefault?)? ("input" ":"
+		//input=BuilderInputGroup ";" ("@postinputcondition" ":" postinputcondExpr=Expression ";")?)? ("source" ":"
+		//source=PathGroup ";")? ("output" ":" output=PathGroup ";")? ("result" ":" funcExpr=Expression ";")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{build::Builder}
@@ -3780,17 +3792,41 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_7_2() { return cRightParenthesisKeyword_7_2; }
 
-		//precondExpr=PreCondition?
-		public Assignment getPrecondExprAssignment_8() { return cPrecondExprAssignment_8; }
+		//("@precondition" ":" precondExpr=Expression ";")?
+		public Group getGroup_8() { return cGroup_8; }
 
-		//PreCondition
-		public RuleCall getPrecondExprPreConditionParserRuleCall_8_0() { return cPrecondExprPreConditionParserRuleCall_8_0; }
+		//"@precondition"
+		public Keyword getPreconditionKeyword_8_0() { return cPreconditionKeyword_8_0; }
 
-		//postcondExpr=PostCondition?
-		public Assignment getPostcondExprAssignment_9() { return cPostcondExprAssignment_9; }
+		//":"
+		public Keyword getColonKeyword_8_1() { return cColonKeyword_8_1; }
 
-		//PostCondition
-		public RuleCall getPostcondExprPostConditionParserRuleCall_9_0() { return cPostcondExprPostConditionParserRuleCall_9_0; }
+		//precondExpr=Expression
+		public Assignment getPrecondExprAssignment_8_2() { return cPrecondExprAssignment_8_2; }
+
+		//Expression
+		public RuleCall getPrecondExprExpressionParserRuleCall_8_2_0() { return cPrecondExprExpressionParserRuleCall_8_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_8_3() { return cSemicolonKeyword_8_3; }
+
+		//("@postcondition" ":" postcondExpr=Expression ";")?
+		public Group getGroup_9() { return cGroup_9; }
+
+		//"@postcondition"
+		public Keyword getPostconditionKeyword_9_0() { return cPostconditionKeyword_9_0; }
+
+		//":"
+		public Keyword getColonKeyword_9_1() { return cColonKeyword_9_1; }
+
+		//postcondExpr=Expression
+		public Assignment getPostcondExprAssignment_9_2() { return cPostcondExprAssignment_9_2; }
+
+		//Expression
+		public RuleCall getPostcondExprExpressionParserRuleCall_9_2_0() { return cPostcondExprExpressionParserRuleCall_9_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_9_3() { return cSemicolonKeyword_9_3; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_10() { return cLeftCurlyBracketKeyword_10; }
@@ -3855,7 +3891,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//PropertySetDefault
 		public RuleCall getDefaultPropertiesPropertySetDefaultParserRuleCall_11_1_0() { return cDefaultPropertiesPropertySetDefaultParserRuleCall_11_1_0; }
 
-		//("input" ":" input=BuilderInputGroup ";" postinputcondExpr=PostInputCondition?)?
+		//("input" ":" input=BuilderInputGroup ";" ("@postinputcondition" ":" postinputcondExpr=Expression ";")?)?
 		public Group getGroup_12() { return cGroup_12; }
 
 		//"input"
@@ -3873,11 +3909,23 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_12_3() { return cSemicolonKeyword_12_3; }
 
-		//postinputcondExpr=PostInputCondition?
-		public Assignment getPostinputcondExprAssignment_12_4() { return cPostinputcondExprAssignment_12_4; }
+		//("@postinputcondition" ":" postinputcondExpr=Expression ";")?
+		public Group getGroup_12_4() { return cGroup_12_4; }
 
-		//PostInputCondition
-		public RuleCall getPostinputcondExprPostInputConditionParserRuleCall_12_4_0() { return cPostinputcondExprPostInputConditionParserRuleCall_12_4_0; }
+		//"@postinputcondition"
+		public Keyword getPostinputconditionKeyword_12_4_0() { return cPostinputconditionKeyword_12_4_0; }
+
+		//":"
+		public Keyword getColonKeyword_12_4_1() { return cColonKeyword_12_4_1; }
+
+		//postinputcondExpr=Expression
+		public Assignment getPostinputcondExprAssignment_12_4_2() { return cPostinputcondExprAssignment_12_4_2; }
+
+		//Expression
+		public RuleCall getPostinputcondExprExpressionParserRuleCall_12_4_2_0() { return cPostinputcondExprExpressionParserRuleCall_12_4_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_12_4_3() { return cSemicolonKeyword_12_4_3; }
 
 		//("source" ":" source=PathGroup ";")?
 		public Group getGroup_13() { return cGroup_13; }
@@ -3937,90 +3985,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_16() { return cRightCurlyBracketKeyword_16; }
 	}
 
-	public class PreConditionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PreCondition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPreconditionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cExpressionParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		
-		//PreCondition returns be::BExpression:
-		//	"@precondition" ":" Expression ";";
-		public ParserRule getRule() { return rule; }
-
-		//"@precondition" ":" Expression ";"
-		public Group getGroup() { return cGroup; }
-
-		//"@precondition"
-		public Keyword getPreconditionKeyword_0() { return cPreconditionKeyword_0; }
-
-		//":"
-		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
-
-		//Expression
-		public RuleCall getExpressionParserRuleCall_2() { return cExpressionParserRuleCall_2; }
-
-		//";"
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
-	}
-
-	public class PostConditionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PostCondition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPostconditionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cExpressionParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		
-		//PostCondition returns be::BExpression:
-		//	"@postcondition" ":" Expression ";";
-		public ParserRule getRule() { return rule; }
-
-		//"@postcondition" ":" Expression ";"
-		public Group getGroup() { return cGroup; }
-
-		//"@postcondition"
-		public Keyword getPostconditionKeyword_0() { return cPostconditionKeyword_0; }
-
-		//":"
-		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
-
-		//Expression
-		public RuleCall getExpressionParserRuleCall_2() { return cExpressionParserRuleCall_2; }
-
-		//";"
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
-	}
-
-	public class PostInputConditionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PostInputCondition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPostinputconditionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cExpressionParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		
-		//PostInputCondition returns be::BExpression:
-		//	"@postinputcondition" ":" Expression ";";
-		public ParserRule getRule() { return rule; }
-
-		//"@postinputcondition" ":" Expression ";"
-		public Group getGroup() { return cGroup; }
-
-		//"@postinputcondition"
-		public Keyword getPostinputconditionKeyword_0() { return cPostinputconditionKeyword_0; }
-
-		//":"
-		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
-
-		//Expression
-		public RuleCall getExpressionParserRuleCall_2() { return cExpressionParserRuleCall_2; }
-
-		//";"
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
-	}
-
 	public class ParameterListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterList");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -4032,6 +3996,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cParametersAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cParametersParameterOrClosureParserRuleCall_2_1_0 = (RuleCall)cParametersAssignment_2_1.eContents().get(0);
 		
+		////PreCondition returns be::BExpression :   ;
+		////PostCondition returns be::BExpression :  ;
+		////PostInputCondition returns be::BExpression : "@postinputcondition" ':' Expression ';' ;
 		//ParameterList returns be::BParameterList:
 		//	{be::BParameterList} parameters+=ParameterOrClosure ("," parameters+=ParameterOrClosure)*;
 		public ParserRule getRule() { return rule; }
@@ -7625,7 +7592,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCaseListCaseParserRuleCall_3_0 = (RuleCall)cCaseListAssignment_3.eContents().get(0);
 		private final Keyword cEndswitchKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//SwitchExpression returns be::BExpression:
+		//SwitchExpression returns be::BSwitchExpression:
 		//	{be::BSwitchExpression} "switch" switchExpression=Expression? caseList+=Case+ "endswitch";
 		public ParserRule getRule() { return rule; }
 
@@ -12582,9 +12549,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private BuildCallOnSelectedRequirementElements pBuildCallOnSelectedRequirement;
 	private BuilderInputGroupElements pBuilderInputGroup;
 	private BuilderElements pBuilder;
-	private PreConditionElements pPreCondition;
-	private PostConditionElements pPostCondition;
-	private PostInputConditionElements pPostInputCondition;
 	private ParameterListElements pParameterList;
 	private ParameterOrClosureElements pParameterOrClosure;
 	private ParameterElements pParameter;
@@ -13286,11 +13250,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	// a build unit
 	//	// TODO: validation and relevant content proposal
 	//	| varArgs?="..." parameters+=ParameterDeclarationNotUnit)? ")")? //	(guard = GuardExpression)?
-	//	precondExpr=PreCondition? postcondExpr=PostCondition? "{" (("provides" ":" ("["
-	//	providedCapabilities+=ProvidedCapability ("," providedCapabilities+=ProvidedCapability)* "]" |
+	//	("@precondition" ":" precondExpr=Expression ";")? ("@postcondition" ":" postcondExpr=Expression ";")? "{" (("provides"
+	//	":" ("[" providedCapabilities+=ProvidedCapability ("," providedCapabilities+=ProvidedCapability)* "]" |
 	//	providedCapabilities+=ProvidedCapability) ";")? & defaultProperties=PropertySetDefault?)? ("input" ":"
-	//	input=BuilderInputGroup ";" postinputcondExpr=PostInputCondition?)? ("source" ":" source=PathGroup ";")? ("output" ":"
-	//	output=PathGroup ";")? ("result" ":" funcExpr=Expression ";")? "}";
+	//	input=BuilderInputGroup ";" ("@postinputcondition" ":" postinputcondExpr=Expression ";")?)? ("source" ":"
+	//	source=PathGroup ";")? ("output" ":" output=PathGroup ";")? ("result" ":" funcExpr=Expression ";")? "}";
 	public BuilderElements getBuilderAccess() {
 		return (pBuilder != null) ? pBuilder : (pBuilder = new BuilderElements());
 	}
@@ -13299,36 +13263,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getBuilderAccess().getRule();
 	}
 
-	//PreCondition returns be::BExpression:
-	//	"@precondition" ":" Expression ";";
-	public PreConditionElements getPreConditionAccess() {
-		return (pPreCondition != null) ? pPreCondition : (pPreCondition = new PreConditionElements());
-	}
-	
-	public ParserRule getPreConditionRule() {
-		return getPreConditionAccess().getRule();
-	}
-
-	//PostCondition returns be::BExpression:
-	//	"@postcondition" ":" Expression ";";
-	public PostConditionElements getPostConditionAccess() {
-		return (pPostCondition != null) ? pPostCondition : (pPostCondition = new PostConditionElements());
-	}
-	
-	public ParserRule getPostConditionRule() {
-		return getPostConditionAccess().getRule();
-	}
-
-	//PostInputCondition returns be::BExpression:
-	//	"@postinputcondition" ":" Expression ";";
-	public PostInputConditionElements getPostInputConditionAccess() {
-		return (pPostInputCondition != null) ? pPostInputCondition : (pPostInputCondition = new PostInputConditionElements());
-	}
-	
-	public ParserRule getPostInputConditionRule() {
-		return getPostInputConditionAccess().getRule();
-	}
-
+	////PreCondition returns be::BExpression :   ;
+	////PostCondition returns be::BExpression :  ;
+	////PostInputCondition returns be::BExpression : "@postinputcondition" ':' Expression ';' ;
 	//ParameterList returns be::BParameterList:
 	//	{be::BParameterList} parameters+=ParameterOrClosure ("," parameters+=ParameterOrClosure)*;
 	public ParameterListElements getParameterListAccess() {
@@ -14079,7 +14016,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getCatchBlockAccess().getRule();
 	}
 
-	//SwitchExpression returns be::BExpression:
+	//SwitchExpression returns be::BSwitchExpression:
 	//	{be::BSwitchExpression} "switch" switchExpression=Expression? caseList+=Case+ "endswitch";
 	public SwitchExpressionElements getSwitchExpressionAccess() {
 		return (pSwitchExpression != null) ? pSwitchExpression : (pSwitchExpression = new SwitchExpressionElements());
