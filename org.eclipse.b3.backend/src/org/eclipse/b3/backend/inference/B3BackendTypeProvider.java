@@ -23,7 +23,8 @@ import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFeatureException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
-import org.eclipse.b3.backend.evaluator.PojoFeature;
+import org.eclipse.b3.backend.evaluator.Pojo;
+import org.eclipse.b3.backend.evaluator.Pojo.Feature;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
@@ -512,7 +513,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		else
 			t = doGetInferredType(objExpression);
 		try {
-			return new PojoFeature(TypeUtils.getRaw(t), o.getName()).getDeclaredType();
+			return new Feature(TypeUtils.getRaw(t), o.getName()).getDeclaredType();
 		}
 		catch(B3NoSuchFeatureException e2) {
 			// this happens a lot while typing in the editor
@@ -593,7 +594,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		else
 			t = doGetInferredType(objExpression);
 		try {
-			return new PojoFeature(TypeUtils.getRaw(t), o.getFeatureName()).getDeclaredType();
+			return new Feature(TypeUtils.getRaw(t), o.getFeatureName()).getDeclaredType();
 		}
 		catch(B3NoSuchFeatureException e2) {
 			// this happens a lot while typing in the editor
@@ -1066,7 +1067,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		String fname = o.getName();
 		Type type = doGetInferredType(objE);
 
-		PojoFeature resultingLValue = new PojoFeature(TypeUtils.getRaw(type), fname);
+		Pojo.Feature resultingLValue = new Pojo.Feature(TypeUtils.getRaw(type), fname);
 		// it is an lvalue if gettble
 		// it is settable if there is a setter, or if it is an EObject (can't get the package
 		// and check the meta-data, an eSet is always available, but it is not know if a set will
@@ -1099,7 +1100,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		String fname = o.getFeatureName();
 		Type type = doGetInferredType(objE);
 
-		PojoFeature resultingLValue = new PojoFeature(TypeUtils.getRaw(type), fname);
+		Feature resultingLValue = new Feature(TypeUtils.getRaw(type), fname);
 		// it is an lvalue if gettble
 		// it is settable if there is a setter, or if it is an EObject (can't get the package
 		// and check the meta-data, an eSet is always available, but it is not know if a set will

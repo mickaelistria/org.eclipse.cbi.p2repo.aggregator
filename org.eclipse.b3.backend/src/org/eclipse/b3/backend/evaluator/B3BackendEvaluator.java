@@ -746,7 +746,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 			return eLhs.eGet(feature);
 		}
 		// use pojo reflection
-		PojoFeatureLValue resultingLValue = new PojoFeatureLValue(lhs, featureName);
+		Pojo.FeatureLValue resultingLValue = new Pojo.FeatureLValue(lhs, featureName);
 		Object result = null;
 		try {
 			if(resultingLValue.isGetable())
@@ -1168,7 +1168,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 					objExpr, "feature ''{0}'' is not a feature of the lhs expression", new Object[] { featureName });
 			return new EcoreFeatureLValue((EObject) lhs, feature);
 		}
-		return new PojoFeatureLValue(lhs, featureName);
+		return new Pojo.FeatureLValue(lhs, featureName);
 	}
 
 	public LValue lValue(BDefValue o, BExecutionContext ctx) throws Throwable {
@@ -1200,7 +1200,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 					objExpr, "feature ''{0}'' is not a feature of the lhs expression", new Object[] { featureName });
 			return new EcoreFeatureLValue((EObject) lhs, feature);
 		}
-		return new PojoFeatureLValue(lhs, featureName);
+		return new Pojo.FeatureLValue(lhs, featureName);
 	}
 
 	public LValue lValue(BVariableExpression o, BExecutionContext ctx) throws B3EngineException {
@@ -1419,7 +1419,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 			return eLhs.eGet(feature);
 		}
 		// use pojo reflection
-		PojoFeatureLValue resultingLValue = new PojoFeatureLValue(lhs, featureName);
+		Pojo.FeatureLValue resultingLValue = new Pojo.FeatureLValue(lhs, featureName);
 		Object result = null;
 		try {
 			if(resultingLValue.isGetable())

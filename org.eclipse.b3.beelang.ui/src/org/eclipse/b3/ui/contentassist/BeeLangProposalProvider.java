@@ -3,19 +3,25 @@
  */
 package org.eclipse.b3.ui.contentassist;
 
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map.Entry;
 
 import org.eclipse.b3.backend.core.B3Debug;
-import org.eclipse.b3.backend.evaluator.PojoFeature;
-import org.eclipse.b3.backend.evaluator.PojoHelper;
+import org.eclipse.b3.backend.core.IStringProvider;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.evaluator.Pojo;
+import org.eclipse.b3.backend.evaluator.Pojo.Member;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallFeature;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.backend.inference.ITypeProvider;
 import org.eclipse.b3.build.Branch;
 import org.eclipse.b3.build.BranchPointType;
 import org.eclipse.b3.build.BuildUnit;
@@ -55,6 +61,12 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 
 	@Inject
 	private IProposalCustomizer proposalCustomizer;
+
+	@Inject
+	private ITypeProvider typer;
+
+	@Inject
+	private IStringProvider stringer;
 
 	/**
 	 * @see org.eclipse.xtext.ui.editor.contentassist.ContentProposalPriorities
@@ -120,8 +132,8 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 			BExpression t = createExpression.getTypeExpr();
 			if((t instanceof BLiteralType)) {
 				Class<?> clazz = TypeUtils.getRaw(((BLiteralType) t).getType());
-				List<PojoFeature> features = PojoHelper.getFeatures(clazz);
-				for(PojoFeature f : features) {
+				List<Pojo.Feature> features = Pojo.getFeatures(clazz);
+				for(Member f : features) {
 					String proposal = f.getName() + " :";
 					acceptor.accept(createCompletionProposal(proposal, new StyledString(proposal), context));
 				}
@@ -308,10 +320,56 @@ public class BeeLangProposalProvider extends AbstractBeeLangProposalProvider {
 	 * org.eclipse.xtext.Assignment, org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext,
 	 * org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
 	 */
-	@Override
-	public void completeInfixExpression_Name(EObject model, Assignment assignment, ContentAssistContext context,
+	public void completeInfixExpression_Name(BCallFeature model, Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
-		// TODO Auto-generated method stub // unfinished due to Xtext bug
+		List<? extends Pojo.Member> pojoMembers = null;
+		PROCESS_FEATURES: {
+			Type t = typer.doGetInferredType(model.getFuncExpr());
+			if(t == null)
+				break PROCESS_FEATURES;
+			Class<?> clazz = TypeUtils.getRaw(t);
+			if(clazz == null)
+				break PROCESS_FEATURES;
+			pojoMembers = model.isCall()
+					? Pojo.getOperations(clazz) // limit to operations if known to be a call
+					: Pojo.getMembers(clazz); // otherwise, get all of them (don't know if user intends to make a call)
+		}
+		for(Pojo.Member f : pojoMembers) {
+			if(f instanceof Pojo.Feature) {
+				Pojo.Feature pojoFeature = (Pojo.Feature) f;
+				ICompletionProposal completionProposal;
+				try {
+					StyledString label = new StyledString(pojoFeature.getName() + " => ");
+					label.append(stringer.doToString(pojoFeature.getDeclaredType()), StyledString.DECORATIONS_STYLER);
+					completionProposal = createCompletionProposal(pojoFeature.getName(), label, context);
+					acceptor.accept(completionProposal);
+				}
+				catch(B3EngineException e) {
+					// ignore - just don't add the proposal if for some reason the type
+					// is unobtainable
+				}
+			}
+			else if(f instanceof Pojo.Operation) {
+				Method m = ((Pojo.Operation) f).getMethod();
+				StyledString label = new StyledString(f.getName());
+				label.append("(");
+				boolean first = true;
+				for(Type t : m.getParameterTypes()) {
+					if(!first) {
+						label.append(", ");
+						first = false;
+					}
+					label.append(stringer.doToString(t));
+				}
+				label.append(") => ");
+				label.append(
+					stringer.doToString(TypeUtils.objectify(m.getGenericReturnType())), StyledString.DECORATIONS_STYLER);
+				ICompletionProposal completionProposal = createCompletionProposal(f.getName() + (model.isCall()
+						? ""
+						: "()"), label, context);
+				acceptor.accept(completionProposal);
+			}
+		}
 		super.completeInfixExpression_Name(model, assignment, context, acceptor);
 	}
 

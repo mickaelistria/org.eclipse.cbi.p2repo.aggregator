@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
+import java.lang.reflect.WildcardType;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -785,6 +786,8 @@ public class TypeUtils {
 		if(t instanceof TypeVariable<?>)
 			// TODO: OMG - this is cheating...
 			return getRaw(((TypeVariable<?>) t).getBounds()[0]);
+		if(t instanceof WildcardType)
+			return getRaw(((WildcardType) t).getUpperBounds()[0]);
 		throw new UnsupportedOperationException("UNSUPPORTED TYPE CLASS - was: " + t);
 	}
 
@@ -917,6 +920,9 @@ public class TypeUtils {
 		Boolean specialCase = isAssignableFromSpecialCase(baseType, fromType);
 		if(specialCase != null)
 			return specialCase.booleanValue();
+		// types may be null in an editing scenario
+		if(baseType == null || fromType == null)
+			return false;
 		if(!getRaw(baseType).isAssignableFrom(getRaw(fromType)))
 			return false;
 

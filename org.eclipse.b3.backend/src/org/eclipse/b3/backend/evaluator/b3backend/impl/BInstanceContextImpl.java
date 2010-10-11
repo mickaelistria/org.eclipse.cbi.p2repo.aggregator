@@ -16,17 +16,14 @@ import org.eclipse.b3.backend.core.datatypes.LValue;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchVariableException;
 import org.eclipse.b3.backend.evaluator.EcoreFeatureLValue;
-import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
+import org.eclipse.b3.backend.evaluator.Pojo;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -163,7 +160,7 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 					: new EcoreFeatureLValue((EObject) lhs, feature);
 		}
 		else {
-			resultingLValue = new PojoFeatureLValue(lhs, featureName);
+			resultingLValue = new Pojo.FeatureLValue(lhs, featureName);
 			if(!resultingLValue.isGetable())
 				resultingLValue = null;
 		}

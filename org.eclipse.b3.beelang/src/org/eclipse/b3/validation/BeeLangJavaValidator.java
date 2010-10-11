@@ -12,7 +12,7 @@ import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureExcept
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.B3ConstantEvaluator;
-import org.eclipse.b3.backend.evaluator.PojoFeature;
+import org.eclipse.b3.backend.evaluator.Pojo;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -288,9 +288,24 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 			return;
 		}
 		if(name == null || name.length() < 1) {
-			error("The name of the operation is null or empty.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
+			error("The name of the feature is null or empty.", cexpr, B3backendPackage.BCALL_FEATURE__NAME);
 			return;
 		}
+		if(!cexpr.isCall()) {
+			// this is a feature expression
+			// (this type of feature expression will not have a null lhs)
+
+			Pojo.Feature resultingFeature = new Pojo.Feature(TypeUtils.getRaw(type), name);
+
+			if(!resultingFeature.isGetable()) {
+				error(
+					"The feature '" + name + "' is not a feature found in type '" + type + "'.", cexpr,
+					B3backendPackage.BCALL_FEATURE__NAME);
+			}
+			return;
+		}
+		// this is a feature call
+		//
 		Type[] tparameters = null;
 		try {
 			tparameters = funcUtils.asTypeArray(cexpr, true);
@@ -337,7 +352,7 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		// B3BuildTypeProvider typer = new B3BuildTypeProvider();
 		Type type = typer.doGetInferredType(objE);
 
-		PojoFeature resultingFeature = new PojoFeature(TypeUtils.getRaw(type), fname);
+		Pojo.Feature resultingFeature = new Pojo.Feature(TypeUtils.getRaw(type), fname);
 
 		if(!resultingFeature.isGetable()) {
 			error(
@@ -535,7 +550,7 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 			String lhsName = stringProvider.doToString(lhsType);
 			String rhsName = stringProvider.doToString(rhsType);
 			error(
-				"Type mismatch: Cannot convert from " + lhsName + " to " + rhsName, expr,
+				"Type mismatch: Cannot convert from " + rhsName + " to " + lhsName, expr,
 				B3backendPackage.BDEF_VALUE__VALUE_EXPR);
 			// return;
 		}

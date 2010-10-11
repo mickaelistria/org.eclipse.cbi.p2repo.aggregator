@@ -33,7 +33,7 @@ public class B3BackendLValProvider extends DeclarativeB3LValProvider {
 	}
 
 	public LValue createLVal(Object o, Object index) {
-		return new PojoFeatureLValue(o.getClass(), index.toString());
+		return new Pojo.FeatureLValue(o.getClass(), index.toString());
 	}
 
 	public boolean isIndexLValue(List<?> o) {
