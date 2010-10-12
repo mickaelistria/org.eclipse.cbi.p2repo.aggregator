@@ -217,6 +217,17 @@ public class B3BuildEngineResource extends ResourceImpl {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.emf.ecore.resource.impl.ResourceImpl#save(java.util.Map)
+	 */
+	@Override
+	public void save(Map<?, ?> options) throws IOException {
+		// do nothing - saving the engine is not (yet) required
+
+	}
+
 	private void loadDefaultExports() {
 		IConfigurationElement[] configs = Platform.getExtensionRegistry().getConfigurationElementsFor(
 			B3BuildActivator.EXTENSION__KLUDGY_IMPORT);
@@ -304,17 +315,6 @@ public class B3BuildEngineResource extends ResourceImpl {
 			for(String name : functions.get(f))
 				functionMap.put(name, f);
 		}
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.emf.ecore.resource.impl.ResourceImpl#save(java.util.Map)
-	 */
-	@Override
-	public void save(Map<?, ?> options) throws IOException {
-		// do nothing - saving the engine is not (yet) required
 
 	}
 }

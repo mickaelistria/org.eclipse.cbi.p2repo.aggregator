@@ -94,15 +94,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 		super();
 	}
 
-	private boolean basicMatches(Capability candidate) {
-		if(nameSpacePredicate != null && !nameSpacePredicate.matches(candidate.getNameSpace()))
-			return false;
-
-		if(namePredicate != null && !namePredicate.matches(candidate.getName()))
-			return false;
-		return true;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,17 +213,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 				return;
 		}
 		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.CAPABILITY_PREDICATE;
 	}
 
 	/**
@@ -424,6 +404,26 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 		result.append(versionRange);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.CAPABILITY_PREDICATE;
+	}
+
+	private boolean basicMatches(Capability candidate) {
+		if(nameSpacePredicate != null && !nameSpacePredicate.matches(candidate.getNameSpace()))
+			return false;
+
+		if(namePredicate != null && !namePredicate.matches(candidate.getName()))
+			return false;
+		return true;
 	}
 
 } // CapabilityPredicateImpl

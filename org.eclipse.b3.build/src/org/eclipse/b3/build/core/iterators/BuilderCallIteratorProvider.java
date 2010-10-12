@@ -174,20 +174,6 @@ public class BuilderCallIteratorProvider {
 		return EFFECTIVE_NULL_ITERATOR;
 	}
 
-	protected Iterator<EffectiveBuilderCallFacade> handleEffectiveError(Object[] params, Throwable e) {
-		if(e instanceof NullPointerException) {
-			return null;
-		}
-		return Exceptions.throwUncheckedException(e);
-	}
-
-	protected Iterator<BuilderCallFacade> handleError(Object[] params, Throwable e) {
-		if(e instanceof NullPointerException) {
-			return null;
-		}
-		return Exceptions.throwUncheckedException(e);
-	}
-
 	public Iterator<BuilderCallFacade> iterator(BuildCallOnSelectedRequirements o) throws Throwable {
 		// CAN NOT BE DONE STATICALLY AS THE EFFECTIVE UNIT IS UNKNOWN...
 		// TODO: UNIT TYPE ALONE IS NOT ENOUGH TO KNOW ABOUT REQUIREMENTS
@@ -207,6 +193,20 @@ public class BuilderCallIteratorProvider {
 		for(BuilderInput i : o.getBuilderInput())
 			result.addIterator(doGetIterator(i));
 		return result;
+	}
+
+	protected Iterator<EffectiveBuilderCallFacade> handleEffectiveError(Object[] params, Throwable e) {
+		if(e instanceof NullPointerException) {
+			return null;
+		}
+		return Exceptions.throwUncheckedException(e);
+	}
+
+	protected Iterator<BuilderCallFacade> handleError(Object[] params, Throwable e) {
+		if(e instanceof NullPointerException) {
+			return null;
+		}
+		return Exceptions.throwUncheckedException(e);
 	}
 
 }

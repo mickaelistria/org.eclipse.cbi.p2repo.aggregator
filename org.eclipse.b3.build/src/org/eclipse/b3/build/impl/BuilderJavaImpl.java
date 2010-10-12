@@ -576,17 +576,6 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_JAVA;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_JAVA__PROVIDED_CAPABILITIES:
@@ -952,6 +941,17 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 		result.append(unitType);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_JAVA;
 	}
 
 } // BuilderJavaImpl

@@ -34,7 +34,6 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isVarArgs <em>Var Args</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getDocumentation <em>Documentation</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnType <em>Return Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getClosure <em>Closure</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getTypeCalculator <em>Type Calculator</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getContainer <em>Container</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isClassFunction <em>Class Function</em>}</li>
@@ -48,22 +47,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface IFunction extends GenericDeclaration, BExpression {
-	/**
-	 * Returns the value of the '<em><b>Closure</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Closure</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Closure</em>' reference.
-	 * @see #setClosure(BExecutionContext)
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_Closure()
-	 * @model
-	 * @generated
-	 */
-	BExecutionContext getClosure();
-
 	/**
 	 * Returns the value of the '<em><b>Container</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getFunctions <em>Functions</em>}
@@ -323,18 +306,6 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * @generated
 	 */
 	void setClassFunction(boolean value);
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getClosure <em>Closure</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Closure</em>' reference.
-	 * @see #getClosure()
-	 * @generated
-	 */
-	void setClosure(BExecutionContext value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getContainer <em>Container</em>}' container reference.

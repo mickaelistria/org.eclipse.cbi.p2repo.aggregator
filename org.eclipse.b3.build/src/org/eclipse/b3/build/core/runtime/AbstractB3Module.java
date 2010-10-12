@@ -36,14 +36,6 @@ import com.google.inject.name.Names;
  */
 public class AbstractB3Module extends AbstractModule {
 
-	<T> Provider<T> backendModelProvider(Class<T> type, EClass eclass) {
-		return new B3BackendModelProvider<T>(type, eclass);
-	}
-
-	<T> Provider<T> buildModelProvider(Class<T> type, EClass eclass) {
-		return new B3BuildModelProvider<T>(type, eclass);
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -63,5 +55,13 @@ public class AbstractB3Module extends AbstractModule {
 		bind(ThreadScope.class).annotatedWith(Names.named("thread")).toInstance(threadScope);
 		bind(SharedScope.class).annotatedWith(Names.named("resolution")).toInstance(resolutionScope);
 
+	}
+
+	<T> Provider<T> backendModelProvider(Class<T> type, EClass eclass) {
+		return new B3BackendModelProvider<T>(type, eclass);
+	}
+
+	<T> Provider<T> buildModelProvider(Class<T> type, EClass eclass) {
+		return new B3BuildModelProvider<T>(type, eclass);
 	}
 }

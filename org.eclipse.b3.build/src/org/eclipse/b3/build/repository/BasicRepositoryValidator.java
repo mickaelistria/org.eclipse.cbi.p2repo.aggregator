@@ -21,16 +21,16 @@ public class BasicRepositoryValidator extends AbstractRepositoryValidator {
 	public BasicRepositoryValidator() {
 		addRepositoryOption(IRepositoryConstants.LOCAL, new RepositoryOption(String.class, 0, 1) {
 			@Override
-			protected void configure() {
-				addProposal(new Proposal("\"workspace:/.hidden/location/\"", "Hidden location in workspace (example)"));
-				addProposal(new Proposal("\"file:/tmp/somelocation/\"", "Filesystem location in tmp (example)"));
-			}
-
-			@Override
 			public void validate(Repository candidate, RepoOption option, Object value,
 					ValidationMessageAcceptor acceptor) {
 
 				super.validate(candidate, option, value, acceptor);
+			}
+
+			@Override
+			protected void configure() {
+				addProposal(new Proposal("\"workspace:/.hidden/location/\"", "Hidden location in workspace (example)"));
+				addProposal(new Proposal("\"file:/tmp/somelocation/\"", "Filesystem location in tmp (example)"));
 			}
 		});
 		addRepositoryOption(IRepositoryConstants.USER, String.class);

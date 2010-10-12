@@ -670,6 +670,23 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BEcho Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BEcho Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBEchoExpression(BEchoExpression object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BExecution Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1312,6 +1329,23 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBSystemContext(BSystemContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BTemplate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BTemplate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBTemplate(BTemplate object) {
 		return null;
 	}
 
@@ -2630,6 +2664,24 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.IVAR_NAME: {
 				IVarName iVarName = (IVarName) theEObject;
 				T result = caseIVarName(iVarName);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BTEMPLATE: {
+				BTemplate bTemplate = (BTemplate) theEObject;
+				T result = caseBTemplate(bTemplate);
+				if(result == null)
+					result = caseBExpression(bTemplate);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BECHO_EXPRESSION: {
+				BEchoExpression bEchoExpression = (BEchoExpression) theEObject;
+				T result = caseBEchoExpression(bEchoExpression);
+				if(result == null)
+					result = caseBExpression(bEchoExpression);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

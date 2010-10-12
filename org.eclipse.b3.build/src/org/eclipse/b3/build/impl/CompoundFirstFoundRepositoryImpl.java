@@ -41,17 +41,6 @@ public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositor
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.COMPOUND_FIRST_FOUND_REPOSITORY;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -66,6 +55,17 @@ public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositor
 			if((result = repo.resolve(ctx, requiredCapability, options)) != null)
 				return result;
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.COMPOUND_FIRST_FOUND_REPOSITORY;
 	}
 
 } // CompoundFirstFoundRepositoryImpl

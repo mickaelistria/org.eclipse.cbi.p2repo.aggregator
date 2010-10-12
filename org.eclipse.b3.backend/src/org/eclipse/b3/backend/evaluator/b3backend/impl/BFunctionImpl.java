@@ -16,7 +16,6 @@ import java.lang.reflect.TypeVariable;
 import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
@@ -54,7 +53,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isVarArgs <em>Var Args</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getDocumentation <em>Documentation</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getReturnType <em>Return Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getClosure <em>Closure</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getContainer <em>Container</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isClassFunction <em>Class Function</em>}</li>
@@ -276,17 +274,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	protected Type returnType;
 
 	/**
-	 * The cached value of the '{@link #getClosure() <em>Closure</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getClosure()
-	 * @generated
-	 * @ordered
-	 */
-	protected BExecutionContext closure;
-
-	/**
 	 * The cached value of the '{@link #getTypeCalculator() <em>Type Calculator</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -349,16 +336,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 */
 	protected BFunctionImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public BExecutionContext basicGetClosure() {
-		return closure;
 	}
 
 	/**
@@ -471,8 +448,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 					return B3backendPackage.IFUNCTION__DOCUMENTATION;
 				case B3backendPackage.BFUNCTION__RETURN_TYPE:
 					return B3backendPackage.IFUNCTION__RETURN_TYPE;
-				case B3backendPackage.BFUNCTION__CLOSURE:
-					return B3backendPackage.IFUNCTION__CLOSURE;
 				case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 					return B3backendPackage.IFUNCTION__TYPE_CALCULATOR;
 				case B3backendPackage.BFUNCTION__CONTAINER:
@@ -542,8 +517,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 					return B3backendPackage.BFUNCTION__DOCUMENTATION;
 				case B3backendPackage.IFUNCTION__RETURN_TYPE:
 					return B3backendPackage.BFUNCTION__RETURN_TYPE;
-				case B3backendPackage.IFUNCTION__CLOSURE:
-					return B3backendPackage.BFUNCTION__CLOSURE;
 				case B3backendPackage.IFUNCTION__TYPE_CALCULATOR:
 					return B3backendPackage.BFUNCTION__TYPE_CALCULATOR;
 				case B3backendPackage.IFUNCTION__CONTAINER:
@@ -590,10 +563,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				return getDocumentation();
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 				return getReturnType();
-			case B3backendPackage.BFUNCTION__CLOSURE:
-				if(resolve)
-					return getClosure();
-				return basicGetClosure();
 			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 				return getTypeCalculator();
 			case B3backendPackage.BFUNCTION__CONTAINER:
@@ -685,8 +654,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 						: !DOCUMENTATION_EDEFAULT.equals(documentation);
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 				return returnType != null;
-			case B3backendPackage.BFUNCTION__CLOSURE:
-				return closure != null;
 			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 				return typeCalculator != null;
 			case B3backendPackage.BFUNCTION__CONTAINER:
@@ -744,9 +711,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				return;
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 				setReturnType((Type) newValue);
-				return;
-			case B3backendPackage.BFUNCTION__CLOSURE:
-				setClosure((BExecutionContext) newValue);
 				return;
 			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 				setTypeCalculator((BTypeCalculator) newValue);
@@ -806,9 +770,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 				setReturnType((Type) null);
 				return;
-			case B3backendPackage.BFUNCTION__CLOSURE:
-				setClosure((BExecutionContext) null);
-				return;
 			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 				setTypeCalculator((BTypeCalculator) null);
 				return;
@@ -823,25 +784,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public BExecutionContext getClosure() {
-		if(closure != null && closure.eIsProxy()) {
-			InternalEObject oldClosure = (InternalEObject) closure;
-			closure = (BExecutionContext) eResolveProxy(oldClosure);
-			if(closure != oldClosure) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, B3backendPackage.BFUNCTION__CLOSURE, oldClosure, closure));
-			}
-		}
-		return closure;
 	}
 
 	/**
@@ -1012,20 +954,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3backendPackage.BFUNCTION__CLASS_FUNCTION, oldClassFunction, classFunction));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setClosure(BExecutionContext newClosure) {
-		BExecutionContext oldClosure = closure;
-		closure = newClosure;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BFUNCTION__CLOSURE, oldClosure, closure));
 	}
 
 	/**

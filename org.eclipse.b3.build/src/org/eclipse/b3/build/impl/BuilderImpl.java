@@ -588,17 +588,6 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES:
@@ -1018,6 +1007,17 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		result.append(unitType);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER;
 	}
 
 } // BuilderImpl

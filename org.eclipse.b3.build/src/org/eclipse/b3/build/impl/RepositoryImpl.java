@@ -323,17 +323,6 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.REPOSITORY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.REPOSITORY__NAME:
@@ -548,5 +537,16 @@ public class RepositoryImpl extends BExpressionImpl implements Repository {
 		result.append(handlerType);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.REPOSITORY;
 	}
 } // RepositoryHandlerImpl

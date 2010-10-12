@@ -41,13 +41,6 @@ public class BuilderInputRemover {
 		return matchingDispatcher.invoke(o, inputPredicate);
 	}
 
-	protected Boolean handleError(Object[] params, Throwable e) {
-		if(e instanceof NullPointerException) {
-			return null;
-		}
-		return Exceptions.throwUncheckedException(e);
-	}
-
 	public Boolean removeMatching(BuildCallOnSelectedRequirements o, InputPredicate p) {
 		// TODO: Match Predicates!
 		throw new UnsupportedOperationException("RemoveMatching on BuildCallOnSelectedRequirements - TODO: implement");
@@ -76,6 +69,13 @@ public class BuilderInputRemover {
 
 	public Boolean removeMatching(Object o, InputPredicate p) {
 		return false;
+	}
+
+	protected Boolean handleError(Object[] params, Throwable e) {
+		if(e instanceof NullPointerException) {
+			return null;
+		}
+		return Exceptions.throwUncheckedException(e);
 	}
 
 }

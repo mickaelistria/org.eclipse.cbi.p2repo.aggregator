@@ -155,17 +155,6 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_CALL_ON_DECLARED_REQUIREMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILD_CALL_ON_DECLARED_REQUIREMENT__REQUIRED_CAPABILITY_DECLARATION:
@@ -209,6 +198,17 @@ public class BuildCallOnDeclaredRequirementImpl extends BuildCallSingleImpl impl
 				this, Notification.SET,
 				B3BuildPackage.BUILD_CALL_ON_DECLARED_REQUIREMENT__REQUIRED_CAPABILITY_DECLARATION,
 				newRequiredCapabilityDeclaration, newRequiredCapabilityDeclaration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_CALL_ON_DECLARED_REQUIREMENT;
 	}
 
 } // BuildCallOnDeclaredRequirementImpl

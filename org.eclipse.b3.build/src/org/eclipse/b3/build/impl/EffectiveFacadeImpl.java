@@ -123,17 +123,6 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.EFFECTIVE_FACADE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
@@ -174,6 +163,17 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.EFFECTIVE_FACADE__CONTEXT, oldContext, context));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.EFFECTIVE_FACADE;
 	}
 
 } // EffectiveFacadeImpl

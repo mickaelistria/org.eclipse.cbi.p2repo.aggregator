@@ -350,17 +350,6 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BEE_MODEL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
@@ -532,5 +521,16 @@ public class BeeModelImpl extends BChainedExpressionImpl implements BeeModel {
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BEE_MODEL__DEFAULT_PROPERTIES, newDefaultProperties,
 				newDefaultProperties));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BEE_MODEL;
 	}
 } // BeeModelImpl

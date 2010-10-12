@@ -45,17 +45,6 @@ public abstract class BuildUnitRepositoryImpl extends EObjectImpl implements Bui
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_UNIT_REPOSITORY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated NOT
 	 */
 	public abstract void initialize(BExecutionContext ctx, Repository repository, Map<String, Object> options)
@@ -69,5 +58,16 @@ public abstract class BuildUnitRepositoryImpl extends EObjectImpl implements Bui
 	 */
 	public abstract BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability,
 			Map<String, Object> options) throws Throwable;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_UNIT_REPOSITORY;
+	}
 
 } // BuildUnitRepositoryImpl

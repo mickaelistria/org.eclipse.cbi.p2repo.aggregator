@@ -52,16 +52,6 @@ public class EffectiveUnitIterator implements Iterator<BuildUnit> {
 		itor = unitStore.values().iterator();
 	}
 
-	@SuppressWarnings("unchecked")
-	private void collectUnits(BExecutionContext ctx, Iterator<BExecutionContext> pitor) {
-		if(pitor.hasNext())
-			collectUnits(pitor.next(), pitor);
-		Map<Object, Object> m = ctx.getMapOfThings(BuildUnit.class);
-		// unitStore.putAll(((BuildContextImpl) ctx).getBuildUnitStore());
-		for(Entry<Object, Object> entry : m.entrySet())
-			unitStore.put((Class<? extends BuildUnit>) entry.getKey(), (BuildUnit) entry.getValue());
-	}
-
 	public boolean hasNext() {
 		return itor.hasNext();
 	}
@@ -76,5 +66,15 @@ public class EffectiveUnitIterator implements Iterator<BuildUnit> {
 
 	public void remove() {
 		throw new UnsupportedOperationException();
+	}
+
+	@SuppressWarnings("unchecked")
+	private void collectUnits(BExecutionContext ctx, Iterator<BExecutionContext> pitor) {
+		if(pitor.hasNext())
+			collectUnits(pitor.next(), pitor);
+		Map<Object, Object> m = ctx.getMapOfThings(BuildUnit.class);
+		// unitStore.putAll(((BuildContextImpl) ctx).getBuildUnitStore());
+		for(Entry<Object, Object> entry : m.entrySet())
+			unitStore.put((Class<? extends BuildUnit>) entry.getKey(), (BuildUnit) entry.getValue());
 	}
 }

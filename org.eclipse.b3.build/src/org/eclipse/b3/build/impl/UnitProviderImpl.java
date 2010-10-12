@@ -122,17 +122,6 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.UNIT_PROVIDER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.UNIT_PROVIDER__DOCUMENTATION:
@@ -202,5 +191,16 @@ public abstract class UnitProviderImpl extends BExpressionImpl implements UnitPr
 		result.append(documentation);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.UNIT_PROVIDER;
 	}
 } // ResolutionConfigurationImpl

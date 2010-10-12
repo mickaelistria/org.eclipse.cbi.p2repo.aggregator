@@ -121,17 +121,6 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.DELEGATING_UNIT_PROVIDER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.DELEGATING_UNIT_PROVIDER__DELEGATE:
@@ -184,6 +173,17 @@ public class DelegatingUnitProviderImpl extends UnitProviderImpl implements Dele
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.DELEGATING_UNIT_PROVIDER__DELEGATE, oldDelegate, delegate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.DELEGATING_UNIT_PROVIDER;
 	}
 
 } // DelegatingUnitProviderImpl

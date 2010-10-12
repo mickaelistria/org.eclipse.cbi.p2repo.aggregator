@@ -795,17 +795,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_UNIT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
@@ -1643,6 +1632,17 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		result.append(platformFilter);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_UNIT;
 	}
 
 } // BuildUnitImpl

@@ -202,17 +202,6 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.REPOSITORY_UNIT_PROVIDER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY:
@@ -343,5 +332,16 @@ public class RepositoryUnitProviderImpl extends UnitProviderImpl implements Repo
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.REPOSITORY_UNIT_PROVIDER__REPOSITORY, oldRepository, repository));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.REPOSITORY_UNIT_PROVIDER;
 	}
 } // RepositoryReferenceImpl

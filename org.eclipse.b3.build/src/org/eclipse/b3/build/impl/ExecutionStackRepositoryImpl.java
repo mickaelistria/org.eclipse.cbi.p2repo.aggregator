@@ -45,17 +45,6 @@ public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implem
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.EXECUTION_STACK_REPOSITORY;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -88,5 +77,16 @@ public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implem
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.EXECUTION_STACK_REPOSITORY;
 	}
 } // ExecutionStackRepositoryImpl

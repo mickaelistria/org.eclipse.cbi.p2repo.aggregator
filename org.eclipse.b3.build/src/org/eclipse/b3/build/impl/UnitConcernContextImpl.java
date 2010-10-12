@@ -543,17 +543,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.UNIT_CONCERN_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
@@ -785,5 +774,16 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		result.append(outputLocation);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.UNIT_CONCERN_CONTEXT;
 	}
 } // UnitConcernContextImpl

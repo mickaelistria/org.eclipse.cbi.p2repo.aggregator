@@ -69,6 +69,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BTemplate;
 import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTryExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression;
@@ -976,6 +977,10 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		}
 		return TypeUtils.getCommonSuperType(typeList.toArray(new Type[typeList.size()]));
 
+	}
+
+	public Type type(BTemplate o) {
+		return BTemplate.class;
 	}
 
 	public Type type(BThrowExpression o) {

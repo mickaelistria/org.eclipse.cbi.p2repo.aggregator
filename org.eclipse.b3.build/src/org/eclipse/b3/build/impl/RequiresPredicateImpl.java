@@ -175,17 +175,6 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.REQUIRES_PREDICATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
@@ -285,5 +274,16 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 		result.append(meta);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.REQUIRES_PREDICATE;
 	}
 } // RequiresPredicateImpl

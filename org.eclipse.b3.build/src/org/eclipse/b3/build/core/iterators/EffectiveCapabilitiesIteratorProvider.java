@@ -50,13 +50,6 @@ public class EffectiveCapabilitiesIteratorProvider {
 		return iteratorDispatcher.invoke(o, ctx);
 	}
 
-	protected Iterator<EffectiveCapabilityFacade> handleError(Object[] params, Throwable e) {
-		if(e instanceof NullPointerException) {
-			return null;
-		}
-		return Exceptions.throwUncheckedException(e);
-	}
-
 	/**
 	 * Returns the original's effective (provided) capabilities if {@link BuilderWrapper#isProvidesAdvised()} returns false,
 	 * otherwise the effective provided capabilities from this wrapper.
@@ -92,10 +85,17 @@ public class EffectiveCapabilitiesIteratorProvider {
 		return list.iterator();
 	}
 
-	// TODO: Add support for more types
-
 	public Iterator<EffectiveCapabilityFacade> iterator(Object o, BExecutionContext ctx) {
 		return NULL_ITERATOR;
+	}
+
+	// TODO: Add support for more types
+
+	protected Iterator<EffectiveCapabilityFacade> handleError(Object[] params, Throwable e) {
+		if(e instanceof NullPointerException) {
+			return null;
+		}
+		return Exceptions.throwUncheckedException(e);
 	}
 
 }

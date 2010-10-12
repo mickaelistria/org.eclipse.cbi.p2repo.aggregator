@@ -174,17 +174,6 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_CALL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_CALL__PARAMETERS:
@@ -271,6 +260,17 @@ public abstract class BuilderCallImpl extends BuilderInputImpl implements Builde
 		result.append(builderName);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_CALL;
 	}
 
 } // BuilderCallImpl

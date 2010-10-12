@@ -94,6 +94,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BTemplate;
 import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTryExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression;
@@ -500,7 +501,9 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 
 			// if the function comes with a closure, call it in an inner context, else a fresh outer context.
 			// TODO: Don't know if this treatment is needed elsewhere as well...
-			BExecutionContext useCtx = ((BFunction) target).getClosure();
+			BExecutionContext useCtx = (target instanceof IClosure)
+					? ((IClosure) target).getClosure()
+					: null;
 			useCtx = useCtx == null
 					? ctx.createOuterContext()
 					: useCtx.createInnerContext();
@@ -764,9 +767,10 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 	 * to the context where it is defined.
 	 */
 	public Object evaluate(BFunction o, BExecutionContext ctx) throws Throwable {
-		// TODO: should probably use an adapter instead of changing the model
-		o.setClosure(ctx);
-		return o; // a function is literal.
+		return B3ClosureProxy.newInstance(o, ctx);
+		// // TODO: should probably use an adapter instead of changing the model
+		// o.setClosure(ctx);
+		// return o; // a function is literal.
 	}
 
 	public Object evaluate(BFunctionConcernContext o, BExecutionContext ctx) throws Throwable {
@@ -954,6 +958,10 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		}
 		// no case matched - return null
 		return null;
+	}
+
+	public Object evaluate(BTemplate o, BExecutionContext ctx) throws Throwable {
+		return B3ClosureProxy.newInstance(o, ctx);
 	}
 
 	public Object evaluate(BThrowExpression o, BExecutionContext ctx) throws Throwable {

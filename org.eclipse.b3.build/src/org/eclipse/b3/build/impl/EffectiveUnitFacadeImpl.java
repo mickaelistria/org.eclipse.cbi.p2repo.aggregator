@@ -232,17 +232,6 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.EFFECTIVE_UNIT_FACADE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT:
@@ -353,6 +342,17 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT, oldUnit, unit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.EFFECTIVE_UNIT_FACADE;
 	}
 
 } // EffectiveUnitFacadeImpl

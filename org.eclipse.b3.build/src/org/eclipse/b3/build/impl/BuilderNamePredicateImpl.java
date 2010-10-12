@@ -143,17 +143,6 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_NAME_PREDICATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
@@ -196,6 +185,17 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE, newNamePredicate,
 				newNamePredicate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_NAME_PREDICATE;
 	}
 
 } // BuilderNamePredicateImpl

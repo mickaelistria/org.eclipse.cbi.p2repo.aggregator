@@ -118,17 +118,6 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.RESOLUTION_INFO;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.RESOLUTION_INFO__STATUS:
@@ -178,6 +167,17 @@ public class ResolutionInfoImpl extends EObjectImpl implements ResolutionInfo {
 		result.append(status);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.RESOLUTION_INFO;
 	}
 
 } // ResolutionInfoImpl

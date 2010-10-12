@@ -113,17 +113,6 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.COMPOUND_BUILD_UNIT_REPOSITORY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES:
@@ -156,5 +145,16 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	@Override
 	public void initialize(BExecutionContext ctx, Repository repository, Map<String, Object> options) throws Throwable {
 		// does nothing -
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.COMPOUND_BUILD_UNIT_REPOSITORY;
 	}
 } // CompoundBuildUnitRepositoryImpl

@@ -90,14 +90,6 @@ public class SharedScope implements Scope {
 		values = null;
 	}
 
-	private <T> Map<Key<?>, Object> getScopedObjectMap(Key<T> key) {
-		Map<Key<?>, Object> scopedObjects = values;
-		if(scopedObjects == null) {
-			throw new OutOfScopeException("Cannot access " + key + " outside of a scoping block");
-		}
-		return scopedObjects;
-	}
-
 	public <T> Provider<T> scope(final Key<T> key, final Provider<T> unscoped) {
 		return new Provider<T>() {
 			public T get() {
@@ -123,5 +115,13 @@ public class SharedScope implements Scope {
 		checkState(!scopedObjects.containsKey(key), "A value for the key %s was "
 				+ "already seeded in this scope. Old value: %s New value: %s", key, scopedObjects.get(key), value);
 		scopedObjects.put(key, value);
+	}
+
+	private <T> Map<Key<?>, Object> getScopedObjectMap(Key<T> key) {
+		Map<Key<?>, Object> scopedObjects = values;
+		if(scopedObjects == null) {
+			throw new OutOfScopeException("Cannot access " + key + " outside of a scoping block");
+		}
+		return scopedObjects;
 	}
 }

@@ -133,17 +133,6 @@ public class FragmentHostImpl extends EObjectImpl implements FragmentHost {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.FRAGMENT_HOST;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.FRAGMENT_HOST__HOST_REQUIREMENTS:
@@ -165,6 +154,17 @@ public class FragmentHostImpl extends EObjectImpl implements FragmentHost {
 				RequiredCapability.class, this, B3BuildPackage.FRAGMENT_HOST__HOST_REQUIREMENTS);
 		}
 		return hostRequirements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.FRAGMENT_HOST;
 	}
 
 } // FragmentHostImpl

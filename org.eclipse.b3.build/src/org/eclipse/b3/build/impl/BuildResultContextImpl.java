@@ -38,17 +38,6 @@ public class BuildResultContextImpl extends BInnerContextImpl implements BuildRe
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_RESULT_CONTEXT;
-	}
-
-	/**
 	 * Does not check if parent has final value if the value is a property reference.
 	 */
 	@Override
@@ -71,5 +60,16 @@ public class BuildResultContextImpl extends BInnerContextImpl implements BuildRe
 	@Override
 	public boolean isPropertyScope() {
 		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_RESULT_CONTEXT;
 	}
 } // BuildResultContextImpl

@@ -23,10 +23,6 @@ class BuildUtilsDynamicClassLoader extends ClassLoader implements Opcodes {
 		return defineClass(name, b, 0, b.length);
 	}
 
-	private String dottedToInternal(String str) {
-		return str.replaceAll("\\.", "/");
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public synchronized Class<?> findClass(String name) throws ClassNotFoundException {
@@ -51,5 +47,9 @@ class BuildUtilsDynamicClassLoader extends ClassLoader implements Opcodes {
 			// do nothing, try the super class loader
 		}
 		return super.findClass(name);
+	}
+
+	private String dottedToInternal(String str) {
+		return str.replaceAll("\\.", "/");
 	}
 }

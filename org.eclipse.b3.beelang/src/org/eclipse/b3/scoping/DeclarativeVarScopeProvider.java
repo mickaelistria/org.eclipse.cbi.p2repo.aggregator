@@ -30,6 +30,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.BTemplate;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
@@ -240,6 +241,23 @@ public class DeclarativeVarScopeProvider {
 			BDefProperty def = op.getDefinition();
 			result.add(new EObjectDescription(def.getName(), def, null));
 		}
+		if(result.size() < 1)
+			return doGetVarScope(container.eContainer(), container);
+		return createScope(doGetVarScope(container.eContainer(), container), result);
+	}
+
+	IScope varScope(BTemplate container, EObject contained) {
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		// search expressions from start to the contained (variables declared after the contained are
+		// not visible
+		for(BExpression expr : container.getExpressions()) {
+			if(expr == contained)
+				break;
+			if(expr instanceof INamedValue)
+				result.add(new EObjectDescription(((INamedValue) expr).getName(), expr, null));
+		}
+		// if there were no values to add, continue search in container (not meaningful to create
+		// an empty scope with parent scope as outer.
 		if(result.size() < 1)
 			return doGetVarScope(container.eContainer(), container);
 		return createScope(doGetVarScope(container.eContainer(), container), result);

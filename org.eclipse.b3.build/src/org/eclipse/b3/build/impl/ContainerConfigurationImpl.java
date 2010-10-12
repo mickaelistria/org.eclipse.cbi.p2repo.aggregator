@@ -250,17 +250,6 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.CONTAINER_CONFIGURATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.CONTAINER_CONFIGURATION__DOCUMENTATION:
@@ -415,6 +404,17 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 		result.append(name);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.CONTAINER_CONFIGURATION;
 	}
 
 } // ContainerConfigurationImpl

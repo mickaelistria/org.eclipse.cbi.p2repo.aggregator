@@ -126,17 +126,6 @@ public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implemen
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.COMPOUND_UNIT_PROVIDER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.COMPOUND_UNIT_PROVIDER__PROVIDERS:
@@ -158,6 +147,17 @@ public abstract class CompoundUnitProviderImpl extends UnitProviderImpl implemen
 				UnitProvider.class, this, B3BuildPackage.COMPOUND_UNIT_PROVIDER__PROVIDERS);
 		}
 		return providers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.COMPOUND_UNIT_PROVIDER;
 	}
 
 } // ResolutionStrategyImpl

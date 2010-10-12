@@ -273,17 +273,6 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_SET;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILD_SET__PATH_VECTORS:
@@ -441,5 +430,16 @@ public class BuildSetImpl extends EObjectImpl implements BuildSet {
 		result.append(getPathVectors());
 		result.append(")");
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_SET;
 	}
 } // BuildResultImpl

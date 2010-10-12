@@ -453,17 +453,6 @@ public class BranchImpl extends EObjectImpl implements Branch {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BRANCH;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BRANCH__NAME:
@@ -1012,6 +1001,17 @@ public class BranchImpl extends EObjectImpl implements Branch {
 		result.append(replace);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BRANCH;
 	}
 
 	private boolean triStateToBoolean(TriState triState) {

@@ -146,17 +146,6 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_INPUT_CONDITION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR:
@@ -198,6 +187,17 @@ public class BuilderInputConditionImpl extends BuilderInputDecoratorImpl impleme
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BUILDER_INPUT_CONDITION__COND_EXPR, newCondExpr, newCondExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_INPUT_CONDITION;
 	}
 
 } // BuilderInputConditionImpl

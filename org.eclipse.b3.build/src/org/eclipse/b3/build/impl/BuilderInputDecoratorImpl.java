@@ -131,17 +131,6 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_INPUT_DECORATOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_INPUT_DECORATOR__BUILDER_INPUT:
@@ -163,6 +152,17 @@ public abstract class BuilderInputDecoratorImpl extends BuilderInputImpl impleme
 				BuilderInput.class, this, B3BuildPackage.BUILDER_INPUT_DECORATOR__BUILDER_INPUT);
 		}
 		return builderInput;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_INPUT_DECORATOR;
 	}
 
 } // BuilderInputDecoratorImpl

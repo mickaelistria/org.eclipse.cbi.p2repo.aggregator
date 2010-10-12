@@ -161,17 +161,6 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_INPUT_NAME_DECORATOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_INPUT_NAME_DECORATOR__NAME:
@@ -221,6 +210,17 @@ public class BuilderInputNameDecoratorImpl extends BuilderInputDecoratorImpl imp
 		result.append(name);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_INPUT_NAME_DECORATOR;
 	}
 
 } // BuilderInputNameDecoratorImpl

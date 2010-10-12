@@ -56,7 +56,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#isVarArgs <em>Var Args</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getDocumentation <em>Documentation</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getReturnType <em>Return Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getClosure <em>Closure</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getContainer <em>Container</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#isClassFunction <em>Class Function</em>}</li>
@@ -328,17 +327,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	protected Type returnType;
 
 	/**
-	 * The cached value of the '{@link #getClosure() <em>Closure</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getClosure()
-	 * @generated
-	 * @ordered
-	 */
-	protected BExecutionContext closure;
-
-	/**
 	 * The cached value of the '{@link #getTypeCalculator() <em>Type Calculator</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -580,8 +568,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 					return B3backendPackage.IFUNCTION__DOCUMENTATION;
 				case B3backendPackage.BFUNCTION_WRAPPER__RETURN_TYPE:
 					return B3backendPackage.IFUNCTION__RETURN_TYPE;
-				case B3backendPackage.BFUNCTION_WRAPPER__CLOSURE:
-					return B3backendPackage.IFUNCTION__CLOSURE;
 				case B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR:
 					return B3backendPackage.IFUNCTION__TYPE_CALCULATOR;
 				case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER:
@@ -651,8 +637,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 					return B3backendPackage.BFUNCTION_WRAPPER__DOCUMENTATION;
 				case B3backendPackage.IFUNCTION__RETURN_TYPE:
 					return B3backendPackage.BFUNCTION_WRAPPER__RETURN_TYPE;
-				case B3backendPackage.IFUNCTION__CLOSURE:
-					return B3backendPackage.BFUNCTION_WRAPPER__CLOSURE;
 				case B3backendPackage.IFUNCTION__TYPE_CALCULATOR:
 					return B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR;
 				case B3backendPackage.IFUNCTION__CONTAINER:
@@ -699,10 +683,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				return getDocumentation();
 			case B3backendPackage.BFUNCTION_WRAPPER__RETURN_TYPE:
 				return getReturnType();
-			case B3backendPackage.BFUNCTION_WRAPPER__CLOSURE:
-				if(resolve)
-					return getClosure();
-				return basicGetClosure();
 			case B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR:
 				return getTypeCalculator();
 			case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER:
@@ -806,8 +786,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 						: !DOCUMENTATION_EDEFAULT.equals(documentation);
 			case B3backendPackage.BFUNCTION_WRAPPER__RETURN_TYPE:
 				return returnType != null;
-			case B3backendPackage.BFUNCTION_WRAPPER__CLOSURE:
-				return closure != null;
 			case B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR:
 				return typeCalculator != null;
 			case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER:
@@ -875,9 +853,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__RETURN_TYPE:
 				setReturnType((Type) newValue);
-				return;
-			case B3backendPackage.BFUNCTION_WRAPPER__CLOSURE:
-				setClosure((BExecutionContext) newValue);
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR:
 				setTypeCalculator((BTypeCalculator) newValue);
@@ -949,9 +924,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 			case B3backendPackage.BFUNCTION_WRAPPER__RETURN_TYPE:
 				setReturnType((Type) null);
 				return;
-			case B3backendPackage.BFUNCTION_WRAPPER__CLOSURE:
-				setClosure((BExecutionContext) null);
-				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR:
 				setTypeCalculator((BTypeCalculator) null);
 				return;
@@ -998,16 +970,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 			}
 		}
 		return aroundExpr;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public BExecutionContext getClosure() {
-		return getOriginal().getClosure();
 	}
 
 	/**

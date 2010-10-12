@@ -178,17 +178,6 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.CONDITIONAL_PATH_VECTOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR:
@@ -247,6 +236,17 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR, newCondExpr, newCondExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.CONDITIONAL_PATH_VECTOR;
 	}
 
 } // ConditionalPathVectorImpl

@@ -120,17 +120,6 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BEE_MODEL_REPOSITORY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BEE_MODEL_REPOSITORY__BEE_MODELS:
@@ -201,6 +190,17 @@ public class BeeModelRepositoryImpl extends BuildUnitRepositoryImpl implements B
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BEE_MODEL_REPOSITORY;
 	}
 
 } // SimpleRepositoryImpl

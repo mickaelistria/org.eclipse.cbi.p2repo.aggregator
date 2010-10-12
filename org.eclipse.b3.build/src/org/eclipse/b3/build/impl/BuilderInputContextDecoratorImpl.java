@@ -147,17 +147,6 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_INPUT_CONTEXT_DECORATOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR:
@@ -200,6 +189,17 @@ public class BuilderInputContextDecoratorImpl extends BuilderInputDecoratorImpl 
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR__WITH_EXPR, newWithExpr,
 				newWithExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_INPUT_CONTEXT_DECORATOR;
 	}
 
 } // BuilderInputContextDecoratorImpl

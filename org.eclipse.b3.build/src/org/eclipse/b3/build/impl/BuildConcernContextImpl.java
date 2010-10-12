@@ -238,17 +238,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_CONCERN_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
@@ -303,6 +292,60 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setDefaultPropertiesAdditions(BPropertySet newDefaultPropertiesAdditions) {
+		if(newDefaultPropertiesAdditions != defaultPropertiesAdditions) {
+			NotificationChain msgs = null;
+			if(defaultPropertiesAdditions != null)
+				msgs = ((InternalEObject) defaultPropertiesAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, null, msgs);
+			if(newDefaultPropertiesAdditions != null)
+				msgs = ((InternalEObject) newDefaultPropertiesAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, null, msgs);
+			msgs = basicSetDefaultPropertiesAdditions(newDefaultPropertiesAdditions, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS,
+				newDefaultPropertiesAdditions, newDefaultPropertiesAdditions));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if(eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (defaultPropertiesRemovals: ");
+		result.append(defaultPropertiesRemovals);
+		result.append(')');
+		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_CONCERN_CONTEXT;
+	}
+
+	/**
 	 * Copies everything from originalSet to propertySet, and then removes all definitions in removals. Lastly
 	 * additions are added to the propertySet.
 	 * 
@@ -347,49 +390,6 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 			modified = true;
 		}
 		return modified;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setDefaultPropertiesAdditions(BPropertySet newDefaultPropertiesAdditions) {
-		if(newDefaultPropertiesAdditions != defaultPropertiesAdditions) {
-			NotificationChain msgs = null;
-			if(defaultPropertiesAdditions != null)
-				msgs = ((InternalEObject) defaultPropertiesAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, null, msgs);
-			if(newDefaultPropertiesAdditions != null)
-				msgs = ((InternalEObject) newDefaultPropertiesAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, null, msgs);
-			msgs = basicSetDefaultPropertiesAdditions(newDefaultPropertiesAdditions, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS,
-				newDefaultPropertiesAdditions, newDefaultPropertiesAdditions));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if(eIsProxy())
-			return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (defaultPropertiesRemovals: ");
-		result.append(defaultPropertiesRemovals);
-		result.append(')');
-		return result.toString();
 	}
 
 } // BuildConcernContextImpl

@@ -37,15 +37,19 @@ public class FirstFoundUnitProviderImpl extends CompoundUnitProviderImpl impleme
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @generated
+	 * @see org.eclipse.b3.build.impl.UnitProviderImpl#resolve(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 * org.eclipse.b3.build.RequiredCapability)
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.FIRST_FOUND_UNIT_PROVIDER;
+	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
+		BuildUnit result = null;
+		for(UnitProvider provider : getProviders())
+			if((result = provider.resolve(ctx, requiredCapability)) != null)
+				return result;
+		return null;
 	}
 
 	// /*
@@ -69,18 +73,14 @@ public class FirstFoundUnitProviderImpl extends CompoundUnitProviderImpl impleme
 	// return repo;
 	// }
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.build.impl.UnitProviderImpl#resolve(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
-	 * org.eclipse.b3.build.RequiredCapability)
+	 * @generated
 	 */
 	@Override
-	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
-		BuildUnit result = null;
-		for(UnitProvider provider : getProviders())
-			if((result = provider.resolve(ctx, requiredCapability)) != null)
-				return result;
-		return null;
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.FIRST_FOUND_UNIT_PROVIDER;
 	}
 } // ResolutionStrategyFirstImpl

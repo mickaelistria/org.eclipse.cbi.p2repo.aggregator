@@ -228,7 +228,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//IType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="closure" eType="#//BExecutionContext"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeCalculator" eType="#//BTypeCalculator"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//BFunctionContainer"
@@ -687,5 +686,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="IVarName" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BTemplate" eSuperTypes="#//BExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="closure" eType="#//BExecutionContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+        eType="#//BExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BEchoExpression" eSuperTypes="#//BExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//BExpression"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -143,17 +143,6 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.IMPLEMENTS_PREDICATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE:
@@ -195,6 +184,17 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.IMPLEMENTS_PREDICATE;
 	}
 
 } // ImplementsPredicateImpl

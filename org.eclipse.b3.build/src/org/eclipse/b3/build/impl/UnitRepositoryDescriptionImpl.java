@@ -143,17 +143,6 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.UNIT_REPOSITORY_DESCRIPTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.UNIT_REPOSITORY_DESCRIPTION__REPOSITORY:
@@ -269,6 +258,17 @@ public class UnitRepositoryDescriptionImpl extends BuildUnitRepositoryImpl imple
 		result.append(evaluatedOptions);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.UNIT_REPOSITORY_DESCRIPTION;
 	}
 
 } // UnitRepositoryDescriptionImpl

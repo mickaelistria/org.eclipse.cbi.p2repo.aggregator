@@ -149,8 +149,13 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.PROVIDES_PREDICATE;
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
+				setCapabilityPredicate((CapabilityPredicate) null);
+				return;
+		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -159,14 +164,8 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 * 
 	 * @generated
 	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
-				setCapabilityPredicate((CapabilityPredicate) null);
-				return;
-		}
-		super.eUnset(featureID);
+	public CapabilityPredicate getCapabilityPredicate() {
+		return capabilityPredicate;
 	}
 
 	// /**
@@ -179,16 +178,6 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	// ((EList<?>)input.eContainer().eGet(input.eContainingFeature())).remove(input);
 	// return result;
 	// }
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public CapabilityPredicate getCapabilityPredicate() {
-		return capabilityPredicate;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -254,6 +243,17 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE,
 				newCapabilityPredicate, newCapabilityPredicate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.PROVIDES_PREDICATE;
 	}
 
 } // ProvidesPredicateImpl

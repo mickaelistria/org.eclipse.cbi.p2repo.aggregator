@@ -581,6 +581,17 @@ public class B3backendValidator extends EObjectValidator {
 	 * 
 	 * @generated
 	 */
+	public boolean validateBEchoExpression(BEchoExpression bEchoExpression, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(bEchoExpression, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public boolean validateBExecutionContext(BExecutionContext bExecutionContext, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bExecutionContext, diagnostics, context);
@@ -1027,6 +1038,16 @@ public class B3backendValidator extends EObjectValidator {
 	public boolean validateBSystemContext(BSystemContext bSystemContext, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bSystemContext, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateBTemplate(BTemplate bTemplate, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(bTemplate, diagnostics, context);
 	}
 
 	/**
@@ -1665,6 +1686,10 @@ public class B3backendValidator extends EObjectValidator {
 				return validateITypedValue((ITypedValue) value, diagnostics, context);
 			case B3backendPackage.IVAR_NAME:
 				return validateIVarName((IVarName) value, diagnostics, context);
+			case B3backendPackage.BTEMPLATE:
+				return validateBTemplate((BTemplate) value, diagnostics, context);
+			case B3backendPackage.BECHO_EXPRESSION:
+				return validateBEchoExpression((BEchoExpression) value, diagnostics, context);
 			case B3backendPackage.VISIBILITY:
 				return validateVisibility((Visibility) value, diagnostics, context);
 			case B3backendPackage.EXECUTION_MODE:

@@ -187,17 +187,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.INPUT_PREDICATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.INPUT_PREDICATE__CAPABILITY_PREDICATE:
@@ -228,6 +217,31 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 */
 	public CapabilityPredicate getCapabilityPredicate() {
 		return capabilityPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setBuilderPredicate(BNamePredicate newBuilderPredicate) {
+		if(newBuilderPredicate != builderPredicate) {
+			NotificationChain msgs = null;
+			if(builderPredicate != null)
+				msgs = ((InternalEObject) builderPredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.INPUT_PREDICATE__BUILDER_PREDICATE, null, msgs);
+			if(newBuilderPredicate != null)
+				msgs = ((InternalEObject) newBuilderPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3BuildPackage.INPUT_PREDICATE__BUILDER_PREDICATE, null, msgs);
+			msgs = basicSetBuilderPredicate(newBuilderPredicate, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3BuildPackage.INPUT_PREDICATE__BUILDER_PREDICATE, newBuilderPredicate,
+				newBuilderPredicate));
 	}
 
 	// private boolean removeMatches(ListIterator<BuilderInput> reqItor) {
@@ -275,31 +289,6 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * 
 	 * @generated
 	 */
-	public void setBuilderPredicate(BNamePredicate newBuilderPredicate) {
-		if(newBuilderPredicate != builderPredicate) {
-			NotificationChain msgs = null;
-			if(builderPredicate != null)
-				msgs = ((InternalEObject) builderPredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3BuildPackage.INPUT_PREDICATE__BUILDER_PREDICATE, null, msgs);
-			if(newBuilderPredicate != null)
-				msgs = ((InternalEObject) newBuilderPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3BuildPackage.INPUT_PREDICATE__BUILDER_PREDICATE, null, msgs);
-			msgs = basicSetBuilderPredicate(newBuilderPredicate, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3BuildPackage.INPUT_PREDICATE__BUILDER_PREDICATE, newBuilderPredicate,
-				newBuilderPredicate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setCapabilityPredicate(CapabilityPredicate newCapabilityPredicate) {
 		if(newCapabilityPredicate != capabilityPredicate) {
 			NotificationChain msgs = null;
@@ -317,6 +306,17 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.INPUT_PREDICATE__CAPABILITY_PREDICATE, newCapabilityPredicate,
 				newCapabilityPredicate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.INPUT_PREDICATE;
 	}
 
 } // InputPredicateImpl

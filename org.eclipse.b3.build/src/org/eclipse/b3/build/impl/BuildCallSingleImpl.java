@@ -86,9 +86,11 @@ public abstract class BuildCallSingleImpl extends BuilderCallImpl implements Bui
 	 * 
 	 * @generated
 	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_CALL_SINGLE;
+	public RequiredCapability getRequiredCapability() {
+		RequiredCapability requiredCapability = basicGetRequiredCapability();
+		return requiredCapability != null && requiredCapability.eIsProxy()
+				? (RequiredCapability) eResolveProxy((InternalEObject) requiredCapability)
+				: requiredCapability;
 	}
 
 	/**
@@ -97,11 +99,9 @@ public abstract class BuildCallSingleImpl extends BuilderCallImpl implements Bui
 	 * 
 	 * @generated
 	 */
-	public RequiredCapability getRequiredCapability() {
-		RequiredCapability requiredCapability = basicGetRequiredCapability();
-		return requiredCapability != null && requiredCapability.eIsProxy()
-				? (RequiredCapability) eResolveProxy((InternalEObject) requiredCapability)
-				: requiredCapability;
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_CALL_SINGLE;
 	}
 
 } // BuildCallSingleImpl

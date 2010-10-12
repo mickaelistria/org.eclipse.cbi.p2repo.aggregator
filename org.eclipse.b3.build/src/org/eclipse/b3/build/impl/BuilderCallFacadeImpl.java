@@ -181,17 +181,6 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_CALL_FACADE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_CALL_FACADE__BUILDER_REFERENCE:
@@ -306,6 +295,17 @@ public class BuilderCallFacadeImpl extends EObjectImpl implements BuilderCallFac
 		result.append(aliases);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_CALL_FACADE;
 	}
 
 } // BuilderCallFacadeImpl

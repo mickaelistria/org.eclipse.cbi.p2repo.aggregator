@@ -117,17 +117,6 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.NAME_SPACE_PREDICATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.NAME_SPACE_PREDICATE__NAME_SPACE:
@@ -177,6 +166,17 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 		result.append(nameSpace);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.NAME_SPACE_PREDICATE;
 	}
 
 } // NameSpacePredicateImpl

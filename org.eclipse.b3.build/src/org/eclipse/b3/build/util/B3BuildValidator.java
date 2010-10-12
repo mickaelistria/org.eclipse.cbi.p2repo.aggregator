@@ -184,18 +184,6 @@ public class B3BuildValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Returns the package of this validator switch.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EPackage getEPackage() {
-		return B3BuildPackage.eINSTANCE;
-	}
-
-	/**
 	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -208,194 +196,6 @@ public class B3BuildValidator extends EObjectValidator {
 		// Specialize this to return a resource locator for messages specific to this validator.
 		// Ensure that you remove @generated or mark it @generated NOT
 		return super.getResourceLocator();
-	}
-
-	/**
-	 * Calls <code>validateXXX</code> for the corresponding classifier of the model.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		switch(classifierID) {
-			case B3BuildPackage.BUILD_UNIT:
-				return validateBuildUnit((BuildUnit) value, diagnostics, context);
-			case B3BuildPackage.IBUILDER:
-				return validateIBuilder((IBuilder) value, diagnostics, context);
-			case B3BuildPackage.VERSIONED_CAPABILITY:
-				return validateVersionedCapability((VersionedCapability) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_INPUT:
-				return validateBuilderInput((BuilderInput) value, diagnostics, context);
-			case B3BuildPackage.PATH_GROUP:
-				return validatePathGroup((PathGroup) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_INPUT_DECORATOR:
-				return validateBuilderInputDecorator((BuilderInputDecorator) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_CALL:
-				return validateBuilderCall((BuilderCall) value, diagnostics, context);
-			case B3BuildPackage.CAPABILITY:
-				return validateCapability((Capability) value, diagnostics, context);
-			case B3BuildPackage.REQUIRED_CAPABILITY:
-				return validateRequiredCapability((RequiredCapability) value, diagnostics, context);
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR:
-				return validateConditionalPathVector((ConditionalPathVector) value, diagnostics, context);
-			case B3BuildPackage.PATH_VECTOR:
-				return validatePathVector((PathVector) value, diagnostics, context);
-			case B3BuildPackage.SYNCHRONIZATION:
-				return validateSynchronization((Synchronization) value, diagnostics, context);
-			case B3BuildPackage.UNIT_PROVIDER:
-				return validateUnitProvider((UnitProvider) value, diagnostics, context);
-			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER:
-				return validateRepositoryUnitProvider((RepositoryUnitProvider) value, diagnostics, context);
-			case B3BuildPackage.COMPOUND_UNIT_PROVIDER:
-				return validateCompoundUnitProvider((CompoundUnitProvider) value, diagnostics, context);
-			case B3BuildPackage.FIRST_FOUND_UNIT_PROVIDER:
-				return validateFirstFoundUnitProvider((FirstFoundUnitProvider) value, diagnostics, context);
-			case B3BuildPackage.BEST_FOUND_UNIT_PROVIDER:
-				return validateBestFoundUnitProvider((BestFoundUnitProvider) value, diagnostics, context);
-			case B3BuildPackage.CONTAINER_CONFIGURATION:
-				return validateContainerConfiguration((ContainerConfiguration) value, diagnostics, context);
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT:
-				return validateBuildConcernContext((BuildConcernContext) value, diagnostics, context);
-			case B3BuildPackage.REQUIRES_PREDICATE:
-				return validateRequiresPredicate((RequiresPredicate) value, diagnostics, context);
-			case B3BuildPackage.CAPABILITY_PREDICATE:
-				return validateCapabilityPredicate((CapabilityPredicate) value, diagnostics, context);
-			case B3BuildPackage.IMPLEMENTS_PREDICATE:
-				return validateImplementsPredicate((ImplementsPredicate) value, diagnostics, context);
-			case B3BuildPackage.PROVIDES_PREDICATE:
-				return validateProvidesPredicate((ProvidesPredicate) value, diagnostics, context);
-			case B3BuildPackage.NAME_SPACE_PREDICATE:
-				return validateNameSpacePredicate((NameSpacePredicate) value, diagnostics, context);
-			case B3BuildPackage.UNIT_NAME_PREDICATE:
-				return validateUnitNamePredicate((UnitNamePredicate) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_NAME_PREDICATE:
-				return validateBuilderNamePredicate((BuilderNamePredicate) value, diagnostics, context);
-			case B3BuildPackage.INPUT_PREDICATE:
-				return validateInputPredicate((InputPredicate) value, diagnostics, context);
-			case B3BuildPackage.UNIT_CONCERN_CONTEXT:
-				return validateUnitConcernContext((UnitConcernContext) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT:
-				return validateBuilderConcernContext((BuilderConcernContext) value, diagnostics, context);
-			case B3BuildPackage.PATH_GROUP_PREDICATE:
-				return validatePathGroupPredicate((PathGroupPredicate) value, diagnostics, context);
-			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY:
-				return validateAliasedRequiredCapability((AliasedRequiredCapability) value, diagnostics, context);
-			case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER:
-				return validateIRequiredCapabilityContainer((IRequiredCapabilityContainer) value, diagnostics, context);
-			case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER:
-				return validateIProvidedCapabilityContainer((IProvidedCapabilityContainer) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_QUERY:
-				return validateBuilderQuery((BuilderQuery) value, diagnostics, context);
-			case B3BuildPackage.BUILDER:
-				return validateBuilder((Builder) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_JAVA:
-				return validateBuilderJava((BuilderJava) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_WRAPPER:
-				return validateBuilderWrapper((BuilderWrapper) value, diagnostics, context);
-			case B3BuildPackage.BEE_MODEL:
-				return validateBeeModel((BeeModel) value, diagnostics, context);
-			case B3BuildPackage.BEE_HIVE:
-				return validateBeeHive((BeeHive) value, diagnostics, context);
-			case B3BuildPackage.RESOLUTION_INFO:
-				return validateResolutionInfo((ResolutionInfo) value, diagnostics, context);
-			case B3BuildPackage.EFFECTIVE_FACADE:
-				return validateEffectiveFacade((EffectiveFacade) value, diagnostics, context);
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE:
-				return validateEffectiveUnitFacade((EffectiveUnitFacade) value, diagnostics, context);
-			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE:
-				return validateEffectiveRequirementFacade((EffectiveRequirementFacade) value, diagnostics, context);
-			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE:
-				return validateEffectiveCapabilityFacade((EffectiveCapabilityFacade) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_CALL_FACADE:
-				return validateBuilderCallFacade((BuilderCallFacade) value, diagnostics, context);
-			case B3BuildPackage.BUILD_SET:
-				return validateBuildSet((BuildSet) value, diagnostics, context);
-			case B3BuildPackage.BUILD_RESULT_CONTEXT:
-				return validateBuildResultContext((BuildResultContext) value, diagnostics, context);
-			case B3BuildPackage.OUTPUT_PREDICATE:
-				return validateOutputPredicate((OutputPredicate) value, diagnostics, context);
-			case B3BuildPackage.SOURCE_PREDICATE:
-				return validateSourcePredicate((SourcePredicate) value, diagnostics, context);
-			case B3BuildPackage.BUILD_UNIT_REPOSITORY:
-				return validateBuildUnitRepository((BuildUnitRepository) value, diagnostics, context);
-			case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY:
-				return validateCompoundBuildUnitRepository((CompoundBuildUnitRepository) value, diagnostics, context);
-			case B3BuildPackage.COMPOUND_FIRST_FOUND_REPOSITORY:
-				return validateCompoundFirstFoundRepository((CompoundFirstFoundRepository) value, diagnostics, context);
-			case B3BuildPackage.EXECUTION_STACK_REPOSITORY:
-				return validateExecutionStackRepository((ExecutionStackRepository) value, diagnostics, context);
-			case B3BuildPackage.BEE_MODEL_REPOSITORY:
-				return validateBeeModelRepository((BeeModelRepository) value, diagnostics, context);
-			case B3BuildPackage.IBUILD_UNIT_REPOSITORY:
-				return validateIBuildUnitRepository((IBuildUnitRepository) value, diagnostics, context);
-			case B3BuildPackage.UNIT_RESOLUTION_INFO:
-				return validateUnitResolutionInfo((UnitResolutionInfo) value, diagnostics, context);
-			case B3BuildPackage.SWITCH_UNIT_PROVIDER:
-				return validateSwitchUnitProvider((SwitchUnitProvider) value, diagnostics, context);
-			case B3BuildPackage.REPOSITORY:
-				return validateRepository((Repository) value, diagnostics, context);
-			case B3BuildPackage.BRANCH:
-				return validateBranch((Branch) value, diagnostics, context);
-			case B3BuildPackage.DELEGATING_UNIT_PROVIDER:
-				return validateDelegatingUnitProvider((DelegatingUnitProvider) value, diagnostics, context);
-			case B3BuildPackage.REPO_OPTION:
-				return validateRepoOption((RepoOption) value, diagnostics, context);
-			case B3BuildPackage.UNIT_REPOSITORY_DESCRIPTION:
-				return validateUnitRepositoryDescription((UnitRepositoryDescription) value, diagnostics, context);
-			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS:
-				return validateBuildCallOnSelectedRequirements(
-					(BuildCallOnSelectedRequirements) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_INPUT_NAME_DECORATOR:
-				return validateBuilderInputNameDecorator((BuilderInputNameDecorator) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR:
-				return validateBuilderInputContextDecorator((BuilderInputContextDecorator) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_INPUT_CONDITION:
-				return validateBuilderInputCondition((BuilderInputCondition) value, diagnostics, context);
-			case B3BuildPackage.BUILD_CALL_MULTIPLE:
-				return validateBuildCallMultiple((BuildCallMultiple) value, diagnostics, context);
-			case B3BuildPackage.BUILD_CALL_SINGLE:
-				return validateBuildCallSingle((BuildCallSingle) value, diagnostics, context);
-			case B3BuildPackage.BUILD_CALL_ON_DECLARED_REQUIREMENT:
-				return validateBuildCallOnDeclaredRequirement(
-					(BuildCallOnDeclaredRequirement) value, diagnostics, context);
-			case B3BuildPackage.BUILD_CALL_ON_REFERENCED_REQUIREMENT:
-				return validateBuildCallOnReferencedRequirement(
-					(BuildCallOnReferencedRequirement) value, diagnostics, context);
-			case B3BuildPackage.BUILDER_INPUT_GROUP:
-				return validateBuilderInputGroup((BuilderInputGroup) value, diagnostics, context);
-			case B3BuildPackage.IEFFECTIVE_FACADE:
-				return validateIEffectiveFacade((IEffectiveFacade) value, diagnostics, context);
-			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE:
-				return validateEffectiveBuilderCallFacade((EffectiveBuilderCallFacade) value, diagnostics, context);
-			case B3BuildPackage.IBUILD_UNIT_CONTAINER:
-				return validateIBuildUnitContainer((IBuildUnitContainer) value, diagnostics, context);
-			case B3BuildPackage.FRAGMENT_HOST:
-				return validateFragmentHost((FragmentHost) value, diagnostics, context);
-			case B3BuildPackage.MERGE_CONFLICT_STRATEGY:
-				return validateMergeConflictStrategy((MergeConflictStrategy) value, diagnostics, context);
-			case B3BuildPackage.BRANCH_POINT_TYPE:
-				return validateBranchPointType((BranchPointType) value, diagnostics, context);
-			case B3BuildPackage.TRI_STATE:
-				return validateTriState((TriState) value, diagnostics, context);
-			case B3BuildPackage.VERSION_RANGE:
-				return validateVersionRange((VersionRange) value, diagnostics, context);
-			case B3BuildPackage.VERSION:
-				return validateVersion((Version) value, diagnostics, context);
-			case B3BuildPackage.ISTATUS:
-				return validateIStatus((IStatus) value, diagnostics, context);
-			case B3BuildPackage.PATH_ITERATOR:
-				return validatePathIterator((PathIterator) value, diagnostics, context);
-			case B3BuildPackage.B3_BUILDER_JOB:
-				return validateB3BuilderJob((B3BuilderJob) value, diagnostics, context);
-			case B3BuildPackage.IMATCH_EXPRESSION:
-				return validateIMatchExpression((IMatchExpression<?>) value, diagnostics, context);
-			case B3BuildPackage.IINSTALLABLE_UNIT:
-				return validateIInstallableUnit((IInstallableUnit) value, diagnostics, context);
-			default:
-				return true;
-		}
 	}
 
 	/**
@@ -1371,6 +1171,206 @@ public class B3BuildValidator extends EObjectValidator {
 	public boolean validateVersionRange(VersionRange versionRange, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return true;
+	}
+
+	/**
+	 * Returns the package of this validator switch.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EPackage getEPackage() {
+		return B3BuildPackage.eINSTANCE;
+	}
+
+	/**
+	 * Calls <code>validateXXX</code> for the corresponding classifier of the model.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		switch(classifierID) {
+			case B3BuildPackage.BUILD_UNIT:
+				return validateBuildUnit((BuildUnit) value, diagnostics, context);
+			case B3BuildPackage.IBUILDER:
+				return validateIBuilder((IBuilder) value, diagnostics, context);
+			case B3BuildPackage.VERSIONED_CAPABILITY:
+				return validateVersionedCapability((VersionedCapability) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_INPUT:
+				return validateBuilderInput((BuilderInput) value, diagnostics, context);
+			case B3BuildPackage.PATH_GROUP:
+				return validatePathGroup((PathGroup) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_INPUT_DECORATOR:
+				return validateBuilderInputDecorator((BuilderInputDecorator) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_CALL:
+				return validateBuilderCall((BuilderCall) value, diagnostics, context);
+			case B3BuildPackage.CAPABILITY:
+				return validateCapability((Capability) value, diagnostics, context);
+			case B3BuildPackage.REQUIRED_CAPABILITY:
+				return validateRequiredCapability((RequiredCapability) value, diagnostics, context);
+			case B3BuildPackage.CONDITIONAL_PATH_VECTOR:
+				return validateConditionalPathVector((ConditionalPathVector) value, diagnostics, context);
+			case B3BuildPackage.PATH_VECTOR:
+				return validatePathVector((PathVector) value, diagnostics, context);
+			case B3BuildPackage.SYNCHRONIZATION:
+				return validateSynchronization((Synchronization) value, diagnostics, context);
+			case B3BuildPackage.UNIT_PROVIDER:
+				return validateUnitProvider((UnitProvider) value, diagnostics, context);
+			case B3BuildPackage.REPOSITORY_UNIT_PROVIDER:
+				return validateRepositoryUnitProvider((RepositoryUnitProvider) value, diagnostics, context);
+			case B3BuildPackage.COMPOUND_UNIT_PROVIDER:
+				return validateCompoundUnitProvider((CompoundUnitProvider) value, diagnostics, context);
+			case B3BuildPackage.FIRST_FOUND_UNIT_PROVIDER:
+				return validateFirstFoundUnitProvider((FirstFoundUnitProvider) value, diagnostics, context);
+			case B3BuildPackage.BEST_FOUND_UNIT_PROVIDER:
+				return validateBestFoundUnitProvider((BestFoundUnitProvider) value, diagnostics, context);
+			case B3BuildPackage.CONTAINER_CONFIGURATION:
+				return validateContainerConfiguration((ContainerConfiguration) value, diagnostics, context);
+			case B3BuildPackage.BUILD_CONCERN_CONTEXT:
+				return validateBuildConcernContext((BuildConcernContext) value, diagnostics, context);
+			case B3BuildPackage.REQUIRES_PREDICATE:
+				return validateRequiresPredicate((RequiresPredicate) value, diagnostics, context);
+			case B3BuildPackage.CAPABILITY_PREDICATE:
+				return validateCapabilityPredicate((CapabilityPredicate) value, diagnostics, context);
+			case B3BuildPackage.IMPLEMENTS_PREDICATE:
+				return validateImplementsPredicate((ImplementsPredicate) value, diagnostics, context);
+			case B3BuildPackage.PROVIDES_PREDICATE:
+				return validateProvidesPredicate((ProvidesPredicate) value, diagnostics, context);
+			case B3BuildPackage.NAME_SPACE_PREDICATE:
+				return validateNameSpacePredicate((NameSpacePredicate) value, diagnostics, context);
+			case B3BuildPackage.UNIT_NAME_PREDICATE:
+				return validateUnitNamePredicate((UnitNamePredicate) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_NAME_PREDICATE:
+				return validateBuilderNamePredicate((BuilderNamePredicate) value, diagnostics, context);
+			case B3BuildPackage.INPUT_PREDICATE:
+				return validateInputPredicate((InputPredicate) value, diagnostics, context);
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT:
+				return validateUnitConcernContext((UnitConcernContext) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT:
+				return validateBuilderConcernContext((BuilderConcernContext) value, diagnostics, context);
+			case B3BuildPackage.PATH_GROUP_PREDICATE:
+				return validatePathGroupPredicate((PathGroupPredicate) value, diagnostics, context);
+			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY:
+				return validateAliasedRequiredCapability((AliasedRequiredCapability) value, diagnostics, context);
+			case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER:
+				return validateIRequiredCapabilityContainer((IRequiredCapabilityContainer) value, diagnostics, context);
+			case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER:
+				return validateIProvidedCapabilityContainer((IProvidedCapabilityContainer) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_QUERY:
+				return validateBuilderQuery((BuilderQuery) value, diagnostics, context);
+			case B3BuildPackage.BUILDER:
+				return validateBuilder((Builder) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_JAVA:
+				return validateBuilderJava((BuilderJava) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_WRAPPER:
+				return validateBuilderWrapper((BuilderWrapper) value, diagnostics, context);
+			case B3BuildPackage.BEE_MODEL:
+				return validateBeeModel((BeeModel) value, diagnostics, context);
+			case B3BuildPackage.BEE_HIVE:
+				return validateBeeHive((BeeHive) value, diagnostics, context);
+			case B3BuildPackage.RESOLUTION_INFO:
+				return validateResolutionInfo((ResolutionInfo) value, diagnostics, context);
+			case B3BuildPackage.EFFECTIVE_FACADE:
+				return validateEffectiveFacade((EffectiveFacade) value, diagnostics, context);
+			case B3BuildPackage.EFFECTIVE_UNIT_FACADE:
+				return validateEffectiveUnitFacade((EffectiveUnitFacade) value, diagnostics, context);
+			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE:
+				return validateEffectiveRequirementFacade((EffectiveRequirementFacade) value, diagnostics, context);
+			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE:
+				return validateEffectiveCapabilityFacade((EffectiveCapabilityFacade) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_CALL_FACADE:
+				return validateBuilderCallFacade((BuilderCallFacade) value, diagnostics, context);
+			case B3BuildPackage.BUILD_SET:
+				return validateBuildSet((BuildSet) value, diagnostics, context);
+			case B3BuildPackage.BUILD_RESULT_CONTEXT:
+				return validateBuildResultContext((BuildResultContext) value, diagnostics, context);
+			case B3BuildPackage.OUTPUT_PREDICATE:
+				return validateOutputPredicate((OutputPredicate) value, diagnostics, context);
+			case B3BuildPackage.SOURCE_PREDICATE:
+				return validateSourcePredicate((SourcePredicate) value, diagnostics, context);
+			case B3BuildPackage.BUILD_UNIT_REPOSITORY:
+				return validateBuildUnitRepository((BuildUnitRepository) value, diagnostics, context);
+			case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY:
+				return validateCompoundBuildUnitRepository((CompoundBuildUnitRepository) value, diagnostics, context);
+			case B3BuildPackage.COMPOUND_FIRST_FOUND_REPOSITORY:
+				return validateCompoundFirstFoundRepository((CompoundFirstFoundRepository) value, diagnostics, context);
+			case B3BuildPackage.EXECUTION_STACK_REPOSITORY:
+				return validateExecutionStackRepository((ExecutionStackRepository) value, diagnostics, context);
+			case B3BuildPackage.BEE_MODEL_REPOSITORY:
+				return validateBeeModelRepository((BeeModelRepository) value, diagnostics, context);
+			case B3BuildPackage.IBUILD_UNIT_REPOSITORY:
+				return validateIBuildUnitRepository((IBuildUnitRepository) value, diagnostics, context);
+			case B3BuildPackage.UNIT_RESOLUTION_INFO:
+				return validateUnitResolutionInfo((UnitResolutionInfo) value, diagnostics, context);
+			case B3BuildPackage.SWITCH_UNIT_PROVIDER:
+				return validateSwitchUnitProvider((SwitchUnitProvider) value, diagnostics, context);
+			case B3BuildPackage.REPOSITORY:
+				return validateRepository((Repository) value, diagnostics, context);
+			case B3BuildPackage.BRANCH:
+				return validateBranch((Branch) value, diagnostics, context);
+			case B3BuildPackage.DELEGATING_UNIT_PROVIDER:
+				return validateDelegatingUnitProvider((DelegatingUnitProvider) value, diagnostics, context);
+			case B3BuildPackage.REPO_OPTION:
+				return validateRepoOption((RepoOption) value, diagnostics, context);
+			case B3BuildPackage.UNIT_REPOSITORY_DESCRIPTION:
+				return validateUnitRepositoryDescription((UnitRepositoryDescription) value, diagnostics, context);
+			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS:
+				return validateBuildCallOnSelectedRequirements(
+					(BuildCallOnSelectedRequirements) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_INPUT_NAME_DECORATOR:
+				return validateBuilderInputNameDecorator((BuilderInputNameDecorator) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_INPUT_CONTEXT_DECORATOR:
+				return validateBuilderInputContextDecorator((BuilderInputContextDecorator) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_INPUT_CONDITION:
+				return validateBuilderInputCondition((BuilderInputCondition) value, diagnostics, context);
+			case B3BuildPackage.BUILD_CALL_MULTIPLE:
+				return validateBuildCallMultiple((BuildCallMultiple) value, diagnostics, context);
+			case B3BuildPackage.BUILD_CALL_SINGLE:
+				return validateBuildCallSingle((BuildCallSingle) value, diagnostics, context);
+			case B3BuildPackage.BUILD_CALL_ON_DECLARED_REQUIREMENT:
+				return validateBuildCallOnDeclaredRequirement(
+					(BuildCallOnDeclaredRequirement) value, diagnostics, context);
+			case B3BuildPackage.BUILD_CALL_ON_REFERENCED_REQUIREMENT:
+				return validateBuildCallOnReferencedRequirement(
+					(BuildCallOnReferencedRequirement) value, diagnostics, context);
+			case B3BuildPackage.BUILDER_INPUT_GROUP:
+				return validateBuilderInputGroup((BuilderInputGroup) value, diagnostics, context);
+			case B3BuildPackage.IEFFECTIVE_FACADE:
+				return validateIEffectiveFacade((IEffectiveFacade) value, diagnostics, context);
+			case B3BuildPackage.EFFECTIVE_BUILDER_CALL_FACADE:
+				return validateEffectiveBuilderCallFacade((EffectiveBuilderCallFacade) value, diagnostics, context);
+			case B3BuildPackage.IBUILD_UNIT_CONTAINER:
+				return validateIBuildUnitContainer((IBuildUnitContainer) value, diagnostics, context);
+			case B3BuildPackage.FRAGMENT_HOST:
+				return validateFragmentHost((FragmentHost) value, diagnostics, context);
+			case B3BuildPackage.MERGE_CONFLICT_STRATEGY:
+				return validateMergeConflictStrategy((MergeConflictStrategy) value, diagnostics, context);
+			case B3BuildPackage.BRANCH_POINT_TYPE:
+				return validateBranchPointType((BranchPointType) value, diagnostics, context);
+			case B3BuildPackage.TRI_STATE:
+				return validateTriState((TriState) value, diagnostics, context);
+			case B3BuildPackage.VERSION_RANGE:
+				return validateVersionRange((VersionRange) value, diagnostics, context);
+			case B3BuildPackage.VERSION:
+				return validateVersion((Version) value, diagnostics, context);
+			case B3BuildPackage.ISTATUS:
+				return validateIStatus((IStatus) value, diagnostics, context);
+			case B3BuildPackage.PATH_ITERATOR:
+				return validatePathIterator((PathIterator) value, diagnostics, context);
+			case B3BuildPackage.B3_BUILDER_JOB:
+				return validateB3BuilderJob((B3BuilderJob) value, diagnostics, context);
+			case B3BuildPackage.IMATCH_EXPRESSION:
+				return validateIMatchExpression((IMatchExpression<?>) value, diagnostics, context);
+			case B3BuildPackage.IINSTALLABLE_UNIT:
+				return validateIInstallableUnit((IInstallableUnit) value, diagnostics, context);
+			default:
+				return true;
+		}
 	}
 
 } // B3BuildValidator

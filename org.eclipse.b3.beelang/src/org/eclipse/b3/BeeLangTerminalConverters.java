@@ -447,6 +447,63 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 		};
 	}
 
+	@ValueConverter(rule = "TEXTEND")
+	public IValueConverter<String> TEXTEND() {
+		return new AbstractNullSafeConverter<String>() {
+			@Override
+			protected String internalToString(String value) {
+				return "›" + value + "»";
+			}
+
+			@Override
+			protected String internalToValue(String string, AbstractNode node) {
+				if(string.startsWith("›"))
+					string = string.substring(1);
+				if(string.endsWith("»"))
+					string = string.substring(0, string.length() - 1);
+				return string;
+			}
+		};
+	}
+
+	@ValueConverter(rule = "TEXTMID")
+	public IValueConverter<String> TEXTMID() {
+		return new AbstractNullSafeConverter<String>() {
+			@Override
+			protected String internalToString(String value) {
+				return "›" + value + "‹";
+			}
+
+			@Override
+			protected String internalToValue(String string, AbstractNode node) {
+				if(string.startsWith("›"))
+					string = string.substring(1);
+				if(string.endsWith("‹"))
+					string = string.substring(0, string.length() - 1);
+				return string;
+			}
+		};
+	}
+
+	@ValueConverter(rule = "TEXTSTART")
+	public IValueConverter<String> TEXTSTART() {
+		return new AbstractNullSafeConverter<String>() {
+			@Override
+			protected String internalToString(String value) {
+				return "«" + value + "›";
+			}
+
+			@Override
+			protected String internalToValue(String string, AbstractNode node) {
+				if(string.startsWith("«"))
+					string = string.substring(1);
+				if(string.endsWith("›"))
+					string = string.substring(0, string.length() - 1);
+				return string;
+			}
+		};
+	}
+
 	@ValueConverter(rule = "TIMESTAMP")
 	public IValueConverter<java.util.Date> TimestampValue() {
 		return new AbstractNullSafeConverter<Date>() {

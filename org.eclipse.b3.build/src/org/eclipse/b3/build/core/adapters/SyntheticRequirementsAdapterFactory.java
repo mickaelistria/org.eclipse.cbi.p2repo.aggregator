@@ -33,12 +33,12 @@ public class SyntheticRequirementsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	@Override
-	protected Adapter createAdapter(Notifier target, Object type) {
-		return new SyntheticRequirementsAdapter();
+	public boolean isFactoryForType(Object type) {
+		return type == SyntheticRequirementsAdapter.class;
 	}
 
 	@Override
-	public boolean isFactoryForType(Object type) {
-		return type == SyntheticRequirementsAdapter.class;
+	protected Adapter createAdapter(Notifier target, Object type) {
+		return new SyntheticRequirementsAdapter();
 	}
 }

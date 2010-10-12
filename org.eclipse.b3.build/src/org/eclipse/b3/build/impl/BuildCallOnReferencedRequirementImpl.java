@@ -129,17 +129,6 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_CALL_ON_REFERENCED_REQUIREMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILD_CALL_ON_REFERENCED_REQUIREMENT__REQUIRED_CAPABILITY_REFERENCE:
@@ -184,6 +173,17 @@ public class BuildCallOnReferencedRequirementImpl extends BuildCallSingleImpl im
 				this, Notification.SET,
 				B3BuildPackage.BUILD_CALL_ON_REFERENCED_REQUIREMENT__REQUIRED_CAPABILITY_REFERENCE,
 				oldRequiredCapabilityReference, requiredCapabilityReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_CALL_ON_REFERENCED_REQUIREMENT;
 	}
 
 } // BuildCallOnReferencedRequirementImpl

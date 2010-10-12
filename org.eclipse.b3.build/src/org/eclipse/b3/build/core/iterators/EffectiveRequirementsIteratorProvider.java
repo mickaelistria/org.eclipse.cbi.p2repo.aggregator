@@ -53,13 +53,6 @@ public class EffectiveRequirementsIteratorProvider {
 		return iteratorDispatcher.invoke(o, ctx);
 	}
 
-	protected Iterator<EffectiveRequirementFacade> handleError(Object[] params, Throwable e) {
-		if(e instanceof NullPointerException) {
-			return null;
-		}
-		return Exceptions.throwUncheckedException(e);
-	}
-
 	/**
 	 * Leaf node holding a declaration to a new requirement.
 	 * 
@@ -134,6 +127,13 @@ public class EffectiveRequirementsIteratorProvider {
 
 	public Iterator<EffectiveRequirementFacade> iterator(Object o, BExecutionContext ctx) {
 		return NULL_ITERATOR;
+	}
+
+	protected Iterator<EffectiveRequirementFacade> handleError(Object[] params, Throwable e) {
+		if(e instanceof NullPointerException) {
+			return null;
+		}
+		return Exceptions.throwUncheckedException(e);
 	}
 
 }

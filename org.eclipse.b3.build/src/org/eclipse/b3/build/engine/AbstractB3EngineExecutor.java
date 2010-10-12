@@ -30,22 +30,6 @@ public abstract class AbstractB3EngineExecutor extends AbstractB3Executor<IStatu
 		this.engine = engine;
 	}
 
-	/**
-	 * Implementor should:
-	 * - throw InterruptedException if the monitor is canceled (or return an IStatus.CANCELED).
-	 * - wrap any checked Exceptions in an InvocationTargetException
-	 * - do not need to handle Error exceptions - the caller will wrap them as InvocationTargetException.
-	 * - diligently check the monitor for cancellation
-	 * - abide by monitor use policy
-	 * 
-	 * @param monitor
-	 * @return
-	 * @throws InvocationTargetException
-	 * @throws InterruptedException
-	 */
-	abstract protected IStatus runb3(IB3EngineRuntime engine, IProgressMonitor monitor)
-			throws InvocationTargetException, InterruptedException, CoreException;
-
 	@Override
 	final public IStatus runb3(IProgressMonitor monitor) {
 		// make the ctx available in the thread.
@@ -74,4 +58,20 @@ public abstract class AbstractB3EngineExecutor extends AbstractB3Executor<IStatu
 			return Status.CANCEL_STATUS;
 		}
 	}
+
+	/**
+	 * Implementor should:
+	 * - throw InterruptedException if the monitor is canceled (or return an IStatus.CANCELED).
+	 * - wrap any checked Exceptions in an InvocationTargetException
+	 * - do not need to handle Error exceptions - the caller will wrap them as InvocationTargetException.
+	 * - diligently check the monitor for cancellation
+	 * - abide by monitor use policy
+	 * 
+	 * @param monitor
+	 * @return
+	 * @throws InvocationTargetException
+	 * @throws InterruptedException
+	 */
+	abstract protected IStatus runb3(IB3EngineRuntime engine, IProgressMonitor monitor)
+			throws InvocationTargetException, InterruptedException, CoreException;
 }

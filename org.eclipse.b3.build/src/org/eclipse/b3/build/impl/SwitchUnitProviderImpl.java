@@ -150,8 +150,13 @@ public class SwitchUnitProviderImpl extends UnitProviderImpl implements SwitchUn
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.SWITCH_UNIT_PROVIDER;
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case B3BuildPackage.SWITCH_UNIT_PROVIDER__REPO_SWITCH:
+				setRepoSwitch((BSwitchExpression) null);
+				return;
+		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -160,14 +165,8 @@ public class SwitchUnitProviderImpl extends UnitProviderImpl implements SwitchUn
 	 * 
 	 * @generated
 	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch(featureID) {
-			case B3BuildPackage.SWITCH_UNIT_PROVIDER__REPO_SWITCH:
-				setRepoSwitch((BSwitchExpression) null);
-				return;
-		}
-		super.eUnset(featureID);
+	public BSwitchExpression getRepoSwitch() {
+		return repoSwitch;
 	}
 
 	// /*
@@ -199,16 +198,6 @@ public class SwitchUnitProviderImpl extends UnitProviderImpl implements SwitchUn
 	// }
 	// return switchRepo;
 	// }
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public BSwitchExpression getRepoSwitch() {
-		return repoSwitch;
-	}
 
 	/*
 	 * (non-Javadoc)
@@ -256,6 +245,17 @@ public class SwitchUnitProviderImpl extends UnitProviderImpl implements SwitchUn
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.SWITCH_UNIT_PROVIDER__REPO_SWITCH, newRepoSwitch, newRepoSwitch));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.SWITCH_UNIT_PROVIDER;
 	}
 
 } // ResolutionStrategySwitchImpl

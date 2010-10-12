@@ -170,17 +170,6 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_QUERY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES:
@@ -239,6 +228,17 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BUILDER_QUERY__UNIT_QUERY, newUnitQuery, newUnitQuery));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_QUERY;
 	}
 
 } // BuilderQueryImpl

@@ -759,17 +759,6 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_WRAPPER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_WRAPPER__PROVIDED_CAPABILITIES:
@@ -1396,5 +1385,16 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 		result.append(sourceAdvised);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_WRAPPER;
 	}
 } // BuilderWrapperImpl

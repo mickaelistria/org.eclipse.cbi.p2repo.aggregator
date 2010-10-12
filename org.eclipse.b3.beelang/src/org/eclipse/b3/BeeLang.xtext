@@ -755,7 +755,8 @@ PrimaryExpression returns be::BExpression
 	: FeatureCall
 	| ConstructorCallExpression
 	| VariableValue
-	| Literal 
+	| Literal
+	| Template
 	| PropertyValue
 	| ParanthesizedExpression
 	| IfExpression
@@ -1141,16 +1142,6 @@ LiteralFunction returns be::BExpression :
 	'{' ClosureExpression '}'
 	;
 
-//LiteralFunction returns be::BExpression : {be::B3Function} 
-//	'{' ('<' returnType=TypeRef '>')?
-//	(
-//	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* 
-//		(',' varArgs?="..." parameters += ParameterDeclaration)?)
-//	| 	(    varArgs?="..." parameters += ParameterDeclaration)
-//	)? 
-//	'|' funcExpr=OneOrManyExpressions '}'
-//	;
-
 // A lambda (without delimiters)
 ClosureExpression returns be::BExpression: {be::B3Function} 
 	('<' returnType=TypeRef '>')?
@@ -1318,7 +1309,41 @@ terminal STRING :
 '"' ('\\'('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|"'"|'\\') | !('\\'|'"'|'\r'|'\n') )* '"' |
 "'" ('\\'('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|"'"|'\\') | !('\\'|"'"|'\r'|'\n') )* "'";
 
-terminal TEXT : '«' -> '»';
+Template returns be::BTemplate: {be::BTemplate}
+	 	(expressions += TextLiteral)
+	 | 	(expressions += TextStartLiteral 
+			(expressions += TemplateExpression (expressions+=TextMidLiteral expressions += Expression)*)
+		expressions += TextEndLiteral
+		)
+	;
+	
+TemplateExpression returns be::BExpression : EchoExpression | Expression ;
+
+EchoExpression returns be::BEchoExpression : {be::BEchoExpression}
+	'=' expression = Expression
+	;
+TextLiteral returns  be::BExpression : {be::BLiteralExpression} 
+	value = TEXT
+	;
+
+TextStartLiteral returns  be::BExpression : {be::BLiteralExpression} 
+	value = TEXTSTART
+	;
+	
+TextMidLiteral returns  be::BExpression : {be::BLiteralExpression} 
+	value = TEXTMID
+	;
+	
+TextEndLiteral returns  be::BExpression : {be::BLiteralExpression} 
+	value = TEXTEND
+	;
+	
+terminal TEXTSTART : '«' !('»'|'‹')* '‹';
+terminal TEXTMID : '›' !('»'|'‹')* '‹';
+terminal TEXTEND : '›' !('»'|'‹')* '»';
+
+terminal TEXT : '«' !('»'|'‹'|'›')* '»';
+
 terminal JAVADOC : '/**' -> '*/' ;
 terminal ML_COMMENT : '/*' (!'*') -> '*/' ;
 terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')? ;

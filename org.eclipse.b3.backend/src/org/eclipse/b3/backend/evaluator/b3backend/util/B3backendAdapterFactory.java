@@ -289,6 +289,11 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseBEchoExpression(BEchoExpression object) {
+			return createBEchoExpressionAdapter();
+		}
+
+		@Override
 		public Adapter caseBExecutionContext(BExecutionContext object) {
 			return createBExecutionContextAdapter();
 		}
@@ -476,6 +481,11 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseBSystemContext(BSystemContext object) {
 			return createBSystemContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBTemplate(BTemplate object) {
+			return createBTemplateAdapter();
 		}
 
 		@Override
@@ -1095,6 +1105,21 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression <em>BEcho Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression
+	 * @generated
+	 */
+	public Adapter createBEchoExpressionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext <em>BExecution Context</em>}
 	 * '.
 	 * <!-- begin-user-doc -->
@@ -1682,6 +1707,21 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBSystemContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTemplate <em>BTemplate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTemplate
+	 * @generated
+	 */
+	public Adapter createBTemplateAdapter() {
 		return null;
 	}
 

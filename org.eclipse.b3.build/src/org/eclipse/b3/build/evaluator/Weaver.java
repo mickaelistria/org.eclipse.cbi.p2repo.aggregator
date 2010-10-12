@@ -75,6 +75,142 @@ public class Weaver extends BackendWeaver {
 	private BuilderInputRemover inputRemover;
 
 	/**
+	 * Weaves one IBuilder (without promotion to a specific BuildUnit).
+	 * 
+	 * @param o
+	 * @param candidate
+	 * @param ctx
+	 * @param pattern
+	 * @return
+	 * @throws Throwable
+	 */
+	public Boolean weave(BuilderConcernContext o, IBuilder candidate, BExecutionContext ctx, TypePattern pattern)
+			throws Throwable {
+		return weave(o, candidate, ctx, pattern, null);
+	}
+
+	/**
+	 * Weaves one IBuilder.
+	 * 
+	 * @param o
+	 * @param candidate
+	 * @param ctx
+	 * @param pattern
+	 * @param promoteToUnit
+	 * @return
+	 * @throws Throwable
+	 */
+	public Boolean weave(BuilderConcernContext o, IBuilder candidate, BExecutionContext ctx, TypePattern pattern,
+			BuildUnit promoteToUnit) throws Throwable {
+
+		// context needed as query operate on the variable '@test'
+		BExecutionContext ictx = ctx.createInnerContext();
+		ictx.defineVariableValue("@test", null, IBuilder.class);
+		LValue lval = ictx.getLValue("@test");
+		lval.set(candidate);
+
+		if(evaluator.doEvaluate(o.getQuery(), ictx) != Boolean.TRUE)
+			return false;
+
+		// NOTE: pattern needs to be checked when advising as match result is used to map parameters
+		return adviceBuilder(o, candidate, ctx, promoteToUnit, pattern);
+	}
+
+	/**
+	 * Weaves a collection of IBuilder.
+	 * TODO: Could be made better by using Iterator<IBuilder>, but operation comes from context
+	 * and requires an Iterator<T>.getFunctionIterator(... T) operation. Investigate if T may be erased and
+	 * not handled by the polymorphic dispatcher.
+	 * 
+	 * @param o
+	 * @param functions
+	 * @param ctx
+	 * @return
+	 * @throws B3EngineException
+	 */
+	public Boolean weave(BuilderConcernContext o, Iterator<IFunction> functions, BExecutionContext ctx)
+			throws B3EngineException {
+		boolean woven = false;
+		TypePattern builderTypePattern = TypePattern.compile(o.getParameters());
+
+		while(functions.hasNext()) {
+			IFunction f = functions.next();
+			if(!(f instanceof IBuilder))
+				continue;
+			if(doWeave(o, f, ctx, builderTypePattern))
+				woven = true;
+		}
+		return woven;
+	}
+
+	/**
+	 * Weaves one BuildUnit.
+	 * 
+	 * @param o
+	 * @param candidate
+	 * @param ctx
+	 * @return
+	 * @throws Throwable
+	 */
+	public Boolean weave(UnitConcernContext o, BuildUnit candidate, BExecutionContext ctx) throws Throwable {
+		// evaluate query
+		BExecutionContext ictx = ctx.createInnerContext();
+		ictx.defineVariableValue("@test", null, BuildUnit.class);
+		LValue lval = ictx.getLValue("@test");
+		lval.set(candidate);
+		if(evaluator.doEvaluate(o.getQuery(), ictx) != Boolean.TRUE) {
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Unit concern in: ", o.eContainer(), ", did not match: ", candidate.getName());
+			return false;
+		}
+		if(B3Debug.weaver)
+			B3Debug.trace("[Weaver] - Creating copy of unit: ", candidate.getName());
+		// weave by creating a copy an then advice it
+		BuildUnit clone = BuildUnit.class.cast(EcoreUtil.copy(candidate));
+		// fix the containment/parent-chain for the copy (should not be contained)
+		clone.setParent(candidate.getParent());
+		// modify the build unit, and store it
+		BContext bctx = BContext.class.cast(ictx.getParentContext());
+		// but only if the unit itself was advised (NOTE: modifying builders does not affect the build unit)
+		if(adviseUnit(o, clone, bctx)) {
+			if(B3Debug.weaver)
+				B3Debug.trace("[Weaver] - Unit was modified - defining the modified clone: ", candidate.getName());
+			evaluator.doDefine(clone, bctx, true);
+		}
+		else {
+			if(B3Debug.weaver)
+				B3Debug.trace(
+					"[Weaver] - Copied Unit was not modified - keeping original for unit: ", candidate.getName());
+		}
+		// bctx.defineBuildUnit(clone, true);
+		return true;
+	}
+
+	public Boolean weave(UnitConcernContext o, IFunction element, BExecutionContext ctx) {
+		return false; // A Unit Context does not want to weave IFunction or IBuilder
+	}
+
+	/**
+	 * Weaves a collection of BuildUnits.
+	 * 
+	 * @param o
+	 * @param elements
+	 * @param ctx
+	 * @return
+	 * @throws B3EngineException
+	 */
+	public Boolean weave(UnitConcernContext o, Iterator<BuildUnit> elements, BExecutionContext ctx)
+			throws B3EngineException {
+
+		boolean woven = false;
+		while(elements.hasNext()) {
+			if(doWeave(o, elements.next(), ctx))
+				woven = true;
+		}
+		return woven;
+	}
+
+	/**
 	 * Performs parameter type matching and if parameters match, a wrapper is created and added to the context.
 	 * 
 	 * NOTE: the wrapper may have different parameter names than the original, and may only see a few of them. It may
@@ -602,142 +738,6 @@ public class Weaver extends BackendWeaver {
 			modified = true;
 		}
 		return modified;
-	}
-
-	/**
-	 * Weaves one IBuilder (without promotion to a specific BuildUnit).
-	 * 
-	 * @param o
-	 * @param candidate
-	 * @param ctx
-	 * @param pattern
-	 * @return
-	 * @throws Throwable
-	 */
-	public Boolean weave(BuilderConcernContext o, IBuilder candidate, BExecutionContext ctx, TypePattern pattern)
-			throws Throwable {
-		return weave(o, candidate, ctx, pattern, null);
-	}
-
-	/**
-	 * Weaves one IBuilder.
-	 * 
-	 * @param o
-	 * @param candidate
-	 * @param ctx
-	 * @param pattern
-	 * @param promoteToUnit
-	 * @return
-	 * @throws Throwable
-	 */
-	public Boolean weave(BuilderConcernContext o, IBuilder candidate, BExecutionContext ctx, TypePattern pattern,
-			BuildUnit promoteToUnit) throws Throwable {
-
-		// context needed as query operate on the variable '@test'
-		BExecutionContext ictx = ctx.createInnerContext();
-		ictx.defineVariableValue("@test", null, IBuilder.class);
-		LValue lval = ictx.getLValue("@test");
-		lval.set(candidate);
-
-		if(evaluator.doEvaluate(o.getQuery(), ictx) != Boolean.TRUE)
-			return false;
-
-		// NOTE: pattern needs to be checked when advising as match result is used to map parameters
-		return adviceBuilder(o, candidate, ctx, promoteToUnit, pattern);
-	}
-
-	/**
-	 * Weaves a collection of IBuilder.
-	 * TODO: Could be made better by using Iterator<IBuilder>, but operation comes from context
-	 * and requires an Iterator<T>.getFunctionIterator(... T) operation. Investigate if T may be erased and
-	 * not handled by the polymorphic dispatcher.
-	 * 
-	 * @param o
-	 * @param functions
-	 * @param ctx
-	 * @return
-	 * @throws B3EngineException
-	 */
-	public Boolean weave(BuilderConcernContext o, Iterator<IFunction> functions, BExecutionContext ctx)
-			throws B3EngineException {
-		boolean woven = false;
-		TypePattern builderTypePattern = TypePattern.compile(o.getParameters());
-
-		while(functions.hasNext()) {
-			IFunction f = functions.next();
-			if(!(f instanceof IBuilder))
-				continue;
-			if(doWeave(o, f, ctx, builderTypePattern))
-				woven = true;
-		}
-		return woven;
-	}
-
-	/**
-	 * Weaves one BuildUnit.
-	 * 
-	 * @param o
-	 * @param candidate
-	 * @param ctx
-	 * @return
-	 * @throws Throwable
-	 */
-	public Boolean weave(UnitConcernContext o, BuildUnit candidate, BExecutionContext ctx) throws Throwable {
-		// evaluate query
-		BExecutionContext ictx = ctx.createInnerContext();
-		ictx.defineVariableValue("@test", null, BuildUnit.class);
-		LValue lval = ictx.getLValue("@test");
-		lval.set(candidate);
-		if(evaluator.doEvaluate(o.getQuery(), ictx) != Boolean.TRUE) {
-			if(B3Debug.weaver)
-				B3Debug.trace("[Weaver] - Unit concern in: ", o.eContainer(), ", did not match: ", candidate.getName());
-			return false;
-		}
-		if(B3Debug.weaver)
-			B3Debug.trace("[Weaver] - Creating copy of unit: ", candidate.getName());
-		// weave by creating a copy an then advice it
-		BuildUnit clone = BuildUnit.class.cast(EcoreUtil.copy(candidate));
-		// fix the containment/parent-chain for the copy (should not be contained)
-		clone.setParent(candidate.getParent());
-		// modify the build unit, and store it
-		BContext bctx = BContext.class.cast(ictx.getParentContext());
-		// but only if the unit itself was advised (NOTE: modifying builders does not affect the build unit)
-		if(adviseUnit(o, clone, bctx)) {
-			if(B3Debug.weaver)
-				B3Debug.trace("[Weaver] - Unit was modified - defining the modified clone: ", candidate.getName());
-			evaluator.doDefine(clone, bctx, true);
-		}
-		else {
-			if(B3Debug.weaver)
-				B3Debug.trace(
-					"[Weaver] - Copied Unit was not modified - keeping original for unit: ", candidate.getName());
-		}
-		// bctx.defineBuildUnit(clone, true);
-		return true;
-	}
-
-	public Boolean weave(UnitConcernContext o, IFunction element, BExecutionContext ctx) {
-		return false; // A Unit Context does not want to weave IFunction or IBuilder
-	}
-
-	/**
-	 * Weaves a collection of BuildUnits.
-	 * 
-	 * @param o
-	 * @param elements
-	 * @param ctx
-	 * @return
-	 * @throws B3EngineException
-	 */
-	public Boolean weave(UnitConcernContext o, Iterator<BuildUnit> elements, BExecutionContext ctx)
-			throws B3EngineException {
-
-		boolean woven = false;
-		while(elements.hasNext()) {
-			if(doWeave(o, elements.next(), ctx))
-				woven = true;
-		}
-		return woven;
 	}
 
 }

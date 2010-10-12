@@ -41,6 +41,14 @@ public class B3ExtensionLoader {
 
 	private ArrayListMultimap<String, URI> keyToURIsMap = Multimaps.newArrayListMultimap();
 
+	public List<BeeModel> getModelsByKey(ResourceSet rs, String key) {
+		// may call loadModels for the key multiple times, but should be fast if
+		// does not find any...
+		if(!modelsByKey.containsKey(key))
+			loadModels(rs, key);
+		return modelsByKey.get(key);
+	}
+
 	private List<URI> findURIsForKey(String key) {
 		List<URI> result = Lists.newArrayList();
 		IConfigurationElement[] configs = Platform.getExtensionRegistry().getConfigurationElementsFor(
@@ -50,14 +58,6 @@ public class B3ExtensionLoader {
 				result.add(URI.createURI(e.getAttribute("extensionURI")));
 		}
 		return result;
-	}
-
-	public List<BeeModel> getModelsByKey(ResourceSet rs, String key) {
-		// may call loadModels for the key multiple times, but should be fast if
-		// does not find any...
-		if(!modelsByKey.containsKey(key))
-			loadModels(rs, key);
-		return modelsByKey.get(key);
 	}
 
 	// URI b3FileURI = URI.createPlatformPluginURI("/org.eclipse.b3.build/src-b3/javaimports.b3", true);

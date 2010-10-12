@@ -43,10 +43,6 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 			proposals.add(proposal);
 		}
 
-		protected void configure() {
-
-		}
-
 		/*
 		 * (non-Javadoc)
 		 * 
@@ -81,6 +77,10 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 		 */
 		public Iterator<IProposal> iterator() {
 			return proposals.iterator();
+		}
+
+		protected void configure() {
+
 		}
 	}
 
@@ -190,22 +190,6 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 		resolverOptions = new HashMap<String, IOption<RepositoryUnitProvider>>();
 	}
 
-	protected void addRepositoryOption(String name, IOption<Repository> repoOption) {
-		repositoryOptions.put(name, repoOption);
-	}
-
-	protected void addRepositoryOption(String name, Type type) {
-		repositoryOptions.put(name, new RepositoryOption(type, 0, 1));
-	}
-
-	protected void addResolverOption(String name, IOption<RepositoryUnitProvider> resolverOption) {
-		resolverOptions.put(name, resolverOption);
-	}
-
-	protected void addResolverOption(String name, Type type) {
-		resolverOptions.put(name, new ResolverOption(type, 0, 1));
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -231,5 +215,21 @@ public abstract class AbstractRepositoryValidator implements IRepositoryValidato
 	 */
 	public boolean supportsBranches() {
 		return true;
+	}
+
+	protected void addRepositoryOption(String name, IOption<Repository> repoOption) {
+		repositoryOptions.put(name, repoOption);
+	}
+
+	protected void addRepositoryOption(String name, Type type) {
+		repositoryOptions.put(name, new RepositoryOption(type, 0, 1));
+	}
+
+	protected void addResolverOption(String name, IOption<RepositoryUnitProvider> resolverOption) {
+		resolverOptions.put(name, resolverOption);
+	}
+
+	protected void addResolverOption(String name, Type type) {
+		resolverOptions.put(name, new ResolverOption(type, 0, 1));
 	}
 }

@@ -166,17 +166,6 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BEE_HIVE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BEE_HIVE__BEE_MODELS:
@@ -289,6 +278,17 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 		result.append(resolutions);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BEE_HIVE;
 	}
 
 } // BeeHiveImpl

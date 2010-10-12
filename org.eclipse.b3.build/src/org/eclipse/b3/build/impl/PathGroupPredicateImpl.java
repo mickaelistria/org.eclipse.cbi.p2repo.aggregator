@@ -193,17 +193,6 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.PATH_GROUP_PREDICATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR:
@@ -334,6 +323,17 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR, newPathVector, newPathVector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.PATH_GROUP_PREDICATE;
 	}
 
 } // PathGroupPredicateImpl

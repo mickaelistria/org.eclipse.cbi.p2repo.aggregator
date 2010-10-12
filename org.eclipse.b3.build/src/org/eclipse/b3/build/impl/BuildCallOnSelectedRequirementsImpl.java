@@ -147,17 +147,6 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_CALL_ON_SELECTED_REQUIREMENTS;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE:
@@ -200,6 +189,17 @@ public class BuildCallOnSelectedRequirementsImpl extends BuildCallMultipleImpl i
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, B3BuildPackage.BUILD_CALL_ON_SELECTED_REQUIREMENTS__REQUIRED_PREDICATE,
 				newRequiredPredicate, newRequiredPredicate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILD_CALL_ON_SELECTED_REQUIREMENTS;
 	}
 
 } // BuildCallOnSelectedRequirementsImpl

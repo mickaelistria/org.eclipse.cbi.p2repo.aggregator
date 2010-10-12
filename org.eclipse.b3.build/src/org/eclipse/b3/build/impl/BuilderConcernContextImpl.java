@@ -775,17 +775,6 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILDER_CONCERN_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
@@ -1393,6 +1382,17 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		result.append(sourceAnnotationsRemovals);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BUILDER_CONCERN_CONTEXT;
 	}
 
 } // BuilderConcernContextImpl

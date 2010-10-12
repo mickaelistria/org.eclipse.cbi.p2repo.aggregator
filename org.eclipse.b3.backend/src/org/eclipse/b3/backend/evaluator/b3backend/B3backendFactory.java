@@ -311,6 +311,16 @@ public interface B3backendFactory extends EFactory {
 	BDelegatingContext createBDelegatingContext();
 
 	/**
+	 * Returns a new object of class '<em>BEcho Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BEcho Expression</em>'.
+	 * @generated
+	 */
+	BEchoExpression createBEchoExpression();
+
+	/**
 	 * Returns a new object of class '<em>BExpression Wrapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -639,6 +649,16 @@ public interface B3backendFactory extends EFactory {
 	 * @generated
 	 */
 	BSystemContext createBSystemContext();
+
+	/**
+	 * Returns a new object of class '<em>BTemplate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BTemplate</em>'.
+	 * @generated
+	 */
+	BTemplate createBTemplate();
 
 	/**
 	 * Returns a new object of class '<em>BThrow Expression</em>'.

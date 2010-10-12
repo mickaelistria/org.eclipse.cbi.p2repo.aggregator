@@ -22,6 +22,7 @@ import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.backend.evaluator.B3FuncStore;
 import org.eclipse.b3.backend.evaluator.ValueMap;
+import org.eclipse.b3.backend.evaluator.b3backend.*;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -582,6 +583,10 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createBSimplePatternExpression();
 			case B3backendPackage.B3_TYPE:
 				return createB3Type();
+			case B3backendPackage.BTEMPLATE:
+				return createBTemplate();
+			case B3backendPackage.BECHO_EXPRESSION:
+				return createBEchoExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -903,6 +908,17 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BDelegatingContext createBDelegatingContext() {
 		BDelegatingContextImpl bDelegatingContext = new BDelegatingContextImpl();
 		return bDelegatingContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BEchoExpression createBEchoExpression() {
+		BEchoExpressionImpl bEchoExpression = new BEchoExpressionImpl();
+		return bEchoExpression;
 	}
 
 	/**
@@ -1280,6 +1296,17 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BSystemContext createBSystemContext() {
 		BSystemContextImpl bSystemContext = new BSystemContextImpl();
 		return bSystemContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BTemplate createBTemplate() {
+		BTemplateImpl bTemplate = new BTemplateImpl();
+		return bTemplate;
 	}
 
 	/**

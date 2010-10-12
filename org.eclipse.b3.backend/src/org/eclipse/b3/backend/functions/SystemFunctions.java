@@ -13,6 +13,7 @@ import org.eclipse.b3.backend.core.IB3Evaluator;
 import org.eclipse.b3.backend.core.datatypes.Any;
 import org.eclipse.b3.backend.core.exceptions.B3AssertionFailedException;
 import org.eclipse.b3.backend.core.internal.B3BackendActivator;
+import org.eclipse.b3.backend.evaluator.IClosure;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
@@ -154,7 +155,9 @@ public class SystemFunctions {
 		// If function comes with a closure, use it, else use a new outer context. (If the function does
 		// not have a closure it should not see the calling inner context).
 		//
-		BExecutionContext useCtx = func.getClosure();
+		BExecutionContext useCtx = (func instanceof IClosure)
+				? ((IClosure) func).getClosure()
+				: null;
 		useCtx = useCtx == null
 				? ctx.createOuterContext()
 				: useCtx.createInnerContext();
@@ -284,7 +287,9 @@ public class SystemFunctions {
 			Object c = Boolean.FALSE;
 			Object e = Boolean.TRUE;
 			while(c == Boolean.FALSE) {
-				BExecutionContext useCtx = cond.getClosure();
+				BExecutionContext useCtx = cond instanceof IClosure
+						? ((IClosure) cond).getClosure()
+						: null;
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
@@ -293,7 +298,9 @@ public class SystemFunctions {
 				// c = cond.call(useCtx, callParams, typeParams);
 				if(c != Boolean.FALSE)
 					return e;
-				useCtx = body.getClosure();
+				useCtx = body instanceof IClosure
+						? ((IClosure) body).getClosure()
+						: null;
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
@@ -305,7 +312,9 @@ public class SystemFunctions {
 			BFunction body = (BFunction) params[0];
 			Object e = Boolean.FALSE;
 			while(e == Boolean.FALSE) {
-				BExecutionContext useCtx = body.getClosure();
+				BExecutionContext useCtx = body instanceof IClosure
+						? ((IClosure) body).getClosure()
+						: null;
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
@@ -330,7 +339,9 @@ public class SystemFunctions {
 			Object c = Boolean.TRUE;
 			Object e = Boolean.FALSE;
 			while(c == Boolean.TRUE) {
-				BExecutionContext useCtx = cond.getClosure();
+				BExecutionContext useCtx = cond instanceof IClosure
+						? ((IClosure) cond).getClosure()
+						: null;
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
@@ -338,7 +349,9 @@ public class SystemFunctions {
 				// c = cond.call(useCtx, callParams, typeParams);
 				if(c != Boolean.TRUE)
 					return e;
-				useCtx = body.getClosure();
+				useCtx = body instanceof IClosure
+						? ((IClosure) body).getClosure()
+						: null;
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
@@ -351,7 +364,9 @@ public class SystemFunctions {
 			BFunction body = (BFunction) params[0];
 			Object e = Boolean.TRUE;
 			while(e == Boolean.TRUE) {
-				BExecutionContext useCtx = body.getClosure();
+				BExecutionContext useCtx = body instanceof IClosure
+						? ((IClosure) body).getClosure()
+						: null;
 				useCtx = useCtx == null
 						? ctx.createOuterContext()
 						: useCtx.createInnerContext();
@@ -801,7 +816,11 @@ public class SystemFunctions {
 		if(!(params[nParameters - 1] instanceof BFunction))
 			throw new IllegalArgumentException("system function '" + name + "' did not get a function as last argument");
 		cur.lambda = (BFunction) params[nParameters - 1];
-		cur.closure = cur.lambda.getClosure();
+		cur.closure = cur.lambda instanceof IClosure
+				? ((IClosure) cur.lambda).getClosure()
+				: null;
+		if(cur.closure == null)
+			throw new IllegalArgumentException("system function '" + name + "' got lambda without closure");
 		cur.curry = -1; // unknown
 		int nLambdaParameters = 1; // default
 		if(nParameters == 2)

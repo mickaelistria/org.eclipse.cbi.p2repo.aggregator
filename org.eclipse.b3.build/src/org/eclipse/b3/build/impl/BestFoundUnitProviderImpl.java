@@ -37,15 +37,23 @@ public class BestFoundUnitProviderImpl extends CompoundUnitProviderImpl implemen
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @generated
+	 * @see org.eclipse.b3.build.impl.UnitProviderImpl#resolve(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
+	 * org.eclipse.b3.build.RequiredCapability)
+	 * 
+	 * TODO: THIS IS A FAKE IMPLEMENTATION OF BEST FOUND - IT IS IDENTICAL TO FIRST FOUND
+	 * The implementation should obtain all possible resolutions and then use the unit that best
+	 * resembles the preference for source, binary, etc.
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BEST_FOUND_UNIT_PROVIDER;
+	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
+		BuildUnit result = null;
+		for(UnitProvider provider : getProviders())
+			if((result = provider.resolve(ctx, requiredCapability)) != null)
+				return result;
+		return null;
 	}
 
 	// /*
@@ -69,22 +77,14 @@ public class BestFoundUnitProviderImpl extends CompoundUnitProviderImpl implemen
 	// return repo;
 	// }
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.build.impl.UnitProviderImpl#resolve(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext,
-	 * org.eclipse.b3.build.RequiredCapability)
-	 * 
-	 * TODO: THIS IS A FAKE IMPLEMENTATION OF BEST FOUND - IT IS IDENTICAL TO FIRST FOUND
-	 * The implementation should obtain all possible resolutions and then use the unit that best
-	 * resembles the preference for source, binary, etc.
+	 * @generated
 	 */
 	@Override
-	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
-		BuildUnit result = null;
-		for(UnitProvider provider : getProviders())
-			if((result = provider.resolve(ctx, requiredCapability)) != null)
-				return result;
-		return null;
+	protected EClass eStaticClass() {
+		return B3BuildPackage.Literals.BEST_FOUND_UNIT_PROVIDER;
 	}
 } // ResolutionStrategyBestImpl

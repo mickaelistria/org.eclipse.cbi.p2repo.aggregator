@@ -10,6 +10,8 @@ public class BeeLangHighlightConfiguration extends DefaultHighlightingConfigurat
 
 	public static final String TEXT_ID = "text";
 
+	public static final String TEMPLATE_TEXT_ID = "template";
+
 	public static final String JAVADOC_ID = "javadoc";
 
 	public static final String REGEXP_ID = "regexp";
@@ -29,6 +31,7 @@ public class BeeLangHighlightConfiguration extends DefaultHighlightingConfigurat
 	@Override
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		super.configure(acceptor);
+		acceptor.acceptDefaultHighlighting(TEMPLATE_TEXT_ID, "Template Text", templateTextStyle());
 		acceptor.acceptDefaultHighlighting(TEXT_ID, "Text", docTextStyle());
 		acceptor.acceptDefaultHighlighting(JAVADOC_ID, "Documentation", docJavaDocStyle());
 		acceptor.acceptDefaultHighlighting(REGEXP_ID, "Regular Expression", regexpTextStyle());
@@ -94,6 +97,17 @@ public class BeeLangHighlightConfiguration extends DefaultHighlightingConfigurat
 		TextStyle textStyle = defaultTextStyle().copy();
 		textStyle.setColor(new RGB(0, 0, 192));
 		textStyle.setStyle(SWT.BOLD);
+		return textStyle;
+	}
+
+	public TextStyle templateTextStyle() {
+		TextStyle textStyle = defaultTextStyle().copy();
+		textStyle.setColor(new RGB(63, 95, 191));
+		// Affects what is behind the text and WS - important since this is a verbatim style
+		// and whitespace counts.
+		// textStyle.setBackgroundColor(new RGB(252, 255, 240)); // titanium white
+		textStyle.setBackgroundColor(new RGB(231, 255, 232)); // pale green
+		textStyle.setStyle(SWT.ITALIC);
 		return textStyle;
 	}
 
