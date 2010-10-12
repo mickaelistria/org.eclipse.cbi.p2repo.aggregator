@@ -219,13 +219,36 @@ public class VersionSuffixGenerator {
 		//
 		for(VersionedId refBundle : bundles) {
 			BasicVersion version = (BasicVersion) refBundle.getVersion();
-			majorSum += version.getMajor();
-			minorSum += version.getMinor();
-			serviceSum += version.getMicro();
 
-			String qualifier = version.isOSGiCompatible()
-					? version.getQualifier()
-					: null;
+			try {
+				majorSum += version.getMajor();
+			}
+			catch(UnsupportedOperationException e) {
+				// ignore, i.e. "add zero"
+			}
+			try {
+				minorSum += version.getMinor();
+			}
+			catch(UnsupportedOperationException e) {
+				// ignore, i.e. "add zero"
+			}
+			try {
+				serviceSum += version.getMicro();
+			}
+			catch(UnsupportedOperationException e) {
+				// ignore, i.e. "add zero"
+			}
+
+			String qualifier = null;
+
+			try {
+				qualifier = version.isOSGiCompatible()
+						? version.getQualifier()
+						: null;
+			}
+			catch(UnsupportedOperationException e) {
+				// ignore, i.e. "add zero"
+			}
 			if(qualifier != null && qualifier.endsWith(VERSION_QUALIFIER)) {
 				int resultingLength = qualifier.length() - VERSION_QUALIFIER.length();
 				if(resultingLength > 0) {
