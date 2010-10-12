@@ -11,6 +11,7 @@ function Object main(List argv) {
 	testClosureParameter();
 	testFunctionType();
 	testDelegation();
+	testClosureOverwrite();
 }
 function Object testClosureParameter() {
 	List<Integer> list = [<Integer> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -70,4 +71,13 @@ function Object testDelegation() {
 private function Object delegate((Integer, Integer)=>Integer func) {
 	Integer outside = 100;
 	assertEquals("delegated call should see original context", 13, func.evaluate(1,2));
+}
+function Object testClosureOverwrite() {
+	var fredLambda = nameLambda("fred");
+	var maryLambda = nameLambda("mary");
+	assertEquals("Closure was erased", "fred", (fredLambda)());
+	assertEquals("Closure was erased", "mary", (maryLambda)());
+}
+private function nameLambda(String aPersonName) {
+	{| aPersonName };
 }
