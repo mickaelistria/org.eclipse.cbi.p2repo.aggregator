@@ -1229,6 +1229,12 @@ RealValue returns ecore::EDoubleObject: REAL ;
 
 // Has conversion rule that handles decimal, octal, and hexadecimal values with radix
 IntValue returns ecore::EIntegerObject : INT | HEX ;
+
+// Has conversion rule that handles Java String semantics and trim
+TextStringValue returns ecore::EString : TEXT ;
+
+// Has conversion rule that just strips delimiters
+TextVerbatimValue returns ecore::EString : TEXT ;
 	
 ParanthesizedExpression returns be::BExpression : 
 	'(' Expression ')'
@@ -1278,7 +1284,7 @@ TIMESTAMP returns ecore::EDate : STRING ;
 Separator :  '-' | '!' | '@' | '$' | '%' | '&' |'+' | '=' | '*' | '<' | '>' | ':' | '?';
 AlfanumSym hidden() : (ID | INT | HEX | EXT_INT) ('.'?(Separator|ID|INT|HEX |EXT_INT))* ;
 
-DOCUMENTATION : TEXT | JAVADOC ;
+DOCUMENTATION : TextStringValue | JAVADOC ;
 
 // --TERMINALS
 // (NOTE: Does not use standard terminals to have full control).
@@ -1312,7 +1318,7 @@ terminal STRING :
 Template returns be::BTemplate: {be::BTemplate}
 	 	(expressions += TextLiteral)
 	 | 	(expressions += TextStartLiteral 
-			(expressions += TemplateExpression (expressions+=TextMidLiteral expressions += Expression)*)
+			(expressions += TemplateExpression (expressions+=TextMidLiteral expressions += TemplateExpression)*)
 		expressions += TextEndLiteral
 		)
 	;
@@ -1322,8 +1328,9 @@ TemplateExpression returns be::BExpression : EchoExpression | Expression ;
 EchoExpression returns be::BEchoExpression : {be::BEchoExpression}
 	'=' expression = Expression
 	;
+	
 TextLiteral returns  be::BExpression : {be::BLiteralExpression} 
-	value = TEXT
+	value = TextVerbatimValue
 	;
 
 TextStartLiteral returns  be::BExpression : {be::BLiteralExpression} 
@@ -1338,11 +1345,23 @@ TextEndLiteral returns  be::BExpression : {be::BLiteralExpression}
 	value = TEXTEND
 	;
 	
-terminal TEXTSTART : '«' !('»'|'‹')* '‹';
-terminal TEXTMID : '›' !('»'|'‹')* '‹';
-terminal TEXTEND : '›' !('»'|'‹')* '»';
+terminal TEXT :      '«'     ( (("}" !'»')  | ("«" !'{')) | !('}'|"«"| "»"))* '»';
+terminal TEXTSTART : '«'     ( (("}" !'»')  | ("«" !'{')) | !('}'|"«"| "»"))* '«' '{';
+terminal TEXTEND :   '}' '»' ( (("}" !'»')  | ("«" !'{')) | !('}'|"«"| "»"))* '»';
+terminal TEXTMID :   '}' '»' ( (("}" !'»')  | ("«" !'{')) | !('}'|"«"| "»"))* '«' '{';
 
-terminal TEXT : '«' !('»'|'‹'|'›')* '»';
+// Using [ ]  and <% %> instead
+//terminal TEXT :      '['     ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     ']';
+//terminal TEXTSTART : '['     ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     '<' '%';
+//terminal TEXTEND :   '%' '>' ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     ']';
+//terminal TEXTMID :   '%' '>' ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     '<' '%';
+
+// First attempt using «» and ‹›	
+//terminal TEXTSTART : '«' !('»'|'‹')* '‹';
+//terminal TEXTMID : '›' !('»'|'‹')* '‹';
+//terminal TEXTEND : '›' !('»'|'‹')* '»';
+//
+//terminal TEXT : '«' !('»'|'‹'|'›')* '»';
 
 terminal JAVADOC : '/**' -> '*/' ;
 terminal ML_COMMENT : '/*' (!'*') -> '*/' ;

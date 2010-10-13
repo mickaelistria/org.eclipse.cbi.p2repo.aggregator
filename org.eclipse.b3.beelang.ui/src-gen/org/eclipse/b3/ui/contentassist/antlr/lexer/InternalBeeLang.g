@@ -316,13 +316,13 @@ RULE_SIMPLE_PATTERN : '~' RULE_STRING;
 
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|'\''|'\\')|~(('\\'|'"'|'\r'|'\n')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|'\''|'\\')|~(('\\'|'\''|'\r'|'\n')))* '\'');
 
-RULE_TEXTSTART : '\u00AB' ~(('\u00BB'|'\u2039'))* '\u2039';
+RULE_TEXT : '\u00AB' (('}' ~('\u00BB')|'\u00AB' ~('{'))|~(('}'|'\u00AB'|'\u00BB')))* '\u00BB';
 
-RULE_TEXTMID : '\u203A' ~(('\u00BB'|'\u2039'))* '\u2039';
+RULE_TEXTSTART : '\u00AB' (('}' ~('\u00BB')|'\u00AB' ~('{'))|~(('}'|'\u00AB'|'\u00BB')))* '\u00AB' '{';
 
-RULE_TEXTEND : '\u203A' ~(('\u00BB'|'\u2039'))* '\u00BB';
+RULE_TEXTEND : '}' '\u00BB' (('}' ~('\u00BB')|'\u00AB' ~('{'))|~(('}'|'\u00AB'|'\u00BB')))* '\u00BB';
 
-RULE_TEXT : '\u00AB' ~(('\u00BB'|'\u2039'|'\u203A'))* '\u00BB';
+RULE_TEXTMID : '}' '\u00BB' (('}' ~('\u00BB')|'\u00AB' ~('{'))|~(('}'|'\u00AB'|'\u00BB')))* '\u00AB' '{';
 
 RULE_JAVADOC : '/**' ( options {greedy=false;} : . )*'*/';
 

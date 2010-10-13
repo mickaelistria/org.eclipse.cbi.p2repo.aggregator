@@ -11878,6 +11878,32 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getHEXTerminalRuleCall_1() { return cHEXTerminalRuleCall_1; }
 	}
 
+	public class TextStringValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TextStringValue");
+		private final RuleCall cTEXTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//// Has conversion rule that handles Java String semantics and trim
+		//TextStringValue returns ecore::EString:
+		//	TEXT;
+		public ParserRule getRule() { return rule; }
+
+		//TEXT
+		public RuleCall getTEXTTerminalRuleCall() { return cTEXTTerminalRuleCall; }
+	}
+
+	public class TextVerbatimValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TextVerbatimValue");
+		private final RuleCall cTEXTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//// Has conversion rule that just strips delimiters
+		//TextVerbatimValue returns ecore::EString:
+		//	TEXT;
+		public ParserRule getRule() { return rule; }
+
+		//TEXT
+		public RuleCall getTEXTTerminalRuleCall() { return cTEXTTerminalRuleCall; }
+	}
+
 	public class ParanthesizedExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParanthesizedExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -12333,18 +12359,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class DOCUMENTATIONElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DOCUMENTATION");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTEXTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTextStringValueParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cJAVADOCTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//DOCUMENTATION returns ecore::EString:
-		//	TEXT | JAVADOC;
+		//	TextStringValue | JAVADOC;
 		public ParserRule getRule() { return rule; }
 
-		//TEXT | JAVADOC
+		//TextStringValue | JAVADOC
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//TEXT
-		public RuleCall getTEXTTerminalRuleCall_0() { return cTEXTTerminalRuleCall_0; }
+		//TextStringValue
+		public RuleCall getTextStringValueParserRuleCall_0() { return cTextStringValueParserRuleCall_0; }
 
 		//JAVADOC
 		public RuleCall getJAVADOCTerminalRuleCall_1() { return cJAVADOCTerminalRuleCall_1; }
@@ -12367,17 +12393,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExpressionsAssignment_1_1_1_0 = (Assignment)cGroup_1_1_1.eContents().get(0);
 		private final RuleCall cExpressionsTextMidLiteralParserRuleCall_1_1_1_0_0 = (RuleCall)cExpressionsAssignment_1_1_1_0.eContents().get(0);
 		private final Assignment cExpressionsAssignment_1_1_1_1 = (Assignment)cGroup_1_1_1.eContents().get(1);
-		private final RuleCall cExpressionsExpressionParserRuleCall_1_1_1_1_0 = (RuleCall)cExpressionsAssignment_1_1_1_1.eContents().get(0);
+		private final RuleCall cExpressionsTemplateExpressionParserRuleCall_1_1_1_1_0 = (RuleCall)cExpressionsAssignment_1_1_1_1.eContents().get(0);
 		private final Assignment cExpressionsAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cExpressionsTextEndLiteralParserRuleCall_1_2_0 = (RuleCall)cExpressionsAssignment_1_2.eContents().get(0);
 		
 		//Template returns be::BTemplate:
 		//	{be::BTemplate} expressions+=TextLiteral | expressions+=TextStartLiteral (expressions+=TemplateExpression
-		//	(expressions+=TextMidLiteral expressions+=Expression)*) expressions+=TextEndLiteral;
+		//	(expressions+=TextMidLiteral expressions+=TemplateExpression)*) expressions+=TextEndLiteral;
 		public ParserRule getRule() { return rule; }
 
 		//{be::BTemplate} expressions+=TextLiteral | expressions+=TextStartLiteral (expressions+=TemplateExpression
-		//(expressions+=TextMidLiteral expressions+=Expression)*) expressions+=TextEndLiteral
+		//(expressions+=TextMidLiteral expressions+=TemplateExpression)*) expressions+=TextEndLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//{be::BTemplate} expressions+=TextLiteral
@@ -12392,8 +12418,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//TextLiteral
 		public RuleCall getExpressionsTextLiteralParserRuleCall_0_1_0() { return cExpressionsTextLiteralParserRuleCall_0_1_0; }
 
-		//expressions+=TextStartLiteral (expressions+=TemplateExpression (expressions+=TextMidLiteral expressions+=Expression)*)
-		//expressions+=TextEndLiteral
+		//expressions+=TextStartLiteral (expressions+=TemplateExpression (expressions+=TextMidLiteral
+		//expressions+=TemplateExpression)*) expressions+=TextEndLiteral
 		public Group getGroup_1() { return cGroup_1; }
 
 		//expressions+=TextStartLiteral
@@ -12402,7 +12428,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//TextStartLiteral
 		public RuleCall getExpressionsTextStartLiteralParserRuleCall_1_0_0() { return cExpressionsTextStartLiteralParserRuleCall_1_0_0; }
 
-		//expressions+=TemplateExpression (expressions+=TextMidLiteral expressions+=Expression)*
+		//expressions+=TemplateExpression (expressions+=TextMidLiteral expressions+=TemplateExpression)*
 		public Group getGroup_1_1() { return cGroup_1_1; }
 
 		//expressions+=TemplateExpression
@@ -12411,7 +12437,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//TemplateExpression
 		public RuleCall getExpressionsTemplateExpressionParserRuleCall_1_1_0_0() { return cExpressionsTemplateExpressionParserRuleCall_1_1_0_0; }
 
-		//(expressions+=TextMidLiteral expressions+=Expression)*
+		//(expressions+=TextMidLiteral expressions+=TemplateExpression)*
 		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
 
 		//expressions+=TextMidLiteral
@@ -12420,11 +12446,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//TextMidLiteral
 		public RuleCall getExpressionsTextMidLiteralParserRuleCall_1_1_1_0_0() { return cExpressionsTextMidLiteralParserRuleCall_1_1_1_0_0; }
 
-		//expressions+=Expression
+		//expressions+=TemplateExpression
 		public Assignment getExpressionsAssignment_1_1_1_1() { return cExpressionsAssignment_1_1_1_1; }
 
-		//Expression
-		public RuleCall getExpressionsExpressionParserRuleCall_1_1_1_1_0() { return cExpressionsExpressionParserRuleCall_1_1_1_1_0; }
+		//TemplateExpression
+		public RuleCall getExpressionsTemplateExpressionParserRuleCall_1_1_1_1_0() { return cExpressionsTemplateExpressionParserRuleCall_1_1_1_1_0; }
 
 		//expressions+=TextEndLiteral
 		public Assignment getExpressionsAssignment_1_2() { return cExpressionsAssignment_1_2; }
@@ -12486,23 +12512,23 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBLiteralExpressionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueTEXTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueTextVerbatimValueParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//TextLiteral returns be::BExpression:
-		//	{be::BLiteralExpression} value=TEXT;
+		//	{be::BLiteralExpression} value=TextVerbatimValue;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BLiteralExpression} value=TEXT
+		//{be::BLiteralExpression} value=TextVerbatimValue
 		public Group getGroup() { return cGroup; }
 
 		//{be::BLiteralExpression}
 		public Action getBLiteralExpressionAction_0() { return cBLiteralExpressionAction_0; }
 
-		//value=TEXT
+		//value=TextVerbatimValue
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//TEXT
-		public RuleCall getValueTEXTTerminalRuleCall_1_0() { return cValueTEXTTerminalRuleCall_1_0; }
+		//TextVerbatimValue
+		public RuleCall getValueTextVerbatimValueParserRuleCall_1_0() { return cValueTextVerbatimValueParserRuleCall_1_0; }
 	}
 
 	public class TextStartLiteralElements extends AbstractParserRuleElementFinder {
@@ -12910,6 +12936,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private BooleanValueElements pBooleanValue;
 	private RealValueElements pRealValue;
 	private IntValueElements pIntValue;
+	private TextStringValueElements pTextStringValue;
+	private TextVerbatimValueElements pTextVerbatimValue;
 	private ParanthesizedExpressionElements pParanthesizedExpression;
 	private P2QLElements pP2QL;
 	private VersionLiteralElements pVersionLiteral;
@@ -12936,10 +12964,10 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private TextStartLiteralElements pTextStartLiteral;
 	private TextMidLiteralElements pTextMidLiteral;
 	private TextEndLiteralElements pTextEndLiteral;
-	private TerminalRule tTEXTSTART;
-	private TerminalRule tTEXTMID;
-	private TerminalRule tTEXTEND;
 	private TerminalRule tTEXT;
+	private TerminalRule tTEXTSTART;
+	private TerminalRule tTEXTEND;
+	private TerminalRule tTEXTMID;
 	private TerminalRule tJAVADOC;
 	private TerminalRule tML_COMMENT;
 	private TerminalRule tSL_COMMENT;
@@ -15037,6 +15065,28 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getIntValueAccess().getRule();
 	}
 
+	//// Has conversion rule that handles Java String semantics and trim
+	//TextStringValue returns ecore::EString:
+	//	TEXT;
+	public TextStringValueElements getTextStringValueAccess() {
+		return (pTextStringValue != null) ? pTextStringValue : (pTextStringValue = new TextStringValueElements());
+	}
+	
+	public ParserRule getTextStringValueRule() {
+		return getTextStringValueAccess().getRule();
+	}
+
+	//// Has conversion rule that just strips delimiters
+	//TextVerbatimValue returns ecore::EString:
+	//	TEXT;
+	public TextVerbatimValueElements getTextVerbatimValueAccess() {
+		return (pTextVerbatimValue != null) ? pTextVerbatimValue : (pTextVerbatimValue = new TextVerbatimValueElements());
+	}
+	
+	public ParserRule getTextVerbatimValueRule() {
+		return getTextVerbatimValueAccess().getRule();
+	}
+
 	//ParanthesizedExpression returns be::BExpression:
 	//	"(" Expression ")";
 	public ParanthesizedExpressionElements getParanthesizedExpressionAccess() {
@@ -15183,7 +15233,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//DOCUMENTATION returns ecore::EString:
-	//	TEXT | JAVADOC;
+	//	TextStringValue | JAVADOC;
 	public DOCUMENTATIONElements getDOCUMENTATIONAccess() {
 		return (pDOCUMENTATION != null) ? pDOCUMENTATION : (pDOCUMENTATION = new DOCUMENTATIONElements());
 	}
@@ -15237,7 +15287,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Template returns be::BTemplate:
 	//	{be::BTemplate} expressions+=TextLiteral | expressions+=TextStartLiteral (expressions+=TemplateExpression
-	//	(expressions+=TextMidLiteral expressions+=Expression)*) expressions+=TextEndLiteral;
+	//	(expressions+=TextMidLiteral expressions+=TemplateExpression)*) expressions+=TextEndLiteral;
 	public TemplateElements getTemplateAccess() {
 		return (pTemplate != null) ? pTemplate : (pTemplate = new TemplateElements());
 	}
@@ -15267,7 +15317,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TextLiteral returns be::BExpression:
-	//	{be::BLiteralExpression} value=TEXT;
+	//	{be::BLiteralExpression} value=TextVerbatimValue;
 	public TextLiteralElements getTextLiteralAccess() {
 		return (pTextLiteral != null) ? pTextLiteral : (pTextLiteral = new TextLiteralElements());
 	}
@@ -15306,30 +15356,40 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getTextEndLiteralAccess().getRule();
 	}
 
-	//terminal TEXTSTART:
-	//	"«" !("»" | "‹")* "‹";
-	public TerminalRule getTEXTSTARTRule() {
-		return (tTEXTSTART != null) ? tTEXTSTART : (tTEXTSTART = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TEXTSTART"));
-	} 
-
-	//terminal TEXTMID:
-	//	"›" !("»" | "‹")* "‹";
-	public TerminalRule getTEXTMIDRule() {
-		return (tTEXTMID != null) ? tTEXTMID : (tTEXTMID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TEXTMID"));
-	} 
-
-	//terminal TEXTEND:
-	//	"›" !("»" | "‹")* "»";
-	public TerminalRule getTEXTENDRule() {
-		return (tTEXTEND != null) ? tTEXTEND : (tTEXTEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TEXTEND"));
-	} 
-
 	//terminal TEXT:
-	//	"«" !("»" | "‹" | "›")* "»";
+	//	"«" (("}" !"»" | "«" !"{") | !("}" | "«" | "»"))* "»";
 	public TerminalRule getTEXTRule() {
 		return (tTEXT != null) ? tTEXT : (tTEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TEXT"));
 	} 
 
+	//terminal TEXTSTART:
+	//	"«" (("}" !"»" | "«" !"{") | !("}" | "«" | "»"))* "«" "{";
+	public TerminalRule getTEXTSTARTRule() {
+		return (tTEXTSTART != null) ? tTEXTSTART : (tTEXTSTART = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TEXTSTART"));
+	} 
+
+	//terminal TEXTEND:
+	//	"}" "»" (("}" !"»" | "«" !"{") | !("}" | "«" | "»"))* "»";
+	public TerminalRule getTEXTENDRule() {
+		return (tTEXTEND != null) ? tTEXTEND : (tTEXTEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TEXTEND"));
+	} 
+
+	//terminal TEXTMID:
+	//	"}" "»" (("}" !"»" | "«" !"{") | !("}" | "«" | "»"))* "«" "{";
+	public TerminalRule getTEXTMIDRule() {
+		return (tTEXTMID != null) ? tTEXTMID : (tTEXTMID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TEXTMID"));
+	} 
+
+	//// SEBASTIANS
+	////terminal TEXT :      '['     ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     ']';
+	////terminal TEXTSTART : '['     ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     '<' '%';
+	////terminal TEXTEND :   '%' '>' ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     ']';
+	////terminal TEXTMID :   '%' '>' ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     '<' '%';
+	////terminal TEXTSTART : '«' !('»'|'‹')* '‹';
+	////terminal TEXTMID : '›' !('»'|'‹')* '‹';
+	////terminal TEXTEND : '›' !('»'|'‹')* '»';
+	////
+	////terminal TEXT : '«' !('»'|'‹'|'›')* '»';
 	//terminal JAVADOC:
 	//	"/ **"->"* /";
 	public TerminalRule getJAVADOCRule() {

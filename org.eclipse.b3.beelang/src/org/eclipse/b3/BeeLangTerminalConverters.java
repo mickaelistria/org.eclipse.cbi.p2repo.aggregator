@@ -417,8 +417,71 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 		};
 	}
 
-	@ValueConverter(rule = "TEXT")
-	public IValueConverter<String> TEXT() {
+	@ValueConverter(rule = "TEXTEND")
+	public IValueConverter<String> TEXTEND() {
+		return new AbstractNullSafeConverter<String>() {
+			@Override
+			protected String internalToString(String value) {
+				return "}»" + value + "»";
+			}
+
+			@Override
+			protected String internalToValue(String string, AbstractNode node) {
+				if(string.startsWith("}»"))
+					string = string.substring(2);
+				if(string.endsWith("»"))
+					string = string.substring(0, string.length() - 1);
+				return string;
+			}
+		};
+	}
+
+	@ValueConverter(rule = "TEXTMID")
+	public IValueConverter<String> TEXTMID() {
+		return new AbstractNullSafeConverter<String>() {
+			@Override
+			protected String internalToString(String value) {
+				return "}»" + value + "«{";
+			}
+
+			@Override
+			protected String internalToValue(String string, AbstractNode node) {
+				if(string.startsWith("}»"))
+					string = string.substring(2);
+				if(string.endsWith("«{"))
+					string = string.substring(0, string.length() - 2);
+				return string;
+			}
+		};
+	}
+
+	@ValueConverter(rule = "TEXTSTART")
+	public IValueConverter<String> TEXTSTART() {
+		return new AbstractNullSafeConverter<String>() {
+			@Override
+			protected String internalToString(String value) {
+				return "«" + value + "«{";
+			}
+
+			@Override
+			protected String internalToValue(String string, AbstractNode node) {
+				if(string.startsWith("«"))
+					string = string.substring(1);
+				if(string.endsWith("«{"))
+					string = string.substring(0, string.length() - 2);
+				return string;
+			}
+		};
+	}
+
+	/**
+	 * Converts a TEXT to a trimmed string with Java String semantics.
+	 * (i.e. support for \\t and other escapes).
+	 * 
+	 * @return
+	 */
+	@ValueConverter(rule = "TextStringValue")
+	public IValueConverter<String> TextStringValue() {
 		return new AbstractNullSafeConverter<String>() {
 			@Override
 			protected String internalToString(String value) {
@@ -447,50 +510,12 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 		};
 	}
 
-	@ValueConverter(rule = "TEXTEND")
-	public IValueConverter<String> TEXTEND() {
+	@ValueConverter(rule = "TextVerbatimValue")
+	public IValueConverter<String> TextVerbatimValue() {
 		return new AbstractNullSafeConverter<String>() {
 			@Override
 			protected String internalToString(String value) {
-				return "›" + value + "»";
-			}
-
-			@Override
-			protected String internalToValue(String string, AbstractNode node) {
-				if(string.startsWith("›"))
-					string = string.substring(1);
-				if(string.endsWith("»"))
-					string = string.substring(0, string.length() - 1);
-				return string;
-			}
-		};
-	}
-
-	@ValueConverter(rule = "TEXTMID")
-	public IValueConverter<String> TEXTMID() {
-		return new AbstractNullSafeConverter<String>() {
-			@Override
-			protected String internalToString(String value) {
-				return "›" + value + "‹";
-			}
-
-			@Override
-			protected String internalToValue(String string, AbstractNode node) {
-				if(string.startsWith("›"))
-					string = string.substring(1);
-				if(string.endsWith("‹"))
-					string = string.substring(0, string.length() - 1);
-				return string;
-			}
-		};
-	}
-
-	@ValueConverter(rule = "TEXTSTART")
-	public IValueConverter<String> TEXTSTART() {
-		return new AbstractNullSafeConverter<String>() {
-			@Override
-			protected String internalToString(String value) {
-				return "«" + value + "›";
+				return "«" + value + "";
 			}
 
 			@Override

@@ -57831,6 +57831,8 @@ protected class NullLiteral_NullKeyword_1 extends KeywordToken  {
 
 
 
+
+
 /************ begin Rule ParanthesizedExpression ****************
  *
  * ParanthesizedExpression returns be::BExpression:
@@ -57993,12 +57995,12 @@ protected class ParanthesizedExpression_RightParenthesisKeyword_2 extends Keywor
  *
  * Template returns be::BTemplate:
  * 	{be::BTemplate} expressions+=TextLiteral | expressions+=TextStartLiteral (expressions+=TemplateExpression
- * 	(expressions+=TextMidLiteral expressions+=Expression)*) expressions+=TextEndLiteral;
+ * 	(expressions+=TextMidLiteral expressions+=TemplateExpression)*) expressions+=TextEndLiteral;
  *
  **/
 
 // {be::BTemplate} expressions+=TextLiteral | expressions+=TextStartLiteral (expressions+=TemplateExpression
-// (expressions+=TextMidLiteral expressions+=Expression)*) expressions+=TextEndLiteral
+// (expressions+=TextMidLiteral expressions+=TemplateExpression)*) expressions+=TextEndLiteral
 protected class Template_Alternatives extends AlternativesToken {
 
 	public Template_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -58123,8 +58125,8 @@ protected class Template_ExpressionsAssignment_0_1 extends AssignmentToken  {
 }
 
 
-// expressions+=TextStartLiteral (expressions+=TemplateExpression (expressions+=TextMidLiteral expressions+=Expression)*)
-// expressions+=TextEndLiteral
+// expressions+=TextStartLiteral (expressions+=TemplateExpression (expressions+=TextMidLiteral
+// expressions+=TemplateExpression)*) expressions+=TextEndLiteral
 protected class Template_Group_1 extends GroupToken {
 	
 	public Template_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -58191,7 +58193,7 @@ protected class Template_ExpressionsAssignment_1_0 extends AssignmentToken  {
 	}	
 }
 
-// expressions+=TemplateExpression (expressions+=TextMidLiteral expressions+=Expression)*
+// expressions+=TemplateExpression (expressions+=TextMidLiteral expressions+=TemplateExpression)*
 protected class Template_Group_1_1 extends GroupToken {
 	
 	public Template_Group_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -58260,7 +58262,7 @@ protected class Template_ExpressionsAssignment_1_1_0 extends AssignmentToken  {
 	}	
 }
 
-// (expressions+=TextMidLiteral expressions+=Expression)*
+// (expressions+=TextMidLiteral expressions+=TemplateExpression)*
 protected class Template_Group_1_1_1 extends GroupToken {
 	
 	public Template_Group_1_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -58329,7 +58331,7 @@ protected class Template_ExpressionsAssignment_1_1_1_0 extends AssignmentToken  
 	}	
 }
 
-// expressions+=Expression
+// expressions+=TemplateExpression
 protected class Template_ExpressionsAssignment_1_1_1_1 extends AssignmentToken  {
 	
 	public Template_ExpressionsAssignment_1_1_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -58344,7 +58346,7 @@ protected class Template_ExpressionsAssignment_1_1_1_1 extends AssignmentToken  
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
+			case 0: return new TemplateExpression_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -58355,9 +58357,9 @@ protected class Template_ExpressionsAssignment_1_1_1_1 extends AssignmentToken  
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("expressions");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getTemplateExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getTemplateAccess().getExpressionsExpressionParserRuleCall_1_1_1_1_0(); 
+				element = grammarAccess.getTemplateAccess().getExpressionsTemplateExpressionParserRuleCall_1_1_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -58737,11 +58739,11 @@ protected class EchoExpression_ExpressionAssignment_2 extends AssignmentToken  {
 /************ begin Rule TextLiteral ****************
  *
  * TextLiteral returns be::BExpression:
- * 	{be::BLiteralExpression} value=TEXT;
+ * 	{be::BLiteralExpression} value=TextVerbatimValue;
  *
  **/
 
-// {be::BLiteralExpression} value=TEXT
+// {be::BLiteralExpression} value=TextVerbatimValue
 protected class TextLiteral_Group extends GroupToken {
 	
 	public TextLiteral_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -58796,7 +58798,7 @@ protected class TextLiteral_BLiteralExpressionAction_0 extends ActionToken  {
 	}
 }
 
-// value=TEXT
+// value=TextVerbatimValue
 protected class TextLiteral_ValueAssignment_1 extends AssignmentToken  {
 	
 	public TextLiteral_ValueAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -58820,9 +58822,9 @@ protected class TextLiteral_ValueAssignment_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTextLiteralAccess().getValueTEXTTerminalRuleCall_1_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getTextLiteralAccess().getValueTEXTTerminalRuleCall_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTextLiteralAccess().getValueTextVerbatimValueParserRuleCall_1_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getTextLiteralAccess().getValueTextVerbatimValueParserRuleCall_1_0();
 			return obj;
 		}
 		return null;

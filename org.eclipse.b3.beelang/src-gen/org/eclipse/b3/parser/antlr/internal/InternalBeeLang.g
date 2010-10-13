@@ -22460,6 +22460,66 @@ ruleIntValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 
 
 
+// Entry rule entryRuleTextStringValue
+entryRuleTextStringValue returns [String current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getTextStringValueRule(), currentNode); } 
+	 iv_ruleTextStringValue=ruleTextStringValue 
+	 { $current=$iv_ruleTextStringValue.current.getText(); }  
+	 EOF 
+;
+
+// Rule TextStringValue
+ruleTextStringValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+    this_TEXT_0=RULE_TEXT    {
+		$current.merge(this_TEXT_0);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getTextStringValueAccess().getTEXTTerminalRuleCall(), null); 
+    }
+
+    ;
+
+
+
+
+
+// Entry rule entryRuleTextVerbatimValue
+entryRuleTextVerbatimValue returns [String current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getTextVerbatimValueRule(), currentNode); } 
+	 iv_ruleTextVerbatimValue=ruleTextVerbatimValue 
+	 { $current=$iv_ruleTextVerbatimValue.current.getText(); }  
+	 EOF 
+;
+
+// Rule TextVerbatimValue
+ruleTextVerbatimValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+    this_TEXT_0=RULE_TEXT    {
+		$current.merge(this_TEXT_0);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getTextVerbatimValueAccess().getTEXTTerminalRuleCall(), null); 
+    }
+
+    ;
+
+
+
+
+
 // Entry rule entryRuleParanthesizedExpression
 entryRuleParanthesizedExpression returns [EObject current=null] 
 	:
@@ -23207,12 +23267,16 @@ ruleDOCUMENTATION returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
     @after { resetLookahead(); 
 	    lastConsumedNode = currentNode;
     }:
-(    this_TEXT_0=RULE_TEXT    {
-		$current.merge(this_TEXT_0);
+(
+    { 
+        currentNode=createCompositeNode(grammarAccess.getDOCUMENTATIONAccess().getTextStringValueParserRuleCall_0(), currentNode); 
+    }
+    this_TextStringValue_0=ruleTextStringValue    {
+		$current.merge(this_TextStringValue_0);
     }
 
     { 
-    createLeafNode(grammarAccess.getDOCUMENTATIONAccess().getTEXTTerminalRuleCall_0(), null); 
+        currentNode = currentNode.getParent();
     }
 
     |    this_JAVADOC_1=RULE_JAVADOC    {
@@ -23359,9 +23423,9 @@ ruleTemplate returns [EObject current=null]
 )(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getTemplateAccess().getExpressionsExpressionParserRuleCall_1_1_1_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getTemplateAccess().getExpressionsTemplateExpressionParserRuleCall_1_1_1_1_0(), currentNode); 
 	    }
-		lv_expressions_5_0=ruleExpression		{
+		lv_expressions_5_0=ruleTemplateExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getTemplateRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -23371,7 +23435,7 @@ ruleTemplate returns [EObject current=null]
 	       			$current, 
 	       			"expressions",
 	        		lv_expressions_5_0, 
-	        		"Expression", 
+	        		"TemplateExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -23556,25 +23620,25 @@ ruleTextLiteral returns [EObject current=null]
     }
 )(
 (
-		lv_value_1_0=RULE_TEXT
-		{
-			createLeafNode(grammarAccess.getTextLiteralAccess().getValueTEXTTerminalRuleCall_1_0(), "value"); 
-		}
-		{
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTextLiteralAccess().getValueTextVerbatimValueParserRuleCall_1_0(), currentNode); 
+	    }
+		lv_value_1_0=ruleTextVerbatimValue		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getTextLiteralRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
 	       			"value",
 	        		lv_value_1_0, 
-	        		"TEXT", 
-	        		lastConsumedNode);
+	        		"TextVerbatimValue", 
+	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
+	        currentNode = currentNode.getParent();
 	    }
 
 )
@@ -23929,13 +23993,13 @@ RULE_SIMPLE_PATTERN : '~' RULE_STRING;
 
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|'\''|'\\')|~(('\\'|'"'|'\r'|'\n')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|'\''|'\\')|~(('\\'|'\''|'\r'|'\n')))* '\'');
 
-RULE_TEXTSTART : '\u00AB' ~(('\u00BB'|'\u2039'))* '\u2039';
+RULE_TEXT : '\u00AB' (('}' ~('\u00BB')|'\u00AB' ~('{'))|~(('}'|'\u00AB'|'\u00BB')))* '\u00BB';
 
-RULE_TEXTMID : '\u203A' ~(('\u00BB'|'\u2039'))* '\u2039';
+RULE_TEXTSTART : '\u00AB' (('}' ~('\u00BB')|'\u00AB' ~('{'))|~(('}'|'\u00AB'|'\u00BB')))* '\u00AB' '{';
 
-RULE_TEXTEND : '\u203A' ~(('\u00BB'|'\u2039'))* '\u00BB';
+RULE_TEXTEND : '}' '\u00BB' (('}' ~('\u00BB')|'\u00AB' ~('{'))|~(('}'|'\u00AB'|'\u00BB')))* '\u00BB';
 
-RULE_TEXT : '\u00AB' ~(('\u00BB'|'\u2039'|'\u203A'))* '\u00BB';
+RULE_TEXTMID : '}' '\u00BB' (('}' ~('\u00BB')|'\u00AB' ~('{'))|~(('}'|'\u00AB'|'\u00BB')))* '\u00AB' '{';
 
 RULE_JAVADOC : '/**' ( options {greedy=false;} : . )*'*/';
 
