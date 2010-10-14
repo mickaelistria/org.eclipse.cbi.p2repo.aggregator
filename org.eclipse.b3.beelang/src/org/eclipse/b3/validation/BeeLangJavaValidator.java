@@ -70,6 +70,7 @@ import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.internal.Lists;
+import com.google.inject.internal.Maps;
 
 public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implements IBeeLangDiagnostic {
 
@@ -400,6 +401,19 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		catch(Throwable t) {
 			error(t.getMessage(), jimport, B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME);
 		}
+	}
+
+	@Check
+	public void checkParameterNamesAreUnique(IFunction func) {
+		Map<String, Boolean> seen = Maps.newHashMap();
+		List<BParameterDeclaration> culprits = Lists.newArrayList();
+		for(BParameterDeclaration decl : func.getParameters()) {
+			if(seen.get(decl.getName()) != null)
+				culprits.add(decl);
+			seen.put(decl.getName(), Boolean.TRUE);
+		}
+		for(BParameterDeclaration d : culprits)
+			error("Duplicate parameter name", d, B3backendPackage.BPARAMETER_DECLARATION__NAME);
 	}
 
 	/**
