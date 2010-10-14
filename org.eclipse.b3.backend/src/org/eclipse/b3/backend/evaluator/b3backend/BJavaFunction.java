@@ -16,17 +16,17 @@ import java.lang.reflect.Type;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BJava Function</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getMethod <em>Method</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getCallType <em>Call Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getParameterTypes <em>Parameter Types</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getParameterNames <em>Parameter Names</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getCallType <em>Call Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getParameterTypes <em>Parameter Types</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getParameterNames <em>Parameter Names</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBJavaFunction()
  * @model
  * @generated
@@ -40,7 +40,6 @@ public interface BJavaFunction extends BFunction {
 	 * If the meaning of the '<em>Call Type</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Call Type</em>' attribute.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType
 	 * @see #setCallType(BJavaCallType)
@@ -57,7 +56,6 @@ public interface BJavaFunction extends BFunction {
 	 * If the meaning of the '<em>Method</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Method</em>' attribute.
 	 * @see #setMethod(Method)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBJavaFunction_Method()
@@ -73,7 +71,6 @@ public interface BJavaFunction extends BFunction {
 	 * If the meaning of the '<em>Parameter Names</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Parameter Names</em>' attribute.
 	 * @see #setParameterNames(String[])
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBJavaFunction_ParameterNames()
@@ -89,7 +86,6 @@ public interface BJavaFunction extends BFunction {
 	 * If the meaning of the '<em>Parameter Types</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Parameter Types</em>' attribute.
 	 * @see #setParameterTypes(Type[])
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBJavaFunction_ParameterTypes()
@@ -101,10 +97,7 @@ public interface BJavaFunction extends BFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
-	 *        parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray"
-	 *        parameterTypesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray" parameterTypesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
 	Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] parameterTypes) throws Throwable;
@@ -112,7 +105,6 @@ public interface BJavaFunction extends BFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -121,7 +113,6 @@ public interface BJavaFunction extends BFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -130,7 +121,6 @@ public interface BJavaFunction extends BFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -140,9 +130,7 @@ public interface BJavaFunction extends BFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getCallType <em>Call Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Call Type</em>' attribute.
+	 * @param value the new value of the '<em>Call Type</em>' attribute.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType
 	 * @see #getCallType()
 	 * @generated
@@ -153,9 +141,7 @@ public interface BJavaFunction extends BFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getMethod <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Method</em>' attribute.
+	 * @param value the new value of the '<em>Method</em>' attribute.
 	 * @see #getMethod()
 	 * @generated
 	 */
@@ -165,9 +151,7 @@ public interface BJavaFunction extends BFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getParameterNames <em>Parameter Names</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Parameter Names</em>' attribute.
+	 * @param value the new value of the '<em>Parameter Names</em>' attribute.
 	 * @see #getParameterNames()
 	 * @generated
 	 */
@@ -177,9 +161,7 @@ public interface BJavaFunction extends BFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getParameterTypes <em>Parameter Types</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Parameter Types</em>' attribute.
+	 * @param value the new value of the '<em>Parameter Types</em>' attribute.
 	 * @see #getParameterTypes()
 	 * @generated
 	 */

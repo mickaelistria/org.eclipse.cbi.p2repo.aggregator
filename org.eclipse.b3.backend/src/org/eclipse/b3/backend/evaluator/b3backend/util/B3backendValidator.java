@@ -131,7 +131,6 @@ import java.lang.CharSequence;
  * <!-- begin-user-doc -->
  * The <b>Validator</b> for the model.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage
  * @generated
  */
@@ -140,17 +139,14 @@ public class B3backendValidator extends EObjectValidator {
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final B3backendValidator INSTANCE = new B3backendValidator();
 
 	/**
-	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic
-	 * {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
+	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see org.eclipse.emf.common.util.Diagnostic#getSource()
 	 * @see org.eclipse.emf.common.util.Diagnostic#getCode()
 	 * @generated
@@ -161,7 +157,6 @@ public class B3backendValidator extends EObjectValidator {
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Has Unreachable Case' of 'BSwitch Expression'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final int BSWITCH_EXPRESSION__HAS_UNREACHABLE_CASE = 1;
@@ -170,7 +165,6 @@ public class B3backendValidator extends EObjectValidator {
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
@@ -188,7 +182,6 @@ public class B3backendValidator extends EObjectValidator {
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
@@ -197,7 +190,6 @@ public class B3backendValidator extends EObjectValidator {
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public B3backendValidator() {
@@ -208,7 +200,6 @@ public class B3backendValidator extends EObjectValidator {
 	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -222,7 +213,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateB3EngineException(B3EngineException b3EngineException, DiagnosticChain diagnostics,
@@ -233,7 +223,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateB3ExpressionCache(B3ExpressionCache b3ExpressionCache, DiagnosticChain diagnostics,
@@ -244,7 +233,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateB3Function(B3Function b3Function, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -254,7 +242,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateB3FunctionType(B3FunctionType b3FunctionType, DiagnosticChain diagnostics,
@@ -265,7 +252,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateB3FuncTypeVariable(B3FuncTypeVariable b3FuncTypeVariable, DiagnosticChain diagnostics,
@@ -276,7 +262,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateB3JavaImport(B3JavaImport b3JavaImport, DiagnosticChain diagnostics,
@@ -287,7 +272,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateB3MetaClass(B3MetaClass b3MetaClass, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -310,7 +294,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateB3Type(B3Type b3Type, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -320,7 +303,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateB3WildcardType(B3WildcardType b3WildcardType, DiagnosticChain diagnostics,
@@ -331,7 +313,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBAdvice(BAdvice bAdvice, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -341,7 +322,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBAndExpression(BAndExpression bAndExpression, DiagnosticChain diagnostics,
@@ -352,7 +332,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBAssignmentExpression(BAssignmentExpression bAssignmentExpression,
@@ -363,7 +342,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBAtExpression(BAtExpression bAtExpression, DiagnosticChain diagnostics,
@@ -374,7 +352,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBBinaryExpression(BBinaryExpression bBinaryExpression, DiagnosticChain diagnostics,
@@ -385,7 +362,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBBinaryOpExpression(BBinaryOpExpression bBinaryOpExpression, DiagnosticChain diagnostics,
@@ -396,7 +372,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBCachedExpression(BCachedExpression bCachedExpression, DiagnosticChain diagnostics,
@@ -407,7 +382,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBCallExpression(BCallExpression bCallExpression, DiagnosticChain diagnostics,
@@ -418,7 +392,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBCallFeature(BCallFeature bCallFeature, DiagnosticChain diagnostics,
@@ -429,7 +402,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBCallFunction(BCallFunction bCallFunction, DiagnosticChain diagnostics,
@@ -440,7 +412,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBCallNamedFunction(BCallNamedFunction bCallNamedFunction, DiagnosticChain diagnostics,
@@ -451,7 +422,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBCase(BCase bCase, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -461,7 +431,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBCatch(BCatch bCatch, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -471,7 +440,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBChainedExpression(BChainedExpression bChainedExpression, DiagnosticChain diagnostics,
@@ -482,7 +450,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBConcern(BConcern bConcern, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -492,7 +459,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBConcernContext(BConcernContext bConcernContext, DiagnosticChain diagnostics,
@@ -503,7 +469,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBConditionalPropertyOperation(BConditionalPropertyOperation bConditionalPropertyOperation,
@@ -514,7 +479,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBContext(BContext bContext, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -524,7 +488,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBCreateExpression(BCreateExpression bCreateExpression, DiagnosticChain diagnostics,
@@ -535,7 +498,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBDefaultPropertySet(BDefaultPropertySet bDefaultPropertySet, DiagnosticChain diagnostics,
@@ -546,7 +508,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBDefProperty(BDefProperty bDefProperty, DiagnosticChain diagnostics,
@@ -557,7 +518,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBDefValue(BDefValue bDefValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -567,7 +527,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBDelegatingContext(BDelegatingContext bDelegatingContext, DiagnosticChain diagnostics,
@@ -578,7 +537,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBEchoExpression(BEchoExpression bEchoExpression, DiagnosticChain diagnostics,
@@ -589,7 +547,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBExecutionContext(BExecutionContext bExecutionContext, DiagnosticChain diagnostics,
@@ -600,7 +557,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBExpression(BExpression bExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -610,7 +566,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBExpressionWrapper(BExpressionWrapper bExpressionWrapper, DiagnosticChain diagnostics,
@@ -621,7 +576,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBFeatureExpression(BFeatureExpression bFeatureExpression, DiagnosticChain diagnostics,
@@ -632,7 +586,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBFunction(BFunction bFunction, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -642,7 +595,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBFunctionConcernContext(BFunctionConcernContext bFunctionConcernContext,
@@ -653,7 +605,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBFunctionContainer(BFunctionContainer bFunctionContainer, DiagnosticChain diagnostics,
@@ -664,7 +615,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBFunctionNamePredicate(BFunctionNamePredicate bFunctionNamePredicate,
@@ -675,7 +625,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBFunctionWrapper(BFunctionWrapper bFunctionWrapper, DiagnosticChain diagnostics,
@@ -686,7 +635,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBGuard(BGuard bGuard, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -696,7 +644,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBIfExpression(BIfExpression bIfExpression, DiagnosticChain diagnostics,
@@ -707,7 +654,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBInnerContext(BInnerContext bInnerContext, DiagnosticChain diagnostics,
@@ -718,7 +664,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBInstanceContext(BInstanceContext bInstanceContext, DiagnosticChain diagnostics,
@@ -729,7 +674,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBInvocationContext(BInvocationContext bInvocationContext, DiagnosticChain diagnostics,
@@ -740,7 +684,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBJavaCallType(BJavaCallType bJavaCallType, DiagnosticChain diagnostics,
@@ -751,7 +694,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBJavaFunction(BJavaFunction bJavaFunction, DiagnosticChain diagnostics,
@@ -762,7 +704,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBLiteralAny(BLiteralAny bLiteralAny, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -772,7 +713,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBLiteralExpression(BLiteralExpression bLiteralExpression, DiagnosticChain diagnostics,
@@ -783,7 +723,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBLiteralListExpression(BLiteralListExpression bLiteralListExpression,
@@ -794,7 +733,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBLiteralMapExpression(BLiteralMapExpression bLiteralMapExpression,
@@ -805,7 +743,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBLiteralType(BLiteralType bLiteralType, DiagnosticChain diagnostics,
@@ -816,7 +753,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBMapEntry(BMapEntry bMapEntry, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -826,7 +762,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBNamePredicate(BNamePredicate bNamePredicate, DiagnosticChain diagnostics,
@@ -837,7 +772,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBOrExpression(BOrExpression bOrExpression, DiagnosticChain diagnostics,
@@ -848,7 +782,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBParameter(BParameter bParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -858,7 +791,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBParameterDeclaration(BParameterDeclaration bParameterDeclaration,
@@ -869,7 +801,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBParameterizedExpression(BParameterizedExpression bParameterizedExpression,
@@ -880,7 +811,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBParameterList(BParameterList bParameterList, DiagnosticChain diagnostics,
@@ -891,7 +821,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBParameterPredicate(BParameterPredicate bParameterPredicate, DiagnosticChain diagnostics,
@@ -902,7 +831,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBPatternLiteralExpression(BPatternLiteralExpression bPatternLiteralExpression,
@@ -913,7 +841,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBProceedExpression(BProceedExpression bProceedExpression, DiagnosticChain diagnostics,
@@ -924,7 +851,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBPropertyDefinitionOperation(BPropertyDefinitionOperation bPropertyDefinitionOperation,
@@ -935,7 +861,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBPropertyOperation(BPropertyOperation bPropertyOperation, DiagnosticChain diagnostics,
@@ -946,7 +871,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBPropertySet(BPropertySet bPropertySet, DiagnosticChain diagnostics,
@@ -957,7 +881,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBPropertySetOperation(BPropertySetOperation bPropertySetOperation,
@@ -968,7 +891,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBRegularExpression(BRegularExpression bRegularExpression, DiagnosticChain diagnostics,
@@ -979,7 +901,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBSimplePatternExpression(BSimplePatternExpression bSimplePatternExpression,
@@ -990,30 +911,20 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBSwitchExpression(BSwitchExpression bSwitchExpression, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if(!validate_NoCircularContainment(bSwitchExpression, diagnostics, context))
-			return false;
+		if (!validate_NoCircularContainment(bSwitchExpression, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(bSwitchExpression, diagnostics, context);
-		if(result || diagnostics != null)
-			result &= validate_EveryDataValueConforms(bSwitchExpression, diagnostics, context);
-		if(result || diagnostics != null)
-			result &= validate_EveryReferenceIsContained(bSwitchExpression, diagnostics, context);
-		if(result || diagnostics != null)
-			result &= validate_EveryBidirectionalReferenceIsPaired(bSwitchExpression, diagnostics, context);
-		if(result || diagnostics != null)
-			result &= validate_EveryProxyResolves(bSwitchExpression, diagnostics, context);
-		if(result || diagnostics != null)
-			result &= validate_UniqueID(bSwitchExpression, diagnostics, context);
-		if(result || diagnostics != null)
-			result &= validate_EveryKeyUnique(bSwitchExpression, diagnostics, context);
-		if(result || diagnostics != null)
-			result &= validate_EveryMapEntryUnique(bSwitchExpression, diagnostics, context);
-		if(result || diagnostics != null)
-			result &= validateBSwitchExpression_hasUnreachableCase(bSwitchExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(bSwitchExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(bSwitchExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(bSwitchExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(bSwitchExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(bSwitchExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(bSwitchExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(bSwitchExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBSwitchExpression_hasUnreachableCase(bSwitchExpression, diagnostics, context);
 		return result;
 	}
 
@@ -1021,7 +932,6 @@ public class B3backendValidator extends EObjectValidator {
 	 * Validates the hasUnreachableCase constraint of '<em>BSwitch Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBSwitchExpression_hasUnreachableCase(BSwitchExpression bSwitchExpression,
@@ -1032,7 +942,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBSystemContext(BSystemContext bSystemContext, DiagnosticChain diagnostics,
@@ -1043,7 +952,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBTemplate(BTemplate bTemplate, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1053,7 +961,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBThrowExpression(BThrowExpression bThrowExpression, DiagnosticChain diagnostics,
@@ -1064,7 +971,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBTryExpression(BTryExpression bTryExpression, DiagnosticChain diagnostics,
@@ -1075,7 +981,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBTypeCalculator(BTypeCalculator bTypeCalculator, DiagnosticChain diagnostics,
@@ -1086,7 +991,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBUnaryExpression(BUnaryExpression bUnaryExpression, DiagnosticChain diagnostics,
@@ -1097,7 +1001,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBUnaryOpExpression(BUnaryOpExpression bUnaryOpExpression, DiagnosticChain diagnostics,
@@ -1108,7 +1011,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBUnaryPostOpExpression(BUnaryPostOpExpression bUnaryPostOpExpression,
@@ -1119,7 +1021,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBUnaryPreOpExpression(BUnaryPreOpExpression bUnaryPreOpExpression,
@@ -1130,7 +1031,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBVariableExpression(BVariableExpression bVariableExpression, DiagnosticChain diagnostics,
@@ -1141,7 +1041,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBWithContextExpression(BWithContextExpression bWithContextExpression,
@@ -1152,7 +1051,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBWithExpression(BWithExpression bWithExpression, DiagnosticChain diagnostics,
@@ -1163,7 +1061,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateBWrappingContext(BWrappingContext bWrappingContext, DiagnosticChain diagnostics,
@@ -1174,7 +1071,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateCharSequence(CharSequence charSequence, DiagnosticChain diagnostics,
@@ -1185,7 +1081,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateCoreException(CoreException coreException, DiagnosticChain diagnostics,
@@ -1196,7 +1091,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateExecutionMode(ExecutionMode executionMode, DiagnosticChain diagnostics,
@@ -1207,7 +1101,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateFuncStore(B3FuncStore funcStore, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1217,7 +1110,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIFunction(IFunction iFunction, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1227,18 +1119,16 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIGenericDeclaration(GenericDeclaration iGenericDeclaration, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject) iGenericDeclaration, diagnostics, context);
+		return validate_EveryDefaultConstraint((EObject)iGenericDeclaration, diagnostics, context);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateINamedValue(INamedValue iNamedValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1248,7 +1138,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateInjector(Injector injector, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1258,18 +1147,16 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIParameterizedType(ParameterizedType iParameterizedType, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject) iParameterizedType, diagnostics, context);
+		return validate_EveryDefaultConstraint((EObject)iParameterizedType, diagnostics, context);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIProgressMonitor(IProgressMonitor iProgressMonitor, DiagnosticChain diagnostics,
@@ -1280,17 +1167,15 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIType(Type iType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject) iType, diagnostics, context);
+		return validate_EveryDefaultConstraint((EObject)iType, diagnostics, context);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateITypedValue(ITypedValue iTypedValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1300,7 +1185,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateITypedValueContainer(ITypedValueContainer iTypedValueContainer, DiagnosticChain diagnostics,
@@ -1311,18 +1195,16 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateITypeVariable(TypeVariable<?> iTypeVariable, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject) iTypeVariable, diagnostics, context);
+		return validate_EveryDefaultConstraint((EObject)iTypeVariable, diagnostics, context);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIVarName(IVarName iVarName, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1332,18 +1214,16 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateIWildcardType(WildcardType iWildcardType, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject) iWildcardType, diagnostics, context);
+		return validate_EveryDefaultConstraint((EObject)iWildcardType, diagnostics, context);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateJavaIterator(Iterator<?> javaIterator, DiagnosticChain diagnostics,
@@ -1354,7 +1234,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateLValue(LValue lValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1364,7 +1243,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateMethod(Method method, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1374,7 +1252,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateObjectArray(Object[] objectArray, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1384,7 +1261,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateRegexpPattern(Pattern regexpPattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1394,7 +1270,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateSimplePattern(SimplePattern simplePattern, DiagnosticChain diagnostics,
@@ -1405,7 +1280,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateStringArray(String[] stringArray, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1415,7 +1289,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateThrowable(Throwable throwable, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1425,7 +1298,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateType(Type type, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1435,7 +1307,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateTypeArray(Type[] typeArray, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1445,7 +1316,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateTypeVariableArray(TypeVariable[] typeVariableArray, DiagnosticChain diagnostics,
@@ -1456,7 +1326,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateURI(URI uri, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1466,7 +1335,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateValueMap(ValueMap valueMap, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1476,7 +1344,6 @@ public class B3backendValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateVisibility(Visibility visibility, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1487,255 +1354,252 @@ public class B3backendValidator extends EObjectValidator {
 	 * Returns the package of this validator switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected EPackage getEPackage() {
-		return B3backendPackage.eINSTANCE;
+	  return B3backendPackage.eINSTANCE;
 	}
 
 	/**
 	 * Calls <code>validateXXX</code> for the corresponding classifier of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		switch(classifierID) {
+		switch (classifierID) {
 			case B3backendPackage.BEXPRESSION:
-				return validateBExpression((BExpression) value, diagnostics, context);
+				return validateBExpression((BExpression)value, diagnostics, context);
 			case B3backendPackage.BEXECUTION_CONTEXT:
-				return validateBExecutionContext((BExecutionContext) value, diagnostics, context);
+				return validateBExecutionContext((BExecutionContext)value, diagnostics, context);
 			case B3backendPackage.BIF_EXPRESSION:
-				return validateBIfExpression((BIfExpression) value, diagnostics, context);
+				return validateBIfExpression((BIfExpression)value, diagnostics, context);
 			case B3backendPackage.BSWITCH_EXPRESSION:
-				return validateBSwitchExpression((BSwitchExpression) value, diagnostics, context);
+				return validateBSwitchExpression((BSwitchExpression)value, diagnostics, context);
 			case B3backendPackage.BCASE:
-				return validateBCase((BCase) value, diagnostics, context);
+				return validateBCase((BCase)value, diagnostics, context);
 			case B3backendPackage.BTRY_EXPRESSION:
-				return validateBTryExpression((BTryExpression) value, diagnostics, context);
+				return validateBTryExpression((BTryExpression)value, diagnostics, context);
 			case B3backendPackage.BCATCH:
-				return validateBCatch((BCatch) value, diagnostics, context);
+				return validateBCatch((BCatch)value, diagnostics, context);
 			case B3backendPackage.BBINARY_EXPRESSION:
-				return validateBBinaryExpression((BBinaryExpression) value, diagnostics, context);
+				return validateBBinaryExpression((BBinaryExpression)value, diagnostics, context);
 			case B3backendPackage.BOR_EXPRESSION:
-				return validateBOrExpression((BOrExpression) value, diagnostics, context);
+				return validateBOrExpression((BOrExpression)value, diagnostics, context);
 			case B3backendPackage.BAND_EXPRESSION:
-				return validateBAndExpression((BAndExpression) value, diagnostics, context);
+				return validateBAndExpression((BAndExpression)value, diagnostics, context);
 			case B3backendPackage.BCHAINED_EXPRESSION:
-				return validateBChainedExpression((BChainedExpression) value, diagnostics, context);
+				return validateBChainedExpression((BChainedExpression)value, diagnostics, context);
 			case B3backendPackage.BUNARY_EXPRESSION:
-				return validateBUnaryExpression((BUnaryExpression) value, diagnostics, context);
+				return validateBUnaryExpression((BUnaryExpression)value, diagnostics, context);
 			case B3backendPackage.BTHROW_EXPRESSION:
-				return validateBThrowExpression((BThrowExpression) value, diagnostics, context);
+				return validateBThrowExpression((BThrowExpression)value, diagnostics, context);
 			case B3backendPackage.BUNARY_OP_EXPRESSION:
-				return validateBUnaryOpExpression((BUnaryOpExpression) value, diagnostics, context);
+				return validateBUnaryOpExpression((BUnaryOpExpression)value, diagnostics, context);
 			case B3backendPackage.BUNARY_POST_OP_EXPRESSION:
-				return validateBUnaryPostOpExpression((BUnaryPostOpExpression) value, diagnostics, context);
+				return validateBUnaryPostOpExpression((BUnaryPostOpExpression)value, diagnostics, context);
 			case B3backendPackage.BBINARY_OP_EXPRESSION:
-				return validateBBinaryOpExpression((BBinaryOpExpression) value, diagnostics, context);
+				return validateBBinaryOpExpression((BBinaryOpExpression)value, diagnostics, context);
 			case B3backendPackage.BCACHED_EXPRESSION:
-				return validateBCachedExpression((BCachedExpression) value, diagnostics, context);
+				return validateBCachedExpression((BCachedExpression)value, diagnostics, context);
 			case B3backendPackage.BLITERAL_EXPRESSION:
-				return validateBLiteralExpression((BLiteralExpression) value, diagnostics, context);
+				return validateBLiteralExpression((BLiteralExpression)value, diagnostics, context);
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION:
-				return validateBLiteralListExpression((BLiteralListExpression) value, diagnostics, context);
+				return validateBLiteralListExpression((BLiteralListExpression)value, diagnostics, context);
 			case B3backendPackage.BLITERAL_MAP_EXPRESSION:
-				return validateBLiteralMapExpression((BLiteralMapExpression) value, diagnostics, context);
+				return validateBLiteralMapExpression((BLiteralMapExpression)value, diagnostics, context);
 			case B3backendPackage.BMAP_ENTRY:
-				return validateBMapEntry((BMapEntry) value, diagnostics, context);
+				return validateBMapEntry((BMapEntry)value, diagnostics, context);
 			case B3backendPackage.BFEATURE_EXPRESSION:
-				return validateBFeatureExpression((BFeatureExpression) value, diagnostics, context);
+				return validateBFeatureExpression((BFeatureExpression)value, diagnostics, context);
 			case B3backendPackage.BAT_EXPRESSION:
-				return validateBAtExpression((BAtExpression) value, diagnostics, context);
+				return validateBAtExpression((BAtExpression)value, diagnostics, context);
 			case B3backendPackage.BVARIABLE_EXPRESSION:
-				return validateBVariableExpression((BVariableExpression) value, diagnostics, context);
+				return validateBVariableExpression((BVariableExpression)value, diagnostics, context);
 			case B3backendPackage.BCALL_EXPRESSION:
-				return validateBCallExpression((BCallExpression) value, diagnostics, context);
+				return validateBCallExpression((BCallExpression)value, diagnostics, context);
 			case B3backendPackage.BPARAMETERIZED_EXPRESSION:
-				return validateBParameterizedExpression((BParameterizedExpression) value, diagnostics, context);
+				return validateBParameterizedExpression((BParameterizedExpression)value, diagnostics, context);
 			case B3backendPackage.BLITERAL_ANY:
-				return validateBLiteralAny((BLiteralAny) value, diagnostics, context);
+				return validateBLiteralAny((BLiteralAny)value, diagnostics, context);
 			case B3backendPackage.BCREATE_EXPRESSION:
-				return validateBCreateExpression((BCreateExpression) value, diagnostics, context);
+				return validateBCreateExpression((BCreateExpression)value, diagnostics, context);
 			case B3backendPackage.IFUNCTION:
-				return validateIFunction((IFunction) value, diagnostics, context);
+				return validateIFunction((IFunction)value, diagnostics, context);
 			case B3backendPackage.BGUARD:
-				return validateBGuard((BGuard) value, diagnostics, context);
+				return validateBGuard((BGuard)value, diagnostics, context);
 			case B3backendPackage.BSYSTEM_CONTEXT:
-				return validateBSystemContext((BSystemContext) value, diagnostics, context);
+				return validateBSystemContext((BSystemContext)value, diagnostics, context);
 			case B3backendPackage.BCONTEXT:
-				return validateBContext((BContext) value, diagnostics, context);
+				return validateBContext((BContext)value, diagnostics, context);
 			case B3backendPackage.BINNER_CONTEXT:
-				return validateBInnerContext((BInnerContext) value, diagnostics, context);
+				return validateBInnerContext((BInnerContext)value, diagnostics, context);
 			case B3backendPackage.BINVOCATION_CONTEXT:
-				return validateBInvocationContext((BInvocationContext) value, diagnostics, context);
+				return validateBInvocationContext((BInvocationContext)value, diagnostics, context);
 			case B3backendPackage.BUNARY_PRE_OP_EXPRESSION:
-				return validateBUnaryPreOpExpression((BUnaryPreOpExpression) value, diagnostics, context);
+				return validateBUnaryPreOpExpression((BUnaryPreOpExpression)value, diagnostics, context);
 			case B3backendPackage.BASSIGNMENT_EXPRESSION:
-				return validateBAssignmentExpression((BAssignmentExpression) value, diagnostics, context);
+				return validateBAssignmentExpression((BAssignmentExpression)value, diagnostics, context);
 			case B3backendPackage.B3_FUNCTION:
-				return validateB3Function((B3Function) value, diagnostics, context);
+				return validateB3Function((B3Function)value, diagnostics, context);
 			case B3backendPackage.BJAVA_FUNCTION:
-				return validateBJavaFunction((BJavaFunction) value, diagnostics, context);
+				return validateBJavaFunction((BJavaFunction)value, diagnostics, context);
 			case B3backendPackage.BFUNCTION_CONTAINER:
-				return validateBFunctionContainer((BFunctionContainer) value, diagnostics, context);
+				return validateBFunctionContainer((BFunctionContainer)value, diagnostics, context);
 			case B3backendPackage.BDEF_VALUE:
-				return validateBDefValue((BDefValue) value, diagnostics, context);
+				return validateBDefValue((BDefValue)value, diagnostics, context);
 			case B3backendPackage.BREGULAR_EXPRESSION:
-				return validateBRegularExpression((BRegularExpression) value, diagnostics, context);
+				return validateBRegularExpression((BRegularExpression)value, diagnostics, context);
 			case B3backendPackage.BPARAMETER_LIST:
-				return validateBParameterList((BParameterList) value, diagnostics, context);
+				return validateBParameterList((BParameterList)value, diagnostics, context);
 			case B3backendPackage.BPARAMETER:
-				return validateBParameter((BParameter) value, diagnostics, context);
+				return validateBParameter((BParameter)value, diagnostics, context);
 			case B3backendPackage.BPARAMETER_DECLARATION:
-				return validateBParameterDeclaration((BParameterDeclaration) value, diagnostics, context);
+				return validateBParameterDeclaration((BParameterDeclaration)value, diagnostics, context);
 			case B3backendPackage.ITYPE:
-				return validateIType((Type) value, diagnostics, context);
+				return validateIType((Type)value, diagnostics, context);
 			case B3backendPackage.B3_FUNCTION_TYPE:
-				return validateB3FunctionType((B3FunctionType) value, diagnostics, context);
+				return validateB3FunctionType((B3FunctionType)value, diagnostics, context);
 			case B3backendPackage.IPARAMETERIZED_TYPE:
-				return validateIParameterizedType((ParameterizedType) value, diagnostics, context);
+				return validateIParameterizedType((ParameterizedType)value, diagnostics, context);
 			case B3backendPackage.IGENERIC_DECLARATION:
-				return validateIGenericDeclaration((GenericDeclaration) value, diagnostics, context);
+				return validateIGenericDeclaration((GenericDeclaration)value, diagnostics, context);
 			case B3backendPackage.B3_PARAMETERIZED_TYPE:
-				return validateB3ParameterizedType((B3ParameterizedType) value, diagnostics, context);
+				return validateB3ParameterizedType((B3ParameterizedType)value, diagnostics, context);
 			case B3backendPackage.IWILDCARD_TYPE:
-				return validateIWildcardType((WildcardType) value, diagnostics, context);
+				return validateIWildcardType((WildcardType)value, diagnostics, context);
 			case B3backendPackage.B3_WILDCARD_TYPE:
-				return validateB3WildcardType((B3WildcardType) value, diagnostics, context);
+				return validateB3WildcardType((B3WildcardType)value, diagnostics, context);
 			case B3backendPackage.ITYPE_VARIABLE:
-				return validateITypeVariable((TypeVariable<?>) value, diagnostics, context);
+				return validateITypeVariable((TypeVariable<?>)value, diagnostics, context);
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE:
-				return validateB3FuncTypeVariable((B3FuncTypeVariable) value, diagnostics, context);
+				return validateB3FuncTypeVariable((B3FuncTypeVariable)value, diagnostics, context);
 			case B3backendPackage.B3_JAVA_IMPORT:
-				return validateB3JavaImport((B3JavaImport) value, diagnostics, context);
+				return validateB3JavaImport((B3JavaImport)value, diagnostics, context);
 			case B3backendPackage.BLITERAL_TYPE:
-				return validateBLiteralType((BLiteralType) value, diagnostics, context);
+				return validateBLiteralType((BLiteralType)value, diagnostics, context);
 			case B3backendPackage.BTYPE_CALCULATOR:
-				return validateBTypeCalculator((BTypeCalculator) value, diagnostics, context);
+				return validateBTypeCalculator((BTypeCalculator)value, diagnostics, context);
 			case B3backendPackage.BINSTANCE_CONTEXT:
-				return validateBInstanceContext((BInstanceContext) value, diagnostics, context);
+				return validateBInstanceContext((BInstanceContext)value, diagnostics, context);
 			case B3backendPackage.BDEF_PROPERTY:
-				return validateBDefProperty((BDefProperty) value, diagnostics, context);
+				return validateBDefProperty((BDefProperty)value, diagnostics, context);
 			case B3backendPackage.BPROPERTY_SET:
-				return validateBPropertySet((BPropertySet) value, diagnostics, context);
+				return validateBPropertySet((BPropertySet)value, diagnostics, context);
 			case B3backendPackage.BDEFAULT_PROPERTY_SET:
-				return validateBDefaultPropertySet((BDefaultPropertySet) value, diagnostics, context);
+				return validateBDefaultPropertySet((BDefaultPropertySet)value, diagnostics, context);
 			case B3backendPackage.BPROPERTY_OPERATION:
-				return validateBPropertyOperation((BPropertyOperation) value, diagnostics, context);
+				return validateBPropertyOperation((BPropertyOperation)value, diagnostics, context);
 			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION:
-				return validateBPropertyDefinitionOperation((BPropertyDefinitionOperation) value, diagnostics, context);
+				return validateBPropertyDefinitionOperation((BPropertyDefinitionOperation)value, diagnostics, context);
 			case B3backendPackage.BCONDITIONAL_PROPERTY_OPERATION:
-				return validateBConditionalPropertyOperation(
-					(BConditionalPropertyOperation) value, diagnostics, context);
+				return validateBConditionalPropertyOperation((BConditionalPropertyOperation)value, diagnostics, context);
 			case B3backendPackage.BPROPERTY_SET_OPERATION:
-				return validateBPropertySetOperation((BPropertySetOperation) value, diagnostics, context);
+				return validateBPropertySetOperation((BPropertySetOperation)value, diagnostics, context);
 			case B3backendPackage.BADVICE:
-				return validateBAdvice((BAdvice) value, diagnostics, context);
+				return validateBAdvice((BAdvice)value, diagnostics, context);
 			case B3backendPackage.BCONCERN:
-				return validateBConcern((BConcern) value, diagnostics, context);
+				return validateBConcern((BConcern)value, diagnostics, context);
 			case B3backendPackage.BWITH_EXPRESSION:
-				return validateBWithExpression((BWithExpression) value, diagnostics, context);
+				return validateBWithExpression((BWithExpression)value, diagnostics, context);
 			case B3backendPackage.BCONCERN_CONTEXT:
-				return validateBConcernContext((BConcernContext) value, diagnostics, context);
+				return validateBConcernContext((BConcernContext)value, diagnostics, context);
 			case B3backendPackage.BFUNCTION:
-				return validateBFunction((BFunction) value, diagnostics, context);
+				return validateBFunction((BFunction)value, diagnostics, context);
 			case B3backendPackage.BFUNCTION_WRAPPER:
-				return validateBFunctionWrapper((BFunctionWrapper) value, diagnostics, context);
+				return validateBFunctionWrapper((BFunctionWrapper)value, diagnostics, context);
 			case B3backendPackage.BNAME_PREDICATE:
-				return validateBNamePredicate((BNamePredicate) value, diagnostics, context);
+				return validateBNamePredicate((BNamePredicate)value, diagnostics, context);
 			case B3backendPackage.BFUNCTION_NAME_PREDICATE:
-				return validateBFunctionNamePredicate((BFunctionNamePredicate) value, diagnostics, context);
+				return validateBFunctionNamePredicate((BFunctionNamePredicate)value, diagnostics, context);
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT:
-				return validateBFunctionConcernContext((BFunctionConcernContext) value, diagnostics, context);
+				return validateBFunctionConcernContext((BFunctionConcernContext)value, diagnostics, context);
 			case B3backendPackage.BPARAMETER_PREDICATE:
-				return validateBParameterPredicate((BParameterPredicate) value, diagnostics, context);
+				return validateBParameterPredicate((BParameterPredicate)value, diagnostics, context);
 			case B3backendPackage.BPROCEED_EXPRESSION:
-				return validateBProceedExpression((BProceedExpression) value, diagnostics, context);
+				return validateBProceedExpression((BProceedExpression)value, diagnostics, context);
 			case B3backendPackage.BDELEGATING_CONTEXT:
-				return validateBDelegatingContext((BDelegatingContext) value, diagnostics, context);
+				return validateBDelegatingContext((BDelegatingContext)value, diagnostics, context);
 			case B3backendPackage.BWRAPPING_CONTEXT:
-				return validateBWrappingContext((BWrappingContext) value, diagnostics, context);
+				return validateBWrappingContext((BWrappingContext)value, diagnostics, context);
 			case B3backendPackage.B3_META_CLASS:
-				return validateB3MetaClass((B3MetaClass) value, diagnostics, context);
+				return validateB3MetaClass((B3MetaClass)value, diagnostics, context);
 			case B3backendPackage.BEXPRESSION_WRAPPER:
-				return validateBExpressionWrapper((BExpressionWrapper) value, diagnostics, context);
+				return validateBExpressionWrapper((BExpressionWrapper)value, diagnostics, context);
 			case B3backendPackage.BWITH_CONTEXT_EXPRESSION:
-				return validateBWithContextExpression((BWithContextExpression) value, diagnostics, context);
+				return validateBWithContextExpression((BWithContextExpression)value, diagnostics, context);
 			case B3backendPackage.ITYPED_VALUE_CONTAINER:
-				return validateITypedValueContainer((ITypedValueContainer) value, diagnostics, context);
+				return validateITypedValueContainer((ITypedValueContainer)value, diagnostics, context);
 			case B3backendPackage.BCALL_FEATURE:
-				return validateBCallFeature((BCallFeature) value, diagnostics, context);
+				return validateBCallFeature((BCallFeature)value, diagnostics, context);
 			case B3backendPackage.BCALL_NAMED_FUNCTION:
-				return validateBCallNamedFunction((BCallNamedFunction) value, diagnostics, context);
+				return validateBCallNamedFunction((BCallNamedFunction)value, diagnostics, context);
 			case B3backendPackage.BCALL_FUNCTION:
-				return validateBCallFunction((BCallFunction) value, diagnostics, context);
+				return validateBCallFunction((BCallFunction)value, diagnostics, context);
 			case B3backendPackage.BPATTERN_LITERAL_EXPRESSION:
-				return validateBPatternLiteralExpression((BPatternLiteralExpression) value, diagnostics, context);
+				return validateBPatternLiteralExpression((BPatternLiteralExpression)value, diagnostics, context);
 			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION:
-				return validateBSimplePatternExpression((BSimplePatternExpression) value, diagnostics, context);
+				return validateBSimplePatternExpression((BSimplePatternExpression)value, diagnostics, context);
 			case B3backendPackage.INAMED_VALUE:
-				return validateINamedValue((INamedValue) value, diagnostics, context);
+				return validateINamedValue((INamedValue)value, diagnostics, context);
 			case B3backendPackage.B3_TYPE:
-				return validateB3Type((B3Type) value, diagnostics, context);
+				return validateB3Type((B3Type)value, diagnostics, context);
 			case B3backendPackage.ITYPED_VALUE:
-				return validateITypedValue((ITypedValue) value, diagnostics, context);
+				return validateITypedValue((ITypedValue)value, diagnostics, context);
 			case B3backendPackage.IVAR_NAME:
-				return validateIVarName((IVarName) value, diagnostics, context);
+				return validateIVarName((IVarName)value, diagnostics, context);
 			case B3backendPackage.BTEMPLATE:
-				return validateBTemplate((BTemplate) value, diagnostics, context);
+				return validateBTemplate((BTemplate)value, diagnostics, context);
 			case B3backendPackage.BECHO_EXPRESSION:
-				return validateBEchoExpression((BEchoExpression) value, diagnostics, context);
+				return validateBEchoExpression((BEchoExpression)value, diagnostics, context);
 			case B3backendPackage.VISIBILITY:
-				return validateVisibility((Visibility) value, diagnostics, context);
+				return validateVisibility((Visibility)value, diagnostics, context);
 			case B3backendPackage.EXECUTION_MODE:
-				return validateExecutionMode((ExecutionMode) value, diagnostics, context);
+				return validateExecutionMode((ExecutionMode)value, diagnostics, context);
 			case B3backendPackage.BJAVA_CALL_TYPE:
-				return validateBJavaCallType((BJavaCallType) value, diagnostics, context);
+				return validateBJavaCallType((BJavaCallType)value, diagnostics, context);
 			case B3backendPackage.CORE_EXCEPTION:
-				return validateCoreException((CoreException) value, diagnostics, context);
+				return validateCoreException((CoreException)value, diagnostics, context);
 			case B3backendPackage.TYPE:
-				return validateType((Type) value, diagnostics, context);
+				return validateType((Type)value, diagnostics, context);
 			case B3backendPackage.OBJECT_ARRAY:
-				return validateObjectArray((Object[]) value, diagnostics, context);
+				return validateObjectArray((Object[])value, diagnostics, context);
 			case B3backendPackage.VALUE_MAP:
-				return validateValueMap((ValueMap) value, diagnostics, context);
+				return validateValueMap((ValueMap)value, diagnostics, context);
 			case B3backendPackage.B3_ENGINE_EXCEPTION:
-				return validateB3EngineException((B3EngineException) value, diagnostics, context);
+				return validateB3EngineException((B3EngineException)value, diagnostics, context);
 			case B3backendPackage.B3_EXPRESSION_CACHE:
-				return validateB3ExpressionCache((B3ExpressionCache) value, diagnostics, context);
+				return validateB3ExpressionCache((B3ExpressionCache)value, diagnostics, context);
 			case B3backendPackage.THROWABLE:
-				return validateThrowable((Throwable) value, diagnostics, context);
+				return validateThrowable((Throwable)value, diagnostics, context);
 			case B3backendPackage.LVALUE:
-				return validateLValue((LValue) value, diagnostics, context);
+				return validateLValue((LValue)value, diagnostics, context);
 			case B3backendPackage.TYPE_ARRAY:
-				return validateTypeArray((Type[]) value, diagnostics, context);
+				return validateTypeArray((Type[])value, diagnostics, context);
 			case B3backendPackage.METHOD:
-				return validateMethod((Method) value, diagnostics, context);
+				return validateMethod((Method)value, diagnostics, context);
 			case B3backendPackage.TYPE_VARIABLE_ARRAY:
-				return validateTypeVariableArray((TypeVariable[]) value, diagnostics, context);
+				return validateTypeVariableArray((TypeVariable[])value, diagnostics, context);
 			case B3backendPackage.FUNC_STORE:
-				return validateFuncStore((B3FuncStore) value, diagnostics, context);
+				return validateFuncStore((B3FuncStore)value, diagnostics, context);
 			case B3backendPackage.REGEXP_PATTERN:
-				return validateRegexpPattern((Pattern) value, diagnostics, context);
+				return validateRegexpPattern((Pattern)value, diagnostics, context);
 			case B3backendPackage.STRING_ARRAY:
-				return validateStringArray((String[]) value, diagnostics, context);
+				return validateStringArray((String[])value, diagnostics, context);
 			case B3backendPackage.JAVA_ITERATOR:
-				return validateJavaIterator((Iterator<?>) value, diagnostics, context);
+				return validateJavaIterator((Iterator<?>)value, diagnostics, context);
 			case B3backendPackage.URI:
-				return validateURI((URI) value, diagnostics, context);
+				return validateURI((URI)value, diagnostics, context);
 			case B3backendPackage.IPROGRESS_MONITOR:
-				return validateIProgressMonitor((IProgressMonitor) value, diagnostics, context);
+				return validateIProgressMonitor((IProgressMonitor)value, diagnostics, context);
 			case B3backendPackage.SIMPLE_PATTERN:
-				return validateSimplePattern((SimplePattern) value, diagnostics, context);
+				return validateSimplePattern((SimplePattern)value, diagnostics, context);
 			case B3backendPackage.CHAR_SEQUENCE:
-				return validateCharSequence((CharSequence) value, diagnostics, context);
+				return validateCharSequence((CharSequence)value, diagnostics, context);
 			case B3backendPackage.INJECTOR:
-				return validateInjector((Injector) value, diagnostics, context);
+				return validateInjector((Injector)value, diagnostics, context);
 			default:
 				return true;
 		}

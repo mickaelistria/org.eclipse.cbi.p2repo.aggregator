@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class BSystemContextImpl extends BExecutionContextImpl implements BSystemContext {
@@ -139,7 +139,6 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

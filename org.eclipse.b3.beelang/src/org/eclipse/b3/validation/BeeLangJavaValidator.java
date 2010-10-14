@@ -28,6 +28,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
@@ -53,6 +54,7 @@ import org.eclipse.b3.build.core.runtime.RepositoryValidation;
 import org.eclipse.b3.build.repository.IRepositoryValidator;
 import org.eclipse.b3.build.repository.IRepositoryValidator.IOption;
 import org.eclipse.b3.scoping.DeclarativeVarScopeProvider;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -564,7 +566,8 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 					continue;
 
 				// only check BDefValues
-				if(desc.getEClass() != B3backendPackage.Literals.BDEF_VALUE)
+				EClass eclass = desc.getEClass();
+				if(!(eclass == B3backendPackage.Literals.BDEF_VALUE || eclass == B3backendPackage.Literals.BPARAMETER_DECLARATION))
 					continue;
 				EObject other = desc.getEObjectOrProxy();
 				if(other.eIsProxy())
@@ -573,11 +576,16 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 				String n = desc.getName();
 				if(n != null && n.equals(expr.getName())) {
 					// if in the same container
-					if(other.eContainer() == expr.eContainer())
-						error("Duplicate variable name", expr, B3backendPackage.BDEF_VALUE__NAME);
+					if(typer.doGetVarScope(expr) == typer.doGetVarScope(other)) {
+						error("Duplicate name", expr, B3backendPackage.INAMED_VALUE__NAME);
+						error("Duplicate name", other, B3backendPackage.INAMED_VALUE__NAME);
+					}
+
 					if(!other.eIsProxy()) {
-						if(((BDefValue) other).isFinal())
+						if(eclass == B3backendPackage.Literals.BDEF_VALUE && ((BDefValue) other).isFinal())
 							error("Can not redefined a final variable", expr, B3backendPackage.BDEF_VALUE__NAME);
+						else if(eclass == B3backendPackage.Literals.BPARAMETER && ((BParameter) other).isFinal())
+							error("Can not redefined a final parameter", expr, B3backendPackage.BPARAMETER__NAME);
 					}
 				}
 			}

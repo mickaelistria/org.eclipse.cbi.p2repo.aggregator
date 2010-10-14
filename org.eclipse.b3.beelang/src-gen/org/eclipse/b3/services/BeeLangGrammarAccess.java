@@ -4136,32 +4136,48 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBParameterDeclarationAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTypeTypeRefParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameID_or_KWParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cFinalAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cFinalFinalKeyword_1_0 = (Keyword)cFinalAssignment_1.eContents().get(0);
+		private final Assignment cImmutableAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cImmutableValKeyword_2_0 = (Keyword)cImmutableAssignment_2.eContents().get(0);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeTypeRefParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameID_or_KWParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
 		
 		//ParameterDeclaration returns be::BParameterDeclaration:
-		//	{be::BParameterDeclaration} type=TypeRef name=ID_or_KW;
+		//	{be::BParameterDeclaration} final?="final"? immutable?="val"? type=TypeRef name=ID_or_KW;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BParameterDeclaration} type=TypeRef name=ID_or_KW
+		//{be::BParameterDeclaration} final?="final"? immutable?="val"? type=TypeRef name=ID_or_KW
 		public Group getGroup() { return cGroup; }
 
 		//{be::BParameterDeclaration}
 		public Action getBParameterDeclarationAction_0() { return cBParameterDeclarationAction_0; }
 
+		//final?="final"?
+		public Assignment getFinalAssignment_1() { return cFinalAssignment_1; }
+
+		//"final"
+		public Keyword getFinalFinalKeyword_1_0() { return cFinalFinalKeyword_1_0; }
+
+		//immutable?="val"?
+		public Assignment getImmutableAssignment_2() { return cImmutableAssignment_2; }
+
+		//"val"
+		public Keyword getImmutableValKeyword_2_0() { return cImmutableValKeyword_2_0; }
+
 		//type=TypeRef
-		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 
 		//TypeRef
-		public RuleCall getTypeTypeRefParserRuleCall_1_0() { return cTypeTypeRefParserRuleCall_1_0; }
+		public RuleCall getTypeTypeRefParserRuleCall_3_0() { return cTypeTypeRefParserRuleCall_3_0; }
 
 		//name=ID_or_KW
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
 
 		//ID_or_KW
-		public RuleCall getNameID_or_KWParserRuleCall_2_0() { return cNameID_or_KWParserRuleCall_2_0; }
+		public RuleCall getNameID_or_KWParserRuleCall_4_0() { return cNameID_or_KWParserRuleCall_4_0; }
 	}
 
 	public class ParameterDeclarationUnitElements extends AbstractParserRuleElementFinder {
@@ -13577,7 +13593,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParameterDeclaration returns be::BParameterDeclaration:
-	//	{be::BParameterDeclaration} type=TypeRef name=ID_or_KW;
+	//	{be::BParameterDeclaration} final?="final"? immutable?="val"? type=TypeRef name=ID_or_KW;
 	public ParameterDeclarationElements getParameterDeclarationAccess() {
 		return (pParameterDeclaration != null) ? pParameterDeclaration : (pParameterDeclaration = new ParameterDeclarationElements());
 	}
@@ -15380,11 +15396,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return (tTEXTMID != null) ? tTEXTMID : (tTEXTMID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TEXTMID"));
 	} 
 
-	//// SEBASTIANS
+	//// Using [ ]  and <% %> instead
 	////terminal TEXT :      '['     ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     ']';
 	////terminal TEXTSTART : '['     ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     '<' '%';
 	////terminal TEXTEND :   '%' '>' ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     ']';
 	////terminal TEXTMID :   '%' '>' ( (("%" !'>') | ("<" !'%')) | !('%' | "<" | "]" ))*     '<' '%';
+	//// First attempt using «» and ‹›	
 	////terminal TEXTSTART : '«' !('»'|'‹')* '‹';
 	////terminal TEXTMID : '›' !('»'|'‹')* '‹';
 	////terminal TEXTEND : '›' !('»'|'‹')* '»';

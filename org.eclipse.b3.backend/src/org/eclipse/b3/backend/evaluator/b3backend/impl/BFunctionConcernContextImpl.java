@@ -35,14 +35,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getNamePredicate <em>Name Predicate</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getParameters <em>Parameters</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getFuncExpr <em>Func Expr</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#isVarArgs <em>Var Args</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#isMatchParameters <em>Match Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getNamePredicate <em>Name Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getFuncExpr <em>Func Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#isVarArgs <em>Var Args</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#isMatchParameters <em>Match Parameters</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BFunctionConcernContextImpl extends BConcernContextImpl implements BFunctionConcernContext {
@@ -50,7 +50,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * The cached value of the '{@link #getNamePredicate() <em>Name Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getNamePredicate()
 	 * @generated
 	 * @ordered
@@ -61,7 +60,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
@@ -72,7 +70,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * The cached value of the '{@link #getFuncExpr() <em>Func Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getFuncExpr()
 	 * @generated
 	 * @ordered
@@ -83,7 +80,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * The default value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isVarArgs()
 	 * @generated
 	 * @ordered
@@ -94,7 +90,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * The cached value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isVarArgs()
 	 * @generated
 	 * @ordered
@@ -105,7 +100,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * The default value of the '{@link #isMatchParameters() <em>Match Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isMatchParameters()
 	 * @generated
 	 * @ordered
@@ -116,7 +110,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * The cached value of the '{@link #isMatchParameters() <em>Match Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isMatchParameters()
 	 * @generated
 	 * @ordered
@@ -126,7 +119,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BFunctionConcernContextImpl() {
@@ -136,19 +128,14 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetFuncExpr(BExpression newFuncExpr, NotificationChain msgs) {
 		BExpression oldFuncExpr = funcExpr;
 		funcExpr = newFuncExpr;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR, oldFuncExpr, newFuncExpr);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR, oldFuncExpr, newFuncExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -156,20 +143,14 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetNamePredicate(BFunctionNamePredicate newNamePredicate, NotificationChain msgs) {
 		BFunctionNamePredicate oldNamePredicate = namePredicate;
 		namePredicate = newNamePredicate;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE, oldNamePredicate,
-				newNamePredicate);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE, oldNamePredicate, newNamePredicate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -177,12 +158,11 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE:
 				return getNamePredicate();
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__PARAMETERS:
@@ -200,16 +180,15 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE:
 				return basicSetNamePredicate(null, msgs);
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__PARAMETERS:
-				return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR:
 				return basicSetFuncExpr(null, msgs);
 		}
@@ -219,12 +198,11 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE:
 				return namePredicate != null;
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__PARAMETERS:
@@ -242,28 +220,27 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE:
-				setNamePredicate((BFunctionNamePredicate) newValue);
+				setNamePredicate((BFunctionNamePredicate)newValue);
 				return;
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__PARAMETERS:
 				getParameters().clear();
-				getParameters().addAll((Collection<? extends BParameterPredicate>) newValue);
+				getParameters().addAll((Collection<? extends BParameterPredicate>)newValue);
 				return;
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR:
-				setFuncExpr((BExpression) newValue);
+				setFuncExpr((BExpression)newValue);
 				return;
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__VAR_ARGS:
-				setVarArgs((Boolean) newValue);
+				setVarArgs((Boolean)newValue);
 				return;
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS:
-				setMatchParameters((Boolean) newValue);
+				setMatchParameters((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -272,20 +249,19 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE:
-				setNamePredicate((BFunctionNamePredicate) null);
+				setNamePredicate((BFunctionNamePredicate)null);
 				return;
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__PARAMETERS:
 				getParameters().clear();
 				return;
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR:
-				setFuncExpr((BExpression) null);
+				setFuncExpr((BExpression)null);
 				return;
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__VAR_ARGS:
 				setVarArgs(VAR_ARGS_EDEFAULT);
@@ -300,7 +276,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getFuncExpr() {
@@ -310,7 +285,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BFunctionNamePredicate getNamePredicate() {
@@ -320,13 +294,11 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BParameterPredicate> getParameters() {
-		if(parameters == null) {
-			parameters = new EObjectContainmentEList<BParameterPredicate>(
-				BParameterPredicate.class, this, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__PARAMETERS);
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<BParameterPredicate>(BParameterPredicate.class, this, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -334,7 +306,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isMatchParameters() {
@@ -344,7 +315,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isVarArgs() {
@@ -354,91 +324,73 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setFuncExpr(BExpression newFuncExpr) {
-		if(newFuncExpr != funcExpr) {
+		if (newFuncExpr != funcExpr) {
 			NotificationChain msgs = null;
-			if(funcExpr != null)
-				msgs = ((InternalEObject) funcExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR, null, msgs);
-			if(newFuncExpr != null)
-				msgs = ((InternalEObject) newFuncExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR, null, msgs);
+			if (funcExpr != null)
+				msgs = ((InternalEObject)funcExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR, null, msgs);
+			if (newFuncExpr != null)
+				msgs = ((InternalEObject)newFuncExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR, null, msgs);
 			msgs = basicSetFuncExpr(newFuncExpr, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR, newFuncExpr, newFuncExpr));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR, newFuncExpr, newFuncExpr));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setMatchParameters(boolean newMatchParameters) {
 		boolean oldMatchParameters = matchParameters;
 		matchParameters = newMatchParameters;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS,
-				oldMatchParameters, matchParameters));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS, oldMatchParameters, matchParameters));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setNamePredicate(BFunctionNamePredicate newNamePredicate) {
-		if(newNamePredicate != namePredicate) {
+		if (newNamePredicate != namePredicate) {
 			NotificationChain msgs = null;
-			if(namePredicate != null)
-				msgs = ((InternalEObject) namePredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE, null, msgs);
-			if(newNamePredicate != null)
-				msgs = ((InternalEObject) newNamePredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE, null, msgs);
+			if (namePredicate != null)
+				msgs = ((InternalEObject)namePredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE, null, msgs);
+			if (newNamePredicate != null)
+				msgs = ((InternalEObject)newNamePredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE, null, msgs);
 			msgs = basicSetNamePredicate(newNamePredicate, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE, newNamePredicate,
-				newNamePredicate));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE, newNamePredicate, newNamePredicate));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setVarArgs(boolean newVarArgs) {
 		boolean oldVarArgs = varArgs;
 		varArgs = newVarArgs;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__VAR_ARGS, oldVarArgs, varArgs));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__VAR_ARGS, oldVarArgs, varArgs));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (varArgs: ");
@@ -452,7 +404,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

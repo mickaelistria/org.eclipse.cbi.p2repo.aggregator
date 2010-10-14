@@ -24,10 +24,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BVariableExpressionImpl#getNamedValue <em>Named Value</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BVariableExpressionImpl#getNamedValue <em>Named Value</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BVariableExpressionImpl extends BExpressionImpl implements BVariableExpression {
@@ -35,7 +35,6 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	 * The cached value of the '{@link #getNamedValue() <em>Named Value</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getNamedValue()
 	 * @generated
 	 * @ordered
@@ -45,7 +44,6 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BVariableExpressionImpl() {
@@ -55,7 +53,6 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public INamedValue basicGetNamedValue() {
@@ -65,15 +62,13 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE:
-				if(resolve)
-					return getNamedValue();
+				if (resolve) return getNamedValue();
 				return basicGetNamedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -82,12 +77,11 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE:
 				return namedValue != null;
 		}
@@ -97,14 +91,13 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE:
-				setNamedValue((INamedValue) newValue);
+				setNamedValue((INamedValue)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -113,14 +106,13 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE:
-				setNamedValue((INamedValue) null);
+				setNamedValue((INamedValue)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -129,18 +121,15 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public INamedValue getNamedValue() {
-		if(namedValue != null && namedValue.eIsProxy()) {
-			InternalEObject oldNamedValue = (InternalEObject) namedValue;
-			namedValue = (INamedValue) eResolveProxy(oldNamedValue);
-			if(namedValue != oldNamedValue) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE, oldNamedValue,
-						namedValue));
+		if (namedValue != null && namedValue.eIsProxy()) {
+			InternalEObject oldNamedValue = (InternalEObject)namedValue;
+			namedValue = (INamedValue)eResolveProxy(oldNamedValue);
+			if (namedValue != oldNamedValue) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE, oldNamedValue, namedValue));
 			}
 		}
 		return namedValue;
@@ -149,21 +138,18 @@ public class BVariableExpressionImpl extends BExpressionImpl implements BVariabl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setNamedValue(INamedValue newNamedValue) {
 		INamedValue oldNamedValue = namedValue;
 		namedValue = newNamedValue;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE, oldNamedValue, namedValue));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BVARIABLE_EXPRESSION__NAMED_VALUE, oldNamedValue, namedValue));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

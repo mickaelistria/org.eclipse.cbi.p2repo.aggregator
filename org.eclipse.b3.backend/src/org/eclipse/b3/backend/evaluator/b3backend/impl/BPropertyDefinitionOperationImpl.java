@@ -31,10 +31,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyDefinitionOperationImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyDefinitionOperationImpl#getDefinition <em>Definition</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl implements BPropertyDefinitionOperation {
@@ -42,7 +42,6 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getDefinition()
 	 * @generated
 	 * @ordered
@@ -52,7 +51,6 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BPropertyDefinitionOperationImpl() {
@@ -62,20 +60,14 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetDefinition(BDefProperty newDefinition, NotificationChain msgs) {
 		BDefProperty oldDefinition = definition;
 		definition = newDefinition;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION, oldDefinition,
-				newDefinition);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION, oldDefinition, newDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -83,12 +75,11 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION:
 				return getDefinition();
 		}
@@ -98,12 +89,11 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION:
 				return basicSetDefinition(null, msgs);
 		}
@@ -113,12 +103,11 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION:
 				return definition != null;
 		}
@@ -128,14 +117,13 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION:
-				setDefinition((BDefProperty) newValue);
+				setDefinition((BDefProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -144,14 +132,13 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION:
-				setDefinition((BDefProperty) null);
+				setDefinition((BDefProperty)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -160,7 +147,6 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BDefProperty getDefinition() {
@@ -170,32 +156,25 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDefinition(BDefProperty newDefinition) {
-		if(newDefinition != definition) {
+		if (newDefinition != definition) {
 			NotificationChain msgs = null;
-			if(definition != null)
-				msgs = ((InternalEObject) definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION, null, msgs);
-			if(newDefinition != null)
-				msgs = ((InternalEObject) newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION, null, msgs);
+			if (definition != null)
+				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION, null, msgs);
+			if (newDefinition != null)
+				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION, null, msgs);
 			msgs = basicSetDefinition(newDefinition, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION, newDefinition,
-				newDefinition));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPROPERTY_DEFINITION_OPERATION__DEFINITION, newDefinition, newDefinition));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

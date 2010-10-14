@@ -31,10 +31,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetOperationImpl#getPropertySet <em>Property Set</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetOperationImpl#getPropertySet <em>Property Set</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BPropertySetOperationImpl extends BPropertyOperationImpl implements BPropertySetOperation {
@@ -42,7 +42,6 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 	 * The cached value of the '{@link #getPropertySet() <em>Property Set</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPropertySet()
 	 * @generated
 	 * @ordered
@@ -52,7 +51,6 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BPropertySetOperationImpl() {
@@ -62,20 +60,14 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPropertySet(BPropertySet newPropertySet, NotificationChain msgs) {
 		BPropertySet oldPropertySet = propertySet;
 		propertySet = newPropertySet;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET, oldPropertySet,
-				newPropertySet);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET, oldPropertySet, newPropertySet);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -83,12 +75,11 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET:
 				return getPropertySet();
 		}
@@ -98,12 +89,11 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET:
 				return basicSetPropertySet(null, msgs);
 		}
@@ -113,12 +103,11 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET:
 				return propertySet != null;
 		}
@@ -128,14 +117,13 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET:
-				setPropertySet((BPropertySet) newValue);
+				setPropertySet((BPropertySet)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -144,14 +132,13 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET:
-				setPropertySet((BPropertySet) null);
+				setPropertySet((BPropertySet)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -160,7 +147,6 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BPropertySet getPropertySet() {
@@ -170,32 +156,25 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPropertySet(BPropertySet newPropertySet) {
-		if(newPropertySet != propertySet) {
+		if (newPropertySet != propertySet) {
 			NotificationChain msgs = null;
-			if(propertySet != null)
-				msgs = ((InternalEObject) propertySet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET, null, msgs);
-			if(newPropertySet != null)
-				msgs = ((InternalEObject) newPropertySet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET, null, msgs);
+			if (propertySet != null)
+				msgs = ((InternalEObject)propertySet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET, null, msgs);
+			if (newPropertySet != null)
+				msgs = ((InternalEObject)newPropertySet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET, null, msgs);
 			msgs = basicSetPropertySet(newPropertySet, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET, newPropertySet,
-				newPropertySet));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPROPERTY_SET_OPERATION__PROPERTY_SET, newPropertySet, newPropertySet));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

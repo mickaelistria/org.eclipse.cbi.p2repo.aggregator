@@ -1651,6 +1651,12 @@
           <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BParameterDeclaration"/>
         </type>
       </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="final" operator="?=">
+        <terminal xsi:type="xtext:Keyword" value="final"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="immutable" operator="?=">
+        <terminal xsi:type="xtext:Keyword" value="val"/>
+      </elements>
       <elements xsi:type="xtext:Assignment" feature="type" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.78"/>
       </elements>

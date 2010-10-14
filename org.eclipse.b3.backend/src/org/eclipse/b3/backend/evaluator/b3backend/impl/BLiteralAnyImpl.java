@@ -19,14 +19,13 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class BLiteralAnyImpl extends BPatternLiteralExpressionImpl implements BLiteralAny {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BLiteralAnyImpl() {
@@ -46,7 +45,6 @@ public class BLiteralAnyImpl extends BPatternLiteralExpressionImpl implements BL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

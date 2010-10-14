@@ -19,14 +19,13 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class BOrExpressionImpl extends BBinaryExpressionImpl implements BOrExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BOrExpressionImpl() {
@@ -36,7 +35,6 @@ public class BOrExpressionImpl extends BBinaryExpressionImpl implements BOrExpre
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

@@ -138,14 +138,12 @@ import java.lang.CharSequence;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class B3backendPackageImpl extends EPackageImpl implements B3backendPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bExpressionEClass = null;
@@ -153,7 +151,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bExecutionContextEClass = null;
@@ -161,7 +158,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bIfExpressionEClass = null;
@@ -169,7 +165,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bSwitchExpressionEClass = null;
@@ -177,7 +172,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bCaseEClass = null;
@@ -185,7 +179,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bTryExpressionEClass = null;
@@ -193,7 +186,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bCatchEClass = null;
@@ -201,7 +193,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bBinaryExpressionEClass = null;
@@ -209,7 +200,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bOrExpressionEClass = null;
@@ -217,7 +207,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bAndExpressionEClass = null;
@@ -225,7 +214,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bChainedExpressionEClass = null;
@@ -233,7 +221,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bUnaryExpressionEClass = null;
@@ -241,7 +228,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bThrowExpressionEClass = null;
@@ -249,7 +235,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bUnaryOpExpressionEClass = null;
@@ -257,7 +242,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bUnaryPostOpExpressionEClass = null;
@@ -265,7 +249,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bBinaryOpExpressionEClass = null;
@@ -273,7 +256,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bCachedExpressionEClass = null;
@@ -281,7 +263,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bLiteralExpressionEClass = null;
@@ -289,7 +270,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bLiteralListExpressionEClass = null;
@@ -297,7 +277,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bLiteralMapExpressionEClass = null;
@@ -305,7 +284,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bMapEntryEClass = null;
@@ -313,7 +291,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bFeatureExpressionEClass = null;
@@ -321,7 +298,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bAtExpressionEClass = null;
@@ -329,7 +305,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bVariableExpressionEClass = null;
@@ -337,7 +312,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bCallExpressionEClass = null;
@@ -345,7 +319,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bParameterizedExpressionEClass = null;
@@ -353,7 +326,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bLiteralAnyEClass = null;
@@ -361,7 +333,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bCreateExpressionEClass = null;
@@ -369,7 +340,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iFunctionEClass = null;
@@ -377,7 +347,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bFunctionEClass = null;
@@ -385,7 +354,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bFunctionWrapperEClass = null;
@@ -393,7 +361,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bNamePredicateEClass = null;
@@ -401,7 +368,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bFunctionNamePredicateEClass = null;
@@ -409,7 +375,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bFunctionConcernContextEClass = null;
@@ -417,7 +382,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bParameterPredicateEClass = null;
@@ -425,7 +389,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bProceedExpressionEClass = null;
@@ -433,7 +396,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bDelegatingContextEClass = null;
@@ -441,7 +403,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bWrappingContextEClass = null;
@@ -449,7 +410,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass b3MetaClassEClass = null;
@@ -457,7 +417,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bExpressionWrapperEClass = null;
@@ -465,7 +424,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bWithContextExpressionEClass = null;
@@ -473,7 +431,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iTypedValueContainerEClass = null;
@@ -481,7 +438,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bCallFeatureEClass = null;
@@ -489,7 +445,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bCallNamedFunctionEClass = null;
@@ -497,7 +452,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bCallFunctionEClass = null;
@@ -505,7 +459,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bPatternLiteralExpressionEClass = null;
@@ -513,7 +466,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bSimplePatternExpressionEClass = null;
@@ -521,7 +473,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iNamedValueEClass = null;
@@ -529,7 +480,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass b3TypeEClass = null;
@@ -537,7 +487,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iTypedValueEClass = null;
@@ -545,7 +494,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iVarNameEClass = null;
@@ -553,7 +501,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bTemplateEClass = null;
@@ -561,7 +508,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bEchoExpressionEClass = null;
@@ -569,7 +515,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bGuardEClass = null;
@@ -577,7 +522,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bSystemContextEClass = null;
@@ -585,7 +529,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bContextEClass = null;
@@ -593,7 +536,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bInnerContextEClass = null;
@@ -601,7 +543,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bInvocationContextEClass = null;
@@ -609,7 +550,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bUnaryPreOpExpressionEClass = null;
@@ -617,7 +557,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bAssignmentExpressionEClass = null;
@@ -625,7 +564,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass b3FunctionEClass = null;
@@ -633,7 +571,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bJavaFunctionEClass = null;
@@ -641,7 +578,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bFunctionContainerEClass = null;
@@ -649,7 +585,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bDefValueEClass = null;
@@ -657,7 +592,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bRegularExpressionEClass = null;
@@ -665,7 +599,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bParameterListEClass = null;
@@ -673,7 +606,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bParameterEClass = null;
@@ -681,7 +613,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bParameterDeclarationEClass = null;
@@ -689,7 +620,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iTypeEClass = null;
@@ -697,7 +627,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass b3FunctionTypeEClass = null;
@@ -705,7 +634,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iParameterizedTypeEClass = null;
@@ -713,7 +641,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iGenericDeclarationEClass = null;
@@ -721,7 +648,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass b3ParameterizedTypeEClass = null;
@@ -729,7 +655,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iWildcardTypeEClass = null;
@@ -737,7 +662,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass b3WildcardTypeEClass = null;
@@ -745,7 +669,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iTypeVariableEClass = null;
@@ -753,7 +676,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass b3FuncTypeVariableEClass = null;
@@ -761,7 +683,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass b3JavaImportEClass = null;
@@ -769,7 +690,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bLiteralTypeEClass = null;
@@ -777,7 +697,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bTypeCalculatorEClass = null;
@@ -785,7 +704,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bInstanceContextEClass = null;
@@ -793,7 +711,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bDefPropertyEClass = null;
@@ -801,7 +718,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bPropertySetEClass = null;
@@ -809,7 +725,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bDefaultPropertySetEClass = null;
@@ -817,7 +732,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bPropertyOperationEClass = null;
@@ -825,7 +739,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bPropertyDefinitionOperationEClass = null;
@@ -833,7 +746,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bConditionalPropertyOperationEClass = null;
@@ -841,7 +753,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bPropertySetOperationEClass = null;
@@ -849,7 +760,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bAdviceEClass = null;
@@ -857,7 +767,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bConcernEClass = null;
@@ -865,7 +774,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bWithExpressionEClass = null;
@@ -873,7 +781,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass bConcernContextEClass = null;
@@ -881,7 +788,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EEnum visibilityEEnum = null;
@@ -889,7 +795,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EEnum executionModeEEnum = null;
@@ -897,7 +802,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EEnum bJavaCallTypeEEnum = null;
@@ -905,7 +809,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType coreExceptionEDataType = null;
@@ -913,7 +816,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType typeEDataType = null;
@@ -921,7 +823,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType objectArrayEDataType = null;
@@ -929,7 +830,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType valueMapEDataType = null;
@@ -937,7 +837,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType b3EngineExceptionEDataType = null;
@@ -945,7 +844,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType b3ExpressionCacheEDataType = null;
@@ -953,7 +851,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType throwableEDataType = null;
@@ -961,7 +858,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType lValueEDataType = null;
@@ -969,7 +865,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType typeArrayEDataType = null;
@@ -977,7 +872,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType methodEDataType = null;
@@ -985,7 +879,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType typeVariableArrayEDataType = null;
@@ -993,7 +886,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType funcStoreEDataType = null;
@@ -1001,7 +893,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType regexpPatternEDataType = null;
@@ -1009,7 +900,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType stringArrayEDataType = null;
@@ -1017,7 +907,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType javaIteratorEDataType = null;
@@ -1025,7 +914,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType uriEDataType = null;
@@ -1033,7 +921,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType iProgressMonitorEDataType = null;
@@ -1041,7 +928,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType simplePatternEDataType = null;
@@ -1049,7 +935,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType charSequenceEDataType = null;
@@ -1057,7 +942,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType injectorEDataType = null;
@@ -1065,7 +949,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
@@ -1073,23 +956,19 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>
-	 * This method is used to initialize {@link B3backendPackage#eINSTANCE} when that field is accessed. Clients should not invoke it directly.
-	 * Instead, they should simply access that field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <p>This method is used to initialize {@link B3backendPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static B3backendPackage init() {
-		if(isInited)
-			return (B3backendPackage) EPackage.Registry.INSTANCE.getEPackage(B3backendPackage.eNS_URI);
+		if (isInited) return (B3backendPackage)EPackage.Registry.INSTANCE.getEPackage(B3backendPackage.eNS_URI);
 
 		// Obtain or create and register package
-		B3backendPackageImpl theB3backendPackage = (B3backendPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof B3backendPackageImpl
-				? EPackage.Registry.INSTANCE.get(eNS_URI)
-				: new B3backendPackageImpl());
+		B3backendPackageImpl theB3backendPackage = (B3backendPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof B3backendPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new B3backendPackageImpl());
 
 		isInited = true;
 
@@ -1100,15 +979,18 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		theB3backendPackage.initializePackageContents();
 
 		// Register package validator
-		EValidator.Registry.INSTANCE.put(theB3backendPackage, new EValidator.Descriptor() {
-			public EValidator getEValidator() {
-				return B3backendValidator.INSTANCE;
-			}
-		});
+		EValidator.Registry.INSTANCE.put
+			(theB3backendPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return B3backendValidator.INSTANCE;
+				 }
+			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theB3backendPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(B3backendPackage.eNS_URI, theB3backendPackage);
 		return theB3backendPackage;
@@ -1117,7 +999,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
@@ -1125,19 +1006,19 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
-	 * package
+	 * Creates an instance of the model <b>Package</b>, registered with
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
-	 * <p>
-	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
-	 * package, or returns the registered package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <p>Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#eNS_URI
 	 * @see #init()
@@ -1148,16 +1029,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	}
 
 	/**
-	 * Creates the meta-model objects for the package. This method is
+	 * Creates the meta-model objects for the package.  This method is
 	 * guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if(isCreated)
-			return;
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -1318,6 +1197,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bParameterEClass = createEClass(BPARAMETER);
 		createEAttribute(bParameterEClass, BPARAMETER__NAME);
 		createEReference(bParameterEClass, BPARAMETER__EXPR);
+		createEAttribute(bParameterEClass, BPARAMETER__FINAL);
+		createEAttribute(bParameterEClass, BPARAMETER__IMMUTABLE);
 
 		bParameterDeclarationEClass = createEClass(BPARAMETER_DECLARATION);
 		createEAttribute(bParameterDeclarationEClass, BPARAMETER_DECLARATION__FINAL);
@@ -1518,17 +1399,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public B3backendFactory getB3backendFactory() {
-		return (B3backendFactory) getEFactoryInstance();
+		return (B3backendFactory)getEFactoryInstance();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getB3EngineException() {
@@ -1538,7 +1417,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getB3ExpressionCache() {
@@ -1548,7 +1426,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getB3Function() {
@@ -1558,17 +1435,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getB3Function_FuncExpr() {
-		return (EReference) b3FunctionEClass.getEStructuralFeatures().get(0);
+		return (EReference)b3FunctionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getB3FunctionType() {
@@ -1578,57 +1453,51 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getB3FunctionType_FunctionType() {
-		return (EReference) b3FunctionTypeEClass.getEStructuralFeatures().get(0);
+		return (EReference)b3FunctionTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getB3FunctionType_ParameterTypes() {
-		return (EReference) b3FunctionTypeEClass.getEStructuralFeatures().get(2);
+		return (EReference)b3FunctionTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getB3FunctionType_ReturnType() {
-		return (EReference) b3FunctionTypeEClass.getEStructuralFeatures().get(1);
+		return (EReference)b3FunctionTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getB3FunctionType_TypeCalculator() {
-		return (EReference) b3FunctionTypeEClass.getEStructuralFeatures().get(4);
+		return (EReference)b3FunctionTypeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getB3FunctionType_VarArgs() {
-		return (EAttribute) b3FunctionTypeEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)b3FunctionTypeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getB3FuncTypeVariable() {
@@ -1638,37 +1507,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getB3FuncTypeVariable_Bounds() {
-		return (EAttribute) b3FuncTypeVariableEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)b3FuncTypeVariableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getB3FuncTypeVariable_GenericDeclaration() {
-		return (EReference) b3FuncTypeVariableEClass.getEStructuralFeatures().get(1);
+		return (EReference)b3FuncTypeVariableEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getB3FuncTypeVariable_Name() {
-		return (EAttribute) b3FuncTypeVariableEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)b3FuncTypeVariableEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getB3JavaImport() {
@@ -1678,27 +1543,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getB3JavaImport_QualifiedName() {
-		return (EAttribute) b3JavaImportEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)b3JavaImportEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getB3JavaImport_Reexport() {
-		return (EAttribute) b3JavaImportEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)b3JavaImportEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getB3MetaClass() {
@@ -1708,17 +1570,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getB3MetaClass_InstanceClass() {
-		return (EAttribute) b3MetaClassEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)b3MetaClassEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getB3ParameterizedType() {
@@ -1728,37 +1588,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getB3ParameterizedType_ActualArgumentsList() {
-		return (EReference) b3ParameterizedTypeEClass.getEStructuralFeatures().get(2);
+		return (EReference)b3ParameterizedTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getB3ParameterizedType_OwnerType() {
-		return (EReference) b3ParameterizedTypeEClass.getEStructuralFeatures().get(0);
+		return (EReference)b3ParameterizedTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getB3ParameterizedType_RawType() {
-		return (EReference) b3ParameterizedTypeEClass.getEStructuralFeatures().get(1);
+		return (EReference)b3ParameterizedTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getB3Type() {
@@ -1768,27 +1624,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getB3Type_DefaultInference() {
-		return (EAttribute) b3TypeEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)b3TypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getB3Type_RawType() {
-		return (EAttribute) b3TypeEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)b3TypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getB3WildcardType() {
@@ -1798,27 +1651,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getB3WildcardType_LowerBoundsList() {
-		return (EReference) b3WildcardTypeEClass.getEStructuralFeatures().get(0);
+		return (EReference)b3WildcardTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getB3WildcardType_UpperBoundsList() {
-		return (EReference) b3WildcardTypeEClass.getEStructuralFeatures().get(1);
+		return (EReference)b3WildcardTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBAdvice() {
@@ -1828,17 +1678,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBAdvice_Documentation() {
-		return (EAttribute) bAdviceEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bAdviceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBAndExpression() {
@@ -1848,7 +1696,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBAssignmentExpression() {
@@ -1858,7 +1705,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBAtExpression() {
@@ -1868,27 +1714,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBAtExpression_IndexExpr() {
-		return (EReference) bAtExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)bAtExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBAtExpression_ObjExpr() {
-		return (EReference) bAtExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bAtExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBBinaryExpression() {
@@ -1898,27 +1741,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBBinaryExpression_LeftExpr() {
-		return (EReference) bBinaryExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bBinaryExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBBinaryExpression_RightExpr() {
-		return (EReference) bBinaryExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)bBinaryExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBBinaryOpExpression() {
@@ -1928,17 +1768,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBBinaryOpExpression_FunctionName() {
-		return (EAttribute) bBinaryOpExpressionEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bBinaryOpExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBCachedExpression() {
@@ -1948,7 +1786,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBCallExpression() {
@@ -1958,27 +1795,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBCallExpression_FuncExpr() {
-		return (EReference) bCallExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bCallExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBCallExpression_Name() {
-		return (EAttribute) bCallExpressionEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)bCallExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBCallFeature() {
@@ -1988,17 +1822,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBCallFeature_Call() {
-		return (EAttribute) bCallFeatureEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bCallFeatureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBCallFunction() {
@@ -2008,7 +1840,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBCallNamedFunction() {
@@ -2018,17 +1849,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBCallNamedFunction_FuncRef() {
-		return (EReference) bCallNamedFunctionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bCallNamedFunctionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBCase() {
@@ -2038,27 +1867,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBCase_ConditionExpr() {
-		return (EReference) bCaseEClass.getEStructuralFeatures().get(0);
+		return (EReference)bCaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBCase_ThenExpr() {
-		return (EReference) bCaseEClass.getEStructuralFeatures().get(1);
+		return (EReference)bCaseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBCatch() {
@@ -2068,17 +1894,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBCatch_CatchExpr() {
-		return (EReference) bCatchEClass.getEStructuralFeatures().get(0);
+		return (EReference)bCatchEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBChainedExpression() {
@@ -2088,17 +1912,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBChainedExpression_Expressions() {
-		return (EReference) bChainedExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bChainedExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBConcern() {
@@ -2108,37 +1930,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBConcern_Contexts() {
-		return (EReference) bConcernEClass.getEStructuralFeatures().get(2);
+		return (EReference)bConcernEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBConcern_PropertySets() {
-		return (EReference) bConcernEClass.getEStructuralFeatures().get(1);
+		return (EReference)bConcernEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBConcern_SuperConcerns() {
-		return (EReference) bConcernEClass.getEStructuralFeatures().get(0);
+		return (EReference)bConcernEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBConcernContext() {
@@ -2148,17 +1966,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBConcernContext_Documentation() {
-		return (EAttribute) bConcernContextEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bConcernContextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBConditionalPropertyOperation() {
@@ -2168,27 +1984,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBConditionalPropertyOperation_Body() {
-		return (EReference) bConditionalPropertyOperationEClass.getEStructuralFeatures().get(1);
+		return (EReference)bConditionalPropertyOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBConditionalPropertyOperation_CondExpr() {
-		return (EReference) bConditionalPropertyOperationEClass.getEStructuralFeatures().get(0);
+		return (EReference)bConditionalPropertyOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBContext() {
@@ -2198,7 +2011,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBCreateExpression() {
@@ -2208,27 +2020,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBCreateExpression_ContextBlock() {
-		return (EReference) bCreateExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)bCreateExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBCreateExpression_TypeExpr() {
-		return (EReference) bCreateExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bCreateExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBDefaultPropertySet() {
@@ -2238,7 +2047,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBDefProperty() {
@@ -2248,17 +2056,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBDefProperty_Mutable() {
-		return (EAttribute) bDefPropertyEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bDefPropertyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBDefValue() {
@@ -2268,37 +2074,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBDefValue_Final() {
-		return (EAttribute) bDefValueEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bDefValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBDefValue_Immutable() {
-		return (EAttribute) bDefValueEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)bDefValueEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBDefValue_ValueExpr() {
-		return (EReference) bDefValueEClass.getEStructuralFeatures().get(2);
+		return (EReference)bDefValueEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBDelegatingContext() {
@@ -2308,7 +2110,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBEchoExpression() {
@@ -2318,17 +2119,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBEchoExpression_Expression() {
-		return (EReference) bEchoExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bEchoExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBExecutionContext() {
@@ -2338,67 +2137,60 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBExecutionContext_EffectiveConcerns() {
-		return (EReference) bExecutionContextEClass.getEStructuralFeatures().get(3);
+		return (EReference)bExecutionContextEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBExecutionContext_FuncStore() {
-		return (EAttribute) bExecutionContextEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)bExecutionContextEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBExecutionContext_Injector() {
-		return (EAttribute) bExecutionContextEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)bExecutionContextEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBExecutionContext_ParentContext() {
-		return (EReference) bExecutionContextEClass.getEStructuralFeatures().get(0);
+		return (EReference)bExecutionContextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBExecutionContext_ProgressMonitor() {
-		return (EAttribute) bExecutionContextEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)bExecutionContextEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBExecutionContext_ValueMap() {
-		return (EAttribute) bExecutionContextEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)bExecutionContextEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBExpression() {
@@ -2408,7 +2200,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBExpressionWrapper() {
@@ -2418,17 +2209,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBExpressionWrapper_Original() {
-		return (EReference) bExpressionWrapperEClass.getEStructuralFeatures().get(0);
+		return (EReference)bExpressionWrapperEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBFeatureExpression() {
@@ -2438,27 +2227,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBFeatureExpression_FeatureName() {
-		return (EAttribute) bFeatureExpressionEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)bFeatureExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBFeatureExpression_ObjExpr() {
-		return (EReference) bFeatureExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bFeatureExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBFunction() {
@@ -2468,7 +2254,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBFunctionConcernContext() {
@@ -2478,57 +2263,51 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBFunctionConcernContext_FuncExpr() {
-		return (EReference) bFunctionConcernContextEClass.getEStructuralFeatures().get(2);
+		return (EReference)bFunctionConcernContextEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBFunctionConcernContext_MatchParameters() {
-		return (EAttribute) bFunctionConcernContextEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)bFunctionConcernContextEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBFunctionConcernContext_NamePredicate() {
-		return (EReference) bFunctionConcernContextEClass.getEStructuralFeatures().get(0);
+		return (EReference)bFunctionConcernContextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBFunctionConcernContext_Parameters() {
-		return (EReference) bFunctionConcernContextEClass.getEStructuralFeatures().get(1);
+		return (EReference)bFunctionConcernContextEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBFunctionConcernContext_VarArgs() {
-		return (EAttribute) bFunctionConcernContextEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)bFunctionConcernContextEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBFunctionContainer() {
@@ -2538,17 +2317,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBFunctionContainer_Functions() {
-		return (EReference) bFunctionContainerEClass.getEStructuralFeatures().get(0);
+		return (EReference)bFunctionContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBFunctionNamePredicate() {
@@ -2558,17 +2335,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBFunctionNamePredicate_NamePredicate() {
-		return (EReference) bFunctionNamePredicateEClass.getEStructuralFeatures().get(0);
+		return (EReference)bFunctionNamePredicateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBFunctionWrapper() {
@@ -2578,47 +2353,42 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBFunctionWrapper_AroundExpr() {
-		return (EReference) bFunctionWrapperEClass.getEStructuralFeatures().get(0);
+		return (EReference)bFunctionWrapperEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBFunctionWrapper_Original() {
-		return (EReference) bFunctionWrapperEClass.getEStructuralFeatures().get(1);
+		return (EReference)bFunctionWrapperEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBFunctionWrapper_ParameterMap() {
-		return (EAttribute) bFunctionWrapperEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)bFunctionWrapperEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBFunctionWrapper_VarargsName() {
-		return (EAttribute) bFunctionWrapperEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)bFunctionWrapperEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBGuard() {
@@ -2628,17 +2398,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBGuard_Func() {
-		return (EReference) bGuardEClass.getEStructuralFeatures().get(0);
+		return (EReference)bGuardEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBIfExpression() {
@@ -2648,37 +2416,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBIfExpression_ConditionExpr() {
-		return (EReference) bIfExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bIfExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBIfExpression_ElseExpr() {
-		return (EReference) bIfExpressionEClass.getEStructuralFeatures().get(2);
+		return (EReference)bIfExpressionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBIfExpression_ThenExpr() {
-		return (EReference) bIfExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)bIfExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBInnerContext() {
@@ -2688,17 +2452,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBInnerContext_OuterContext() {
-		return (EReference) bInnerContextEClass.getEStructuralFeatures().get(0);
+		return (EReference)bInnerContextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBInstanceContext() {
@@ -2708,17 +2470,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBInstanceContext_Instance() {
-		return (EAttribute) bInstanceContextEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bInstanceContextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBInvocationContext() {
@@ -2728,17 +2488,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBInvocationContext_ExpressionCache() {
-		return (EAttribute) bInvocationContextEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bInvocationContextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EEnum getBJavaCallType() {
@@ -2748,7 +2506,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBJavaFunction() {
@@ -2758,47 +2515,42 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBJavaFunction_CallType() {
-		return (EAttribute) bJavaFunctionEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)bJavaFunctionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBJavaFunction_Method() {
-		return (EAttribute) bJavaFunctionEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bJavaFunctionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBJavaFunction_ParameterNames() {
-		return (EAttribute) bJavaFunctionEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)bJavaFunctionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBJavaFunction_ParameterTypes() {
-		return (EAttribute) bJavaFunctionEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)bJavaFunctionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBLiteralAny() {
@@ -2808,7 +2560,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBLiteralExpression() {
@@ -2818,17 +2569,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBLiteralExpression_Value() {
-		return (EAttribute) bLiteralExpressionEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bLiteralExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBLiteralListExpression() {
@@ -2838,27 +2587,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBLiteralListExpression_Entries() {
-		return (EReference) bLiteralListExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bLiteralListExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBLiteralListExpression_EntryType() {
-		return (EReference) bLiteralListExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)bLiteralListExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBLiteralMapExpression() {
@@ -2868,37 +2614,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBLiteralMapExpression_Entries() {
-		return (EReference) bLiteralMapExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bLiteralMapExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBLiteralMapExpression_KeyType() {
-		return (EReference) bLiteralMapExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)bLiteralMapExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBLiteralMapExpression_ValueType() {
-		return (EReference) bLiteralMapExpressionEClass.getEStructuralFeatures().get(2);
+		return (EReference)bLiteralMapExpressionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBLiteralType() {
@@ -2908,17 +2650,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBLiteralType_Type() {
-		return (EReference) bLiteralTypeEClass.getEStructuralFeatures().get(0);
+		return (EReference)bLiteralTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBMapEntry() {
@@ -2928,27 +2668,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBMapEntry_Key() {
-		return (EReference) bMapEntryEClass.getEStructuralFeatures().get(0);
+		return (EReference)bMapEntryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBMapEntry_Value() {
-		return (EReference) bMapEntryEClass.getEStructuralFeatures().get(1);
+		return (EReference)bMapEntryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBNamePredicate() {
@@ -2958,27 +2695,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBNamePredicate_Name() {
-		return (EAttribute) bNamePredicateEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bNamePredicateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBNamePredicate_NamePattern() {
-		return (EReference) bNamePredicateEClass.getEStructuralFeatures().get(1);
+		return (EReference)bNamePredicateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBOrExpression() {
@@ -2988,7 +2722,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBParameter() {
@@ -2998,27 +2731,42 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBParameter_Expr() {
-		return (EReference) bParameterEClass.getEStructuralFeatures().get(1);
+		return (EReference)bParameterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated
+	 */
+	public EAttribute getBParameter_Final() {
+		return (EAttribute)bParameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBParameter_Immutable() {
+		return (EAttribute)bParameterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EAttribute getBParameter_Name() {
-		return (EAttribute) bParameterEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bParameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBParameterDeclaration() {
@@ -3028,27 +2776,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBParameterDeclaration_Final() {
-		return (EAttribute) bParameterDeclarationEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bParameterDeclarationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBParameterDeclaration_Immutable() {
-		return (EAttribute) bParameterDeclarationEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)bParameterDeclarationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBParameterizedExpression() {
@@ -3058,17 +2803,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBParameterizedExpression_ParameterList() {
-		return (EReference) bParameterizedExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bParameterizedExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBParameterList() {
@@ -3078,17 +2821,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBParameterList_Parameters() {
-		return (EReference) bParameterListEClass.getEStructuralFeatures().get(0);
+		return (EReference)bParameterListEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBParameterPredicate() {
@@ -3098,17 +2839,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBParameterPredicate_TypePredicateOp() {
-		return (EAttribute) bParameterPredicateEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bParameterPredicateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBPatternLiteralExpression() {
@@ -3118,7 +2857,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBProceedExpression() {
@@ -3128,7 +2866,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBPropertyDefinitionOperation() {
@@ -3138,17 +2875,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBPropertyDefinitionOperation_Definition() {
-		return (EReference) bPropertyDefinitionOperationEClass.getEStructuralFeatures().get(0);
+		return (EReference)bPropertyDefinitionOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBPropertyOperation() {
@@ -3158,7 +2893,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBPropertySet() {
@@ -3168,37 +2902,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBPropertySet_Extends() {
-		return (EReference) bPropertySetEClass.getEStructuralFeatures().get(0);
+		return (EReference)bPropertySetEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBPropertySet_Operations() {
-		return (EReference) bPropertySetEClass.getEStructuralFeatures().get(1);
+		return (EReference)bPropertySetEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBPropertySet_PropertiesFile() {
-		return (EAttribute) bPropertySetEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)bPropertySetEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBPropertySetOperation() {
@@ -3208,17 +2938,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBPropertySetOperation_PropertySet() {
-		return (EReference) bPropertySetOperationEClass.getEStructuralFeatures().get(0);
+		return (EReference)bPropertySetOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBRegularExpression() {
@@ -3228,17 +2956,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBRegularExpression_Pattern() {
-		return (EAttribute) bRegularExpressionEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bRegularExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBSimplePatternExpression() {
@@ -3248,17 +2974,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBSimplePatternExpression_Pattern() {
-		return (EAttribute) bSimplePatternExpressionEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bSimplePatternExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBSwitchExpression() {
@@ -3268,27 +2992,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBSwitchExpression_CaseList() {
-		return (EReference) bSwitchExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)bSwitchExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBSwitchExpression_SwitchExpression() {
-		return (EReference) bSwitchExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bSwitchExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBSystemContext() {
@@ -3298,7 +3019,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBTemplate() {
@@ -3308,27 +3028,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBTemplate_Closure() {
-		return (EReference) bTemplateEClass.getEStructuralFeatures().get(0);
+		return (EReference)bTemplateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBTemplate_Expressions() {
-		return (EReference) bTemplateEClass.getEStructuralFeatures().get(1);
+		return (EReference)bTemplateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBThrowExpression() {
@@ -3338,7 +3055,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBTryExpression() {
@@ -3348,37 +3064,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBTryExpression_CatchBlocks() {
-		return (EReference) bTryExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)bTryExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBTryExpression_FinallyExpr() {
-		return (EReference) bTryExpressionEClass.getEStructuralFeatures().get(2);
+		return (EReference)bTryExpressionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBTryExpression_TryExpr() {
-		return (EReference) bTryExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bTryExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBTypeCalculator() {
@@ -3388,17 +3100,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBTypeCalculator_Func() {
-		return (EReference) bTypeCalculatorEClass.getEStructuralFeatures().get(0);
+		return (EReference)bTypeCalculatorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBUnaryExpression() {
@@ -3408,17 +3118,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBUnaryExpression_Expr() {
-		return (EReference) bUnaryExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bUnaryExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBUnaryOpExpression() {
@@ -3428,17 +3136,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBUnaryOpExpression_FunctionName() {
-		return (EAttribute) bUnaryOpExpressionEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)bUnaryOpExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBUnaryPostOpExpression() {
@@ -3448,7 +3154,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBUnaryPreOpExpression() {
@@ -3458,7 +3163,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBVariableExpression() {
@@ -3468,17 +3172,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBVariableExpression_NamedValue() {
-		return (EReference) bVariableExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bVariableExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBWithContextExpression() {
@@ -3488,27 +3190,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBWithContextExpression_ContextBlock() {
-		return (EReference) bWithContextExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)bWithContextExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBWithContextExpression_Expr() {
-		return (EReference) bWithContextExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bWithContextExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBWithExpression() {
@@ -3518,47 +3217,42 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBWithExpression_Concerns() {
-		return (EReference) bWithExpressionEClass.getEStructuralFeatures().get(2);
+		return (EReference)bWithExpressionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBWithExpression_FuncExpr() {
-		return (EReference) bWithExpressionEClass.getEStructuralFeatures().get(3);
+		return (EReference)bWithExpressionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBWithExpression_PropertySets() {
-		return (EReference) bWithExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)bWithExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBWithExpression_ReferencedAdvice() {
-		return (EReference) bWithExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)bWithExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getBWrappingContext() {
@@ -3568,57 +3262,51 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBWrappingContext_FunctionWrapper() {
-		return (EReference) bWrappingContextEClass.getEStructuralFeatures().get(0);
+		return (EReference)bWrappingContextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBWrappingContext_Parameters() {
-		return (EAttribute) bWrappingContextEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)bWrappingContextEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBWrappingContext_ParameterTypes() {
-		return (EAttribute) bWrappingContextEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)bWrappingContextEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getBWrappingContext_VarargsName() {
-		return (EAttribute) bWrappingContextEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)bWrappingContextEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getBWrappingContext_WrappedContext() {
-		return (EReference) bWrappingContextEClass.getEStructuralFeatures().get(1);
+		return (EReference)bWrappingContextEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getCharSequence() {
@@ -3628,7 +3316,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getCoreException() {
@@ -3638,7 +3325,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EEnum getExecutionMode() {
@@ -3648,7 +3334,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getFuncStore() {
@@ -3658,7 +3343,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIFunction() {
@@ -3668,157 +3352,141 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIFunction_ClassFunction() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)iFunctionEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIFunction_Container() {
-		return (EReference) iFunctionEClass.getEStructuralFeatures().get(12);
+		return (EReference)iFunctionEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIFunction_Documentation() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)iFunctionEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIFunction_ExceptionTypes() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)iFunctionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIFunction_ExecutionMode() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)iFunctionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIFunction_Final() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)iFunctionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIFunction_Guard() {
-		return (EReference) iFunctionEClass.getEStructuralFeatures().get(4);
+		return (EReference)iFunctionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIFunction_Name() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)iFunctionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIFunction_Parameters() {
-		return (EReference) iFunctionEClass.getEStructuralFeatures().get(7);
+		return (EReference)iFunctionEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIFunction_ReturnType() {
-		return (EReference) iFunctionEClass.getEStructuralFeatures().get(10);
+		return (EReference)iFunctionEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getIFunction_TypeCalculator() {
-		return (EReference) iFunctionEClass.getEStructuralFeatures().get(11);
+		return (EReference)iFunctionEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIFunction_TypeParameters() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)iFunctionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIFunction_VarargArrayType() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(14);
+		return (EAttribute)iFunctionEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIFunction_VarArgs() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)iFunctionEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIFunction_Visibility() {
-		return (EAttribute) iFunctionEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)iFunctionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIGenericDeclaration() {
@@ -3828,7 +3496,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getINamedValue() {
@@ -3838,17 +3505,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getINamedValue_Name() {
-		return (EAttribute) iNamedValueEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)iNamedValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getInjector() {
@@ -3858,7 +3523,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIParameterizedType() {
@@ -3868,7 +3532,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getIProgressMonitor() {
@@ -3878,7 +3541,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIType() {
@@ -3888,7 +3550,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getITypedValue() {
@@ -3898,17 +3559,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getITypedValue_Type() {
-		return (EReference) iTypedValueEClass.getEStructuralFeatures().get(0);
+		return (EReference)iTypedValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getITypedValueContainer() {
@@ -3918,7 +3577,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getITypeVariable() {
@@ -3928,7 +3586,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIVarName() {
@@ -3938,17 +3595,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIVarName_VarName() {
-		return (EAttribute) iVarNameEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)iVarNameEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIWildcardType() {
@@ -3958,7 +3613,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getJavaIterator() {
@@ -3968,7 +3622,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getLValue() {
@@ -3978,7 +3631,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getMethod() {
@@ -3988,7 +3640,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getObjectArray() {
@@ -3998,7 +3649,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getRegexpPattern() {
@@ -4008,7 +3658,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getSimplePattern() {
@@ -4018,7 +3667,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getStringArray() {
@@ -4028,7 +3676,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getThrowable() {
@@ -4038,7 +3685,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getType() {
@@ -4048,7 +3694,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getTypeArray() {
@@ -4058,7 +3703,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getTypeVariableArray() {
@@ -4068,7 +3712,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getURI() {
@@ -4078,7 +3721,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EDataType getValueMap() {
@@ -4088,7 +3730,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EEnum getVisibility() {
@@ -4096,16 +3737,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	}
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This
+	 * Complete the initialization of the package and its meta-model.  This
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if(isInitialized)
-			return;
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -4215,34 +3854,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bEchoExpressionEClass.getESuperTypes().add(this.getBExpression());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(
-			bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bExecutionContextEClass, BExecutionContext.class, "BExecutionContext", IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBExecutionContext_ParentContext(), this.getBExecutionContext(), null, "parentContext", null, 0, 1,
-			BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBExecutionContext_ValueMap(), this.getValueMap(), "valueMap", "", 1, 1, BExecutionContext.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBExecutionContext_FuncStore(), this.getFuncStore(), "funcStore", null, 0, 1, BExecutionContext.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBExecutionContext_EffectiveConcerns(), this.getBConcern(), null, "effectiveConcerns", null, 0, -1,
-			BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBExecutionContext_ProgressMonitor(), this.getIProgressMonitor(), "progressMonitor", null, 0, 1,
-			BExecutionContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBExecutionContext_Injector(), this.getInjector(), "injector", null, 0, 1, BExecutionContext.class,
-			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bExecutionContextEClass, BExecutionContext.class, "BExecutionContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBExecutionContext_ParentContext(), this.getBExecutionContext(), null, "parentContext", null, 0, 1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBExecutionContext_ValueMap(), this.getValueMap(), "valueMap", "", 1, 1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBExecutionContext_FuncStore(), this.getFuncStore(), "funcStore", null, 0, 1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBExecutionContext_EffectiveConcerns(), this.getBConcern(), null, "effectiveConcerns", null, 0, -1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBExecutionContext_ProgressMonitor(), this.getIProgressMonitor(), "progressMonitor", null, 0, 1, BExecutionContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBExecutionContext_Injector(), this.getInjector(), "injector", null, 0, 1, BExecutionContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(bExecutionContextEClass, null, "loadFunctions", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
@@ -4253,8 +3873,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, g1, "clazz", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
-		op = addEOperation(
-			bExecutionContextEClass, this.getBJavaFunction(), "loadFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bExecutionContextEClass, this.getBJavaFunction(), "loadFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getMethod(), "method", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
@@ -4267,21 +3886,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
-		op = addEOperation(
-			bExecutionContextEClass, this.getBInvocationContext(), "getInvocationContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bExecutionContextEClass, this.getBInvocationContext(), "getInvocationContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
-		addEOperation(
-			bExecutionContextEClass, this.getBExecutionContext(), "createInnerContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(bExecutionContextEClass, this.getBExecutionContext(), "createInnerContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(
-			bExecutionContextEClass, this.getBInnerContext(), "createWrappedInnerContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(bExecutionContextEClass, this.getBInnerContext(), "createWrappedInnerContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(
-			bExecutionContextEClass, this.getBExecutionContext(), "createOuterContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(bExecutionContextEClass, this.getBExecutionContext(), "createOuterContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(
-			bExecutionContextEClass, ecorePackage.getEBoolean(), "isPropertyScope", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(bExecutionContextEClass, ecorePackage.getEBoolean(), "isPropertyScope", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(bExecutionContextEClass, null, "getContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		ETypeParameter t1 = addETypeParameter(op, "T");
@@ -4321,36 +3935,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		addEOperation(bExecutionContextEClass, null, "printStackTrace", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			bIfExpressionEClass, BIfExpression.class, "BIfExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBIfExpression_ConditionExpr(), this.getBExpression(), null, "conditionExpr", null, 0, 1,
-			BIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBIfExpression_ThenExpr(), this.getBExpression(), null, "thenExpr", null, 0, 1, BIfExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBIfExpression_ElseExpr(), this.getBExpression(), null, "elseExpr", null, 0, 1, BIfExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bIfExpressionEClass, BIfExpression.class, "BIfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBIfExpression_ConditionExpr(), this.getBExpression(), null, "conditionExpr", null, 0, 1, BIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBIfExpression_ThenExpr(), this.getBExpression(), null, "thenExpr", null, 0, 1, BIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBIfExpression_ElseExpr(), this.getBExpression(), null, "elseExpr", null, 0, 1, BIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bSwitchExpressionEClass, BSwitchExpression.class, "BSwitchExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBSwitchExpression_SwitchExpression(), this.getBExpression(), null, "switchExpression", null, 0, 1,
-			BSwitchExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBSwitchExpression_CaseList(), this.getBCase(), null, "caseList", null, 0, -1, BSwitchExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bSwitchExpressionEClass, BSwitchExpression.class, "BSwitchExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBSwitchExpression_SwitchExpression(), this.getBExpression(), null, "switchExpression", null, 0, 1, BSwitchExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBSwitchExpression_CaseList(), this.getBCase(), null, "caseList", null, 0, -1, BSwitchExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(
-			bSwitchExpressionEClass, ecorePackage.getEBoolean(), "hasUnreachableCase", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bSwitchExpressionEClass, ecorePackage.getEBoolean(), "hasUnreachableCase", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -4360,282 +3954,109 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, g1, "map", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(bCaseEClass, BCase.class, "BCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBCase_ConditionExpr(), this.getBExpression(), null, "conditionExpr", null, 0, 1, BCase.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBCase_ThenExpr(), this.getBExpression(), null, "thenExpr", null, 0, 1, BCase.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
+		initEReference(getBCase_ConditionExpr(), this.getBExpression(), null, "conditionExpr", null, 0, 1, BCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBCase_ThenExpr(), this.getBExpression(), null, "thenExpr", null, 0, 1, BCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bTryExpressionEClass, BTryExpression.class, "BTryExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBTryExpression_TryExpr(), this.getBExpression(), null, "tryExpr", null, 0, 1, BTryExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBTryExpression_CatchBlocks(), this.getBCatch(), null, "catchBlocks", null, 0, -1, BTryExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBTryExpression_FinallyExpr(), this.getBExpression(), null, "finallyExpr", null, 0, 1,
-			BTryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bTryExpressionEClass, BTryExpression.class, "BTryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBTryExpression_TryExpr(), this.getBExpression(), null, "tryExpr", null, 0, 1, BTryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBTryExpression_CatchBlocks(), this.getBCatch(), null, "catchBlocks", null, 0, -1, BTryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBTryExpression_FinallyExpr(), this.getBExpression(), null, "finallyExpr", null, 0, 1, BTryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bCatchEClass, BCatch.class, "BCatch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBCatch_CatchExpr(), this.getBExpression(), null, "catchExpr", null, 0, 1, BCatch.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
+		initEReference(getBCatch_CatchExpr(), this.getBExpression(), null, "catchExpr", null, 0, 1, BCatch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bBinaryExpressionEClass, BBinaryExpression.class, "BBinaryExpression", IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBBinaryExpression_LeftExpr(), this.getBExpression(), null, "leftExpr", null, 0, 1,
-			BBinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBBinaryExpression_RightExpr(), this.getBExpression(), null, "rightExpr", null, 0, 1,
-			BBinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bBinaryExpressionEClass, BBinaryExpression.class, "BBinaryExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBBinaryExpression_LeftExpr(), this.getBExpression(), null, "leftExpr", null, 0, 1, BBinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBBinaryExpression_RightExpr(), this.getBExpression(), null, "rightExpr", null, 0, 1, BBinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bOrExpressionEClass, BOrExpression.class, "BOrExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bOrExpressionEClass, BOrExpression.class, "BOrExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bAndExpressionEClass, BAndExpression.class, "BAndExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bAndExpressionEClass, BAndExpression.class, "BAndExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bChainedExpressionEClass, BChainedExpression.class, "BChainedExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBChainedExpression_Expressions(), this.getBExpression(), null, "expressions", null, 0, -1,
-			BChainedExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bChainedExpressionEClass, BChainedExpression.class, "BChainedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBChainedExpression_Expressions(), this.getBExpression(), null, "expressions", null, 0, -1, BChainedExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bUnaryExpressionEClass, BUnaryExpression.class, "BUnaryExpression", IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBUnaryExpression_Expr(), this.getBExpression(), null, "expr", null, 0, 1, BUnaryExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bUnaryExpressionEClass, BUnaryExpression.class, "BUnaryExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBUnaryExpression_Expr(), this.getBExpression(), null, "expr", null, 0, 1, BUnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bThrowExpressionEClass, BThrowExpression.class, "BThrowExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bThrowExpressionEClass, BThrowExpression.class, "BThrowExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bUnaryOpExpressionEClass, BUnaryOpExpression.class, "BUnaryOpExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBUnaryOpExpression_FunctionName(), ecorePackage.getEString(), "functionName", null, 0, 1,
-			BUnaryOpExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bUnaryOpExpressionEClass, BUnaryOpExpression.class, "BUnaryOpExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBUnaryOpExpression_FunctionName(), ecorePackage.getEString(), "functionName", null, 0, 1, BUnaryOpExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bUnaryPostOpExpressionEClass, BUnaryPostOpExpression.class, "BUnaryPostOpExpression", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bUnaryPostOpExpressionEClass, BUnaryPostOpExpression.class, "BUnaryPostOpExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bBinaryOpExpressionEClass, BBinaryOpExpression.class, "BBinaryOpExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBBinaryOpExpression_FunctionName(), ecorePackage.getEString(), "functionName", null, 0, 1,
-			BBinaryOpExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bBinaryOpExpressionEClass, BBinaryOpExpression.class, "BBinaryOpExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBBinaryOpExpression_FunctionName(), ecorePackage.getEString(), "functionName", null, 0, 1, BBinaryOpExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bCachedExpressionEClass, BCachedExpression.class, "BCachedExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bCachedExpressionEClass, BCachedExpression.class, "BCachedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bLiteralExpressionEClass, BLiteralExpression.class, "BLiteralExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBLiteralExpression_Value(), ecorePackage.getEJavaObject(), "value", null, 0, 1,
-			BLiteralExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bLiteralExpressionEClass, BLiteralExpression.class, "BLiteralExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBLiteralExpression_Value(), ecorePackage.getEJavaObject(), "value", null, 0, 1, BLiteralExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bLiteralListExpressionEClass, BLiteralListExpression.class, "BLiteralListExpression", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBLiteralListExpression_Entries(), this.getBExpression(), null, "entries", null, 0, -1,
-			BLiteralListExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBLiteralListExpression_EntryType(), this.getIType(), null, "entryType", null, 0, 1,
-			BLiteralListExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bLiteralListExpressionEClass, BLiteralListExpression.class, "BLiteralListExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBLiteralListExpression_Entries(), this.getBExpression(), null, "entries", null, 0, -1, BLiteralListExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBLiteralListExpression_EntryType(), this.getIType(), null, "entryType", null, 0, 1, BLiteralListExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bLiteralMapExpressionEClass, BLiteralMapExpression.class, "BLiteralMapExpression", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBLiteralMapExpression_Entries(), this.getBMapEntry(), null, "entries", null, 0, -1,
-			BLiteralMapExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBLiteralMapExpression_KeyType(), this.getIType(), null, "keyType", null, 0, 1,
-			BLiteralMapExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBLiteralMapExpression_ValueType(), this.getIType(), null, "valueType", null, 0, 1,
-			BLiteralMapExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bLiteralMapExpressionEClass, BLiteralMapExpression.class, "BLiteralMapExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBLiteralMapExpression_Entries(), this.getBMapEntry(), null, "entries", null, 0, -1, BLiteralMapExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBLiteralMapExpression_KeyType(), this.getIType(), null, "keyType", null, 0, 1, BLiteralMapExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBLiteralMapExpression_ValueType(), this.getIType(), null, "valueType", null, 0, 1, BLiteralMapExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bMapEntryEClass, BMapEntry.class, "BMapEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBMapEntry_Key(), this.getBExpression(), null, "key", null, 0, 1, BMapEntry.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
-		initEReference(
-			getBMapEntry_Value(), this.getBExpression(), null, "value", null, 0, 1, BMapEntry.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
+		initEClass(bMapEntryEClass, BMapEntry.class, "BMapEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBMapEntry_Key(), this.getBExpression(), null, "key", null, 0, 1, BMapEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBMapEntry_Value(), this.getBExpression(), null, "value", null, 0, 1, BMapEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bFeatureExpressionEClass, BFeatureExpression.class, "BFeatureExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBFeatureExpression_ObjExpr(), this.getBExpression(), null, "objExpr", null, 0, 1,
-			BFeatureExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBFeatureExpression_FeatureName(), ecorePackage.getEString(), "featureName", null, 0, 1,
-			BFeatureExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bFeatureExpressionEClass, BFeatureExpression.class, "BFeatureExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBFeatureExpression_ObjExpr(), this.getBExpression(), null, "objExpr", null, 0, 1, BFeatureExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBFeatureExpression_FeatureName(), ecorePackage.getEString(), "featureName", null, 0, 1, BFeatureExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bAtExpressionEClass, BAtExpression.class, "BAtExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBAtExpression_ObjExpr(), this.getBExpression(), null, "objExpr", null, 1, 1, BAtExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBAtExpression_IndexExpr(), this.getBExpression(), null, "indexExpr", null, 1, 1, BAtExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bAtExpressionEClass, BAtExpression.class, "BAtExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBAtExpression_ObjExpr(), this.getBExpression(), null, "objExpr", null, 1, 1, BAtExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBAtExpression_IndexExpr(), this.getBExpression(), null, "indexExpr", null, 1, 1, BAtExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bVariableExpressionEClass, BVariableExpression.class, "BVariableExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBVariableExpression_NamedValue(), this.getINamedValue(), null, "namedValue", null, 0, 1,
-			BVariableExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bVariableExpressionEClass, BVariableExpression.class, "BVariableExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBVariableExpression_NamedValue(), this.getINamedValue(), null, "namedValue", null, 0, 1, BVariableExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bCallExpressionEClass, BCallExpression.class, "BCallExpression", IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBCallExpression_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1, BCallExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBCallExpression_Name(), ecorePackage.getEString(), "name", null, 0, 1, BCallExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bCallExpressionEClass, BCallExpression.class, "BCallExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBCallExpression_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1, BCallExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBCallExpression_Name(), ecorePackage.getEString(), "name", null, 0, 1, BCallExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bParameterizedExpressionEClass, BParameterizedExpression.class, "BParameterizedExpression", IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBParameterizedExpression_ParameterList(), this.getBParameterList(), null, "parameterList", null, 0, 1,
-			BParameterizedExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bParameterizedExpressionEClass, BParameterizedExpression.class, "BParameterizedExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBParameterizedExpression_ParameterList(), this.getBParameterList(), null, "parameterList", null, 0, 1, BParameterizedExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bLiteralAnyEClass, BLiteralAny.class, "BLiteralAny", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bLiteralAnyEClass, BLiteralAny.class, "BLiteralAny", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bCreateExpressionEClass, BCreateExpression.class, "BCreateExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBCreateExpression_TypeExpr(), this.getBLiteralType(), null, "typeExpr", null, 0, 1,
-			BCreateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBCreateExpression_ContextBlock(), this.getBExpression(), null, "contextBlock", null, 0, 1,
-			BCreateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bCreateExpressionEClass, BCreateExpression.class, "BCreateExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBCreateExpression_TypeExpr(), this.getBLiteralType(), null, "typeExpr", null, 0, 1, BCreateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBCreateExpression_ContextBlock(), this.getBExpression(), null, "contextBlock", null, 0, 1, BCreateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			iFunctionEClass, IFunction.class, "IFunction", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getIFunction_Visibility(), this.getVisibility(), "visibility", null, 0, 1, IFunction.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIFunction_Final(), ecorePackage.getEBoolean(), "final", null, 0, 1, IFunction.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIFunction_ExecutionMode(), this.getExecutionMode(), "executionMode", null, 0, 1, IFunction.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, IFunction.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getIFunction_Guard(), this.getBGuard(), null, "guard", null, 0, 1, IFunction.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
-		initEAttribute(
-			getIFunction_ExceptionTypes(), this.getTypeArray(), "exceptionTypes", null, 0, 1, IFunction.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIFunction_TypeParameters(), this.getTypeVariableArray(), "typeParameters", null, 0, 1, IFunction.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getIFunction_Parameters(), this.getBParameterDeclaration(), null, "parameters", null, 0, -1,
-			IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIFunction_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, IFunction.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIFunction_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, IFunction.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getIFunction_ReturnType(), this.getIType(), null, "returnType", null, 0, 1, IFunction.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
-		initEReference(
-			getIFunction_TypeCalculator(), this.getBTypeCalculator(), null, "typeCalculator", null, 0, 1,
-			IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getIFunction_Container(), this.getBFunctionContainer(), this.getBFunctionContainer_Functions(),
-			"container", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIFunction_ClassFunction(), ecorePackage.getEBoolean(), "classFunction", null, 0, 1, IFunction.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIFunction_VarargArrayType(), this.getType(), "varargArrayType", null, 0, 1, IFunction.class,
-			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(iFunctionEClass, IFunction.class, "IFunction", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIFunction_Visibility(), this.getVisibility(), "visibility", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIFunction_Final(), ecorePackage.getEBoolean(), "final", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIFunction_ExecutionMode(), this.getExecutionMode(), "executionMode", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIFunction_Guard(), this.getBGuard(), null, "guard", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIFunction_ExceptionTypes(), this.getTypeArray(), "exceptionTypes", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIFunction_TypeParameters(), this.getTypeVariableArray(), "typeParameters", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIFunction_Parameters(), this.getBParameterDeclaration(), null, "parameters", null, 0, -1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIFunction_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIFunction_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIFunction_ReturnType(), this.getIType(), null, "returnType", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIFunction_TypeCalculator(), this.getBTypeCalculator(), null, "typeCalculator", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIFunction_Container(), this.getBFunctionContainer(), this.getBFunctionContainer_Functions(), "container", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIFunction_ClassFunction(), ecorePackage.getEBoolean(), "classFunction", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIFunction_VarargArrayType(), this.getType(), "varargArrayType", null, 0, 1, IFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(bGuardEClass, BGuard.class, "BGuard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBGuard_Func(), this.getBJavaFunction(), null, "func", null, 0, 1, BGuard.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
+		initEReference(getBGuard_Func(), this.getBJavaFunction(), null, "func", null, 0, 1, BGuard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bGuardEClass, ecorePackage.getEBoolean(), "accepts", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIFunction(), "function", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
 
-		initEClass(
-			bSystemContextEClass, BSystemContext.class, "BSystemContext", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bSystemContextEClass, BSystemContext.class, "BSystemContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(bSystemContextEClass, this.getIFunction(), "loadMethod", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "functionName", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4644,53 +4065,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bContextEClass, BContext.class, "BContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bInnerContextEClass, BInnerContext.class, "BInnerContext", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBInnerContext_OuterContext(), this.getBExecutionContext(), null, "outerContext", null, 1, 1,
-			BInnerContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bInnerContextEClass, BInnerContext.class, "BInnerContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBInnerContext_OuterContext(), this.getBExecutionContext(), null, "outerContext", null, 1, 1, BInnerContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bInvocationContextEClass, BInvocationContext.class, "BInvocationContext", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBInvocationContext_ExpressionCache(), this.getB3ExpressionCache(), "expressionCache", null, 0, 1,
-			BInvocationContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bInvocationContextEClass, BInvocationContext.class, "BInvocationContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBInvocationContext_ExpressionCache(), this.getB3ExpressionCache(), "expressionCache", null, 0, 1, BInvocationContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bUnaryPreOpExpressionEClass, BUnaryPreOpExpression.class, "BUnaryPreOpExpression", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bUnaryPreOpExpressionEClass, BUnaryPreOpExpression.class, "BUnaryPreOpExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bAssignmentExpressionEClass, BAssignmentExpression.class, "BAssignmentExpression", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bAssignmentExpressionEClass, BAssignmentExpression.class, "BAssignmentExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			b3FunctionEClass, B3Function.class, "B3Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getB3Function_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1, B3Function.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(b3FunctionEClass, B3Function.class, "B3Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getB3Function_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1, B3Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bJavaFunctionEClass, BJavaFunction.class, "BJavaFunction", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBJavaFunction_Method(), this.getMethod(), "method", null, 0, 1, BJavaFunction.class, IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBJavaFunction_CallType(), this.getBJavaCallType(), "callType", null, 0, 1, BJavaFunction.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBJavaFunction_ParameterTypes(), this.getTypeArray(), "parameterTypes", null, 0, 1, BJavaFunction.class,
-			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBJavaFunction_ParameterNames(), this.getStringArray(), "parameterNames", null, 0, 1,
-			BJavaFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			IS_DERIVED, IS_ORDERED);
+		initEClass(bJavaFunctionEClass, BJavaFunction.class, "BJavaFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBJavaFunction_Method(), this.getMethod(), "method", null, 0, 1, BJavaFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBJavaFunction_CallType(), this.getBJavaCallType(), "callType", null, 0, 1, BJavaFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBJavaFunction_ParameterTypes(), this.getTypeArray(), "parameterTypes", null, 0, 1, BJavaFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBJavaFunction_ParameterNames(), this.getStringArray(), "parameterNames", null, 0, 1, BJavaFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		addEOperation(bJavaFunctionEClass, ecorePackage.getEBoolean(), "isSystemCall", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -4698,294 +4090,133 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		addEOperation(bJavaFunctionEClass, ecorePackage.getEBoolean(), "isMethodCall", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(
-			bJavaFunctionEClass, ecorePackage.getEJavaObject(), "internalCall", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bJavaFunctionEClass, ecorePackage.getEJavaObject(), "internalCall", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getObjectArray(), "parameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "parameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
 
-		initEClass(
-			bFunctionContainerEClass, BFunctionContainer.class, "BFunctionContainer", IS_ABSTRACT, IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBFunctionContainer_Functions(), this.getIFunction(), this.getIFunction_Container(), "functions", null,
-			0, -1, BFunctionContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bFunctionContainerEClass, BFunctionContainer.class, "BFunctionContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBFunctionContainer_Functions(), this.getIFunction(), this.getIFunction_Container(), "functions", null, 0, -1, BFunctionContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bDefValueEClass, BDefValue.class, "BDefValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBDefValue_Final(), ecorePackage.getEBoolean(), "final", null, 0, 1, BDefValue.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBDefValue_Immutable(), ecorePackage.getEBoolean(), "immutable", null, 0, 1, BDefValue.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBDefValue_ValueExpr(), this.getBExpression(), null, "valueExpr", null, 0, 1, BDefValue.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bDefValueEClass, BDefValue.class, "BDefValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBDefValue_Final(), ecorePackage.getEBoolean(), "final", null, 0, 1, BDefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBDefValue_Immutable(), ecorePackage.getEBoolean(), "immutable", null, 0, 1, BDefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBDefValue_ValueExpr(), this.getBExpression(), null, "valueExpr", null, 0, 1, BDefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bRegularExpressionEClass, BRegularExpression.class, "BRegularExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBRegularExpression_Pattern(), this.getRegexpPattern(), "pattern", null, 0, 1, BRegularExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bRegularExpressionEClass, BRegularExpression.class, "BRegularExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBRegularExpression_Pattern(), this.getRegexpPattern(), "pattern", null, 0, 1, BRegularExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bParameterListEClass, BParameterList.class, "BParameterList", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBParameterList_Parameters(), this.getBParameter(), null, "parameters", null, 0, -1,
-			BParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bParameterListEClass, BParameterList.class, "BParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBParameterList_Parameters(), this.getBParameter(), null, "parameters", null, 0, -1, BParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bParameterEClass, BParameter.class, "BParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, BParameter.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBParameter_Expr(), this.getBExpression(), null, "expr", null, 0, 1, BParameter.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
+		initEClass(bParameterEClass, BParameter.class, "BParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, BParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBParameter_Expr(), this.getBExpression(), null, "expr", null, 0, 1, BParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBParameter_Final(), ecorePackage.getEBoolean(), "final", null, 0, 1, BParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBParameter_Immutable(), ecorePackage.getEBoolean(), "immutable", null, 0, 1, BParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bParameterDeclarationEClass, BParameterDeclaration.class, "BParameterDeclaration", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBParameterDeclaration_Final(), ecorePackage.getEBoolean(), "final", null, 0, 1,
-			BParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBParameterDeclaration_Immutable(), ecorePackage.getEBoolean(), "immutable", null, 0, 1,
-			BParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bParameterDeclarationEClass, BParameterDeclaration.class, "BParameterDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBParameterDeclaration_Final(), ecorePackage.getEBoolean(), "final", null, 0, 1, BParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBParameterDeclaration_Immutable(), ecorePackage.getEBoolean(), "immutable", null, 0, 1, BParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iTypeEClass, Type.class, "IType", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			b3FunctionTypeEClass, B3FunctionType.class, "B3FunctionType", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getB3FunctionType_FunctionType(), this.getIType(), null, "functionType", null, 0, 1, B3FunctionType.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getB3FunctionType_ReturnType(), this.getIType(), null, "returnType", null, 0, 1, B3FunctionType.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getB3FunctionType_ParameterTypes(), this.getIType(), null, "parameterTypes", null, 0, -1,
-			B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getB3FunctionType_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, B3FunctionType.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getB3FunctionType_TypeCalculator(), this.getBTypeCalculator(), null, "typeCalculator", null, 0, 1,
-			B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(b3FunctionTypeEClass, B3FunctionType.class, "B3FunctionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getB3FunctionType_FunctionType(), this.getIType(), null, "functionType", null, 0, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3FunctionType_ReturnType(), this.getIType(), null, "returnType", null, 0, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3FunctionType_ParameterTypes(), this.getIType(), null, "parameterTypes", null, 0, -1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getB3FunctionType_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3FunctionType_TypeCalculator(), this.getBTypeCalculator(), null, "typeCalculator", null, 0, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(b3FunctionTypeEClass, this.getTypeArray(), "getParameterTypesArray", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(
-			b3FunctionTypeEClass, ecorePackage.getEBoolean(), "isAssignableFrom", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(b3FunctionTypeEClass, ecorePackage.getEBoolean(), "isAssignableFrom", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(
-			b3FunctionTypeEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(b3FunctionTypeEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			iParameterizedTypeEClass, ParameterizedType.class, "IParameterizedType", IS_ABSTRACT, IS_INTERFACE,
-			!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(iParameterizedTypeEClass, ParameterizedType.class, "IParameterizedType", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			iGenericDeclarationEClass, GenericDeclaration.class, "IGenericDeclaration", IS_ABSTRACT, IS_INTERFACE,
-			!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(iGenericDeclarationEClass, GenericDeclaration.class, "IGenericDeclaration", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			b3ParameterizedTypeEClass, B3ParameterizedType.class, "B3ParameterizedType", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getB3ParameterizedType_OwnerType(), this.getIType(), null, "ownerType", null, 0, 1,
-			B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getB3ParameterizedType_RawType(), this.getIType(), null, "rawType", null, 0, 1, B3ParameterizedType.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getB3ParameterizedType_ActualArgumentsList(), this.getIType(), null, "actualArgumentsList", null, 0, -1,
-			B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(b3ParameterizedTypeEClass, B3ParameterizedType.class, "B3ParameterizedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getB3ParameterizedType_OwnerType(), this.getIType(), null, "ownerType", null, 0, 1, B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3ParameterizedType_RawType(), this.getIType(), null, "rawType", null, 0, 1, B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3ParameterizedType_ActualArgumentsList(), this.getIType(), null, "actualArgumentsList", null, 0, -1, B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(
-			b3ParameterizedTypeEClass, this.getTypeArray(), "getActualTypeArguments", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(b3ParameterizedTypeEClass, this.getTypeArray(), "getActualTypeArguments", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			iWildcardTypeEClass, WildcardType.class, "IWildcardType", IS_ABSTRACT, IS_INTERFACE,
-			!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(iWildcardTypeEClass, WildcardType.class, "IWildcardType", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			b3WildcardTypeEClass, B3WildcardType.class, "B3WildcardType", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getB3WildcardType_LowerBoundsList(), this.getIType(), null, "lowerBoundsList", null, 0, -1,
-			B3WildcardType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getB3WildcardType_UpperBoundsList(), this.getIType(), null, "upperBoundsList", null, 0, -1,
-			B3WildcardType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(b3WildcardTypeEClass, B3WildcardType.class, "B3WildcardType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getB3WildcardType_LowerBoundsList(), this.getIType(), null, "lowerBoundsList", null, 0, -1, B3WildcardType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3WildcardType_UpperBoundsList(), this.getIType(), null, "upperBoundsList", null, 0, -1, B3WildcardType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(b3WildcardTypeEClass, this.getTypeArray(), "getLowerBounds", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(b3WildcardTypeEClass, this.getTypeArray(), "getUpperBounds", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			iTypeVariableEClass, TypeVariable.class, "ITypeVariable", IS_ABSTRACT, IS_INTERFACE,
-			!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(iTypeVariableEClass, TypeVariable.class, "ITypeVariable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			b3FuncTypeVariableEClass, B3FuncTypeVariable.class, "B3FuncTypeVariable", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getB3FuncTypeVariable_Bounds(), this.getTypeArray(), "bounds", null, 0, 1, B3FuncTypeVariable.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getB3FuncTypeVariable_GenericDeclaration(), this.getIFunction(), null, "genericDeclaration", null, 0, 1,
-			B3FuncTypeVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getB3FuncTypeVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, B3FuncTypeVariable.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(b3FuncTypeVariableEClass, B3FuncTypeVariable.class, "B3FuncTypeVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getB3FuncTypeVariable_Bounds(), this.getTypeArray(), "bounds", null, 0, 1, B3FuncTypeVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3FuncTypeVariable_GenericDeclaration(), this.getIFunction(), null, "genericDeclaration", null, 0, 1, B3FuncTypeVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getB3FuncTypeVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, B3FuncTypeVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			b3JavaImportEClass, B3JavaImport.class, "B3JavaImport", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getB3JavaImport_QualifiedName(), ecorePackage.getEString(), "qualifiedName", null, 0, 1,
-			B3JavaImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getB3JavaImport_Reexport(), ecorePackage.getEBoolean(), "reexport", null, 0, 1, B3JavaImport.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(b3JavaImportEClass, B3JavaImport.class, "B3JavaImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getB3JavaImport_QualifiedName(), ecorePackage.getEString(), "qualifiedName", null, 0, 1, B3JavaImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getB3JavaImport_Reexport(), ecorePackage.getEBoolean(), "reexport", null, 0, 1, B3JavaImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bLiteralTypeEClass, BLiteralType.class, "BLiteralType", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBLiteralType_Type(), this.getIType(), null, "type", null, 0, 1, BLiteralType.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
+		initEClass(bLiteralTypeEClass, BLiteralType.class, "BLiteralType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBLiteralType_Type(), this.getIType(), null, "type", null, 0, 1, BLiteralType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bTypeCalculatorEClass, BTypeCalculator.class, "BTypeCalculator", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBTypeCalculator_Func(), this.getBJavaFunction(), null, "func", null, 0, 1, BTypeCalculator.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bTypeCalculatorEClass, BTypeCalculator.class, "BTypeCalculator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBTypeCalculator_Func(), this.getBJavaFunction(), null, "func", null, 0, 1, BTypeCalculator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bTypeCalculatorEClass, this.getB3FunctionType(), "getSignature", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			bInstanceContextEClass, BInstanceContext.class, "BInstanceContext", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBInstanceContext_Instance(), ecorePackage.getEJavaObject(), "instance", null, 0, 1,
-			BInstanceContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bInstanceContextEClass, BInstanceContext.class, "BInstanceContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBInstanceContext_Instance(), ecorePackage.getEJavaObject(), "instance", null, 0, 1, BInstanceContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bDefPropertyEClass, BDefProperty.class, "BDefProperty", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBDefProperty_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, BDefProperty.class,
-			IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(bDefPropertyEClass, BDefProperty.class, "BDefProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBDefProperty_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, BDefProperty.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bPropertySetEClass, BPropertySet.class, "BPropertySet", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBPropertySet_Extends(), this.getBPropertySet(), null, "extends", null, 0, 1, BPropertySet.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBPropertySet_Operations(), this.getBPropertyOperation(), null, "operations", null, 0, -1,
-			BPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBPropertySet_PropertiesFile(), this.getURI(), "propertiesFile", null, 0, 1, BPropertySet.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bPropertySetEClass, BPropertySet.class, "BPropertySet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBPropertySet_Extends(), this.getBPropertySet(), null, "extends", null, 0, 1, BPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBPropertySet_Operations(), this.getBPropertyOperation(), null, "operations", null, 0, -1, BPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBPropertySet_PropertiesFile(), this.getURI(), "propertiesFile", null, 0, 1, BPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bDefaultPropertySetEClass, BDefaultPropertySet.class, "BDefaultPropertySet", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bDefaultPropertySetEClass, BDefaultPropertySet.class, "BDefaultPropertySet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bPropertyOperationEClass, BPropertyOperation.class, "BPropertyOperation", IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bPropertyOperationEClass, BPropertyOperation.class, "BPropertyOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(
-			bPropertyOperationEClass, ecorePackage.getEJavaObject(), "evaluateDefaults", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bPropertyOperationEClass, ecorePackage.getEJavaObject(), "evaluateDefaults", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "allVisible", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
 
-		initEClass(
-			bPropertyDefinitionOperationEClass, BPropertyDefinitionOperation.class, "BPropertyDefinitionOperation",
-			!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBPropertyDefinitionOperation_Definition(), this.getBDefProperty(), null, "definition", null, 0, 1,
-			BPropertyDefinitionOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bPropertyDefinitionOperationEClass, BPropertyDefinitionOperation.class, "BPropertyDefinitionOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBPropertyDefinitionOperation_Definition(), this.getBDefProperty(), null, "definition", null, 0, 1, BPropertyDefinitionOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bConditionalPropertyOperationEClass, BConditionalPropertyOperation.class, "BConditionalPropertyOperation",
-			!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBConditionalPropertyOperation_CondExpr(), this.getBExpression(), null, "condExpr", null, 0, 1,
-			BConditionalPropertyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBConditionalPropertyOperation_Body(), this.getBPropertyOperation(), null, "body", null, 0, 1,
-			BConditionalPropertyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bConditionalPropertyOperationEClass, BConditionalPropertyOperation.class, "BConditionalPropertyOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBConditionalPropertyOperation_CondExpr(), this.getBExpression(), null, "condExpr", null, 0, 1, BConditionalPropertyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBConditionalPropertyOperation_Body(), this.getBPropertyOperation(), null, "body", null, 0, 1, BConditionalPropertyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bPropertySetOperationEClass, BPropertySetOperation.class, "BPropertySetOperation", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBPropertySetOperation_PropertySet(), this.getBPropertySet(), null, "propertySet", null, 0, 1,
-			BPropertySetOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bPropertySetOperationEClass, BPropertySetOperation.class, "BPropertySetOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBPropertySetOperation_PropertySet(), this.getBPropertySet(), null, "propertySet", null, 0, 1, BPropertySetOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bAdviceEClass, BAdvice.class, "BAdvice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBAdvice_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, BAdvice.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBAdvice_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, BAdvice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bConcernEClass, BConcern.class, "BConcern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBConcern_SuperConcerns(), this.getBConcern(), null, "superConcerns", null, 0, -1, BConcern.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBConcern_PropertySets(), this.getBPropertySet(), null, "propertySets", null, 0, -1, BConcern.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBConcern_Contexts(), this.getBConcernContext(), null, "contexts", null, 0, -1, BConcern.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEReference(getBConcern_SuperConcerns(), this.getBConcern(), null, "superConcerns", null, 0, -1, BConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBConcern_PropertySets(), this.getBPropertySet(), null, "propertySets", null, 0, -1, BConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBConcern_Contexts(), this.getBConcernContext(), null, "contexts", null, 0, -1, BConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(
-			bConcernEClass, ecorePackage.getEBoolean(), "evaluateIfMatching", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bConcernEClass, ecorePackage.getEBoolean(), "evaluateIfMatching", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
@@ -4996,161 +4227,72 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		initEClass(
-			bWithExpressionEClass, BWithExpression.class, "BWithExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBWithExpression_ReferencedAdvice(), this.getBAdvice(), null, "referencedAdvice", null, 0, -1,
-			BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBWithExpression_PropertySets(), this.getBPropertySet(), null, "propertySets", null, 0, -1,
-			BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBWithExpression_Concerns(), this.getBConcern(), null, "concerns", null, 0, -1, BWithExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBWithExpression_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1, BWithExpression.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bWithExpressionEClass, BWithExpression.class, "BWithExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBWithExpression_ReferencedAdvice(), this.getBAdvice(), null, "referencedAdvice", null, 0, -1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBWithExpression_PropertySets(), this.getBPropertySet(), null, "propertySets", null, 0, -1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBWithExpression_Concerns(), this.getBConcern(), null, "concerns", null, 0, -1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBWithExpression_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bWithExpressionEClass, this.getBInnerContext(), "createContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(
-			bWithExpressionEClass, this.getBExecutionContext(), "getEvaluationContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bWithExpressionEClass, this.getBExecutionContext(), "getEvaluationContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
 
-		initEClass(
-			bConcernContextEClass, BConcernContext.class, "BConcernContext", IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBConcernContext_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1,
-			BConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bConcernContextEClass, BConcernContext.class, "BConcernContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBConcernContext_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, BConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bConcernContextEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			bFunctionEClass, BFunction.class, "BFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bFunctionEClass, BFunction.class, "BFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bFunctionWrapperEClass, BFunctionWrapper.class, "BFunctionWrapper", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBFunctionWrapper_AroundExpr(), this.getBExpression(), null, "aroundExpr", null, 1, 1,
-			BFunctionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBFunctionWrapper_Original(), this.getIFunction(), null, "original", null, 0, 1, BFunctionWrapper.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bFunctionWrapperEClass, BFunctionWrapper.class, "BFunctionWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBFunctionWrapper_AroundExpr(), this.getBExpression(), null, "aroundExpr", null, 1, 1, BFunctionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBFunctionWrapper_Original(), this.getIFunction(), null, "original", null, 0, 1, BFunctionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
-		initEAttribute(
-			getBFunctionWrapper_ParameterMap(), g1, "parameterMap", null, 0, 1, BFunctionWrapper.class, IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBFunctionWrapper_VarargsName(), ecorePackage.getEString(), "varargsName", null, 0, 1,
-			BFunctionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBFunctionWrapper_ParameterMap(), g1, "parameterMap", null, 0, 1, BFunctionWrapper.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBFunctionWrapper_VarargsName(), ecorePackage.getEString(), "varargsName", null, 0, 1, BFunctionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bNamePredicateEClass, BNamePredicate.class, "BNamePredicate", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBNamePredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, BNamePredicate.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBNamePredicate_NamePattern(), this.getBPatternLiteralExpression(), null, "namePattern", null, 0, 1,
-			BNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bNamePredicateEClass, BNamePredicate.class, "BNamePredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBNamePredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, BNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBNamePredicate_NamePattern(), this.getBPatternLiteralExpression(), null, "namePattern", null, 0, 1, BNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bNamePredicateEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			bFunctionNamePredicateEClass, BFunctionNamePredicate.class, "BFunctionNamePredicate", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBFunctionNamePredicate_NamePredicate(), this.getBNamePredicate(), null, "namePredicate", null, 0, 1,
-			BFunctionNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bFunctionNamePredicateEClass, BFunctionNamePredicate.class, "BFunctionNamePredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBFunctionNamePredicate_NamePredicate(), this.getBNamePredicate(), null, "namePredicate", null, 0, 1, BFunctionNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(
-			bFunctionNamePredicateEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bFunctionNamePredicateEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			bFunctionConcernContextEClass, BFunctionConcernContext.class, "BFunctionConcernContext", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBFunctionConcernContext_NamePredicate(), this.getBFunctionNamePredicate(), null, "namePredicate", null,
-			0, 1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBFunctionConcernContext_Parameters(), this.getBParameterPredicate(), null, "parameters", null, 0, -1,
-			BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBFunctionConcernContext_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1,
-			BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBFunctionConcernContext_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1,
-			BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBFunctionConcernContext_MatchParameters(), ecorePackage.getEBoolean(), "matchParameters", null, 0, 1,
-			BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bFunctionConcernContextEClass, BFunctionConcernContext.class, "BFunctionConcernContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBFunctionConcernContext_NamePredicate(), this.getBFunctionNamePredicate(), null, "namePredicate", null, 0, 1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBFunctionConcernContext_Parameters(), this.getBParameterPredicate(), null, "parameters", null, 0, -1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBFunctionConcernContext_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBFunctionConcernContext_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBFunctionConcernContext_MatchParameters(), ecorePackage.getEBoolean(), "matchParameters", null, 0, 1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bParameterPredicateEClass, BParameterPredicate.class, "BParameterPredicate", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBParameterPredicate_TypePredicateOp(), ecorePackage.getEString(), "typePredicateOp", null, 0, 1,
-			BParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bParameterPredicateEClass, BParameterPredicate.class, "BParameterPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBParameterPredicate_TypePredicateOp(), ecorePackage.getEString(), "typePredicateOp", null, 0, 1, BParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bProceedExpressionEClass, BProceedExpression.class, "BProceedExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bProceedExpressionEClass, BProceedExpression.class, "BProceedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bDelegatingContextEClass, BDelegatingContext.class, "BDelegatingContext", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bDelegatingContextEClass, BDelegatingContext.class, "BDelegatingContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bWrappingContextEClass, BWrappingContext.class, "BWrappingContext", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBWrappingContext_FunctionWrapper(), this.getBFunctionWrapper(), null, "functionWrapper", null, 0, 1,
-			BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBWrappingContext_WrappedContext(), this.getBExecutionContext(), null, "wrappedContext", null, 0, 1,
-			BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBWrappingContext_Parameters(), this.getObjectArray(), "parameters", null, 0, 1, BWrappingContext.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBWrappingContext_ParameterTypes(), this.getTypeArray(), "parameterTypes", null, 0, 1,
-			BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBWrappingContext_VarargsName(), ecorePackage.getEString(), "varargsName", null, 0, 1,
-			BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bWrappingContextEClass, BWrappingContext.class, "BWrappingContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBWrappingContext_FunctionWrapper(), this.getBFunctionWrapper(), null, "functionWrapper", null, 0, 1, BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBWrappingContext_WrappedContext(), this.getBExecutionContext(), null, "wrappedContext", null, 0, 1, BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBWrappingContext_Parameters(), this.getObjectArray(), "parameters", null, 0, 1, BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBWrappingContext_ParameterTypes(), this.getTypeArray(), "parameterTypes", null, 0, 1, BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBWrappingContext_VarargsName(), ecorePackage.getEString(), "varargsName", null, 0, 1, BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bWrappingContextEClass, null, "mapContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -5162,46 +4304,25 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, g1, "map", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBFunctionWrapper(), "functionWrapper", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			b3MetaClassEClass, B3MetaClass.class, "B3MetaClass", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(b3MetaClassEClass, B3MetaClass.class, "B3MetaClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
-		initEAttribute(
-			getB3MetaClass_InstanceClass(), g1, "instanceClass", null, 0, 1, B3MetaClass.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getB3MetaClass_InstanceClass(), g1, "instanceClass", null, 0, 1, B3MetaClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(
-			b3MetaClassEClass, ecorePackage.getEBoolean(), "isAssignableFrom", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(b3MetaClassEClass, ecorePackage.getEBoolean(), "isAssignableFrom", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			bExpressionWrapperEClass, BExpressionWrapper.class, "BExpressionWrapper", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBExpressionWrapper_Original(), this.getBExpression(), null, "original", null, 0, 1,
-			BExpressionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bExpressionWrapperEClass, BExpressionWrapper.class, "BExpressionWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBExpressionWrapper_Original(), this.getBExpression(), null, "original", null, 0, 1, BExpressionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bWithContextExpressionEClass, BWithContextExpression.class, "BWithContextExpression", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBWithContextExpression_Expr(), this.getBExpression(), null, "expr", null, 1, 1,
-			BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBWithContextExpression_ContextBlock(), this.getBExpression(), null, "contextBlock", null, 1, 1,
-			BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bWithContextExpressionEClass, BWithContextExpression.class, "BWithContextExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBWithContextExpression_Expr(), this.getBExpression(), null, "expr", null, 1, 1, BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBWithContextExpression_ContextBlock(), this.getBExpression(), null, "contextBlock", null, 1, 1, BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			iTypedValueContainerEClass, ITypedValueContainer.class, "ITypedValueContainer", IS_ABSTRACT, IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(iTypedValueContainerEClass, ITypedValueContainer.class, "ITypedValueContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(
-			iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
@@ -5209,137 +4330,82 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
-		op = addEOperation(
-			iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
-		op = addEOperation(
-			iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineFinalValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineFinalValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
-		op = addEOperation(
-			iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineVariableValue", 0, 1, IS_UNIQUE,
-			IS_ORDERED);
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineVariableValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
-		op = addEOperation(
-			iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineFinalVariableValue", 0, 1, IS_UNIQUE,
-			IS_ORDERED);
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineFinalVariableValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
-		op = addEOperation(
-			iTypedValueContainerEClass, ecorePackage.getEBoolean(), "isFinal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEBoolean(), "isFinal", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(
-			iTypedValueContainerEClass, ecorePackage.getEBoolean(), "isImmutable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEBoolean(), "isImmutable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(
-			iTypedValueContainerEClass, this.getIType(), "getDeclaredValueType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iTypedValueContainerEClass, this.getIType(), "getDeclaredValueType", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
-		op = addEOperation(
-			iTypedValueContainerEClass, ecorePackage.getEBoolean(), "containsValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEBoolean(), "containsValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(
-			iTypedValueContainerEClass, ecorePackage.getEBoolean(), "containsValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEBoolean(), "containsValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "allVisible", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			bCallFeatureEClass, BCallFeature.class, "BCallFeature", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBCallFeature_Call(), ecorePackage.getEBoolean(), "call", null, 0, 1, BCallFeature.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bCallFeatureEClass, BCallFeature.class, "BCallFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBCallFeature_Call(), ecorePackage.getEBoolean(), "call", null, 0, 1, BCallFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bCallNamedFunctionEClass, BCallNamedFunction.class, "BCallNamedFunction", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBCallNamedFunction_FuncRef(), this.getIFunction(), null, "funcRef", null, 0, 1,
-			BCallNamedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bCallNamedFunctionEClass, BCallNamedFunction.class, "BCallNamedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBCallNamedFunction_FuncRef(), this.getIFunction(), null, "funcRef", null, 0, 1, BCallNamedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bCallFunctionEClass, BCallFunction.class, "BCallFunction", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bCallFunctionEClass, BCallFunction.class, "BCallFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(
-			bPatternLiteralExpressionEClass, BPatternLiteralExpression.class, "BPatternLiteralExpression",
-			!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bPatternLiteralExpressionEClass, BPatternLiteralExpression.class, "BPatternLiteralExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(
-			bPatternLiteralExpressionEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bPatternLiteralExpressionEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCharSequence(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(
-			bSimplePatternExpressionEClass, BSimplePatternExpression.class, "BSimplePatternExpression", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBSimplePatternExpression_Pattern(), this.getSimplePattern(), "pattern", null, 0, 1,
-			BSimplePatternExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bSimplePatternExpressionEClass, BSimplePatternExpression.class, "BSimplePatternExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBSimplePatternExpression_Pattern(), this.getSimplePattern(), "pattern", null, 0, 1, BSimplePatternExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			iNamedValueEClass, INamedValue.class, "INamedValue", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getINamedValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, INamedValue.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(iNamedValueEClass, INamedValue.class, "INamedValue", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getINamedValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, INamedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(b3TypeEClass, B3Type.class, "B3Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getB3Type_RawType(), this.getType(), "rawType", null, 0, 1, B3Type.class, !IS_TRANSIENT, !IS_VOLATILE,
-			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getB3Type_DefaultInference(), ecorePackage.getEBoolean(), "defaultInference", null, 0, 1, B3Type.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getB3Type_RawType(), this.getType(), "rawType", null, 0, 1, B3Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getB3Type_DefaultInference(), ecorePackage.getEBoolean(), "defaultInference", null, 0, 1, B3Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			iTypedValueEClass, ITypedValue.class, "ITypedValue", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getITypedValue_Type(), this.getIType(), null, "type", null, 0, 1, ITypedValue.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
+		initEClass(iTypedValueEClass, ITypedValue.class, "ITypedValue", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getITypedValue_Type(), this.getIType(), null, "type", null, 0, 1, ITypedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iVarNameEClass, IVarName.class, "IVarName", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getIVarName_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, IVarName.class, IS_TRANSIENT,
-			IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIVarName_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, IVarName.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bTemplateEClass, BTemplate.class, "BTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBTemplate_Closure(), this.getBExecutionContext(), null, "closure", null, 0, 1, BTemplate.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getBTemplate_Expressions(), this.getBExpression(), null, "expressions", null, 0, -1, BTemplate.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
+		initEClass(bTemplateEClass, BTemplate.class, "BTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBTemplate_Closure(), this.getBExecutionContext(), null, "closure", null, 0, 1, BTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBTemplate_Expressions(), this.getBExpression(), null, "expressions", null, 0, -1, BTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			bEchoExpressionEClass, BEchoExpression.class, "BEchoExpression", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBEchoExpression_Expression(), this.getBExpression(), null, "expression", null, 0, 1,
-			BEchoExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bEchoExpressionEClass, BEchoExpression.class, "BEchoExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBEchoExpression_Expression(), this.getBExpression(), null, "expression", null, 0, 1, BEchoExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");
@@ -5356,40 +4422,25 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEEnumLiteral(bJavaCallTypeEEnum, BJavaCallType.METHOD);
 
 		// Initialize data types
-		initEDataType(
-			coreExceptionEDataType, CoreException.class, "CoreException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(coreExceptionEDataType, CoreException.class, "CoreException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(typeEDataType, Type.class, "Type", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(
-			objectArrayEDataType, Object[].class, "ObjectArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(objectArrayEDataType, Object[].class, "ObjectArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(valueMapEDataType, ValueMap.class, "ValueMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(
-			b3EngineExceptionEDataType, B3EngineException.class, "B3EngineException", IS_SERIALIZABLE,
-			!IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(
-			b3ExpressionCacheEDataType, B3ExpressionCache.class, "B3ExpressionCache", !IS_SERIALIZABLE,
-			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(b3EngineExceptionEDataType, B3EngineException.class, "B3EngineException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(b3ExpressionCacheEDataType, B3ExpressionCache.class, "B3ExpressionCache", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(throwableEDataType, Throwable.class, "Throwable", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(lValueEDataType, LValue.class, "LValue", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(typeArrayEDataType, Type[].class, "TypeArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(methodEDataType, Method.class, "Method", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(
-			typeVariableArrayEDataType, TypeVariable[].class, "TypeVariableArray", IS_SERIALIZABLE,
-			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(typeVariableArrayEDataType, TypeVariable[].class, "TypeVariableArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(funcStoreEDataType, B3FuncStore.class, "FuncStore", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(
-			regexpPatternEDataType, Pattern.class, "RegexpPattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(
-			stringArrayEDataType, String[].class, "StringArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(
-			javaIteratorEDataType, Iterator.class, "JavaIterator", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(regexpPatternEDataType, Pattern.class, "RegexpPattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(stringArrayEDataType, String[].class, "StringArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(javaIteratorEDataType, Iterator.class, "JavaIterator", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(uriEDataType, java.net.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(
-			iProgressMonitorEDataType, IProgressMonitor.class, "IProgressMonitor", IS_SERIALIZABLE,
-			!IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(
-			simplePatternEDataType, SimplePattern.class, "SimplePattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(
-			charSequenceEDataType, CharSequence.class, "CharSequence", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iProgressMonitorEDataType, IProgressMonitor.class, "IProgressMonitor", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(simplePatternEDataType, SimplePattern.class, "SimplePattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(charSequenceEDataType, CharSequence.class, "CharSequence", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(injectorEDataType, Injector.class, "Injector", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource

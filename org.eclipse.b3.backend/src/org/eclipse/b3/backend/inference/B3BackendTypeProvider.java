@@ -1116,7 +1116,27 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		return new TypeInfo(featureType, resultingLValue.isGetable(), isEList || resultingLValue.isSettable(), eobj);
 	}
 
+	public ITypeInfo typeInfo(BParameterDeclaration o) {
+		return new TypeInfo(doGetInferredType(o), true, !o.isImmutable());
+	}
+
 	public ITypeInfo typeInfo(BVariableExpression o) {
 		return doGetTypeInfo(o.getNamedValue());
+	}
+
+	public Object varScope(B3Function o) {
+		return o.getFuncExpr();
+	}
+
+	public Object varScope(BDefValue o) {
+		return o.eContainer();
+	}
+
+	public Object varScope(BFunctionWrapper o) {
+		return o.getAroundExpr();
+	}
+
+	public Object varScope(BParameterDeclaration o) {
+		return doGetVarScope(o.eContainer());
 	}
 }

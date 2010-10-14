@@ -13,15 +13,15 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BCreate Expression</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getTypeExpr <em>Type Expr</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getContextBlock <em>Context Block</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getTypeExpr <em>Type Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getContextBlock <em>Context Block</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBCreateExpression()
  * @model
  * @generated
@@ -34,7 +34,6 @@ public interface BCreateExpression extends BParameterizedExpression, ITypedValue
 	 * If the meaning of the '<em>Context Block</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Context Block</em>' containment reference.
 	 * @see #setContextBlock(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBCreateExpression_ContextBlock()
@@ -50,7 +49,6 @@ public interface BCreateExpression extends BParameterizedExpression, ITypedValue
 	 * If the meaning of the '<em>Type Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Type Expr</em>' containment reference.
 	 * @see #setTypeExpr(BLiteralType)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBCreateExpression_TypeExpr()
@@ -60,26 +58,20 @@ public interface BCreateExpression extends BParameterizedExpression, ITypedValue
 	BLiteralType getTypeExpr();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getContextBlock <em>Context Block</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getContextBlock <em>Context Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Context Block</em>' containment reference.
+	 * @param value the new value of the '<em>Context Block</em>' containment reference.
 	 * @see #getContextBlock()
 	 * @generated
 	 */
 	void setContextBlock(BExpression value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getTypeExpr <em>Type Expr</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getTypeExpr <em>Type Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Type Expr</em>' containment reference.
+	 * @param value the new value of the '<em>Type Expr</em>' containment reference.
 	 * @see #getTypeExpr()
 	 * @generated
 	 */

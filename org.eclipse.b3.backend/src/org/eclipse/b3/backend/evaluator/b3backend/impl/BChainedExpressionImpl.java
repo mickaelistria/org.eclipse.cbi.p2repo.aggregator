@@ -28,10 +28,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BChainedExpressionImpl#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BChainedExpressionImpl#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BChainedExpressionImpl extends BExpressionImpl implements BChainedExpression {
@@ -39,7 +39,6 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	 * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getExpressions()
 	 * @generated
 	 * @ordered
@@ -49,7 +48,6 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BChainedExpressionImpl() {
@@ -59,12 +57,11 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCHAINED_EXPRESSION__EXPRESSIONS:
 				return getExpressions();
 		}
@@ -74,14 +71,13 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCHAINED_EXPRESSION__EXPRESSIONS:
-				return ((InternalEList<?>) getExpressions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -89,12 +85,11 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCHAINED_EXPRESSION__EXPRESSIONS:
 				return expressions != null && !expressions.isEmpty();
 		}
@@ -104,16 +99,15 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCHAINED_EXPRESSION__EXPRESSIONS:
 				getExpressions().clear();
-				getExpressions().addAll((Collection<? extends BExpression>) newValue);
+				getExpressions().addAll((Collection<? extends BExpression>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,12 +116,11 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCHAINED_EXPRESSION__EXPRESSIONS:
 				getExpressions().clear();
 				return;
@@ -138,13 +131,11 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BExpression> getExpressions() {
-		if(expressions == null) {
-			expressions = new EObjectContainmentEList<BExpression>(
-				BExpression.class, this, B3backendPackage.BCHAINED_EXPRESSION__EXPRESSIONS);
+		if (expressions == null) {
+			expressions = new EObjectContainmentEList<BExpression>(BExpression.class, this, B3backendPackage.BCHAINED_EXPRESSION__EXPRESSIONS);
 		}
 		return expressions;
 	}
@@ -152,7 +143,6 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

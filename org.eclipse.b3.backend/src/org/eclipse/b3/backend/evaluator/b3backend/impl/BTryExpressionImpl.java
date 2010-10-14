@@ -31,12 +31,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTryExpressionImpl#getTryExpr <em>Try Expr</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTryExpressionImpl#getCatchBlocks <em>Catch Blocks</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTryExpressionImpl#getFinallyExpr <em>Finally Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTryExpressionImpl#getTryExpr <em>Try Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTryExpressionImpl#getCatchBlocks <em>Catch Blocks</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTryExpressionImpl#getFinallyExpr <em>Finally Expr</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BTryExpressionImpl extends BExpressionImpl implements BTryExpression {
@@ -44,7 +44,6 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	 * The cached value of the '{@link #getTryExpr() <em>Try Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getTryExpr()
 	 * @generated
 	 * @ordered
@@ -55,7 +54,6 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	 * The cached value of the '{@link #getCatchBlocks() <em>Catch Blocks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getCatchBlocks()
 	 * @generated
 	 * @ordered
@@ -66,7 +64,6 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	 * The cached value of the '{@link #getFinallyExpr() <em>Finally Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getFinallyExpr()
 	 * @generated
 	 * @ordered
@@ -76,7 +73,6 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BTryExpressionImpl() {
@@ -86,19 +82,14 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetFinallyExpr(BExpression newFinallyExpr, NotificationChain msgs) {
 		BExpression oldFinallyExpr = finallyExpr;
 		finallyExpr = newFinallyExpr;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BTRY_EXPRESSION__FINALLY_EXPR, oldFinallyExpr, newFinallyExpr);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BTRY_EXPRESSION__FINALLY_EXPR, oldFinallyExpr, newFinallyExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -106,19 +97,14 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetTryExpr(BExpression newTryExpr, NotificationChain msgs) {
 		BExpression oldTryExpr = tryExpr;
 		tryExpr = newTryExpr;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BTRY_EXPRESSION__TRY_EXPR, oldTryExpr, newTryExpr);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BTRY_EXPRESSION__TRY_EXPR, oldTryExpr, newTryExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -126,12 +112,11 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BTRY_EXPRESSION__TRY_EXPR:
 				return getTryExpr();
 			case B3backendPackage.BTRY_EXPRESSION__CATCH_BLOCKS:
@@ -145,16 +130,15 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BTRY_EXPRESSION__TRY_EXPR:
 				return basicSetTryExpr(null, msgs);
 			case B3backendPackage.BTRY_EXPRESSION__CATCH_BLOCKS:
-				return ((InternalEList<?>) getCatchBlocks()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getCatchBlocks()).basicRemove(otherEnd, msgs);
 			case B3backendPackage.BTRY_EXPRESSION__FINALLY_EXPR:
 				return basicSetFinallyExpr(null, msgs);
 		}
@@ -164,12 +148,11 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BTRY_EXPRESSION__TRY_EXPR:
 				return tryExpr != null;
 			case B3backendPackage.BTRY_EXPRESSION__CATCH_BLOCKS:
@@ -183,22 +166,21 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BTRY_EXPRESSION__TRY_EXPR:
-				setTryExpr((BExpression) newValue);
+				setTryExpr((BExpression)newValue);
 				return;
 			case B3backendPackage.BTRY_EXPRESSION__CATCH_BLOCKS:
 				getCatchBlocks().clear();
-				getCatchBlocks().addAll((Collection<? extends BCatch>) newValue);
+				getCatchBlocks().addAll((Collection<? extends BCatch>)newValue);
 				return;
 			case B3backendPackage.BTRY_EXPRESSION__FINALLY_EXPR:
-				setFinallyExpr((BExpression) newValue);
+				setFinallyExpr((BExpression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,20 +189,19 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BTRY_EXPRESSION__TRY_EXPR:
-				setTryExpr((BExpression) null);
+				setTryExpr((BExpression)null);
 				return;
 			case B3backendPackage.BTRY_EXPRESSION__CATCH_BLOCKS:
 				getCatchBlocks().clear();
 				return;
 			case B3backendPackage.BTRY_EXPRESSION__FINALLY_EXPR:
-				setFinallyExpr((BExpression) null);
+				setFinallyExpr((BExpression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -229,13 +210,11 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BCatch> getCatchBlocks() {
-		if(catchBlocks == null) {
-			catchBlocks = new EObjectContainmentEList<BCatch>(
-				BCatch.class, this, B3backendPackage.BTRY_EXPRESSION__CATCH_BLOCKS);
+		if (catchBlocks == null) {
+			catchBlocks = new EObjectContainmentEList<BCatch>(BCatch.class, this, B3backendPackage.BTRY_EXPRESSION__CATCH_BLOCKS);
 		}
 		return catchBlocks;
 	}
@@ -243,7 +222,6 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getFinallyExpr() {
@@ -253,7 +231,6 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getTryExpr() {
@@ -263,55 +240,44 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setFinallyExpr(BExpression newFinallyExpr) {
-		if(newFinallyExpr != finallyExpr) {
+		if (newFinallyExpr != finallyExpr) {
 			NotificationChain msgs = null;
-			if(finallyExpr != null)
-				msgs = ((InternalEObject) finallyExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BTRY_EXPRESSION__FINALLY_EXPR, null, msgs);
-			if(newFinallyExpr != null)
-				msgs = ((InternalEObject) newFinallyExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BTRY_EXPRESSION__FINALLY_EXPR, null, msgs);
+			if (finallyExpr != null)
+				msgs = ((InternalEObject)finallyExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BTRY_EXPRESSION__FINALLY_EXPR, null, msgs);
+			if (newFinallyExpr != null)
+				msgs = ((InternalEObject)newFinallyExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BTRY_EXPRESSION__FINALLY_EXPR, null, msgs);
 			msgs = basicSetFinallyExpr(newFinallyExpr, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BTRY_EXPRESSION__FINALLY_EXPR, newFinallyExpr, newFinallyExpr));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BTRY_EXPRESSION__FINALLY_EXPR, newFinallyExpr, newFinallyExpr));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setTryExpr(BExpression newTryExpr) {
-		if(newTryExpr != tryExpr) {
+		if (newTryExpr != tryExpr) {
 			NotificationChain msgs = null;
-			if(tryExpr != null)
-				msgs = ((InternalEObject) tryExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BTRY_EXPRESSION__TRY_EXPR, null, msgs);
-			if(newTryExpr != null)
-				msgs = ((InternalEObject) newTryExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BTRY_EXPRESSION__TRY_EXPR, null, msgs);
+			if (tryExpr != null)
+				msgs = ((InternalEObject)tryExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BTRY_EXPRESSION__TRY_EXPR, null, msgs);
+			if (newTryExpr != null)
+				msgs = ((InternalEObject)newTryExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BTRY_EXPRESSION__TRY_EXPR, null, msgs);
 			msgs = basicSetTryExpr(newTryExpr, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BTRY_EXPRESSION__TRY_EXPR, newTryExpr, newTryExpr));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BTRY_EXPRESSION__TRY_EXPR, newTryExpr, newTryExpr));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

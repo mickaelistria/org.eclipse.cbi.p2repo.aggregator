@@ -26,11 +26,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3TypeImpl#getRawType <em>Raw Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3TypeImpl#isDefaultInference <em>Default Inference</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3TypeImpl#getRawType <em>Raw Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3TypeImpl#isDefaultInference <em>Default Inference</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class B3TypeImpl extends EObjectImpl implements B3Type {
@@ -38,7 +38,6 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	 * The default value of the '{@link #getRawType() <em>Raw Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRawType()
 	 * @generated
 	 * @ordered
@@ -49,7 +48,6 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	 * The cached value of the '{@link #getRawType() <em>Raw Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRawType()
 	 * @generated
 	 * @ordered
@@ -60,7 +58,6 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	 * The default value of the '{@link #isDefaultInference() <em>Default Inference</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isDefaultInference()
 	 * @generated
 	 * @ordered
@@ -71,7 +68,6 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	 * The cached value of the '{@link #isDefaultInference() <em>Default Inference</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isDefaultInference()
 	 * @generated
 	 * @ordered
@@ -81,7 +77,6 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected B3TypeImpl() {
@@ -91,12 +86,11 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.B3_TYPE__RAW_TYPE:
 				return getRawType();
 			case B3backendPackage.B3_TYPE__DEFAULT_INFERENCE:
@@ -108,16 +102,13 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.B3_TYPE__RAW_TYPE:
-				return RAW_TYPE_EDEFAULT == null
-						? rawType != null
-						: !RAW_TYPE_EDEFAULT.equals(rawType);
+				return RAW_TYPE_EDEFAULT == null ? rawType != null : !RAW_TYPE_EDEFAULT.equals(rawType);
 			case B3backendPackage.B3_TYPE__DEFAULT_INFERENCE:
 				return defaultInference != DEFAULT_INFERENCE_EDEFAULT;
 		}
@@ -127,17 +118,16 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.B3_TYPE__RAW_TYPE:
-				setRawType((Type) newValue);
+				setRawType((Type)newValue);
 				return;
 			case B3backendPackage.B3_TYPE__DEFAULT_INFERENCE:
-				setDefaultInference((Boolean) newValue);
+				setDefaultInference((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -146,12 +136,11 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.B3_TYPE__RAW_TYPE:
 				setRawType(RAW_TYPE_EDEFAULT);
 				return;
@@ -165,7 +154,6 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Type getRawType() {
@@ -175,7 +163,6 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isDefaultInference() {
@@ -185,42 +172,35 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDefaultInference(boolean newDefaultInference) {
 		boolean oldDefaultInference = defaultInference;
 		defaultInference = newDefaultInference;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.B3_TYPE__DEFAULT_INFERENCE, oldDefaultInference,
-				defaultInference));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_TYPE__DEFAULT_INFERENCE, oldDefaultInference, defaultInference));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRawType(Type newRawType) {
 		Type oldRawType = rawType;
 		rawType = newRawType;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.B3_TYPE__RAW_TYPE, oldRawType, rawType));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_TYPE__RAW_TYPE, oldRawType, rawType));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (rawType: ");
@@ -234,7 +214,6 @@ public class B3TypeImpl extends EObjectImpl implements B3Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

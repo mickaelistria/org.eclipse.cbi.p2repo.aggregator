@@ -39,13 +39,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getReferencedAdvice <em>Referenced Advice</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getPropertySets <em>Property Sets</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getConcerns <em>Concerns</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getFuncExpr <em>Func Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getReferencedAdvice <em>Referenced Advice</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getPropertySets <em>Property Sets</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getConcerns <em>Concerns</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl#getFuncExpr <em>Func Expr</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BWithExpressionImpl extends BExpressionImpl implements BWithExpression {
@@ -53,7 +53,6 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	 * The cached value of the '{@link #getReferencedAdvice() <em>Referenced Advice</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getReferencedAdvice()
 	 * @generated
 	 * @ordered
@@ -64,7 +63,6 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	 * The cached value of the '{@link #getPropertySets() <em>Property Sets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPropertySets()
 	 * @generated
 	 * @ordered
@@ -75,7 +73,6 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	 * The cached value of the '{@link #getConcerns() <em>Concerns</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getConcerns()
 	 * @generated
 	 * @ordered
@@ -86,7 +83,6 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	 * The cached value of the '{@link #getFuncExpr() <em>Func Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getFuncExpr()
 	 * @generated
 	 * @ordered
@@ -96,7 +92,6 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BWithExpressionImpl() {
@@ -106,19 +101,14 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetFuncExpr(BExpression newFuncExpr, NotificationChain msgs) {
 		BExpression oldFuncExpr = funcExpr;
 		funcExpr = newFuncExpr;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR, oldFuncExpr, newFuncExpr);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR, oldFuncExpr, newFuncExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -140,12 +130,11 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BWITH_EXPRESSION__REFERENCED_ADVICE:
 				return getReferencedAdvice();
 			case B3backendPackage.BWITH_EXPRESSION__PROPERTY_SETS:
@@ -161,16 +150,15 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BWITH_EXPRESSION__PROPERTY_SETS:
-				return ((InternalEList<?>) getPropertySets()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getPropertySets()).basicRemove(otherEnd, msgs);
 			case B3backendPackage.BWITH_EXPRESSION__CONCERNS:
-				return ((InternalEList<?>) getConcerns()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getConcerns()).basicRemove(otherEnd, msgs);
 			case B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR:
 				return basicSetFuncExpr(null, msgs);
 		}
@@ -180,12 +168,11 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BWITH_EXPRESSION__REFERENCED_ADVICE:
 				return referencedAdvice != null && !referencedAdvice.isEmpty();
 			case B3backendPackage.BWITH_EXPRESSION__PROPERTY_SETS:
@@ -201,27 +188,26 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BWITH_EXPRESSION__REFERENCED_ADVICE:
 				getReferencedAdvice().clear();
-				getReferencedAdvice().addAll((Collection<? extends BAdvice>) newValue);
+				getReferencedAdvice().addAll((Collection<? extends BAdvice>)newValue);
 				return;
 			case B3backendPackage.BWITH_EXPRESSION__PROPERTY_SETS:
 				getPropertySets().clear();
-				getPropertySets().addAll((Collection<? extends BPropertySet>) newValue);
+				getPropertySets().addAll((Collection<? extends BPropertySet>)newValue);
 				return;
 			case B3backendPackage.BWITH_EXPRESSION__CONCERNS:
 				getConcerns().clear();
-				getConcerns().addAll((Collection<? extends BConcern>) newValue);
+				getConcerns().addAll((Collection<? extends BConcern>)newValue);
 				return;
 			case B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR:
-				setFuncExpr((BExpression) newValue);
+				setFuncExpr((BExpression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -230,12 +216,11 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BWITH_EXPRESSION__REFERENCED_ADVICE:
 				getReferencedAdvice().clear();
 				return;
@@ -246,7 +231,7 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 				getConcerns().clear();
 				return;
 			case B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR:
-				setFuncExpr((BExpression) null);
+				setFuncExpr((BExpression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -255,13 +240,11 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BConcern> getConcerns() {
-		if(concerns == null) {
-			concerns = new EObjectContainmentEList<BConcern>(
-				BConcern.class, this, B3backendPackage.BWITH_EXPRESSION__CONCERNS);
+		if (concerns == null) {
+			concerns = new EObjectContainmentEList<BConcern>(BConcern.class, this, B3backendPackage.BWITH_EXPRESSION__CONCERNS);
 		}
 		return concerns;
 	}
@@ -269,7 +252,6 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExecutionContext getEvaluationContext(BExecutionContext ctx) throws Throwable {
@@ -294,7 +276,6 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getFuncExpr() {
@@ -351,13 +332,11 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BPropertySet> getPropertySets() {
-		if(propertySets == null) {
-			propertySets = new EObjectContainmentEList<BPropertySet>(
-				BPropertySet.class, this, B3backendPackage.BWITH_EXPRESSION__PROPERTY_SETS);
+		if (propertySets == null) {
+			propertySets = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this, B3backendPackage.BWITH_EXPRESSION__PROPERTY_SETS);
 		}
 		return propertySets;
 	}
@@ -365,13 +344,11 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BAdvice> getReferencedAdvice() {
-		if(referencedAdvice == null) {
-			referencedAdvice = new EObjectResolvingEList<BAdvice>(
-				BAdvice.class, this, B3backendPackage.BWITH_EXPRESSION__REFERENCED_ADVICE);
+		if (referencedAdvice == null) {
+			referencedAdvice = new EObjectResolvingEList<BAdvice>(BAdvice.class, this, B3backendPackage.BWITH_EXPRESSION__REFERENCED_ADVICE);
 		}
 		return referencedAdvice;
 	}
@@ -379,31 +356,25 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setFuncExpr(BExpression newFuncExpr) {
-		if(newFuncExpr != funcExpr) {
+		if (newFuncExpr != funcExpr) {
 			NotificationChain msgs = null;
-			if(funcExpr != null)
-				msgs = ((InternalEObject) funcExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR, null, msgs);
-			if(newFuncExpr != null)
-				msgs = ((InternalEObject) newFuncExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR, null, msgs);
+			if (funcExpr != null)
+				msgs = ((InternalEObject)funcExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR, null, msgs);
+			if (newFuncExpr != null)
+				msgs = ((InternalEObject)newFuncExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR, null, msgs);
 			msgs = basicSetFuncExpr(newFuncExpr, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR, newFuncExpr, newFuncExpr));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BWITH_EXPRESSION__FUNC_EXPR, newFuncExpr, newFuncExpr));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

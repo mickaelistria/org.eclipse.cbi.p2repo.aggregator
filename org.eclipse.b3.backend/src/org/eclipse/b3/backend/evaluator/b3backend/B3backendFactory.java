@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage
  * @generated
  */
@@ -25,7 +24,6 @@ public interface B3backendFactory extends EFactory {
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	B3backendFactory eINSTANCE = org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendFactoryImpl.init();
@@ -34,7 +32,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>B3 Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>B3 Function</em>'.
 	 * @generated
 	 */
@@ -44,7 +41,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>B3 Function Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>B3 Function Type</em>'.
 	 * @generated
 	 */
@@ -54,7 +50,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>B3 Func Type Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>B3 Func Type Variable</em>'.
 	 * @generated
 	 */
@@ -64,7 +59,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>B3 Java Import</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>B3 Java Import</em>'.
 	 * @generated
 	 */
@@ -74,7 +68,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>B3 Meta Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>B3 Meta Class</em>'.
 	 * @generated
 	 */
@@ -84,7 +77,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>B3 Parameterized Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>B3 Parameterized Type</em>'.
 	 * @generated
 	 */
@@ -94,7 +86,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>B3 Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>B3 Type</em>'.
 	 * @generated
 	 */
@@ -104,7 +95,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>B3 Wildcard Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>B3 Wildcard Type</em>'.
 	 * @generated
 	 */
@@ -114,7 +104,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BAdvice</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BAdvice</em>'.
 	 * @generated
 	 */
@@ -124,7 +113,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BAnd Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BAnd Expression</em>'.
 	 * @generated
 	 */
@@ -134,7 +122,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BAssignment Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BAssignment Expression</em>'.
 	 * @generated
 	 */
@@ -144,7 +131,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BAt Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BAt Expression</em>'.
 	 * @generated
 	 */
@@ -154,7 +140,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BBinary Op Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BBinary Op Expression</em>'.
 	 * @generated
 	 */
@@ -164,7 +149,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BCached Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BCached Expression</em>'.
 	 * @generated
 	 */
@@ -174,7 +158,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BCall Feature</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BCall Feature</em>'.
 	 * @generated
 	 */
@@ -184,7 +167,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BCall Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BCall Function</em>'.
 	 * @generated
 	 */
@@ -194,7 +176,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BCall Named Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BCall Named Function</em>'.
 	 * @generated
 	 */
@@ -204,7 +185,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BCase</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BCase</em>'.
 	 * @generated
 	 */
@@ -214,7 +194,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BCatch</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BCatch</em>'.
 	 * @generated
 	 */
@@ -224,7 +203,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BChained Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BChained Expression</em>'.
 	 * @generated
 	 */
@@ -234,7 +212,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BConcern</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BConcern</em>'.
 	 * @generated
 	 */
@@ -244,7 +221,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BConditional Property Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BConditional Property Operation</em>'.
 	 * @generated
 	 */
@@ -254,7 +230,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BContext</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BContext</em>'.
 	 * @generated
 	 */
@@ -264,7 +239,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BCreate Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BCreate Expression</em>'.
 	 * @generated
 	 */
@@ -274,7 +248,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BDefault Property Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BDefault Property Set</em>'.
 	 * @generated
 	 */
@@ -284,7 +257,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BDef Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BDef Property</em>'.
 	 * @generated
 	 */
@@ -294,7 +266,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BDef Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BDef Value</em>'.
 	 * @generated
 	 */
@@ -304,7 +275,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BDelegating Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BDelegating Context</em>'.
 	 * @generated
 	 */
@@ -314,7 +284,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BEcho Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BEcho Expression</em>'.
 	 * @generated
 	 */
@@ -324,7 +293,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BExpression Wrapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BExpression Wrapper</em>'.
 	 * @generated
 	 */
@@ -334,7 +302,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BFeature Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BFeature Expression</em>'.
 	 * @generated
 	 */
@@ -344,7 +311,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BFunction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BFunction</em>'.
 	 * @generated
 	 */
@@ -354,7 +320,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BFunction Concern Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BFunction Concern Context</em>'.
 	 * @generated
 	 */
@@ -364,7 +329,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BFunction Name Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BFunction Name Predicate</em>'.
 	 * @generated
 	 */
@@ -374,7 +338,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BFunction Wrapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BFunction Wrapper</em>'.
 	 * @generated
 	 */
@@ -384,7 +347,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BGuard</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BGuard</em>'.
 	 * @generated
 	 */
@@ -394,7 +356,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BIf Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BIf Expression</em>'.
 	 * @generated
 	 */
@@ -404,7 +365,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BInner Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BInner Context</em>'.
 	 * @generated
 	 */
@@ -414,7 +374,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BInstance Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BInstance Context</em>'.
 	 * @generated
 	 */
@@ -424,7 +383,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BInvocation Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BInvocation Context</em>'.
 	 * @generated
 	 */
@@ -434,7 +392,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BJava Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BJava Function</em>'.
 	 * @generated
 	 */
@@ -444,7 +401,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BLiteral Any</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BLiteral Any</em>'.
 	 * @generated
 	 */
@@ -454,7 +410,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BLiteral Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BLiteral Expression</em>'.
 	 * @generated
 	 */
@@ -464,7 +419,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BLiteral List Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BLiteral List Expression</em>'.
 	 * @generated
 	 */
@@ -474,7 +428,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BLiteral Map Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BLiteral Map Expression</em>'.
 	 * @generated
 	 */
@@ -484,7 +437,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BLiteral Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BLiteral Type</em>'.
 	 * @generated
 	 */
@@ -494,7 +446,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BMap Entry</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BMap Entry</em>'.
 	 * @generated
 	 */
@@ -504,7 +455,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BName Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BName Predicate</em>'.
 	 * @generated
 	 */
@@ -514,7 +464,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BOr Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BOr Expression</em>'.
 	 * @generated
 	 */
@@ -524,7 +473,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BParameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BParameter</em>'.
 	 * @generated
 	 */
@@ -534,7 +482,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BParameter Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BParameter Declaration</em>'.
 	 * @generated
 	 */
@@ -544,7 +491,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BParameter List</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BParameter List</em>'.
 	 * @generated
 	 */
@@ -554,7 +500,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BParameter Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BParameter Predicate</em>'.
 	 * @generated
 	 */
@@ -564,7 +509,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BPattern Literal Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BPattern Literal Expression</em>'.
 	 * @generated
 	 */
@@ -574,7 +518,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BProceed Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BProceed Expression</em>'.
 	 * @generated
 	 */
@@ -584,7 +527,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BProperty Definition Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BProperty Definition Operation</em>'.
 	 * @generated
 	 */
@@ -594,7 +536,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BProperty Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BProperty Set</em>'.
 	 * @generated
 	 */
@@ -604,7 +545,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BProperty Set Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BProperty Set Operation</em>'.
 	 * @generated
 	 */
@@ -614,7 +554,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BRegular Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BRegular Expression</em>'.
 	 * @generated
 	 */
@@ -624,7 +563,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BSimple Pattern Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BSimple Pattern Expression</em>'.
 	 * @generated
 	 */
@@ -634,7 +572,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BSwitch Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BSwitch Expression</em>'.
 	 * @generated
 	 */
@@ -644,7 +581,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BSystem Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BSystem Context</em>'.
 	 * @generated
 	 */
@@ -654,7 +590,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BTemplate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BTemplate</em>'.
 	 * @generated
 	 */
@@ -664,7 +599,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BThrow Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BThrow Expression</em>'.
 	 * @generated
 	 */
@@ -674,7 +608,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BTry Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BTry Expression</em>'.
 	 * @generated
 	 */
@@ -684,7 +617,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BType Calculator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BType Calculator</em>'.
 	 * @generated
 	 */
@@ -694,7 +626,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BUnary Op Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BUnary Op Expression</em>'.
 	 * @generated
 	 */
@@ -704,7 +635,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BUnary Post Op Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BUnary Post Op Expression</em>'.
 	 * @generated
 	 */
@@ -714,7 +644,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BUnary Pre Op Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BUnary Pre Op Expression</em>'.
 	 * @generated
 	 */
@@ -724,7 +653,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BVariable Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BVariable Expression</em>'.
 	 * @generated
 	 */
@@ -734,7 +662,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BWith Context Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BWith Context Expression</em>'.
 	 * @generated
 	 */
@@ -744,7 +671,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BWith Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BWith Expression</em>'.
 	 * @generated
 	 */
@@ -754,7 +680,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns a new object of class '<em>BWrapping Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>BWrapping Context</em>'.
 	 * @generated
 	 */
@@ -764,7 +689,6 @@ public interface B3backendFactory extends EFactory {
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the package supported by this factory.
 	 * @generated
 	 */

@@ -31,4 +31,6 @@ public interface ITypeProvider {
 	 * @return
 	 */
 	public ITypeInfo doGetTypeInfo(Object element);
+
+	public Object doGetVarScope(Object element);
 }

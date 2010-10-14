@@ -33,10 +33,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BInstanceContextImpl#getInstance <em>Instance</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BInstanceContextImpl#getInstance <em>Instance</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BInstanceContextImpl extends BInnerContextImpl implements BInstanceContext {
@@ -44,7 +44,6 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 	 * The default value of the '{@link #getInstance() <em>Instance</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getInstance()
 	 * @generated
 	 * @ordered
@@ -55,7 +54,6 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getInstance()
 	 * @generated
 	 * @ordered
@@ -65,7 +63,6 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BInstanceContextImpl() {
@@ -75,12 +72,11 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BINSTANCE_CONTEXT__INSTANCE:
 				return getInstance();
 		}
@@ -90,16 +86,13 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BINSTANCE_CONTEXT__INSTANCE:
-				return INSTANCE_EDEFAULT == null
-						? instance != null
-						: !INSTANCE_EDEFAULT.equals(instance);
+				return INSTANCE_EDEFAULT == null ? instance != null : !INSTANCE_EDEFAULT.equals(instance);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -107,12 +100,11 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BINSTANCE_CONTEXT__INSTANCE:
 				setInstance(newValue);
 				return;
@@ -123,12 +115,11 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BINSTANCE_CONTEXT__INSTANCE:
 				setInstance(INSTANCE_EDEFAULT);
 				return;
@@ -139,7 +130,6 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Object getInstance() {
@@ -182,27 +172,23 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setInstance(Object newInstance) {
 		Object oldInstance = instance;
 		instance = newInstance;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BINSTANCE_CONTEXT__INSTANCE, oldInstance, instance));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BINSTANCE_CONTEXT__INSTANCE, oldInstance, instance));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (instance: ");
@@ -214,7 +200,6 @@ public class BInstanceContextImpl extends BInnerContextImpl implements BInstance
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

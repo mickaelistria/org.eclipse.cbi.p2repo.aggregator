@@ -16,14 +16,14 @@ import org.eclipse.b3.backend.core.datatypes.SimplePattern;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BSimple Pattern Expression</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBSimplePatternExpression()
  * @model
  * @generated
@@ -36,7 +36,6 @@ public interface BSimplePatternExpression extends BPatternLiteralExpression {
 	 * If the meaning of the '<em>Pattern</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Pattern</em>' attribute.
 	 * @see #setPattern(SimplePattern)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBSimplePatternExpression_Pattern()
@@ -49,9 +48,7 @@ public interface BSimplePatternExpression extends BPatternLiteralExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression#getPattern <em>Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Pattern</em>' attribute.
+	 * @param value the new value of the '<em>Pattern</em>' attribute.
 	 * @see #getPattern()
 	 * @generated
 	 */

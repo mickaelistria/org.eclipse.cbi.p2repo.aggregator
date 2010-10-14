@@ -17,16 +17,16 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BLiteral Map Expression</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getEntries <em>Entries</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType <em>Key Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType <em>Value Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getEntries <em>Entries</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType <em>Key Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType <em>Value Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBLiteralMapExpression()
  * @model
  * @generated
@@ -40,7 +40,6 @@ public interface BLiteralMapExpression extends BExpression {
 	 * If the meaning of the '<em>Entries</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Entries</em>' containment reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBLiteralMapExpression_Entries()
 	 * @model containment="true"
@@ -55,7 +54,6 @@ public interface BLiteralMapExpression extends BExpression {
 	 * If the meaning of the '<em>Key Type</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Key Type</em>' containment reference.
 	 * @see #setKeyType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBLiteralMapExpression_KeyType()
@@ -71,7 +69,6 @@ public interface BLiteralMapExpression extends BExpression {
 	 * If the meaning of the '<em>Value Type</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Value Type</em>' containment reference.
 	 * @see #setValueType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBLiteralMapExpression_ValueType()
@@ -81,26 +78,20 @@ public interface BLiteralMapExpression extends BExpression {
 	Type getValueType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType <em>Key Type</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType <em>Key Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Key Type</em>' containment reference.
+	 * @param value the new value of the '<em>Key Type</em>' containment reference.
 	 * @see #getKeyType()
 	 * @generated
 	 */
 	void setKeyType(Type value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType <em>Value Type</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType <em>Value Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Value Type</em>' containment reference.
+	 * @param value the new value of the '<em>Value Type</em>' containment reference.
 	 * @see #getValueType()
 	 * @generated
 	 */

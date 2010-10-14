@@ -20126,11 +20126,11 @@ protected class ParameterDeclarationOptType_NameAssignment_1_1 extends Assignmen
 /************ begin Rule ParameterDeclaration ****************
  *
  * ParameterDeclaration returns be::BParameterDeclaration:
- * 	{be::BParameterDeclaration} type=TypeRef name=ID_or_KW;
+ * 	{be::BParameterDeclaration} final?="final"? immutable?="val"? type=TypeRef name=ID_or_KW;
  *
  **/
 
-// {be::BParameterDeclaration} type=TypeRef name=ID_or_KW
+// {be::BParameterDeclaration} final?="final"? immutable?="val"? type=TypeRef name=ID_or_KW
 protected class ParameterDeclaration_Group extends GroupToken {
 	
 	public ParameterDeclaration_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20145,7 +20145,7 @@ protected class ParameterDeclaration_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new ParameterDeclaration_NameAssignment_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new ParameterDeclaration_NameAssignment_4(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -20185,16 +20185,85 @@ protected class ParameterDeclaration_BParameterDeclarationAction_0 extends Actio
 	}
 }
 
-// type=TypeRef
-protected class ParameterDeclaration_TypeAssignment_1 extends AssignmentToken  {
+// final?="final"?
+protected class ParameterDeclaration_FinalAssignment_1 extends AssignmentToken  {
 	
-	public ParameterDeclaration_TypeAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ParameterDeclaration_FinalAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterDeclarationAccess().getTypeAssignment_1();
+		return grammarAccess.getParameterDeclarationAccess().getFinalAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new ParameterDeclaration_BParameterDeclarationAction_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("final",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("final");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getParameterDeclarationAccess().getFinalFinalKeyword_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// immutable?="val"?
+protected class ParameterDeclaration_ImmutableAssignment_2 extends AssignmentToken  {
+	
+	public ParameterDeclaration_ImmutableAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getParameterDeclarationAccess().getImmutableAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new ParameterDeclaration_FinalAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new ParameterDeclaration_BParameterDeclarationAction_0(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("immutable",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("immutable");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getParameterDeclarationAccess().getImmutableValKeyword_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// type=TypeRef
+protected class ParameterDeclaration_TypeAssignment_3 extends AssignmentToken  {
+	
+	public ParameterDeclaration_TypeAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getParameterDeclarationAccess().getTypeAssignment_3();
 	}
 
     @Override
@@ -20213,7 +20282,7 @@ protected class ParameterDeclaration_TypeAssignment_1 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getParameterDeclarationAccess().getTypeTypeRefParserRuleCall_1_0(); 
+				element = grammarAccess.getParameterDeclarationAccess().getTypeTypeRefParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -20225,28 +20294,30 @@ protected class ParameterDeclaration_TypeAssignment_1 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ParameterDeclaration_BParameterDeclarationAction_0(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new ParameterDeclaration_ImmutableAssignment_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new ParameterDeclaration_FinalAssignment_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new ParameterDeclaration_BParameterDeclarationAction_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // name=ID_or_KW
-protected class ParameterDeclaration_NameAssignment_2 extends AssignmentToken  {
+protected class ParameterDeclaration_NameAssignment_4 extends AssignmentToken  {
 	
-	public ParameterDeclaration_NameAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ParameterDeclaration_NameAssignment_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterDeclarationAccess().getNameAssignment_2();
+		return grammarAccess.getParameterDeclarationAccess().getNameAssignment_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new ParameterDeclaration_TypeAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new ParameterDeclaration_TypeAssignment_3(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -20255,9 +20326,9 @@ protected class ParameterDeclaration_NameAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getParameterDeclarationAccess().getNameID_or_KWParserRuleCall_2_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getParameterDeclarationAccess().getNameID_or_KWParserRuleCall_4_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getParameterDeclarationAccess().getNameID_or_KWParserRuleCall_2_0();
+			element = grammarAccess.getParameterDeclarationAccess().getNameID_or_KWParserRuleCall_4_0();
 			return obj;
 		}
 		return null;

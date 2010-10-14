@@ -413,7 +413,7 @@ ParameterDeclarationOptType returns be::BParameterDeclaration : {be::BParameterD
 	;
 	
 ParameterDeclaration returns be::BParameterDeclaration : {be::BParameterDeclaration} 
-	type=TypeRef name = ID_or_KW 
+	final ?= "final"? immutable ?="val"? type=TypeRef name = ID_or_KW 
 	;
 
 ParameterDeclarationUnit returns be::BParameterDeclaration : {be::BParameterDeclaration} 

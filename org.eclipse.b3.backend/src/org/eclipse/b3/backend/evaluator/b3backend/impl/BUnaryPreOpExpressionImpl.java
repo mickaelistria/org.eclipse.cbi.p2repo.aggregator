@@ -19,14 +19,13 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class BUnaryPreOpExpressionImpl extends BUnaryOpExpressionImpl implements BUnaryPreOpExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BUnaryPreOpExpressionImpl() {
@@ -36,7 +35,6 @@ public class BUnaryPreOpExpressionImpl extends BUnaryOpExpressionImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

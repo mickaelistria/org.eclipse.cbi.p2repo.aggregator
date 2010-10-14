@@ -19,14 +19,13 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class BAndExpressionImpl extends BBinaryExpressionImpl implements BAndExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BAndExpressionImpl() {
@@ -36,7 +35,6 @@ public class BAndExpressionImpl extends BBinaryExpressionImpl implements BAndExp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

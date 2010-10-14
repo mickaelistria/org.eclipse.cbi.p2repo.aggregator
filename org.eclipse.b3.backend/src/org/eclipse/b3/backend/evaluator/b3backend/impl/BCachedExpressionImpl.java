@@ -19,14 +19,13 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class BCachedExpressionImpl extends BUnaryExpressionImpl implements BCachedExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BCachedExpressionImpl() {
@@ -36,7 +35,6 @@ public class BCachedExpressionImpl extends BUnaryExpressionImpl implements BCach
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

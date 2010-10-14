@@ -31,12 +31,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAdviceImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAdviceImpl#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAdviceImpl#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAdviceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAdviceImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BAdviceImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BAdviceImpl extends BExpressionImpl implements BAdvice {
@@ -44,7 +44,6 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -55,7 +54,6 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -66,7 +64,6 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -77,7 +74,6 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -88,7 +84,6 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
@@ -98,7 +93,6 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BAdviceImpl() {
@@ -108,19 +102,14 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
 		Type oldType = type;
 		type = newType;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BADVICE__TYPE, oldType, newType);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BADVICE__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -128,25 +117,20 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == INamedValue.class) {
-			switch(derivedFeatureID) {
-				case B3backendPackage.BADVICE__NAME:
-					return B3backendPackage.INAMED_VALUE__NAME;
-				default:
-					return -1;
+		if (baseClass == INamedValue.class) {
+			switch (derivedFeatureID) {
+				case B3backendPackage.BADVICE__NAME: return B3backendPackage.INAMED_VALUE__NAME;
+				default: return -1;
 			}
 		}
-		if(baseClass == ITypedValue.class) {
-			switch(derivedFeatureID) {
-				case B3backendPackage.BADVICE__TYPE:
-					return B3backendPackage.ITYPED_VALUE__TYPE;
-				default:
-					return -1;
+		if (baseClass == ITypedValue.class) {
+			switch (derivedFeatureID) {
+				case B3backendPackage.BADVICE__TYPE: return B3backendPackage.ITYPED_VALUE__TYPE;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -155,25 +139,20 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == INamedValue.class) {
-			switch(baseFeatureID) {
-				case B3backendPackage.INAMED_VALUE__NAME:
-					return B3backendPackage.BADVICE__NAME;
-				default:
-					return -1;
+		if (baseClass == INamedValue.class) {
+			switch (baseFeatureID) {
+				case B3backendPackage.INAMED_VALUE__NAME: return B3backendPackage.BADVICE__NAME;
+				default: return -1;
 			}
 		}
-		if(baseClass == ITypedValue.class) {
-			switch(baseFeatureID) {
-				case B3backendPackage.ITYPED_VALUE__TYPE:
-					return B3backendPackage.BADVICE__TYPE;
-				default:
-					return -1;
+		if (baseClass == ITypedValue.class) {
+			switch (baseFeatureID) {
+				case B3backendPackage.ITYPED_VALUE__TYPE: return B3backendPackage.BADVICE__TYPE;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -182,12 +161,11 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BADVICE__NAME:
 				return getName();
 			case B3backendPackage.BADVICE__TYPE:
@@ -201,12 +179,11 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BADVICE__TYPE:
 				return basicSetType(null, msgs);
 		}
@@ -216,22 +193,17 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BADVICE__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case B3backendPackage.BADVICE__TYPE:
 				return type != null;
 			case B3backendPackage.BADVICE__DOCUMENTATION:
-				return DOCUMENTATION_EDEFAULT == null
-						? documentation != null
-						: !DOCUMENTATION_EDEFAULT.equals(documentation);
+				return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -239,20 +211,19 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BADVICE__NAME:
-				setName((String) newValue);
+				setName((String)newValue);
 				return;
 			case B3backendPackage.BADVICE__TYPE:
-				setType((Type) newValue);
+				setType((Type)newValue);
 				return;
 			case B3backendPackage.BADVICE__DOCUMENTATION:
-				setDocumentation((String) newValue);
+				setDocumentation((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -261,17 +232,16 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BADVICE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 			case B3backendPackage.BADVICE__TYPE:
-				setType((Type) null);
+				setType((Type)null);
 				return;
 			case B3backendPackage.BADVICE__DOCUMENTATION:
 				setDocumentation(DOCUMENTATION_EDEFAULT);
@@ -283,7 +253,6 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getDocumentation() {
@@ -293,7 +262,6 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -303,7 +271,6 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Type getType() {
@@ -313,50 +280,43 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDocumentation(String newDocumentation) {
 		String oldDocumentation = documentation;
 		documentation = newDocumentation;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BADVICE__DOCUMENTATION, oldDocumentation, documentation));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BADVICE__DOCUMENTATION, oldDocumentation, documentation));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BADVICE__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setType(Type newType) {
-		if(newType != type) {
+		if (newType != type) {
 			NotificationChain msgs = null;
-			if(type != null)
-				msgs = ((InternalEObject) type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BADVICE__TYPE, null, msgs);
-			if(newType != null)
-				msgs = ((InternalEObject) newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BADVICE__TYPE, null, msgs);
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BADVICE__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BADVICE__TYPE, null, msgs);
 			msgs = basicSetType(newType, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
+		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BADVICE__TYPE, newType, newType));
 	}
 
@@ -383,7 +343,6 @@ public class BAdviceImpl extends BExpressionImpl implements BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

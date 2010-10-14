@@ -25,10 +25,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCallNamedFunctionImpl#getFuncRef <em>Func Ref</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCallNamedFunctionImpl#getFuncRef <em>Func Ref</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCallNamedFunction {
@@ -36,7 +36,6 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 	 * The cached value of the '{@link #getFuncRef() <em>Func Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getFuncRef()
 	 * @generated
 	 * @ordered
@@ -46,7 +45,6 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BCallNamedFunctionImpl() {
@@ -56,7 +54,6 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IFunction basicGetFuncRef() {
@@ -66,15 +63,13 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCALL_NAMED_FUNCTION__FUNC_REF:
-				if(resolve)
-					return getFuncRef();
+				if (resolve) return getFuncRef();
 				return basicGetFuncRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -83,12 +78,11 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCALL_NAMED_FUNCTION__FUNC_REF:
 				return funcRef != null;
 		}
@@ -98,14 +92,13 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCALL_NAMED_FUNCTION__FUNC_REF:
-				setFuncRef((IFunction) newValue);
+				setFuncRef((IFunction)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -114,14 +107,13 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCALL_NAMED_FUNCTION__FUNC_REF:
-				setFuncRef((IFunction) null);
+				setFuncRef((IFunction)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -130,18 +122,15 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IFunction getFuncRef() {
-		if(funcRef != null && funcRef.eIsProxy()) {
-			InternalEObject oldFuncRef = (InternalEObject) funcRef;
-			funcRef = (IFunction) eResolveProxy(oldFuncRef);
-			if(funcRef != oldFuncRef) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, B3backendPackage.BCALL_NAMED_FUNCTION__FUNC_REF, oldFuncRef,
-						funcRef));
+		if (funcRef != null && funcRef.eIsProxy()) {
+			InternalEObject oldFuncRef = (InternalEObject)funcRef;
+			funcRef = (IFunction)eResolveProxy(oldFuncRef);
+			if (funcRef != oldFuncRef) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BCALL_NAMED_FUNCTION__FUNC_REF, oldFuncRef, funcRef));
 			}
 		}
 		return funcRef;
@@ -150,21 +139,18 @@ public class BCallNamedFunctionImpl extends BCallExpressionImpl implements BCall
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setFuncRef(IFunction newFuncRef) {
 		IFunction oldFuncRef = funcRef;
 		funcRef = newFuncRef;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BCALL_NAMED_FUNCTION__FUNC_REF, oldFuncRef, funcRef));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCALL_NAMED_FUNCTION__FUNC_REF, oldFuncRef, funcRef));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

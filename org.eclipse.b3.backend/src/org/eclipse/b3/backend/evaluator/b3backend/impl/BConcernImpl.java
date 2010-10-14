@@ -40,13 +40,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getFunctions <em>Functions</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getSuperConcerns <em>Super Concerns</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getPropertySets <em>Property Sets</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getContexts <em>Contexts</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getFunctions <em>Functions</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getSuperConcerns <em>Super Concerns</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getPropertySets <em>Property Sets</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getContexts <em>Contexts</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BConcernImpl extends BAdviceImpl implements BConcern {
@@ -54,7 +54,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getFunctions()
 	 * @generated
 	 * @ordered
@@ -65,7 +64,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * The cached value of the '{@link #getSuperConcerns() <em>Super Concerns</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getSuperConcerns()
 	 * @generated
 	 * @ordered
@@ -76,7 +74,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * The cached value of the '{@link #getPropertySets() <em>Property Sets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPropertySets()
 	 * @generated
 	 * @ordered
@@ -87,7 +84,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * The cached value of the '{@link #getContexts() <em>Contexts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getContexts()
 	 * @generated
 	 * @ordered
@@ -97,7 +93,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BConcernImpl() {
@@ -107,17 +102,14 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == BFunctionContainer.class) {
-			switch(derivedFeatureID) {
-				case B3backendPackage.BCONCERN__FUNCTIONS:
-					return B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS;
-				default:
-					return -1;
+		if (baseClass == BFunctionContainer.class) {
+			switch (derivedFeatureID) {
+				case B3backendPackage.BCONCERN__FUNCTIONS: return B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -126,17 +118,14 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == BFunctionContainer.class) {
-			switch(baseFeatureID) {
-				case B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS:
-					return B3backendPackage.BCONCERN__FUNCTIONS;
-				default:
-					return -1;
+		if (baseClass == BFunctionContainer.class) {
+			switch (baseFeatureID) {
+				case B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS: return B3backendPackage.BCONCERN__FUNCTIONS;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -145,12 +134,11 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				return getFunctions();
 			case B3backendPackage.BCONCERN__SUPER_CONCERNS:
@@ -166,15 +154,14 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
-				return ((InternalEList<InternalEObject>) (InternalEList<?>) getFunctions()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFunctions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -182,18 +169,17 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
-				return ((InternalEList<?>) getFunctions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
 			case B3backendPackage.BCONCERN__PROPERTY_SETS:
-				return ((InternalEList<?>) getPropertySets()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getPropertySets()).basicRemove(otherEnd, msgs);
 			case B3backendPackage.BCONCERN__CONTEXTS:
-				return ((InternalEList<?>) getContexts()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getContexts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -201,12 +187,11 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				return functions != null && !functions.isEmpty();
 			case B3backendPackage.BCONCERN__SUPER_CONCERNS:
@@ -222,28 +207,27 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				getFunctions().clear();
-				getFunctions().addAll((Collection<? extends IFunction>) newValue);
+				getFunctions().addAll((Collection<? extends IFunction>)newValue);
 				return;
 			case B3backendPackage.BCONCERN__SUPER_CONCERNS:
 				getSuperConcerns().clear();
-				getSuperConcerns().addAll((Collection<? extends BConcern>) newValue);
+				getSuperConcerns().addAll((Collection<? extends BConcern>)newValue);
 				return;
 			case B3backendPackage.BCONCERN__PROPERTY_SETS:
 				getPropertySets().clear();
-				getPropertySets().addAll((Collection<? extends BPropertySet>) newValue);
+				getPropertySets().addAll((Collection<? extends BPropertySet>)newValue);
 				return;
 			case B3backendPackage.BCONCERN__CONTEXTS:
 				getContexts().clear();
-				getContexts().addAll((Collection<? extends BConcernContext>) newValue);
+				getContexts().addAll((Collection<? extends BConcernContext>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -252,12 +236,11 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				getFunctions().clear();
 				return;
@@ -312,13 +295,11 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BConcernContext> getContexts() {
-		if(contexts == null) {
-			contexts = new EObjectContainmentEList<BConcernContext>(
-				BConcernContext.class, this, B3backendPackage.BCONCERN__CONTEXTS);
+		if (contexts == null) {
+			contexts = new EObjectContainmentEList<BConcernContext>(BConcernContext.class, this, B3backendPackage.BCONCERN__CONTEXTS);
 		}
 		return contexts;
 	}
@@ -326,13 +307,11 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<IFunction> getFunctions() {
-		if(functions == null) {
-			functions = new EObjectContainmentWithInverseEList<IFunction>(
-				IFunction.class, this, B3backendPackage.BCONCERN__FUNCTIONS, B3backendPackage.IFUNCTION__CONTAINER);
+		if (functions == null) {
+			functions = new EObjectContainmentWithInverseEList<IFunction>(IFunction.class, this, B3backendPackage.BCONCERN__FUNCTIONS, B3backendPackage.IFUNCTION__CONTAINER);
 		}
 		return functions;
 	}
@@ -340,13 +319,11 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BPropertySet> getPropertySets() {
-		if(propertySets == null) {
-			propertySets = new EObjectContainmentEList<BPropertySet>(
-				BPropertySet.class, this, B3backendPackage.BCONCERN__PROPERTY_SETS);
+		if (propertySets == null) {
+			propertySets = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this, B3backendPackage.BCONCERN__PROPERTY_SETS);
 		}
 		return propertySets;
 	}
@@ -354,13 +331,11 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BConcern> getSuperConcerns() {
-		if(superConcerns == null) {
-			superConcerns = new EObjectResolvingEList<BConcern>(
-				BConcern.class, this, B3backendPackage.BCONCERN__SUPER_CONCERNS);
+		if (superConcerns == null) {
+			superConcerns = new EObjectResolvingEList<BConcern>(BConcern.class, this, B3backendPackage.BCONCERN__SUPER_CONCERNS);
 		}
 		return superConcerns;
 	}
@@ -368,7 +343,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

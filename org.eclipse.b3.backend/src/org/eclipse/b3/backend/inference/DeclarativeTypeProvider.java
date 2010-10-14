@@ -117,6 +117,13 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 			}
 		});
 
+	private final PolymorphicDispatcher<Object> varScopeDispatcher = new PolymorphicDispatcher<Object>(
+		"varScope", 1, 1, Collections.singletonList(this), new ErrorHandler<Object>() {
+			public Object handle(Object[] params, Throwable e) {
+				return handleError(params, e);
+			}
+		});
+
 	private List<Object> inferenceStack = new ArrayList<Object>();
 
 	private List<Object> signatureStack = new ArrayList<Object>();
@@ -217,6 +224,12 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 		return typeInfoDispatcher.invoke(element);
 	}
 
+	// Returns the "var scope" of an object, which is either the scope it is defined it (if it is a variable)
+	// or the top level container of expression if it is some type of Function
+	public Object doGetVarScope(Object element) {
+		return varScopeDispatcher.invoke(element);
+	}
+
 	public B3FunctionType signature(Object o) {
 		throw new UnsupportedOperationException("No suitable method for 'signature' of :" + o.getClass());
 	}
@@ -235,6 +248,16 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 	 */
 	public ITypeInfo typeInfo(Object o) {
 		return new TypeInfo(doGetInferredType(o), false, false);
+	}
+
+	/**
+	 * Objects that are not variables nor a container does not have a var scope and null is returned.
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public Object varScope(Object o) {
+		return null;
 	}
 
 	protected Object handleError(Object[] params, Throwable e) {

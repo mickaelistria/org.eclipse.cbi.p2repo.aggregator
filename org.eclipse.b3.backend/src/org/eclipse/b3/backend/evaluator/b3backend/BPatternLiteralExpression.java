@@ -16,8 +16,8 @@ import java.lang.CharSequence;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BPattern Literal Expression</b></em>'.
  * <!-- end-user-doc -->
- * 
- * 
+ *
+ *
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBPatternLiteralExpression()
  * @model
  * @generated
@@ -26,7 +26,6 @@ public interface BPatternLiteralExpression extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @model candidateDataType="org.eclipse.b3.backend.evaluator.b3backend.CharSequence"
 	 * @generated
 	 */

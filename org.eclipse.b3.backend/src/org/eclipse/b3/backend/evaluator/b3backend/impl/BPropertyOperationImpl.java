@@ -24,14 +24,13 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class BPropertyOperationImpl extends BExpressionImpl implements BPropertyOperation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BPropertyOperationImpl() {
@@ -41,7 +40,6 @@ public abstract class BPropertyOperationImpl extends BExpressionImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
@@ -53,7 +51,6 @@ public abstract class BPropertyOperationImpl extends BExpressionImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

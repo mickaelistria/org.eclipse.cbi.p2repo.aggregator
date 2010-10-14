@@ -39,11 +39,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BSwitchExpressionImpl#getSwitchExpression <em>Switch Expression</em>}</li>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BSwitchExpressionImpl#getCaseList <em>Case List</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BSwitchExpressionImpl#getSwitchExpression <em>Switch Expression</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BSwitchExpressionImpl#getCaseList <em>Case List</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExpression {
@@ -51,7 +51,6 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	 * The cached value of the '{@link #getSwitchExpression() <em>Switch Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getSwitchExpression()
 	 * @generated
 	 * @ordered
@@ -62,7 +61,6 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	 * The cached value of the '{@link #getCaseList() <em>Case List</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getCaseList()
 	 * @generated
 	 * @ordered
@@ -72,7 +70,6 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BSwitchExpressionImpl() {
@@ -82,20 +79,14 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetSwitchExpression(BExpression newSwitchExpression, NotificationChain msgs) {
 		BExpression oldSwitchExpression = switchExpression;
 		switchExpression = newSwitchExpression;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION, oldSwitchExpression,
-				newSwitchExpression);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION, oldSwitchExpression, newSwitchExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -103,12 +94,11 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION:
 				return getSwitchExpression();
 			case B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST:
@@ -120,16 +110,15 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION:
 				return basicSetSwitchExpression(null, msgs);
 			case B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST:
-				return ((InternalEList<?>) getCaseList()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getCaseList()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -137,12 +126,11 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION:
 				return switchExpression != null;
 			case B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST:
@@ -154,19 +142,18 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION:
-				setSwitchExpression((BExpression) newValue);
+				setSwitchExpression((BExpression)newValue);
 				return;
 			case B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST:
 				getCaseList().clear();
-				getCaseList().addAll((Collection<? extends BCase>) newValue);
+				getCaseList().addAll((Collection<? extends BCase>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -175,14 +162,13 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION:
-				setSwitchExpression((BExpression) null);
+				setSwitchExpression((BExpression)null);
 				return;
 			case B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST:
 				getCaseList().clear();
@@ -194,13 +180,11 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<BCase> getCaseList() {
-		if(caseList == null) {
-			caseList = new EObjectContainmentEList<BCase>(
-				BCase.class, this, B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST);
+		if (caseList == null) {
+			caseList = new EObjectContainmentEList<BCase>(BCase.class, this, B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST);
 		}
 		return caseList;
 	}
@@ -208,7 +192,6 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BExpression getSwitchExpression() {
@@ -266,32 +249,25 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setSwitchExpression(BExpression newSwitchExpression) {
-		if(newSwitchExpression != switchExpression) {
+		if (newSwitchExpression != switchExpression) {
 			NotificationChain msgs = null;
-			if(switchExpression != null)
-				msgs = ((InternalEObject) switchExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION, null, msgs);
-			if(newSwitchExpression != null)
-				msgs = ((InternalEObject) newSwitchExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION, null, msgs);
+			if (switchExpression != null)
+				msgs = ((InternalEObject)switchExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION, null, msgs);
+			if (newSwitchExpression != null)
+				msgs = ((InternalEObject)newSwitchExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION, null, msgs);
 			msgs = basicSetSwitchExpression(newSwitchExpression, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION, newSwitchExpression,
-				newSwitchExpression));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION, newSwitchExpression, newSwitchExpression));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

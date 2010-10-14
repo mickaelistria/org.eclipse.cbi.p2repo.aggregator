@@ -23,7 +23,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Visibility</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getVisibility()
  * @model
  * @generated
@@ -33,7 +32,6 @@ public enum Visibility implements Enumerator {
 	 * The '<em><b>Private</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #PRIVATE_VALUE
 	 * @generated
 	 * @ordered
@@ -44,7 +42,6 @@ public enum Visibility implements Enumerator {
 	 * The '<em><b>Public</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #PUBLIC_VALUE
 	 * @generated
 	 * @ordered
@@ -58,7 +55,6 @@ public enum Visibility implements Enumerator {
 	 * If the meaning of '<em><b>Private</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #PRIVATE
 	 * @model name="private"
 	 * @generated
@@ -73,7 +69,6 @@ public enum Visibility implements Enumerator {
 	 * If the meaning of '<em><b>Public</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #PUBLIC
 	 * @model name="public"
 	 * @generated
@@ -85,16 +80,17 @@ public enum Visibility implements Enumerator {
 	 * An array of all the '<em><b>Visibility</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	private static final Visibility[] VALUES_ARRAY = new Visibility[] { PRIVATE, PUBLIC, };
+	private static final Visibility[] VALUES_ARRAY = new Visibility[] {
+			PRIVATE,
+			PUBLIC,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Visibility</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static final List<Visibility> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -103,15 +99,12 @@ public enum Visibility implements Enumerator {
 	 * Returns the '<em><b>Visibility</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static Visibility get(int value) {
-		switch(value) {
-			case PRIVATE_VALUE:
-				return PRIVATE;
-			case PUBLIC_VALUE:
-				return PUBLIC;
+		switch (value) {
+			case PRIVATE_VALUE: return PRIVATE;
+			case PUBLIC_VALUE: return PUBLIC;
 		}
 		return null;
 	}
@@ -120,13 +113,12 @@ public enum Visibility implements Enumerator {
 	 * Returns the '<em><b>Visibility</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static Visibility get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			Visibility result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -137,13 +129,12 @@ public enum Visibility implements Enumerator {
 	 * Returns the '<em><b>Visibility</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static Visibility getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			Visibility result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -153,7 +144,6 @@ public enum Visibility implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final int value;
@@ -161,7 +151,6 @@ public enum Visibility implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final String name;
@@ -169,7 +158,6 @@ public enum Visibility implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private final String literal;
@@ -178,7 +166,6 @@ public enum Visibility implements Enumerator {
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private Visibility(int value, String name, String literal) {
@@ -190,38 +177,34 @@ public enum Visibility implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
